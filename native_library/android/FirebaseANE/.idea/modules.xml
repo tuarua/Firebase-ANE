@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Analytics/Analytics.iml" filepath="$PROJECT_DIR$/Analytics/Analytics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Auth/Auth.iml" filepath="$PROJECT_DIR$/Auth/Auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Firebase/Firebase.iml" filepath="$PROJECT_DIR$/Firebase/Firebase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FirebaseANE.iml" filepath="$PROJECT_DIR$/FirebaseANE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Firestore/Firestore.iml" filepath="$PROJECT_DIR$/Firestore/Firestore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RemoteConfig/RemoteConfig.iml" filepath="$PROJECT_DIR$/RemoteConfig/RemoteConfig.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Storage/Storage.iml" filepath="$PROJECT_DIR$/Storage/Storage.iml" />
+    </modules>
+  </component>
+</project>

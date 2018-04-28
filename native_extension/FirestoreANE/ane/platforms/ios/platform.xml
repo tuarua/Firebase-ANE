@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<platform xmlns="http://ns.adobe.com/air/extension/19.0">
+    <sdkVersion>11.3</sdkVersion>
+    <linkerOptions>
+        <option>-ios_version_min 9.0</option>
+        <option>-lstdc++</option>
+        <!--<option>-lc++</option>
+        <<option>-lsqlite3</option>
+        <option>-lz</option>-->
+        <option>-w</option>
+        <option>-ObjC</option>
+        <!--<option>-framework SafariServices</option>
+        <option>-framework Security</option>
+        <option>-framework StoreKit</option>
+        <option>-framework SystemConfiguration</option>-->
+        <option>-rpath @executable_path/Frameworks</option>
+    </linkerOptions>
+    
+    <packagedDependencies>
+        <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseFirestore.framework</packagedDependency>
+        <packagedDependency>Frameworks/BoringSSL.framework</packagedDependency>
+        <packagedDependency>Frameworks/gRPC-Core.framework</packagedDependency>
+        <packagedDependency>Frameworks/gRPC-ProtoRPC.framework</packagedDependency>
+        <packagedDependency>Frameworks/gRPC-RxLibrary.framework</packagedDependency>
+        <packagedDependency>Frameworks/gRPC.framework</packagedDependency>
+        <packagedDependency>Frameworks/leveldb-library.framework</packagedDependency>
+        <packagedDependency>Frameworks/Protobuf.framework</packagedDependency>
+    </packagedDependencies>
+    
+</platform>

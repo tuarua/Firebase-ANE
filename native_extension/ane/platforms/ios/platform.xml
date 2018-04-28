@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<platform xmlns="http://ns.adobe.com/air/extension/19.0">
+    <sdkVersion>11.3</sdkVersion>
+    <linkerOptions>
+        <option>-ios_version_min 9.0</option>
+        <option>-lstdc++</option>
+        <option>-w</option>
+        <option>-ObjC</option>
+        <option>-rpath @executable_path/Frameworks</option>
+    </linkerOptions>
+    
+    <packagedDependencies>
+        <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseCore.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseCoreDiagnostics.framework</packagedDependency>
+        <packagedDependency>Frameworks/nanopb.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseCore.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseInstanceID.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseNanoPB.framework</packagedDependency>
+        <packagedDependency>Frameworks/GoogleToolboxForMac.framework</packagedDependency>
+    </packagedDependencies>
+    
+</platform>
