@@ -9,6 +9,12 @@ import com.tuarua.fre.ANEError;
 import flash.desktop.NativeApplication;
 import flash.events.Event;
 
+import starling.animation.Transitions;
+
+import starling.animation.Tween;
+import starling.core.Starling;
+import starling.display.Sprite;
+
 import starling.display.Sprite;
 import starling.events.Touch;
 import starling.events.TouchEvent;
@@ -30,6 +36,7 @@ public class StarlingRoot extends Sprite {
     private var btnRemoteConfig:SimpleButton = new SimpleButton("Remote Config");
 
     private var btnBack:SimpleButton = new SimpleButton("Back");
+    private var menuContainer:Sprite = new Sprite();
 
     public static const GAP:int = 60;
     private var analyticsExample:AnalyticsExample;
@@ -64,24 +71,26 @@ public class StarlingRoot extends Sprite {
         btnRemoteConfig.x = btnBack.x = btnStorage.x = btnFirestore.x = btnAnalytics.x = (stage.stageWidth - 200) * 0.5;
         btnAnalytics.y = GAP;
         btnAnalytics.addEventListener(TouchEvent.TOUCH, onAnalyticsClick);
-        addChild(btnAnalytics);
+        menuContainer.addChild(btnAnalytics);
 
         btnFirestore.y = btnAnalytics.y + GAP;
         btnFirestore.addEventListener(TouchEvent.TOUCH, onFirestoreClick);
-        addChild(btnFirestore);
+        menuContainer.addChild(btnFirestore);
 
         btnStorage.y = btnFirestore.y + GAP;
         btnStorage.addEventListener(TouchEvent.TOUCH, onStorageClick);
-        addChild(btnStorage);
+        menuContainer.addChild(btnStorage);
 
         btnRemoteConfig.y = btnStorage.y + GAP;
         btnRemoteConfig.addEventListener(TouchEvent.TOUCH, onRemoteConfigClick);
-        addChild(btnRemoteConfig);
+        menuContainer.addChild(btnRemoteConfig);
 
         btnBack.y = stage.stageHeight - 100;
         btnBack.addEventListener(TouchEvent.TOUCH, onBackClick);
         btnBack.visible = false;
         addChild(btnBack);
+
+        addChild(menuContainer);
     }
 
     private function onAnalyticsClick(event:TouchEvent):void {
@@ -89,16 +98,19 @@ public class StarlingRoot extends Sprite {
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             if (!analyticsExample) {
                 analyticsExample = new AnalyticsExample(stage.stageWidth);
+                analyticsExample.x = stage.stageWidth;
                 addChild(analyticsExample);
             }
             showMenu(false);
-            analyticsExample.visible = true;
+            showExample(analyticsExample);
             btnBack.visible = true;
         }
     }
 
     private function showMenu(value:Boolean):void {
-        btnRemoteConfig.visible = btnStorage.visible = btnFirestore.visible = btnAnalytics.visible = value;
+        var tween:Tween = new Tween(menuContainer, 0.5, Transitions.EASE_OUT);
+        tween.moveTo(value ? 0 : -stage.stageWidth, 0);
+        Starling.juggler.add(tween);
     }
 
     private function onFirestoreClick(event:TouchEvent):void {
@@ -106,10 +118,11 @@ public class StarlingRoot extends Sprite {
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             if (!firestoreExample) {
                 firestoreExample = new FirestoreExample(stage.stageWidth);
+                firestoreExample.x = stage.stageWidth;
                 addChild(firestoreExample);
             }
             showMenu(false);
-            firestoreExample.visible = true;
+            showExample(firestoreExample);
             btnBack.visible = true;
         }
     }
@@ -119,10 +132,11 @@ public class StarlingRoot extends Sprite {
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             if (!storageExample) {
                 storageExample = new StorageExample(stage.stageWidth);
+                storageExample.x = stage.stageWidth;
                 addChild(storageExample);
             }
             showMenu(false);
-            storageExample.visible = true;
+            showExample(storageExample);
             btnBack.visible = true;
         }
     }
@@ -132,22 +146,29 @@ public class StarlingRoot extends Sprite {
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             if (!remoteConfigExample) {
                 remoteConfigExample = new RemoteConfigExample(stage.stageWidth);
+                remoteConfigExample.x = stage.stageWidth;
                 addChild(remoteConfigExample);
             }
             showMenu(false);
-            remoteConfigExample.visible = true;
+            showExample(remoteConfigExample);
             btnBack.visible = true;
         }
+    }
+
+    private function showExample(example: Sprite, value:Boolean = true):void {
+        var tween:Tween = new Tween(example, 0.5, Transitions.EASE_OUT);
+        tween.moveTo(value ? 0 : stage.stageWidth, 0);
+        Starling.juggler.add(tween);
     }
 
     private function onBackClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnBack);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             showMenu(true);
-            if (analyticsExample) analyticsExample.visible = false;
-            if (firestoreExample) firestoreExample.visible = false;
-            if (storageExample) storageExample.visible = false;
-            if (remoteConfigExample) remoteConfigExample.visible = false;
+            if (analyticsExample) showExample(analyticsExample, false);
+            if (firestoreExample) showExample(firestoreExample, false);
+            if (storageExample) showExample(storageExample, false);
+            if (remoteConfigExample) showExample(remoteConfigExample, false);
             btnBack.visible = false;
         }
     }

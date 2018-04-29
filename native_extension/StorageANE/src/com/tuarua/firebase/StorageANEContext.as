@@ -1,3 +1,19 @@
+/*
+ *  Copyright 2018 Tua Rua Ltd.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
 package com.tuarua.firebase {
 import com.sociodox.utils.Base64;
 import com.tuarua.firebase.storage.DownloadTask;
@@ -5,6 +21,7 @@ import com.tuarua.firebase.storage.StorageMetadata;
 import com.tuarua.firebase.storage.StorageReference;
 import com.tuarua.firebase.storage.StorageTask;
 import com.tuarua.firebase.storage.UploadTask;
+import com.tuarua.firebase.storage.events.StorageError;
 import com.tuarua.firebase.storage.events.StorageErrorEvent;
 import com.tuarua.firebase.storage.events.StorageEvent;
 import com.tuarua.firebase.storage.events.StorageProgressEvent;
@@ -20,12 +37,19 @@ import flash.utils.Dictionary;
 public class StorageANEContext {
     internal static const NAME:String = "StorageANE";
     internal static const TRACE:String = "TRACE";
+    private static const DELETED:String = "StorageEvent.Deleted";
+    private static const GET_METADATA:String = "StorageEvent.GetMetadata";
+    private static const GET_DOWNLOAD_URL:String = "StorageEvent.GetDownloadUrl";
+    private static const UPDATE_METADATA: String = "StorageEvent.UpdateMetadata";
+
     private static var _context:ExtensionContext;
 
     public static var listeners:Vector.<Object> = new <Object>[];
     public static var listenersObjects:Dictionary = new Dictionary();
     private static var listenersObject:* = null;
     public static var tasks:Dictionary = new Dictionary();
+
+    public static var closures:Dictionary = new Dictionary();
 
     private static var pObj:Object;
 
@@ -42,58 +66,73 @@ public class StorageANEContext {
                 trace("[" + NAME + "] ANE Not loaded properly.  Future calls will fail.");
             }
         }
+
         return _context;
     }
 
     private static function getListenerObject(type:String, eventId:String):* {
-        for each (var item_aa:Object in listeners) {
-            if (item_aa.type == type && item_aa.id == eventId) {
+        var length:int = listeners.length;
+        var obj:Object;
+        for (var i:int = 0; i < length; ++i) {
+            obj = listeners[i];
+            if (obj.type == type && obj.id == eventId) {
                 return listenersObjects[eventId];
             }
         }
     }
 
-    private static function gotEvent(event:StatusEvent):void {
+    private static function getListener(type:String, eventId:String):Function {
+        var length:int = listeners.length;
+        var obj:Object;
+        for (var i:int = 0; i < length; ++i) {
+            obj = listeners[i];
+            if (obj.type == type && obj.id == eventId) {
+                return obj.listener;
+            }
+        }
+        return null;
+    }
 
+    private static function gotEvent(event:StatusEvent):void {
+        var err:StorageError;
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);
                 break;
-            case StorageEvent.COMPLETE:
+            case StorageEvent.TASK_COMPLETE:
                 try {
                     pObj = JSON.parse(event.code);
                     listenersObject = getListenerObject(event.level, pObj.eventId);
                     if (listenersObject == null) return;
-                    if (listenersObject is UploadTask) {
-                        var file_ab:File;
-                        if (pObj.data != null && pObj.data.localPath != null) {
-                            file_ab = new File(pObj.data.localPath);
-                        }
-                        (listenersObject as UploadTask).dispatchEvent(new StorageEvent(event.level, file_ab));
-                    } else if (listenersObject is DownloadTask) {
+                    var file:File;
+                    var ba:ByteArray;
+
+                    if (pObj.data) {
                         if (pObj.data.hasOwnProperty("b64")) {
                             var b64:String = pObj.data.b64;
-                            var ba:ByteArray;
                             if (b64) ba = Base64.decode(b64);
-                            (listenersObject as DownloadTask).dispatchEvent(new StorageEvent(event.level, null, ba));
-                        } else {
-                            var file_ad:File;
-                            if (pObj.data != null && pObj.data.localPath != null) {
-                                file_ad = new File(pObj.data.localPath);
-                            }
-                            (listenersObject as DownloadTask).dispatchEvent(new StorageEvent(event.level, file_ad));
+                        } else if (pObj.data.localPath != null) {
+                            file = new File(pObj.data.localPath);
                         }
-                    } else if (listenersObject is StorageReference) {
-                        var file_ac:File;
-                        if (pObj.data != null && pObj.data.localPath != null) {
-                            file_ac = new File(pObj.data.localPath);
-                        }
-                        (listenersObject as StorageReference).dispatchEvent(new StorageEvent(event.level, file_ac));
+                    }
+                    listenersObject.dispatchEvent(new StorageEvent(event.level, file, ba));
+                    var lstner:Function = getListener(event.level, pObj.eventId);
+                    if (lstner) {
+                        listenersObject.removeEventListener(event.level, lstner);
+                    }
+                    lstner = getListener(StorageErrorEvent.ERROR, pObj.eventId);
+                    if (lstner) {
+                        listenersObject.removeEventListener(StorageErrorEvent.ERROR, lstner);
+                    }
+                    lstner = getListener(StorageProgressEvent.PROGRESS, pObj.eventId);
+                    if (lstner) {
+                        listenersObject.removeEventListener(StorageProgressEvent.PROGRESS, lstner);
                     }
                 } catch (e:Error) {
-                    trace(event.code, e.message);
+                    trace(e.errorID, e.message);
                 }
                 break;
+
             case StorageProgressEvent.PROGRESS:
                 try {
                     pObj = JSON.parse(event.code);
@@ -103,6 +142,25 @@ public class StorageANEContext {
                         (listenersObject as StorageTask).dispatchEvent(
                                 new StorageProgressEvent(event.level, false, false, pObj.bytesLoaded, pObj.bytesTotal)
                         );
+                    }
+                } catch (e:Error) {
+                    trace(e.errorID, e.message);
+                }
+                break;
+
+            case GET_METADATA:
+                try {
+                    pObj = JSON.parse(event.code);
+                    var metadata:StorageMetadata;
+                    if (pObj.hasOwnProperty("error") && pObj.error) {
+                        err = new StorageError(pObj.error.text, pObj.error.id);
+                    } else if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("data")) {
+                        metadata = ANEUtils.map(pObj.data.data, StorageMetadata) as StorageMetadata;
+                    }
+                    var func_aa:Function = StorageANEContext.closures[pObj.eventId];
+                    if (func_aa) {
+                        func_aa.call(null, metadata, err);
+                        delete StorageANEContext.closures[pObj.eventId];
                     }
                 } catch (e:Error) {
                     trace(event.code, e.message);
@@ -116,37 +174,48 @@ public class StorageANEContext {
                     if (listenersObject == null) return;
                     listenersObject.dispatchEvent(new StorageErrorEvent(event.level, true, false, pObj.text, pObj.id));
                 } catch (e:Error) {
-                    trace(event.code, e.message);
+                    trace(e.errorID, e.message);
                 }
                 break;
-            case StorageEvent.GET_DOWNLOAD_URL:
-                try {
-                    pObj = JSON.parse(event.code);
-                    listenersObject = getListenerObject(event.level, pObj.eventId);
-                    if (listenersObject == null) return;
-                    (listenersObject as StorageReference).dispatchEvent(new StorageEvent(event.level, null, null, pObj.data.url));
-                } catch (e:Error) {
-                    trace(event.code, e.message);
-                }
-                break;
-            case StorageEvent.GET_METADATA:
-                try {
-                    pObj = JSON.parse(event.code);
-                    listenersObject = getListenerObject(event.level, pObj.eventId);
-                    if (listenersObject == null) return;
-                    var o:Object = pObj.data.data;
-                    var metadata:StorageMetadata;
-                    if (o) metadata = ANEUtils.map(o, StorageMetadata) as StorageMetadata;
-                    (listenersObject as StorageReference).dispatchEvent(new StorageEvent(event.level, null, null, null, metadata));
-                } catch (e:Error) {
-                    trace(event.code, e.message);
-                }
-                break;
-            case StorageEvent.UPDATE_METADATA:
+
+            case GET_DOWNLOAD_URL:
                 pObj = JSON.parse(event.code);
-                listenersObject = getListenerObject(event.level, pObj.eventId);
-                if (listenersObject == null) return;
-                (listenersObject as StorageReference).dispatchEvent(new StorageEvent(event.level, null, null, null, metadata));
+                var url:String;
+                if (pObj.hasOwnProperty("error") && pObj.error) {
+                    err = new StorageError(pObj.error.text, pObj.error.id);
+                } else if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("url")) {
+                    url = pObj.data.url;
+                }
+                var func_ab:Function = StorageANEContext.closures[pObj.eventId];
+                if (func_ab) {
+                    func_ab.call(null, url, err);
+                    delete StorageANEContext.closures[pObj.eventId];
+                }
+                break;
+            case UPDATE_METADATA:
+                pObj = JSON.parse(event.code);
+                if (pObj.hasOwnProperty("error") && pObj.error) {
+                    err = new StorageError(pObj.error.text, pObj.error.id);
+                }
+                var func_ac:Function = StorageANEContext.closures[pObj.eventId];
+                if (func_ac) {
+                    func_ac.call(null, err);
+                    delete StorageANEContext.closures[pObj.eventId];
+                }
+                break;
+            case DELETED:
+                pObj = JSON.parse(event.code);
+                var localPath:String;
+                if (pObj.hasOwnProperty("error") && pObj.error) {
+                    err = new StorageError(pObj.error.text, pObj.error.id);
+                } else if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("localPath")) {
+                    localPath = pObj.data.localPath;
+                }
+                var func_ad:Function = StorageANEContext.closures[pObj.eventId];
+                if (func_ad) {
+                    func_ad.call(null, localPath, err);
+                    delete StorageANEContext.closures[pObj.eventId];
+                }
                 break;
         }
     }

@@ -20,21 +20,25 @@ class StorageEvent: NSObject {
     public static let GET_DOWNLOAD_URL: String = "StorageEvent.GetDownloadUrl"
     public static let GET_METADATA: String = "StorageEvent.GetMetadata"
     public static let UPDATE_METADATA: String = "StorageEvent.UpdateMetadata"
-    public static let COMPLETE: String = "StorageEvent.TaskComplete"
+    public static let TASK_COMPLETE: String = "StorageEvent.TaskComplete"
+    public static let DELETED: String = "StorageEvent.Deleted"
     
     var eventId: String?
     var data: [String: Any]?
+    var error: [String: Any]?
  
-    convenience init(eventId: String?, data: [String: Any]?) {
+    convenience init(eventId: String?, data: [String: Any]?, error: [String: Any]? = nil) {
         self.init()
         self.eventId = eventId
         self.data = data
+        self.error = error
     }
     
     public func toJSONString() -> String {
         var props = [String: Any]()
         props["eventId"] = eventId
         props["data"] = data
+        props["error"] = error
         return JSON(props).description
     }
 }

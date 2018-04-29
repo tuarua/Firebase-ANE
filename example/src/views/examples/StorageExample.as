@@ -4,6 +4,7 @@ import com.tuarua.firebase.storage.DownloadTask;
 import com.tuarua.firebase.storage.StorageMetadata;
 import com.tuarua.firebase.storage.StorageReference;
 import com.tuarua.firebase.storage.UploadTask;
+import com.tuarua.firebase.storage.events.StorageError;
 import com.tuarua.firebase.storage.events.StorageErrorEvent;
 import com.tuarua.firebase.storage.events.StorageEvent;
 import com.tuarua.firebase.storage.events.StorageProgressEvent;
@@ -14,6 +15,9 @@ import flash.display.Loader;
 import flash.events.Event;
 import flash.filesystem.File;
 import flash.net.URLRequest;
+
+import starling.animation.Tween;
+import starling.core.Starling;
 
 import starling.display.Image;
 
@@ -32,6 +36,7 @@ public class StorageExample extends Sprite {
     private var storageRef:StorageReference;
     private var btnGetMetadata:SimpleButton = new SimpleButton("Get File Metadata");
     private var btnUpdateMetadata:SimpleButton = new SimpleButton("Update File Metadata");
+    private var btnGetUrl:SimpleButton = new SimpleButton("Get Url");
     private var btnDownloadBytes:SimpleButton = new SimpleButton("Download Bytes");
     private var btnDownloadFile:SimpleButton = new SimpleButton("Download File");
     private var btnUploadFile:SimpleButton = new SimpleButton("Upload File");
@@ -48,9 +53,6 @@ public class StorageExample extends Sprite {
         trace("storage.maxUploadRetryTime", storage.maxUploadRetryTime);
 
         storageRef = storage.getReference("images/logo.png");
-        storageRef.addEventListener(StorageErrorEvent.ERROR, onError);
-        storageRef.addEventListener(StorageEvent.GET_METADATA, onGetMetadata);
-        storageRef.addEventListener(StorageEvent.UPDATE_METADATA, onMetadataUpdated);
         trace(storageRef.path, storageRef.name, storageRef.bucket);
 
         initMenu();
@@ -68,7 +70,7 @@ public class StorageExample extends Sprite {
 
         addChild(statusLabel);
 
-        btnUpdateMetadata.x = btnDownloadFile.x = btnGetMetadata.x = btnDownloadBytes.x = btnUploadFile.x = (stageWidth - 200) * 0.5;
+        btnGetUrl.x = btnUpdateMetadata.x = btnDownloadFile.x = btnGetMetadata.x = btnDownloadBytes.x = btnUploadFile.x = (stageWidth - 200) * 0.5;
 
         btnGetMetadata.addEventListener(TouchEvent.TOUCH, onGetMetaClick);
         btnGetMetadata.y = StarlingRoot.GAP;
@@ -78,8 +80,12 @@ public class StorageExample extends Sprite {
         btnUpdateMetadata.y = btnGetMetadata.y + StarlingRoot.GAP;
         addChild(btnUpdateMetadata);
 
+        btnGetUrl.addEventListener(TouchEvent.TOUCH, onGetUrlClick);
+        btnGetUrl.y = btnUpdateMetadata.y + StarlingRoot.GAP;
+        addChild(btnGetUrl);
+
         btnDownloadBytes.addEventListener(TouchEvent.TOUCH, onDownloadBytesClick);
-        btnDownloadBytes.y = btnUpdateMetadata.y + StarlingRoot.GAP;
+        btnDownloadBytes.y = btnGetUrl.y + StarlingRoot.GAP;
         addChild(btnDownloadBytes);
 
         btnDownloadFile.addEventListener(TouchEvent.TOUCH, onDownloadFileClick);
@@ -94,10 +100,17 @@ public class StorageExample extends Sprite {
 
     }
 
+    private function onGetUrlClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnGetUrl);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            storageRef.getDownloadUrl(onGetUrl);
+        }
+    }
+
     private function onGetMetaClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnGetMetadata);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            storageRef.getMetadata();
+            storageRef.getMetadata(onGetMetadata);
         }
     }
 
@@ -108,20 +121,15 @@ public class StorageExample extends Sprite {
             newMeta.contentLanguage = "en";
             trace(newMeta.contentLanguage);
 
-            storageRef.updateMetadata(newMeta);
+            storageRef.updateMetadata(newMeta, onMetadataUpdated);
         }
-    }
-
-    private function onError(event:StorageErrorEvent):void {
-        trace(event.text);
-        statusLabel.text = "Error: " + event.errorID + " : " +event.text;
     }
 
     private function onDownloadBytesClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnDownloadBytes);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             var downloadTask:DownloadTask = storageRef.getBytes(); // Progress is not available for getBytes()
-            downloadTask.addEventListener(StorageEvent.COMPLETE, onDownloadBytesSuccess, false, 0, true);
+            downloadTask.addEventListener(StorageEvent.TASK_COMPLETE, onDownloadBytesSuccess, false, 0, true);
             downloadTask.addEventListener(StorageErrorEvent.ERROR, onDownloadError, false, 0, true)
         }
     }
@@ -131,7 +139,7 @@ public class StorageExample extends Sprite {
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             var downloadTask:DownloadTask = storageRef.getFile(File.applicationStorageDirectory.resolvePath("downloaded-logo.png"));
             downloadTask.addEventListener(StorageProgressEvent.PROGRESS, onDownloadProgress);
-            downloadTask.addEventListener(StorageEvent.COMPLETE, onDownloadFileSuccess, false, 0, true);
+            downloadTask.addEventListener(StorageEvent.TASK_COMPLETE, onDownloadFileSuccess, false, 0, true);
             downloadTask.addEventListener(StorageErrorEvent.ERROR, onDownloadError, false, 0, true)
         }
     }
@@ -145,7 +153,7 @@ public class StorageExample extends Sprite {
             var storageRef:StorageReference = storage.getReference("images/uploaded-logo.png");
             var uploadTask:UploadTask = storageRef.putFile(imageFile);
             uploadTask.addEventListener(StorageProgressEvent.PROGRESS, onUploadProgress);
-            uploadTask.addEventListener(StorageEvent.COMPLETE, onUploadFileSuccess, false, 0, true);
+            uploadTask.addEventListener(StorageEvent.TASK_COMPLETE, onUploadFileSuccess, false, 0, true);
             uploadTask.addEventListener(StorageErrorEvent.ERROR, onUploadError, false, 0, true);
         }
     }
@@ -161,10 +169,6 @@ public class StorageExample extends Sprite {
     }
 
     private function onUploadFileSuccess(event:StorageEvent):void {
-        var task:UploadTask = event.currentTarget as UploadTask;
-        task.removeEventListener(StorageEvent.COMPLETE, onUploadFileSuccess);
-        task.removeEventListener(StorageProgressEvent.PROGRESS, onUploadProgress);
-        task.removeEventListener(StorageErrorEvent.ERROR, onUploadError);
         statusLabel.text = "Upload complete";
     }
 
@@ -175,14 +179,25 @@ public class StorageExample extends Sprite {
 
     private function onDownloadError(event:StorageErrorEvent):void {
         trace(event);
-
-        // Android [trace] [ErrorEvent type="StorageErrorEvent.Error" bubbles=true cancelable=false eventPhase=2 text="User does not have permission to access this object." errorID=-13021]
-
         statusLabel.text = "Download error: " + event.errorID + " : " + event.text;
     }
 
-    private function onGetMetadata(event:StorageEvent):void {
-        var metadata:StorageMetadata = event.metadata;
+    private function onGetUrl(url:String, error:StorageError):void {
+        if (error) {
+            statusLabel.text = "GetUrl error: " + error.errorID + " : " + error.message;
+            return
+        }
+        if (url) {
+            statusLabel.text = "name: " + url;
+        }
+    }
+
+    private function onGetMetadata(metadata:StorageMetadata, error:StorageError):void {
+        trace("onGetMetadata called");
+        if (error) {
+            statusLabel.text = "GetMetadata error: " + error.errorID + " : " + error.message;
+            return
+        }
         if (metadata) {
             statusLabel.text = "name: " + metadata.name + "\n" +
                     "bucket: " + metadata.bucket + "\n" +
@@ -198,14 +213,17 @@ public class StorageExample extends Sprite {
         }
     }
 
-    private function onMetadataUpdated(event:StorageEvent):void {
+    private function onMetadataUpdated(error:StorageError):void {
+        if (error) {
+            statusLabel.text = "MetadataUpdate error: " + error.errorID + " : " + error.message;
+            return
+        }
         statusLabel.text = "Metadata updated";
     }
 
     private function onDownloadFileSuccess(event:StorageEvent):void {
+        statusLabel.text = "Download complete";
         var file:File = event.localFile;
-        trace("onDownloadFileSuccess", file, file.exists);
-        trace(event);
         if (file) {
             var ldr:Loader = new Loader();
             ldr.contentLoaderInfo.addEventListener(Event.COMPLETE, ldr_complete, false, 0, true);
@@ -215,16 +233,16 @@ public class StorageExample extends Sprite {
                 var image:Image = new Image(Texture.fromBitmap(ldr.content as Bitmap));
                 image.x = (stageWidth - 167) * 0.5;
                 image.y = btnUploadFile.y + StarlingRoot.GAP;
+                image.alpha = 0;
                 addChild(image);
+                var tween:Tween = new Tween(image, 0.5);
+                tween.animate("alpha", 1.0);
+                Starling.juggler.add(tween);
             }
         }
     }
 
     private function onDownloadBytesSuccess(event:StorageEvent):void {
-        var task:DownloadTask = event.currentTarget as DownloadTask;
-        task.removeEventListener(StorageEvent.COMPLETE, onUploadFileSuccess);
-        task.removeEventListener(StorageProgressEvent.PROGRESS, onUploadProgress);
-        task.removeEventListener(StorageErrorEvent.ERROR, onUploadError);
         if (event.bytes) {
             var ldr:Loader = new Loader();
             ldr.contentLoaderInfo.addEventListener(Event.COMPLETE, ldr_complete);
@@ -234,7 +252,11 @@ public class StorageExample extends Sprite {
                 var image:Image = new Image(Texture.fromBitmap(ldr.content as Bitmap));
                 image.x = (stageWidth - 167) * 0.5;
                 image.y = btnUploadFile.y + StarlingRoot.GAP;
+                image.alpha = 0;
                 addChild(image);
+                var tween:Tween = new Tween(image, 0.5);
+                tween.animate("alpha", 1.0);
+                Starling.juggler.add(tween);
             }
         }
     }

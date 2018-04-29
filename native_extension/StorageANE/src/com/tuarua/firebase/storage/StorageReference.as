@@ -1,12 +1,27 @@
+/*
+ *  Copyright 2018 Tua Rua Ltd.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
 package com.tuarua.firebase.storage {
 import com.tuarua.firebase.StorageANEContext;
 import com.tuarua.fre.ANEError;
 
-import flash.events.EventDispatcher;
 import flash.filesystem.File;
 import flash.utils.ByteArray;
 
-public class StorageReference extends EventDispatcher {
+public class StorageReference {
     private var _bucket:String;
     private var _name:String;
     private var _path:String;
@@ -35,29 +50,6 @@ public class StorageReference extends EventDispatcher {
         } else {
             throw new Error("no StorageReference created");
         }
-    }
-
-    override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void {
-        if (StorageANEContext.context) {
-            StorageANEContext.listeners.push({"id": _asId, "type": type});
-            if (!StorageANEContext.listenersObjects[_asId]) StorageANEContext.listenersObjects[_asId] = this;
-            super.addEventListener(type, listener, useCapture, priority, useWeakReference);
-            StorageANEContext.context.call("addEventListener", _asId, type);
-        }
-    }
-
-    override public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void {
-        if (StorageANEContext.context) {
-            delete StorageANEContext.listenersObjects[_asId];
-            var cnt:int = 0;
-            for each (var item:Object in StorageANEContext.listeners) {
-                if (item.type == type && item.id == _asId) StorageANEContext.listeners.removeAt(cnt);
-                cnt++;
-            }
-            super.removeEventListener(type, listener, useCapture);
-            StorageANEContext.context.call("removeEventListener", _asId, type);
-        }
-
     }
 
     public function child(path:String):StorageReference {
@@ -90,21 +82,47 @@ public class StorageReference extends EventDispatcher {
     }
 
     //aka delete
-    public function remove():void {
+    public function remove(onResult:Function = null):void {
         if (_path == null) return;
-        var theRet:* = StorageANEContext.context.call("deleteReference", _path, _asId);
-        if (theRet is ANEError) throw theRet as ANEError;
-    }
-
-    public function getDownloadUrl():void {
-        if (_path == null) return;
-        var theRet:* = StorageANEContext.context.call("getDownloadUrl", _path, _asId);
-        if (theRet is ANEError) throw theRet as ANEError;
-    }
-
-    public function getMetadata():void {
         if (StorageANEContext.context) {
-            var theRet:* = StorageANEContext.context.call("getMetadata", _path, _asId);
+            var resultId:String;
+            if (onResult) {
+                resultId = StorageANEContext.context.call("createGUID") as String;
+                StorageANEContext.closures[resultId] = onResult;
+            }
+            var theRet:* = StorageANEContext.context.call("deleteReference", _path, resultId);
+            if (theRet is ANEError) throw theRet as ANEError;
+        }
+    }
+
+    public function getDownloadUrl(onResult:Function):void {
+        if (_path == null) return;
+        if (StorageANEContext.context) {
+            var resultId:String = StorageANEContext.context.call("createGUID") as String;
+            StorageANEContext.closures[resultId] = onResult;
+            var theRet:* = StorageANEContext.context.call("getDownloadUrl", _path, resultId);
+            if (theRet is ANEError) throw theRet as ANEError;
+        }
+    }
+
+    public function getMetadata(onResult:Function):void {
+        if (StorageANEContext.context) {
+            var resultId:String = StorageANEContext.context.call("createGUID") as String;
+            StorageANEContext.closures[resultId] = onResult;
+            var theRet:* = StorageANEContext.context.call("getMetadata", _path, resultId);
+            if (theRet is ANEError) throw theRet as ANEError;
+        }
+    }
+
+    public function updateMetadata(metadata:StorageMetadata, onResult:Function = null):void {
+        if (_path == null || _name == null) return;
+        if (StorageANEContext.context) {
+            var resultId:String;
+            if (onResult) {
+                resultId = StorageANEContext.context.call("createGUID") as String;
+                StorageANEContext.closures[resultId] = onResult;
+            }
+            var theRet:* = StorageANEContext.context.call("updateMetadata", _path, resultId, metadata);
             if (theRet is ANEError) throw theRet as ANEError;
         }
     }
@@ -147,12 +165,6 @@ public class StorageReference extends EventDispatcher {
         var theRet:* = StorageANEContext.context.call("putBytes", _path, uploadTask.asId, byteArray);
         if (theRet is ANEError) throw theRet as ANEError;
         return uploadTask;
-    }
-
-    public function updateMetadata(metadata:StorageMetadata):void {
-        if (_path == null || _name == null) return;
-        var theRet:* = StorageANEContext.context.call("updateMetadata", _path, _asId, metadata);
-        if (theRet is ANEError) throw theRet as ANEError;
     }
 
     public function get bucket():String {

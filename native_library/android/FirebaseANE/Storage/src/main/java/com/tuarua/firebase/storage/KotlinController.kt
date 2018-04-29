@@ -1,3 +1,19 @@
+/*
+ *  Copyright 2018 Tua Rua Ltd.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
 package com.tuarua.firebase.storage
 
 import com.adobe.fre.FREContext
@@ -54,7 +70,7 @@ class KotlinController : FreKotlinMainController {
     fun deleteReference(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("deleteReference")
         val path = String(argv[0]) ?: return FreConversionException("path")
-        val asId = String(argv[1]) ?: return FreConversionException("asId")
+        val asId = String(argv[1])
         storageController.deleteReference(path, asId)
         return null
     }
@@ -143,7 +159,7 @@ class KotlinController : FreKotlinMainController {
     fun updateMetadata(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 2 } ?: return FreArgException("getMetadata")
         val path = String(argv[0]) ?: return FreConversionException("path")
-        val asId = String(argv[1]) ?: return FreConversionException("asId")
+        val asId = String(argv[1])
         val metadata = StorageMetadata(argv[2]) ?: return FreConversionException("metadata")
         storageController.updateMetadata(path, asId, metadata)
         return null

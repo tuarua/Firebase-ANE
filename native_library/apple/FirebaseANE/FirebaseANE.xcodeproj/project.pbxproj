@@ -73,6 +73,23 @@
 		CEB572C3208D221100CF6B1B /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
 		CEB572C4208D221600CF6B1B /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		CEB572C5208D221900CF6B1B /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D49208CE3FF00C96EC6 /* FirebaseInstanceID.framework */; };
+		CEBCF79D2095F9160028601B /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74320D208D4B8100E388D3 /* SwiftyJSON.swift */; };
+		CEBCF7A82095F9160028601B /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
+		CEBCF7A92095F9160028601B /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
+		CEBCF7AC2095F9160028601B /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE74320C208D4B8100E388D3 /* SwiftyJSON.h */; };
+		CEBCF7B02095F9160028601B /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
+		CEBCF7B82095F9820028601B /* AuthANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBCF7B72095F9820028601B /* AuthANE.m */; };
+		CEBCF7BA2095F99B0028601B /* AuthANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBCF7B92095F99B0028601B /* AuthANE_oc.h */; };
+		CEBCF7BC2095F9B40028601B /* AuthANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBCF7BB2095F9B40028601B /* AuthANE-Swift.h */; };
+		CEBCF7BE2095F9C80028601B /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCF7BD2095F9C80028601B /* SwiftController.swift */; };
+		CEBCF7C02095F9D90028601B /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCF7BF2095F9D90028601B /* SwiftController+FreSwift.swift */; };
+		CEBCF7C22095FA0F0028601B /* AuthANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBCF7C12095FA0F0028601B /* AuthANE-Bridging-Header.h */; };
+		CEBCF7C42095FC190028601B /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCF7C32095FC190028601B /* AuthController.swift */; };
+		CEBCF7C62095FC250028601B /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCF7C52095FC250028601B /* UserController.swift */; };
+		CEBCF7CC209610BD0028601B /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBCF7CB209610BC0028601B /* FirebaseAuth.framework */; };
+		CEBCF7CD209611B00028601B /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED7492220929C1F000327CD /* GTMSessionFetcher.framework */; };
+		CEBCF7D0209612060028601B /* AuthErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCF7CE209612060028601B /* AuthErrorEvent.swift */; };
+		CEBCF7D1209612060028601B /* AuthEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCF7CF209612060028601B /* AuthEvent.swift */; };
 		CED748E220925586000327CD /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED748E120925586000327CD /* AddressBook.framework */; };
 		CED748E42092558C000327CD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED748E32092558C000327CD /* StoreKit.framework */; };
 		CED748FA20929586000327CD /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
@@ -167,6 +184,18 @@
 		CEB572B3208D0FAA00CF6B1B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		CEB572BA208D21A200CF6B1B /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Carthage/Build/iOS/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		CEB572BC208D21C300CF6B1B /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = Carthage/Build/iOS/GoogleToolboxForMac.framework; sourceTree = "<group>"; };
+		CEBCF7B62095F9160028601B /* libAuthANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAuthANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEBCF7B72095F9820028601B /* AuthANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthANE.m; sourceTree = "<group>"; };
+		CEBCF7B92095F99B0028601B /* AuthANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthANE_oc.h; sourceTree = "<group>"; };
+		CEBCF7BB2095F9B40028601B /* AuthANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AuthANE-Swift.h"; sourceTree = "<group>"; };
+		CEBCF7BD2095F9C80028601B /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
+		CEBCF7BF2095F9D90028601B /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		CEBCF7C12095FA0F0028601B /* AuthANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AuthANE-Bridging-Header.h"; sourceTree = "<group>"; };
+		CEBCF7C32095FC190028601B /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		CEBCF7C52095FC250028601B /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		CEBCF7CB209610BC0028601B /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Carthage/Build/iOS/FirebaseAuth.framework; sourceTree = "<group>"; };
+		CEBCF7CE209612060028601B /* AuthErrorEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthErrorEvent.swift; sourceTree = "<group>"; };
+		CEBCF7CF209612060028601B /* AuthEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthEvent.swift; sourceTree = "<group>"; };
 		CED748E120925586000327CD /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		CED748E32092558C000327CD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CED7490E20929586000327CD /* libStorageANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libStorageANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,6 +270,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEBCF7A62095F9160028601B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEBCF7CC209610BD0028601B /* FirebaseAuth.framework in Frameworks */,
+				CEBCF7CD209611B00028601B /* GTMSessionFetcher.framework in Frameworks */,
+				CEBCF7A82095F9160028601B /* FreSwift.framework in Frameworks */,
+				CEBCF7A92095F9160028601B /* FirebaseCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CED748F820929586000327CD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,6 +314,7 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEBCF7CB209610BC0028601B /* FirebaseAuth.framework */,
 				CE9451A22095323B00FE2BD7 /* FirebaseABTesting.framework */,
 				CE9451A32095323C00FE2BD7 /* FirebaseRemoteConfig.framework */,
 				CED7492120929C1F000327CD /* FirebaseStorage.framework */,
@@ -353,6 +394,7 @@
 		CE87F45C1FB259C9005CF7DF = {
 			isa = PBXGroup;
 			children = (
+				CEBCF7962095F8730028601B /* AuthANE */,
 				CE74320B208D4B5000E388D3 /* SwiftyJSON */,
 				CEB572B3208D0FAA00CF6B1B /* .swiftlint.yml */,
 				CE05603D1FB25CD100D06976 /* Frameworks */,
@@ -373,6 +415,7 @@
 				CEB57299208CF73F00CF6B1B /* libFirestoreANE_LIB.a */,
 				CED7490E20929586000327CD /* libStorageANE_LIB.a */,
 				CE94519220951FCF00FE2BD7 /* libRemoteConfigANE_LIB.a */,
+				CEBCF7B62095F9160028601B /* libAuthANE_LIB.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -444,6 +487,47 @@
 			children = (
 				CEB572B0208CF92400CF6B1B /* FirestoreANE_oc.h */,
 				CEB572AF208CF92400CF6B1B /* FirestoreANE-Bridging-Header.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		CEBCF7962095F8730028601B /* AuthANE */ = {
+			isa = PBXGroup;
+			children = (
+				CEBCF7992095F8920028601B /* Headers */,
+				CEBCF7982095F88D0028601B /* Events */,
+				CEBCF7972095F8850028601B /* Extensions */,
+				CEBCF7B72095F9820028601B /* AuthANE.m */,
+				CEBCF7BB2095F9B40028601B /* AuthANE-Swift.h */,
+				CEBCF7BD2095F9C80028601B /* SwiftController.swift */,
+				CEBCF7BF2095F9D90028601B /* SwiftController+FreSwift.swift */,
+				CEBCF7C32095FC190028601B /* AuthController.swift */,
+				CEBCF7C52095FC250028601B /* UserController.swift */,
+			);
+			path = AuthANE;
+			sourceTree = "<group>";
+		};
+		CEBCF7972095F8850028601B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CEBCF7982095F88D0028601B /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				CEBCF7CE209612060028601B /* AuthErrorEvent.swift */,
+				CEBCF7CF209612060028601B /* AuthEvent.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		CEBCF7992095F8920028601B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				CEBCF7B92095F99B0028601B /* AuthANE_oc.h */,
+				CEBCF7C12095FA0F0028601B /* AuthANE-Bridging-Header.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -560,6 +644,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEBCF7AB2095F9160028601B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEBCF7C22095FA0F0028601B /* AuthANE-Bridging-Header.h in Headers */,
+				CEBCF7AC2095F9160028601B /* SwiftyJSON.h in Headers */,
+				CEBCF7BC2095F9B40028601B /* AuthANE-Swift.h in Headers */,
+				CEBCF7BA2095F99B0028601B /* AuthANE_oc.h in Headers */,
+				CEBCF7B02095F9160028601B /* FreMacros.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CED7490420929586000327CD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -643,6 +739,25 @@
 			productReference = CEB57299208CF73F00CF6B1B /* libFirestoreANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		CEBCF79A2095F9160028601B /* AuthANE_LIB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEBCF7B32095F9160028601B /* Build configuration list for PBXNativeTarget "AuthANE_LIB" */;
+			buildPhases = (
+				CEBCF79B2095F9160028601B /* Sources */,
+				CEBCF7A62095F9160028601B /* Frameworks */,
+				CEBCF7AB2095F9160028601B /* Headers */,
+				CEBCF7B12095F9160028601B /* ShellScript */,
+				CEBCF7B22095F9160028601B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AuthANE_LIB;
+			productName = HelloWorldANE_LIB;
+			productReference = CEBCF7B62095F9160028601B /* libAuthANE_LIB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		CED748E520929586000327CD /* StorageANE_LIB */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CED7490B20929586000327CD /* Build configuration list for PBXNativeTarget "StorageANE_LIB" */;
@@ -714,6 +829,7 @@
 				CEB5728A208CF73F00CF6B1B /* FirestoreANE_LIB */,
 				CED748E520929586000327CD /* StorageANE_LIB */,
 				CE94517620951FCF00FE2BD7 /* RemoteConfigANE_LIB */,
+				CEBCF79A2095F9160028601B /* AuthANE_LIB */,
 			);
 		};
 /* End PBXProject section */
@@ -796,6 +912,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		CEBCF7B12095F9160028601B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		CEBCF7B22095F9160028601B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = ../../../native_extension/StorageANE/ane/build_multi.sh;
 		};
 		CED7490920929586000327CD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -899,6 +1041,21 @@
 				CE26575E208E744D00C561E8 /* FreQueryDocumentSnapshot.swift in Sources */,
 				CE69C8DE208FF9E9004A1A5A /* NetworkEvent.swift in Sources */,
 				CE69C8DB208FEE1E004A1A5A /* BatchEvent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEBCF79B2095F9160028601B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEBCF7C62095FC250028601B /* UserController.swift in Sources */,
+				CEBCF7B82095F9820028601B /* AuthANE.m in Sources */,
+				CEBCF7BE2095F9C80028601B /* SwiftController.swift in Sources */,
+				CEBCF7C42095FC190028601B /* AuthController.swift in Sources */,
+				CEBCF79D2095F9160028601B /* SwiftyJSON.swift in Sources */,
+				CEBCF7D0209612060028601B /* AuthErrorEvent.swift in Sources */,
+				CEBCF7D1209612060028601B /* AuthEvent.swift in Sources */,
+				CEBCF7C02095F9D90028601B /* SwiftController+FreSwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1184,6 +1341,53 @@
 			};
 			name = Release;
 		};
+		CEBCF7B42095F9160028601B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AuthANE/Headers/AuthANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "AuthANE/AuthANE-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		CEBCF7B52095F9160028601B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AuthANE/Headers/AuthANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "AuthANE/AuthANE-Swift.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		CED7490C20929586000327CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1313,6 +1517,15 @@
 			buildConfigurations = (
 				CEB57297208CF73F00CF6B1B /* Debug */,
 				CEB57298208CF73F00CF6B1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEBCF7B32095F9160028601B /* Build configuration list for PBXNativeTarget "AuthANE_LIB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEBCF7B42095F9160028601B /* Debug */,
+				CEBCF7B52095F9160028601B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

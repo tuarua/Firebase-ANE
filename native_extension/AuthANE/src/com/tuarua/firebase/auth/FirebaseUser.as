@@ -12,7 +12,8 @@ public class FirebaseUser {
     private var _phoneNumber:String;
     private var _uid:String;
 
-    public function FirebaseUser(uid:String, displayName:String, email:String, isAnonymous:Boolean, isEmailVerified:Boolean, photoUrl:String, phoneNumber:String) {
+    public function FirebaseUser(uid:String, displayName:String, email:String, isAnonymous:Boolean,
+                                 isEmailVerified:Boolean, photoUrl:String, phoneNumber:String) {
         this._uid = uid;
         this._displayName = displayName;
         this._email = email;
