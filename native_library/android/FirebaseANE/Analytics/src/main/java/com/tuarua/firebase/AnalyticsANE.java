@@ -23,6 +23,7 @@ import com.tuarua.firebase.analytics.KotlinController;
 public class AnalyticsANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"
+            ,"getAppInstanceId"
             ,"setUserProperty"
             ,"setUserId"
             ,"setSessionTimeoutDuration"

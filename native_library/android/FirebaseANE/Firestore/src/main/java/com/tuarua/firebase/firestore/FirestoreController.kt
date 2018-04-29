@@ -363,6 +363,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
         for (i in listeners.indices) {
             if (listeners[i].first == asId && listeners[i].second == type) {
                 listeners.removeAt(i)
+                return
             }
         }
     }

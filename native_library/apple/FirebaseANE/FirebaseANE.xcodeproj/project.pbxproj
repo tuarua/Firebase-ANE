@@ -52,7 +52,6 @@
 		CE9451A42095323C00FE2BD7 /* FirebaseABTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9451A22095323B00FE2BD7 /* FirebaseABTesting.framework */; };
 		CE9451A52095323C00FE2BD7 /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9451A32095323C00FE2BD7 /* FirebaseRemoteConfig.framework */; };
 		CE9451A62095324600FE2BD7 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; };
-		CE9451A82095327700FE2BD7 /* RemoteConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9451A72095327700FE2BD7 /* RemoteConfigController.swift */; };
 		CE9451AA2095347700FE2BD7 /* RemoteConfigEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9451A92095347700FE2BD7 /* RemoteConfigEvent.swift */; };
 		CE9451AC2095348F00FE2BD7 /* RemoteConfigErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9451AB2095348E00FE2BD7 /* RemoteConfigErrorEvent.swift */; };
 		CE9451AE2095355600FE2BD7 /* FreRemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9451AD2095355600FE2BD7 /* FreRemoteConfig.swift */; };
@@ -151,7 +150,6 @@
 		CE9451A02095224400FE2BD7 /* RemoteConfigANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RemoteConfigANE-Swift.h"; sourceTree = "<group>"; };
 		CE9451A22095323B00FE2BD7 /* FirebaseABTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseABTesting.framework; path = Carthage/Build/iOS/FirebaseABTesting.framework; sourceTree = "<group>"; };
 		CE9451A32095323C00FE2BD7 /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseRemoteConfig.framework; path = Carthage/Build/iOS/FirebaseRemoteConfig.framework; sourceTree = "<group>"; };
-		CE9451A72095327700FE2BD7 /* RemoteConfigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigController.swift; sourceTree = "<group>"; };
 		CE9451A92095347700FE2BD7 /* RemoteConfigEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteConfigEvent.swift; path = ../../../../ios_LAST/FirebaseANE/RemoteConfigANE_FW/RemoteConfigEvent.swift; sourceTree = "<group>"; };
 		CE9451AB2095348E00FE2BD7 /* RemoteConfigErrorEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteConfigErrorEvent.swift; path = ../../../../ios_LAST/FirebaseANE/RemoteConfigANE_FW/RemoteConfigErrorEvent.swift; sourceTree = "<group>"; };
 		CE9451AD2095355600FE2BD7 /* FreRemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreRemoteConfig.swift; sourceTree = "<group>"; };
@@ -410,7 +408,6 @@
 				CE94519C209521BE00FE2BD7 /* SwiftController.swift */,
 				CE94519E209521EE00FE2BD7 /* SwiftController+FreSwift.swift */,
 				CE9451A02095224400FE2BD7 /* RemoteConfigANE-Swift.h */,
-				CE9451A72095327700FE2BD7 /* RemoteConfigController.swift */,
 			);
 			path = RemoteConfigANE;
 			sourceTree = "<group>";
@@ -750,16 +747,16 @@
 		};
 		CE94518E20951FCF00FE2BD7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/RemoteConfigANE/ane/build_ios.sh;
+			shellScript = ../../../native_extension/RemoteConfigANE/ane/build_multi.sh;
 		};
 		CEB57295208CF73F00CF6B1B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -772,7 +769,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/FirestoreANE/ane/build_ios.sh;
+			shellScript = ../../../native_extension/FirestoreANE/ane/build_multi.sh;
 		};
 		CEB572B4208D0FC700CF6B1B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -824,20 +821,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/StorageANE/ane/build_ios.sh;
+			shellScript = ../../../native_extension/StorageANE/ane/build_multi.sh;
 		};
 		CEDDADE01FBFB84900D6EB5F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/ane/build_ios.sh;
+			shellScript = ../../../native_extension/ane/build_multi.sh;
 		};
 		CEE80D67208CF3E200C96EC6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -850,7 +847,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/AnalyticsANE/ane/build_ios.sh;
+			shellScript = ../../../native_extension/AnalyticsANE/ane/build_multi.sh;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -876,7 +873,6 @@
 				CE9451AA2095347700FE2BD7 /* RemoteConfigEvent.swift in Sources */,
 				CE94517920951FCF00FE2BD7 /* SwiftyJSON.swift in Sources */,
 				CE94519F209521EE00FE2BD7 /* SwiftController+FreSwift.swift in Sources */,
-				CE9451A82095327700FE2BD7 /* RemoteConfigController.swift in Sources */,
 				CE9451AC2095348F00FE2BD7 /* RemoteConfigErrorEvent.swift in Sources */,
 				CE9451AE2095355600FE2BD7 /* FreRemoteConfig.swift in Sources */,
 			);

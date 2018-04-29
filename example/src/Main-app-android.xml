@@ -118,6 +118,7 @@
         <extensionID>com.android.support.support-v4</extensionID>
         <extensionID>com.google.android.gms.play-services-base</extensionID>
         <extensionID>com.google.firebase.firebase-common</extensionID>
+        <extensionID>com.google.firebase.firebase-config</extensionID>
         <extensionID>com.google.firebase.firebase-analytics</extensionID>
         <extensionID>com.google.firebase.firebase-iid</extensionID>
         <extensionID>com.google.firebase.firebase-firestore</extensionID>
@@ -126,5 +127,6 @@
         <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
         <extensionID>com.tuarua.firebase.FirestoreANE</extensionID>
         <extensionID>com.tuarua.firebase.StorageANE</extensionID>
+        <extensionID>com.tuarua.firebase.RemoteConfigANE</extensionID>
     </extensions>
 </application>

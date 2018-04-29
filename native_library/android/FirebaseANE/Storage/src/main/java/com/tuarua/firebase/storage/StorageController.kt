@@ -296,6 +296,7 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
         for (i in listeners.indices) {
             if (listeners[i].first == asId && listeners[i].second == type) {
                 listeners.removeAt(i)
+                return
             }
         }
     }

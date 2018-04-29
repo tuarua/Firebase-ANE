@@ -39,10 +39,8 @@ public class StorageReference extends EventDispatcher {
 
     override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void {
         if (StorageANEContext.context) {
-
             StorageANEContext.listeners.push({"id": _asId, "type": type});
             if (!StorageANEContext.listenersObjects[_asId]) StorageANEContext.listenersObjects[_asId] = this;
-            trace("StorageReference addEventListener", type, _asId);
             super.addEventListener(type, listener, useCapture, priority, useWeakReference);
             StorageANEContext.context.call("addEventListener", _asId, type);
         }

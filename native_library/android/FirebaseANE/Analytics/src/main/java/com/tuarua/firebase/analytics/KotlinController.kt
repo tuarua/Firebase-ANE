@@ -4,6 +4,9 @@ import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.tuarua.frekotlin.*
 import android.os.Bundle
+import android.util.Log
+import com.google.firebase.FirebaseApp
+import com.google.firebase.analytics.FirebaseAnalytics
 
 fun <V> Map<String, V>.toBundle(bundle: Bundle = Bundle()): Bundle = bundle.apply {
     forEach {
@@ -21,11 +24,31 @@ fun <V> Map<String, V>.toBundle(bundle: Bundle = Bundle()): Bundle = bundle.appl
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
     private val TRACE = "TRACE"
-    private lateinit var analyticsController: AnalyticsController
-
+    private lateinit var analytics: FirebaseAnalytics
+    private var appInstanceId:String? = null
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        analyticsController = AnalyticsController(context)
+        try {
+            val ac = context?.activity
+            if (isDefaultFirebaseAppInitialized() && ac != null) {
+                analytics = FirebaseAnalytics.getInstance(ac)
+                analytics.appInstanceId.addOnCompleteListener {
+                    appInstanceId = it.result
+                }
+            } else {
+                trace("Firebase is NOT initialised")
+                return false.toFREObject()
+            }
+        } catch (e: Exception) {
+            trace("analytics Exception", e.message)
+            Log.e(TAG, "analytics Exception", e)
+            e.printStackTrace()
+            return false.toFREObject()
+        }
         return true.toFREObject()
+    }
+
+    fun getAppInstanceId(ctx: FREContext, argv: FREArgv): FREObject? {
+        return appInstanceId?.toFREObject()
     }
 
     fun logEvent(ctx: FREContext, argv: FREArgv): FREObject? {
@@ -33,42 +56,42 @@ class KotlinController : FreKotlinMainController {
         val name = String(argv[0]) ?: return FreConversionException("name")
         val params: Map<String, Any> = Map(argv[1]) ?: return FreConversionException("params")
         val bundle = params.toBundle()
-        analyticsController.logEvent(name, bundle)
+        analytics.logEvent(name, bundle)
         return null
     }
 
     fun setAnalyticsCollectionEnabled(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setAnalyticsCollectionEnabled")
         val enabled = Boolean(argv[0]) ?: return FreConversionException("enabled")
-        analyticsController.setAnalyticsCollectionEnabled(enabled)
+        analytics.setAnalyticsCollectionEnabled(enabled)
         return null
     }
 
     fun setCurrentScreen(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setCurrentScreen")
         val screenName = String(argv[0]) ?: return FreConversionException("screenName")
-        analyticsController.setCurrentScreen(screenName)
+        analytics.setCurrentScreen(ctx.activity, screenName, null)
         return null
     }
 
     fun setMinimumSessionDuration(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setMinimumSessionDuration")
         val milliseconds = Long(argv[0]) ?: return FreConversionException("milliseconds")
-        analyticsController.setMinimumSessionDuration(milliseconds)
+        analytics.setMinimumSessionDuration(milliseconds)
         return null
     }
 
     fun setSessionTimeoutDuration(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setSessionTimeoutDuration")
         val milliseconds = Long(argv[0]) ?: return FreConversionException("milliseconds")
-        analyticsController.setSessionTimeoutDuration(milliseconds)
+        analytics.setSessionTimeoutDuration(milliseconds)
         return null
     }
 
     fun setUserId(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setUserId")
         val id = String(argv[0]) ?: return FreConversionException("id")
-        analyticsController.setUserId(id)
+        analytics.setUserId(id)
         return null
     }
 
@@ -76,13 +99,23 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("setUserProperty")
         val name = String(argv[0]) ?: return FreConversionException("name")
         val value = String(argv[1]) ?: return FreConversionException("value")
-        analyticsController.setUserProperty(name, value)
+        analytics.setUserProperty(name, value)
         return null
     }
 
     fun resetAnalyticsData(ctx: FREContext, argv: FREArgv): FREObject? {
-        analyticsController.resetAnalyticsData()
+        analytics.resetAnalyticsData()
         return null
+    }
+
+    private fun isDefaultFirebaseAppInitialized(): Boolean {
+        return try {
+            FirebaseApp.getInstance(FirebaseApp.DEFAULT_APP_NAME) != null
+        } catch (e: IllegalStateException) {
+            Log.e(TAG, "isDefaultFirebaseAppInitialized", e)
+            trace(e.message)
+            false
+        }
     }
 
     override val TAG: String

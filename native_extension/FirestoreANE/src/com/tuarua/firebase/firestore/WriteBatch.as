@@ -56,7 +56,7 @@ public class WriteBatch extends EventDispatcher {
     }
 
     public function commit():void {
-        var theRet:* = FirestoreANEContext.context.call("commitBatch", this._asId); //TODO can I send as null if no listener attached
+        var theRet:* = FirestoreANEContext.context.call("commitBatch", this._asId);
         if (theRet is ANEError) {
             throw theRet as ANEError;
         }

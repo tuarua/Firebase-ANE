@@ -1,33 +1,56 @@
 package com.tuarua.firebase.remoteconfig
 
+import android.util.Log
 import com.adobe.fre.FREByteArray
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
+import com.google.firebase.FirebaseApp
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigException
+import com.google.gson.Gson
+import com.tuarua.firebase.remoteconfig.events.RemoteConfigErrorEvent
+import com.tuarua.firebase.remoteconfig.events.RemoteConfigEvent
 import com.tuarua.frekotlin.*
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
     private val TRACE = "TRACE"
-    private lateinit var remoteConfigController: RemoteConfigController
+    private lateinit var remoteConfig: FirebaseRemoteConfig
+    private var cacheExpiration: Long = 86400
+    private val gson = Gson()
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        remoteConfigController = RemoteConfigController(context)
+        try {
+            val app = FirebaseApp.getInstance()
+            if (app != null) {
+                remoteConfig = FirebaseRemoteConfig.getInstance()
+            } else {
+                trace(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
+                return false.toFREObject()
+            }
+        } catch (e: FreException) {
+            trace(e.message)
+            trace(e.stackTrace)
+            return false.toFREObject()
+        } catch (e: Exception) {
+            Log.e(TAG, e.message)
+            e.printStackTrace()
+            return false.toFREObject()
+        }
         return true.toFREObject()
     }
 
     fun setConfigSettings(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setConfigSettings")
-
-        val developerModeEnabled = Boolean(argv[0]["developerModeEnabled"])
-                ?: return FreConversionException("developerModeEnabled")
-        remoteConfigController.setConfigSettings(developerModeEnabled)
+        val settings = FirebaseRemoteConfigSettings(argv[0]) ?: return FreConversionException("settings")
+        remoteConfig.setConfigSettings(settings)
         return null
     }
 
     fun setDefaults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setDefaults")
         val defaults: Map<String, Any> = Map(argv[0]) ?: return FreConversionException("defaults")
-        remoteConfigController.setDefaults(defaults)
+        remoteConfig.setDefaults(defaults)
         return null
     }
 
@@ -35,7 +58,7 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getByteArray")
         val key = String(argv[0]) ?: return FreConversionException("key")
         try {
-            val ba = remoteConfigController.getByteArray(key) ?: return null
+            val ba = remoteConfig.getByteArray(key) ?: return null
             val ret = FREByteArray.newByteArray()
             ret.setProp("length", ba.size)
             ret.acquire()
@@ -53,63 +76,58 @@ class KotlinController : FreKotlinMainController {
     fun getBoolean(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getBoolean")
         val key = String(argv[0]) ?: return FreConversionException("key")
-        return remoteConfigController.getBoolean(key).toFREObject()
+        return remoteConfig.getBoolean(key).toFREObject()
     }
 
     fun getDouble(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getDouble")
         val key = String(argv[0]) ?: return FreConversionException("key")
-        return remoteConfigController.getDouble(key).toFREObject()
+        return remoteConfig.getDouble(key).toFREObject()
     }
 
     fun getLong(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getLong")
         val key = String(argv[0]) ?: return FreConversionException("key")
-        return remoteConfigController.getLong(key).toFREObject()
+        return remoteConfig.getLong(key).toFREObject()
     }
 
     fun getString(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getString")
         val key = String(argv[0]) ?: return FreConversionException("key")
-        return remoteConfigController.getString(key).toFREObject()
+        return remoteConfig.getString(key).toFREObject()
     }
 
     fun getKeysByPrefix(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getKeysByPrefix")
         val prefix = String(argv[0]) ?: return FreConversionException("prefix")
-        return remoteConfigController.getKeysByPrefix(prefix).toFREArray()
+        return remoteConfig.getKeysByPrefix(prefix).toList().toFREArray()
     }
 
     fun fetch(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("fetch")
         val cacheExpiration = Long(argv[0]) ?: return FreConversionException("cacheExpiration")
-        remoteConfigController.fetch(cacheExpiration)
+        when {
+            remoteConfig.info.configSettings.isDeveloperModeEnabled -> this.cacheExpiration = 0
+            else -> this.cacheExpiration = cacheExpiration
+        }
+        remoteConfig.fetch(this.cacheExpiration).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                sendEvent(RemoteConfigEvent.FETCH, "")
+            } else {
+                val error = task.exception as FirebaseRemoteConfigException
+                sendEvent(RemoteConfigErrorEvent.FETCH_ERROR, gson.toJson(RemoteConfigErrorEvent(error.message, 0)))
+            }
+        }
         return null
     }
 
     fun activateFetched(ctx: FREContext, argv: FREArgv): FREObject? {
-        remoteConfigController.activateFetched()
+        remoteConfig.activateFetched()
         return null
     }
 
-    @Suppress("LiftReturnOrAssignment")
     fun getInfo(ctx: FREContext, argv: FREArgv): FREObject? {
-        val info = remoteConfigController.getInfo() ?: return null // TODO convert to Extension
-        try {
-            val ret = FREObject("com.tuarua.firebase.remoteconfig.RemoteConfigInfo")
-            val remoteConfigSettings = FREObject(
-                    "com.tuarua.firebase.remoteconfig.RemoteConfigSettings",
-                    info.configSettings.isDeveloperModeEnabled
-            )
-            ret.setProp("fetchTimeMillis", info.fetchTimeMillis)
-            ret.setProp("lastFetchStatus", info.lastFetchStatus)
-            ret.setProperty("configSettings", remoteConfigSettings)
-            return ret
-        } catch (e: FreException) {
-            return e.getError(Thread.currentThread().stackTrace)
-        } catch (e: Exception) {
-            return FreException(e).getError(Thread.currentThread().stackTrace)
-        }
+       return remoteConfig.getInfo()?.toFREObject()
     }
 
     override val TAG: String

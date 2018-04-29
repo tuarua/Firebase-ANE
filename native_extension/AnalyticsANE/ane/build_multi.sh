@@ -30,6 +30,9 @@ fi
 if [ ! -d "$pathtome/platforms/ios" ]; then
 mkdir "$pathtome/platforms/ios"
 fi
+if [ ! -d "$pathtome/platforms/android" ]; then
+mkdir "$pathtome/platforms/android"
+fi
 if [ ! -d "$pathtome/platforms/ios/simulator" ]; then
 mkdir "$pathtome/platforms/ios/simulator"
 fi
@@ -57,9 +60,16 @@ unzip "$pathtome/$PROJECTNAME.swc" "library.swf" -d "$pathtome"
 
 #Copy library.swf to folders.
 echo "Copying library.swf into place."
+cp "$pathtome/library.swf" "$pathtome/platforms/android"
 cp "$pathtome/library.swf" "$pathtome/platforms/ios/simulator"
 cp "$pathtome/library.swf" "$pathtome/platforms/ios/device"
 cp "$pathtome/library.swf" "$pathtome/platforms/default"
+
+cp "$pathtome/../../../native_library/android/FirebaseANE/Analytics/build/outputs/aar/Analytics-release.aar" "$pathtome/platforms/android/app-release.aar"
+echo "getting Android jars"
+unzip "$pathtome/platforms/android/app-release.aar" "classes.jar" -d "$pathtome/platforms/android"
+unzip "$pathtome/platforms/android/app-release.aar" "res/*" -d "$pathtome/platforms/android"
+mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.tuarua.firebase.$PROJECTNAME-res"
 
 #Copy native libraries into place.
 echo "Copying native libraries into place."
@@ -75,18 +85,26 @@ cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseAnalytics.framew
 #Run the build command.
 echo "Building ANE."
 "$AIR_SDK"/bin/adt -package \
--target ane "$pathtome/$PROJECTNAME.ane" "$pathtome/extension_ios.xml" \
+-target ane "$pathtome/$PROJECTNAME.ane" "$pathtome/extension_multi.xml" \
 -swc "$pathtome/$PROJECTNAME.swc" \
 -platform iPhone-x86  -C "$pathtome/platforms/ios/simulator" "library.swf" "Frameworks" "lib$PROJECTNAME.a" \
 -platformoptions "$pathtome/platforms/ios/platform.xml" \
 -platform iPhone-ARM  -C "$pathtome/platforms/ios/device" "library.swf" "Frameworks" "lib$PROJECTNAME.a" \
 -platformoptions "$pathtome/platforms/ios/platform.xml" \
+-platform Android-ARM \
+-C "$pathtome/platforms/android" "library.swf" "classes.jar" \
+com.tuarua.firebase.$PROJECTNAME-res/. \
+-platformoptions "$pathtome/platforms/android/platform.xml" \
 -platform default -C "$pathtome/platforms/default" "library.swf"
 
 #remove the frameworks from sim and device, as not needed any more
+rm "$pathtome/platforms/android/classes.jar"
+rm "$pathtome/platforms/android/app-release.aar"
+rm "$pathtome/platforms/android/library.swf"
 rm -r "$pathtome/platforms/ios/simulator"
 rm -r "$pathtome/platforms/ios/device"
 rm -r "$pathtome/platforms/default"
 rm "$pathtome/$PROJECTNAME.swc"
 rm "$pathtome/library.swf"
+rm -r "$pathtome/platforms/android/com.tuarua.firebase.$PROJECTNAME-res"
 echo "Finished."

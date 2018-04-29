@@ -4,6 +4,7 @@ import FreSwift
 extension SwiftController: FreSwiftMainController {
     @objc public func getFunctions(prefix: String) -> [String] {
         functionsToSet["\(prefix)init"] = initController
+        functionsToSet["\(prefix)getAppInstanceId"] = getAppInstanceId
         functionsToSet["\(prefix)setUserProperty"] = setUserProperty
         functionsToSet["\(prefix)setUserId"] = setUserId
         functionsToSet["\(prefix)setSessionTimeoutDuration"] = setSessionTimeoutDuration

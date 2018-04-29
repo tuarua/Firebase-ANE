@@ -35,6 +35,15 @@ public class AnalyticsANE extends EventDispatcher {
         }
     }
 
+    public function get appInstanceId():String {
+        if (!_analytics) throw new Error(INIT_ERROR_MESSAGE);
+        var theRet:* = AnalyticsANEContext.context.call("getAppInstanceId");
+        if (theRet is ANEError) {
+            throw theRet as ANEError;
+        }
+        return theRet as String;
+    }
+
     public function set analyticsCollectionEnabled(value:Boolean):void {
         if (!_analytics) throw new Error(INIT_ERROR_MESSAGE);
         var theRet:* = AnalyticsANEContext.context.call("setAnalyticsCollectionEnabled", value);

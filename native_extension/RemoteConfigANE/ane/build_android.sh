@@ -5,10 +5,15 @@ echo "Setting path to current directory to:"
 pathtome=$0
 pathtome="${pathtome%/*}"
 
-PROJECTNAME=AnalyticsANE
+
+echo $pathtome
+
+PROJECTNAME=RemoteConfigANE
 
 AIR_SDK="/Users/User/sdks/AIR/AIRSDK_29"
 echo $AIR_SDK
+
+
 
 #Copy SWC into place.
 echo "Copying SWC into place."
@@ -24,7 +29,7 @@ cp "$pathtome/library.swf" "$pathtome/platforms/android"
 
 
 echo "Copying Android aars into place"
-cp "$pathtome/../../../native_library/android/FirebaseANE/Analytics/build/outputs/aar/Analytics-release.aar" "$pathtome/platforms/android/app-release.aar"
+cp "$pathtome/../../../native_library/android/FirebaseANE/RemoteConfig/build/outputs/aar/RemoteConfig-release.aar" "$pathtome/platforms/android/app-release.aar"
 echo "getting Android jars"
 unzip "$pathtome/platforms/android/app-release.aar" "classes.jar" -d "$pathtome/platforms/android"
 unzip "$pathtome/platforms/android/app-release.aar" "res/*" -d "$pathtome/platforms/android"

@@ -21,6 +21,7 @@ CONTEXT_INIT(TRFIRAN) {
     static FRENamedFunction extensionFunctions[] =
     {
          MAP_FUNCTION(TRFIRAN, init)
+        ,MAP_FUNCTION(TRFIRAN, getAppInstanceId)
         ,MAP_FUNCTION(TRFIRAN, setUserProperty)
         ,MAP_FUNCTION(TRFIRAN, setUserId)
         ,MAP_FUNCTION(TRFIRAN, setSessionTimeoutDuration)

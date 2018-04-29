@@ -4,6 +4,7 @@ import com.tuarua.firebase.AnalyticsANE;
 import com.tuarua.firebase.FirebaseOptions;
 import com.tuarua.firebase.FirestoreANE;
 import com.tuarua.firebase.RemoteConfigANE;
+import com.tuarua.fre.ANEError;
 
 import flash.desktop.NativeApplication;
 import flash.events.Event;
@@ -44,13 +45,17 @@ public class StarlingRoot extends Sprite {
     public function start():void {
         initMenu();
 
-        FirebaseANE.init();
+        try {
+            FirebaseANE.init();
 
-        var fo:FirebaseOptions = FirebaseANE.options;
-        if (fo) {
-            trace("apiKey", fo.apiKey);
-            trace("googleAppId", fo.googleAppId);
-            trace("storageBucket", fo.storageBucket);
+            var fo:FirebaseOptions = FirebaseANE.options;
+            if (fo) {
+                trace("apiKey", fo.apiKey);
+                trace("googleAppId", fo.googleAppId);
+                trace("storageBucket", fo.storageBucket);
+            }
+        } catch (e:ANEError) {
+            trace(e.errorID, e.getStackTrace(), e.source);
         }
 
     }

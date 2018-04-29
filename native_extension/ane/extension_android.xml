@@ -2,7 +2,7 @@
 <extension xmlns="http://ns.adobe.com/air/extension/19.0">
     <id>com.tuarua.firebase.FirebaseANE</id>
 	<name>Firebase ANE</name>
-	<copyright>This work is licensed under Apache License, Copyright (c) 2017 Tua Rua Ltd.</copyright>
+	<copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
 	<versionNumber>0.0.1</versionNumber>
     <platforms>
 		<platform name="Android-ARM"> 

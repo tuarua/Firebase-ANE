@@ -114,7 +114,7 @@ public class StorageExample extends Sprite {
 
     private function onError(event:StorageErrorEvent):void {
         trace(event.text);
-        statusLabel.text = event.text;
+        statusLabel.text = "Error: " + event.errorID + " : " +event.text;
     }
 
     private function onDownloadBytesClick(event:TouchEvent):void {
@@ -170,12 +170,15 @@ public class StorageExample extends Sprite {
 
     private function onUploadError(event:StorageErrorEvent):void {
         trace(event);
-        statusLabel.text = "Upload error: " + event.text;
+        statusLabel.text = "Upload error: " + event.errorID + " : " + event.text;
     }
 
     private function onDownloadError(event:StorageErrorEvent):void {
         trace(event);
-        statusLabel.text = "Download error: " + event.text;
+
+        // Android [trace] [ErrorEvent type="StorageErrorEvent.Error" bubbles=true cancelable=false eventPhase=2 text="User does not have permission to access this object." errorID=-13021]
+
+        statusLabel.text = "Download error: " + event.errorID + " : " + event.text;
     }
 
     private function onGetMetadata(event:StorageEvent):void {
