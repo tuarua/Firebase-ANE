@@ -292,7 +292,4 @@ public class SwiftController: NSObject {
         return nil
     }
     
-    @objc func applicationDidFinishLaunching(_ notification: Notification) {
-    }
-    
 }

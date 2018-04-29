@@ -8,7 +8,6 @@ public class SwiftController: NSObject {
     public var functionsToSet: FREFunctionMap = [:]
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        trace("Firebase app Name", FirebaseApp.app()?.name ?? "unknown")
         return true.toFREObject()
     }
     

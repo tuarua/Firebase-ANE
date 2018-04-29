@@ -74,6 +74,9 @@ cp -R -L "$pathtome/../../native_library/apple/$PROJECTNAME/Build/Products/Relea
 cp -R -L "$pathtome/../../example/ios_dependencies/simulator/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../example/ios_dependencies/device/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/device/Frameworks"
 
+cp -R -L "$pathtome/../../firebase_frameworks/simulator/Firebase.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../firebase_frameworks/device/Firebase.framework" "$pathtome/platforms/ios/device/Frameworks"
+
 cp -R -L "$pathtome/../../firebase_frameworks/simulator/FirebaseCore.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../firebase_frameworks/device/FirebaseCore.framework" "$pathtome/platforms/ios/device/Frameworks"
 
@@ -94,14 +97,6 @@ cp -R -L "$pathtome/../../firebase_frameworks/device/FirebaseNanoPB.framework" "
 
 cp -R -L "$pathtome/../../firebase_frameworks/simulator/GoogleToolboxForMac.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../firebase_frameworks/device/GoogleToolboxForMac.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-
-#cp -R -L "$pathtome/../../native_library/ios/$PROJECTNAME/Build/Products/Release-iphonesimulator/Protobuf/Protobuf.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-#cp -R -L "$pathtome/../../native_library/ios/$PROJECTNAME/Build/Products/Release-iphoneos/Protobuf/Protobuf.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-#cp -R -L "$pathtome/../../native_library/ios/$PROJECTNAME/Build/Products/Release-iphonesimulator/Protobuf/Protobuf.framework" "$pathtome/../../example/ios_dependencies/simulator/Frameworks"
-#cp -R -L "$pathtome/../../native_library/ios/$PROJECTNAME/Build/Products/Release-iphoneos/Protobuf/Protobuf.framework" "$pathtome/../../example/ios_dependencies/device/Frameworks"
-
 
 
 #Run the build command.

@@ -11,6 +11,7 @@
     
     <packagedDependencies>
         <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
+        <packagedDependency>Frameworks/Firebase.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseCore.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseCoreDiagnostics.framework</packagedDependency>
         <packagedDependency>Frameworks/nanopb.framework</packagedDependency>

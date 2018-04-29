@@ -47,6 +47,9 @@
             <entry library-name="StorageANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="RemoteConfigANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_29" />
         </dependencies>
@@ -84,6 +87,9 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="StorageANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="RemoteConfigANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -147,5 +153,6 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-iid-12.0.1" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-storage-12.0.1" level="project" />
     <orderEntry type="library" exported="" name="StorageANE" level="project" />
+    <orderEntry type="library" exported="" name="RemoteConfigANE" level="project" />
   </component>
 </module>

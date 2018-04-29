@@ -37,6 +37,26 @@
 		CE743211208D4BA900E388D3 /* QueryEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE743210208D4BA900E388D3 /* QueryEvent.swift */; };
 		CE743213208D4F6300E388D3 /* DocumentEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE743212208D4F6300E388D3 /* DocumentEvent.swift */; };
 		CE87F4791FB259DB005CF7DF /* FirebaseANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87F4781FB259DB005CF7DF /* FirebaseANE.m */; };
+		CE94517420951E8B00FE2BD7 /* FreFirebaseOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE94517320951E8B00FE2BD7 /* FreFirebaseOptions.swift */; };
+		CE94517920951FCF00FE2BD7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74320D208D4B8100E388D3 /* SwiftyJSON.swift */; };
+		CE94518420951FCF00FE2BD7 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
+		CE94518520951FCF00FE2BD7 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
+		CE94518820951FCF00FE2BD7 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE74320C208D4B8100E388D3 /* SwiftyJSON.h */; };
+		CE94518C20951FCF00FE2BD7 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
+		CE945197209520AA00FE2BD7 /* RemoteConfigANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE945196209520AA00FE2BD7 /* RemoteConfigANE_oc.h */; };
+		CE945199209520EF00FE2BD7 /* RemoteConfigANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CE945198209520EF00FE2BD7 /* RemoteConfigANE-Bridging-Header.h */; };
+		CE94519B2095212F00FE2BD7 /* RemoteConfigANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE94519A2095212F00FE2BD7 /* RemoteConfigANE.m */; };
+		CE94519D209521BE00FE2BD7 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE94519C209521BE00FE2BD7 /* SwiftController.swift */; };
+		CE94519F209521EE00FE2BD7 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE94519E209521EE00FE2BD7 /* SwiftController+FreSwift.swift */; };
+		CE9451A12095224400FE2BD7 /* RemoteConfigANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9451A02095224400FE2BD7 /* RemoteConfigANE-Swift.h */; };
+		CE9451A42095323C00FE2BD7 /* FirebaseABTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9451A22095323B00FE2BD7 /* FirebaseABTesting.framework */; };
+		CE9451A52095323C00FE2BD7 /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9451A32095323C00FE2BD7 /* FirebaseRemoteConfig.framework */; };
+		CE9451A62095324600FE2BD7 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; };
+		CE9451A82095327700FE2BD7 /* RemoteConfigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9451A72095327700FE2BD7 /* RemoteConfigController.swift */; };
+		CE9451AA2095347700FE2BD7 /* RemoteConfigEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9451A92095347700FE2BD7 /* RemoteConfigEvent.swift */; };
+		CE9451AC2095348F00FE2BD7 /* RemoteConfigErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9451AB2095348E00FE2BD7 /* RemoteConfigErrorEvent.swift */; };
+		CE9451AE2095355600FE2BD7 /* FreRemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9451AD2095355600FE2BD7 /* FreRemoteConfig.swift */; };
+		CE9451B0209536B300FE2BD7 /* FreRemoteConfigSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9451AF209536B300FE2BD7 /* FreRemoteConfigSettings.swift */; };
 		CEA9AC21201E5F4500BFB223 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA9AC20201E5F4500BFB223 /* SwiftController.swift */; };
 		CEB57290208CF73F00CF6B1B /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CEB572A6208CF7EB00CF6B1B /* FirebaseANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CEA9AC1F201E5F4400BFB223 /* FirebaseANE-Bridging-Header.h */; };
@@ -121,6 +141,21 @@
 		CE87F4751FB259DB005CF7DF /* libFirebaseANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFirebaseANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE87F4771FB259DB005CF7DF /* FirebaseANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseANE_oc.h; sourceTree = "<group>"; };
 		CE87F4781FB259DB005CF7DF /* FirebaseANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirebaseANE.m; sourceTree = "<group>"; };
+		CE94517320951E8B00FE2BD7 /* FreFirebaseOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreFirebaseOptions.swift; sourceTree = "<group>"; };
+		CE94519220951FCF00FE2BD7 /* libRemoteConfigANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRemoteConfigANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE945196209520AA00FE2BD7 /* RemoteConfigANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteConfigANE_oc.h; sourceTree = "<group>"; };
+		CE945198209520EF00FE2BD7 /* RemoteConfigANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RemoteConfigANE-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE94519A2095212F00FE2BD7 /* RemoteConfigANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemoteConfigANE.m; sourceTree = "<group>"; };
+		CE94519C209521BE00FE2BD7 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
+		CE94519E209521EE00FE2BD7 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		CE9451A02095224400FE2BD7 /* RemoteConfigANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RemoteConfigANE-Swift.h"; sourceTree = "<group>"; };
+		CE9451A22095323B00FE2BD7 /* FirebaseABTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseABTesting.framework; path = Carthage/Build/iOS/FirebaseABTesting.framework; sourceTree = "<group>"; };
+		CE9451A32095323C00FE2BD7 /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseRemoteConfig.framework; path = Carthage/Build/iOS/FirebaseRemoteConfig.framework; sourceTree = "<group>"; };
+		CE9451A72095327700FE2BD7 /* RemoteConfigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigController.swift; sourceTree = "<group>"; };
+		CE9451A92095347700FE2BD7 /* RemoteConfigEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteConfigEvent.swift; path = ../../../../ios_LAST/FirebaseANE/RemoteConfigANE_FW/RemoteConfigEvent.swift; sourceTree = "<group>"; };
+		CE9451AB2095348E00FE2BD7 /* RemoteConfigErrorEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteConfigErrorEvent.swift; path = ../../../../ios_LAST/FirebaseANE/RemoteConfigANE_FW/RemoteConfigErrorEvent.swift; sourceTree = "<group>"; };
+		CE9451AD2095355600FE2BD7 /* FreRemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreRemoteConfig.swift; sourceTree = "<group>"; };
+		CE9451AF209536B300FE2BD7 /* FreRemoteConfigSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreRemoteConfigSettings.swift; sourceTree = "<group>"; };
 		CEA9AC1F201E5F4400BFB223 /* FirebaseANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FirebaseANE-Bridging-Header.h"; sourceTree = "<group>"; };
 		CEA9AC20201E5F4500BFB223 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		CEA9AC22201E611600BFB223 /* FirebaseANE-Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FirebaseANE-Swift.h"; sourceTree = "<group>"; };
@@ -178,6 +213,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE94518220951FCF00FE2BD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE94518420951FCF00FE2BD7 /* FreSwift.framework in Frameworks */,
+				CE9451A52095323C00FE2BD7 /* FirebaseRemoteConfig.framework in Frameworks */,
+				CE94518520951FCF00FE2BD7 /* FirebaseCore.framework in Frameworks */,
+				CE9451A42095323C00FE2BD7 /* FirebaseABTesting.framework in Frameworks */,
+				CE9451A62095324600FE2BD7 /* Protobuf.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEB5728F208CF73F00CF6B1B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,6 +276,8 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE9451A22095323B00FE2BD7 /* FirebaseABTesting.framework */,
+				CE9451A32095323C00FE2BD7 /* FirebaseRemoteConfig.framework */,
 				CED7492120929C1F000327CD /* FirebaseStorage.framework */,
 				CED7492220929C1F000327CD /* GTMSessionFetcher.framework */,
 				CED748E32092558C000327CD /* StoreKit.framework */,
@@ -312,6 +361,7 @@
 				CEE4F878209150AB00222131 /* StorageANE */,
 				CE7D4331208CF6D000DF8B79 /* FirestoreANE */,
 				CEE80D6C208CF43600C96EC6 /* AnalyticsANE */,
+				CE94517520951FBA00FE2BD7 /* RemoteConfigANE */,
 				CE87F4761FB259DB005CF7DF /* FirebaseANE */,
 				CE87F4661FB259C9005CF7DF /* Products */,
 			);
@@ -324,6 +374,7 @@
 				CEE80D6B208CF3E200C96EC6 /* libAnalyticsANE_LIB.a */,
 				CEB57299208CF73F00CF6B1B /* libFirestoreANE_LIB.a */,
 				CED7490E20929586000327CD /* libStorageANE_LIB.a */,
+				CE94519220951FCF00FE2BD7 /* libRemoteConfigANE_LIB.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -331,6 +382,7 @@
 		CE87F4761FB259DB005CF7DF /* FirebaseANE */ = {
 			isa = PBXGroup;
 			children = (
+				CE94517220951E6600FE2BD7 /* Extensions */,
 				CEA9AC22201E611600BFB223 /* FirebaseANE-Swift.h */,
 				CEE80D46208CE15A00C96EC6 /* Headers */,
 				CE87F4781FB259DB005CF7DF /* FirebaseANE.m */,
@@ -338,6 +390,56 @@
 				CEE80D4F208CE55700C96EC6 /* SwiftController+FreSwift.swift */,
 			);
 			path = FirebaseANE;
+			sourceTree = "<group>";
+		};
+		CE94517220951E6600FE2BD7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE94517320951E8B00FE2BD7 /* FreFirebaseOptions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE94517520951FBA00FE2BD7 /* RemoteConfigANE */ = {
+			isa = PBXGroup;
+			children = (
+				CE9451952095207000FE2BD7 /* Headers */,
+				CE9451942095206800FE2BD7 /* Events */,
+				CE9451932095205E00FE2BD7 /* Extensions */,
+				CE94519A2095212F00FE2BD7 /* RemoteConfigANE.m */,
+				CE94519C209521BE00FE2BD7 /* SwiftController.swift */,
+				CE94519E209521EE00FE2BD7 /* SwiftController+FreSwift.swift */,
+				CE9451A02095224400FE2BD7 /* RemoteConfigANE-Swift.h */,
+				CE9451A72095327700FE2BD7 /* RemoteConfigController.swift */,
+			);
+			path = RemoteConfigANE;
+			sourceTree = "<group>";
+		};
+		CE9451932095205E00FE2BD7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE9451AD2095355600FE2BD7 /* FreRemoteConfig.swift */,
+				CE9451AF209536B300FE2BD7 /* FreRemoteConfigSettings.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE9451942095206800FE2BD7 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				CE9451AB2095348E00FE2BD7 /* RemoteConfigErrorEvent.swift */,
+				CE9451A92095347700FE2BD7 /* RemoteConfigEvent.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		CE9451952095207000FE2BD7 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				CE945196209520AA00FE2BD7 /* RemoteConfigANE_oc.h */,
+				CE945198209520EF00FE2BD7 /* RemoteConfigANE-Bridging-Header.h */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		CEB57289208CF6F500CF6B1B /* Headers */ = {
@@ -437,6 +539,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE94518720951FCF00FE2BD7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE9451A12095224400FE2BD7 /* RemoteConfigANE-Swift.h in Headers */,
+				CE94518820951FCF00FE2BD7 /* SwiftyJSON.h in Headers */,
+				CE94518C20951FCF00FE2BD7 /* FreMacros.h in Headers */,
+				CE945199209520EF00FE2BD7 /* RemoteConfigANE-Bridging-Header.h in Headers */,
+				CE945197209520AA00FE2BD7 /* RemoteConfigANE_oc.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEB57291208CF73F00CF6B1B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -492,6 +606,25 @@
 			name = FirebaseANE_LIB;
 			productName = HelloWorldANE_LIB;
 			productReference = CE87F4751FB259DB005CF7DF /* libFirebaseANE_LIB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CE94517620951FCF00FE2BD7 /* RemoteConfigANE_LIB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE94518F20951FCF00FE2BD7 /* Build configuration list for PBXNativeTarget "RemoteConfigANE_LIB" */;
+			buildPhases = (
+				CE94517720951FCF00FE2BD7 /* Sources */,
+				CE94518220951FCF00FE2BD7 /* Frameworks */,
+				CE94518720951FCF00FE2BD7 /* Headers */,
+				CE94518D20951FCF00FE2BD7 /* ShellScript */,
+				CE94518E20951FCF00FE2BD7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RemoteConfigANE_LIB;
+			productName = HelloWorldANE_LIB;
+			productReference = CE94519220951FCF00FE2BD7 /* libRemoteConfigANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		CEB5728A208CF73F00CF6B1B /* FirestoreANE_LIB */ = {
@@ -583,6 +716,7 @@
 				CEE80D58208CF3E200C96EC6 /* AnalyticsANE_LIB */,
 				CEB5728A208CF73F00CF6B1B /* FirestoreANE_LIB */,
 				CED748E520929586000327CD /* StorageANE_LIB */,
+				CE94517620951FCF00FE2BD7 /* RemoteConfigANE_LIB */,
 			);
 		};
 /* End PBXProject section */
@@ -600,6 +734,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		CE94518D20951FCF00FE2BD7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		CE94518E20951FCF00FE2BD7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = ../../../native_extension/RemoteConfigANE/ane/build_ios.sh;
 		};
 		CEB57295208CF73F00CF6B1B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -664,7 +824,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/FirestoreANE/ane/build_ios.sh;
+			shellScript = ../../../native_extension/StorageANE/ane/build_ios.sh;
 		};
 		CEDDADE01FBFB84900D6EB5F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -700,8 +860,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE87F4791FB259DB005CF7DF /* FirebaseANE.m in Sources */,
+				CE94517420951E8B00FE2BD7 /* FreFirebaseOptions.swift in Sources */,
 				CEA9AC21201E5F4500BFB223 /* SwiftController.swift in Sources */,
 				CEE80D50208CE55700C96EC6 /* SwiftController+FreSwift.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE94517720951FCF00FE2BD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE94519B2095212F00FE2BD7 /* RemoteConfigANE.m in Sources */,
+				CE9451B0209536B300FE2BD7 /* FreRemoteConfigSettings.swift in Sources */,
+				CE94519D209521BE00FE2BD7 /* SwiftController.swift in Sources */,
+				CE9451AA2095347700FE2BD7 /* RemoteConfigEvent.swift in Sources */,
+				CE94517920951FCF00FE2BD7 /* SwiftyJSON.swift in Sources */,
+				CE94519F209521EE00FE2BD7 /* SwiftController+FreSwift.swift in Sources */,
+				CE9451A82095327700FE2BD7 /* RemoteConfigController.swift in Sources */,
+				CE9451AC2095348F00FE2BD7 /* RemoteConfigErrorEvent.swift in Sources */,
+				CE9451AE2095355600FE2BD7 /* FreRemoteConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,6 +1094,53 @@
 			};
 			name = Release;
 		};
+		CE94519020951FCF00FE2BD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RemoteConfigANE/Headers/RemoteConfigANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "RemoteConfigANE/RemoteConfigANE-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		CE94519120951FCF00FE2BD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RemoteConfigANE/Headers/RemoteConfigANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "RemoteConfigANE/RemoteConfigANE-Swift.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		CEB57297208CF73F00CF6B1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1075,6 +1299,15 @@
 			buildConfigurations = (
 				CE87F47C1FB259DB005CF7DF /* Debug */,
 				CE87F47D1FB259DB005CF7DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE94518F20951FCF00FE2BD7 /* Build configuration list for PBXNativeTarget "RemoteConfigANE_LIB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE94519020951FCF00FE2BD7 /* Debug */,
+				CE94519120951FCF00FE2BD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

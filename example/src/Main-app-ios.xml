@@ -57,5 +57,6 @@
         <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
         <extensionID>com.tuarua.firebase.FirestoreANE</extensionID>
         <extensionID>com.tuarua.firebase.StorageANE</extensionID>
+        <extensionID>com.tuarua.firebase.RemoteConfigANE</extensionID>
     </extensions>
 </application>

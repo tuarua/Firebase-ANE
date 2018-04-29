@@ -20,7 +20,7 @@ class FirestoreController: FreSwiftController {
         self.init()
         self.context = context
         guard let app = FirebaseApp.app() else {
-            trace(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
+            warning(">>>>>>>>>> NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
             return
         }
         if loggingEnabled {
@@ -186,7 +186,7 @@ class FirestoreController: FreSwiftController {
                     self.trace("Error writing document: \(err)")
                     if !self.hasEventListener(asId: asId, type: FirestoreErrorEvent.ERROR) { return }
                     self.sendEvent(name: FirestoreErrorEvent.ERROR,
-                                   value: FirestoreErrorEvent.init(eventId: asId,
+                                   value: FirestoreErrorEvent(eventId: asId,
                                                                    text: err.localizedDescription,
                                                                    id: err.code).toJSONString())
                     
@@ -194,7 +194,7 @@ class FirestoreController: FreSwiftController {
                     self.trace("Document successfully written!")
                     if !self.hasEventListener(asId: asId, type: DocumentEvent.COMPLETE) { return }
                     self.sendEvent(name: DocumentEvent.COMPLETE,
-                                   value: DocumentEvent.init(eventId: asId, data: nil).toJSONString())
+                                   value: DocumentEvent(eventId: asId, data: nil).toJSONString())
                     
                 }
             })
@@ -204,7 +204,7 @@ class FirestoreController: FreSwiftController {
                     self.trace("Error writing document: \(err)")
                     if !self.hasEventListener(asId: asId, type: FirestoreErrorEvent.ERROR) { return }
                     self.sendEvent(name: FirestoreErrorEvent.ERROR,
-                                   value: FirestoreErrorEvent.init(eventId: asId,
+                                   value: FirestoreErrorEvent(eventId: asId,
                                                                    text: err.localizedDescription,
                                                                    id: err.code).toJSONString())
                     
@@ -212,7 +212,7 @@ class FirestoreController: FreSwiftController {
                     self.trace("Document successfully written!")
                     if !self.hasEventListener(asId: asId, type: DocumentEvent.COMPLETE) { return }
                     self.sendEvent(name: DocumentEvent.COMPLETE,
-                                   value: DocumentEvent.init(eventId: asId, data: nil).toJSONString())
+                                   value: DocumentEvent(eventId: asId, data: nil).toJSONString())
                     
                 }
             })
@@ -227,13 +227,13 @@ class FirestoreController: FreSwiftController {
             if let err = error as NSError? {
                 if !self.hasEventListener(asId: asId, type: FirestoreErrorEvent.ERROR) { return }
                 self.sendEvent(name: FirestoreErrorEvent.ERROR,
-                               value: FirestoreErrorEvent.init(eventId: asId,
+                               value: FirestoreErrorEvent(eventId: asId,
                                                                text: err.localizedDescription,
                                                                id: err.code).toJSONString())
             } else {
                 if !self.hasEventListener(asId: asId, type: DocumentEvent.COMPLETE) { return }
                 self.sendEvent(name: DocumentEvent.COMPLETE,
-                               value: DocumentEvent.init(eventId: asId, data: nil).toJSONString())
+                               value: DocumentEvent(eventId: asId, data: nil).toJSONString())
             }
         })
     }

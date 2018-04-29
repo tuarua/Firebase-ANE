@@ -27,7 +27,7 @@ import starling.utils.Align;
 
 import views.SimpleButton;
 
-public class Storage extends Sprite {
+public class StorageExample extends Sprite {
     private var storage:StorageANE;
     private var storageRef:StorageReference;
     private var btnGetMetadata:SimpleButton = new SimpleButton("Get File Metadata");
@@ -38,7 +38,7 @@ public class Storage extends Sprite {
     private var statusLabel:TextField;
     private var stageWidth:Number;
 
-    public function Storage(stageWidth:Number) {
+    public function StorageExample(stageWidth:Number) {
         super();
         this.stageWidth = stageWidth;
 

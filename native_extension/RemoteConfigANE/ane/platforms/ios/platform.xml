@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <platform xmlns="http://ns.adobe.com/air/extension/19.0">
-    <sdkVersion>10.1</sdkVersion>
+    <sdkVersion>11.3</sdkVersion>
     <linkerOptions>
         <option>-ios_version_min 9.0</option>
         <option>-lstdc++</option>
@@ -11,11 +11,9 @@
     
     <packagedDependencies>
         <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
-        <packagedDependency>Frameworks/RemoteConfigANE_FW.framework</packagedDependency>
-        <packagedDependency>Frameworks/GoogleToolboxForMac.framework</packagedDependency>
-        <packagedDependency>Frameworks/nanopb.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseABTesting.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseRemoteConfig.framework</packagedDependency>
         <packagedDependency>Frameworks/Protobuf.framework</packagedDependency>
-        <packagedDependency>Frameworks/SwiftyJSON.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

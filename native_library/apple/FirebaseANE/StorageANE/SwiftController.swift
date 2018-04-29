@@ -242,15 +242,28 @@ public class SwiftController: NSObject {
     
     // MARK: - AS Event Listeners
     
+    // MARK: - AS Event Listeners
+    
     func addEventListener(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard argc > 0,
+            let asId = String(argv[0]),
+            let type = String(argv[1])
+            else {
+                return ArgCountError(message: "addEventListener").getError(#file, #line, #column)
+        }
+        storageController?.addEventListener(asId: asId, type: type)
         return nil
     }
     
     func removeEventListener(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard argc > 0,
+            let asId = String(argv[0]),
+            let type = String(argv[1])
+            else {
+                return ArgCountError(message: "removeEventListener").getError(#file, #line, #column)
+        }
+        storageController?.removeEventListener(asId: asId, type: type)
         return nil
-    }
-    
-    @objc func applicationDidFinishLaunching(_ notification: Notification) {
     }
     
 }

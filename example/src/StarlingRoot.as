@@ -3,7 +3,7 @@ import com.tuarua.FirebaseANE;
 import com.tuarua.firebase.AnalyticsANE;
 import com.tuarua.firebase.FirebaseOptions;
 import com.tuarua.firebase.FirestoreANE;
-import com.tuarua.fre.ANEError;
+import com.tuarua.firebase.RemoteConfigANE;
 
 import flash.desktop.NativeApplication;
 import flash.events.Event;
@@ -15,9 +15,10 @@ import starling.events.TouchPhase;
 import starling.text.TextField;
 
 import views.SimpleButton;
-import views.examples.Analytics;
-import views.examples.Firestore;
-import views.examples.Storage;
+import views.examples.AnalyticsExample;
+import views.examples.FirestoreExample;
+import views.examples.RemoteConfigExample;
+import views.examples.StorageExample;
 
 // https://dandar3.github.io/android/google-services-json-to-xml.html
 
@@ -25,13 +26,15 @@ public class StarlingRoot extends Sprite {
     private var btnAnalytics:SimpleButton = new SimpleButton("Analytics");
     private var btnFirestore:SimpleButton = new SimpleButton("Firestore");
     private var btnStorage:SimpleButton = new SimpleButton("Storage");
+    private var btnRemoteConfig:SimpleButton = new SimpleButton("Remote Config");
 
     private var btnBack:SimpleButton = new SimpleButton("Back");
 
     public static const GAP:int = 60;
-    private var analyticsExample:Analytics;
-    private var firestoreExample:Firestore;
-    private var storageExample:Storage;
+    private var analyticsExample:AnalyticsExample;
+    private var firestoreExample:FirestoreExample;
+    private var storageExample:StorageExample;
+    private var remoteConfigExample:RemoteConfigExample;
 
     public function StarlingRoot() {
         TextField.registerCompositor(Fonts.getFont("fira-sans-semi-bold-13"), "Fira Sans Semi-Bold 13");
@@ -53,7 +56,7 @@ public class StarlingRoot extends Sprite {
     }
 
     private function initMenu():void {
-        btnBack.x = btnStorage.x = btnFirestore.x = btnAnalytics.x = (stage.stageWidth - 200) * 0.5;
+        btnRemoteConfig.x = btnBack.x = btnStorage.x = btnFirestore.x = btnAnalytics.x = (stage.stageWidth - 200) * 0.5;
         btnAnalytics.y = GAP;
         btnAnalytics.addEventListener(TouchEvent.TOUCH, onAnalyticsClick);
         addChild(btnAnalytics);
@@ -66,6 +69,10 @@ public class StarlingRoot extends Sprite {
         btnStorage.addEventListener(TouchEvent.TOUCH, onStorageClick);
         addChild(btnStorage);
 
+        btnRemoteConfig.y = btnStorage.y + GAP;
+        btnRemoteConfig.addEventListener(TouchEvent.TOUCH, onRemoteConfigClick);
+        addChild(btnRemoteConfig);
+
         btnBack.y = stage.stageHeight - 100;
         btnBack.addEventListener(TouchEvent.TOUCH, onBackClick);
         btnBack.visible = false;
@@ -76,7 +83,7 @@ public class StarlingRoot extends Sprite {
         var touch:Touch = event.getTouch(btnAnalytics);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             if (!analyticsExample) {
-                analyticsExample = new Analytics(stage.stageWidth);
+                analyticsExample = new AnalyticsExample(stage.stageWidth);
                 addChild(analyticsExample);
             }
             showMenu(false);
@@ -86,14 +93,14 @@ public class StarlingRoot extends Sprite {
     }
 
     private function showMenu(value:Boolean):void {
-        btnStorage.visible = btnFirestore.visible = btnAnalytics.visible = value;
+        btnRemoteConfig.visible = btnStorage.visible = btnFirestore.visible = btnAnalytics.visible = value;
     }
 
     private function onFirestoreClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnFirestore);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             if (!firestoreExample) {
-                firestoreExample = new Firestore(stage.stageWidth);
+                firestoreExample = new FirestoreExample(stage.stageWidth);
                 addChild(firestoreExample);
             }
             showMenu(false);
@@ -105,13 +112,25 @@ public class StarlingRoot extends Sprite {
     private function onStorageClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnStorage);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            storageExample
             if (!storageExample) {
-                storageExample = new Storage(stage.stageWidth);
+                storageExample = new StorageExample(stage.stageWidth);
                 addChild(storageExample);
             }
             showMenu(false);
             storageExample.visible = true;
+            btnBack.visible = true;
+        }
+    }
+
+    private function onRemoteConfigClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnRemoteConfig);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            if (!remoteConfigExample) {
+                remoteConfigExample = new RemoteConfigExample(stage.stageWidth);
+                addChild(remoteConfigExample);
+            }
+            showMenu(false);
+            remoteConfigExample.visible = true;
             btnBack.visible = true;
         }
     }
@@ -123,6 +142,7 @@ public class StarlingRoot extends Sprite {
             if (analyticsExample) analyticsExample.visible = false;
             if (firestoreExample) firestoreExample.visible = false;
             if (storageExample) storageExample.visible = false;
+            if (remoteConfigExample) remoteConfigExample.visible = false;
             btnBack.visible = false;
         }
     }
@@ -131,6 +151,7 @@ public class StarlingRoot extends Sprite {
         FirebaseANE.dispose();
         AnalyticsANE.dispose();
         FirestoreANE.dispose();
+        RemoteConfigANE.dispose();
     }
 
 }

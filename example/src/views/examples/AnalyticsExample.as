@@ -13,14 +13,14 @@ import starling.utils.Align;
 
 import views.SimpleButton;
 
-public class Analytics extends Sprite {
+public class AnalyticsExample extends Sprite {
     private var analytics:AnalyticsANE;
     private var btnLogEvent:SimpleButton = new SimpleButton("Log Event");
     private var btnReset:SimpleButton = new SimpleButton("Reset Analytics Data");
     private var statusLabel:TextField;
     private var stageWidth:Number;
 
-    public function Analytics(stageWidth:Number) {
+    public function AnalyticsExample(stageWidth:Number) {
         super();
         this.stageWidth = stageWidth;
         analytics = AnalyticsANE.analytics;

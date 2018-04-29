@@ -10,11 +10,17 @@ class StorageController: FreSwiftController {
     private var uploadTasks: [String: StorageUploadTask] = [:]
     private var downloadTasks: [String: StorageDownloadTask] = [:]
     
+    struct Listener {
+        var asId: String
+        var type: String
+    }
+    var listeners: [Listener] = []
+    
     convenience init(context: FreContextSwift, url: String?) {
         self.init()
         self.context = context
         guard let app = FirebaseApp.app() else {
-            trace(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
+            warning(">>>>>>>>>> NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
             return
         }
         if let url = url {
@@ -40,11 +46,13 @@ class StorageController: FreSwiftController {
         if let localURL = URL(string: destinationFile) {
             let downloadTask = storageRef.write(toFile: localURL) { url, error in
                 if let err = error as NSError? {
+                    if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
                     self.sendEvent(name: StorageErrorEvent.ERROR,
                                    value: StorageErrorEvent(eventId: asId,
                                                             text: err.localizedDescription,
                                                             id: err.code).toJSONString())
                 } else {
+                    if !self.hasEventListener(asId: asId, type: StorageEvent.COMPLETE) { return }
                     var data = [String: Any]()
                     data["localPath"] = destinationFile
                     data["url"] = url?.absoluteString
@@ -55,6 +63,7 @@ class StorageController: FreSwiftController {
             
             downloadTask.observe(.progress) { snapshot in
                 if let p = snapshot.progress, p.totalUnitCount > 0 {
+                    if !self.hasEventListener(asId: asId, type: StorageProgressEvent.PROGRESS) { return }
                     self.sendEvent(name: StorageProgressEvent.PROGRESS,
                                    value: StorageProgressEvent(eventId: asId,
                                                                bytesLoaded: Double(p.completedUnitCount),
@@ -65,6 +74,7 @@ class StorageController: FreSwiftController {
             
             downloadTask.observe(.failure, handler: {snapshot in
                 if let err = snapshot.error as NSError? {
+                    if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
                     self.sendEvent(name: StorageErrorEvent.ERROR,
                                    value: StorageErrorEvent(eventId: asId,
                                                                  text: err.localizedDescription,
@@ -87,11 +97,13 @@ class StorageController: FreSwiftController {
     func deleteReference(path: String, asId: String) {
         storage?.reference(withPath: path).delete(completion: { error in
             if let err = error as NSError? {
+                if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
                 self.sendEvent(name: StorageErrorEvent.ERROR,
                                value: StorageErrorEvent(eventId: asId,
                                                              text: err.localizedDescription,
                                                              id: err.code).toJSONString())
             } else {
+                if !self.hasEventListener(asId: asId, type: StorageEvent.COMPLETE) { return }
                 self.sendEvent(name: StorageEvent.COMPLETE,
                                value: StorageEvent(eventId: asId, data: ["localPath": path]).toJSONString())
             }
@@ -104,6 +116,7 @@ class StorageController: FreSwiftController {
         
         uploadTask.observe(.failure, handler: {snapshot in
             if let err = snapshot.error as NSError? {
+                if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
                 self.sendEvent(name: StorageErrorEvent.ERROR,
                                value: StorageErrorEvent(eventId: asId,
                                                              text: err.localizedDescription,
@@ -113,6 +126,7 @@ class StorageController: FreSwiftController {
         
         uploadTask.observe(.progress) { snapshot in
             if let p = snapshot.progress, p.totalUnitCount > 0 {
+                if !self.hasEventListener(asId: asId, type: StorageProgressEvent.PROGRESS) { return }
                 self.sendEvent(name: StorageProgressEvent.PROGRESS,
                                value: StorageProgressEvent(eventId: asId,
                                                            bytesLoaded: Double(p.completedUnitCount),
@@ -122,6 +136,7 @@ class StorageController: FreSwiftController {
         }
         
         uploadTask.observe(.success, handler: { _ in
+            if !self.hasEventListener(asId: asId, type: StorageEvent.COMPLETE) { return }
             self.sendEvent(name: StorageEvent.COMPLETE,
                            value: StorageEvent(eventId: asId, data: nil).toJSONString())
         })
@@ -137,6 +152,7 @@ class StorageController: FreSwiftController {
         let uploadTask = storageRef.putFile(from: localFile, metadata: metadata)
         uploadTask.observe(.progress) { snapshot in
             if let p = snapshot.progress, p.totalUnitCount > 0 {
+                if !self.hasEventListener(asId: asId, type: StorageProgressEvent.PROGRESS) { return }
                 self.sendEvent(name: StorageProgressEvent.PROGRESS,
                                value: StorageProgressEvent(eventId: asId,
                                                                 bytesLoaded: Double(p.completedUnitCount),
@@ -146,6 +162,7 @@ class StorageController: FreSwiftController {
         
         uploadTask.observe(.failure, handler: {snapshot in
             if let err = snapshot.error as NSError? {
+                if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
                 self.sendEvent(name: StorageErrorEvent.ERROR,
                                value: StorageErrorEvent(eventId: asId,
                                                              text: err.localizedDescription,
@@ -157,6 +174,7 @@ class StorageController: FreSwiftController {
             var data = [String: Any]()
             data["localPath"] = filePath
             // TODO return metaData
+            if !self.hasEventListener(asId: asId, type: StorageEvent.COMPLETE) { return }
             self.sendEvent(name: StorageEvent.COMPLETE,
                            value: StorageEvent(eventId: asId, data: data).toJSONString())
         })
@@ -176,11 +194,13 @@ class StorageController: FreSwiftController {
         
         let downloadTask = storageRef.getData(maxSize: Int64(_maxDownloadSizeBytes), completion: { data, error in
             if let err = error as NSError? {
+                if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
                 self.sendEvent(name: StorageErrorEvent.ERROR,
                                value: StorageErrorEvent(eventId: asId,
                                                         text: err.localizedDescription,
                                                         id: err.code).toJSONString())
             } else {
+                if !self.hasEventListener(asId: asId, type: StorageEvent.COMPLETE) { return }
                 if let data = data {
                     let b64 = data.base64EncodedString(options: .init(rawValue: 0))
                     self.sendEvent(name: StorageEvent.COMPLETE,
@@ -191,6 +211,7 @@ class StorageController: FreSwiftController {
         
         downloadTask.observe(.failure, handler: { snapshot in
             if let err = snapshot.error as NSError? {
+                if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
                 self.sendEvent(name: StorageErrorEvent.ERROR,
                                value: StorageErrorEvent(eventId: asId,
                                                              text: err.localizedDescription,
@@ -207,11 +228,13 @@ class StorageController: FreSwiftController {
         
         storageRef.getMetadata { metadata, error in
             if let err = error as NSError? {
+                if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
                 self.sendEvent(name: StorageErrorEvent.ERROR,
-                               value: StorageErrorEvent.init(eventId: asId,
+                               value: StorageErrorEvent(eventId: asId,
                                                              text: err.localizedDescription,
                                                              id: err.code).toJSONString())
             } else {
+                if !self.hasEventListener(asId: asId, type: StorageEvent.GET_METADATA) { return }
                 if let m = metadata {
                     var data = [String: Any]()
                     data["bucket"] = m.bucket
@@ -245,12 +268,14 @@ class StorageController: FreSwiftController {
         guard let storageRef = storage?.reference(withPath: path) else { return }
         storageRef.downloadURL(completion: {(url, error) in
             if let err = error as NSError? {
+                if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
                 self.sendEvent(name: StorageErrorEvent.ERROR,
-                               value: StorageErrorEvent.init(eventId: asId,
+                               value: StorageErrorEvent(eventId: asId,
                                                              text: err.localizedDescription,
                                                              id: err.code).toJSONString())
             } else {
                 if let u = url?.absoluteString {
+                    if !self.hasEventListener(asId: asId, type: StorageEvent.GET_DOWNLOAD_URL) { return }
                     self.sendEvent(name: StorageEvent.GET_DOWNLOAD_URL,
                                    value: StorageEvent(eventId: asId,
                                                             data: ["url": u]).toJSONString())
@@ -264,17 +289,21 @@ class StorageController: FreSwiftController {
         guard let storageRef = storage?.reference(withPath: path) else { return }
         storageRef.updateMetadata(metadata, completion: { _, error in
             if let err = error as NSError? {
+                if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
                 self.sendEvent(name: StorageErrorEvent.ERROR,
                                value: StorageErrorEvent(eventId: asId,
                                                              text: err.localizedDescription,
                                                              id: err.code).toJSONString())
             } else {
+                if !self.hasEventListener(asId: asId, type: StorageEvent.UPDATE_METADATA) { return }
                 self.sendEvent(name: StorageEvent.UPDATE_METADATA,
                                value: StorageEvent(eventId: asId, data: nil).toJSONString())
                 
             }
         })
     }
+    
+    // MARK: - Tasks
     
     func resumeTask(asId: String) {
         uploadTasks[asId]?.resume()
@@ -290,6 +319,8 @@ class StorageController: FreSwiftController {
         uploadTasks[asId]?.cancel()
         downloadTasks[asId]?.cancel()
     }
+    
+    // MARK: - Getters / Setters
     
     public var maxDownloadRetryTime: TimeInterval {
         get {
@@ -326,6 +357,29 @@ class StorageController: FreSwiftController {
         set {
             storage?.maxOperationRetryTime = newValue / 1000
         }
+    }
+    
+    // MARK: - AS Event Listeners
+    
+    func addEventListener(asId: String, type: String) {
+        listeners.append(Listener(asId: asId, type: type))
+    }
+    
+    func removeEventListener(asId: String, type: String) {
+        for i in 0..<listeners.count {
+            if listeners[i].asId == asId && listeners[i].type == type {
+                listeners.remove(at: i)
+            }
+        }
+    }
+    
+    private func hasEventListener(asId: String, type: String) -> Bool {
+        for i in 0..<listeners.count {
+            if listeners[i].asId == asId && listeners[i].type == type {
+                return true
+            }
+        }
+        return false
     }
     
 }

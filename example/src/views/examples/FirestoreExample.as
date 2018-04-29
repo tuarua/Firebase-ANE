@@ -24,7 +24,7 @@ import starling.utils.Align;
 
 import views.SimpleButton;
 
-public class Firestore extends Sprite {
+public class FirestoreExample extends Sprite {
     private var db:FirestoreANE;
     private var btnCreateDatabase:SimpleButton = new SimpleButton("Create Database");
     private var btnGetDocument:SimpleButton = new SimpleButton("Get Document");
@@ -36,7 +36,7 @@ public class Firestore extends Sprite {
     private var stageWidth:Number;
     private static var populationFormatter:NumberFormatter = new NumberFormatter(flash.globalization.LocaleID.DEFAULT);
 
-    public function Firestore(stageWidth:Number) {
+    public function FirestoreExample(stageWidth:Number) {
         super();
         this.stageWidth = stageWidth;
         FirestoreANE.loggingEnabled = true;

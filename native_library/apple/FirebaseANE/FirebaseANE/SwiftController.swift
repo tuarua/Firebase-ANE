@@ -16,7 +16,6 @@ public class SwiftController: NSObject {
                             message: msg,
                             type: .illegalState).getError(#file, #line, #column)
         }
-        trace("Firebase app Name", FirebaseApp.app()?.name ?? "unknown")
         guard FirebaseApp.app() != nil else {
             return FreError(stackTrace: "",
                             message: "Cannot read options. FirebaseApp not configured.",
@@ -32,26 +31,7 @@ public class SwiftController: NSObject {
                                 message: "Cannot read options. FirebaseApp not configured.",
                                 type: .illegalState).getError(#file, #line, #column)       
         }
-        let options = app.options
-        do {
-            let ret = try FREObject(className: "com.tuarua.firebase.FirebaseOptions")
-            try ret?.setProp(name: "bundleId", value: options.bundleID)
-            try ret?.setProp(name: "androidClientId", value: options.androidClientID)
-            try ret?.setProp(name: "trackingId", value: options.trackingID)
-            try ret?.setProp(name: "apiKey", value: options.apiKey)
-            try ret?.setProp(name: "googleAppId", value: options.googleAppID)
-            try ret?.setProp(name: "databaseUrl", value: options.databaseURL)
-            try ret?.setProp(name: "storageBucket", value: options.storageBucket)
-            try ret?.setProp(name: "clientId", value: options.clientID)
-            try ret?.setProp(name: "projectId", value: options.projectID)
-            try ret?.setProp(name: "gcmSenderId", value: options.gcmSenderID)
-            try ret?.setProp(name: "deepLinkUrlScheme", value: options.deepLinkURLScheme)
-            return ret
-        } catch let e as FreError {
-            return e.getError(#file, #line, #column)
-        } catch {
-        }
-        return nil
+        return app.options.toFREObject()
     }
     
     @objc func applicationDidFinishLaunching(_ notification: Notification) {
