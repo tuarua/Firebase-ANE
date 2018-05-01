@@ -186,7 +186,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
         if (merge) docRef.set(documentData, SetOptions.merge()).addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             if (task.isSuccessful) {
-                sendEvent(DocumentEvent.SET, gson.toJson(DocumentEvent(eventId, mapOf(path to "path"))))
+                sendEvent(DocumentEvent.SET, gson.toJson(DocumentEvent(eventId, mapOf("path" to path))))
             } else {
                 val error = task.exception as FirebaseFirestoreException
                 sendEvent(DocumentEvent.SET, gson.toJson(
@@ -196,7 +196,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
         } else docRef.set(documentData).addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             if (task.isSuccessful) {
-                sendEvent(DocumentEvent.SET, gson.toJson(DocumentEvent(eventId, mapOf(path to "path"))))
+                sendEvent(DocumentEvent.SET, gson.toJson(DocumentEvent(eventId, mapOf("path" to path))))
             } else {
                 val error = task.exception as FirebaseFirestoreException
                 sendEvent(DocumentEvent.SET, gson.toJson(
@@ -215,7 +215,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
             } else {
                 val error = task.exception as FirebaseFirestoreException
                 sendEvent(DocumentEvent.UPDATED, gson.toJson(
-                        DocumentEvent(eventId, mapOf(path to "path"), error = error.toMap()))
+                        DocumentEvent(eventId, mapOf("path" to path), error = error.toMap()))
                 )
             }
         }
@@ -230,7 +230,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
             } else {
                 val error = task.exception as FirebaseFirestoreException
                 sendEvent(DocumentEvent.DELETED, gson.toJson(
-                        DocumentEvent(eventId, mapOf(path to "path"), error = error.toMap()))
+                        DocumentEvent(eventId, mapOf("path" to path), error = error.toMap()))
                 )
             }
         }
