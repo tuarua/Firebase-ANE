@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package com.tuarua.firebase.storage.events {
+package com.tuarua.firebase.storage {
 public final class StorageErrorCodes {
     public static const UNKNOWN:int = -13000;
     public static const OBJECT_NOT_FOUND:int = -13010;

@@ -15,15 +15,12 @@
  */
 
 package com.tuarua.firebase.firestore {
+import com.tuarua.firebase.FirestoreANE;
 import com.tuarua.firebase.FirestoreANEContext;
 import com.tuarua.fre.ANEError;
 
-import flash.events.EventDispatcher;
-
-public class Query extends EventDispatcher {
+public class Query {
     protected var _path:String;
-
-    protected var _asId:String;
     protected var _mapTo:Class;
 
     protected var whereClauses:Vector.<Where> = new <Where>[];
@@ -35,7 +32,6 @@ public class Query extends EventDispatcher {
     protected var limitTo:int = 10000;
 
     public function Query() {
-        _asId = FirestoreANEContext.context.call("createGUID") as String;
     }
 
     public function where(fieldPath:String, operator:String, value:*):Query {
@@ -77,41 +73,17 @@ public class Query extends EventDispatcher {
         _mapTo = to;
     }
 
-    override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void {
-        if (FirestoreANEContext.context) {
-            FirestoreANEContext.listeners.push({"id": _asId, "type": type});
-            if (!FirestoreANEContext.listenersObjects[_asId]) {
-                FirestoreANEContext.listenersObjects[_asId] = this;
-            }
-            super.addEventListener(type, listener, useCapture, priority, useWeakReference);
-            FirestoreANEContext.context.call("addEventListener", _asId, type);
-        }
-    }
-
-    override public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void {
-        // FirestoreANEContext.listenersObjects[_asId] = null;
-        if (FirestoreANEContext.context) {
-            delete FirestoreANEContext.listenersObjects[_asId];
-            var cnt:int = 0;
-            for each (var item:Object in FirestoreANEContext.listeners) {
-                if (item.type == type && item.id == _asId) {
-                    FirestoreANEContext.listeners.removeAt(cnt);
-                }
-                cnt++;
-            }
-            super.removeEventListener(type, listener, useCapture);
-            FirestoreANEContext.context.call("removeEventListener", _asId, type);
-        }
-    }
-
-    public function get():void {
-        var theRet:* = FirestoreANEContext.context.call("getDocuments", _path, _asId, whereClauses,
+    public function getDocuments(listener:Function):void {
+        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
+        var eventId:String = FirestoreANEContext.context.call("createGUID") as String;
+        FirestoreANEContext.closures[eventId] = listener;
+        FirestoreANEContext.closureCallers[eventId] = this;
+        var theRet:* = FirestoreANEContext.context.call("getDocuments", _path, eventId, whereClauses,
                 orderClauses, startAts, startAfters, endAts, endBefores, limitTo);
         if (theRet is ANEError) {
             throw theRet as ANEError;
         }
     }
-
 
     public function get mapTo():Class {
         return _mapTo;

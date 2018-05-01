@@ -33,12 +33,11 @@ import com.google.firebase.firestore.WriteBatch
 import com.tuarua.firebase.firestore.events.*
 
 class FirestoreController(override var context: FREContext?, loggingEnabled: Boolean,
-                          settings: Map<String, Any>?) : FreKotlinController {
+                          settings: FirebaseFirestoreSettings?) : FreKotlinController {
     private lateinit var firestore: FirebaseFirestore
     private var snapshotRegistrations: MutableMap<String, ListenerRegistration> = HashMap()
     private val gson = Gson()
     private var batch: WriteBatch? = null
-    private var listeners: MutableList<Pair<String, String>> = mutableListOf()
 
     init {
         try {
@@ -48,12 +47,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
             if (app != null) {
                 firestore = FirebaseFirestore.getInstance(app)
                 if (settings != null) {
-                    val isPersistenceEnabled = settings.get("isPersistenceEnabled") as Boolean
-                    val isSSLEnabled = settings.get("isSSLEnabled") as Boolean
-                    firestore.firestoreSettings = FirebaseFirestoreSettings.Builder()
-                            .setPersistenceEnabled(isPersistenceEnabled)
-                            .setSslEnabled(isSSLEnabled)
-                            .build()
+                    firestore.firestoreSettings = settings
                 }
             } else {
                 trace(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
@@ -83,7 +77,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
     }
 
     /**************** Documents ****************/
-    fun getDocuments(path: String, asId: String, whereList: MutableList<Where>,
+    fun getDocuments(path: String, eventId: String, whereList: MutableList<Where>,
                      orderList: MutableList<Order>, startAtList: List<Any>,
                      startAfterList: List<Any>, endAtList: List<Any>,
                      endBeforeList: List<Any>, limitTo: Int) {
@@ -118,39 +112,20 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
 
         q.get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                if (!hasEventListener(asId, QueryEvent.QUERY_SNAPSHOT)) return@addOnCompleteListener
                 val qSnapshot: QuerySnapshot = task.result
                 val docChanges = qSnapshot.documentChanges
-                //https://firebase.google.com/docs/reference/android/com/google/firebase/firestore/DocumentChange
-                sendEvent(QueryEvent.QUERY_SNAPSHOT, gson.toJson(QueryEvent(asId, mapOf(
+                sendEvent(DocumentEvent.QUERY_SNAPSHOT, gson.toJson(DocumentEvent(eventId, data = mapOf(
                         "metadata" to mapOf(
                                 "isFromCache" to qSnapshot.metadata.isFromCache,
                                 "hasPendingWrites" to qSnapshot.metadata.hasPendingWrites()),
-                        "documentChanges" to docChanges.map {
-                            mapOf(
-                                    "type" to it.type.ordinal,
-                                    "newIndex" to it.newIndex,
-                                    "oldIndex" to it.oldIndex,
-                                    "id" to it.document.id)
-                        },
-                        "documents" to qSnapshot.map {
-                            mapOf(
-                                    "id" to it.id,
-                                    "data" to it.data,
-                                    "exists" to it.exists(),
-                                    "metadata" to mapOf(
-                                            "isFromCache" to it.metadata.isFromCache,
-                                            "hasPendingWrites" to it.metadata.hasPendingWrites()
-                                    )
-                            )
-                        }))))
+                        "documentChanges" to docChanges.map { it.toMap() },
+                        "documents" to qSnapshot.map { it.toMap() })))
+                )
             } else {
-                if (!hasEventListener(asId, FirestoreErrorEvent.ERROR)) {
-                    return@addOnCompleteListener
-                }
                 val error = task.exception as FirebaseFirestoreException
-                sendEvent(FirestoreErrorEvent.ERROR,
-                        gson.toJson(FirestoreErrorEvent(asId, error.message, error.code.ordinal)))
+                sendEvent(DocumentEvent.QUERY_SNAPSHOT, gson.toJson(
+                        DocumentEvent(eventId, error = error.toMap()))
+                )
             }
         }
     }
@@ -166,54 +141,36 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
         return docRef.path
     }
 
-    fun getDocumentReference(path: String, asId: String) {
+    fun getDocumentReference(path: String, eventId: String) {
         val docRef: DocumentReference = firestore.document(path)
         docRef.get().addOnCompleteListener { task ->
             val documentSnapshot: DocumentSnapshot = task.result
             if (task.isSuccessful) {
-                if (!hasEventListener(asId, DocumentEvent.SNAPSHOT)) {
-                    return@addOnCompleteListener
-                }
-                sendEvent(DocumentEvent.SNAPSHOT, gson.toJson(DocumentEvent(asId,
-                        mapOf("id" to documentSnapshot.id,
-                                "data" to documentSnapshot.data,
-                                "exists" to documentSnapshot.exists(),
-                                "metadata" to mapOf("isFromCache" to documentSnapshot.metadata.isFromCache,
-                                        "hasPendingWrites" to documentSnapshot.metadata.hasPendingWrites())
-                        ))))
+                sendEvent(DocumentEvent.SNAPSHOT, gson.toJson(
+                        DocumentEvent(eventId, documentSnapshot.toMap()))
+                )
             } else {
-                if (!hasEventListener(asId, FirestoreErrorEvent.ERROR)) {
-                    return@addOnCompleteListener
-                }
                 val error = task.exception as FirebaseFirestoreException
-                sendEvent(FirestoreErrorEvent.ERROR,
-                        gson.toJson(FirestoreErrorEvent(asId, error.message, error.code.ordinal)))
+                sendEvent(DocumentEvent.SNAPSHOT, gson.toJson(
+                        DocumentEvent(eventId, error = error.toMap()))
+                )
             }
         }
     }
 
-    fun addSnapshotListenerDocument(path: String, asId: String) {
+    fun addSnapshotListenerDocument(path: String, eventId: String, asId: String) {
         val docRef: DocumentReference = firestore.document(path)
-        snapshotRegistrations[asId] = docRef.addSnapshotListener { documentSnapshot, e ->
-            when (e) {
+        snapshotRegistrations[asId] = docRef.addSnapshotListener { documentSnapshot, error ->
+            when (error) {
                 null -> if (documentSnapshot != null) {
-                    if (!hasEventListener(asId, DocumentEvent.SNAPSHOT)) {
-                        return@addSnapshotListener
-                    }
-                    sendEvent(DocumentEvent.SNAPSHOT, gson.toJson(DocumentEvent(asId,
-                            mapOf("id" to documentSnapshot.id,
-                                    "data" to documentSnapshot.data,
-                                    "exists" to documentSnapshot.exists(),
-                                    "metadata" to mapOf("isFromCache" to documentSnapshot.metadata.isFromCache,
-                                            "hasPendingWrites" to documentSnapshot.metadata.hasPendingWrites())
-                            ), true)))
+                    sendEvent(DocumentEvent.SNAPSHOT, gson.toJson(
+                            DocumentEvent(eventId, documentSnapshot.toMap(), true))
+                    )
                 }
                 else -> {
-                    if (!hasEventListener(asId, FirestoreErrorEvent.ERROR)) {
-                        return@addSnapshotListener
-                    }
-                    sendEvent(FirestoreErrorEvent.ERROR,
-                            gson.toJson(FirestoreErrorEvent(asId, e.message, e.code.ordinal)))
+                    sendEvent(DocumentEvent.SNAPSHOT, gson.toJson(
+                            DocumentEvent(eventId, error = error.toMap()))
+                    )
                 }
             }
         }
@@ -221,75 +178,60 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
 
     fun removeSnapshotListener(asId: String) {
         snapshotRegistrations[asId]?.remove()
+        snapshotRegistrations.remove(asId)
     }
 
-    fun setDocumentReference(path: String, asId: String, documentData: Map<String, Any>, merge: Boolean) {
+    fun setDocumentReference(path: String, eventId: String?, documentData: Map<String, Any>, merge: Boolean) {
         val docRef: DocumentReference = firestore.document(path)
         if (merge) docRef.set(documentData, SetOptions.merge()).addOnCompleteListener { task ->
+            if (eventId == null) return@addOnCompleteListener
             if (task.isSuccessful) {
-                if (!hasEventListener(asId, DocumentEvent.COMPLETE)) {
-                    return@addOnCompleteListener
-                }
-                sendEvent(DocumentEvent.COMPLETE, gson.toJson(DocumentEvent(asId, null)))
+                sendEvent(DocumentEvent.SET, gson.toJson(DocumentEvent(eventId, mapOf(path to "path"))))
             } else {
-                if (!hasEventListener(asId, FirestoreErrorEvent.ERROR)) {
-                    return@addOnCompleteListener
-                }
                 val error = task.exception as FirebaseFirestoreException
-                sendEvent(FirestoreErrorEvent.ERROR,
-                        gson.toJson(FirestoreErrorEvent(asId, error.message, error.code.ordinal)))
+                sendEvent(DocumentEvent.SET, gson.toJson(
+                        DocumentEvent(eventId, error = error.toMap()))
+                )
             }
         } else docRef.set(documentData).addOnCompleteListener { task ->
+            if (eventId == null) return@addOnCompleteListener
             if (task.isSuccessful) {
-                if (!hasEventListener(asId, DocumentEvent.COMPLETE)) {
-                    return@addOnCompleteListener
-                }
-                sendEvent(DocumentEvent.COMPLETE, gson.toJson(DocumentEvent(asId, null)))
+                sendEvent(DocumentEvent.SET, gson.toJson(DocumentEvent(eventId, mapOf(path to "path"))))
             } else {
-                if (!hasEventListener(asId, FirestoreErrorEvent.ERROR)) {
-                    return@addOnCompleteListener
-                }
                 val error = task.exception as FirebaseFirestoreException
-                sendEvent(FirestoreErrorEvent.ERROR,
-                        gson.toJson(FirestoreErrorEvent(asId, error.message, error.code.ordinal)))
+                sendEvent(DocumentEvent.SET, gson.toJson(
+                        DocumentEvent(eventId, error = error.toMap()))
+                )
             }
         }
     }
 
-    fun updateDocumentReference(path: String, asId: String, documentData: Map<String, Any>) {
+    fun updateDocumentReference(path: String, eventId: String?, documentData: Map<String, Any>) {
         val docRef: DocumentReference = firestore.document(path)
         docRef.update(documentData).addOnCompleteListener { task ->
+            if (eventId == null) return@addOnCompleteListener
             if (task.isSuccessful) {
-                if (!hasEventListener(asId, DocumentEvent.COMPLETE)) {
-                    return@addOnCompleteListener
-                }
-                sendEvent(DocumentEvent.COMPLETE, gson.toJson(DocumentEvent(asId, null)))
+                sendEvent(DocumentEvent.UPDATED, gson.toJson(DocumentEvent(eventId)))
             } else {
-                if (!hasEventListener(asId, FirestoreErrorEvent.ERROR)) {
-                    return@addOnCompleteListener
-                }
                 val error = task.exception as FirebaseFirestoreException
-                sendEvent(FirestoreErrorEvent.ERROR,
-                        gson.toJson(FirestoreErrorEvent(asId, error.message, error.code.ordinal)))
+                sendEvent(DocumentEvent.UPDATED, gson.toJson(
+                        DocumentEvent(eventId, mapOf(path to "path"), error = error.toMap()))
+                )
             }
         }
     }
 
-    fun deleteDocumentReference(path: String, asId: String) {
+    fun deleteDocumentReference(path: String, eventId: String?) {
         val docRef: DocumentReference = firestore.document(path)
         docRef.delete().addOnCompleteListener { task ->
+            if (eventId == null) return@addOnCompleteListener
             if (task.isSuccessful) {
-                if (!hasEventListener(asId, DocumentEvent.COMPLETE)) {
-                    return@addOnCompleteListener
-                }
-                sendEvent(DocumentEvent.COMPLETE, gson.toJson(DocumentEvent(asId, null)))
+                sendEvent(DocumentEvent.DELETED, gson.toJson(DocumentEvent(eventId)))
             } else {
-                if (!hasEventListener(asId, FirestoreErrorEvent.ERROR)) {
-                    return@addOnCompleteListener
-                }
                 val error = task.exception as FirebaseFirestoreException
-                sendEvent(FirestoreErrorEvent.ERROR,
-                        gson.toJson(FirestoreErrorEvent(asId, error.message, error.code.ordinal)))
+                sendEvent(DocumentEvent.DELETED, gson.toJson(
+                        DocumentEvent(eventId, mapOf(path to "path"), error = error.toMap()))
+                )
             }
         }
     }
@@ -322,75 +264,46 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
         batch?.delete(docRef)
     }
 
-    fun commitBatch(asId: String) {
+    fun commitBatch(eventId: String?) {
         batch?.commit()?.addOnCompleteListener { task ->
+            if (eventId == null) return@addOnCompleteListener
             if (task.isSuccessful) {
-                if (!hasEventListener(asId, BatchEvent.COMPLETE)) return@addOnCompleteListener
-                sendEvent(BatchEvent.COMPLETE, gson.toJson(BatchEvent(asId)))
+                sendEvent(BatchEvent.COMPLETE, gson.toJson(BatchEvent(eventId)))
             } else {
-                if (!hasEventListener(asId, FirestoreErrorEvent.ERROR)) {
-                    return@addOnCompleteListener
-                }
                 val error = task.exception as FirebaseFirestoreException
-                sendEvent(FirestoreErrorEvent.ERROR,
-                        gson.toJson(FirestoreErrorEvent(asId, error.message, error.code.ordinal)))
+                sendEvent(BatchEvent.COMPLETE, gson.toJson(
+                        NetworkEvent(eventId, error.toMap()))
+                )
             }
         }
     }
 
-    fun enableNetwork(asId: String) {
+    fun enableNetwork(eventId: String?) {
         firestore.enableNetwork().addOnCompleteListener { task ->
+            if (eventId == null) return@addOnCompleteListener
             if (task.isSuccessful) {
-                if (!hasEventListener(asId, NetworkEvent.COMPLETE)) return@addOnCompleteListener
-                sendEvent(NetworkEvent.COMPLETE, gson.toJson(NetworkEvent(asId, true)))
+                sendEvent(NetworkEvent.ENABLED, gson.toJson(NetworkEvent(eventId)))
             } else {
-                if (!hasEventListener(asId, FirestoreErrorEvent.ERROR)) {
-                    return@addOnCompleteListener
-                }
                 val error = task.exception as FirebaseFirestoreException
-                sendEvent(FirestoreErrorEvent.ERROR,
-                        gson.toJson(FirestoreErrorEvent(asId, error.message, error.code.ordinal)))
+                sendEvent(NetworkEvent.ENABLED, gson.toJson(
+                        NetworkEvent(eventId, error.toMap()))
+                )
             }
         }
     }
 
-    fun disableNetwork(asId: String) {
+    fun disableNetwork(eventId: String?) {
         firestore.disableNetwork().addOnCompleteListener { task ->
+            if (eventId == null) return@addOnCompleteListener
             if (task.isSuccessful) {
-                if (!hasEventListener(asId, NetworkEvent.COMPLETE)) return@addOnCompleteListener
-                sendEvent(NetworkEvent.COMPLETE, gson.toJson(NetworkEvent(asId)))
+                sendEvent(NetworkEvent.DISABLED, gson.toJson(NetworkEvent(eventId)))
             } else {
-                if (!hasEventListener(asId, FirestoreErrorEvent.ERROR)) {
-                    return@addOnCompleteListener
-                }
                 val error = task.exception as FirebaseFirestoreException
-                sendEvent(FirestoreErrorEvent.ERROR,
-                        gson.toJson(FirestoreErrorEvent(asId, error.message, error.code.ordinal)))
+                sendEvent(NetworkEvent.DISABLED, gson.toJson(
+                        NetworkEvent(eventId, error.toMap()))
+                )
             }
         }
-    }
-
-    /**************** Listeners ****************/
-    fun addEventListener(asId: String, type: String) {
-        listeners.add(Pair(asId, type))
-    }
-
-    fun removeEventListener(asId: String, type: String) {
-        for (i in listeners.indices) {
-            if (listeners[i].first == asId && listeners[i].second == type) {
-                listeners.removeAt(i)
-                return
-            }
-        }
-    }
-
-    private fun hasEventListener(asId: String, type: String): Boolean {
-        for (i in listeners.indices) {
-            if (listeners[i].first == asId && listeners[i].second == type) {
-                return true
-            }
-        }
-        return false
     }
 
     override val TAG: String

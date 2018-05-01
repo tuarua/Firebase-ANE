@@ -41,8 +41,6 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)deleteBatch"] = deleteBatch
         functionsToSet["\(prefix)enableNetwork"] = enableNetwork
         functionsToSet["\(prefix)disableNetwork"] = disableNetwork
-        functionsToSet["\(prefix)addEventListener"] = addEventListener
-        functionsToSet["\(prefix)removeEventListener"] = removeEventListener
         
         var arr: [String] = []
         for key in functionsToSet.keys {

@@ -110,17 +110,17 @@ class StorageController: FreSwiftController {
         return storage?.reference(withPath: path).root()
     }
     
-    func deleteReference(path: String, asId: String?) {
+    func deleteReference(path: String, eventId: String?) {
         storage?.reference(withPath: path).delete(completion: { error in
-            if asId == nil { return }
+            if eventId == nil { return }
             if let err = error as NSError? {
                 self.sendEvent(name: StorageErrorEvent.ERROR,
-                               value: StorageErrorEvent(eventId: asId,
+                               value: StorageErrorEvent(eventId: eventId,
                                                              text: err.localizedDescription,
                                                              id: err.code).toJSONString())
             } else {
                 self.sendEvent(name: StorageEvent.TASK_COMPLETE,
-                               value: StorageEvent(eventId: asId, data: ["localPath": path]).toJSONString())
+                               value: StorageEvent(eventId: eventId, data: ["localPath": path]).toJSONString())
             }
         })
     }
@@ -241,12 +241,12 @@ class StorageController: FreSwiftController {
         
     }
     
-    func getMetadata(path: String, asId: String) {
+    func getMetadata(path: String, eventId: String) {
         guard let storageRef = storage?.reference(withPath: path) else { return }
         storageRef.getMetadata { metadata, error in
             if let err = error as NSError? {
                 self.sendEvent(name: StorageEvent.GET_METADATA,
-                               value: StorageEvent(eventId: asId,
+                               value: StorageEvent(eventId: eventId,
                                                    data: nil,
                                                    error: ["text": err.localizedDescription,
                                                            "id": err.code]).toJSONString())
@@ -274,7 +274,7 @@ class StorageController: FreSwiftController {
                     data["customMetadata"] = m.customMetadata
                     
                     self.sendEvent(name: StorageEvent.GET_METADATA,
-                                   value: StorageEvent(eventId: asId,
+                                   value: StorageEvent(eventId: eventId,
                                                             data: ["data": data]).toJSONString())
                     
                 }
@@ -282,12 +282,12 @@ class StorageController: FreSwiftController {
         }
     }
     
-    func getDownloadUrl(path: String, asId: String) {
+    func getDownloadUrl(path: String, eventId: String) {
         guard let storageRef = storage?.reference(withPath: path) else { return }
         storageRef.downloadURL(completion: { url, error in
             if let err = error as NSError? {
                 self.sendEvent(name: StorageEvent.GET_DOWNLOAD_URL,
-                               value: StorageEvent(eventId: asId,
+                               value: StorageEvent(eventId: eventId,
                                                    data: nil,
                                                    error: ["text": err.localizedDescription,
                                                            "id": err.code]).toJSONString())
@@ -295,7 +295,7 @@ class StorageController: FreSwiftController {
             } else {
                 if let u = url?.absoluteString {
                     self.sendEvent(name: StorageEvent.GET_DOWNLOAD_URL,
-                                   value: StorageEvent(eventId: asId,
+                                   value: StorageEvent(eventId: eventId,
                                                             data: ["url": u]).toJSONString())
                 }
                 
@@ -303,19 +303,19 @@ class StorageController: FreSwiftController {
         })
     }
     
-    func updateMetadata(path: String, asId: String?, metadata: StorageMetadata) {
+    func updateMetadata(path: String, eventId: String?, metadata: StorageMetadata) {
         guard let storageRef = storage?.reference(withPath: path) else { return }
         storageRef.updateMetadata(metadata, completion: { _, error in
-            if asId == nil { return }
+            if eventId == nil { return }
             if let err = error as NSError? {
                 self.sendEvent(name: StorageEvent.UPDATE_METADATA,
-                               value: StorageEvent(eventId: asId, data: nil,
+                               value: StorageEvent(eventId: eventId, 
                                                    error: ["text": err.localizedDescription,
                                                            "id": err.code]).toJSONString())
                 
             } else { 
                 self.sendEvent(name: StorageEvent.UPDATE_METADATA,
-                               value: StorageEvent(eventId: asId, data: nil).toJSONString())
+                               value: StorageEvent(eventId: eventId).toJSONString())
                 
             }
         })

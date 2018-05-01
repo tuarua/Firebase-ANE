@@ -16,16 +16,12 @@
 
 package com.tuarua.firebase {
 import com.sociodox.utils.Base64;
-import com.tuarua.firebase.storage.DownloadTask;
+import com.tuarua.firebase.storage.StorageError;
 import com.tuarua.firebase.storage.StorageMetadata;
-import com.tuarua.firebase.storage.StorageReference;
 import com.tuarua.firebase.storage.StorageTask;
-import com.tuarua.firebase.storage.UploadTask;
-import com.tuarua.firebase.storage.events.StorageError;
 import com.tuarua.firebase.storage.events.StorageErrorEvent;
 import com.tuarua.firebase.storage.events.StorageEvent;
 import com.tuarua.firebase.storage.events.StorageProgressEvent;
-import com.tuarua.fre.ANEUtils;
 import com.tuarua.fre.ANEUtils;
 
 import flash.external.ExtensionContext;
@@ -40,7 +36,7 @@ public class StorageANEContext {
     private static const DELETED:String = "StorageEvent.Deleted";
     private static const GET_METADATA:String = "StorageEvent.GetMetadata";
     private static const GET_DOWNLOAD_URL:String = "StorageEvent.GetDownloadUrl";
-    private static const UPDATE_METADATA: String = "StorageEvent.UpdateMetadata";
+    private static const UPDATE_METADATA:String = "StorageEvent.UpdateMetadata";
 
     private static var _context:ExtensionContext;
 

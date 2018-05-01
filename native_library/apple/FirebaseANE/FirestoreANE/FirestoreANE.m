@@ -58,8 +58,6 @@ CONTEXT_INIT(TRFIRFS) {
         ,MAP_FUNCTION(TRFIRFS, deleteBatch)
         ,MAP_FUNCTION(TRFIRFS, enableNetwork)
         ,MAP_FUNCTION(TRFIRFS, disableNetwork)
-        ,MAP_FUNCTION(TRFIRFS, addEventListener)
-        ,MAP_FUNCTION(TRFIRFS, removeEventListener)
     };
     
     /**************************************************************************/

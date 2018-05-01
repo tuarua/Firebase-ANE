@@ -22,15 +22,17 @@ import FirebaseAuth
 class UserController: FreSwiftController {
     var TAG: String? = "FirestoreController"
     internal var context: FreContextSwift!
-    private var app: FirebaseApp?
     private var auth: Auth?
     
     convenience init(context: FreContextSwift) {
         self.init()
         self.context = context
         
-       // app = FreFirebase.getFirebaseApp()
-        
+        guard let app = FirebaseApp.app() else {
+            warning(">>>>>>>>>> NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
+            return
+        }
+        auth = Auth.auth(app: app)
     }
     
     func sendEmailVerification() {
@@ -63,9 +65,7 @@ class UserController: FreSwiftController {
     }
     
     func getCurrentUser() -> User? {
-        guard let app = app else { return nil }
-        let auth = Auth.auth(app: app)
-        return auth.currentUser
+        return auth?.currentUser
     }
     //
     //    func getIdToken() {

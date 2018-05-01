@@ -4,15 +4,11 @@ import com.tuarua.firebase.FirestoreANE;
 import com.tuarua.firebase.firestore.CollectionReference;
 import com.tuarua.firebase.firestore.DocumentReference;
 import com.tuarua.firebase.firestore.DocumentSnapshot;
+import com.tuarua.firebase.firestore.FirestoreError;
 import com.tuarua.firebase.firestore.FirestoreSettings;
 import com.tuarua.firebase.firestore.Query;
 import com.tuarua.firebase.firestore.QuerySnapshot;
 import com.tuarua.firebase.firestore.WriteBatch;
-import com.tuarua.firebase.firestore.events.BatchEvent;
-import com.tuarua.firebase.firestore.events.DocumentEvent;
-import com.tuarua.firebase.firestore.events.FirestoreErrorEvent;
-import com.tuarua.firebase.firestore.events.QueryEvent;
-
 import flash.globalization.NumberFormatter;
 
 import starling.display.Sprite;
@@ -35,14 +31,15 @@ public class FirestoreExample extends Sprite {
     private var statusLabel:TextField;
     private var stageWidth:Number;
     private static var populationFormatter:NumberFormatter = new NumberFormatter(flash.globalization.LocaleID.DEFAULT);
+    private var sanFran:DocumentReference;
 
     public function FirestoreExample(stageWidth:Number) {
         super();
         this.stageWidth = stageWidth;
         FirestoreANE.loggingEnabled = true;
         db = FirestoreANE.firestore;
+        sanFran = new DocumentReference("cities/SF");
         var fs:FirestoreSettings = db.settings;
-
         if (fs) {
             trace("fs.host:", fs.host);
             trace("fs.isPersistenceEnabled:", fs.isPersistenceEnabled);
@@ -91,7 +88,7 @@ public class FirestoreExample extends Sprite {
         addChild(btnRunQuery);
 
         statusLabel.text = "Checking Database...";
-        statusLabel.y = btnRunQuery.y + StarlingRoot.GAP;
+        statusLabel.y = btnRunQuery.y + (StarlingRoot.GAP * 2);
 
         checkCitiesExist();
 
@@ -100,48 +97,22 @@ public class FirestoreExample extends Sprite {
     private function checkCitiesExist():void {
         var collection:CollectionReference = db.collection("cities");
         var query:Query = collection.limit(1);
-        query.addEventListener(QueryEvent.QUERY_SNAPSHOT, function (event:QueryEvent):void {
-            statusLabel.text = "";
-            if (event.snapshot.isEmpty) {
-                btnCreateDatabase.visible = true;
-            } else {
-                btnAddDocument.visible = btnDeleteDocument.visible =
-                        btnUpdateDocument.visible = btnGetDocument.visible = btnRunQuery.visible = true;
-            }
-        });
-        query.get();
+        query.getDocuments(hasCities);
     }
 
-
-    public function onDocSnapshot(event:DocumentEvent):void {
-        trace(event);
-        var docRef:DocumentReference = event.target as DocumentReference;
-        var docSnapShot:DocumentSnapshot = event.data;
-        statusLabel.text = "";
-        if (!docSnapShot.exists) {
-            statusLabel.text = "No Document found";
+    private function hasCities(snapshot:QuerySnapshot, error:FirestoreError):void {
+        if (error) {
+            statusLabel.text = "onCitiesCreated error: " + error.errorID + " : " + error.message;
             return;
         }
-        var city:City = docSnapShot.data as City;
-        if (city) {
-            statusLabel.text = "Id: " + docSnapShot.id + "\n" +
-                    "City: " + city.name + "\n" +
-                    "State: " + city.state + "\n" +
-                    "Country: " + city.country + "\n" +
-                    "Population: " + populationFormatter.formatNumber(city.population) + "\n" +
-                    "Is Captial: " + city.capital + "\n";
+        statusLabel.text = "";
+        if (snapshot.isEmpty) {
+            btnCreateDatabase.visible = true;
+        } else {
+            btnAddDocument.visible = btnDeleteDocument.visible =
+                    btnUpdateDocument.visible = btnGetDocument.visible = btnRunQuery.visible = true;
         }
 
-        trace("onDocSnapshotSuccess", docSnapShot);
-        trace("docSnapShot.id", docSnapShot.id);
-        trace("docSnapShot.data", docSnapShot.data);
-        trace("docSnapShot.exists", docSnapShot.exists);
-        trace("docSnapShot.metadata.isFromCache", docSnapShot.metadata.isFromCache);
-        trace("docSnapShot.metadata.hasPendingWrites", docSnapShot.metadata.hasPendingWrites);
-        trace("onDocSnapshotSuccess realtime", event.realtime);
-
-        //remove the realtime listener
-        //docRef.removeEventListener(DocumentEvent.SNAPSHOT, onDocSnapshot);
     }
 
     private function onCreateDatabaseClick(event:TouchEvent):void {
@@ -151,12 +122,6 @@ public class FirestoreExample extends Sprite {
             statusLabel.text = "Creating Database";
 
             var batch:WriteBatch = db.batch();
-            batch.addEventListener(BatchEvent.COMPLETE, function ():void {
-                trace("cities are created");
-                statusLabel.text = "Database created";
-                btnAddDocument.visible = btnDeleteDocument.visible = btnUpdateDocument.visible =
-                        btnGetDocument.visible = btnRunQuery.visible = true;
-            });
             var citiesRef:CollectionReference = db.collection("cities");
 
             batch.set(citiesRef.document("SF"), {
@@ -196,46 +161,70 @@ public class FirestoreExample extends Sprite {
                 "population": 21500000
             });
 
-            batch.commit();
+            batch.commit(onCitiesCreated);
         }
+    }
+
+    private function onCitiesCreated(error:FirestoreError):void {
+        if (error) {
+            statusLabel.text = "onCitiesCreated error: " + error.errorID + " : " + error.message;
+            return;
+        }
+        statusLabel.text = "Database created";
+        btnAddDocument.visible = btnDeleteDocument.visible = btnUpdateDocument.visible =
+                btnGetDocument.visible = btnRunQuery.visible = true;
     }
 
     private function onGetDocumentClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnGetDocument);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            var doc:DocumentReference = new DocumentReference("cities/SF");
-            if(doc){
-                doc.map(City);
-                doc.addSnapshotListener(onDocSnapshot); // This is for realtime updates
-                // doc.addEventListener(DocumentEvent.SNAPSHOT, onDocSnapshot);
-                doc.get();
+            var dE:DocumentReference = new DocumentReference("cities/SF");
+            if (sanFran) {
+                sanFran.map(City);
+                sanFran.addSnapshotListener(onDocSnapshot); // This is for realtime updates
+                // doc.getDocument(onDocSnapshot); // This is for a single update
             }
         }
+    }
+
+    private function onDocSnapshot(snapshot:DocumentSnapshot, error:FirestoreError, realtime:Boolean):void {
+        if (error) {
+            statusLabel.text = "onDocSnapshot error: " + error.errorID + " : " + error.message;
+            return;
+        }
+        var city:City = snapshot.data as City;
+        if (city) {
+            statusLabel.text = "realtime: " + realtime + "\n" +
+                    "Id: " + snapshot.id + "\n" +
+                    "City: " + city.name + "\n" +
+                    "State: " + city.state + "\n" +
+                    "Country: " + city.country + "\n" +
+                    "Population: " + populationFormatter.formatNumber(city.population) + "\n" +
+                    "Is Capital: " + city.capital + "\n";
+        }
+        // sanFran.removeSnapshotListener(onDocSnapshot); //to clear realtimes updates
     }
 
     private function onUpdateDocumentClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnUpdateDocument);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            var doc:DocumentReference = new DocumentReference("cities/SF");
-            doc.addEventListener(DocumentEvent.COMPLETE, onDocUpdated);
-            doc.update({"population": 860999});
+            sanFran.update({"population": 860999}, onDocUpdated);
         }
     }
 
-    private function onDocUpdated(event:DocumentEvent):void {
-        trace(event);
-        var docRef:DocumentReference = event.target as DocumentReference;
-        docRef.removeEventListener(DocumentEvent.COMPLETE, onDocUpdated);
-        trace("updated", "id", docRef.id, "path", docRef.path);
-        statusLabel.text = "Updated " + docRef.id + " - " + docRef.path;
+    private function onDocUpdated(path:String, error:FirestoreError):void {
+        if (error) {
+            statusLabel.text = "onDocUpdated error: " + error.errorID + " : " + error.message;
+            return;
+        }
+        trace(path);
+        statusLabel.text = "Updated " + path;
     }
 
     private function onDeleteDocumentClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnDeleteDocument);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            var doc:DocumentReference = new DocumentReference("cities/SF");
-            doc.addEventListener(DocumentEvent.COMPLETE, onDocDeleted);
-            doc.remove();
+            sanFran.remove(onDocDeleted);
         }
     }
 
@@ -243,26 +232,29 @@ public class FirestoreExample extends Sprite {
         var touch:Touch = event.getTouch(btnAddDocument);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             var doc:DocumentReference = new DocumentReference("cities/DUB");
-            doc.addEventListener(DocumentEvent.COMPLETE, onDocAdded);
             doc.set({
                 "name": "Dublin",
                 "country": "Rep. of Ireland",
                 "capital": true,
                 "population": 1800000
-            }, true);
+            }, onDocAdded, true);
         }
     }
 
-    private function onDocAdded(event:DocumentEvent):void {
-        var docRef:DocumentReference = event.target as DocumentReference;
-        docRef.removeEventListener(DocumentEvent.COMPLETE, onDocDeleted);
-        statusLabel.text = "Added " + docRef.id + " - " + docRef.path;
+    private function onDocAdded(path:String, error:FirestoreError):void {
+        if (error) {
+            statusLabel.text = "onDocUpdated error: " + error.errorID + " : " + error.message;
+            return;
+        }
+        statusLabel.text = "Added " + path;
     }
 
-    private function onDocDeleted(event:DocumentEvent):void {
-        var docRef:DocumentReference = event.target as DocumentReference;
-        docRef.removeEventListener(DocumentEvent.COMPLETE, onDocDeleted);
-        statusLabel.text = "Deleted " + docRef.id + " - " + docRef.path;
+    private function onDocDeleted(path:String, error:FirestoreError):void {
+        if (error) {
+            statusLabel.text = "onDocUpdated error: " + error.errorID + " : " + error.message;
+            return;
+        }
+        statusLabel.text = "Deleted " + path;
     }
 
     private function onRunQueryClick(event:TouchEvent):void {
@@ -270,18 +262,18 @@ public class FirestoreExample extends Sprite {
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             var collection:CollectionReference = db.collection("cities");
             var query:Query = collection.where("capital", "==", true).order("name").endAt("Tokyo");
-            query.addEventListener(FirestoreErrorEvent.ERROR, onError);
-            query.addEventListener(QueryEvent.QUERY_SNAPSHOT, onQuery);
             query.map(City);
-            query.get();
+            query.getDocuments(onQuery);
         }
     }
 
-    private function onQuery(event:QueryEvent):void {
-        var querySnapshot:QuerySnapshot = event.snapshot;
-        trace("querySnapshot", querySnapshot.size, querySnapshot.isEmpty);
+    private function onQuery(snapshot:QuerySnapshot, error:FirestoreError):void {
+        if (error) {
+            statusLabel.text = "onDocUpdated error: " + error.errorID + " : " + error.message;
+            return;
+        }
         statusLabel.text = "";
-        for each (var doc:DocumentSnapshot in querySnapshot.documents) {
+        for each (var doc:DocumentSnapshot in snapshot.documents) {
             if (!doc.exists) {
                 continue;
             }
@@ -294,18 +286,8 @@ public class FirestoreExample extends Sprite {
                     "Country: " + city.country + "\n" +
                     "Population: " + populationFormatter.formatNumber(city.population) + "\n" +
                     "Is Captial: " + city.capital + "\n";
-
-            trace("id", doc.id);
-            trace("city", city.name, city.state, city.country, city.population, city.capital);
-            trace("hasPendingWrites", doc.metadata.hasPendingWrites);
-            trace("isFromCache", doc.metadata.isFromCache);
         }
     }
-
-    private function onError(event:FirestoreErrorEvent):void {
-        statusLabel.text = "Error: " + event.errorID + " - " + event.text;
-    }
-
 
 }
 }

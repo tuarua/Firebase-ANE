@@ -139,24 +139,7 @@ public class SwiftController: NSObject {
         return authController?.getLanguage()?.toFREObject()
     }
     func getCurrentUser(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        if let currentUser = userController?.getCurrentUser() {
-            do {
-                return try FREObject.init(className: "com.tuarua.firebase.auth.FirebaseUser",
-                                          args: currentUser.uid,
-                                          currentUser.displayName,
-                                          currentUser.email,
-                                          currentUser.isAnonymous,
-                                          currentUser.isEmailVerified,
-                                          currentUser.photoURL,
-                                          currentUser.phoneNumber)
-            } catch let e as FreError {
-                if let aneError = e.getError(#file, #line, #column) {
-                    return aneError
-                }
-            } catch {
-            }
-        }
-        return nil
+        return userController?.getCurrentUser()?.toFREObject()
     }
     func getIdToken(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         // TODO

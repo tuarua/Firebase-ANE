@@ -27,17 +27,13 @@ public final class FirestoreANE extends EventDispatcher {
     private static var _firestore:FirestoreANE;
     private static var _loggingEnabled:Boolean = false;
     private static var _settings:FirestoreSettings = null;
-    private static const INIT_ERROR_MESSAGE:String = "FirestoreANE... use .firestore";
+    public static const INIT_ERROR_MESSAGE:String = "FirestoreANE not initialised... use .firestore";
 
     public function FirestoreANE() {
-        if (_firestore) {
-            throw new Error(INIT_ERROR_MESSAGE);
-        }
+        if (_firestore) throw new Error(INIT_ERROR_MESSAGE);
         if (FirestoreANEContext.context) {
             var theRet:* = FirestoreANEContext.context.call("init", _loggingEnabled, _settings);
-            if (theRet is ANEError) {
-                throw theRet as ANEError;
-            }
+            if (theRet is ANEError) throw theRet as ANEError;
         }
         _firestore = this;
     }
@@ -52,18 +48,14 @@ public final class FirestoreANE extends EventDispatcher {
     public function batch():WriteBatch {
         if (!_firestore) throw new Error(INIT_ERROR_MESSAGE);
         var theRet:* = FirestoreANEContext.context.call("startBatch");
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        if (theRet is ANEError) throw theRet as ANEError;
         return new WriteBatch();
     }
 
     public function get settings():FirestoreSettings {
         if (!_firestore) throw new Error(INIT_ERROR_MESSAGE);
         var theRet:* = FirestoreANEContext.context.call("getFirestoreSettings");
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        if (theRet is ANEError) throw theRet as ANEError;
         return theRet as FirestoreSettings;
     }
 
@@ -85,15 +77,36 @@ public final class FirestoreANE extends EventDispatcher {
         _loggingEnabled = value;
     }
 
+    public function enableNetwork(listener:Function = null):void {
+        if (!_firestore) throw new Error(INIT_ERROR_MESSAGE);
+        var eventId:String;
+        if (listener) {
+            eventId = FirestoreANEContext.context.call("createGUID") as String;
+            FirestoreANEContext.closures[eventId] = listener;
+        }
+        var theRet:* = FirestoreANEContext.context.call("enableNetwork", eventId);
+        if (theRet is ANEError) throw theRet as ANEError;
+    }
+
+    public function disableNetwork(listener:Function = null):void {
+        if (!_firestore) throw new Error(INIT_ERROR_MESSAGE);
+        var eventId:String;
+        if (listener) {
+            eventId = FirestoreANEContext.context.call("createGUID") as String;
+            FirestoreANEContext.closures[eventId] = listener;
+        }
+        var theRet:* = FirestoreANEContext.context.call("disableNetwork", eventId);
+        if (theRet is ANEError) throw theRet as ANEError;
+    }
+
+    public static function set settings(value:FirestoreSettings):void {
+        _settings = value;
+    }
+
     public static function dispose():void {
         if (FirestoreANEContext.context) {
             FirestoreANEContext.dispose();
         }
-    }
-
-
-    public static function set settings(value:FirestoreSettings):void {
-        _settings = value;
     }
 }
 }

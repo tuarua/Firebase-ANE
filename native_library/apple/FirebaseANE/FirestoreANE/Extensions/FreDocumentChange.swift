@@ -23,7 +23,7 @@ public extension DocumentChange {
         ret["type"] = self.type.rawValue
         ret["newIndex"] = self.newIndex
         ret["oldIndex"] = self.oldIndex
-        ret["id"] = self.document.documentID
+        ret["documentId"] = self.document.documentID
         return ret
     }
 }

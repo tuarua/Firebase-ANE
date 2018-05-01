@@ -43,9 +43,6 @@ public class FirestoreANE implements FREExtension {
             ,"deleteBatch"
             ,"enableNetwork"
             ,"disableNetwork"
-            ,"addEventListener"
-            ,"removeEventListener"
-
     };
 
     private static FirestoreANEContext extensionContext;

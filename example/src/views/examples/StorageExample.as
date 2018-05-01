@@ -185,7 +185,7 @@ public class StorageExample extends Sprite {
     private function onGetUrl(url:String, error:StorageError):void {
         if (error) {
             statusLabel.text = "GetUrl error: " + error.errorID + " : " + error.message;
-            return
+            return;
         }
         if (url) {
             statusLabel.text = "name: " + url;

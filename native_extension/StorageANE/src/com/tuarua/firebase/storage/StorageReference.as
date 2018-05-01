@@ -82,47 +82,47 @@ public class StorageReference {
     }
 
     //aka delete
-    public function remove(onResult:Function = null):void {
+    public function remove(listener:Function = null):void {
         if (_path == null) return;
         if (StorageANEContext.context) {
-            var resultId:String;
-            if (onResult) {
-                resultId = StorageANEContext.context.call("createGUID") as String;
-                StorageANEContext.closures[resultId] = onResult;
+            var eventId:String;
+            if (listener) {
+                eventId = StorageANEContext.context.call("createGUID") as String;
+                StorageANEContext.closures[eventId] = listener;
             }
-            var theRet:* = StorageANEContext.context.call("deleteReference", _path, resultId);
+            var theRet:* = StorageANEContext.context.call("deleteReference", _path, eventId);
             if (theRet is ANEError) throw theRet as ANEError;
         }
     }
 
-    public function getDownloadUrl(onResult:Function):void {
+    public function getDownloadUrl(listener:Function):void {
         if (_path == null) return;
         if (StorageANEContext.context) {
-            var resultId:String = StorageANEContext.context.call("createGUID") as String;
-            StorageANEContext.closures[resultId] = onResult;
-            var theRet:* = StorageANEContext.context.call("getDownloadUrl", _path, resultId);
+            var eventId:String = StorageANEContext.context.call("createGUID") as String;
+            StorageANEContext.closures[eventId] = listener;
+            var theRet:* = StorageANEContext.context.call("getDownloadUrl", _path, eventId);
             if (theRet is ANEError) throw theRet as ANEError;
         }
     }
 
-    public function getMetadata(onResult:Function):void {
+    public function getMetadata(listener:Function):void {
         if (StorageANEContext.context) {
-            var resultId:String = StorageANEContext.context.call("createGUID") as String;
-            StorageANEContext.closures[resultId] = onResult;
-            var theRet:* = StorageANEContext.context.call("getMetadata", _path, resultId);
+            var eventId:String = StorageANEContext.context.call("createGUID") as String;
+            StorageANEContext.closures[eventId] = listener;
+            var theRet:* = StorageANEContext.context.call("getMetadata", _path, eventId);
             if (theRet is ANEError) throw theRet as ANEError;
         }
     }
 
-    public function updateMetadata(metadata:StorageMetadata, onResult:Function = null):void {
+    public function updateMetadata(metadata:StorageMetadata, listener:Function = null):void {
         if (_path == null || _name == null) return;
         if (StorageANEContext.context) {
-            var resultId:String;
-            if (onResult) {
-                resultId = StorageANEContext.context.call("createGUID") as String;
-                StorageANEContext.closures[resultId] = onResult;
+            var eventId:String;
+            if (listener) {
+                eventId = StorageANEContext.context.call("createGUID") as String;
+                StorageANEContext.closures[eventId] = listener;
             }
-            var theRet:* = StorageANEContext.context.call("updateMetadata", _path, resultId, metadata);
+            var theRet:* = StorageANEContext.context.call("updateMetadata", _path, eventId, metadata);
             if (theRet is ANEError) throw theRet as ANEError;
         }
     }

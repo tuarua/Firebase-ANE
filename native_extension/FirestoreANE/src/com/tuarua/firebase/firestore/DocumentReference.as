@@ -15,13 +15,11 @@
  */
 
 package com.tuarua.firebase.firestore {
+import com.tuarua.firebase.FirestoreANE;
 import com.tuarua.firebase.FirestoreANEContext;
-import com.tuarua.firebase.firestore.events.DocumentEvent;
 import com.tuarua.fre.ANEError;
 
-import flash.events.EventDispatcher;
-
-public class DocumentReference extends EventDispatcher {
+public class DocumentReference {
     private var _path:String;
     private var _id:String;
     private var _asId:String;
@@ -29,91 +27,88 @@ public class DocumentReference extends EventDispatcher {
 
     public function DocumentReference(path:String) {
         this._path = path;
+        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
         this._asId = FirestoreANEContext.context.call("createGUID") as String;
-        if (FirestoreANEContext.context) {
-            var theRet:* = FirestoreANEContext.context.call("initDocumentReference", path);
-            if (theRet is ANEError) throw theRet as ANEError;
-            this._id = theRet as String;
-        }
-    }
-
-    override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false,
-                                              priority:int = 0, useWeakReference:Boolean = false):void {
-        if (FirestoreANEContext.context) {
-            FirestoreANEContext.listeners.push({"id": _asId, "type": type});
-            if (!FirestoreANEContext.listenersObjects[_asId]) FirestoreANEContext.listenersObjects[_asId] = this;
-            super.addEventListener(type, listener, useCapture, priority, useWeakReference);
-            FirestoreANEContext.context.call("addEventListener", _asId, type);
-        }
-    }
-
-    override public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void {
-        if (FirestoreANEContext.context) {
-            delete FirestoreANEContext.listenersObjects[_asId];
-            var cnt:int = 0;
-            for each (var item:Object in FirestoreANEContext.listeners) {
-                if (item.type == type && item.id == _asId) FirestoreANEContext.listeners.removeAt(cnt);
-                cnt++;
-            }
-            super.removeEventListener(type, listener, useCapture);
-            FirestoreANEContext.context.call("removeEventListener", _asId, type);
-        }
+        var theRet:* = FirestoreANEContext.context.call("initDocumentReference", path);
+        if (theRet is ANEError) throw theRet as ANEError;
+        this._id = theRet as String;
     }
 
     public function addSnapshotListener(listener:Function):void {
-        if (FirestoreANEContext.context) {
-            var theRet:* = FirestoreANEContext.context.call("addSnapshotListenerDocument", _path, _asId);
-            if (theRet is ANEError) throw theRet as ANEError;
-            if (!this.hasEventListener(DocumentEvent.SNAPSHOT)) this.addEventListener(DocumentEvent.SNAPSHOT, listener);
-        }
+        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
+        var eventId:String = FirestoreANEContext.context.call("createGUID") as String;
+        FirestoreANEContext.closures[eventId] = listener;
+        FirestoreANEContext.closureCallers[eventId] = this;
+        var theRet:* = FirestoreANEContext.context.call("addSnapshotListenerDocument", _path, eventId, _asId);
+        if (theRet is ANEError) throw theRet as ANEError;
     }
 
     public function removeSnapshotListener(listener:Function):void {
-        if (FirestoreANEContext.context) {
-            var theRet:* = FirestoreANEContext.context.call("removeSnapshotListener", _asId);
-            if (theRet is ANEError) throw theRet as ANEError;
-            this.removeEventListener(DocumentEvent.SNAPSHOT, listener);
+        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
+        var theRet:* = FirestoreANEContext.context.call("removeSnapshotListener", _asId);
+        if (theRet is ANEError) throw theRet as ANEError;
+        for (var k:String in FirestoreANEContext.closures) {
+            var value:Function = FirestoreANEContext.closures[k];
+            if (value == listener) {
+                delete FirestoreANEContext.closures[k];
+                delete FirestoreANEContext.closureCallers[k];
+                return;
+            }
         }
     }
 
-    public function get():void {
-        if (FirestoreANEContext.context) {
-            var theRet:* = FirestoreANEContext.context.call("getDocumentReference", _path, _asId);
-            if (theRet is ANEError) throw theRet as ANEError;
-        }
+    public function getDocument(listener:Function):void {
+        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
+        var eventId:String = FirestoreANEContext.context.call("createGUID") as String;
+        FirestoreANEContext.closures[eventId] = listener;
+        FirestoreANEContext.closureCallers[eventId] = this;
+        var theRet:* = FirestoreANEContext.context.call("getDocumentReference", _path, eventId);
+        if (theRet is ANEError) throw theRet as ANEError;
     }
 
     public function map(to:Class):void {
         _mapTo = to;
     }
 
-    public function set(data:*, merge:Boolean = false):void {
-        if (FirestoreANEContext.context) {
-            var theRet:* = FirestoreANEContext.context.call("setDocumentReference", _path, _asId, data, merge);
-            if (theRet is ANEError) throw theRet as ANEError;
+    public function set(data:*, listener:Function = null, merge:Boolean = false):void {
+        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
+        var eventId:String;
+        if (listener) {
+            eventId = FirestoreANEContext.context.call("createGUID") as String;
+            FirestoreANEContext.closures[eventId] = listener;
         }
+        var theRet:* = FirestoreANEContext.context.call("setDocumentReference", _path, eventId, data, merge);
+        if (theRet is ANEError) throw theRet as ANEError;
     }
 
-    public function update(data:*):void {
-        if (FirestoreANEContext.context) {
-            var theRet:* = FirestoreANEContext.context.call("updateDocumentReference", _path, _asId, data);
-            if (theRet is ANEError) throw theRet as ANEError;
+    public function update(data:*, listener:Function = null):void {
+        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
+        var eventId:String;
+        if (listener) {
+            eventId = FirestoreANEContext.context.call("createGUID") as String;
+            FirestoreANEContext.closures[eventId] = listener;
         }
+        var theRet:* = FirestoreANEContext.context.call("updateDocumentReference", _path, eventId, data);
+        if (theRet is ANEError) throw theRet as ANEError;
     }
 
     //aka delete
-    public function remove():void {
-        if (FirestoreANEContext.context) {
-            var theRet:* = FirestoreANEContext.context.call("deleteDocumentReference", _path, _asId);
-            if (theRet is ANEError) throw theRet as ANEError;
+    public function remove(listener:Function = null):void {
+        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
+        var eventId:String;
+        if (listener) {
+            eventId = FirestoreANEContext.context.call("createGUID") as String;
+            FirestoreANEContext.closures[eventId] = listener;
+
         }
+        var theRet:* = FirestoreANEContext.context.call("deleteDocumentReference", _path, eventId);
+        if (theRet is ANEError) throw theRet as ANEError;
     }
 
     public function get parent():CollectionReference {
-        if (FirestoreANEContext.context) {
-            var theRet:* = FirestoreANEContext.context.call("getDocumentParent", _path);
-            if (theRet is ANEError) throw theRet as ANEError;
-        }
+        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
+        var theRet:* = FirestoreANEContext.context.call("getDocumentParent", _path);
+        if (theRet is ANEError) throw theRet as ANEError;
         return new CollectionReference(theRet as String);
     }
 

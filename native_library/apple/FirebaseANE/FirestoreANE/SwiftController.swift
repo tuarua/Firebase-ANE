@@ -73,7 +73,7 @@ public class SwiftController: NSObject {
                 let fieldPath = String(fre["fieldPath"]),
                 let oprtr = String(fre["operator"]),
                 let val = fre["value"],
-                let freK = FreObjectSwift.init(freObject: val).value {
+                let freK = FreObjectSwift(freObject: val).value {
                     let w = Where(fieldPath: fieldPath, operatr: oprtr, value: freK)
                     whereList.append(w)
             }
@@ -84,12 +84,12 @@ public class SwiftController: NSObject {
             if let fre = orderClauses[i],
                 let by = String(fre["by"]),
                 let descending = Bool(fre["descending"]) {
-                    let o = Order.init(by: by, descending: descending)
+                    let o = Order(by: by, descending: descending)
                     orderList.append(o)
             }
         }
         
-        firestoreController?.getDocuments(path: path, asId: asId, whereList: whereList,
+        firestoreController?.getDocuments(path: path, eventId: asId, whereList: whereList,
                                           orderList: orderList, startAtList: startAtList,
                                           startAfterList: startAfterList,
                                           endAtList: endAtList, endBeforeList: endBeforeList, limitTo: limitTo)
@@ -118,47 +118,48 @@ public class SwiftController: NSObject {
     func getDocumentReference(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let path = String(argv[0]),
-            let asId = String(argv[1])
+            let eventId = String(argv[1])
             else {
                 return ArgCountError(message: "getDocumentReference").getError(#file, #line, #column)
         }
-        firestoreController?.getDocumentReference(path: path, asId: asId)
+        firestoreController?.getDocumentReference(path: path, eventId: eventId)
         return nil
     }
     
     func setDocumentReference(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 3,
             let path = String(argv[0]),
-            let asId = String(argv[1]),
             let documentData = [String: Any](argv[2]),
             let merge = Bool(argv[3])
             else {
                 return ArgCountError(message: "setDocumentReference").getError(#file, #line, #column)
         }
-        firestoreController?.setDocumentReference(path: path, asId: asId, documentData: documentData, merge: merge)
+        let eventId = String(argv[1])
+        firestoreController?.setDocumentReference(path: path, eventId: eventId,
+                                                  documentData: documentData, merge: merge)
         return nil
     }
     
     func updateDocumentReference(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 2,
             let path = String(argv[0]),
-            let asId = String(argv[1]),
             let documentData = [String: Any](argv[2])
             else {
                 return ArgCountError(message: "updateDocumentReference").getError(#file, #line, #column)
         }
-        firestoreController?.updateDocumentReference(path: path, asId: asId, documentData: documentData)
+        let eventId = String(argv[1])
+        firestoreController?.updateDocumentReference(path: path, eventId: eventId, documentData: documentData)
         return nil
     }
     
     func deleteDocumentReference(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
-            let path = String(argv[0]),
-            let asId = String(argv[1])
+            let path = String(argv[0])
             else {
                 return ArgCountError(message: "deleteDocumentReference").getError(#file, #line, #column)
         }
-        firestoreController?.deleteDocumentReference(path: path, asId: asId)
+        let eventId = String(argv[1])
+        firestoreController?.deleteDocumentReference(path: path, eventId: eventId)
         return nil
     }
     
@@ -172,13 +173,14 @@ public class SwiftController: NSObject {
     }
     
     func addSnapshotListenerDocument(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 1,
+        guard argc > 2,
             let path = String(argv[0]),
-            let asId = String(argv[1])
+            let eventId = String(argv[1]),
+            let asId = String(argv[2])
             else {
                 return ArgCountError(message: "addSnapshotListenerDocument").getError(#file, #line, #column)
         }
-        firestoreController?.addSnapshotListenerDocument(path: path, asId: asId)
+        firestoreController?.addSnapshotListenerDocument(path: path, eventId: eventId, asId: asId)
         return nil
     }
     
@@ -220,12 +222,12 @@ public class SwiftController: NSObject {
     }
     
     func commitBatch(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
-            let asId = String(argv[0])
+        guard argc > 0
             else {
                 return ArgCountError(message: "commitBatch").getError(#file, #line, #column)
         }
-        firestoreController?.commitBatch(asId: asId)
+        let eventId = String(argv[0])
+        firestoreController?.commitBatch(eventId: eventId)
         return nil
     }
     
@@ -265,46 +267,22 @@ public class SwiftController: NSObject {
     // MARK: - Network
     
     func enableNetwork(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
-            let asId = String(argv[0])
+        guard argc > 0
             else {
                 return ArgCountError(message: "enableNetwork").getError(#file, #line, #column)
         }
-        firestoreController?.enableNetwork(asId: asId)
+        let eventId = String(argv[0])
+        firestoreController?.enableNetwork(eventId: eventId)
         return nil
     }
     
     func disableNetwork(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
-            let asId = String(argv[0])
+        guard argc > 0
             else {
                 return ArgCountError(message: "disableNetwork").getError(#file, #line, #column)
         }
-        firestoreController?.disableNetwork(asId: asId)
-        return nil
-    }
-    
-    // MARK: - AS Event Listeners
-    
-    func addEventListener(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
-            let asId = String(argv[0]),
-            let type = String(argv[1])
-             else {
-                return ArgCountError(message: "addEventListener").getError(#file, #line, #column)
-        }
-        firestoreController?.addEventListener(asId: asId, type: type)
-        return nil
-    }
-    
-    func removeEventListener(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
-            let asId = String(argv[0]),
-            let type = String(argv[1])
-            else {
-                return ArgCountError(message: "removeEventListener").getError(#file, #line, #column)
-        }
-        firestoreController?.removeEventListener(asId: asId, type: type)
+        let eventId = String(argv[0])
+        firestoreController?.disableNetwork(eventId: eventId)
         return nil
     }
     

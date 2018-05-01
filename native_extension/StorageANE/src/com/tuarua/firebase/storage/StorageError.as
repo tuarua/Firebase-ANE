@@ -14,24 +14,10 @@
  *  limitations under the License.
  */
 
-import Foundation
-
-class QueryEvent: NSObject {
-    public static let QUERY_SNAPSHOT: String = "QueryEvent.QuerySnapshot"
-    var eventId: String?
-    var data: [String: Any]?
-
-    convenience init(eventId: String?, data: [String: Any]?) {
-        self.init()
-        self.eventId = eventId
-        self.data = data
+package com.tuarua.firebase.storage {
+public class StorageError extends Error {
+    public function StorageError(message:* = "", id:* = 0) {
+        super(message, id);
     }
-
-    public func toJSONString() -> String {
-        var props = [String: Any]()
-        props["eventId"] = eventId
-        props["data"] = data
-        return JSON(props).description
-    }
-
+}
 }

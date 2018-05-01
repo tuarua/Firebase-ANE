@@ -18,17 +18,24 @@ import Foundation
 
 class DocumentEvent: NSObject {
     public static let SNAPSHOT: String = "DocumentEvent.Snapshot"
-    public static let COMPLETE: String = "DocumentEvent.Complete"
-
+    public static let QUERY_SNAPSHOT: String = "QueryEvent.QuerySnapshot"
+    public static let UPDATED: String = "DocumentEvent.Updated"
+    public static let SET: String = "DocumentEvent.Set"
+    public static let DELETED: String = "DocumentEvent.Deleted"
+    
     var eventId: String?
     var data: [String: Any]?
     var realtime: Bool = false
+    var error: [String: Any]?
 
-    convenience init(eventId: String?, data: [String: Any]?, realtime: Bool = false) {
+    convenience init(eventId: String?, data: [String: Any]? = nil,
+                     realtime: Bool = false,
+                     error: [String: Any]? = nil) {
         self.init()
         self.eventId = eventId
         self.data = data
         self.realtime = realtime
+        self.error = error
     }
 
     public func toJSONString() -> String {
@@ -36,6 +43,7 @@ class DocumentEvent: NSObject {
         props["eventId"] = eventId
         props["data"] = data
         props["realtime"] = realtime
+        props["error"] = error
         return JSON(props).description
     }
 

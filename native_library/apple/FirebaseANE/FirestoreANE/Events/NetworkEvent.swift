@@ -16,19 +16,21 @@
 
 import Foundation
 class NetworkEvent: NSObject {
-    public static let COMPLETE: String = "NetworkEvent.Complete"
+    public static let ENABLED: String = "NetworkEvent.Enabled"
+    public static let DISABLED: String = "NetworkEvent.Disabled"
     var eventId: String?
-    var enabled: Bool = false
-    convenience init(eventId: String?, enabled: Bool = false) {
+    var error: [String: Any]?
+    
+    convenience init(eventId: String?, error: [String: Any]? = nil) {
         self.init()
         self.eventId = eventId
-        self.enabled = enabled
+        self.error = error
     }
     
     public func toJSONString() -> String {
         var props = [String: Any]()
         props["eventId"] = eventId
-        props["enabled"] = enabled
+        props["error"] = error
         return JSON(props).description
     }
     

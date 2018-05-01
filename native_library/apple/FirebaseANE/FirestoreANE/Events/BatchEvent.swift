@@ -19,15 +19,18 @@ import Foundation
 class BatchEvent: NSObject {
     public static let COMPLETE: String = "BatchEvent.Complete"
     var eventId: String?
-
-    convenience init(eventId: String?) {
+    var error: [String: Any]?
+    
+    convenience init(eventId: String?, error: [String: Any]? = nil) {
         self.init()
         self.eventId = eventId
+        self.error = error
     }
     
     public func toJSONString() -> String {
         var props = [String: Any]()
         props["eventId"] = eventId
+        props["error"] = error
         return JSON(props).description
     }
     

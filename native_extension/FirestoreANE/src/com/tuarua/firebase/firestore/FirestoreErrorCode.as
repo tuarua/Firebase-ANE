@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package com.tuarua.firebase.firestore.events {
+package com.tuarua.firebase.firestore {
 public final class FirestoreErrorCode {
     public static const OK:int = 0;
     public static const CANCELLED:int = 1;

@@ -15,18 +15,19 @@
  */
 
 package com.tuarua.firebase.firestore {
+import com.tuarua.firebase.FirestoreANE;
 import com.tuarua.firebase.FirestoreANEContext;
 import com.tuarua.fre.ANEError;
+
 public class CollectionReference extends Query {
     private var _id:String;
+
     public function CollectionReference(path:String) {
         _path = path;
-        _asId = FirestoreANEContext.context.call("createGUID") as String;
-        if (FirestoreANEContext.context) {
-            var theRet:* = FirestoreANEContext.context.call("initCollectionReference", path);
-            if (theRet is ANEError) throw theRet as ANEError;
-            _id = theRet as String;
-        }
+        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
+        var theRet:* = FirestoreANEContext.context.call("initCollectionReference", path);
+        if (theRet is ANEError) throw theRet as ANEError;
+        _id = theRet as String;
     }
 
     public function add(data:*):CollectionReference {
@@ -36,26 +37,24 @@ public class CollectionReference extends Query {
     }
 
     public function document(documentPath:String = null):DocumentReference {
-        if (FirestoreANEContext.context) {
-            if (documentPath) {
-                return new DocumentReference(_path + "/" + documentPath);
-            } else {
-                var theRet:* = FirestoreANEContext.context.call("documentWithAutoId", _path);
-                if (theRet is ANEError) {
-                    throw theRet as ANEError;
-                }
-                var docPath:String = theRet as String;
-                return new DocumentReference(docPath);
+        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
+        if (documentPath) {
+            return new DocumentReference(_path + "/" + documentPath);
+        } else {
+            var theRet:* = FirestoreANEContext.context.call("documentWithAutoId", _path);
+            if (theRet is ANEError) {
+                throw theRet as ANEError;
             }
+            var docPath:String = theRet as String;
+            return new DocumentReference(docPath);
         }
         return null;
     }
 
     public function get parent():DocumentReference {
-        if (FirestoreANEContext.context) {
-            var theRet:* = FirestoreANEContext.context.call("getCollectionParent", _path);
-            if (theRet is ANEError) throw theRet as ANEError;
-        }
+        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
+        var theRet:* = FirestoreANEContext.context.call("getCollectionParent", _path);
+        if (theRet is ANEError) throw theRet as ANEError;
         return new DocumentReference(theRet as String);
     }
 

@@ -22,17 +22,19 @@ import FirebaseAuth
 class AuthController: FreSwiftController {
     var TAG: String? = "AuthController"
     internal var context: FreContextSwift!
-    private var app: FirebaseApp?
+    private var auth: Auth?
     convenience init(context: FreContextSwift) {
         self.init()
         self.context = context
-        //app = FreFirebase.getFirebaseApp()
+        guard let app = FirebaseApp.app() else {
+            warning(">>>>>>>>>> NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
+            return
+        }
+        auth = Auth.auth(app: app)
     }
     
     func createUser(email: String, password: String) {
-        guard let app = app else { return }
-        let auth = Auth.auth(app: app)
-        auth.createUser(withEmail: email, password: password) { (_, error) in
+        auth?.createUser(withEmail: email, password: password) { (_, error) in
             if let err = error as NSError? {
                 self.sendEvent(name: AuthErrorEvent.USER_CREATED_ERROR,
                                value: AuthErrorEvent.init(text: err.localizedDescription, id: err.code).toJSONString())
@@ -44,15 +46,11 @@ class AuthController: FreSwiftController {
     }
     
     func signIn(email: String, password: String) {
-        guard let app = app else { return }
         
         trace("signInWithEmailAndPassword")
-        
-        let auth = Auth.auth(app: app)
-        
         trace("signIn \(email) \(password)")
         
-        auth.signIn(withEmail: email, password: password) { (_, error) in
+        auth?.signIn(withEmail: email, password: password) { (_, error) in
             if let err = error as NSError? {
                 self.trace("sign in error")
                 self.trace(err.debugDescription)
@@ -66,10 +64,8 @@ class AuthController: FreSwiftController {
     }
     
     func signInAnonymously() {
-        guard let app = app else { return }
-        let auth = Auth.auth(app: app)
         trace("signInAnonymously")
-        auth.signInAnonymously { (user, error) in
+        auth?.signInAnonymously { (user, error) in
             if let err = error as NSError? {
                 
                 self.trace("signInAnonymously error \(err.localizedDescription)")
@@ -86,11 +82,9 @@ class AuthController: FreSwiftController {
     }
     
     func signOut() {
-        guard let app = app else { return }
-        let auth = Auth.auth(app: app)
         do {
             trace("signout")
-            try auth.signOut()
+            try auth?.signOut()
         } catch let err as NSError {
             //AuthErrorCode.accountExistsWithDifferentCredential
             //AuthErrorCode.keychainError
@@ -106,9 +100,7 @@ class AuthController: FreSwiftController {
     }
     
     func sendPasswordReset(email: String) {
-        guard let app = app else { return }
-        let auth = Auth.auth(app: app)
-        auth.sendPasswordReset(withEmail: email) { error in
+        auth?.sendPasswordReset(withEmail: email) { error in
             if let err = error as NSError? {
                 self.sendEvent(name: AuthErrorEvent.PASSWORD_RESET_EMAIL_SENT_ERROR,
                                value: AuthErrorEvent.init(text: err.localizedDescription, id: err.code).toJSONString())
@@ -144,17 +136,13 @@ class AuthController: FreSwiftController {
     }
     
     func setLanguage(code: String) {
-        guard let app = app else { return }
-        let auth = Auth.auth(app: app)
         trace("setLanguage", code)
-        auth.languageCode = code
+        auth?.languageCode = code
     }
     
     func getLanguage() -> String? {
-        guard let app = app else { return nil }
-        let auth = Auth.auth(app: app)
         trace("getLanguage")
-        return auth.languageCode
+        return auth?.languageCode
     }
     
     //

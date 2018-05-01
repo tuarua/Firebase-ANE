@@ -88,8 +88,8 @@ public class SwiftController: NSObject {
             else {
                 return ArgCountError(message: "deleteReference").getError(#file, #line, #column)
         }
-        let asId = String(argv[1])
-        sc.deleteReference(path: path, asId: asId)
+        let eventId = String(argv[1])
+        sc.deleteReference(path: path, eventId: eventId)
         return nil
     }
     
@@ -131,11 +131,11 @@ public class SwiftController: NSObject {
         guard argc > 1,
             let sc = storageController,
             let path = String(argv[0]),
-            let asId = String(argv[1])
+            let eventId = String(argv[1])
             else {
                 return ArgCountError(message: "getDownloadUrl").getError(#file, #line, #column)
         }
-        sc.getDownloadUrl(path: path, asId: asId)
+        sc.getDownloadUrl(path: path, eventId: eventId)
         return nil
     }
     
@@ -156,11 +156,11 @@ public class SwiftController: NSObject {
         guard argc > 1,
             let sc = storageController,
             let path = String(argv[0]),
-            let asId = String(argv[1])
+            let eventId = String(argv[1])
             else {
                 return ArgCountError(message: "getMetadata").getError(#file, #line, #column)
         }
-        sc.getMetadata(path: path, asId: asId)
+        sc.getMetadata(path: path, eventId: eventId)
         return nil
     }
     
@@ -172,8 +172,8 @@ public class SwiftController: NSObject {
             else {
                 return ArgCountError(message: "updateMetadata").getError(#file, #line, #column)
         }
-        let asId = String(argv[1])
-        sc.updateMetadata(path: path, asId: asId, metadata: metadata)
+        let eventId = String(argv[1])
+        sc.updateMetadata(path: path, eventId: eventId, metadata: metadata)
         return nil
     }
     
@@ -254,8 +254,6 @@ public class SwiftController: NSObject {
         sc.cancelTask(asId: asId)
         return nil
     }
-    
-    // MARK: - AS Event Listeners
     
     // MARK: - AS Event Listeners
     
