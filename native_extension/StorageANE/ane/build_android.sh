@@ -33,7 +33,7 @@ cp "$pathtome/../../../native_library/android/FirebaseANE/Storage/build/outputs/
 echo "getting Android jars"
 unzip "$pathtome/platforms/android/app-release.aar" "classes.jar" -d "$pathtome/platforms/android"
 unzip "$pathtome/platforms/android/app-release.aar" "res/*" -d "$pathtome/platforms/android"
-mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.tuarua.firebase.$PROJECTNAME-res"
+mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.com.tuarua.firebase.$PROJECTNAME-res"
 
 
 
@@ -54,5 +54,5 @@ rm "$pathtome/platforms/android/app-release.aar"
 rm "$pathtome/platforms/android/library.swf"
 rm "$pathtome/$PROJECTNAME.swc"
 rm "$pathtome/library.swf"
-rm -r "$pathtome/platforms/android/com.tuarua.firebase.$PROJECTNAME-res"
+rm -r "$pathtome/platforms/android/com.com.tuarua.firebase.$PROJECTNAME-res"
 echo "Finished."

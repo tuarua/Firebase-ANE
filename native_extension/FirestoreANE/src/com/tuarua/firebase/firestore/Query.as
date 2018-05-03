@@ -15,7 +15,6 @@
  */
 
 package com.tuarua.firebase.firestore {
-import com.tuarua.firebase.FirestoreANE;
 import com.tuarua.firebase.FirestoreANEContext;
 import com.tuarua.fre.ANEError;
 
@@ -74,11 +73,8 @@ public class Query {
     }
 
     public function getDocuments(listener:Function):void {
-        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
-        var eventId:String = FirestoreANEContext.context.call("createGUID") as String;
-        FirestoreANEContext.closures[eventId] = listener;
-        FirestoreANEContext.closureCallers[eventId] = this;
-        var theRet:* = FirestoreANEContext.context.call("getDocuments", _path, eventId, whereClauses,
+        FirestoreANEContext.validate();
+        var theRet:* = FirestoreANEContext.context.call("getDocuments", _path, FirestoreANEContext.createEventId(listener, this), whereClauses,
                 orderClauses, startAts, startAfters, endAts, endBefores, limitTo);
         if (theRet is ANEError) {
             throw theRet as ANEError;

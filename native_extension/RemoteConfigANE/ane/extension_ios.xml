@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension xmlns="http://ns.adobe.com/air/extension/19.0">
-    <id>com.tuarua.firebase.RemoteConfigANE</id>
+    <id>com.com.tuarua.firebase.RemoteConfigANE</id>
     <name>Firebase Remote Config ANE</name>
 	<copyright>This work is licensed under Apache License, Copyright (c) 2017 Tua Rua Ltd.</copyright>
 	<versionNumber>0.0.1</versionNumber>

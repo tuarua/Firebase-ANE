@@ -13,22 +13,28 @@ import starling.utils.Align;
 
 import views.SimpleButton;
 
-public class AnalyticsExample extends Sprite {
+public class AnalyticsExample extends Sprite implements IExample {
     private var analytics:AnalyticsANE;
     private var btnLogEvent:SimpleButton = new SimpleButton("Log Event");
     private var btnReset:SimpleButton = new SimpleButton("Reset Analytics Data");
     private var btnGetAppInstanceId:SimpleButton = new SimpleButton("Get AppInstanceID");
     private var statusLabel:TextField;
     private var stageWidth:Number;
+    private var isInited:Boolean;
 
     public function AnalyticsExample(stageWidth:Number) {
         super();
         this.stageWidth = stageWidth;
+        initMenu();
+    }
+
+    public function initANE():void {
+        if (isInited) return;
         analytics = AnalyticsANE.analytics;
         analytics.analyticsCollectionEnabled = true;
         analytics.currentScreen = "Home Screen";
         analytics.userId = GUID.create(); // for testing create a different user each session
-        initMenu();
+        isInited = true;
     }
 
     private function initMenu():void {
@@ -48,7 +54,7 @@ public class AnalyticsExample extends Sprite {
         statusLabel = new TextField(stageWidth, 100, "");
         statusLabel.format.setTo(Fonts.NAME, 13, 0x222222, Align.CENTER, Align.TOP);
         statusLabel.touchable = false;
-        statusLabel.y = btnGetAppInstanceId.y + 75;
+        statusLabel.y = btnGetAppInstanceId.y + (StarlingRoot.GAP * 1.25);
         addChild(statusLabel);
 
     }

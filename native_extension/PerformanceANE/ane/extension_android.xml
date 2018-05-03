@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="http://ns.adobe.com/air/extension/19.0">
+    <id>com.tuarua.firebase.PerformanceANE</id>
+	<name>Firebase Firestore ANE</name>
+	<copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
+	<versionNumber>0.0.1</versionNumber>
+    <platforms>
+		<platform name="Android-ARM"> 
+           <applicationDeployment>
+				<nativeLibrary>classes.jar</nativeLibrary>
+				<initializer>com.tuarua.firebase.PerformanceANE</initializer>
+				<finalizer>com.tuarua.firebase.PerformanceANE</finalizer>
+			</applicationDeployment>
+        </platform>
+    </platforms>
+</extension>

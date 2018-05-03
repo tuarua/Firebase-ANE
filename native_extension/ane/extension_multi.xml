@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension xmlns="http://ns.adobe.com/air/extension/19.0">
-    <id>com.tuarua.firebase.FirebaseANE</id>
+    <id>com.com.tuarua.firebase.FirebaseANE</id>
 	<name>Firebase ANE</name>
 	<copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
 	<versionNumber>0.0.1</versionNumber>
@@ -22,8 +22,8 @@
      <platform name="Android-ARM">
          <applicationDeployment>
              <nativeLibrary>classes.jar</nativeLibrary>
-             <initializer>com.tuarua.firebase.FirebaseANE</initializer>
-             <finalizer>com.tuarua.firebase.FirebaseANE</finalizer>
+             <initializer>com.com.tuarua.firebase.FirebaseANE</initializer>
+             <finalizer>com.com.tuarua.firebase.FirebaseANE</finalizer>
          </applicationDeployment>
      </platform>
      <platform name="default">

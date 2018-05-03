@@ -10,13 +10,11 @@
       </option>
       <option name="taskNames">
         <list>
-          <option value="assembleRelease" />
+          <option value=":Auth:assembleRelease" />
         </list>
       </option>
       <option name="vmOptions" value="" />
     </ExternalSystemSettings>
-    <method>
-      <option name="Gradle.BeforeRunTask" enabled="true" tasks="buildNeeded" externalProjectPath="$PROJECT_DIR$/Auth" vmOptions="" scriptParameters="" />
-    </method>
+    <method />
   </configuration>
 </component>

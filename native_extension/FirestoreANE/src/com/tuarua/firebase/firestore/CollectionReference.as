@@ -15,7 +15,6 @@
  */
 
 package com.tuarua.firebase.firestore {
-import com.tuarua.firebase.FirestoreANE;
 import com.tuarua.firebase.FirestoreANEContext;
 import com.tuarua.fre.ANEError;
 
@@ -24,7 +23,7 @@ public class CollectionReference extends Query {
 
     public function CollectionReference(path:String) {
         _path = path;
-        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
+        FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("initCollectionReference", path);
         if (theRet is ANEError) throw theRet as ANEError;
         _id = theRet as String;
@@ -37,7 +36,7 @@ public class CollectionReference extends Query {
     }
 
     public function document(documentPath:String = null):DocumentReference {
-        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
+        FirestoreANEContext.validate();
         if (documentPath) {
             return new DocumentReference(_path + "/" + documentPath);
         } else {
@@ -48,11 +47,10 @@ public class CollectionReference extends Query {
             var docPath:String = theRet as String;
             return new DocumentReference(docPath);
         }
-        return null;
     }
 
     public function get parent():DocumentReference {
-        if (!FirestoreANEContext.isInited) throw new Error(FirestoreANE.INIT_ERROR_MESSAGE);
+        FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("getCollectionParent", _path);
         if (theRet is ANEError) throw theRet as ANEError;
         return new DocumentReference(theRet as String);

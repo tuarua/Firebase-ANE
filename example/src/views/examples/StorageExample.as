@@ -1,10 +1,10 @@
 package views.examples {
 import com.tuarua.firebase.StorageANE;
 import com.tuarua.firebase.storage.DownloadTask;
+import com.tuarua.firebase.storage.StorageError;
 import com.tuarua.firebase.storage.StorageMetadata;
 import com.tuarua.firebase.storage.StorageReference;
 import com.tuarua.firebase.storage.UploadTask;
-import com.tuarua.firebase.storage.events.StorageError;
 import com.tuarua.firebase.storage.events.StorageErrorEvent;
 import com.tuarua.firebase.storage.events.StorageEvent;
 import com.tuarua.firebase.storage.events.StorageProgressEvent;
@@ -31,7 +31,7 @@ import starling.utils.Align;
 
 import views.SimpleButton;
 
-public class StorageExample extends Sprite {
+public class StorageExample extends Sprite implements IExample {
     private var storage:StorageANE;
     private var storageRef:StorageReference;
     private var btnGetMetadata:SimpleButton = new SimpleButton("Get File Metadata");
@@ -42,10 +42,17 @@ public class StorageExample extends Sprite {
     private var btnUploadFile:SimpleButton = new SimpleButton("Upload File");
     private var statusLabel:TextField;
     private var stageWidth:Number;
+    private var isInited:Boolean;
 
     public function StorageExample(stageWidth:Number) {
         super();
         this.stageWidth = stageWidth;
+        initMenu();
+        copyFiles();
+    }
+
+    public function initANE():void {
+        if (isInited) return;
 
         storage = StorageANE.storage;
         trace("storage.maxDownloadRetryTime", storage.maxDownloadRetryTime);
@@ -55,9 +62,7 @@ public class StorageExample extends Sprite {
         storageRef = storage.getReference("images/logo.png");
         trace(storageRef.path, storageRef.name, storageRef.bucket);
 
-        initMenu();
-
-        copyFiles();
+        isInited = true;
     }
 
 
@@ -96,7 +101,7 @@ public class StorageExample extends Sprite {
         btnUploadFile.y = btnDownloadFile.y + StarlingRoot.GAP;
         addChild(btnUploadFile);
 
-        statusLabel.y = btnUploadFile.y + (StarlingRoot.GAP * 2);
+        statusLabel.y = btnUploadFile.y + (StarlingRoot.GAP * 1.25);
 
     }
 
@@ -228,16 +233,8 @@ public class StorageExample extends Sprite {
             var ldr:Loader = new Loader();
             ldr.contentLoaderInfo.addEventListener(Event.COMPLETE, ldr_complete, false, 0, true);
             ldr.load(new URLRequest("file://" + encodeURI(file.nativePath)));
-
             function ldr_complete(evt:Event):void {
-                var image:Image = new Image(Texture.fromBitmap(ldr.content as Bitmap));
-                image.x = (stageWidth - 167) * 0.5;
-                image.y = btnUploadFile.y + StarlingRoot.GAP;
-                image.alpha = 0;
-                addChild(image);
-                var tween:Tween = new Tween(image, 0.5);
-                tween.animate("alpha", 1.0);
-                Starling.juggler.add(tween);
+                renderImage(ldr.content as Bitmap);
             }
         }
     }
@@ -249,16 +246,21 @@ public class StorageExample extends Sprite {
             ldr.loadBytes(event.bytes);
 
             function ldr_complete(evt:Event):void {
-                var image:Image = new Image(Texture.fromBitmap(ldr.content as Bitmap));
-                image.x = (stageWidth - 167) * 0.5;
-                image.y = btnUploadFile.y + StarlingRoot.GAP;
-                image.alpha = 0;
-                addChild(image);
-                var tween:Tween = new Tween(image, 0.5);
-                tween.animate("alpha", 1.0);
-                Starling.juggler.add(tween);
+                renderImage(ldr.content as Bitmap);
             }
         }
+    }
+
+    private function renderImage(bmp:Bitmap):void {
+        var image:Image = new Image(Texture.fromBitmap(bmp));
+        image.x = (stageWidth - 167) * 0.5;
+        image.y = btnUploadFile.y + StarlingRoot.GAP;
+        image.touchable = false;
+        image.alpha = 0;
+        addChild(image);
+        var tween:Tween = new Tween(image, 0.5);
+        tween.animate("alpha", 1.0);
+        Starling.juggler.add(tween);
     }
 
     private static function copyFiles():void {

@@ -23,12 +23,8 @@ import flash.events.EventDispatcher;
 public class StorageANE extends EventDispatcher {
     private static var _storage:StorageANE;
     private static var _url:String;
-    private static const INIT_ERROR_MESSAGE:String = "StorageANE... use .firestore";
 
     public function StorageANE() {
-        if (_storage) {
-            throw new Error(StorageANEContext.NAME + " use .firestore");
-        }
         if (StorageANEContext.context) {
             var theRet:* = StorageANEContext.context.call("init", _url);
             if (theRet is ANEError) {
@@ -46,7 +42,7 @@ public class StorageANE extends EventDispatcher {
     }
 
     public function getReference(path:String = null, url:String = null):StorageReference {
-        if (!_storage) throw new Error(INIT_ERROR_MESSAGE);
+        StorageANEContext.validate();
         return new StorageReference(path, url);
     }
 
@@ -57,6 +53,7 @@ public class StorageANE extends EventDispatcher {
     }
 
     public function get maxDownloadRetryTime():Number {
+        StorageANEContext.validate();
         var theRet:* = StorageANEContext.context.call("getMaxDownloadRetryTime");
         if (theRet is ANEError) {
             throw theRet as ANEError;
@@ -65,6 +62,7 @@ public class StorageANE extends EventDispatcher {
     }
 
     public function get maxUploadRetryTime():Number {
+        StorageANEContext.validate();
         var theRet:* = StorageANEContext.context.call("getMaxUploadRetryTime");
         if (theRet is ANEError) {
             throw theRet as ANEError;
@@ -73,6 +71,7 @@ public class StorageANE extends EventDispatcher {
     }
 
     public function get maxOperationRetryTime():Number {
+        StorageANEContext.validate();
         var theRet:* = StorageANEContext.context.call("getMaxOperationRetryTime");
         if (theRet is ANEError) {
             throw theRet as ANEError;
@@ -81,6 +80,7 @@ public class StorageANE extends EventDispatcher {
     }
 
     public function set maxDownloadRetryTime(value:Number):void {
+        StorageANEContext.validate();
         var theRet:* = StorageANEContext.context.call("setMaxDownloadRetryTime", value);
         if (theRet is ANEError) {
             throw theRet as ANEError;
@@ -88,6 +88,7 @@ public class StorageANE extends EventDispatcher {
     }
 
     public function set maxOperationRetryTime(value:Number):void {
+        StorageANEContext.validate();
         var theRet:* = StorageANEContext.context.call("setMaxOperationRetryTime", value);
         if (theRet is ANEError) {
             throw theRet as ANEError;
@@ -95,6 +96,7 @@ public class StorageANE extends EventDispatcher {
     }
 
     public function set maxUploadRetryTime(value:Number):void {
+        StorageANEContext.validate();
         var theRet:* = StorageANEContext.context.call("setMaxUploadRetryTime", value);
         if (theRet is ANEError) {
             throw theRet as ANEError;

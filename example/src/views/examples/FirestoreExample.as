@@ -9,6 +9,7 @@ import com.tuarua.firebase.firestore.FirestoreSettings;
 import com.tuarua.firebase.firestore.Query;
 import com.tuarua.firebase.firestore.QuerySnapshot;
 import com.tuarua.firebase.firestore.WriteBatch;
+
 import flash.globalization.NumberFormatter;
 
 import starling.display.Sprite;
@@ -20,7 +21,7 @@ import starling.utils.Align;
 
 import views.SimpleButton;
 
-public class FirestoreExample extends Sprite {
+public class FirestoreExample extends Sprite implements IExample {
     private var db:FirestoreANE;
     private var btnCreateDatabase:SimpleButton = new SimpleButton("Create Database");
     private var btnGetDocument:SimpleButton = new SimpleButton("Get Document");
@@ -32,10 +33,17 @@ public class FirestoreExample extends Sprite {
     private var stageWidth:Number;
     private static var populationFormatter:NumberFormatter = new NumberFormatter(flash.globalization.LocaleID.DEFAULT);
     private var sanFran:DocumentReference;
+    private var isInited:Boolean;
 
     public function FirestoreExample(stageWidth:Number) {
         super();
         this.stageWidth = stageWidth;
+        initMenu();
+    }
+
+    public function initANE():void {
+        if (isInited) return;
+
         FirestoreANE.loggingEnabled = true;
         db = FirestoreANE.firestore;
         sanFran = new DocumentReference("cities/SF");
@@ -46,7 +54,9 @@ public class FirestoreExample extends Sprite {
             trace("fs.isSslEnabled:", fs.isSslEnabled);
         }
 
-        initMenu();
+        checkCitiesExist();
+
+        isInited = true;
     }
 
     private function initMenu():void {
@@ -81,20 +91,18 @@ public class FirestoreExample extends Sprite {
         btnAddDocument.addEventListener(TouchEvent.TOUCH, onAddDocumentClick);
         addChild(btnAddDocument);
 
-
         btnRunQuery.y = btnAddDocument.y + StarlingRoot.GAP;
         btnRunQuery.addEventListener(TouchEvent.TOUCH, onRunQueryClick);
         btnRunQuery.visible = false;
         addChild(btnRunQuery);
 
-        statusLabel.text = "Checking Database...";
-        statusLabel.y = btnRunQuery.y + (StarlingRoot.GAP * 2);
 
-        checkCitiesExist();
+        statusLabel.y = btnRunQuery.y + (StarlingRoot.GAP * 1.25);
 
     }
 
     private function checkCitiesExist():void {
+        statusLabel.text = "Checking Database...";
         var collection:CollectionReference = db.collection("cities");
         var query:Query = collection.limit(1);
         query.getDocuments(hasCities);

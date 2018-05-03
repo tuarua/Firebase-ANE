@@ -8,9 +8,6 @@ public final class FirebaseANE extends EventDispatcher {
     private static var _firebase:FirebaseANE;
 
     public function FirebaseANE() {
-        if (_firebase) {
-            throw new Error(FirebaseANEContext.NAME + " use .init");
-        }
         if (FirebaseANEContext.context) {
             var theRet:* = FirebaseANEContext.context.call("init");
             if (theRet is ANEError) {
@@ -27,6 +24,7 @@ public final class FirebaseANE extends EventDispatcher {
     }
 
     public static function get options():FirebaseOptions {
+        FirebaseANEContext.validate();
         var theRet:* = FirebaseANEContext.context.call("getOptions");
         if (theRet is ANEError) {
             throw theRet as ANEError;

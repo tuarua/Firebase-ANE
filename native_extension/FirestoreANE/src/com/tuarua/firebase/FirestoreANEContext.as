@@ -29,6 +29,8 @@ import flash.utils.Dictionary;
 public class FirestoreANEContext {
     internal static const NAME:String = "FirestoreANE";
     internal static const TRACE:String = "TRACE";
+    internal static const INIT_ERROR_MESSAGE:String = NAME + " not initialised... use .firestore";
+
     private static var _isInited:Boolean = false;
     private static var _context:ExtensionContext;
     public static var closures:Dictionary = new Dictionary();
@@ -61,6 +63,19 @@ public class FirestoreANEContext {
         return _context;
     }
 
+    public static function createEventId(listener:Function, listenerCaller:Object = null):String {
+        var eventId:String;
+        if (listener) {
+            eventId = context.call("createGUID") as String;
+            closures[eventId] = listener;
+            if (closureCallers) {
+                closureCallers[eventId] = listenerCaller;
+            }
+
+        }
+        return eventId;
+    }
+
     private static function gotEvent(event:StatusEvent):void {
         var err:FirestoreError;
         var path:String;
@@ -76,7 +91,7 @@ public class FirestoreANEContext {
                     var snap:DocumentSnapshot;
                     closureObject = closureCallers[pObj.eventId];
                     if (closureObject == null) return;
-                    closure = FirestoreANEContext.closures[pObj.eventId];
+                    closure = closures[pObj.eventId];
                     if (closure == null) return;
 
                     var data:Object;
@@ -96,8 +111,8 @@ public class FirestoreANEContext {
                             ANEUtils.map(pObj.data.metadata, SnapshotMetadata) as SnapshotMetadata);
                     closure.call(null, snap, err, pObj.realtime);
                     if (!pObj.realtime) {
-                        delete FirestoreANEContext.closures[pObj.eventId];
-                        delete FirestoreANEContext.closureCallers[pObj.eventId];
+                        delete closures[pObj.eventId];
+                        delete closureCallers[pObj.eventId];
                     }
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
@@ -188,10 +203,11 @@ public class FirestoreANEContext {
         _context.removeEventListener(StatusEvent.STATUS, gotEvent);
         _context.dispose();
         _context = null;
+        _isInited = false;
     }
 
-    public static function get isInited():Boolean {
-        return _isInited;
+    public static function validate():void {
+        if (!_isInited) throw new Error(INIT_ERROR_MESSAGE);
     }
 }
 }

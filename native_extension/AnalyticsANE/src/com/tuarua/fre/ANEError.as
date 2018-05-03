@@ -18,7 +18,7 @@
 package com.tuarua.fre {
 import flash.system.Capabilities;
 
-[RemoteClass(alias="com.tuarua.fre.ANEError")]
+[RemoteClass(alias="com.com.tuarua.fre.ANEError")]
 public class ANEError extends Error {
     private var _stackTrace:String;
     private var _source:String;

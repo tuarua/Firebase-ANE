@@ -33,6 +33,8 @@ import flash.utils.Dictionary;
 public class StorageANEContext {
     internal static const NAME:String = "StorageANE";
     internal static const TRACE:String = "TRACE";
+    private static var _isInited:Boolean = false;
+    private static const INIT_ERROR_MESSAGE:String = NAME + "... use .storage";
     private static const DELETED:String = "StorageEvent.Deleted";
     private static const GET_METADATA:String = "StorageEvent.GetMetadata";
     private static const GET_DOWNLOAD_URL:String = "StorageEvent.GetDownloadUrl";
@@ -58,12 +60,22 @@ public class StorageANEContext {
             try {
                 _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
                 _context.addEventListener(StatusEvent.STATUS, gotEvent);
+                _isInited = true;
             } catch (e:Error) {
                 trace("[" + NAME + "] ANE Not loaded properly.  Future calls will fail.");
             }
         }
 
         return _context;
+    }
+
+    public static function createEventId(listener:Function):String{
+        var eventId:String;
+        if (listener) {
+            eventId = context.call("createGUID") as String;
+            closures[eventId] = listener;
+        }
+        return eventId;
     }
 
     private static function getListenerObject(type:String, eventId:String):* {
@@ -225,6 +237,11 @@ public class StorageANEContext {
         _context.removeEventListener(StatusEvent.STATUS, gotEvent);
         _context.dispose();
         _context = null;
+        _isInited = false;
+    }
+
+    public static function validate():void {
+        if (!_isInited) throw new Error(INIT_ERROR_MESSAGE);
     }
 }
 }

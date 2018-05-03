@@ -24,8 +24,9 @@ import flash.external.ExtensionContext;
 public class RemoteConfigANEContext {
     internal static const NAME:String = "RemoteConfigANE";
     internal static const TRACE:String = "TRACE";
+    private static const INIT_ERROR_MESSAGE:String = NAME + "... use .remoteConfig";
     private static var _context:ExtensionContext;
-
+    private static var _isInited:Boolean = false;
     public function RemoteConfigANEContext() {
     }
 
@@ -34,6 +35,7 @@ public class RemoteConfigANEContext {
             try {
                 _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
                 _context.addEventListener(StatusEvent.STATUS, gotEvent);
+                _isInited = true;
             } catch (e:Error) {
                 trace("[" + NAME + "] ANE Not loaded properly.  Future calls will fail.");
             }
@@ -61,6 +63,10 @@ public class RemoteConfigANEContext {
         }
     }
 
+    public static function validate():void {
+        if (!_isInited) throw new Error(INIT_ERROR_MESSAGE);
+    }
+
     public static function dispose():void {
         if (!_context) {
             return;
@@ -69,6 +75,7 @@ public class RemoteConfigANEContext {
         _context.removeEventListener(StatusEvent.STATUS, gotEvent);
         _context.dispose();
         _context = null;
+        _isInited = false;
     }
 }
 }

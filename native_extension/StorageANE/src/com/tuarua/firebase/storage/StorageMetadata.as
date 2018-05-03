@@ -15,7 +15,7 @@
  */
 
 package com.tuarua.firebase.storage {
-[RemoteClass(alias="com.tuarua.firebase.storage.StorageMetadata")]
+[RemoteClass(alias="com.com.tuarua.firebase.storage.StorageMetadata")]
 public final class StorageMetadata {
     public var bucket:String;
     public var cacheControl:String;

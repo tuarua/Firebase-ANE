@@ -26,51 +26,51 @@ public class StorageTask extends EventDispatcher {
     public function StorageTask(referenceId:String) {
         this._referenceId = referenceId;
         this._asId = StorageANEContext.context.call("createGUID") as String;
-        trace("StorageTask _asId", _asId);
     }
 
     override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0,
                                               useWeakReference:Boolean = false):void {
-        if (StorageANEContext.context) {
-            StorageANEContext.listeners.push(
-                    {
-                        "id": _asId,
-                        "type": type,
-                        "listener": listener
-                    }
-            );
-            if (!StorageANEContext.listenersObjects[_asId]) StorageANEContext.listenersObjects[_asId] = this;
-            super.addEventListener(type, listener, useCapture, priority, useWeakReference);
-            StorageANEContext.context.call("addEventListener", _asId, type);
-        }
+        StorageANEContext.validate();
+        StorageANEContext.listeners.push(
+                {
+                    "id": _asId,
+                    "type": type,
+                    "listener": listener
+                }
+        );
+        if (!StorageANEContext.listenersObjects[_asId]) StorageANEContext.listenersObjects[_asId] = this;
+        super.addEventListener(type, listener, useCapture, priority, useWeakReference);
+        StorageANEContext.context.call("addEventListener", _asId, type);
     }
 
     override public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void {
-        if (StorageANEContext.context) {
-            delete StorageANEContext.listenersObjects[_asId];
-            var obj:Object;
-            var length:int = StorageANEContext.listeners.length;
-            for (var i:int = 0; i < length; ++i) {
-                obj = StorageANEContext.listeners[i];
-                if (obj.type == type && obj.id == _asId) {
-                    StorageANEContext.listeners.removeAt(i);
-                    break;
-                }
+        StorageANEContext.validate();
+        delete StorageANEContext.listenersObjects[_asId];
+        var obj:Object;
+        var length:int = StorageANEContext.listeners.length;
+        for (var i:int = 0; i < length; ++i) {
+            obj = StorageANEContext.listeners[i];
+            if (obj.type == type && obj.id == _asId) {
+                StorageANEContext.listeners.removeAt(i);
+                break;
             }
-            super.removeEventListener(type, listener, useCapture);
-            StorageANEContext.context.call("removeEventListener", _asId, type);
         }
+        super.removeEventListener(type, listener, useCapture);
+        StorageANEContext.context.call("removeEventListener", _asId, type);
     }
 
     public function pause():void {
+        StorageANEContext.validate();
         StorageANEContext.context.call("pauseTask", _asId);
     }
 
     public function resume():void {
+        StorageANEContext.validate();
         StorageANEContext.context.call("resumeTask", _asId);
     }
 
     public function cancel():void {
+        StorageANEContext.validate();
         StorageANEContext.context.call("cancelTask", _asId);
     }
 

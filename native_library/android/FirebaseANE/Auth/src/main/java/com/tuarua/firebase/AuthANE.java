@@ -1,5 +1,5 @@
 /*
- *  Copyright 2017 Tua Rua Ltd.
+ *  Copyright 2018 Tua Rua Ltd.
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import com.tuarua.firebase.auth.KotlinController;
 public class AuthANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"
+            ,"createGUID"
             ,"createUserWithEmailAndPassword"
             ,"signInWithEmailAndPassword"
             ,"signInAnonymously"
@@ -38,6 +39,7 @@ public class AuthANE implements FREExtension {
             ,"getLanguageCode"
             ,"getCurrentUser"
             ,"getIdToken"
+            ,"reload"
     };
 
     private static AuthANEContext extensionContext;

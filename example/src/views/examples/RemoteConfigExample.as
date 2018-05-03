@@ -12,15 +12,21 @@ import starling.utils.Align;
 
 import views.SimpleButton;
 
-public class RemoteConfigExample extends Sprite {
+public class RemoteConfigExample extends Sprite implements IExample {
     private var remoteConfig:RemoteConfigANE;
     private var stageWidth:Number;
     private var statusLabel:TextField;
     private var btnGetWelcomeMessage:SimpleButton = new SimpleButton("Get Welcome Message");
+    private var isInited:Boolean;
 
     public function RemoteConfigExample(stageWidth:Number) {
         super();
         this.stageWidth = stageWidth;
+        initMenu();
+    }
+
+    public function initANE():void {
+        if (isInited) return;
 
         remoteConfig = RemoteConfigANE.remoteConfig;
         remoteConfig.configSettings = new RemoteConfigSettings(true);
@@ -32,7 +38,13 @@ public class RemoteConfigExample extends Sprite {
                 }
         );
 
-        initMenu();
+        var message:String = remoteConfig.getString("welcome_message");
+        if (remoteConfig.getBoolean("welcome_message_caps")) {
+            message = message.toUpperCase();
+        }
+        statusLabel.text = message;
+
+        isInited = true;
     }
 
     private function initMenu():void {
@@ -48,13 +60,9 @@ public class RemoteConfigExample extends Sprite {
         btnGetWelcomeMessage.addEventListener(TouchEvent.TOUCH, onGetWelcomeMessageClick);
         addChild(btnGetWelcomeMessage);
 
-        statusLabel.y = btnGetWelcomeMessage.y + StarlingRoot.GAP;
+        statusLabel.y = btnGetWelcomeMessage.y + (StarlingRoot.GAP * 1.25);
 
-        var message:String = remoteConfig.getString("welcome_message");
-        if (remoteConfig.getBoolean("welcome_message_caps")) {
-            message = message.toUpperCase();
-        }
-        statusLabel.text = message;
+
     }
 
     private function onGetWelcomeMessageClick(event:TouchEvent):void {
