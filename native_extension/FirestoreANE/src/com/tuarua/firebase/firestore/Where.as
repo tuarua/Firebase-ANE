@@ -15,7 +15,7 @@
  */
 
 package com.tuarua.firebase.firestore {
-[RemoteClass(alias="com.com.tuarua.firebase.firestore.Where")]
+[RemoteClass(alias="com.tuarua.firebase.firestore.Where")]
 public class Where {
     private var _fieldPath:String;
     private var _operator:String;

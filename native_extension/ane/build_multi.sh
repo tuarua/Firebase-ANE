@@ -74,7 +74,7 @@ cp "$pathtome/../../native_library/android/$PROJECTNAME/Firebase/build/outputs/a
 echo "getting Android jars"
 unzip "$pathtome/platforms/android/Firebase-release.aar" "classes.jar" -d "$pathtome/platforms/android"
 unzip "$pathtome/platforms/android/Firebase-release.aar" "res/*" -d "$pathtome/platforms/android"
-mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.com.tuarua.firebase.$PROJECTNAME-res"
+mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.tuarua.firebase.$PROJECTNAME-res"
 
 #Copy native libraries into place.
 echo "Copying native libraries into place."
@@ -137,5 +137,5 @@ rm -r "$pathtome/platforms/ios/device"
 rm -r "$pathtome/platforms/default"
 rm "$pathtome/$PROJECTNAME.swc"
 rm "$pathtome/library.swf"
-rm -r "$pathtome/platforms/android/com.com.tuarua.firebase.$PROJECTNAME-res"
+rm -r "$pathtome/platforms/android/com.tuarua.firebase.$PROJECTNAME-res"
 echo "Finished."

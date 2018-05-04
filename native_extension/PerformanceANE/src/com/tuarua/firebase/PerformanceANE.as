@@ -37,12 +37,6 @@ public final class PerformanceANE extends EventDispatcher {
         }
     }
 
-    public static function dispose():void {
-        if (PerformanceANEContext.context) {
-            PerformanceANEContext.dispose();
-        }
-    }
-
     public static function get isDataCollectionEnabled():Boolean {
         return _isDataCollectionEnabled;
     }
@@ -53,7 +47,12 @@ public final class PerformanceANE extends EventDispatcher {
             var theRet:* = PerformanceANEContext.context.call("setIsDataCollectionEnabled", _isDataCollectionEnabled);
             if (theRet is ANEError) throw theRet as ANEError;
         }
+    }
 
+    public static function dispose():void {
+        if (PerformanceANEContext.context) {
+            PerformanceANEContext.dispose();
+        }
     }
 }
 }

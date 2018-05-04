@@ -65,6 +65,15 @@
             <entry library-name="PerformanceANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="org.greenrobot.eventbus-3.0.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-messaging-12.0.1" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="MessagingANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_29" />
         </dependencies>
@@ -224,5 +233,7 @@
     <orderEntry type="library" exported="" name="AuthANE" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-perf-12.0.1" level="project" />
     <orderEntry type="library" exported="" name="PerformanceANE" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-messaging-12.0.1" level="project" />
+    <orderEntry type="library" exported="" name="MessagingANE" level="project" />
   </component>
 </module>

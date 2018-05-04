@@ -1,5 +1,5 @@
 package com.tuarua.firebase {
-[RemoteClass(alias="com.com.tuarua.firebase.FirebaseOptions")]
+[RemoteClass(alias="com.tuarua.firebase.FirebaseOptions")]
 public class FirebaseOptions {
     public var apiKey:String;
     public var bundleId:String;

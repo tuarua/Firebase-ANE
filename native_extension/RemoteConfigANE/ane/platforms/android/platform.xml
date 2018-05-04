@@ -2,8 +2,8 @@
 <platform xmlns="http://ns.adobe.com/air/extension/19.0">
     <packagedResources>
         <packagedResource>
-            <packageName>com.com.tuarua.firebase.RemoteConfigANE</packageName>
-            <folderName>com.com.tuarua.firebase.RemoteConfigANE-res</folderName>
+            <packageName>com.tuarua.firebase.RemoteConfigANE</packageName>
+            <folderName>com.tuarua.firebase.RemoteConfigANE-res</folderName>
         </packagedResource>
     </packagedResources>
 </platform>

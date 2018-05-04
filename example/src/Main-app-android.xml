@@ -96,6 +96,18 @@
                         </intent-filter>
                     </service>
 
+                    <!-- messaging -->
+                    <service android:name="com.tuarua.firebase.messaging.MessagingService">
+                        <intent-filter>
+                            <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                        </intent-filter>
+				    </service>
+				    <service android:name="com.tuarua.firebase.messaging.InstanceIDService">
+                        <intent-filter>
+                            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                        </intent-filter>
+				    </service>
+
                     <!-- performance -->
                     <provider
                         android:name="com.google.firebase.perf.provider.FirebasePerfProvider"
@@ -120,6 +132,7 @@
 
     <extensions>
         <extensionID>com.tuarua.frekotlin</extensionID>
+        <extensionID>org.greenrobot.eventbus</extensionID>
         <extensionID>com.google.code.gson.gson</extensionID>
         <extensionID>com.squareup.okhttp.okhttp</extensionID>
         <extensionID>com.android.support.support-v4</extensionID>
@@ -132,6 +145,7 @@
         <extensionID>com.google.firebase.firebase-firestore</extensionID>
         <extensionID>com.google.firebase.firebase-storage</extensionID>
         <extensionID>com.google.firebase.firebase-perf</extensionID>
+        <extensionID>com.google.firebase.firebase-messaging</extensionID>
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
         <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
         <extensionID>com.tuarua.firebase.FirestoreANE</extensionID>
@@ -139,5 +153,6 @@
         <extensionID>com.tuarua.firebase.RemoteConfigANE</extensionID>
         <extensionID>com.tuarua.firebase.AuthANE</extensionID>
         <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
+        <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
     </extensions>
 </application>

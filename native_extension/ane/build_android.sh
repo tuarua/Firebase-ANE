@@ -33,7 +33,7 @@ cp "$pathtome/../../native_library/android/$PROJECTNAME/Firebase/build/outputs/a
 echo "getting Android jars"
 unzip "$pathtome/platforms/android/Firebase-release.aar" "classes.jar" -d "$pathtome/platforms/android"
 unzip "$pathtome/platforms/android/Firebase-release.aar" "res/*" -d "$pathtome/platforms/android"
-mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.com.tuarua.firebase.$PROJECTNAME-res"
+mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.tuarua.firebase.$PROJECTNAME-res"
 
 
 
@@ -54,7 +54,7 @@ rm "$pathtome/platforms/android/Firebase-release.aar"
 rm "$pathtome/platforms/android/library.swf"
 rm "$pathtome/$PROJECTNAME.swc"
 rm "$pathtome/library.swf"
-rm -r "$pathtome/platforms/android/com.com.tuarua.firebase.$PROJECTNAME-res"
+rm -r "$pathtome/platforms/android/com.tuarua.firebase.$PROJECTNAME-res"
 
 echo "Packaging Google Services values into ANE."
 zip "$pathtome/$PROJECTNAME.ane" META-INF/ANE/Android-ARM/com.tuarua.firebase.FirebaseANE-res/values/values.xml

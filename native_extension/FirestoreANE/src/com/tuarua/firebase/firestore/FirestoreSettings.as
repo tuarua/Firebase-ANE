@@ -15,7 +15,7 @@
  */
 
 package com.tuarua.firebase.firestore {
-[RemoteClass(alias="com.com.tuarua.firebase.firestore.FirestoreSettings")]
+[RemoteClass(alias="com.tuarua.firebase.firestore.FirestoreSettings")]
 public class FirestoreSettings {
     public var host:String;
     public var isPersistenceEnabled:Boolean = true;

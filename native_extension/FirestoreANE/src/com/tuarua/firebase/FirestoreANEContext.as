@@ -71,7 +71,6 @@ public class FirestoreANEContext {
             if (closureCallers) {
                 closureCallers[eventId] = listenerCaller;
             }
-
         }
         return eventId;
     }

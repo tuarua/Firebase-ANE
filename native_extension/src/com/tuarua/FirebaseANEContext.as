@@ -27,7 +27,6 @@ public class FirebaseANEContext {
     }
 
     private static function gotEvent(event:StatusEvent):void {
-        var pObj:Object;
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);

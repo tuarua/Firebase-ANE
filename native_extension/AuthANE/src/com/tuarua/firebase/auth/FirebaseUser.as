@@ -2,7 +2,7 @@ package com.tuarua.firebase.auth {
 import com.tuarua.firebase.AuthANEContext;
 import com.tuarua.fre.ANEError;
 
-[RemoteClass(alias="com.com.tuarua.firebase.auth.FirebaseUser")]
+[RemoteClass(alias="com.tuarua.firebase.auth.FirebaseUser")]
 public class FirebaseUser {
     private var _email:String;
     private var _displayName:String;
