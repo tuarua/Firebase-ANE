@@ -1,5 +1,4 @@
 package views.examples {
-import com.tuarua.firebase.MessagingANE;
 import com.tuarua.firebase.PerformanceANE;
 import com.tuarua.firebase.performance.Trace;
 
@@ -60,12 +59,10 @@ public class PerformanceExample extends Sprite implements IExample {
     private function onStartTraceClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnStartTrace);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            var messaging:MessagingANE = MessagingANE.messaging;
-            trace(messaging.token);
-            /*tracer = new Trace("test_trace_" + traceCnt);
+            tracer = new Trace("test_trace_" + traceCnt);
             traceCnt++;
             tracer.start();
-            btnIncrementCounter.visible = btnStopTrace.visible = true;*/
+            btnIncrementCounter.visible = btnStopTrace.visible = true;
         }
     }
 

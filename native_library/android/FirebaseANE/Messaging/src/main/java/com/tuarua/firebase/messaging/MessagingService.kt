@@ -1,19 +1,18 @@
 package com.tuarua.firebase.messaging
 
-import android.util.Log
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.google.gson.Gson
 import com.tuarua.firebase.messaging.events.MessageEvent
 import org.greenrobot.eventbus.EventBus
-
 
 class MessagingService() : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
         if (remoteMessage != null) {
-            /*if (remoteMessage.notification != null) {
-                Log.d(TAG, "Message Notification Body: " + (remoteMessage.notification?.body ?: "UNKNOWN"))
-            }*/
+
+            if (remoteMessage.data.isNotEmpty()) {
+                // TODO handle message data
+            }
+
             val bodyLocalizationArgs = mutableListOf<String>()
             val bodyLocalizationArgsArr = remoteMessage.notification?.bodyLocalizationArgs
             bodyLocalizationArgsArr?.mapTo(bodyLocalizationArgs) { it.toString() }

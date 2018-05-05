@@ -1,6 +1,7 @@
 package com.tuarua.firebase {
 import com.tuarua.firebase.messaging.RemoteMessage;
 import com.tuarua.firebase.messaging.events.MessagingEvent;
+import com.tuarua.fre.ANEUtils;
 
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
@@ -52,25 +53,10 @@ public class MessagingANEContext {
                 trace("[" + NAME + "]", event.code);
                 break;
             case MessagingEvent.ON_MESSAGE_RECEIVED:
-                /*
-                {"data":{"from":"743883671330","messageId":"0:1525436203436198%b8e91b2eb8e91b2e","collapseKey":"air.com.tuarua.firebaseane.example","sentTime":1525436203430,"ttl":2419200,"notification":{"body":"AIR message 2018 A","link":"null","bodyLocalizationArgs":[],"titleLocalizationArgs":[]}},"eventId":"FirebaseMessaging.OnMessageReceived"}
-
-
-
-    public var notification:Notification;
-
-                 */
                 try {
                     pObj = JSON.parse(event.code);
-                    var data:Object = pObj.data;
-                    var remoteMessage:RemoteMessage = new RemoteMessage();
-                    remoteMessage.from = data.from;
-                    remoteMessage.messageId = data.messageId;
-                    remoteMessage.messageType = data.messageType;
-                    remoteMessage.to = data.to;
-                    remoteMessage.collapseKey = data.collapseKey;
-                    remoteMessage.sentTime = data.sentTime;
-                    remoteMessage.ttl = data.ttl;
+                    MessagingANE.messaging.dispatchEvent(new MessagingEvent(event.level,
+                            ANEUtils.map(pObj.data, RemoteMessage) as RemoteMessage));
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
@@ -86,8 +72,6 @@ public class MessagingANEContext {
                 break;
         }
     }
-
-    // FirebaseMessaging.OnMessageReceived
 
     public static function dispose():void {
         if (!_context) {

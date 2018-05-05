@@ -4,8 +4,10 @@ import com.tuarua.firebase.AnalyticsANE;
 import com.tuarua.firebase.AuthANE;
 import com.tuarua.firebase.FirebaseOptions;
 import com.tuarua.firebase.FirestoreANE;
+import com.tuarua.firebase.MessagingANE;
 import com.tuarua.firebase.PerformanceANE;
 import com.tuarua.firebase.RemoteConfigANE;
+import com.tuarua.firebase.StorageANE;
 import com.tuarua.fre.ANEError;
 
 import flash.desktop.NativeApplication;
@@ -15,7 +17,6 @@ import starling.animation.Transitions;
 
 import starling.animation.Tween;
 import starling.core.Starling;
-import starling.display.Sprite;
 
 import starling.display.Sprite;
 import starling.events.Touch;
@@ -24,13 +25,7 @@ import starling.events.TouchPhase;
 import starling.text.TextField;
 
 import views.SimpleButton;
-import views.examples.AnalyticsExample;
-import views.examples.AuthExample;
-import views.examples.FirestoreExample;
-import views.examples.IExample;
-import views.examples.PerformanceExample;
-import views.examples.RemoteConfigExample;
-import views.examples.StorageExample;
+import views.examples.*;
 
 // https://dandar3.github.io/android/google-services-json-to-xml.html
 
@@ -41,6 +36,7 @@ public class StarlingRoot extends Sprite {
     private var btnRemoteConfig:SimpleButton = new SimpleButton("Remote Config");
     private var btnAuth:SimpleButton = new SimpleButton("Auth");
     private var btnPerformance:SimpleButton = new SimpleButton("Performance");
+    private var btnMessaging:SimpleButton = new SimpleButton("Messaging");
 
     private var btnBack:SimpleButton = new SimpleButton("Back");
     private var menuContainer:Sprite = new Sprite();
@@ -52,6 +48,7 @@ public class StarlingRoot extends Sprite {
     private var remoteConfigExample:RemoteConfigExample;
     private var authExample:AuthExample;
     private var performanceExample:PerformanceExample;
+    private var messagingExample:MessagingExample;
 
     public function StarlingRoot() {
         TextField.registerCompositor(Fonts.getFont("fira-sans-semi-bold-13"), "Fira Sans Semi-Bold 13");
@@ -80,7 +77,6 @@ public class StarlingRoot extends Sprite {
         firestoreExample.x = stage.stageWidth;
         addChild(firestoreExample);
 
-
         remoteConfigExample = new RemoteConfigExample(stage.stageWidth);
         remoteConfigExample.x = stage.stageWidth;
         addChild(remoteConfigExample);
@@ -97,10 +93,15 @@ public class StarlingRoot extends Sprite {
         performanceExample.x = stage.stageWidth;
         addChild(performanceExample);
 
+        messagingExample = new MessagingExample(stage.stageWidth);
+        messagingExample.x = stage.stageWidth;
+        addChild(messagingExample);
+
     }
 
     private function initMenu():void {
-        btnPerformance.x = btnAuth.x = btnRemoteConfig.x = btnBack.x = btnStorage.x = btnFirestore.x = btnAnalytics.x = (stage.stageWidth - 200) * 0.5;
+        btnMessaging.x = btnPerformance.x = btnAuth.x = btnRemoteConfig.x = btnBack.x = btnStorage.x =
+                btnFirestore.x = btnAnalytics.x = (stage.stageWidth - 200) * 0.5;
         btnAnalytics.y = GAP;
         btnAnalytics.addEventListener(TouchEvent.TOUCH, onAnalyticsClick);
         menuContainer.addChild(btnAnalytics);
@@ -124,6 +125,11 @@ public class StarlingRoot extends Sprite {
         btnPerformance.y = btnAuth.y + GAP;
         btnPerformance.addEventListener(TouchEvent.TOUCH, onPerformanceClick);
         menuContainer.addChild(btnPerformance);
+
+        btnMessaging.y = btnPerformance.y + GAP;
+        btnMessaging.addEventListener(TouchEvent.TOUCH, onMessagingClick);
+        menuContainer.addChild(btnMessaging);
+
 
         btnBack.y = stage.stageHeight - 100;
         btnBack.addEventListener(TouchEvent.TOUCH, onBackClick);
@@ -194,6 +200,15 @@ public class StarlingRoot extends Sprite {
         }
     }
 
+    private function onMessagingClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnMessaging);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            showMenu(false);
+            showExample(messagingExample);
+            btnBack.visible = true;
+        }
+    }
+
     private function showExample(example:IExample, value:Boolean = true):void {
         var tween:Tween = new Tween(example, 0.5, Transitions.EASE_OUT);
         tween.moveTo(value ? 0 : stage.stageWidth, 0);
@@ -215,6 +230,7 @@ public class StarlingRoot extends Sprite {
             showExample(remoteConfigExample, false);
             showExample(authExample, false);
             showExample(performanceExample, false);
+            showExample(messagingExample, false);
             btnBack.visible = false;
         }
     }
@@ -223,9 +239,11 @@ public class StarlingRoot extends Sprite {
         FirebaseANE.dispose();
         AnalyticsANE.dispose();
         FirestoreANE.dispose();
+        StorageANE.dispose();
         RemoteConfigANE.dispose();
         AuthANE.dispose();
         PerformanceANE.dispose();
+        MessagingANE.dispose();
     }
 
 }

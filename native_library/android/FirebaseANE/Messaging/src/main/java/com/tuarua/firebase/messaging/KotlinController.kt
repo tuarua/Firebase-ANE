@@ -18,6 +18,7 @@ package com.tuarua.firebase.messaging
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
+import android.util.Log
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.iid.FirebaseInstanceId
@@ -40,14 +41,14 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
+        argv.takeIf { argv.size > 1 } ?: return FreArgException("init")
         EventBus.getDefault().register(this)
+        val channelId = String(argv[0]) ?: "fcm_default_channel"
+        val channelName = String(argv[1])
 
         val appActivity = ctx.activity
-        if (appActivity != null) {
+        if (channelName != null && appActivity != null) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                // Create channel to show notifications.
-                val channelId = "fcm_default_channel"
-                val channelName = "News"
                 val notificationManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     appActivity.getSystemService(NotificationManager::class.java)
                 } else {
@@ -55,6 +56,15 @@ class KotlinController : FreKotlinMainController {
                 }
                 notificationManager?.createNotificationChannel(NotificationChannel(channelId,
                         channelName, NotificationManager.IMPORTANCE_LOW))
+
+
+                if (appActivity.intent.extras != null) {
+                    for (key in appActivity.intent.extras.keySet()) {
+                        val value = appActivity.intent.extras.get(key)
+                        trace("Key: $key Value: $value")
+                    }
+                }
+
             }
         }
 

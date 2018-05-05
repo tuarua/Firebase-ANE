@@ -6,9 +6,12 @@ import flash.events.EventDispatcher;
 public class MessagingANE extends EventDispatcher {
     private static var _messaging:MessagingANE;
 
+    private static var _channelId:String;
+    private static var _channelName:String;
+
     public function MessagingANE() {
         if (MessagingANEContext.context) {
-            var theRet:* = MessagingANEContext.context.call("init");
+            var theRet:* = MessagingANEContext.context.call("init", _channelId, _channelName);
             if (theRet is ANEError) throw theRet as ANEError;
         }
         _messaging = this;
@@ -44,6 +47,14 @@ public class MessagingANE extends EventDispatcher {
         if (MessagingANEContext.context) {
             MessagingANEContext.dispose();
         }
+    }
+
+    public static function set channelId(value:String):void {
+        _channelId = value;
+    }
+
+    public static function set channelName(value:String):void {
+        _channelName = value;
     }
 }
 }
