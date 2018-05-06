@@ -47,7 +47,6 @@ public class MessagingANEContext {
     }
 
     private static function gotEvent(event:StatusEvent):void {
-        trace(event.code);
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);

@@ -129,7 +129,7 @@ class UserController(override var context: FREContext?) : FreKotlinController {
     }
 
     fun reload() {
-        currentUser?.reload()?.addOnCompleteListener { task ->
+        currentUser?.reload()?.addOnCompleteListener { _ ->
 
         }
     }

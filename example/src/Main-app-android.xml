@@ -47,10 +47,9 @@
                 <uses-permission android:name="air.com.tuarua.firebaseane.example.permission.C2D_MESSAGE" />
 
                 <application android:enabled="true">
-                <meta-data
-                android:name="com.google.android.gms.version"
-                android:value="@integer/google_play_services_version" />
-
+                    <meta-data
+                        android:name="com.google.android.gms.version"
+                        android:value="@integer/google_play_services_version" />
 
                     <provider
                         android:authorities="air.com.tuarua.firebaseane.example.firebaseinitprovider"

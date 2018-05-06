@@ -37,7 +37,6 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getCurrentUser(ctx: FREContext, argv: FREArgv): FREObject? {
-        val cu = userController.currentUser
         return userController.currentUser?.toFREObject()
     }
 
