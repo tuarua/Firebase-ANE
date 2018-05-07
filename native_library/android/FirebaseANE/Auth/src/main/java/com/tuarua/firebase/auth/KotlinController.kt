@@ -88,7 +88,9 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun reload(ctx: FREContext, argv: FREArgv): FREObject? {
-        userController.reload()
+        argv.takeIf { argv.size > 0 } ?: return FreArgException("reload")
+        val eventId = String(argv[0])
+        userController.reload(eventId)
         return null
     }
 

@@ -25,6 +25,12 @@ public class SwiftController: NSObject {
     private var authController: AuthController?
     private var userController: UserController?
     
+    // MARK: - Init
+    
+    func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        return UUID().uuidString.toFREObject()
+    }
+    
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         authController = AuthController(context: context)
         userController = UserController(context: context)
@@ -32,38 +38,49 @@ public class SwiftController: NSObject {
     }
     
     func createUserWithEmailAndPassword(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 1,
+        guard argc > 2,
             let email = String(argv[0]),
             let password = String(argv[1])
             else {
                 return ArgCountError(message: "createUserWithEmailAndPassword").getError(#file, #line, #column)
         }
-        authController?.createUser(email: email, password: password)
+        let eventId = String(argv[2])
+        authController?.createUser(email: email, password: password, eventId: eventId)
         return nil
         
     }
     
     func signInWithEmailAndPassword(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        
-        trace("signInWithEmailAndPassword")
-        
-        guard argc > 1,
+        guard argc > 2,
             let email = String(argv[0]),
             let password = String(argv[1])
             else {
                 return ArgCountError(message: "signInWithEmailAndPassword").getError(#file, #line, #column)
         }
-        authController?.signIn(email: email, password: password)
+        let eventId = String(argv[2])
+        authController?.signIn(email: email, password: password, eventId: eventId)
         return nil
     }
     
     func signInAnonymously(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        trace("signInAnonymously")
-        authController?.signInAnonymously()
+        guard argc > 0
+            else {
+                return ArgCountError(message: "signInAnonymously").getError(#file, #line, #column)
+        }
+        let eventId = String(argv[0])
+        authController?.signInAnonymously(eventId: eventId)
         return nil
     }
     
     func updateProfile(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard argc > 2
+            else {
+                return ArgCountError(message: "signInWithEmailAndPassword").getError(#file, #line, #column)
+        }
+        let displayName = String(argv[0])
+        let photoUrl = String(argv[1])
+        let eventId = String(argv[2])
+        userController?.updateProfile(displayName: displayName, photoUrl: photoUrl, eventId: eventId)
         return nil
     }
     
@@ -71,58 +88,76 @@ public class SwiftController: NSObject {
         authController?.signOut()
         return nil
     }
+    
     func sendEmailVerification(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        userController?.sendEmailVerification()
+        let eventId = String(argv[0])
+        userController?.sendEmailVerification(eventId: eventId)
         return nil
     }
+    
     func updateEmail(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
+        guard argc > 1,
             let email = String(argv[0])
             else {
                 return ArgCountError(message: "updateEmail").getError(#file, #line, #column)
         }
-        userController?.update(email: email)
+        let eventId = String(argv[1])
+        userController?.update(email: email, eventId: eventId)
         return nil
     }
+    
     func updatePassword(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
+        guard argc > 1,
             let password = String(argv[0])
             else {
                 return ArgCountError(message: "updatePassword").getError(#file, #line, #column)
         }
-        userController?.update(password: password)
+        let eventId = String(argv[1])
+        userController?.update(password: password, eventId: eventId)
         return nil
     }
+    
     func sendPasswordResetEmail(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
+        guard argc > 1,
             let email = String(argv[0])
             else {
                 return ArgCountError(message: "sendPasswordResetEmail").getError(#file, #line, #column)
         }
-        authController?.sendPasswordReset(email: email)
+        let eventId = String(argv[1])
+        authController?.sendPasswordReset(email: email, eventId: eventId)
         return nil
     }
+    
     func deleteUser(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        authController?.deleteUser()
+        guard argc > 0
+            else {
+                return ArgCountError(message: "deleteUser").getError(#file, #line, #column)
+        }
+        let eventId = String(argv[0])
+        authController?.deleteUser(eventId: eventId)
         return nil
     }
+    
     func reauthenticate(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 1,
+        guard argc > 2,
             let email = String(argv[0]),
             let password = String(argv[1])
             else {
                 return ArgCountError(message: "reauthenticate").getError(#file, #line, #column)
         }
-        authController?.reauthenticate(email: email, password: password)
+        let eventId = String(argv[2])
+        authController?.reauthenticate(email: email, password: password, eventId: eventId)
         return nil
     }
+    
     func unlink(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
+        guard argc > 1,
             let provider = String(argv[0])
             else {
                 return ArgCountError(message: "unlink").getError(#file, #line, #column)
         }
-        userController?.unlink(provider: provider)
+        let eventId = String(argv[1])
+        userController?.unlink(provider: provider, eventId: eventId)
         return nil
     }
     
@@ -135,14 +170,33 @@ public class SwiftController: NSObject {
         authController?.setLanguage(code: code)
         return nil
     }
+    
     func getLanguageCode(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return authController?.getLanguage()?.toFREObject()
     }
+    
     func getCurrentUser(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return userController?.getCurrentUser()?.toFREObject()
     }
+    
     func getIdToken(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        // TODO
+        guard argc > 1,
+            let forceRefresh = Bool(argv[0]),
+            let eventId = String(argv[1])
+            else {
+                return ArgCountError(message: "getIdToken").getError(#file, #line, #column)
+        }
+        userController?.getIdToken(forceRefresh: forceRefresh, eventId: eventId)
+        return nil
+    }
+    
+    func reload(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard argc > 0
+            else {
+                return ArgCountError(message: "reload").getError(#file, #line, #column)
+        }
+        let eventId = String(argv[0])
+        userController?.reload(eventId: eventId)
         return nil
     }
 }

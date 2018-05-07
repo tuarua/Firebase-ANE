@@ -114,7 +114,7 @@ public class AuthExample extends Sprite implements IExample {
     private function onSignInEmailPasswordClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnSignInEmailPassword);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            auth.signInWithEmailAndPassword("test@test.com", "password", onSignedIn);
+            auth.signInWithEmailAndPassword("test@test.com", "passwor", onSignedIn);
         }
     }
 

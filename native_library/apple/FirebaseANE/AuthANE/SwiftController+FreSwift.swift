@@ -21,6 +21,7 @@ extension SwiftController: FreSwiftMainController {
     @objc public func getFunctions(prefix: String) -> [String] {
         
         functionsToSet["\(prefix)init"] = initController
+        functionsToSet["\(prefix)createGUID"] = createGUID
         functionsToSet["\(prefix)createUserWithEmailAndPassword"] = createUserWithEmailAndPassword
         functionsToSet["\(prefix)signInWithEmailAndPassword"] = signInWithEmailAndPassword
         functionsToSet["\(prefix)signInAnonymously"] = signInAnonymously
@@ -37,6 +38,7 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)getLanguageCode"] = getLanguageCode
         functionsToSet["\(prefix)getCurrentUser"] = getCurrentUser
         functionsToSet["\(prefix)getIdToken"] = getIdToken
+        functionsToSet["\(prefix)reload"] = reload
         
         var arr: [String] = []
         for key in functionsToSet.keys {

@@ -17,27 +17,35 @@
 import Foundation
 
 class AuthEvent: NSObject {
+    public static let EMAIL_UPDATED: String = "AuthEvent.EmailUpdated"
+    public static let PASSWORD_UPDATED: String = "AuthEvent.PasswordUpdated"
+    public static let PROFILE_UPDATED: String = "AuthEvent.ProfileUpdated"
     public static let SIGN_IN: String = "AuthEvent.SignIn"
+    public static let ID_TOKEN: String = "AuthEvent.OnIdToken"
     public static let PASSWORD_RESET_EMAIL_SENT: String = "AuthEvent.PasswordResetEmailSent"
     public static let USER_DELETED: String = "AuthEvent.UserDeleted"
     public static let USER_REAUTHENTICATED: String = "AuthEvent.UserReauthenticated"
     public static let USER_CREATED: String = "AuthEvent.UserCreated"
+    public static let USER_UNLINKED: String = "AuthEvent.UserUnlinked"
+    public static let USER_RELOADED: String = "AuthEvent.UserReloaded"
     public static let EMAIL_VERIFICATION_SENT: String = "AuthEvent.EmailVerificationSent"
     
     var eventId: String?
     var data: [String: Any]?
+    var error: [String: Any]?
     
-    convenience init(eventId: String?, data: [String: Any]?) {
+    convenience init(eventId: String?, data: [String: Any]? = nil, error: [String: Any]? = nil) {
         self.init()
         self.eventId = eventId
         self.data = data
+        self.error = error
     }
     
     public func toJSONString() -> String {
         var props = [String: Any]()
         props["eventId"] = eventId
         props["data"] = data
-        let json = JSON(props)
-        return json.description
+        props["error"] = error
+        return JSON(props).description
     }
 }

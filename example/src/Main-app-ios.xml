@@ -4,7 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-iOS-Device</name>
-    <versionNumber>0.0.0</versionNumber>
+    <versionNumber>0.0.1</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -58,5 +58,8 @@
         <extensionID>com.tuarua.firebase.FirestoreANE</extensionID>
         <extensionID>com.tuarua.firebase.StorageANE</extensionID>
         <extensionID>com.tuarua.firebase.RemoteConfigANE</extensionID>
+        <extensionID>com.tuarua.firebase.AuthANE</extensionID>
+        <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
+        <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
     </extensions>
 </application>

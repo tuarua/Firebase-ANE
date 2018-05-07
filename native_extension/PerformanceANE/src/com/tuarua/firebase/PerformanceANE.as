@@ -22,10 +22,11 @@ import com.tuarua.fre.ANEError;
 public final class PerformanceANE extends EventDispatcher {
     private static var _performance:PerformanceANE;
     private static var _isDataCollectionEnabled:Boolean = true;
+    private static var _isInstrumentationEnabled:Boolean = true;
 
     public function PerformanceANE() {
         if (PerformanceANEContext.context) {
-            var theRet:* = PerformanceANEContext.context.call("init", _isDataCollectionEnabled);
+            var theRet:* = PerformanceANEContext.context.call("init", _isDataCollectionEnabled, _isInstrumentationEnabled);
             if (theRet is ANEError) throw theRet as ANEError;
         }
         _performance = this;
@@ -52,6 +53,18 @@ public final class PerformanceANE extends EventDispatcher {
     public static function dispose():void {
         if (PerformanceANEContext.context) {
             PerformanceANEContext.dispose();
+        }
+    }
+
+    public static function get isInstrumentationEnabled():Boolean {
+        return _isInstrumentationEnabled;
+    }
+
+    public static function set isInstrumentationEnabled(value:Boolean):void {
+        _isInstrumentationEnabled = value;
+        if (_performance) {
+            var theRet:* = PerformanceANEContext.context.call("setIsInstrumentationEnabled", _isInstrumentationEnabled);
+            if (theRet is ANEError) throw theRet as ANEError;
         }
     }
 }

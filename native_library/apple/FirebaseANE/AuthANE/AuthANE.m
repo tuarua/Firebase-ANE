@@ -37,6 +37,8 @@ CONTEXT_INIT(TRFIRAU) {
     static FRENamedFunction extensionFunctions[] =
     {
          MAP_FUNCTION(TRFIRAU, init)
+        ,MAP_FUNCTION(TRFIRAU, createGUID)
+        ,MAP_FUNCTION(TRFIRAU, createUserWithEmailAndPassword)
         ,MAP_FUNCTION(TRFIRAU, signInWithEmailAndPassword)
         ,MAP_FUNCTION(TRFIRAU, signInAnonymously)
         ,MAP_FUNCTION(TRFIRAU, updateProfile)
@@ -52,6 +54,7 @@ CONTEXT_INIT(TRFIRAU) {
         ,MAP_FUNCTION(TRFIRAU, getLanguageCode)
         ,MAP_FUNCTION(TRFIRAU, getCurrentUser)
         ,MAP_FUNCTION(TRFIRAU, getIdToken)
+        ,MAP_FUNCTION(TRFIRAU, reload)
     };
     
     /**************************************************************************/

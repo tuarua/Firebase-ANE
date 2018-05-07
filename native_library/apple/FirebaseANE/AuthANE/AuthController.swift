@@ -33,121 +33,113 @@ class AuthController: FreSwiftController {
         auth = Auth.auth(app: app)
     }
     
-    func createUser(email: String, password: String) {
+    func createUser(email: String, password: String, eventId: String?) {
         auth?.createUser(withEmail: email, password: password) { (_, error) in
+            if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: AuthErrorEvent.USER_CREATED_ERROR,
-                               value: AuthErrorEvent.init(text: err.localizedDescription, id: err.code).toJSONString())
+                self.sendEvent(name: AuthEvent.USER_CREATED,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                    error: ["text": err.localizedDescription,
+                                                            "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: AuthEvent.USER_CREATED, value: "") //TODO send back userId or something
-            }
-            
-        }
-    }
-    
-    func signIn(email: String, password: String) {
-        
-        trace("signInWithEmailAndPassword")
-        trace("signIn \(email) \(password)")
-        
-        auth?.signIn(withEmail: email, password: password) { (_, error) in
-            if let err = error as NSError? {
-                self.trace("sign in error")
-                self.trace(err.debugDescription)
-                self.sendEvent(name: AuthErrorEvent.SIGN_IN_ERROR,
-                               value: AuthErrorEvent.init(text: err.localizedDescription, id: err.code).toJSONString())
-            } else {
-                self.trace("sign in success")
-                self.sendEvent(name: AuthEvent.SIGN_IN, value: "")
+                self.sendEvent(name: AuthEvent.USER_CREATED,
+                               value: AuthEvent(eventId: eventId).toJSONString())
             }
         }
     }
     
-    func signInAnonymously() {
-        trace("signInAnonymously")
-        auth?.signInAnonymously { (user, error) in
+    func signIn(email: String, password: String, eventId: String?) {
+        auth?.signIn(withEmail: email, password: password) { _, error in
+            if eventId == nil { return }
             if let err = error as NSError? {
-                
-                self.trace("signInAnonymously error \(err.localizedDescription)")
-                
-                self.sendEvent(name: AuthErrorEvent.SIGN_IN_ERROR,
-                               value: AuthErrorEvent.init(text: err.localizedDescription, id: err.code).toJSONString())
+                self.sendEvent(name: AuthEvent.SIGN_IN,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
             } else {
-                
-                self.trace("signInAnonymously success: anon: \(String(describing: user?.isAnonymous))")
-                
-                self.sendEvent(name: AuthEvent.SIGN_IN, value: "")
+                self.sendEvent(name: AuthEvent.SIGN_IN,
+                               value: AuthEvent(eventId: eventId).toJSONString())
+            }
+        }
+    }
+    
+    func signInAnonymously(eventId: String?) {
+        auth?.signInAnonymously { _, error in
+            if eventId == nil { return }
+            if let err = error as NSError? {
+                self.sendEvent(name: AuthEvent.SIGN_IN,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
+            } else {
+                self.sendEvent(name: AuthEvent.SIGN_IN,
+                               value: AuthEvent(eventId: eventId).toJSONString())
             }
         }
     }
     
     func signOut() {
         do {
-            trace("signout")
             try auth?.signOut()
-        } catch let err as NSError {
-            //AuthErrorCode.accountExistsWithDifferentCredential
-            //AuthErrorCode.keychainError
-            
-            self.sendEvent(name: AuthErrorEvent.SIGN_OUT_ERROR,
-                           value: AuthErrorEvent.init(text: err.localizedDescription, id: err.code).toJSONString())
-            
-            trace("sign out error", err.code, err.localizedDescription)
         } catch {
             
         }
-        
     }
     
-    func sendPasswordReset(email: String) {
+    func sendPasswordReset(email: String, eventId: String?) {
         auth?.sendPasswordReset(withEmail: email) { error in
+            if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: AuthErrorEvent.PASSWORD_RESET_EMAIL_SENT_ERROR,
-                               value: AuthErrorEvent.init(text: err.localizedDescription, id: err.code).toJSONString())
+                self.sendEvent(name: AuthEvent.PASSWORD_RESET_EMAIL_SENT,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: AuthEvent.PASSWORD_RESET_EMAIL_SENT, value: "")
+                self.sendEvent(name: AuthEvent.PASSWORD_RESET_EMAIL_SENT,
+                               value: AuthEvent(eventId: eventId).toJSONString())
             }
         }
     }
     
-    func deleteUser() {
+    func deleteUser(eventId: String?) {
         let user = Auth.auth().currentUser
         user?.delete { error in
+            if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: AuthErrorEvent.USER_DELETED_ERROR,
-                               value: AuthErrorEvent.init(text: err.localizedDescription, id: err.code).toJSONString())
+                self.sendEvent(name: AuthEvent.USER_DELETED,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: AuthEvent.USER_DELETED, value: "")
+                self.sendEvent(name: AuthEvent.USER_DELETED,
+                               value: AuthEvent(eventId: eventId).toJSONString())
             }
         }
     }
     
-    func reauthenticate(email: String, password: String) {
+    func reauthenticate(email: String, password: String, eventId: String?) {
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         let user = Auth.auth().currentUser
         user?.reauthenticate(with: credential) {error in
+            if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: AuthErrorEvent.USER_REAUTHENTICATED_ERROR,
-                               value: AuthErrorEvent.init(text: err.localizedDescription, id: err.code).toJSONString())
+                self.sendEvent(name: AuthEvent.USER_REAUTHENTICATED,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: AuthEvent.USER_REAUTHENTICATED, value: "")
+                self.sendEvent(name: AuthEvent.USER_REAUTHENTICATED,
+                               value: AuthEvent(eventId: eventId).toJSONString())
             }
         }
     }
     
     func setLanguage(code: String) {
-        trace("setLanguage", code)
         auth?.languageCode = code
     }
     
     func getLanguage() -> String? {
-        trace("getLanguage")
         return auth?.languageCode
     }
-    
-    //
-    //    func getIdToken() {
-    //
-    //    }
     
 }

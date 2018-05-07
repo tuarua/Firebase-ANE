@@ -21,10 +21,8 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.*
 import com.google.gson.Gson
-import com.tuarua.firebase.auth.events.AuthErrorEvent
 import com.tuarua.firebase.auth.events.AuthEvent
 import com.tuarua.frekotlin.FreKotlinController
-import java.net.URI
 
 class UserController(override var context: FREContext?) : FreKotlinController {
     private lateinit var auth: FirebaseAuth
@@ -46,7 +44,6 @@ class UserController(override var context: FREContext?) : FreKotlinController {
                             "text" to exception.message,
                             "id" to 17020))))
             is FirebaseAuthException -> {
-                trace(exception.errorCode)
                 sendEvent(type, gson.toJson(
                         AuthEvent(eventId, error = exception.toMap()))
                 )
@@ -62,7 +59,8 @@ class UserController(override var context: FREContext?) : FreKotlinController {
         user?.sendEmailVerification()?.addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> sendEvent(AuthEvent.EMAIL_VERIFICATION_SENT, gson.toJson(AuthEvent(eventId)))
+                task.isSuccessful -> sendEvent(AuthEvent.EMAIL_VERIFICATION_SENT,
+                        gson.toJson(AuthEvent(eventId)))
                 else -> sendError(AuthEvent.EMAIL_VERIFICATION_SENT, eventId, task.exception)
             }
         }
@@ -72,7 +70,8 @@ class UserController(override var context: FREContext?) : FreKotlinController {
         currentUser?.updateEmail(email)?.addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> sendEvent(AuthEvent.EMAIL_UPDATED, gson.toJson(AuthEvent(eventId)))
+                task.isSuccessful -> sendEvent(AuthEvent.EMAIL_UPDATED,
+                        gson.toJson(AuthEvent(eventId)))
                 else -> sendError(AuthEvent.EMAIL_UPDATED, eventId, task.exception)
             }
         }
@@ -83,7 +82,8 @@ class UserController(override var context: FREContext?) : FreKotlinController {
         user?.updatePassword(password)?.addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> sendEvent(AuthEvent.PASSWORD_UPDATED, gson.toJson(AuthEvent(eventId)))
+                task.isSuccessful -> sendEvent(AuthEvent.PASSWORD_UPDATED,
+                        gson.toJson(AuthEvent(eventId)))
                 else -> sendError(AuthEvent.PASSWORD_UPDATED, eventId, task.exception)
             }
         }
@@ -93,7 +93,8 @@ class UserController(override var context: FREContext?) : FreKotlinController {
         currentUser?.delete()?.addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> sendEvent(AuthEvent.USER_DELETED, gson.toJson(AuthEvent(eventId)))
+                task.isSuccessful -> sendEvent(AuthEvent.USER_DELETED,
+                        gson.toJson(AuthEvent(eventId)))
                 else -> sendError(AuthEvent.USER_DELETED, eventId, task.exception)
             }
         }
@@ -102,10 +103,10 @@ class UserController(override var context: FREContext?) : FreKotlinController {
     fun reauthenticate(email: String, password: String, eventId: String?) {
         val credential = EmailAuthProvider.getCredential(email, password)
         currentUser?.reauthenticate(credential)?.addOnCompleteListener { task ->
-            trace("reauthenticate", task.isSuccessful)
             if (eventId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> sendEvent(AuthEvent.USER_REAUTHENTICATED, gson.toJson(AuthEvent(eventId)))
+                task.isSuccessful -> sendEvent(AuthEvent.USER_REAUTHENTICATED,
+                        gson.toJson(AuthEvent(eventId)))
                 else -> sendError(AuthEvent.USER_REAUTHENTICATED, eventId, task.exception)
             }
         }
@@ -122,21 +123,31 @@ class UserController(override var context: FREContext?) : FreKotlinController {
         currentUser?.updateProfile(request.build())?.addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> sendEvent(AuthEvent.PROFILE_UPDATED, gson.toJson(AuthEvent(eventId)))
+                task.isSuccessful -> sendEvent(AuthEvent.PROFILE_UPDATED,
+                        gson.toJson(AuthEvent(eventId)))
                 else -> sendError(AuthEvent.PROFILE_UPDATED, eventId, task.exception)
             }
         }
     }
 
-    fun reload() {
-        currentUser?.reload()?.addOnCompleteListener { _ ->
-
+    fun reload(eventId: String?) {
+        currentUser?.reload()?.addOnCompleteListener { task ->
+            if (eventId == null) return@addOnCompleteListener
+            when {
+                task.isSuccessful -> sendEvent(AuthEvent.USER_RELOADED,
+                        gson.toJson(AuthEvent(eventId)))
+                else -> sendError(AuthEvent.USER_RELOADED, eventId, task.exception)
+            }
         }
     }
 
     fun getIdToken(forceRefresh: Boolean, eventId: String) {
         currentUser?.getIdToken(forceRefresh)?.addOnCompleteListener { task ->
-            sendEvent(AuthEvent.ID_TOKEN, gson.toJson(AuthEvent(eventId, mapOf("token" to task.result.token))))
+            when {
+                task.isSuccessful -> sendEvent(AuthEvent.ID_TOKEN,
+                        gson.toJson(AuthEvent(eventId, mapOf("token" to task.result.token))))
+                else -> sendError(AuthEvent.ID_TOKEN, eventId, task.exception)
+            }
         }
     }
 
@@ -144,7 +155,8 @@ class UserController(override var context: FREContext?) : FreKotlinController {
         currentUser?.unlink(provider)?.addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> sendEvent(AuthEvent.USER_UNLINKED, gson.toJson(AuthEvent(eventId)))
+                task.isSuccessful -> sendEvent(AuthEvent.USER_UNLINKED,
+                        gson.toJson(AuthEvent(eventId)))
                 else -> sendError(AuthEvent.USER_UNLINKED, eventId, task.exception)
             }
         }

@@ -83,14 +83,14 @@ class KotlinController : FreKotlinMainController {
     fun incrementCounter(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 2 } ?: return FreArgException("incrementCounter")
         val name = String(argv[0]) ?: return FreConversionException("name")
-        val counterName = String(argv[1]) ?: return FreConversionException("name")
+        val counterName = String(argv[1]) ?: return FreConversionException("counterName")
         val by = Long(argv[2]) ?: return FreConversionException("by")
         traces[name]?.incrementCounter(counterName, by)
         return null
     }
 
     fun setIsDataCollectionEnabled(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException("setIsDataCollectionEnabled")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException("setIsDataCollectionEnabled")
         val value = Boolean(argv[0]) ?: return FreConversionException("value")
         FirebasePerformance.getInstance().isPerformanceCollectionEnabled = value
         return null

@@ -44,9 +44,9 @@ public class FirebaseUser {
 
     }
 
-    public function reload():void {
+    public function reload(listener:Function = null):void {
         AuthANEContext.validate();
-        var theRet:* = AuthANEContext.context.call("reload");
+        var theRet:* = AuthANEContext.context.call("reload", AuthANEContext.createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
@@ -56,22 +56,23 @@ public class FirebaseUser {
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
-    public function set email(value:String):void {
+    public function updateEmail(value:String, listener:Function = null):void {
         AuthANEContext.validate();
         _email = value;
-        var theRet:* = AuthANEContext.context.call("updateEmail", value);
+        var theRet:* = AuthANEContext.context.call("updateEmail", value, AuthANEContext.createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
-    public function set password(value:String):void {
+    public function updatePassword(value:String, listener:Function = null):void {
         AuthANEContext.validate();
-        var theRet:* = AuthANEContext.context.call("updatePassword", value);
+        var theRet:* = AuthANEContext.context.call("updatePassword", value, AuthANEContext.createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
     public function updateProfile(displayName:String = null, photoUrl:String = null, listener:Function = null):void {
         AuthANEContext.validate();
-        var theRet:* = AuthANEContext.context.call("updateProfile", displayName, photoUrl, AuthANEContext.createEventId(listener));
+        var theRet:* = AuthANEContext.context.call("updateProfile", displayName, photoUrl,
+                AuthANEContext.createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
 

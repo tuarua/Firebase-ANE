@@ -26,7 +26,7 @@ public extension User {
                                       self.email,
                                       self.isAnonymous,
                                       self.isEmailVerified,
-                                      self.photoURL,
+                                      self.photoURL?.absoluteString,
                                       self.phoneNumber)
         } catch {
         }

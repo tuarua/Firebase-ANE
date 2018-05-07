@@ -35,31 +35,67 @@ class UserController: FreSwiftController {
         auth = Auth.auth(app: app)
     }
     
-    func sendEmailVerification() {
+    func sendEmailVerification(eventId: String?) {
         let user = Auth.auth().currentUser
         user?.sendEmailVerification { error in
-            self.trace(error.debugDescription)
+            if eventId == nil { return }
+            if let err = error as NSError? {
+                self.sendEvent(name: AuthEvent.EMAIL_VERIFICATION_SENT,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
+            } else {
+                self.sendEvent(name: AuthEvent.EMAIL_VERIFICATION_SENT,
+                               value: AuthEvent(eventId: eventId).toJSONString())
+            }
         }
     }
     
-    func update(email: String) {
+    func update(email: String, eventId: String?) {
         let user = Auth.auth().currentUser
         user?.updateEmail(to: email) { error in
-            self.trace(error.debugDescription)
+            if eventId == nil { return }
+            if let err = error as NSError? {
+                self.sendEvent(name: AuthEvent.EMAIL_UPDATED,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
+            } else {
+                self.sendEvent(name: AuthEvent.EMAIL_UPDATED,
+                               value: AuthEvent(eventId: eventId).toJSONString())
+            }
         }
     }
     
-    func update(password: String) {
+    func update(password: String, eventId: String?) {
         let user = Auth.auth().currentUser
         user?.updatePassword(to: password) { error in
-           self.trace(error.debugDescription)
+            if eventId == nil { return }
+            if let err = error as NSError? {
+                self.sendEvent(name: AuthEvent.PASSWORD_UPDATED,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
+            } else {
+                self.sendEvent(name: AuthEvent.PASSWORD_UPDATED,
+                               value: AuthEvent(eventId: eventId).toJSONString())
+            }
         }
     }
     
-    func unlink(provider: String) {
+    func unlink(provider: String, eventId: String?) {
         let user = Auth.auth().currentUser
-        user?.unlink(fromProvider: provider) { (_, error) in
-            self.trace(error.debugDescription)
+        user?.unlink(fromProvider: provider) { _, error in
+            if eventId == nil { return }
+            if let err = error as NSError? {
+                self.sendEvent(name: AuthEvent.USER_UNLINKED,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
+            } else {
+                self.sendEvent(name: AuthEvent.USER_UNLINKED,
+                               value: AuthEvent(eventId: eventId).toJSONString())
+            }
         }
         
     }
@@ -67,9 +103,56 @@ class UserController: FreSwiftController {
     func getCurrentUser() -> User? {
         return auth?.currentUser
     }
-    //
-    //    func getIdToken() {
-    //
-    //    }
+    
+    func updateProfile(displayName: String?, photoUrl: String?, eventId: String?) {
+        let user = Auth.auth().currentUser
+        let pcr = user?.createProfileChangeRequest()
+        pcr?.displayName = displayName
+        if let purl = photoUrl {
+            pcr?.photoURL = URL(string: purl)
+        }
+    
+        pcr?.commitChanges(completion: { error in
+            if eventId == nil { return }
+            if let err = error as NSError? {
+                self.sendEvent(name: AuthEvent.PROFILE_UPDATED,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
+            } else {
+                self.sendEvent(name: AuthEvent.PROFILE_UPDATED,
+                               value: AuthEvent(eventId: eventId).toJSONString())
+            }
+        })
+    }
+    
+    func reload(eventId: String?) {
+        auth?.currentUser?.reload(completion: { error in
+            if eventId == nil { return }
+            if let err = error as NSError? {
+                self.sendEvent(name: AuthEvent.USER_RELOADED,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
+            } else {
+                self.sendEvent(name: AuthEvent.USER_RELOADED,
+                               value: AuthEvent(eventId: eventId).toJSONString())
+            }
+        })
+    }
+    
+    func getIdToken(forceRefresh: Bool, eventId: String) {
+        auth?.currentUser?.getIDTokenForcingRefresh(forceRefresh, completion: { token, error in
+            if let err = error as NSError? {
+                self.sendEvent(name: AuthEvent.ID_TOKEN,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
+            } else {
+                self.sendEvent(name: AuthEvent.ID_TOKEN,
+                               value: AuthEvent(eventId: eventId, data: ["token": token ?? ""]).toJSONString())
+            }
+        })
+    }
     
 }

@@ -27,7 +27,6 @@ public class Main extends Sprite {
         _starling = new Starling(StarlingRoot, stage, screen.viewPort);
         _starling.stage.stageWidth = screen.stageWidth;
         _starling.stage.stageHeight = screen.stageHeight;
-        // _starling.showStatsAt("right", "bottom");
 
         _starling.skipUnchangedFrames = true;
         _starling.addEventListener(starling.events.Event.ROOT_CREATED, function ():void {
