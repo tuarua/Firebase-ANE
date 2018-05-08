@@ -31,7 +31,6 @@ public class SwiftController: NSObject {
             else {
                 return ArgCountError(message: "initController").getError(#file, #line, #column)
         }
-        
         Performance.sharedInstance().isDataCollectionEnabled = isDataCollectionEnabled
         Performance.sharedInstance().isInstrumentationEnabled = isInstrumentationEnabled
         return true.toFREObject()
