@@ -36,7 +36,11 @@ CONTEXT_INIT(TRFIRMS) {
     
     static FRENamedFunction extensionFunctions[] =
     {
-        MAP_FUNCTION(TRFIRMS, init)
+         MAP_FUNCTION(TRFIRMS, init)
+        ,MAP_FUNCTION(TRFIRMS, createGUID)
+        ,MAP_FUNCTION(TRFIRMS, getToken)
+        ,MAP_FUNCTION(TRFIRMS, subscribe)
+        ,MAP_FUNCTION(TRFIRMS, unsubscribe)
     };
     
     /**************************************************************************/

@@ -3,6 +3,10 @@ import com.tuarua.firebase.MessagingANE;
 import com.tuarua.firebase.messaging.RemoteMessage;
 import com.tuarua.firebase.messaging.events.MessagingEvent;
 
+import flash.desktop.NativeApplication;
+
+import flash.events.InvokeEvent;
+
 import starling.display.Sprite;
 import starling.events.Touch;
 import starling.events.TouchEvent;
@@ -67,6 +71,7 @@ public class MessagingExample extends Sprite implements IExample {
         messaging = MessagingANE.messaging;
         messaging.addEventListener(MessagingEvent.ON_TOKEN_REFRESHED, onTokenRefreshed);
         messaging.addEventListener(MessagingEvent.ON_MESSAGE_RECEIVED, onMessageReceived);
+        messaging.addEventListener(MessagingEvent.ON_DEBUG, OnDebug);
         isInited = true;
     }
 
@@ -81,8 +86,12 @@ public class MessagingExample extends Sprite implements IExample {
     }
 
     private function onTokenRefreshed(event:MessagingEvent):void {
-        trace("FCM Refreshed Token: ", messaging.token);
         statusLabel.text = "FCM Refreshed Token: " + event.token;
+    }
+
+    private function OnDebug(event:MessagingEvent):void {
+        trace("FCM Debug: ", event.token);
+        statusLabel.text = "FCM Debug: " + event.token;
     }
 }
 }

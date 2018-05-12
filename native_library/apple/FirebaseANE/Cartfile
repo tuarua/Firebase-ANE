@@ -5,3 +5,4 @@ binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseStorageBinary.jso
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseRemoteConfigBinary.json"
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAuthBinary.json"
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebasePerformanceBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseMessagingBinary.json"

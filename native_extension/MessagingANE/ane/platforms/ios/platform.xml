@@ -4,13 +4,21 @@
     <linkerOptions>
         <option>-ios_version_min 9.0</option>
         <option>-lstdc++</option>
+        <option>-lc++</option>
+        <option>-lsqlite3</option>
+        <option>-lz</option>
         <option>-w</option>
         <option>-ObjC</option>
         <option>-rpath @executable_path/Frameworks</option>
+        <option>-framework AddressBook</option>
     </linkerOptions>
     
     <packagedDependencies>
         <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseMessaging.framework</packagedDependency>
+        <packagedDependency>Frameworks/Protobuf.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseMethodSwizzler.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseISASwizzler.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

@@ -21,6 +21,10 @@ extension SwiftController: FreSwiftMainController {
     @objc public func getFunctions(prefix: String) -> [String] {
         
         functionsToSet["\(prefix)init"] = initController
+        functionsToSet["\(prefix)createGUID"] = createGUID
+        functionsToSet["\(prefix)getToken"] = getToken
+        functionsToSet["\(prefix)subscribe"] = subscribe
+        functionsToSet["\(prefix)unsubscribe"] = unsubscribe
         
         var arr: [String] = []
         for key in functionsToSet.keys {
@@ -31,6 +35,7 @@ extension SwiftController: FreSwiftMainController {
     }
     
     @objc public func dispose() {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // Must have this function. It exposes the methods to our entry ObjC.
@@ -46,5 +51,12 @@ extension SwiftController: FreSwiftMainController {
     }
     
     @objc public func onLoad() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidFinishLaunching),
+                                               name: NSNotification.Name.UIApplicationDidFinishLaunching, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveRemoteNotification),
+                                               name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        
     }
 }

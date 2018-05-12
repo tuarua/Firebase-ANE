@@ -4,7 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-iOS-Device</name>
-    <versionNumber>0.0.1</versionNumber>
+    <versionNumber>0.0.3</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -44,13 +44,33 @@
             </array>
             <key>MinimumOSVersion</key>
             <string>9.0</string>
-            <key>FirebaseAppDelegateProxyEnabled</key>
-		    <false/>
 		    <key>FirebaseAutomaticScreenReportingEnabled</key>
 		    <false/>
+		    <!-- <key>FirebaseAppDelegateProxyEnabled</key><false/> -->
+		    <key>UIBackgroundModes</key>
+		    <array>
+			    <string>remote-notification</string>
+		    </array>
             ]]>
         </InfoAdditions>
         <requestedDisplayResolution>high</requestedDisplayResolution>
+        <Entitlements>
+            <![CDATA[
+          <key>keychain-access-groups</key>
+            <array>
+                <string>FWEQJ32FGC.*</string>
+            </array>
+            <key>get-task-allow</key>
+            <true/>
+            <key>application-identifier</key>
+            <string>FWEQJ32FGC.com.tuarua.firebaseane.example</string>
+            <key>com.apple.developer.team-identifier</key>
+            <string>FWEQJ32FGC</string>
+            <key>aps-environment</key>
+            <string>development</string>
+            ]]>
+        </Entitlements>
+
     </iPhone>
     <extensions>
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>

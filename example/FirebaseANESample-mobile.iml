@@ -151,7 +151,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/GoogleService-Info.plist" path-in-package="GoogleService-Info.plist" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="." />
           </files-to-package>
-          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/tua_rua_dev_2018.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/Tua_Rua_Dev_Provisioning-2.mobileprovision" />
+          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/tua_rua_dev_2018.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/TuaRuaFirebase_Dev_Prov.mobileprovision" />
         </packaging-ios>
       </configuration>
       <configuration name="iOS Simulator" target-platform="Mobile" pure-as="true" main-class="Main" output-file="iOS_Simulator.swf" output-folder="$MODULE_DIR$/bin-release">

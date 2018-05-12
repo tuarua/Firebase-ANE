@@ -67,7 +67,9 @@ public class MessagingANEContext {
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
-
+                break;
+            case MessagingEvent.ON_DEBUG:
+                MessagingANE.messaging.dispatchEvent(new MessagingEvent(event.level, null, event.code));
                 break;
         }
     }
