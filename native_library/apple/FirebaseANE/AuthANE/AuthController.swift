@@ -48,8 +48,8 @@ class AuthController: FreSwiftController {
         }
     }
     
-    func signIn(email: String, password: String, eventId: String?) {
-        auth?.signIn(withEmail: email, password: password) { _, error in
+    func signIn(credential: AuthCredential, eventId: String?) {
+        auth?.signIn(with: credential, completion: { (_, error) in
             if eventId == nil { return }
             if let err = error as NSError? {
                 self.sendEvent(name: AuthEvent.SIGN_IN,
@@ -60,7 +60,7 @@ class AuthController: FreSwiftController {
                 self.sendEvent(name: AuthEvent.SIGN_IN,
                                value: AuthEvent(eventId: eventId).toJSONString())
             }
-        }
+        })
     }
     
     func signInAnonymously(eventId: String?) {

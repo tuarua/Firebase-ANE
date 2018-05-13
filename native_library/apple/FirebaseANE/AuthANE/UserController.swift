@@ -83,6 +83,22 @@ class UserController: FreSwiftController {
         }
     }
     
+    func link(credential: AuthCredential, eventId: String?) {
+        let user = Auth.auth().currentUser
+        user?.link(with: credential, completion: { (_, error) in
+            if eventId == nil { return }
+            if let err = error as NSError? {
+                self.sendEvent(name: AuthEvent.USER_LINKED,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
+            } else {
+                self.sendEvent(name: AuthEvent.USER_LINKED,
+                               value: AuthEvent(eventId: eventId).toJSONString())
+            }
+        })
+    }
+    
     func unlink(provider: String, eventId: String?) {
         let user = Auth.auth().currentUser
         user?.unlink(fromProvider: provider) { _, error in

@@ -26,6 +26,7 @@
 		CE265764208E7B7700C561E8 /* FreQuerySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE265763208E7B7700C561E8 /* FreQuerySnapshot.swift */; };
 		CE2BDB4720A6222900C89A7C /* SwiftController+Messaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDB4620A6222900C89A7C /* SwiftController+Messaging.swift */; };
 		CE2BDB4920A6243800C89A7C /* MessageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDB4820A6243800C89A7C /* MessageEvent.swift */; };
+		CE62952B20A8DD2600EEF76E /* FreAuthCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62952A20A8DD2600EEF76E /* FreAuthCredential.swift */; };
 		CE69C8DB208FEE1E004A1A5A /* BatchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C8D9208FEE1A004A1A5A /* BatchEvent.swift */; };
 		CE69C8DE208FF9E9004A1A5A /* NetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C8DC208FF963004A1A5A /* NetworkEvent.swift */; };
 		CE743201208D48E000E388D3 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE743200208D48E000E388D3 /* FirebaseFirestore.framework */; };
@@ -186,6 +187,7 @@
 		CE2BDB4620A6222900C89A7C /* SwiftController+Messaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+Messaging.swift"; sourceTree = "<group>"; };
 		CE2BDB4820A6243800C89A7C /* MessageEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEvent.swift; sourceTree = "<group>"; };
 		CE2BDB4A20A6270C00C89A7C /* SwiftController+UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+UNUserNotificationCenter.swift"; sourceTree = "<group>"; };
+		CE62952A20A8DD2600EEF76E /* FreAuthCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreAuthCredential.swift; sourceTree = "<group>"; };
 		CE69C8D9208FEE1A004A1A5A /* BatchEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchEvent.swift; sourceTree = "<group>"; };
 		CE69C8DC208FF963004A1A5A /* NetworkEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEvent.swift; sourceTree = "<group>"; };
 		CE743200208D48E000E388D3 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseFirestore.framework; path = Carthage/Build/iOS/FirebaseFirestore.framework; sourceTree = "<group>"; };
@@ -615,6 +617,7 @@
 			isa = PBXGroup;
 			children = (
 				CEBCF7D22096586A0028601B /* FreUser.swift */,
+				CE62952A20A8DD2600EEF76E /* FreAuthCredential.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1350,6 +1353,7 @@
 				CEBCF7C42095FC190028601B /* AuthController.swift in Sources */,
 				CEBCF79D2095F9160028601B /* SwiftyJSON.swift in Sources */,
 				CEBCF7D1209612060028601B /* AuthEvent.swift in Sources */,
+				CE62952B20A8DD2600EEF76E /* FreAuthCredential.swift in Sources */,
 				CEBCF7C02095F9D90028601B /* SwiftController+FreSwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,6 +27,7 @@ class AuthEvent: NSObject {
     public static let USER_REAUTHENTICATED: String = "AuthEvent.UserReauthenticated"
     public static let USER_CREATED: String = "AuthEvent.UserCreated"
     public static let USER_UNLINKED: String = "AuthEvent.UserUnlinked"
+    public static let USER_LINKED: String = "AuthEvent.UserLinked"
     public static let USER_RELOADED: String = "AuthEvent.UserReloaded"
     public static let EMAIL_VERIFICATION_SENT: String = "AuthEvent.EmailVerificationSent"
     

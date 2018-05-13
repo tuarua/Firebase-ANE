@@ -23,7 +23,7 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)init"] = initController
         functionsToSet["\(prefix)createGUID"] = createGUID
         functionsToSet["\(prefix)createUserWithEmailAndPassword"] = createUserWithEmailAndPassword
-        functionsToSet["\(prefix)signInWithEmailAndPassword"] = signInWithEmailAndPassword
+        functionsToSet["\(prefix)signIn"] = signIn
         functionsToSet["\(prefix)signInAnonymously"] = signInAnonymously
         functionsToSet["\(prefix)updateProfile"] = updateProfile
         functionsToSet["\(prefix)signOut"] = signOut
@@ -34,6 +34,7 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)deleteUser"] = deleteUser
         functionsToSet["\(prefix)reauthenticate"] = reauthenticate
         functionsToSet["\(prefix)unlink"] = unlink
+        functionsToSet["\(prefix)link"] = link
         functionsToSet["\(prefix)setLanguageCode"] = setLanguageCode
         functionsToSet["\(prefix)getLanguageCode"] = getLanguageCode
         functionsToSet["\(prefix)getCurrentUser"] = getCurrentUser

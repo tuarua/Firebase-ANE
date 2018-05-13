@@ -16,6 +16,7 @@
 
 import Foundation
 import FreSwift
+import FirebaseAuth
 
 public class SwiftController: NSObject {
     public var TAG: String? = "SwiftController"
@@ -50,15 +51,14 @@ public class SwiftController: NSObject {
         
     }
     
-    func signInWithEmailAndPassword(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 2,
-            let email = String(argv[0]),
-            let password = String(argv[1])
+    func signIn(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard argc > 1,
+            let credential: AuthCredential = AuthCredential.fromFREObject(argv[0])
             else {
-                return ArgCountError(message: "signInWithEmailAndPassword").getError(#file, #line, #column)
+                return ArgCountError(message: "signIn").getError(#file, #line, #column)
         }
-        let eventId = String(argv[2])
-        authController?.signIn(email: email, password: password, eventId: eventId)
+        let eventId = String(argv[1])
+        authController?.signIn(credential: credential, eventId: eventId)
         return nil
     }
     
@@ -158,6 +158,17 @@ public class SwiftController: NSObject {
         }
         let eventId = String(argv[1])
         userController?.unlink(provider: provider, eventId: eventId)
+        return nil
+    }
+    
+    func link(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard argc > 1,
+            let credential: AuthCredential = AuthCredential.fromFREObject(argv[0])
+            else {
+                return ArgCountError(message: "link").getError(#file, #line, #column)
+        }
+        let eventId = String(argv[1])
+        userController?.link(credential: credential, eventId: eventId)
         return nil
     }
     
