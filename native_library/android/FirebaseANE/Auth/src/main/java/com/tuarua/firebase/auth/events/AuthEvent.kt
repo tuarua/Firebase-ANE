@@ -27,6 +27,7 @@ class AuthEvent(val eventId: String, val data: Map<String, Any?>? = null, val er
         const val USER_REAUTHENTICATED: String = "AuthEvent.UserReauthenticated"
         const val USER_CREATED: String = "AuthEvent.UserCreated"
         const val USER_UNLINKED: String = "AuthEvent.UserUnlinked"
+        const val USER_LINKED: String = "AuthEvent.UserLinked"
         const val USER_RELOADED: String = "AuthEvent.UserReloaded"
         const val EMAIL_VERIFICATION_SENT: String = "AuthEvent.EmailVerificationSent"
     }

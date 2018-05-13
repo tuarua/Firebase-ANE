@@ -71,7 +71,7 @@ public class MessagingExample extends Sprite implements IExample {
         messaging = MessagingANE.messaging;
         messaging.addEventListener(MessagingEvent.ON_TOKEN_REFRESHED, onTokenRefreshed);
         messaging.addEventListener(MessagingEvent.ON_MESSAGE_RECEIVED, onMessageReceived);
-        messaging.addEventListener(MessagingEvent.ON_DEBUG, OnDebug);
+        // messaging.addEventListener(MessagingEvent.ON_DEBUG, OnDebug);
         isInited = true;
     }
 

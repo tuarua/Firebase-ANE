@@ -29,14 +29,18 @@ public class FirebaseUser {
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
-    //TODO
-    public function unlink(provider:String):void {
-
+    public function unlink(provider:String, listener:Function = null):void {
+        AuthANEContext.validate();
+        var theRet:* = AuthANEContext.context.call("unlink", provider,
+                AuthANEContext.createEventId(listener));
+        if (theRet is ANEError) throw theRet as ANEError;
     }
 
-    //TODO
-    public function linkWithCredential(credential:AuthCredential):void {
-
+    public function link(credential:AuthCredential, listener:Function = null):void {
+        AuthANEContext.validate();
+        var theRet:* = AuthANEContext.context.call("link", credential,
+                AuthANEContext.createEventId(listener));
+        if (theRet is ANEError) throw theRet as ANEError;
     }
 
     //TODO

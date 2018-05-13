@@ -22,6 +22,7 @@ public class AuthANEContext {
     private static const USER_REAUTHENTICATED:String = "AuthEvent.UserReauthenticated";
     private static const USER_CREATED:String = "AuthEvent.UserCreated";
     private static const USER_UNLINKED: String = "AuthEvent.UserUnlinked";
+    private static const USER_LINKED: String = "AuthEvent.UserLinked";
     private static const EMAIL_VERIFICATION_SENT:String = "AuthEvent.EmailVerificationSent";
     private static const ID_TOKEN:String = "AuthEvent.OnIdToken";
     private static var pObj:Object;
@@ -74,6 +75,7 @@ public class AuthANEContext {
             case PASSWORD_UPDATED:
             case PROFILE_UPDATED:
             case USER_UNLINKED:
+            case USER_LINKED:
                 pObj = JSON.parse(event.code);
                 closure = closures[pObj.eventId];
                 if (closure == null) return;

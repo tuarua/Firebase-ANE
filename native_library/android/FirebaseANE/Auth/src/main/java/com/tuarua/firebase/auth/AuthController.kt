@@ -15,6 +15,7 @@
  */
 
 package com.tuarua.firebase.auth
+
 import com.adobe.fre.FREContext
 import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseNetworkException
@@ -22,6 +23,7 @@ import com.google.firebase.auth.*
 import com.google.gson.Gson
 import com.tuarua.frekotlin.FreKotlinController
 import com.tuarua.firebase.auth.events.AuthEvent
+import com.google.firebase.auth.AuthCredential
 
 class AuthController(override var context: FREContext?) : FreKotlinController {
     private lateinit var auth: FirebaseAuth
@@ -67,7 +69,6 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
 
     fun sendPasswordResetEmail(email: String, eventId: String?) {
         auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
-            trace("sendPasswordResetEmail", task.isSuccessful)
             if (eventId == null) return@addOnCompleteListener
             when {
                 task.isSuccessful -> sendEvent(AuthEvent.PASSWORD_RESET_EMAIL_SENT, gson.toJson(AuthEvent(eventId)))
@@ -86,8 +87,18 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
         }
     }
 
-    fun signInWithEmailAndPassword(email: String, password: String, eventId: String?) {
+    /*fun signInWithEmailAndPassword(email: String, password: String, eventId: String?) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+            if (eventId == null) return@addOnCompleteListener
+            when {
+                task.isSuccessful -> sendEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(eventId)))
+                else -> sendError(AuthEvent.SIGN_IN, eventId, task.exception)
+            }
+        }
+    }*/
+
+    fun signIn(value: AuthCredential, eventId: String?) {
+        auth.signInWithCredential(value).addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             when {
                 task.isSuccessful -> sendEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(eventId)))
@@ -97,6 +108,7 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
     }
 
     fun setLanguageCode(code: String) = auth.setLanguageCode(code)
+
     val languageCode: String?
         get() {
             return auth.languageCode
@@ -104,8 +116,6 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
 
     override val TAG: String
         get() = this::class.java.simpleName
-
-
 
 
 }

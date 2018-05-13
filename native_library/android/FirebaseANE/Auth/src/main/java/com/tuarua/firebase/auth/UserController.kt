@@ -18,6 +18,7 @@ package com.tuarua.firebase.auth
 import android.net.Uri
 import com.adobe.fre.FREContext
 import com.google.firebase.FirebaseApp
+import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.*
 import com.google.gson.Gson
@@ -44,6 +45,11 @@ class UserController(override var context: FREContext?) : FreKotlinController {
                             "text" to exception.message,
                             "id" to 17020))))
             is FirebaseAuthException -> {
+                sendEvent(type, gson.toJson(
+                        AuthEvent(eventId, error = exception.toMap()))
+                )
+            }
+            is FirebaseException -> {
                 sendEvent(type, gson.toJson(
                         AuthEvent(eventId, error = exception.toMap()))
                 )
@@ -158,6 +164,29 @@ class UserController(override var context: FREContext?) : FreKotlinController {
                 task.isSuccessful -> sendEvent(AuthEvent.USER_UNLINKED,
                         gson.toJson(AuthEvent(eventId)))
                 else -> sendError(AuthEvent.USER_UNLINKED, eventId, task.exception)
+            }
+        }
+    }
+
+    fun link(value: AuthCredential, eventId: String?) {
+        currentUser?.linkWithCredential(value)?.addOnCompleteListener { task ->
+            trace("task.isSuccessful", task.isSuccessful)
+            if (eventId == null) return@addOnCompleteListener
+            when {
+                task.isSuccessful -> {
+                    sendEvent(AuthEvent.USER_LINKED,
+                            gson.toJson(AuthEvent(eventId)))
+                }
+                else -> {
+                    trace(">>>>>>>>>>>>>>>>>>")
+                    trace("SEND ERROR")
+                    trace(AuthEvent.USER_LINKED)
+                    trace(eventId)
+                    trace(task.exception?.localizedMessage)
+                    trace(task.exception.toString())
+                    trace(">>>>>>>>>>>>>>>>>>")
+                    sendError(AuthEvent.USER_LINKED, eventId, task.exception)
+                }
             }
         }
     }

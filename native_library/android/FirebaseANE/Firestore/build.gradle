@@ -28,5 +28,5 @@ dependencies {
     implementation "com.google.firebase:firebase-firestore:$firebase_version"
     implementation files('../shared/libs/runtimeClasses.jar')
     implementation files('../shared/libs/FlashRuntimeExtensions.jar')
-    implementation files('../shared/libs/frekotlin-1.2.30.jar')
+    implementation files('../shared/libs/frekotlin-1.2.41.jar')
 }

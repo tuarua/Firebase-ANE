@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="iOS Device">
+  <component name="FlexBuildConfigurationManager" active="Android Device">
     <configurations>
       <configuration name="Android Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies>
@@ -253,5 +253,6 @@
     <orderEntry type="library" exported="" name="PerformanceANE" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-messaging-12.0.1" level="project" />
     <orderEntry type="library" exported="" name="MessagingANE" level="project" />
+    <orderEntry type="library" exported="" name="com.google.android.gms.play-services-auth-12.0.1" level="project" />
   </component>
 </module>

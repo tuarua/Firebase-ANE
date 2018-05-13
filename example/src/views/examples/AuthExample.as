@@ -1,7 +1,9 @@
 package views.examples {
 import com.tuarua.firebase.AuthANE;
 import com.tuarua.firebase.auth.AuthError;
+import com.tuarua.firebase.auth.EmailAuthCredential;
 import com.tuarua.firebase.auth.FirebaseUser;
+import com.tuarua.firebase.auth.GoogleAuthCredential;
 
 import starling.display.Sprite;
 import starling.events.Touch;
@@ -21,6 +23,8 @@ public class AuthExample extends Sprite implements IExample {
     private var btnSignOut:SimpleButton = new SimpleButton("Sign out");
     private var btnUpdateProfile:SimpleButton = new SimpleButton("Update Profile");
     private var btnCreateNewUser:SimpleButton = new SimpleButton("Create New User");
+    private var btnSignInWithGoogle:SimpleButton = new SimpleButton("Sign in w/ Google");
+    private var btnLinkWithGoogle:SimpleButton = new SimpleButton("Link w/ Google");
     private var statusLabel:TextField;
 
     public function AuthExample(stageWidth:Number) {
@@ -36,7 +40,8 @@ public class AuthExample extends Sprite implements IExample {
     }
 
     private function initMenu():void {
-        btnUpdateProfile.x = btnCreateNewUser.x = btnSignInAnon.x = btnSignInEmailPassword.x = btnSignOut.x = (stageWidth - 200) * 0.5;
+        btnLinkWithGoogle.x = btnSignInWithGoogle.x = btnUpdateProfile.x = btnCreateNewUser.x =
+                btnSignInAnon.x = btnSignInEmailPassword.x = btnSignOut.x = (stageWidth - 200) * 0.5;
         btnSignInAnon.y = StarlingRoot.GAP;
         btnSignInAnon.addEventListener(TouchEvent.TOUCH, onSignInAnonClick);
         addChild(btnSignInAnon);
@@ -57,10 +62,19 @@ public class AuthExample extends Sprite implements IExample {
         btnUpdateProfile.addEventListener(TouchEvent.TOUCH, onUpdateProfileClick);
         addChild(btnUpdateProfile);
 
+        btnSignInWithGoogle.y = btnUpdateProfile.y + StarlingRoot.GAP;
+        btnSignInWithGoogle.addEventListener(TouchEvent.TOUCH, onSignInWithGoogleClick);
+        addChild(btnSignInWithGoogle);
+
+        btnLinkWithGoogle.y = btnSignInWithGoogle.y + StarlingRoot.GAP;
+        btnLinkWithGoogle.addEventListener(TouchEvent.TOUCH, onLinkWithGoogleClick);
+        addChild(btnLinkWithGoogle);
+
+
         statusLabel = new TextField(stageWidth, 1400, "");
         statusLabel.format.setTo(Fonts.NAME, 13, 0x222222, Align.CENTER, Align.TOP);
         statusLabel.touchable = false;
-        statusLabel.y = btnUpdateProfile.y + (StarlingRoot.GAP * 1.25);
+        statusLabel.y = btnLinkWithGoogle.y + (StarlingRoot.GAP * 1.25);
         addChild(statusLabel);
     }
 
@@ -95,6 +109,30 @@ public class AuthExample extends Sprite implements IExample {
         }
     }
 
+    private function onSignInWithGoogleClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnSignInWithGoogle);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            auth.signIn(new GoogleAuthCredential("id", "access_token"), onSignedIn);
+        }
+    }
+
+    private function onLinkWithGoogleClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnLinkWithGoogle);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            if(auth && auth.currentUser){
+                auth.currentUser.link(new GoogleAuthCredential("id", "access_token"), onLinked);
+            }
+        }
+    }
+
+    private function onLinked(error:AuthError):void {
+        if (error) {
+            statusLabel.text = "onLinked error: " + error.errorID + " : " + error.message;
+            return;
+        }
+        trace("");
+    }
+
     private function onNewUser(error:AuthError):void {
         if (error) {
             statusLabel.text = "onSignedIn error: " + error.errorID + " : " + error.message;
@@ -114,7 +152,7 @@ public class AuthExample extends Sprite implements IExample {
     private function onSignInEmailPasswordClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnSignInEmailPassword);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            auth.signInWithEmailAndPassword("test@test.com", "passwor", onSignedIn);
+            auth.signIn(new EmailAuthCredential("test@test.com", "password"), onSignedIn);
         }
     }
 
@@ -138,7 +176,7 @@ public class AuthExample extends Sprite implements IExample {
                 "isEmailVerified: " + user.isEmailVerified + "\n" +
                 "photoUrl: " + user.photoUrl + "\n";
         user.getIdToken(true, function (token:String):void {
-            statusLabel.text += "token: " + token.substr(0,10) + "...";
+            statusLabel.text += "token: " + token.substr(0, 10) + "...";
         });
     }
 

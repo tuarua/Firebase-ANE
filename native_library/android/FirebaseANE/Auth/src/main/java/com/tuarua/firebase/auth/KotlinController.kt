@@ -57,19 +57,18 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    fun signInWithEmailAndPassword(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException("signInWithEmailAndPassword")
-        val email = String(argv[0]) ?: return FreConversionException("email")
-        val password = String(argv[1]) ?: return FreConversionException("password")
-        val eventId = String(argv[2])
-        authController.signInWithEmailAndPassword(email, password, eventId)
-        return null
-    }
-
     fun signInAnonymously(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("signInAnonymously")
         val eventId = String(argv[0])
         authController.signInAnonymously(eventId)
+        return null
+    }
+
+    fun signIn(ctx: FREContext, argv: FREArgv): FREObject? {
+        argv.takeIf { argv.size > 1 } ?: return FreArgException("signInWithCredential")
+        val credential = AuthCredential(argv[0]) ?: return FreConversionException("credential")
+        val eventId = String(argv[1])
+        authController.signIn(credential, eventId)
         return null
     }
 
@@ -132,7 +131,7 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    fun reauthenticate(ctx: FREContext, argv: FREArgv): FREObject? { //this is by email
+    fun reauthenticate(ctx: FREContext, argv: FREArgv): FREObject? { //this is by email //TODO providers
         argv.takeIf { argv.size > 2 } ?: return FreArgException("init")
         val email = String(argv[0]) ?: return FreConversionException("email")
         val password = String(argv[1]) ?: return FreConversionException("password")
@@ -146,6 +145,14 @@ class KotlinController : FreKotlinMainController {
         val provider = String(argv[0]) ?: return FreConversionException("provider")
         val eventId = String(argv[1])
         userController.unlink(provider, eventId)
+        return null
+    }
+
+    fun link(ctx: FREContext, argv: FREArgv): FREObject? {
+        argv.takeIf { argv.size > 0 } ?: return FreArgException("linkWithCredential")
+        val credential = AuthCredential(argv[0]) ?: return FreConversionException("credential")
+        val eventId = String(argv[1])
+        userController.link(credential, eventId)
         return null
     }
 

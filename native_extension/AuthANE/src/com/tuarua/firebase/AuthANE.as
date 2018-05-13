@@ -1,11 +1,8 @@
 package com.tuarua.firebase {
+import com.tuarua.firebase.auth.AuthCredential;
 import com.tuarua.firebase.auth.FirebaseUser;
 import com.tuarua.fre.ANEError;
-import com.tuarua.utils.GUID;
-
 import flash.events.EventDispatcher;
-import flash.system.Capabilities;
-import flash.utils.getQualifiedClassName;
 
 public final class AuthANE extends EventDispatcher {
     private static var _auth:AuthANE;
@@ -50,16 +47,8 @@ public final class AuthANE extends EventDispatcher {
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
-    public function signInWithEmailAndPassword(email:String, password:String, listener:Function = null):void {
-        AuthANEContext.validate();
-        if (AuthANEContext.isNullOrEmpty(email) || AuthANEContext.isNullOrEmpty(password)) {
-            throw ArgumentError("email or password is null or empty");
-        }
-        var theRet:* = AuthANEContext.context.call("signInWithEmailAndPassword", email, password, AuthANEContext.createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
-    }
-
     public function signInWithCustomToken(token:String):void {
+        // TODO
         AuthANEContext.validate();
     }
 
@@ -90,7 +79,12 @@ public final class AuthANE extends EventDispatcher {
         return theRet as String;
     }
 
-    // TODO signInWithCredential(AuthCredential credential)
+    public function signIn(credential:AuthCredential, listener:Function = null):void {
+        AuthANEContext.validate();
+        var theRet:* = AuthANEContext.context.call("signIn", credential,
+                AuthANEContext.createEventId(listener));
+        if (theRet is ANEError) throw theRet as ANEError;
+    }
 
     public function signOut():void {
         var theRet:* = AuthANEContext.context.call("signOut");
