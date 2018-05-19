@@ -7,6 +7,7 @@ import flash.events.EventDispatcher;
 public final class FirebaseANE extends EventDispatcher {
     private static var _firebase:FirebaseANE;
 
+    /** @private */
     public function FirebaseANE() {
         if (FirebaseANEContext.context) {
             var theRet:* = FirebaseANEContext.context.call("init");
@@ -17,6 +18,7 @@ public final class FirebaseANE extends EventDispatcher {
         _firebase = this;
     }
 
+    /** Initialise the ANE */
     public static function init():void {
         if (!_firebase) {
             new FirebaseANE();
@@ -32,6 +34,7 @@ public final class FirebaseANE extends EventDispatcher {
         return theRet as FirebaseOptions;
     }
 
+    /** Disposes the ANE */
     public static function dispose():void {
         if (FirebaseANEContext.context) {
             FirebaseANEContext.dispose();

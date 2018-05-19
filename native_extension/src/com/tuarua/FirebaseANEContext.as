@@ -1,15 +1,15 @@
 package com.tuarua {
-import com.tuarua.fre.ANEUtils;
-
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
 
+/** @private */
 public class FirebaseANEContext {
     internal static const NAME:String = "FirebaseANE";
     internal static const TRACE:String = "TRACE";
     private static var _isInited:Boolean = false;
     private static const INIT_ERROR_MESSAGE:String = NAME + "... call FirebaseANE.init() first";
     private static var _context:ExtensionContext;
+
     public function FirebaseANEContext() {
     }
 
@@ -44,6 +44,7 @@ public class FirebaseANEContext {
         _context = null;
         _isInited = false;
     }
+
     public static function validate():void {
         if (!_isInited) throw new Error(INIT_ERROR_MESSAGE);
     }

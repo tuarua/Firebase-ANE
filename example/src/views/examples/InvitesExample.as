@@ -94,8 +94,14 @@ public class InvitesExample extends Sprite implements IExample {
         }
     }
 
-    private function onGetDynamicLink():void {
-
+    private function onGetDynamicLink(dynamicLinkResult:DynamicLinkResult, error:DynamicLinkError):void {
+        if (error) {
+            statusLabel.text = "Dynamic Link error: " + error.errorID + " : " + error.message;
+            return;
+        }
+        if(dynamicLinkResult.url) {
+            statusLabel.text = dynamicLinkResult.url;
+        }
     }
 
 }

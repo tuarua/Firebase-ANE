@@ -66,7 +66,7 @@ public final class InvitesANE {
      */
     public function getDynamicLink(listener:Function):void {
         InvitesANEContext.validate();
-        var theRet:* = InvitesANEContext.context.call("getDynamicLink",InvitesANEContext.createEventId(listener));
+        var theRet:* = InvitesANEContext.context.call("getDynamicLink", InvitesANEContext.createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
