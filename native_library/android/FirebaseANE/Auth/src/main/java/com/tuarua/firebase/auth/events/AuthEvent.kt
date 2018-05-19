@@ -17,18 +17,18 @@ package com.tuarua.firebase.auth.events
 
 class AuthEvent(val eventId: String, val data: Map<String, Any?>? = null, val error: Map<String, Any?>? = null) {
     companion object {
-        const val EMAIL_UPDATED: String = "AuthEvent.EmailUpdated"
-        const val PASSWORD_UPDATED: String = "AuthEvent.PasswordUpdated"
-        const val PROFILE_UPDATED: String = "AuthEvent.ProfileUpdated"
-        const val SIGN_IN: String = "AuthEvent.SignIn"
-        const val ID_TOKEN: String = "AuthEvent.OnIdToken"
-        const val PASSWORD_RESET_EMAIL_SENT: String = "AuthEvent.PasswordResetEmailSent"
-        const val USER_DELETED: String = "AuthEvent.UserDeleted"
-        const val USER_REAUTHENTICATED: String = "AuthEvent.UserReauthenticated"
-        const val USER_CREATED: String = "AuthEvent.UserCreated"
-        const val USER_UNLINKED: String = "AuthEvent.UserUnlinked"
-        const val USER_LINKED: String = "AuthEvent.UserLinked"
-        const val USER_RELOADED: String = "AuthEvent.UserReloaded"
-        const val EMAIL_VERIFICATION_SENT: String = "AuthEvent.EmailVerificationSent"
+        const val EMAIL_UPDATED = "AuthEvent.EmailUpdated"
+        const val PASSWORD_UPDATED = "AuthEvent.PasswordUpdated"
+        const val PROFILE_UPDATED = "AuthEvent.ProfileUpdated"
+        const val SIGN_IN = "AuthEvent.SignIn"
+        const val ID_TOKEN = "AuthEvent.OnIdToken"
+        const val PASSWORD_RESET_EMAIL_SENT = "AuthEvent.PasswordResetEmailSent"
+        const val USER_DELETED = "AuthEvent.UserDeleted"
+        const val USER_REAUTHENTICATED = "AuthEvent.UserReauthenticated"
+        const val USER_CREATED = "AuthEvent.UserCreated"
+        const val USER_UNLINKED = "AuthEvent.UserUnlinked"
+        const val USER_LINKED = "AuthEvent.UserLinked"
+        const val USER_RELOADED = "AuthEvent.UserReloaded"
+        const val EMAIL_VERIFICATION_SENT = "AuthEvent.EmailVerificationSent"
     }
 }

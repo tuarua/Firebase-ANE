@@ -1,1 +1,1 @@
-include ':Firebase', ':Firestore', ':Auth', ':RemoteConfig', ':Storage', ':Analytics', ':Performance', ':Messaging'
+include ':Firebase', ':Firestore', ':Auth', ':RemoteConfig', ':Storage', ':Analytics', ':Performance', ':Messaging', ':Invites'

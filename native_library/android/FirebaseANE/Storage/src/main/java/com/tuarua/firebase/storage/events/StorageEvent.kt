@@ -18,11 +18,11 @@ package com.tuarua.firebase.storage.events
 
 class StorageEvent(val eventId: String, val data: Map<String, Any>? = null, val error: Map<String, Any>? = null) {
     companion object {
-        const val GET_DOWNLOAD_URL: String = "StorageEvent.GetDownloadUrl"
-        const val GET_METADATA: String = "StorageEvent.GetMetadata"
-        const val UPDATE_METADATA: String = "StorageEvent.UpdateMetadata"
-        const val TASK_COMPLETE: String = "StorageEvent.TaskComplete"
-        const val DELETED: String = "StorageEvent.Deleted"
+        const val GET_DOWNLOAD_URL = "StorageEvent.GetDownloadUrl"
+        const val GET_METADATA = "StorageEvent.GetMetadata"
+        const val UPDATE_METADATA = "StorageEvent.UpdateMetadata"
+        const val TASK_COMPLETE = "StorageEvent.TaskComplete"
+        const val DELETED = "StorageEvent.Deleted"
     }
 }
 

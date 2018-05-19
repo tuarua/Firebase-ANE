@@ -69,7 +69,7 @@ public class StorageANEContext {
         return _context;
     }
 
-    public static function createEventId(listener:Function):String{
+    public static function createEventId(listener:Function):String {
         var eventId:String;
         if (listener) {
             eventId = context.call("createGUID") as String;
@@ -103,6 +103,7 @@ public class StorageANEContext {
 
     private static function gotEvent(event:StatusEvent):void {
         var err:StorageError;
+        var closure:Function;
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);
@@ -165,11 +166,10 @@ public class StorageANEContext {
                     } else if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("data")) {
                         metadata = ANEUtils.map(pObj.data.data, StorageMetadata) as StorageMetadata;
                     }
-                    var func_aa:Function = StorageANEContext.closures[pObj.eventId];
-                    if (func_aa) {
-                        func_aa.call(null, metadata, err);
-                        delete StorageANEContext.closures[pObj.eventId];
-                    }
+                    closure = closures[pObj.eventId];
+                    if (closure == null) return;
+                    closure.call(null, metadata, err);
+                    delete closures[pObj.eventId];
                 } catch (e:Error) {
                     trace(event.code, e.message);
                 }
@@ -194,22 +194,20 @@ public class StorageANEContext {
                 } else if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("url")) {
                     url = pObj.data.url;
                 }
-                var func_ab:Function = StorageANEContext.closures[pObj.eventId];
-                if (func_ab) {
-                    func_ab.call(null, url, err);
-                    delete StorageANEContext.closures[pObj.eventId];
-                }
+                closure = closures[pObj.eventId];
+                if (closure == null) return;
+                closure.call(null, url, err);
+                delete closures[pObj.eventId];
                 break;
             case UPDATE_METADATA:
                 pObj = JSON.parse(event.code);
                 if (pObj.hasOwnProperty("error") && pObj.error) {
                     err = new StorageError(pObj.error.text, pObj.error.id);
                 }
-                var func_ac:Function = StorageANEContext.closures[pObj.eventId];
-                if (func_ac) {
-                    func_ac.call(null, err);
-                    delete StorageANEContext.closures[pObj.eventId];
-                }
+                closure = closures[pObj.eventId];
+                if (closure == null) return;
+                closure.call(null, err);
+                delete closures[pObj.eventId];
                 break;
             case DELETED:
                 pObj = JSON.parse(event.code);
@@ -219,11 +217,10 @@ public class StorageANEContext {
                 } else if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("localPath")) {
                     localPath = pObj.data.localPath;
                 }
-                var func_ad:Function = StorageANEContext.closures[pObj.eventId];
-                if (func_ad) {
-                    func_ad.call(null, localPath, err);
-                    delete StorageANEContext.closures[pObj.eventId];
-                }
+                closure = closures[pObj.eventId];
+                if (closure == null) return;
+                closure.call(null, localPath, err);
+                delete closures[pObj.eventId];
                 break;
         }
     }

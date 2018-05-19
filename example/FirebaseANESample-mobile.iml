@@ -74,6 +74,12 @@
             <entry library-name="MessagingANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="com.google.firebase.firebase-invites-12.0.1" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="InvitesANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_29" />
         </dependencies>
@@ -254,5 +260,7 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-messaging-12.0.1" level="project" />
     <orderEntry type="library" exported="" name="MessagingANE" level="project" />
     <orderEntry type="library" exported="" name="com.google.android.gms.play-services-auth-12.0.1" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-invites-12.0.1" level="project" />
+    <orderEntry type="library" exported="" name="InvitesANE" level="project" />
   </component>
 </module>

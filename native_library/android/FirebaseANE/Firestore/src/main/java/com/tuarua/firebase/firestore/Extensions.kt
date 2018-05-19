@@ -22,7 +22,6 @@ import com.google.firebase.firestore.*
 import com.tuarua.frekotlin.FREObject
 import com.tuarua.frekotlin.FreException
 import com.tuarua.frekotlin.Boolean
-import com.tuarua.frekotlin.FREObject
 import com.tuarua.frekotlin.get
 import com.tuarua.frekotlin.setProp
 

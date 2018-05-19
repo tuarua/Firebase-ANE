@@ -114,13 +114,21 @@
                         android:exported="false"
                         android:initOrder="101" />
 
-
-                <activity android:excludeFromRecents="false">
+                    <!-- invites -->
                     <intent-filter>
-                        <action android:name="android.intent.action.MAIN"/>
-                        <category android:name="android.intent.category.LAUNCHER"/>
+                        <action android:name="android.intent.action.VIEW"/>
+                        <category android:name="android.intent.category.DEFAULT"/>
+                        <category android:name="android.intent.category.BROWSABLE"/>
+                        <data android:host="tuarua.com" android:scheme="http"/>
+                        <data android:host="tuarua.com" android:scheme="https"/>
                     </intent-filter>
-                </activity>
+
+                    <activity android:excludeFromRecents="false">
+                        <intent-filter>
+                            <action android:name="android.intent.action.MAIN"/>
+                            <category android:name="android.intent.category.LAUNCHER"/>
+                        </intent-filter>
+                    </activity>
 
                 </application>
             </manifest>
@@ -145,6 +153,7 @@
         <extensionID>com.google.firebase.firebase-storage</extensionID>
         <extensionID>com.google.firebase.firebase-perf</extensionID>
         <extensionID>com.google.firebase.firebase-messaging</extensionID>
+        <extensionID>com.google.android.gms.play-services-appinvite</extensionID>
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
         <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
         <extensionID>com.tuarua.firebase.FirestoreANE</extensionID>
@@ -153,5 +162,6 @@
         <extensionID>com.tuarua.firebase.AuthANE</extensionID>
         <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
         <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
+        <extensionID>com.tuarua.firebase.InvitesANE</extensionID>
     </extensions>
 </application>
