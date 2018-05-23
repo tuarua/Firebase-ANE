@@ -17,7 +17,7 @@
 import Foundation
 
 class StorageProgressEvent: NSObject {
-    public static let PROGRESS: String = "StorageProgressEvent.Progress"
+    public static let PROGRESS = "StorageProgressEvent.Progress"
 
     var eventId: String?
     var bytesLoaded: Double = 0.0

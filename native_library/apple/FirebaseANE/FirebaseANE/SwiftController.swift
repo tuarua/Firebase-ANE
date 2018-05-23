@@ -54,7 +54,20 @@ public class SwiftController: NSObject {
         appDidFinishLaunchingNotif = notification
         if Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") != nil {
             hasGooglePlist = true
+            // check Info.plist for CFBundleURLSchemes
+            if let path = Bundle.main.path(forResource: "Info", ofType: "plist"),
+                let dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
+                if let bundleURLTypes = dict["CFBundleURLTypes"] as? NSArray {
+                    if let bundleURLSchemesDict = bundleURLTypes[0] as? NSDictionary {
+                        if let bundleURLSchemes = bundleURLSchemesDict["CFBundleURLSchemes"] as? NSArray,
+                            let v = bundleURLSchemes.firstObject as? String {
+                            FirebaseOptions.defaultOptions()?.deepLinkURLScheme = v
+                        }
+                    }
+                }
+            }
             FirebaseApp.configure()
+            
         } else {
             hasGooglePlist = false
         }

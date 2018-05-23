@@ -153,7 +153,7 @@
         <extensionID>com.google.firebase.firebase-storage</extensionID>
         <extensionID>com.google.firebase.firebase-perf</extensionID>
         <extensionID>com.google.firebase.firebase-messaging</extensionID>
-        <extensionID>com.google.android.gms.play-services-appinvite</extensionID>
+        <extensionID>com.google.firebase.firebase-dynamic-links</extensionID>
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
         <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
         <extensionID>com.tuarua.firebase.FirestoreANE</extensionID>
@@ -162,6 +162,6 @@
         <extensionID>com.tuarua.firebase.AuthANE</extensionID>
         <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
         <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
-        <extensionID>com.tuarua.firebase.InvitesANE</extensionID>
+        <extensionID>com.tuarua.firebase.DynamicLinksANE</extensionID>
     </extensions>
 </application>

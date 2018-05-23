@@ -17,7 +17,7 @@
 import Foundation
 
 class BatchEvent: NSObject {
-    public static let COMPLETE: String = "BatchEvent.Complete"
+    public static let COMPLETE = "BatchEvent.Complete"
     var eventId: String?
     var error: [String: Any]?
     

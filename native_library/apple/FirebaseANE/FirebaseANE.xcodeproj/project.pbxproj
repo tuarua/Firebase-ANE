@@ -49,6 +49,25 @@
 		CE83B04520A755670095C4F9 /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4D208CE43800C96EC6 /* FirebaseNanoPB.framework */; };
 		CE83B04620A7793A0095C4F9 /* SwiftController+UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDB4A20A6270C00C89A7C /* SwiftController+UNUserNotificationCenter.swift */; };
 		CE87F4791FB259DB005CF7DF /* FirebaseANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87F4781FB259DB005CF7DF /* FirebaseANE.m */; };
+		CE8BC49C20B1C890009164ED /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74320D208D4B8100E388D3 /* SwiftyJSON.swift */; };
+		CE8BC4AA20B1C890009164ED /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
+		CE8BC4B120B1C890009164ED /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE74320C208D4B8100E388D3 /* SwiftyJSON.h */; };
+		CE8BC4B220B1C890009164ED /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
+		CE8BC4BA20B1C8F6009164ED /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
+		CE8BC4C420B1C9BE009164ED /* FirebaseDynamicLinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8BC4C320B1C9BE009164ED /* FirebaseDynamicLinks.framework */; };
+		CE8BC4C820B1CA71009164ED /* DynamicLinksANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8BC4C720B1CA71009164ED /* DynamicLinksANE_oc.h */; };
+		CE8BC4CA20B1CABE009164ED /* DynamicLinksANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8BC4C920B1CABE009164ED /* DynamicLinksANE-Bridging-Header.h */; };
+		CE8BC4CC20B1CAF3009164ED /* DynamicLinksANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4CB20B1CAF3009164ED /* DynamicLinksANE.m */; };
+		CE8BC4CE20B1CB62009164ED /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4CD20B1CB62009164ED /* SwiftController.swift */; };
+		CE8BC4D020B1CB8B009164ED /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4CF20B1CB8B009164ED /* SwiftController+FreSwift.swift */; };
+		CE8BC4D220B1CC47009164ED /* DynamicLinksANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8BC4D120B1CC47009164ED /* DynamicLinksANE-Swift.h */; };
+		CE8BC51120B2223A009164ED /* FreDynamicLinkIOSParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4D320B1D04C009164ED /* FreDynamicLinkIOSParameters.swift */; };
+		CE8BC51220B2223D009164ED /* FreDynamicLinkItunesConnectAnalyticsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4D520B1D42D009164ED /* FreDynamicLinkItunesConnectAnalyticsParameters.swift */; };
+		CE8BC51320B22240009164ED /* FreDynamicLinkGoogleAnalyticsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4D720B1D4AE009164ED /* FreDynamicLinkGoogleAnalyticsParameters.swift */; };
+		CE8BC51420B22242009164ED /* FreDynamicLinkSocialMetaTagParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4D920B1D5A2009164ED /* FreDynamicLinkSocialMetaTagParameters.swift */; };
+		CE8BC51520B22245009164ED /* FreDynamicLinkAndroidParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4DB20B1D660009164ED /* FreDynamicLinkAndroidParameters.swift */; };
+		CE8BC51620B22248009164ED /* FreDynamicLinkNavigationInfoParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4DD20B1D82D009164ED /* FreDynamicLinkNavigationInfoParameters.swift */; };
+		CE8BC51720B222D6009164ED /* DynamicLinkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4DF20B1D9B3009164ED /* DynamicLinkEvent.swift */; };
 		CE94517420951E8B00FE2BD7 /* FreFirebaseOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE94517320951E8B00FE2BD7 /* FreFirebaseOptions.swift */; };
 		CE94517920951FCF00FE2BD7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74320D208D4B8100E388D3 /* SwiftyJSON.swift */; };
 		CE94518420951FCF00FE2BD7 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
@@ -202,6 +221,32 @@
 		CE87F4751FB259DB005CF7DF /* libFirebaseANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFirebaseANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE87F4771FB259DB005CF7DF /* FirebaseANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseANE_oc.h; sourceTree = "<group>"; };
 		CE87F4781FB259DB005CF7DF /* FirebaseANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirebaseANE.m; sourceTree = "<group>"; };
+		CE8BC4B920B1C890009164ED /* libDynamicLinksANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDynamicLinksANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE8BC4BB20B1C96A009164ED /* FirebaseInvites.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInvites.framework; path = Carthage/Build/iOS/FirebaseInvites.framework; sourceTree = "<group>"; };
+		CE8BC4BD20B1C979009164ED /* GoogleAPIClientForREST.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAPIClientForREST.framework; path = Carthage/Build/iOS/GoogleAPIClientForREST.framework; sourceTree = "<group>"; };
+		CE8BC4BF20B1C986009164ED /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = Carthage/Build/iOS/GoogleSignIn.framework; sourceTree = "<group>"; };
+		CE8BC4C120B1C990009164ED /* GTMOAuth2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMOAuth2.framework; path = Carthage/Build/iOS/GTMOAuth2.framework; sourceTree = "<group>"; };
+		CE8BC4C320B1C9BE009164ED /* FirebaseDynamicLinks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDynamicLinks.framework; path = Carthage/Build/iOS/FirebaseDynamicLinks.framework; sourceTree = "<group>"; };
+		CE8BC4C720B1CA71009164ED /* DynamicLinksANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicLinksANE_oc.h; sourceTree = "<group>"; };
+		CE8BC4C920B1CABE009164ED /* DynamicLinksANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DynamicLinksANE-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE8BC4CB20B1CAF3009164ED /* DynamicLinksANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicLinksANE.m; sourceTree = "<group>"; };
+		CE8BC4CD20B1CB62009164ED /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
+		CE8BC4CF20B1CB8B009164ED /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		CE8BC4D120B1CC47009164ED /* DynamicLinksANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DynamicLinksANE-Swift.h"; sourceTree = "<group>"; };
+		CE8BC4D320B1D04C009164ED /* FreDynamicLinkIOSParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreDynamicLinkIOSParameters.swift; sourceTree = "<group>"; };
+		CE8BC4D520B1D42D009164ED /* FreDynamicLinkItunesConnectAnalyticsParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreDynamicLinkItunesConnectAnalyticsParameters.swift; sourceTree = "<group>"; };
+		CE8BC4D720B1D4AE009164ED /* FreDynamicLinkGoogleAnalyticsParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreDynamicLinkGoogleAnalyticsParameters.swift; sourceTree = "<group>"; };
+		CE8BC4D920B1D5A2009164ED /* FreDynamicLinkSocialMetaTagParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreDynamicLinkSocialMetaTagParameters.swift; sourceTree = "<group>"; };
+		CE8BC4DB20B1D660009164ED /* FreDynamicLinkAndroidParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreDynamicLinkAndroidParameters.swift; sourceTree = "<group>"; };
+		CE8BC4DD20B1D82D009164ED /* FreDynamicLinkNavigationInfoParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreDynamicLinkNavigationInfoParameters.swift; sourceTree = "<group>"; };
+		CE8BC4DF20B1D9B3009164ED /* DynamicLinkEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicLinkEvent.swift; sourceTree = "<group>"; };
+		CE8BC50120B205BF009164ED /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		CE8BC50320B205CF009164ED /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		CE8BC50520B205E5009164ED /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		CE8BC50720B205F0009164ED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CE8BC50920B205F9009164ED /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		CE8BC50B20B20601009164ED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CE8BC50F20B2061E009164ED /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		CE94517320951E8B00FE2BD7 /* FreFirebaseOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreFirebaseOptions.swift; sourceTree = "<group>"; };
 		CE94519220951FCF00FE2BD7 /* libRemoteConfigANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRemoteConfigANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE945196209520AA00FE2BD7 /* RemoteConfigANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoteConfigANE_oc.h; sourceTree = "<group>"; };
@@ -304,6 +349,16 @@
 				CE83B04320A7536B0095C4F9 /* SystemConfiguration.framework in Frameworks */,
 				CEE80D4C208CE40300C96EC6 /* nanopb.framework in Frameworks */,
 				CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE8BC4A320B1C890009164ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE8BC4AA20B1C890009164ED /* FreSwift.framework in Frameworks */,
+				CE8BC4C420B1C9BE009164ED /* FirebaseDynamicLinks.framework in Frameworks */,
+				CE8BC4BA20B1C8F6009164ED /* FirebaseCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +467,18 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE8BC50F20B2061E009164ED /* WebKit.framework */,
+				CE8BC50B20B20601009164ED /* Security.framework */,
+				CE8BC50920B205F9009164ED /* SafariServices.framework */,
+				CE8BC50720B205F0009164ED /* QuartzCore.framework */,
+				CE8BC50520B205E5009164ED /* MessageUI.framework */,
+				CE8BC50320B205CF009164ED /* CoreText.framework */,
+				CE8BC50120B205BF009164ED /* AssetsLibrary.framework */,
+				CE8BC4C320B1C9BE009164ED /* FirebaseDynamicLinks.framework */,
+				CE8BC4C120B1C990009164ED /* GTMOAuth2.framework */,
+				CE8BC4BF20B1C986009164ED /* GoogleSignIn.framework */,
+				CE8BC4BD20B1C979009164ED /* GoogleAPIClientForREST.framework */,
+				CE8BC4BB20B1C96A009164ED /* FirebaseInvites.framework */,
 				CE83B04220A7536B0095C4F9 /* SystemConfiguration.framework */,
 				CE83B03D20A752EC0095C4F9 /* FirebaseCoreDiagnostics.framework */,
 				CEE3AEAB20A0C89300D3AAF6 /* FirebaseMessaging.framework */,
@@ -496,6 +563,7 @@
 		CE87F45C1FB259C9005CF7DF = {
 			isa = PBXGroup;
 			children = (
+				CE8BC49620B1C85E009164ED /* DynamicLinksANE */,
 				CEE3AE5820A0691000D3AAF6 /* MessagingANE */,
 				CEE3AE5720A068FF00D3AAF6 /* PerformanceANE */,
 				CEBCF7962095F8730028601B /* AuthANE */,
@@ -522,6 +590,7 @@
 				CEBCF7B62095F9160028601B /* libAuthANE_LIB.a */,
 				CEE3AE7320A0691700D3AAF6 /* libPerformanceANE_LIB.a */,
 				CEE3AE8320A06D2600D3AAF6 /* libMessagingANE_LIB.a */,
+				CE8BC4B920B1C890009164ED /* libDynamicLinksANE_LIB.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -537,6 +606,50 @@
 				CEE80D4F208CE55700C96EC6 /* SwiftController+FreSwift.swift */,
 			);
 			path = FirebaseANE;
+			sourceTree = "<group>";
+		};
+		CE8BC49620B1C85E009164ED /* DynamicLinksANE */ = {
+			isa = PBXGroup;
+			children = (
+				CE8BC49920B1C882009164ED /* Events */,
+				CE8BC49820B1C87C009164ED /* Headers */,
+				CE8BC49720B1C872009164ED /* Extensions */,
+				CE8BC4CB20B1CAF3009164ED /* DynamicLinksANE.m */,
+				CE8BC4CD20B1CB62009164ED /* SwiftController.swift */,
+				CE8BC4CF20B1CB8B009164ED /* SwiftController+FreSwift.swift */,
+				CE8BC4D120B1CC47009164ED /* DynamicLinksANE-Swift.h */,
+			);
+			path = DynamicLinksANE;
+			sourceTree = "<group>";
+		};
+		CE8BC49720B1C872009164ED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE8BC4D320B1D04C009164ED /* FreDynamicLinkIOSParameters.swift */,
+				CE8BC4D520B1D42D009164ED /* FreDynamicLinkItunesConnectAnalyticsParameters.swift */,
+				CE8BC4D720B1D4AE009164ED /* FreDynamicLinkGoogleAnalyticsParameters.swift */,
+				CE8BC4D920B1D5A2009164ED /* FreDynamicLinkSocialMetaTagParameters.swift */,
+				CE8BC4DB20B1D660009164ED /* FreDynamicLinkAndroidParameters.swift */,
+				CE8BC4DD20B1D82D009164ED /* FreDynamicLinkNavigationInfoParameters.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE8BC49820B1C87C009164ED /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				CE8BC4C720B1CA71009164ED /* DynamicLinksANE_oc.h */,
+				CE8BC4C920B1CABE009164ED /* DynamicLinksANE-Bridging-Header.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		CE8BC49920B1C882009164ED /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				CE8BC4DF20B1D9B3009164ED /* DynamicLinkEvent.swift */,
+			);
+			path = Events;
 			sourceTree = "<group>";
 		};
 		CE94517220951E6600FE2BD7 /* Extensions */ = {
@@ -804,6 +917,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE8BC4AE20B1C890009164ED /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE8BC4B120B1C890009164ED /* SwiftyJSON.h in Headers */,
+				CE8BC4D220B1CC47009164ED /* DynamicLinksANE-Swift.h in Headers */,
+				CE8BC4CA20B1CABE009164ED /* DynamicLinksANE-Bridging-Header.h in Headers */,
+				CE8BC4C820B1CA71009164ED /* DynamicLinksANE_oc.h in Headers */,
+				CE8BC4B220B1C890009164ED /* FreMacros.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE94518720951FCF00FE2BD7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -907,6 +1032,25 @@
 			name = FirebaseANE_LIB;
 			productName = HelloWorldANE_LIB;
 			productReference = CE87F4751FB259DB005CF7DF /* libFirebaseANE_LIB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CE8BC49A20B1C890009164ED /* DynamicLinksANE_LIB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE8BC4B620B1C890009164ED /* Build configuration list for PBXNativeTarget "DynamicLinksANE_LIB" */;
+			buildPhases = (
+				CE8BC49B20B1C890009164ED /* Sources */,
+				CE8BC4A320B1C890009164ED /* Frameworks */,
+				CE8BC4AE20B1C890009164ED /* Headers */,
+				CE8BC4B420B1C890009164ED /* ShellScript */,
+				CE8BC4B520B1C890009164ED /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DynamicLinksANE_LIB;
+			productName = HelloWorldANE_LIB;
+			productReference = CE8BC4B920B1C890009164ED /* libDynamicLinksANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		CE94517620951FCF00FE2BD7 /* RemoteConfigANE_LIB */ = {
@@ -1078,6 +1222,7 @@
 				CEBCF79A2095F9160028601B /* AuthANE_LIB */,
 				CEE3AE5920A0691700D3AAF6 /* PerformanceANE_LIB */,
 				CEE3AE7520A06D2600D3AAF6 /* MessagingANE_LIB */,
+				CE8BC49A20B1C890009164ED /* DynamicLinksANE_LIB */,
 			);
 		};
 /* End PBXProject section */
@@ -1095,6 +1240,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		CE8BC4B420B1C890009164ED /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		CE8BC4B520B1C890009164ED /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ../../../native_extension/DynamicLinksANE/ane/build_multi.sh;
 		};
 		CE94518D20951FCF00FE2BD7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1215,14 +1386,14 @@
 		};
 		CEDDADE01FBFB84900D6EB5F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/ane/build_multi.sh;
 		};
@@ -1302,6 +1473,24 @@
 				CE94517420951E8B00FE2BD7 /* FreFirebaseOptions.swift in Sources */,
 				CEA9AC21201E5F4500BFB223 /* SwiftController.swift in Sources */,
 				CEE80D50208CE55700C96EC6 /* SwiftController+FreSwift.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE8BC49B20B1C890009164ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE8BC51420B22242009164ED /* FreDynamicLinkSocialMetaTagParameters.swift in Sources */,
+				CE8BC51320B22240009164ED /* FreDynamicLinkGoogleAnalyticsParameters.swift in Sources */,
+				CE8BC49C20B1C890009164ED /* SwiftyJSON.swift in Sources */,
+				CE8BC51620B22248009164ED /* FreDynamicLinkNavigationInfoParameters.swift in Sources */,
+				CE8BC51120B2223A009164ED /* FreDynamicLinkIOSParameters.swift in Sources */,
+				CE8BC51520B22245009164ED /* FreDynamicLinkAndroidParameters.swift in Sources */,
+				CE8BC4CE20B1CB62009164ED /* SwiftController.swift in Sources */,
+				CE8BC51220B2223D009164ED /* FreDynamicLinkItunesConnectAnalyticsParameters.swift in Sources */,
+				CE8BC51720B222D6009164ED /* DynamicLinkEvent.swift in Sources */,
+				CE8BC4CC20B1CAF3009164ED /* DynamicLinksANE.m in Sources */,
+				CE8BC4D020B1CB8B009164ED /* SwiftController+FreSwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1567,6 +1756,53 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "FirebaseANE/Headers/FirebaseANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "FirebaseANE/FirebaseANE-Swift.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		CE8BC4B720B1C890009164ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "DynamicLinksANE/Headers/DynamicLinksANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "DynamicLinksANE/DynamicLinksANE-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		CE8BC4B820B1C890009164ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "DynamicLinksANE/Headers/DynamicLinksANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "DynamicLinksANE/DynamicLinksANE-Swift.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -1917,6 +2153,15 @@
 			buildConfigurations = (
 				CE87F47C1FB259DB005CF7DF /* Debug */,
 				CE87F47D1FB259DB005CF7DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE8BC4B620B1C890009164ED /* Build configuration list for PBXNativeTarget "DynamicLinksANE_LIB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE8BC4B720B1C890009164ED /* Debug */,
+				CE8BC4B820B1C890009164ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

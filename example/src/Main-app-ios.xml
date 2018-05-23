@@ -4,7 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-iOS-Device</name>
-    <versionNumber>0.0.3</versionNumber>
+    <versionNumber>0.0.5</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -35,6 +35,15 @@
         <!-- A list of plist key/value pairs to be added to the application Info.plist -->
         <InfoAdditions>
             <![CDATA[
+            <key>CFBundleURLTypes</key>
+            <array>
+                <dict>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>tuarua</string>
+                    </array>
+                </dict>
+            </array>
             <key>UIDeviceFamily</key>
             <array>
                 <!-- iPhone and iPod touch devices -->
@@ -56,6 +65,10 @@
         <requestedDisplayResolution>high</requestedDisplayResolution>
         <Entitlements>
             <![CDATA[
+            <key>com.apple.developer.associated-domains</key>
+		    <array>
+			    <string>applinks:fq7yh.app.goo.gl</string>
+		    </array>
           <key>keychain-access-groups</key>
             <array>
                 <string>FWEQJ32FGC.*</string>
@@ -81,5 +94,6 @@
         <extensionID>com.tuarua.firebase.AuthANE</extensionID>
         <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
         <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
+        <extensionID>com.tuarua.firebase.DynamicLinksANE</extensionID>
     </extensions>
 </application>

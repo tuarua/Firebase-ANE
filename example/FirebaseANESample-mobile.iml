@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="Android Device">
+  <component name="FlexBuildConfigurationManager" active="iOS Device">
     <configurations>
       <configuration name="Android Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies>
@@ -74,10 +74,10 @@
             <entry library-name="MessagingANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.firebase.firebase-invites-12.0.1" library-level="project">
+            <entry library-name="DynamicLinksANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="InvitesANE" library-level="project">
+            <entry library-name="com.google.firebase.firebase-dynamic-links-12.0.1" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -129,6 +129,9 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="MessagingANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="DynamicLinksANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -188,6 +191,9 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="PerformanceANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="DynamicLinksANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -262,5 +268,7 @@
     <orderEntry type="library" exported="" name="com.google.android.gms.play-services-auth-12.0.1" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-invites-12.0.1" level="project" />
     <orderEntry type="library" exported="" name="InvitesANE" level="project" />
+    <orderEntry type="library" exported="" name="DynamicLinksANE" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-dynamic-links-12.0.1" level="project" />
   </component>
 </module>

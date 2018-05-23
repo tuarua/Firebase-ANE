@@ -17,11 +17,11 @@
 import Foundation
 
 class DocumentEvent: NSObject {
-    public static let SNAPSHOT: String = "DocumentEvent.Snapshot"
-    public static let QUERY_SNAPSHOT: String = "QueryEvent.QuerySnapshot"
-    public static let UPDATED: String = "DocumentEvent.Updated"
-    public static let SET: String = "DocumentEvent.Set"
-    public static let DELETED: String = "DocumentEvent.Deleted"
+    public static let SNAPSHOT = "DocumentEvent.Snapshot"
+    public static let QUERY_SNAPSHOT = "QueryEvent.QuerySnapshot"
+    public static let UPDATED = "DocumentEvent.Updated"
+    public static let SET = "DocumentEvent.Set"
+    public static let DELETED = "DocumentEvent.Deleted"
     
     var eventId: String?
     var data: [String: Any]?

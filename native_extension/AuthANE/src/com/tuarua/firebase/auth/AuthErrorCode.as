@@ -32,5 +32,7 @@ public final class AuthErrorCode {
     // public static const missingIosBundleID:int = 17036;
     // public static const missingAndroidPackageName:int = 17037
 
+    public static const INTERNAL:int = 17999;
+
 }
 }

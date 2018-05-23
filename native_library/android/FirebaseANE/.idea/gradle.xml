@@ -10,9 +10,9 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Analytics" />
             <option value="$PROJECT_DIR$/Auth" />
+            <option value="$PROJECT_DIR$/DynamicLinks" />
             <option value="$PROJECT_DIR$/Firebase" />
             <option value="$PROJECT_DIR$/Firestore" />
-            <option value="$PROJECT_DIR$/Invites" />
             <option value="$PROJECT_DIR$/Messaging" />
             <option value="$PROJECT_DIR$/Performance" />
             <option value="$PROJECT_DIR$/RemoteConfig" />

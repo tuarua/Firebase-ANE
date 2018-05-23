@@ -16,8 +16,8 @@
 
 import Foundation
 class NetworkEvent: NSObject {
-    public static let ENABLED: String = "NetworkEvent.Enabled"
-    public static let DISABLED: String = "NetworkEvent.Disabled"
+    public static let ENABLED = "NetworkEvent.Enabled"
+    public static let DISABLED = "NetworkEvent.Disabled"
     var eventId: String?
     var error: [String: Any]?
     

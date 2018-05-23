@@ -2,9 +2,9 @@ package {
 import com.tuarua.FirebaseANE;
 import com.tuarua.firebase.AnalyticsANE;
 import com.tuarua.firebase.AuthANE;
+import com.tuarua.firebase.DynamicLinksANE;
 import com.tuarua.firebase.FirebaseOptions;
 import com.tuarua.firebase.FirestoreANE;
-import com.tuarua.firebase.InvitesANE;
 import com.tuarua.firebase.MessagingANE;
 import com.tuarua.firebase.PerformanceANE;
 import com.tuarua.firebase.RemoteConfigANE;
@@ -38,7 +38,7 @@ public class StarlingRoot extends Sprite {
     private var btnAuth:SimpleButton = new SimpleButton("Auth");
     private var btnPerformance:SimpleButton = new SimpleButton("Performance");
     private var btnMessaging:SimpleButton = new SimpleButton("Messaging");
-    private var btnInvites:SimpleButton = new SimpleButton("Invites");
+    private var btnDynamicLinks:SimpleButton = new SimpleButton("Dynamic Links");
 
     private var btnBack:SimpleButton = new SimpleButton("Back");
     private var menuContainer:Sprite = new Sprite();
@@ -51,7 +51,7 @@ public class StarlingRoot extends Sprite {
     private var authExample:AuthExample;
     private var performanceExample:PerformanceExample;
     private var messagingExample:MessagingExample;
-    private var invitesExample:InvitesExample;
+    private var dynamicLinksExample:DynamicLinksExample;
 
     public function StarlingRoot() {
         TextField.registerCompositor(Fonts.getFont("fira-sans-semi-bold-13"), "Fira Sans Semi-Bold 13");
@@ -69,7 +69,7 @@ public class StarlingRoot extends Sprite {
                 trace("storageBucket", fo.storageBucket);
             }
         } catch (e:ANEError) {
-            trace(e.errorID, e.getStackTrace(), e.source);
+            trace(e.errorID, e.message, e.getStackTrace(), e.source);
         }
 
         analyticsExample = new AnalyticsExample(stage.stageWidth);
@@ -100,14 +100,14 @@ public class StarlingRoot extends Sprite {
         messagingExample.x = stage.stageWidth;
         addChild(messagingExample);
 
-        invitesExample = new InvitesExample(stage.stageWidth);
-        invitesExample.x = stage.stageWidth;
-        addChild(invitesExample);
+        dynamicLinksExample = new DynamicLinksExample(stage.stageWidth);
+        dynamicLinksExample.x = stage.stageWidth;
+        addChild(dynamicLinksExample);
 
     }
 
     private function initMenu():void {
-        btnInvites.x = btnMessaging.x = btnPerformance.x = btnAuth.x = btnRemoteConfig.x = btnBack.x = btnStorage.x =
+        btnDynamicLinks.x = btnMessaging.x = btnPerformance.x = btnAuth.x = btnRemoteConfig.x = btnBack.x = btnStorage.x =
                 btnFirestore.x = btnAnalytics.x = (stage.stageWidth - 200) * 0.5;
         btnAnalytics.y = GAP;
         btnAnalytics.addEventListener(TouchEvent.TOUCH, onAnalyticsClick);
@@ -137,9 +137,9 @@ public class StarlingRoot extends Sprite {
         btnMessaging.addEventListener(TouchEvent.TOUCH, onMessagingClick);
         menuContainer.addChild(btnMessaging);
 
-        btnInvites.y = btnMessaging.y + GAP;
-        btnInvites.addEventListener(TouchEvent.TOUCH, onInvitesClick);
-        menuContainer.addChild(btnInvites);
+        btnDynamicLinks.y = btnMessaging.y + GAP;
+        btnDynamicLinks.addEventListener(TouchEvent.TOUCH, onDynamicLinksClick);
+        menuContainer.addChild(btnDynamicLinks);
 
         btnBack.y = stage.stageHeight - 100;
         btnBack.addEventListener(TouchEvent.TOUCH, onBackClick);
@@ -219,11 +219,11 @@ public class StarlingRoot extends Sprite {
         }
     }
 
-    private function onInvitesClick(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(btnInvites);
+    private function onDynamicLinksClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnDynamicLinks);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             showMenu(false);
-            showExample(invitesExample);
+            showExample(dynamicLinksExample);
             btnBack.visible = true;
         }
     }
@@ -250,7 +250,7 @@ public class StarlingRoot extends Sprite {
             showExample(authExample, false);
             showExample(performanceExample, false);
             showExample(messagingExample, false);
-            showExample(invitesExample, false);
+            showExample(dynamicLinksExample, false);
             btnBack.visible = false;
         }
     }
@@ -264,7 +264,7 @@ public class StarlingRoot extends Sprite {
         AuthANE.dispose();
         PerformanceANE.dispose();
         MessagingANE.dispose();
-        InvitesANE.dispose();
+        DynamicLinksANE.dispose();
     }
 
 }

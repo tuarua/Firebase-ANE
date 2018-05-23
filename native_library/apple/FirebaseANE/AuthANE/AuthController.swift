@@ -117,6 +117,7 @@ class AuthController: FreSwiftController {
         }
     }
     
+    // TODO
     func reauthenticate(email: String, password: String, eventId: String?) {
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         let user = Auth.auth().currentUser

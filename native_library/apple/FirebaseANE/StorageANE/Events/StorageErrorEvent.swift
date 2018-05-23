@@ -17,7 +17,7 @@
 import Foundation
 
 class StorageErrorEvent: NSObject {
-    public static let ERROR: String = "StorageErrorEvent.Error"
+    public static let ERROR = "StorageErrorEvent.Error"
 
     var eventId: String?
     var text: String?

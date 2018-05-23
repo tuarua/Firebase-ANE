@@ -17,19 +17,19 @@
 import Foundation
 
 class AuthEvent: NSObject {
-    public static let EMAIL_UPDATED: String = "AuthEvent.EmailUpdated"
-    public static let PASSWORD_UPDATED: String = "AuthEvent.PasswordUpdated"
-    public static let PROFILE_UPDATED: String = "AuthEvent.ProfileUpdated"
-    public static let SIGN_IN: String = "AuthEvent.SignIn"
-    public static let ID_TOKEN: String = "AuthEvent.OnIdToken"
-    public static let PASSWORD_RESET_EMAIL_SENT: String = "AuthEvent.PasswordResetEmailSent"
-    public static let USER_DELETED: String = "AuthEvent.UserDeleted"
-    public static let USER_REAUTHENTICATED: String = "AuthEvent.UserReauthenticated"
-    public static let USER_CREATED: String = "AuthEvent.UserCreated"
-    public static let USER_UNLINKED: String = "AuthEvent.UserUnlinked"
-    public static let USER_LINKED: String = "AuthEvent.UserLinked"
-    public static let USER_RELOADED: String = "AuthEvent.UserReloaded"
-    public static let EMAIL_VERIFICATION_SENT: String = "AuthEvent.EmailVerificationSent"
+    public static let EMAIL_UPDATED = "AuthEvent.EmailUpdated"
+    public static let PASSWORD_UPDATED = "AuthEvent.PasswordUpdated"
+    public static let PROFILE_UPDATED = "AuthEvent.ProfileUpdated"
+    public static let SIGN_IN = "AuthEvent.SignIn"
+    public static let ID_TOKEN = "AuthEvent.OnIdToken"
+    public static let PASSWORD_RESET_EMAIL_SENT = "AuthEvent.PasswordResetEmailSent"
+    public static let USER_DELETED = "AuthEvent.UserDeleted"
+    public static let USER_REAUTHENTICATED = "AuthEvent.UserReauthenticated"
+    public static let USER_CREATED = "AuthEvent.UserCreated"
+    public static let USER_UNLINKED = "AuthEvent.UserUnlinked"
+    public static let USER_LINKED = "AuthEvent.UserLinked"
+    public static let USER_RELOADED = "AuthEvent.UserReloaded"
+    public static let EMAIL_VERIFICATION_SENT = "AuthEvent.EmailVerificationSent"
     
     var eventId: String?
     var data: [String: Any]?

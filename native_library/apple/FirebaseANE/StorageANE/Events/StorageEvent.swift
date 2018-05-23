@@ -17,11 +17,11 @@
 import Foundation
 
 class StorageEvent: NSObject {
-    public static let GET_DOWNLOAD_URL: String = "StorageEvent.GetDownloadUrl"
-    public static let GET_METADATA: String = "StorageEvent.GetMetadata"
-    public static let UPDATE_METADATA: String = "StorageEvent.UpdateMetadata"
-    public static let TASK_COMPLETE: String = "StorageEvent.TaskComplete"
-    public static let DELETED: String = "StorageEvent.Deleted"
+    public static let GET_DOWNLOAD_URL = "StorageEvent.GetDownloadUrl"
+    public static let GET_METADATA = "StorageEvent.GetMetadata"
+    public static let UPDATE_METADATA = "StorageEvent.UpdateMetadata"
+    public static let TASK_COMPLETE = "StorageEvent.TaskComplete"
+    public static let DELETED = "StorageEvent.Deleted"
     
     var eventId: String?
     var data: [String: Any]?

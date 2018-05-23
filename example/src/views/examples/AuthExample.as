@@ -119,7 +119,7 @@ public class AuthExample extends Sprite implements IExample {
     private function onLinkWithGoogleClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnLinkWithGoogle);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            if(auth && auth.currentUser){
+            if (auth && auth.currentUser) {
                 auth.currentUser.link(new GoogleAuthCredential("id", "access_token"), onLinked);
             }
         }

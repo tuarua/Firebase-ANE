@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="DynamicLinksANE" type="flex">
+    <CLASSES>
+      <root url="jar://$DOCUMENTS$/Firebase-ANE/native_extension/DynamicLinksANE/ane/DynamicLinksANE.ane!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

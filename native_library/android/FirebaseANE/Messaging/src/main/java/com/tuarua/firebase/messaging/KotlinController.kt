@@ -61,7 +61,6 @@ class KotlinController : FreKotlinMainController {
                 if (appActivity.intent.extras != null) {
                     for (key in appActivity.intent.extras.keySet()) {
                         val value = appActivity.intent.extras.get(key)
-                        trace("Key: $key Value: $value")
                     }
                 }
 
