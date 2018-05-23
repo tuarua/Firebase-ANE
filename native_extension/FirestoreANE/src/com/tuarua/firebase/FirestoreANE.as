@@ -28,6 +28,7 @@ public final class FirestoreANE extends EventDispatcher {
     private static var _loggingEnabled:Boolean = false;
     private static var _settings:FirestoreSettings = null;
 
+    /** @private */
     public function FirestoreANE() {
         if (FirestoreANEContext.context) {
             var theRet:* = FirestoreANEContext.context.call("init", _loggingEnabled, _settings);
@@ -36,6 +37,7 @@ public final class FirestoreANE extends EventDispatcher {
         _firestore = this;
     }
 
+    /** The ANE instance. */
     public static function get firestore():FirestoreANE {
         if (!_firestore) {
             new FirestoreANE();
@@ -67,6 +69,7 @@ public final class FirestoreANE extends EventDispatcher {
         return new DocumentReference(documentPath);
     }
 
+    /** Whether logging from the Firestore client is enabled/disabled. */
     public static function get loggingEnabled():Boolean {
         return _loggingEnabled;
     }
@@ -75,12 +78,24 @@ public final class FirestoreANE extends EventDispatcher {
         _loggingEnabled = value;
     }
 
+    /**
+     * Re-enables usage of the network by this Firestore instance after a prior call to
+     * `disableNetwork`.
+     *  @param listener Optional
+     */
     public function enableNetwork(listener:Function = null):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("enableNetwork", FirestoreANEContext.createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /**
+     * Disables usage of the network by this Firestore instance. It can be re-enabled by via
+     * `enableNetwork`. While the network is disabled, any snapshot listeners or get calls
+     * will return results from cache and any write operations will be queued until the network is
+     * restored.
+     * @param listener Optional
+     */
     public function disableNetwork(listener:Function = null):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("disableNetwork", FirestoreANEContext.createEventId(listener));
@@ -91,6 +106,7 @@ public final class FirestoreANE extends EventDispatcher {
         _settings = value;
     }
 
+    /** Disposes the ANE */
     public static function dispose():void {
         if (FirestoreANEContext.context) {
             FirestoreANEContext.dispose();

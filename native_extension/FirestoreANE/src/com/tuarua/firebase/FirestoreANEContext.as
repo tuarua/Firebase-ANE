@@ -25,7 +25,7 @@ import com.tuarua.fre.ANEUtils;
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
 import flash.utils.Dictionary;
-
+/** @private */
 public class FirestoreANEContext {
     internal static const NAME:String = "FirestoreANE";
     internal static const TRACE:String = "TRACE";

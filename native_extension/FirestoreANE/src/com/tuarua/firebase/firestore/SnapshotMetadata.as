@@ -16,8 +16,21 @@
 
 package com.tuarua.firebase.firestore {
 public class SnapshotMetadata {
+    /**
+     * Returns true if the snapshot was created from cached data rather than guaranteed up-to-date server
+     * data. If your listener has opted into metadata updates you will receive another snapshot
+     * with `isFromCache` equal to NO once
+     * the client has received up-to-date data from the backend.
+     */
     public var isFromCache:Boolean;
+    /**
+     * Returns true if the snapshot contains the result of local writes (e.g. set() or update() calls)
+     * that have not yet been committed to the backend. If your listener has opted into metadata updates
+     * you will receive another snapshot with `hasPendingWrites` equal to NO once the writes have
+     * been committed to the backend.
+     */
     public var hasPendingWrites:Boolean;
+
     public function SnapshotMetadata() {
     }
 }
