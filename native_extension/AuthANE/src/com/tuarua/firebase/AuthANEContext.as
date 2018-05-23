@@ -4,7 +4,7 @@ import com.tuarua.firebase.auth.AuthError;
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
 import flash.utils.Dictionary;
-
+/** @private */
 public class AuthANEContext {
     internal static const NAME:String = "AuthANE";
     internal static const TRACE:String = "TRACE";
