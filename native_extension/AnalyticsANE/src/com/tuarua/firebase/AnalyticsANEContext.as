@@ -1,7 +1,7 @@
 package com.tuarua.firebase {
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
-
+/** @private */
 public class AnalyticsANEContext {
     internal static const NAME:String = "AnalyticsANE";
     internal static const TRACE:String = "TRACE";

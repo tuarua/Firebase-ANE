@@ -139,6 +139,7 @@ class KotlinController : FreKotlinMainController {
         if (appActivity != null) {
             val task = FirebaseDynamicLinks.getInstance().getDynamicLink(appActivity.intent)
             task.addOnSuccessListener {
+                // TODO not retuning empty
                 val link = it?.link ?: ""
                 sendEvent(DynamicLinkEvent.ON_LINK,
                         gson.toJson(
