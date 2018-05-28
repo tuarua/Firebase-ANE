@@ -59,11 +59,12 @@ public class FirebaseUser {
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
-    //TODO
-    public function reauthenticate(credential:AuthCredential):void {
-
+    public function reauthenticate(credential:AuthCredential, listener:Function = null):void {
+        AuthANEContext.validate();
+        var theRet:* = AuthANEContext.context.call("reauthenticate", credential,
+                AuthANEContext.createEventId(listener));
+        if (theRet is ANEError) throw theRet as ANEError;
     }
-
 
     /**
      * Reloads the user's profile data from the server.

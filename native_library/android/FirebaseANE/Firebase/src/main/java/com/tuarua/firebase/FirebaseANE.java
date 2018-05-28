@@ -22,6 +22,7 @@ public class FirebaseANE implements FREExtension {
     private static final String[] FUNCTIONS = {
              "init"
             ,"getOptions"
+            ,"isGooglePlayServicesAvailable"
     };
     private static FirebaseANEContext extensionContext;
 

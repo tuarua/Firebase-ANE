@@ -41,7 +41,7 @@ public class MessagingANE extends EventDispatcher {
     /**
      *  Asynchronously subscribes to a topic.
      *
-     *  @param toTopic The name of the topic, for example, @"sports".
+     *  @param toTopic The name of the topic, for example, "sports".
      *  @param listener Optional
      */
     public function subscribe(toTopic:String, listener:Function = null):void {
@@ -53,7 +53,7 @@ public class MessagingANE extends EventDispatcher {
     /**
      *  Asynchronously unsubscribe from a topic.
      *
-     *  @param fromTopic The name of the topic, for example @"sports".
+     *  @param fromTopic The name of the topic, for example "sports".
      *  @param listener Optional
      */
     public function unsubscribe(fromTopic:String, listener:Function = null):void {

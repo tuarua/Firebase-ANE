@@ -44,7 +44,7 @@ val FirebaseAuthExceptionMap: Map<String, Int>
             "ERROR_INVALID_EMAIL" to 17008,
             "ERROR_EMAIL_ALREADY_IN_USE" to 17007,
             "ERROR_WEAK_PASSWORD" to 17026
-)
+    )
 
 fun FirebaseAuthException.toMap(): Map<String, Any?>? {
     return mapOf(
@@ -80,6 +80,11 @@ fun AuthCredential(freObject: FREObject?): AuthCredential? {
         }
         FacebookAuthProvider.PROVIDER_ID -> when {
             param0 != null -> return FacebookAuthProvider.getCredential(param0)
+        }
+        PhoneAuthProvider.PROVIDER_ID -> when {
+            param0 != null && param1 != null -> {
+                return PhoneAuthProvider.getCredential(param0, param1)
+            }
         }
     }
     return null

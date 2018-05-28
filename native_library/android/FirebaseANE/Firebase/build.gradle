@@ -23,6 +23,7 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "com.google.android.gms:play-services-base:$play_services_version"
     implementation "com.google.firebase:firebase-core:$firebase_version"
     implementation files('../shared/libs/runtimeClasses.jar')
     implementation files('../shared/libs/FlashRuntimeExtensions.jar')

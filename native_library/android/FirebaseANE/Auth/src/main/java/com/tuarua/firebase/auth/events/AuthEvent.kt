@@ -15,7 +15,7 @@
  */
 package com.tuarua.firebase.auth.events
 
-class AuthEvent(val eventId: String, val data: Map<String, Any?>? = null, val error: Map<String, Any?>? = null) {
+data class AuthEvent(val eventId: String, val data: Map<String, Any?>? = null, val error: Map<String, Any?>? = null) {
     companion object {
         const val EMAIL_UPDATED = "AuthEvent.EmailUpdated"
         const val PASSWORD_UPDATED = "AuthEvent.PasswordUpdated"
@@ -30,5 +30,6 @@ class AuthEvent(val eventId: String, val data: Map<String, Any?>? = null, val er
         const val USER_LINKED = "AuthEvent.UserLinked"
         const val USER_RELOADED = "AuthEvent.UserReloaded"
         const val EMAIL_VERIFICATION_SENT = "AuthEvent.EmailVerificationSent"
+        const val PHONE_CODE_SENT = "AuthEvent.PhoneCodeSent"
     }
 }

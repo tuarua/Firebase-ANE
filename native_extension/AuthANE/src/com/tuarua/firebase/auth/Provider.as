@@ -5,5 +5,6 @@ public final class Provider {
     public static const TWITTER:String = "twitter.com";
     public static const GITHUB:String = "github.com";
     public static const EMAIL:String = "password";
+    public static const PHONE:String = "phone";
 }
 }

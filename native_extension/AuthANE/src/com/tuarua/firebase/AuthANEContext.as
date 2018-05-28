@@ -25,6 +25,7 @@ public class AuthANEContext {
     private static const USER_LINKED: String = "AuthEvent.UserLinked";
     private static const EMAIL_VERIFICATION_SENT:String = "AuthEvent.EmailVerificationSent";
     private static const ID_TOKEN:String = "AuthEvent.OnIdToken";
+    private static const PHONE_CODE_SENT:String = "AuthEvent.PhoneCodeSent";
     private static var pObj:Object;
 
     public function AuthANEContext() {
@@ -100,6 +101,25 @@ public class AuthANEContext {
                         token = pObj.data.token;
                     }
                     closure.call(null, token);
+                    delete closures[pObj.eventId];
+                    delete closureCallers[pObj.eventId];
+                } catch (e:Error) {
+                    trace("parsing error", event.code, e.message);
+                }
+                break;
+            case PHONE_CODE_SENT:
+                try {
+                    pObj = JSON.parse(event.code);
+                    closure = closures[pObj.eventId];
+                    if (closure == null) return;
+                    if (pObj.hasOwnProperty("error") && pObj.error) {
+                        err = new AuthError(pObj.error.text, pObj.error.id);
+                    }
+                    var verificationId:String;
+                    if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("verificationId")) {
+                        verificationId = pObj.data.token;
+                    }
+                    closure.call(null, verificationId, err);
                     delete closures[pObj.eventId];
                     delete closureCallers[pObj.eventId];
                 } catch (e:Error) {

@@ -3,8 +3,11 @@ package com.tuarua.firebase
 import android.content.res.Resources
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
+import com.google.android.gms.common.ConnectionResult
 import com.google.firebase.FirebaseApp
 import com.tuarua.frekotlin.*
+import com.google.android.gms.common.GoogleApiAvailability
+
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
@@ -83,6 +86,13 @@ class KotlinController : FreKotlinMainController {
         } catch (e: FreException) {
             FreException("cannot create FirebaseOptions").getError(Thread.currentThread().stackTrace)
         }
+    }
+
+    fun isGooglePlayServicesAvailable(ctx: FREContext, argv: FREArgv): FREObject? {
+        val activity = context?.activity ?: return FreException("no activity").getError()
+        return (GoogleApiAvailability.getInstance()
+                .isGooglePlayServicesAvailable(activity) == ConnectionResult.SUCCESS)
+                .toFREObject()
     }
 
     override val TAG: String

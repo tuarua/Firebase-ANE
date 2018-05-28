@@ -42,7 +42,8 @@ public final class AuthANE extends EventDispatcher {
     public function sendPasswordResetEmail(email:String, listener:Function = null):void {
         AuthANEContext.validate();
         if (AuthANEContext.isNullOrEmpty(email)) throw ArgumentError("email is null or empty");
-        var theRet:* = AuthANEContext.context.call("sendPasswordResetEmail", email, AuthANEContext.createEventId(listener));
+        var theRet:* = AuthANEContext.context.call("sendPasswordResetEmail", email,
+                AuthANEContext.createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
@@ -56,14 +57,21 @@ public final class AuthANE extends EventDispatcher {
         if (AuthANEContext.isNullOrEmpty(email) || AuthANEContext.isNullOrEmpty(password)) {
             throw ArgumentError("email or password is null or empty");
         }
-        var theRet:* = AuthANEContext.context.call("createUserWithEmailAndPassword", email, password, AuthANEContext.createEventId(listener));
+        var theRet:* = AuthANEContext.context.call("createUserWithEmailAndPassword", email, password,
+                AuthANEContext.createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
-//    public function signInWithCustomToken(token:String):void {
-//        // TODO
-//        AuthANEContext.validate();
-//    }
+    /** Creates and, on success, signs in a user with the given custom token.
+     * @param token
+     * @param listener Optional
+     */
+    public function signInWithCustomToken(token:String, listener:Function = null):void {
+        AuthANEContext.validate();
+        var theRet:* = AuthANEContext.context.call("signInWithCustomToken", token,
+                AuthANEContext.createEventId(listener));
+        if (theRet is ANEError) throw theRet as ANEError;
+    }
 
     /*public function confirmPasswordReset(code:String, newPassword:String):void {
         // TODO
@@ -111,7 +119,18 @@ public final class AuthANE extends EventDispatcher {
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
-    /**Signs out the current user.*/
+    /**
+     * @param phoneNumber
+     * @param listener Optional
+     */
+    public function verifyPhoneNumber(phoneNumber:String, listener:Function):void {
+        AuthANEContext.validate();
+        var theRet:* = AuthANEContext.context.call("verifyPhoneNumber", phoneNumber,
+                AuthANEContext.createEventId(listener));
+        if (theRet is ANEError) throw theRet as ANEError;
+    }
+
+    /** Signs out the current user.*/
     public function signOut():void {
         var theRet:* = AuthANEContext.context.call("signOut");
         if (theRet is ANEError) throw theRet as ANEError;

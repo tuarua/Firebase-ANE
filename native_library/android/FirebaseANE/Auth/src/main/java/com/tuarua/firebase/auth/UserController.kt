@@ -106,8 +106,7 @@ class UserController(override var context: FREContext?) : FreKotlinController {
         }
     }
 
-    fun reauthenticate(email: String, password: String, eventId: String?) {
-        val credential = EmailAuthProvider.getCredential(email, password)
+    fun reauthenticate(credential: AuthCredential, eventId: String?) {
         currentUser?.reauthenticate(credential)?.addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             when {
@@ -190,6 +189,8 @@ class UserController(override var context: FREContext?) : FreKotlinController {
             }
         }
     }
+
+
 
     override val TAG: String
         get() = this::class.java.simpleName

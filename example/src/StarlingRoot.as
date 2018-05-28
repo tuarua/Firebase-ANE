@@ -59,7 +59,6 @@ public class StarlingRoot extends Sprite {
     }
 
     public function start():void {
-        initMenu();
         try {
             FirebaseANE.init();
             var fo:FirebaseOptions = FirebaseANE.options;
@@ -71,6 +70,9 @@ public class StarlingRoot extends Sprite {
         } catch (e:ANEError) {
             trace(e.errorID, e.message, e.getStackTrace(), e.source);
         }
+
+        initMenu();
+
 
         analyticsExample = new AnalyticsExample(stage.stageWidth);
         analyticsExample.x = stage.stageWidth;

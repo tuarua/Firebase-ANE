@@ -32,7 +32,7 @@ public class StorageReference {
 
     /**
      * Creates a StorageReference initialized at a child Firebase Storage location.
-     * for instance @"path/to/object".
+     * for instance "path/to/object".
      *
      * @param path A relative path from the root to initialize the reference with
      * @param url A gs:// or https:// URL to initialize the reference with.

@@ -27,6 +27,7 @@ public class AuthANE implements FREExtension {
             ,"createUserWithEmailAndPassword"
             ,"signIn"
             ,"signInAnonymously"
+            ,"signInWithCustomToken"
             ,"updateProfile"
             ,"signOut"
             ,"sendEmailVerification"
@@ -42,6 +43,7 @@ public class AuthANE implements FREExtension {
             ,"getCurrentUser"
             ,"getIdToken"
             ,"reload"
+            ,"verifyPhoneNumber"
     };
 
     private static AuthANEContext extensionContext;

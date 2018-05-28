@@ -6,14 +6,13 @@ import flash.events.EventDispatcher;
 
 public final class FirebaseANE extends EventDispatcher {
     private static var _firebase:FirebaseANE;
+    private static var _test:Boolean = false;
 
     /** @private */
     public function FirebaseANE() {
         if (FirebaseANEContext.context) {
             var theRet:* = FirebaseANEContext.context.call("init");
-            if (theRet is ANEError) {
-                throw theRet as ANEError;
-            }
+            if (theRet is ANEError) throw theRet as ANEError;
         }
         _firebase = this;
     }
@@ -28,10 +27,16 @@ public final class FirebaseANE extends EventDispatcher {
     public static function get options():FirebaseOptions {
         FirebaseANEContext.validate();
         var theRet:* = FirebaseANEContext.context.call("getOptions");
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        if (theRet is ANEError) throw theRet as ANEError;
         return theRet as FirebaseOptions;
+    }
+
+    public static function get isGooglePlayServicesAvailable():Boolean {
+        FirebaseANEContext.validate();
+        var theRet:* = FirebaseANEContext.context.call("isGooglePlayServicesAvailable");
+        trace("theRet", theRet);
+        if (theRet is ANEError) throw theRet as ANEError;
+        return theRet as Boolean;
     }
 
     /** Disposes the ANE */

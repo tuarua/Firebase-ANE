@@ -16,6 +16,7 @@
 
 package com.tuarua.firebase.auth
 
+import java.util.concurrent.TimeUnit;
 import com.adobe.fre.FREContext
 import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseNetworkException
@@ -24,15 +25,21 @@ import com.google.gson.Gson
 import com.tuarua.frekotlin.FreKotlinController
 import com.tuarua.firebase.auth.events.AuthEvent
 import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.FirebaseException
+import com.google.firebase.auth.PhoneAuthCredential
 
 class AuthController(override var context: FREContext?) : FreKotlinController {
     private lateinit var auth: FirebaseAuth
     private val gson = Gson()
 
+
     init {
         val app = FirebaseApp.getInstance()
         if (app != null) {
             auth = FirebaseAuth.getInstance(app)
+
+
         } else {
             trace(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
         }
@@ -87,15 +94,15 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
         }
     }
 
-    /*fun signInWithEmailAndPassword(email: String, password: String, eventId: String?) {
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+    fun signInWithCustomToken(eventId: String?, token: String) {
+        auth.signInWithCustomToken(token).addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             when {
                 task.isSuccessful -> sendEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(eventId)))
                 else -> sendError(AuthEvent.SIGN_IN, eventId, task.exception)
             }
         }
-    }*/
+    }
 
     fun signIn(value: AuthCredential, eventId: String?) {
         auth.signInWithCredential(value).addOnCompleteListener { task ->
@@ -105,6 +112,31 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
                 else -> sendError(AuthEvent.SIGN_IN, eventId, task.exception)
             }
         }
+    }
+
+    fun verifyPhoneNumber(phoneNumber: String, eventId: String?) {
+        val act = this.context?.activity ?: return
+        val callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks = object : PhoneAuthProvider
+
+        .OnVerificationStateChangedCallbacks() {
+            override fun onVerificationCompleted(credential: PhoneAuthCredential) {
+                auth.signInWithCredential(credential)
+            }
+
+            override fun onVerificationFailed(e: FirebaseException) {
+                if (eventId == null) return
+                sendError(AuthEvent.PHONE_CODE_SENT, eventId, e)
+            }
+
+            override fun onCodeSent(verificationId: String?,
+                                    token: PhoneAuthProvider.ForceResendingToken?) {
+                if (eventId == null) return
+                sendEvent(AuthEvent.PHONE_CODE_SENT, gson.toJson(AuthEvent(eventId,
+                        mapOf("verificationId" to verificationId))))
+
+            }
+        }
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNumber, 60, TimeUnit.SECONDS, act, callbacks)
     }
 
     fun setLanguageCode(code: String) = auth.setLanguageCode(code)

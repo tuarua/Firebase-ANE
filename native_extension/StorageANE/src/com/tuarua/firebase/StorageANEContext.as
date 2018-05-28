@@ -67,7 +67,7 @@ public class StorageANEContext {
 
     public static function createEventId(listener:Function):String {
         var eventId:String;
-        if (listener) {
+        if (listener != null) {
             eventId = context.call("createGUID") as String;
             closures[eventId] = listener;
         }
@@ -122,15 +122,15 @@ public class StorageANEContext {
                     }
                     listenersObject.dispatchEvent(new StorageEvent(event.level, file, ba));
                     var lstner:Function = getListener(event.level, pObj.eventId);
-                    if (lstner) {
+                    if (lstner != null) {
                         listenersObject.removeEventListener(event.level, lstner);
                     }
                     lstner = getListener(StorageErrorEvent.ERROR, pObj.eventId);
-                    if (lstner) {
+                    if (lstner != null) {
                         listenersObject.removeEventListener(StorageErrorEvent.ERROR, lstner);
                     }
                     lstner = getListener(StorageProgressEvent.PROGRESS, pObj.eventId);
-                    if (lstner) {
+                    if (lstner != null) {
                         listenersObject.removeEventListener(StorageProgressEvent.PROGRESS, lstner);
                     }
                 } catch (e:Error) {
