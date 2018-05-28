@@ -21,6 +21,12 @@ import com.tuarua.fre.ANEError;
 public class CollectionReference extends Query {
     private var _id:String;
 
+    /**
+     * Gets a `CollectionReference` referring to the collection at the specified path within the
+     * database.
+     *
+     * @param path
+     */
     public function CollectionReference(path:String) {
         _path = path;
         FirestoreANEContext.validate();
@@ -35,6 +41,11 @@ public class CollectionReference extends Query {
         return this;
     }
 
+    /**
+     * Returns a DocumentReference pointing to a new document with an auto-generated ID.
+     *
+     * @return A DocumentReference pointing to a new document with an auto-generated ID.
+     */
     public function document(documentPath:String = null):DocumentReference {
         FirestoreANEContext.validate();
         if (documentPath) {
@@ -49,6 +60,10 @@ public class CollectionReference extends Query {
         }
     }
 
+    /**
+     * For subcollections, `parent` returns the containing `DocumentReference`.  For root
+     * collections, null is returned.
+     */
     public function get parent():DocumentReference {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("getCollectionParent", _path);

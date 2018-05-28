@@ -16,9 +16,12 @@
 
 package com.tuarua.firebase.firestore {
 public class DocumentSnapshot {
+    /** The ID of the document for which this `DocumentSnapshot` contains data. */
     public var id:String;
     public var data:*;
+    /** True if the document exists. */
     public var exists:Boolean = false;
+    /** Metadata about this snapshot concerning its source and if it has local modifications. */
     public var metadata:SnapshotMetadata;
 
     public function DocumentSnapshot(id:String, data:*, exists:Boolean, metadata:SnapshotMetadata) {

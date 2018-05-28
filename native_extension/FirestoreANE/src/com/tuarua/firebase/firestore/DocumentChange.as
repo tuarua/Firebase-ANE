@@ -16,9 +16,20 @@
 
 package com.tuarua.firebase.firestore {
 public class DocumentChange {
+    /**
+     * The index of the changed document in the result set immediately after this DocumentChange
+     * (i.e. supposing that all prior DocumentChange objects and the current DocumentChange object
+     * have been applied).
+     */
     public var newIndex:int;
+    /**
+     * The index of the changed document in the result set immediately prior to this DocumentChange
+     * (i.e. supposing that all prior DocumentChange objects have been applied).
+     */
     public var oldIndex:int;
+    /** The ID of the document for which this `DocumentSnapshot` contains data. */
     public var documentId:String;
+    /** The type of change that occurred (added, modified, or removed). */
     public var type:int;
     public function DocumentChange() {
     }

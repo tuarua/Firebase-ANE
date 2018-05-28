@@ -15,35 +15,63 @@
  */
 
 package com.tuarua.firebase.firestore {
-import com.tuarua.firebase.FirestoreANE;
 import com.tuarua.firebase.FirestoreANEContext;
 import com.tuarua.fre.ANEError;
 
-import flash.events.EventDispatcher;
-
 public class WriteBatch {
+    /** Creates a new write batch */
     public function WriteBatch() {
     }
 
-//aka delete
+    /**
+     * Deletes the document referred to by `documentReference`.
+     *
+     * @param documentReference
+     */
     public function clear(documentReference:DocumentReference):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("deleteBatch", documentReference.path);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /**
+     * Updates fields in the document referred to by `documentReference`.
+     * If document does not exist, the write batch will fail.
+     *
+     * @param documentReference
+     * @param data
+     */
     public function update(documentReference:DocumentReference, data:*):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("updateBatch", documentReference.path, data);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /**
+     * Writes to the document referred to by `documentReference`. If the document doesn't yet exist,
+     * this method creates it and then sets the data. If the document exists, this method overwrites
+     * the document data with the new values.
+     *
+     * @param documentReference
+     * @param data
+     * @param merge
+     * @return This `FIRWriteBatch` instance. Used for chaining method calls.
+     */
     public function set(documentReference:DocumentReference, data:*, merge:Boolean = false):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("setBatch", documentReference.path, data, merge);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /**
+     * Commits all of the writes in this write batch as a single atomic unit.
+     *
+     * @param listener This function will only execute
+     * when the client is online and the commit has completed against the server. The
+     * completion handler will not be called when the device is offline, though local
+     * changes will be visible immediately.
+     *
+     */
     public function commit(listener:Function = null):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("commitBatch", FirestoreANEContext.createEventId(listener));

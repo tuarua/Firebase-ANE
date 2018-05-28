@@ -24,6 +24,11 @@ public class DocumentReference {
     private var _asId:String;
     private var _mapTo:Class;
 
+    /**
+     * Returns a DocumentReference pointing to a new document with an auto-generated ID.
+     *
+     * @return A DocumentReference pointing to a new document with an auto-generated ID.
+     */
     public function DocumentReference(path:String) {
         this._path = path;
         FirestoreANEContext.validate();
@@ -33,12 +38,24 @@ public class DocumentReference {
         this._id = theRet as String;
     }
 
+    /**
+     * Attaches a listener for DocumentSnapshot events.
+     *
+     * @param listener The listener to attach.
+     *
+     */
     public function addSnapshotListener(listener:Function):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("addSnapshotListenerDocument", _path, FirestoreANEContext.createEventId(listener, this), _asId);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /**
+     * Detaches a listener for DocumentSnapshot events.
+     *
+     * @param listener The listener to dettach.
+     *
+     */
     public function removeSnapshotListener(listener:Function):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("removeSnapshotListener", _asId);
@@ -53,35 +70,65 @@ public class DocumentReference {
         }
     }
 
+    /**
+     * Reads the document referenced by this `DocumentReference`.
+     *
+     * @param listener executes once the document has been successfully read.
+     */
     public function getDocument(listener:Function):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("getDocumentReference", _path, FirestoreANEContext.createEventId(listener, this));
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /**
+     * Converts the Document into an as3 Class with properties mapped to the Document's fields.
+     *
+     * @param to AS3 class to map to
+     */
     public function map(to:Class):void {
         _mapTo = to;
     }
 
+    /**
+     * Writes to the document referred to by this DocumentReference. If the document does not yet
+     * exist, it will be created.
+     *
+     * @param data
+     * @param listener
+     * @param merge
+     */
     public function set(data:*, listener:Function = null, merge:Boolean = false):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("setDocumentReference", _path, FirestoreANEContext.createEventId(listener), data, merge);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /**
+     * Updates fields in the document referred to by this `DocumentReference`. If the document
+     * does not exist, the update fails and the specified completion block receives an error.
+     *
+     * @param data
+     * @param listener
+     */
     public function update(data:*, listener:Function = null):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("updateDocumentReference", _path, FirestoreANEContext.createEventId(listener), data);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
-    //aka delete
+    /**
+     * Deletes the document referred to by this `DocumentReference`.
+     *
+     * @param listener
+     */
     public function remove(listener:Function = null):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("deleteDocumentReference", _path, FirestoreANEContext.createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /** A reference to the collection to which this `DocumentReference` belongs. */
     public function get parent():CollectionReference {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("getDocumentParent", _path);
