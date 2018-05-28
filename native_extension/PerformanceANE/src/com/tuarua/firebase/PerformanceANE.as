@@ -23,7 +23,7 @@ public final class PerformanceANE extends EventDispatcher {
     private static var _performance:PerformanceANE;
     private static var _isDataCollectionEnabled:Boolean = true;
     private static var _isInstrumentationEnabled:Boolean = true;
-
+    /** @private */
     public function PerformanceANE() {
         if (PerformanceANEContext.context) {
             var theRet:* = PerformanceANEContext.context.call("init", _isDataCollectionEnabled, _isInstrumentationEnabled);
@@ -38,6 +38,13 @@ public final class PerformanceANE extends EventDispatcher {
         }
     }
 
+    /**
+     * Controls the capture of performance data. When this value is set to NO, none of the performance
+     * data will sent to the server. Default is true.
+     *
+     * This setting is persisted, and is applied on future invocations of your application. Once
+     * explicitly set, it overrides any settings in your Info.plist.
+     */
     public static function get isDataCollectionEnabled():Boolean {
         return _isDataCollectionEnabled;
     }
@@ -50,12 +57,14 @@ public final class PerformanceANE extends EventDispatcher {
         }
     }
 
-    public static function dispose():void {
-        if (PerformanceANEContext.context) {
-            PerformanceANEContext.dispose();
-        }
-    }
-
+    /**
+     * Controls the instrumentation of the app to capture performance data. When this value is set to
+     * NO, the app will not be instrumented to collect performance data (in scenarios like app_start,
+     * networking monitoring). Default is true.
+     *
+     * This setting is persisted, and is applied on future invocations of your application. Once
+     * explicitly set, it overrides any settings in your Info.plist.
+     */
     public static function get isInstrumentationEnabled():Boolean {
         return _isInstrumentationEnabled;
     }
@@ -65,6 +74,13 @@ public final class PerformanceANE extends EventDispatcher {
         if (_performance) {
             var theRet:* = PerformanceANEContext.context.call("setIsInstrumentationEnabled", _isInstrumentationEnabled);
             if (theRet is ANEError) throw theRet as ANEError;
+        }
+    }
+
+    /** Disposes the ANE */
+    public static function dispose():void {
+        if (PerformanceANEContext.context) {
+            PerformanceANEContext.dispose();
         }
     }
 }

@@ -6,7 +6,7 @@ import com.tuarua.fre.ANEUtils;
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
 import flash.utils.Dictionary;
-
+/** @private */
 public class MessagingANEContext {
     internal static const NAME:String = "MessagingANE";
     internal static const TRACE:String = "TRACE";

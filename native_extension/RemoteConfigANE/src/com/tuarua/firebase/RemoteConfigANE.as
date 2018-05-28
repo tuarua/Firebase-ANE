@@ -24,9 +24,8 @@ import flash.utils.ByteArray;
 
 public class RemoteConfigANE extends EventDispatcher {
     private static var _remoteConfig:RemoteConfigANE;
-
     public static const ONE_DAY:int = 86400;
-
+    /** @private */
     public function RemoteConfigANE() {
         if (RemoteConfigANEContext.context) {
             var theRet:* = RemoteConfigANEContext.context.call("init");
@@ -37,6 +36,7 @@ public class RemoteConfigANE extends EventDispatcher {
         _remoteConfig = this;
     }
 
+    /** The ANE instance. */
     public static function get remoteConfig():RemoteConfigANE {
         if (!_remoteConfig) {
             new RemoteConfigANE();
@@ -50,18 +50,27 @@ public class RemoteConfigANE extends EventDispatcher {
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /** Sets config defaults for parameter keys and values in the default namespace config. */
     public function setDefaults(value:Object):void {
         RemoteConfigANEContext.validate();
         var theRet:* = RemoteConfigANEContext.context.call("setDefaults", value);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /**
+     * Fetches Remote Config data and sets a duration that specifies how long config data lasts.
+     * Call activateFetched to make fetched data available to your app.
+     *
+     * @param cacheExpirationSeconds Duration that defines how long fetched config data is available,
+     * in seconds. When the config data expires, a new fetch is required.
+     */
     public function fetch(cacheExpirationSeconds:int = ONE_DAY):void {
         RemoteConfigANEContext.validate();
         var theRet:* = RemoteConfigANEContext.context.call("fetch", cacheExpirationSeconds);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /** Gets the value as a Boolean. */
     public function getBoolean(key:String):Boolean {
         RemoteConfigANEContext.validate();
         var theRet:* = RemoteConfigANEContext.context.call("getBoolean", key);
@@ -69,6 +78,7 @@ public class RemoteConfigANE extends EventDispatcher {
         return theRet as Boolean;
     }
 
+    /** Gets the value as a ByteArray. */
     public function getByteArray(key:String):ByteArray {
         RemoteConfigANEContext.validate();
         var theRet:* = RemoteConfigANEContext.context.call("getByteArray", key);
@@ -76,6 +86,7 @@ public class RemoteConfigANE extends EventDispatcher {
         return theRet as ByteArray;
     }
 
+    /** Gets the value as a Double. */
     public function getDouble(key:String):Number {
         RemoteConfigANEContext.validate();
         var theRet:* = RemoteConfigANEContext.context.call("getDouble", key);
@@ -83,6 +94,7 @@ public class RemoteConfigANE extends EventDispatcher {
         return theRet as Number;
     }
 
+    /** Gets the value as a Long. */
     public function getLong(key:String):int {
         RemoteConfigANEContext.validate();
         var theRet:* = RemoteConfigANEContext.context.call("getLong", key);
@@ -90,6 +102,7 @@ public class RemoteConfigANE extends EventDispatcher {
         return theRet as int;
     }
 
+    /** Gets the value as a String. */
     public function getString(key:String):String {
         RemoteConfigANEContext.validate();
         var theRet:* = RemoteConfigANEContext.context.call("getString", key);
@@ -97,10 +110,18 @@ public class RemoteConfigANE extends EventDispatcher {
         return theRet as String;
     }
 
-    public function activateFetched():void {
+    /**
+     * Applies Fetched Config data to the Active Config, causing updates to the behavior and appearance of the
+     * app to take effect (depending on how config data is used in the app).
+     * @return true if there was a Fetched Config, and it was activated, false if no
+     * Fetched Config was found, or the Fetched Config was already activated.
+     *
+     */
+    public function activateFetched():Boolean {
         RemoteConfigANEContext.validate();
         var theRet:* = RemoteConfigANEContext.context.call("activateFetched");
         if (theRet is ANEError) throw theRet as ANEError;
+        return theRet as Boolean;
     }
 
     public function get info():RemoteConfigInfo {
@@ -110,6 +131,8 @@ public class RemoteConfigANE extends EventDispatcher {
         return theRet as RemoteConfigInfo;
     }
 
+    /** Returns the set of parameter keys that start with the given prefix, from the default namespace
+     * in the active config.*/
     public function getKeysByPrefix(prefix:String):Vector.<String> {
         RemoteConfigANEContext.validate();
         var theRet:* = RemoteConfigANEContext.context.call("getKeysByPrefix", prefix);
@@ -117,13 +140,15 @@ public class RemoteConfigANE extends EventDispatcher {
         return theRet as Vector.<String>;
     }
 
+    /** Disposes the ANE */
     public static function dispose():void {
         if (RemoteConfigANEContext.context) {
             RemoteConfigANEContext.dispose();
         }
     }
 
-    override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void {
+    override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false,
+                                              priority:int = 0, useWeakReference:Boolean = false):void {
         super.addEventListener(type, listener, useCapture, priority, useWeakReference);
     }
 

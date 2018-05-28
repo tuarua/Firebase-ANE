@@ -15,12 +15,10 @@
  */
 
 package com.tuarua.firebase {
-import com.tuarua.fre.ANEUtils;
 
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
-import flash.utils.Dictionary;
-
+/** @private */
 public class PerformanceANEContext {
     internal static const NAME:String = "PerformanceANE";
     internal static const TRACE:String = "TRACE";

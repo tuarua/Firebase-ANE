@@ -18,7 +18,21 @@ package com.tuarua.firebase.remoteconfig {
 [RemoteClass(alias="com.tuarua.firebase.remoteconfig.RemoteConfigInfo")]
 public final class RemoteConfigInfo {
     public var configSettings:RemoteConfigSettings;
+    /** Last successful fetch completion time.*/
     public var fetchTimeMillis:Number;
+    /** Last fetch status.*/
     public var lastFetchStatus:int;
 }
 }
+
+/*
+
+/// Config has never been fetched.
+  FIRRemoteConfigFetchStatusNoFetchYet,
+  /// Config fetch succeeded.
+  FIRRemoteConfigFetchStatusSuccess,
+  /// Config fetch failed.
+  FIRRemoteConfigFetchStatusFailure,
+  /// Config fetch was throttled.
+  FIRRemoteConfigFetchStatusThrottled,
+ */

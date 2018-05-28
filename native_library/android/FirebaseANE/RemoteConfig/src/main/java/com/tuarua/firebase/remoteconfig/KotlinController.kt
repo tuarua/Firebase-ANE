@@ -138,8 +138,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun activateFetched(ctx: FREContext, argv: FREArgv): FREObject? {
-        remoteConfig.activateFetched()
-        return null
+        return remoteConfig.activateFetched().toFREObject()
     }
 
     fun getInfo(ctx: FREContext, argv: FREArgv): FREObject? {

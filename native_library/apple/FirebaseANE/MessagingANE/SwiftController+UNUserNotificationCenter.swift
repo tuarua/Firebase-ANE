@@ -33,7 +33,6 @@ extension SwiftController: UNUserNotificationCenterDelegate {
         if context == nil { return }
         self.sendEvent(name: MessageEvent.ON_MESSAGE_RECEIVED,
                        value: MessageEvent(data: parseUserInfo(userInfo: userInfo)).toJSONString())
-        // sendEvent(name: MessageEvent.ON_DEBUG, value: ">>>>>>> Firebase willPresent notification: \(data)")
     }
     
     private func parseUserInfo(userInfo: [AnyHashable: Any]) -> [String: Any] {
@@ -86,11 +85,5 @@ extension SwiftController: UNUserNotificationCenterDelegate {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
-        
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-        
-        if context == nil { return }
-        // sendEvent(name: MessageEvent.ON_DEBUG, value: "didReceiveRemoteNotification \(notification)")
     }
 }

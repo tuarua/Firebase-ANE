@@ -61,6 +61,7 @@ public class SwiftController: NSObject {
             let freBa = FreByteArraySwift(data: data as NSData)
             return freBa.rawValue
         }
+        
         return nil
     }
     
@@ -115,8 +116,7 @@ public class SwiftController: NSObject {
     }
     
     func activateFetched(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        remoteConfig?.activateFetched()
-        return nil
+        return remoteConfig?.activateFetched().toFREObject()
     }
     
     func getInfo(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {

@@ -35,7 +35,13 @@ public class SwiftController: NSObject {
     }
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        Messaging.messaging().shouldEstablishDirectChannel = true
+        guard argc > 2,
+            let shouldEstablishDirectChannel = Bool(argv[2])
+            else {
+                return ArgCountError(message: "initController").getError(#file, #line, #column)
+        }
+        
+        Messaging.messaging().shouldEstablishDirectChannel = shouldEstablishDirectChannel
         isInited = true
         startToken = nil
         return true.toFREObject()
@@ -74,7 +80,7 @@ public class SwiftController: NSObject {
         
         // [START set_messaging_delegate]
         Messaging.messaging().delegate = self
-        Messaging.messaging().shouldEstablishDirectChannel = true
+        // Messaging.messaging().shouldEstablishDirectChannel = true
         // [END set_messaging_delegate]
         
         // Register for remote notifications. This shows a permission dialog on first run, to

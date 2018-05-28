@@ -20,7 +20,7 @@ import com.tuarua.firebase.remoteconfig.events.RemoteConfigEvent;
 
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
-
+/** @private */
 public class RemoteConfigANEContext {
     internal static const NAME:String = "RemoteConfigANE";
     internal static const TRACE:String = "TRACE";
@@ -66,6 +66,7 @@ public class RemoteConfigANEContext {
     public static function validate():void {
         if (!_isInited) throw new Error(INIT_ERROR_MESSAGE);
     }
+
 
     public static function dispose():void {
         if (!_context) {

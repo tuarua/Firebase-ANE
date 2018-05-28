@@ -29,7 +29,7 @@ import flash.events.StatusEvent;
 import flash.filesystem.File;
 import flash.utils.ByteArray;
 import flash.utils.Dictionary;
-
+/** @private */
 public class StorageANEContext {
     internal static const NAME:String = "StorageANE";
     internal static const TRACE:String = "TRACE";
@@ -39,16 +39,12 @@ public class StorageANEContext {
     private static const GET_METADATA:String = "StorageEvent.GetMetadata";
     private static const GET_DOWNLOAD_URL:String = "StorageEvent.GetDownloadUrl";
     private static const UPDATE_METADATA:String = "StorageEvent.UpdateMetadata";
-
     private static var _context:ExtensionContext;
-
     public static var listeners:Vector.<Object> = new <Object>[];
     public static var listenersObjects:Dictionary = new Dictionary();
     private static var listenersObject:* = null;
     public static var tasks:Dictionary = new Dictionary();
-
     public static var closures:Dictionary = new Dictionary();
-
     private static var pObj:Object;
 
     public function StorageANEContext() {
