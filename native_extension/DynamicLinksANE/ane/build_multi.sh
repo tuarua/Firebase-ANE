@@ -95,6 +95,9 @@ com.tuarua.firebase.$PROJECTNAME-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
 -platform default -C "$pathtome/platforms/default" "library.swf"
 
+echo "Packaging docs into ANE."
+zip "$pathtome/$PROJECTNAME.ane" -u docs/*
+
 #remove the frameworks from sim and device, as not needed any more
 rm "$pathtome/platforms/android/classes.jar"
 rm "$pathtome/platforms/android/app-release.aar"

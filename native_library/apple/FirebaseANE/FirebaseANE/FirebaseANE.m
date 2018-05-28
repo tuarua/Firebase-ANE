@@ -38,6 +38,7 @@ CONTEXT_INIT(TRFIRFB) {
     {
          MAP_FUNCTION(TRFIRFB, init)
         ,MAP_FUNCTION(TRFIRFB, getOptions)
+        ,MAP_FUNCTION(TRFIRFB, isGooglePlayServicesAvailable)
     };
     
     /**************************************************************************/

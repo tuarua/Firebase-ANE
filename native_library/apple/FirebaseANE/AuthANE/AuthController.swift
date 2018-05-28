@@ -78,6 +78,21 @@ class AuthController: FreSwiftController {
         }
     }
     
+    func signInWithCustomToken(token: String, eventId: String?) {
+        auth?.signIn(withCustomToken: token, completion: { (_, error) in
+            if eventId == nil { return }
+            if let err = error as NSError? {
+                self.sendEvent(name: AuthEvent.SIGN_IN,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
+            } else {
+                self.sendEvent(name: AuthEvent.SIGN_IN,
+                               value: AuthEvent(eventId: eventId).toJSONString())
+            }
+        })
+    }
+    
     func signOut() {
         do {
             try auth?.signOut()
@@ -130,6 +145,22 @@ class AuthController: FreSwiftController {
             } else {
                 self.sendEvent(name: AuthEvent.USER_REAUTHENTICATED,
                                value: AuthEvent(eventId: eventId).toJSONString())
+            }
+        }
+    }
+    
+    func verifyPhoneNumber(phoneNumber: String, eventId: String?) {
+        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationId, error) in
+            if eventId == nil { return }
+            if let err = error as NSError? {
+                self.sendEvent(name: AuthEvent.PHONE_CODE_SENT,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
+            } else {
+                self.sendEvent(name: AuthEvent.PHONE_CODE_SENT,
+                               value: AuthEvent(eventId: eventId,
+                                                data: ["verificationId": verificationId ?? ""]).toJSONString())
             }
         }
     }

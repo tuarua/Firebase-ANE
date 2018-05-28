@@ -31,6 +31,7 @@ public final class FirebaseANE extends EventDispatcher {
         return theRet as FirebaseOptions;
     }
 
+    /** returns true if the user has the required version of Google Play Services. Always returns true on iOS.*/
     public static function get isGooglePlayServicesAvailable():Boolean {
         FirebaseANEContext.validate();
         var theRet:* = FirebaseANEContext.context.call("isGooglePlayServicesAvailable");

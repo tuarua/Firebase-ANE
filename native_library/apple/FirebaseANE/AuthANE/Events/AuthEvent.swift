@@ -31,6 +31,7 @@ class AuthEvent: NSObject {
     public static let USER_LINKED = "AuthEvent.UserLinked"
     public static let USER_RELOADED = "AuthEvent.UserReloaded"
     public static let EMAIL_VERIFICATION_SENT = "AuthEvent.EmailVerificationSent"
+    public static let PHONE_CODE_SENT = "AuthEvent.PhoneCodeSent"
     
     var eventId: String?
     var data: [String: Any]?

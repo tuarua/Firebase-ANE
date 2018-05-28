@@ -72,6 +72,17 @@ public class SwiftController: NSObject {
         return nil
     }
     
+    func signInWithCustomToken(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard argc > 1,
+            let token = String(argv[0])
+            else {
+                return ArgCountError(message: "signInWithCustomToken").getError(#file, #line, #column)
+        }
+        let eventId = String(argv[1])
+        authController?.signInWithCustomToken(token: token, eventId: eventId)
+        return nil
+    }
+    
     func updateProfile(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 2
             else {
@@ -210,4 +221,16 @@ public class SwiftController: NSObject {
         userController?.reload(eventId: eventId)
         return nil
     }
+    
+    func verifyPhoneNumber(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard argc > 1,
+            let phoneNumber = String(argv[0])
+            else {
+                return ArgCountError(message: "verifyPhoneNumber").getError(#file, #line, #column)
+        }
+        let eventId = String(argv[1])
+        authController?.verifyPhoneNumber(phoneNumber: phoneNumber, eventId: eventId)
+        return nil
+    }
+    
 }

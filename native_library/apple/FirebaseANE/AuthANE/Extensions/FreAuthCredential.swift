@@ -36,8 +36,11 @@ extension AuthCredential {
             return FacebookAuthProvider.credential(withAccessToken: p0)
         } else if provider == EmailAuthProviderID, let p0 = param0, let p1 = param1 {
             return EmailAuthProvider.credential(withEmail: p0, password: p1)
+        } else if provider == PhoneAuthProviderID, let p0 = param0, let p1 = param1 {
+            return PhoneAuthProvider.provider().credential(
+                withVerificationID: p0,
+                verificationCode: p1)
         }
-        
         return nil
     }
 }

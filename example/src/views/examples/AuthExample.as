@@ -70,7 +70,6 @@ public class AuthExample extends Sprite implements IExample {
         btnLinkWithGoogle.addEventListener(TouchEvent.TOUCH, onLinkWithGoogleClick);
         addChild(btnLinkWithGoogle);
 
-
         statusLabel = new TextField(stageWidth, 1400, "");
         statusLabel.format.setTo(Fonts.NAME, 13, 0x222222, Align.CENTER, Align.TOP);
         statusLabel.touchable = false;

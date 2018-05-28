@@ -125,6 +125,9 @@ com.tuarua.firebase.$PROJECTNAME-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
 -platform default -C "$pathtome/platforms/default" "library.swf"
 
+echo "Packaging docs into ANE."
+zip "$pathtome/$PROJECTNAME.ane" -u docs/*
+
 echo "Packaging Google Services values into ANE."
 zip "$pathtome/$PROJECTNAME.ane" META-INF/ANE/Android-ARM/com.tuarua.firebase.FirebaseANE-res/values/values.xml
 

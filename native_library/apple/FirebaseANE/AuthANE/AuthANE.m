@@ -41,6 +41,7 @@ CONTEXT_INIT(TRFIRAU) {
         ,MAP_FUNCTION(TRFIRAU, createUserWithEmailAndPassword)
         ,MAP_FUNCTION(TRFIRAU, signIn)
         ,MAP_FUNCTION(TRFIRAU, signInAnonymously)
+        ,MAP_FUNCTION(TRFIRAU, signInWithCustomToken)
         ,MAP_FUNCTION(TRFIRAU, updateProfile)
         ,MAP_FUNCTION(TRFIRAU, signOut)
         ,MAP_FUNCTION(TRFIRAU, sendEmailVerification)
@@ -56,6 +57,7 @@ CONTEXT_INIT(TRFIRAU) {
         ,MAP_FUNCTION(TRFIRAU, getCurrentUser)
         ,MAP_FUNCTION(TRFIRAU, getIdToken)
         ,MAP_FUNCTION(TRFIRAU, reload)
+        ,MAP_FUNCTION(TRFIRAU, verifyPhoneNumber)  
     };
     
     /**************************************************************************/

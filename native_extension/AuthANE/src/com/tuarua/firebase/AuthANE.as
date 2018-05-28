@@ -62,8 +62,8 @@ public final class AuthANE extends EventDispatcher {
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
-    /** Creates and, on success, signs in a user with the given custom token.
-     * @param token
+    /** Asynchronously signs in to Firebase with the given Auth token.
+     * @param token A self-signed custom auth token.
      * @param listener Optional
      */
     public function signInWithCustomToken(token:String, listener:Function = null):void {
@@ -72,15 +72,6 @@ public final class AuthANE extends EventDispatcher {
                 AuthANEContext.createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
-
-    /*public function confirmPasswordReset(code:String, newPassword:String):void {
-        // TODO
-    }
-
-    public function checkActionCode(code:String):void {
-        // TODO
-    }*/
-
 
     /** Asynchronously creates and becomes an anonymous user.
      * @param listener Optional
@@ -120,7 +111,10 @@ public final class AuthANE extends EventDispatcher {
     }
 
     /**
-     * @param phoneNumber
+     * Starts the phone number authentication flow by sending a verifcation code to the
+     * specified phone number.
+     *
+     * @param phoneNumber The phone number to be verified.
      * @param listener Optional
      */
     public function verifyPhoneNumber(phoneNumber:String, listener:Function):void {

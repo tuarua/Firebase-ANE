@@ -50,6 +50,10 @@ public class SwiftController: NSObject {
         return app.options.toFREObject()
     }
     
+    func isGooglePlayServicesAvailable(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        return true.toFREObject()
+    }
+    
     @objc func applicationDidFinishLaunching(_ notification: Notification) {
         appDidFinishLaunchingNotif = notification
         if Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") != nil {

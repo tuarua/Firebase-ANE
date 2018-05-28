@@ -25,6 +25,7 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)createUserWithEmailAndPassword"] = createUserWithEmailAndPassword
         functionsToSet["\(prefix)signIn"] = signIn
         functionsToSet["\(prefix)signInAnonymously"] = signInAnonymously
+        functionsToSet["\(prefix)signInWithCustomToken"] = signInWithCustomToken
         functionsToSet["\(prefix)updateProfile"] = updateProfile
         functionsToSet["\(prefix)signOut"] = signOut
         functionsToSet["\(prefix)sendEmailVerification"] = sendEmailVerification
@@ -40,6 +41,7 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)getCurrentUser"] = getCurrentUser
         functionsToSet["\(prefix)getIdToken"] = getIdToken
         functionsToSet["\(prefix)reload"] = reload
+        functionsToSet["\(prefix)verifyPhoneNumber"] = verifyPhoneNumber
         
         var arr: [String] = []
         for key in functionsToSet.keys {
