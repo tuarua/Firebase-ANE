@@ -16,6 +16,7 @@
 
 package com.tuarua.firebase.storage {
 public class DownloadTask extends StorageTask {
+    /** @private */
     public function DownloadTask(referenceId:String) {
         super(referenceId);
     }

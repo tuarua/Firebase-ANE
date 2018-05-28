@@ -22,14 +22,14 @@ import flash.events.EventDispatcher;
 public class StorageTask extends EventDispatcher {
     protected var _asId:String;
     protected var _referenceId:String;
-
+    /** @private */
     public function StorageTask(referenceId:String) {
         this._referenceId = referenceId;
         this._asId = StorageANEContext.context.call("createGUID") as String;
     }
 
-    override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0,
-                                              useWeakReference:Boolean = false):void {
+    override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false,
+                                              priority:int = 0, useWeakReference:Boolean = false):void {
         StorageANEContext.validate();
         StorageANEContext.listeners.push(
                 {
@@ -58,22 +58,28 @@ public class StorageTask extends EventDispatcher {
         super.removeEventListener(type, listener, useCapture);
         StorageANEContext.context.call("removeEventListener", _asId, type);
     }
-
+    /**
+     * Pauses a task currently in progress.
+     */
     public function pause():void {
         StorageANEContext.validate();
         StorageANEContext.context.call("pauseTask", _asId);
     }
-
+    /**
+     * Resumes a task that is paused.
+     */
     public function resume():void {
         StorageANEContext.validate();
         StorageANEContext.context.call("resumeTask", _asId);
     }
-
+    /**
+     * Cancels a task currently in progress.
+     */
     public function cancel():void {
         StorageANEContext.validate();
         StorageANEContext.context.call("cancelTask", _asId);
     }
-
+    /** @private */
     public function get asId():String {
         return _asId;
     }

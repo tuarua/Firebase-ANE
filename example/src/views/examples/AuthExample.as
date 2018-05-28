@@ -159,7 +159,7 @@ public class AuthExample extends Sprite implements IExample {
     private function onSignInAnonClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnSignInAnon);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            auth.signInAnonymously();
+            auth.signInAnonymously(onSignedIn);
         }
     }
 

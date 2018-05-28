@@ -24,15 +24,3 @@ public final class RemoteConfigInfo {
     public var lastFetchStatus:int;
 }
 }
-
-/*
-
-/// Config has never been fetched.
-  FIRRemoteConfigFetchStatusNoFetchYet,
-  /// Config fetch succeeded.
-  FIRRemoteConfigFetchStatusSuccess,
-  /// Config fetch failed.
-  FIRRemoteConfigFetchStatusFailure,
-  /// Config fetch was throttled.
-  FIRRemoteConfigFetchStatusThrottled,
- */

@@ -23,7 +23,7 @@ import flash.events.EventDispatcher;
 public class StorageANE extends EventDispatcher {
     private static var _storage:StorageANE;
     private static var _url:String;
-
+    /** @private */
     public function StorageANE() {
         if (StorageANEContext.context) {
             var theRet:* = StorageANEContext.context.call("init", _url);
@@ -34,6 +34,7 @@ public class StorageANE extends EventDispatcher {
         _storage = this;
     }
 
+    /** The ANE instance. */
     public static function get storage():StorageANE {
         if (!_storage) {
             new StorageANE();
@@ -44,12 +45,6 @@ public class StorageANE extends EventDispatcher {
     public function getReference(path:String = null, url:String = null):StorageReference {
         StorageANEContext.validate();
         return new StorageReference(path, url);
-    }
-
-    public static function dispose():void {
-        if (StorageANEContext.context) {
-            StorageANEContext.dispose();
-        }
     }
 
     public function get maxDownloadRetryTime():Number {
@@ -79,6 +74,10 @@ public class StorageANE extends EventDispatcher {
         return theRet as Number;
     }
 
+    /**
+     * Maximum time in seconds to retry a download if a failure occurs.
+     * Defaults to 10 minutes (600000 milliseconds).
+     */
     public function set maxDownloadRetryTime(value:Number):void {
         StorageANEContext.validate();
         var theRet:* = StorageANEContext.context.call("setMaxDownloadRetryTime", value);
@@ -87,6 +86,10 @@ public class StorageANE extends EventDispatcher {
         }
     }
 
+    /**
+     * Maximum time in seconds to retry operations other than upload and download if a failure occurs.
+     * Defaults to 2 minutes (120000 milliseconds).
+     */
     public function set maxOperationRetryTime(value:Number):void {
         StorageANEContext.validate();
         var theRet:* = StorageANEContext.context.call("setMaxOperationRetryTime", value);
@@ -95,6 +98,10 @@ public class StorageANE extends EventDispatcher {
         }
     }
 
+    /**
+     * Maximum time in seconds to retry an upload if a failure occurs.
+     * Defaults to 10 minutes (600000 milliseconds).
+     */
     public function set maxUploadRetryTime(value:Number):void {
         StorageANEContext.validate();
         var theRet:* = StorageANEContext.context.call("setMaxUploadRetryTime", value);
@@ -103,8 +110,17 @@ public class StorageANE extends EventDispatcher {
         }
     }
 
+    /** The gs:// url to your Firebase Storage Bucket. */
     public static function set url(value:String):void {
         _url = value;
     }
+
+    /** Disposes the ANE */
+    public static function dispose():void {
+        if (StorageANEContext.context) {
+            StorageANEContext.dispose();
+        }
+    }
+
 }
 }

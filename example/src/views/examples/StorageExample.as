@@ -75,7 +75,8 @@ public class StorageExample extends Sprite implements IExample {
 
         addChild(statusLabel);
 
-        btnGetUrl.x = btnUpdateMetadata.x = btnDownloadFile.x = btnGetMetadata.x = btnDownloadBytes.x = btnUploadFile.x = (stageWidth - 200) * 0.5;
+        btnGetUrl.x = btnUpdateMetadata.x = btnDownloadFile.x = btnGetMetadata.x = btnDownloadBytes.x =
+                btnUploadFile.x = (stageWidth - 200) * 0.5;
 
         btnGetMetadata.addEventListener(TouchEvent.TOUCH, onGetMetaClick);
         btnGetMetadata.y = StarlingRoot.GAP;
@@ -198,7 +199,6 @@ public class StorageExample extends Sprite implements IExample {
     }
 
     private function onGetMetadata(metadata:StorageMetadata, error:StorageError):void {
-        trace("onGetMetadata called");
         if (error) {
             statusLabel.text = "GetMetadata error: " + error.errorID + " : " + error.message;
             return
