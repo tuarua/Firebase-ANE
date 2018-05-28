@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		CE0038CB2094E9B7002A657A /* FreStorageMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0038CA2094E9B7002A657A /* FreStorageMetadata.swift */; };
+		CE00E76320BC08D4002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
+		CE00E76420BC09A6002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
+		CE00E76520BC09AE002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
+		CE00E76620BC09E7002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
+		CE00E76720BC0A43002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
+		CE00E76820BC0A73002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CE05604A1FB25DF600D06976 /* FirebaseANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE87F4771FB259DB005CF7DF /* FirebaseANE_oc.h */; };
 		CE05604E1FB25E8E00D06976 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
@@ -34,8 +40,6 @@
 		CE743205208D493800E388D3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE743203208D493800E388D3 /* Order.swift */; };
 		CE743206208D493800E388D3 /* Where.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE743204208D493800E388D3 /* Where.swift */; };
 		CE743208208D49AC00E388D3 /* FirestoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE743207208D49AC00E388D3 /* FirestoreController.swift */; };
-		CE74320E208D4B8100E388D3 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE74320C208D4B8100E388D3 /* SwiftyJSON.h */; };
-		CE74320F208D4B8100E388D3 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74320D208D4B8100E388D3 /* SwiftyJSON.swift */; };
 		CE743213208D4F6300E388D3 /* DocumentEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE743212208D4F6300E388D3 /* DocumentEvent.swift */; };
 		CE83B01520A74F330095C4F9 /* FirebaseMethodSwizzler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE3AEA920A0C44D00D3AAF6 /* FirebaseMethodSwizzler.framework */; };
 		CE83B01620A74F360095C4F9 /* FirebaseISASwizzler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE3AEA720A0C44200D3AAF6 /* FirebaseISASwizzler.framework */; };
@@ -49,9 +53,7 @@
 		CE83B04520A755670095C4F9 /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4D208CE43800C96EC6 /* FirebaseNanoPB.framework */; };
 		CE83B04620A7793A0095C4F9 /* SwiftController+UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDB4A20A6270C00C89A7C /* SwiftController+UNUserNotificationCenter.swift */; };
 		CE87F4791FB259DB005CF7DF /* FirebaseANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87F4781FB259DB005CF7DF /* FirebaseANE.m */; };
-		CE8BC49C20B1C890009164ED /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74320D208D4B8100E388D3 /* SwiftyJSON.swift */; };
 		CE8BC4AA20B1C890009164ED /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
-		CE8BC4B120B1C890009164ED /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE74320C208D4B8100E388D3 /* SwiftyJSON.h */; };
 		CE8BC4B220B1C890009164ED /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
 		CE8BC4BA20B1C8F6009164ED /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		CE8BC4C420B1C9BE009164ED /* FirebaseDynamicLinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8BC4C320B1C9BE009164ED /* FirebaseDynamicLinks.framework */; };
@@ -60,7 +62,6 @@
 		CE8BC4CC20B1CAF3009164ED /* DynamicLinksANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4CB20B1CAF3009164ED /* DynamicLinksANE.m */; };
 		CE8BC4CE20B1CB62009164ED /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4CD20B1CB62009164ED /* SwiftController.swift */; };
 		CE8BC4D020B1CB8B009164ED /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4CF20B1CB8B009164ED /* SwiftController+FreSwift.swift */; };
-		CE8BC4D220B1CC47009164ED /* DynamicLinksANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8BC4D120B1CC47009164ED /* DynamicLinksANE-Swift.h */; };
 		CE8BC51120B2223A009164ED /* FreDynamicLinkIOSParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4D320B1D04C009164ED /* FreDynamicLinkIOSParameters.swift */; };
 		CE8BC51220B2223D009164ED /* FreDynamicLinkItunesConnectAnalyticsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4D520B1D42D009164ED /* FreDynamicLinkItunesConnectAnalyticsParameters.swift */; };
 		CE8BC51320B22240009164ED /* FreDynamicLinkGoogleAnalyticsParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4D720B1D4AE009164ED /* FreDynamicLinkGoogleAnalyticsParameters.swift */; };
@@ -69,17 +70,14 @@
 		CE8BC51620B22248009164ED /* FreDynamicLinkNavigationInfoParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4DD20B1D82D009164ED /* FreDynamicLinkNavigationInfoParameters.swift */; };
 		CE8BC51720B222D6009164ED /* DynamicLinkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC4DF20B1D9B3009164ED /* DynamicLinkEvent.swift */; };
 		CE94517420951E8B00FE2BD7 /* FreFirebaseOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE94517320951E8B00FE2BD7 /* FreFirebaseOptions.swift */; };
-		CE94517920951FCF00FE2BD7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74320D208D4B8100E388D3 /* SwiftyJSON.swift */; };
 		CE94518420951FCF00FE2BD7 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CE94518520951FCF00FE2BD7 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
-		CE94518820951FCF00FE2BD7 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE74320C208D4B8100E388D3 /* SwiftyJSON.h */; };
 		CE94518C20951FCF00FE2BD7 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
 		CE945197209520AA00FE2BD7 /* RemoteConfigANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE945196209520AA00FE2BD7 /* RemoteConfigANE_oc.h */; };
 		CE945199209520EF00FE2BD7 /* RemoteConfigANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CE945198209520EF00FE2BD7 /* RemoteConfigANE-Bridging-Header.h */; };
 		CE94519B2095212F00FE2BD7 /* RemoteConfigANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE94519A2095212F00FE2BD7 /* RemoteConfigANE.m */; };
 		CE94519D209521BE00FE2BD7 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE94519C209521BE00FE2BD7 /* SwiftController.swift */; };
 		CE94519F209521EE00FE2BD7 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE94519E209521EE00FE2BD7 /* SwiftController+FreSwift.swift */; };
-		CE9451A12095224400FE2BD7 /* RemoteConfigANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9451A02095224400FE2BD7 /* RemoteConfigANE-Swift.h */; };
 		CE9451A42095323C00FE2BD7 /* FirebaseABTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9451A22095323B00FE2BD7 /* FirebaseABTesting.framework */; };
 		CE9451A52095323C00FE2BD7 /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9451A32095323C00FE2BD7 /* FirebaseRemoteConfig.framework */; };
 		CE9451A62095324600FE2BD7 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; };
@@ -91,7 +89,6 @@
 		CEB57290208CF73F00CF6B1B /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CEB572A6208CF7EB00CF6B1B /* FirebaseANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CEA9AC1F201E5F4400BFB223 /* FirebaseANE-Bridging-Header.h */; };
 		CEB572AB208CF8F400CF6B1B /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB572A7208CF8F400CF6B1B /* SwiftController.swift */; };
-		CEB572AC208CF8F400CF6B1B /* FirestoreANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB572A8208CF8F400CF6B1B /* FirestoreANE-Swift.h */; };
 		CEB572AD208CF8F400CF6B1B /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB572A9208CF8F400CF6B1B /* SwiftController+FreSwift.swift */; };
 		CEB572AE208CF8F400CF6B1B /* FirestoreANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB572AA208CF8F400CF6B1B /* FirestoreANE.m */; };
 		CEB572B1208CF92400CF6B1B /* FirestoreANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB572AF208CF92400CF6B1B /* FirestoreANE-Bridging-Header.h */; };
@@ -104,10 +101,8 @@
 		CEB572C3208D221100CF6B1B /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
 		CEB572C4208D221600CF6B1B /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		CEB572C5208D221900CF6B1B /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D49208CE3FF00C96EC6 /* FirebaseInstanceID.framework */; };
-		CEBCF79D2095F9160028601B /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74320D208D4B8100E388D3 /* SwiftyJSON.swift */; };
 		CEBCF7A82095F9160028601B /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CEBCF7A92095F9160028601B /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
-		CEBCF7AC2095F9160028601B /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE74320C208D4B8100E388D3 /* SwiftyJSON.h */; };
 		CEBCF7B02095F9160028601B /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
 		CEBCF7B82095F9820028601B /* AuthANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBCF7B72095F9820028601B /* AuthANE.m */; };
 		CEBCF7BA2095F99B0028601B /* AuthANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBCF7B92095F99B0028601B /* AuthANE_oc.h */; };
@@ -129,7 +124,6 @@
 		CED7491420929670000327CD /* StorageANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CED749132092966D000327CD /* StorageANE_oc.h */; };
 		CED749152092975C000327CD /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
 		CED749162092975D000327CD /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
-		CED74918209297A7000327CD /* StorageANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = CED74917209297A7000327CD /* StorageANE-Swift.h */; };
 		CED7491A20929803000327CD /* StorageANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CED7491920929803000327CD /* StorageANE-Bridging-Header.h */; };
 		CED7491C2092989B000327CD /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7491B2092989B000327CD /* SwiftController.swift */; };
 		CED7491E209298B0000327CD /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7491D209298B0000327CD /* SwiftController+FreSwift.swift */; };
@@ -139,18 +133,12 @@
 		CED7492820929D54000327CD /* StorageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7492520929D53000327CD /* StorageEvent.swift */; };
 		CED7492920929D54000327CD /* StorageErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7492620929D53000327CD /* StorageErrorEvent.swift */; };
 		CED7492A20929D54000327CD /* StorageProgressEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7492720929D54000327CD /* StorageProgressEvent.swift */; };
-		CED7492B20929D9E000327CD /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE74320C208D4B8100E388D3 /* SwiftyJSON.h */; };
-		CED7492C20929DA5000327CD /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74320D208D4B8100E388D3 /* SwiftyJSON.swift */; };
 		CED7492F20929F0E000327CD /* FreStorageReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED7492E20929F0E000327CD /* FreStorageReference.swift */; };
 		CEE3AE6620A0691700D3AAF6 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CEE3AE6720A0691700D3AAF6 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
-		CEE3AE6A20A0691700D3AAF6 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE74320C208D4B8100E388D3 /* SwiftyJSON.h */; };
 		CEE3AE6D20A0691700D3AAF6 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
-		CEE3AE7420A0699B00D3AAF6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74320D208D4B8100E388D3 /* SwiftyJSON.swift */; };
-		CEE3AE7720A06D2600D3AAF6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74320D208D4B8100E388D3 /* SwiftyJSON.swift */; };
 		CEE3AE7920A06D2600D3AAF6 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CEE3AE7A20A06D2600D3AAF6 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
-		CEE3AE7C20A06D2600D3AAF6 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = CE74320C208D4B8100E388D3 /* SwiftyJSON.h */; };
 		CEE3AE7D20A06D2600D3AAF6 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
 		CEE3AE8920A06F2D00D3AAF6 /* MessagingANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE3AE8820A06F2D00D3AAF6 /* MessagingANE_oc.h */; };
 		CEE3AE8B20A06F5000D3AAF6 /* MessagingANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE3AE8A20A06F5000D3AAF6 /* MessagingANE-Bridging-Header.h */; };
@@ -163,7 +151,6 @@
 		CEE3AE9B20A0745E00D3AAF6 /* PerformanceANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE3AE9A20A0745E00D3AAF6 /* PerformanceANE_oc.h */; };
 		CEE3AE9D20A0749200D3AAF6 /* PerformanceANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE3AE9C20A0749200D3AAF6 /* PerformanceANE-Bridging-Header.h */; };
 		CEE3AE9F20A074C200D3AAF6 /* PerformanceANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE3AE9E20A074C200D3AAF6 /* PerformanceANE.m */; };
-		CEE3AEA120A0751E00D3AAF6 /* PerformanceANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE3AEA020A0751E00D3AAF6 /* PerformanceANE-Swift.h */; };
 		CEE3AEA220A0893600D3AAF6 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED7492220929C1F000327CD /* GTMSessionFetcher.framework */; };
 		CEE3AEA320A0894800D3AAF6 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; };
 		CEE3AEA520A0895F00D3AAF6 /* FirebasePerformance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE3AEA420A0895F00D3AAF6 /* FirebasePerformance.framework */; };
@@ -176,18 +163,17 @@
 		CEE80D4C208CE40300C96EC6 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
 		CEE80D4E208CE43800C96EC6 /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4D208CE43800C96EC6 /* FirebaseNanoPB.framework */; };
 		CEE80D50208CE55700C96EC6 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE80D4F208CE55700C96EC6 /* SwiftController+FreSwift.swift */; };
-		CEE80D57208CEABD00C96EC6 /* FirebaseANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = CEA9AC22201E611600BFB223 /* FirebaseANE-Swift.h */; };
 		CEE80D62208CF3E200C96EC6 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CEE80D6F208CF46800C96EC6 /* AnalyticsANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE80D6D208CF46800C96EC6 /* AnalyticsANE_oc.h */; };
 		CEE80D70208CF46800C96EC6 /* AnalyticsANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE80D6E208CF46800C96EC6 /* AnalyticsANE.m */; };
 		CEE80D72208CF4B200C96EC6 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
 		CEE80D74208CF50E00C96EC6 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE80D73208CF50E00C96EC6 /* SwiftController.swift */; };
 		CEE80D76208CF51F00C96EC6 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE80D75208CF51F00C96EC6 /* SwiftController+FreSwift.swift */; };
-		CEE80D7A208CF5D400C96EC6 /* AnalyticsANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE80D79208CF5D400C96EC6 /* AnalyticsANE-Swift.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE0038CA2094E9B7002A657A /* FreStorageMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreStorageMetadata.swift; sourceTree = "<group>"; };
+		CE00E76220BC08D4002B569A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		CE05603E1FB25CE200D06976 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/iOS/FreSwift.framework; sourceTree = "<group>"; };
 		CE05604D1FB25E8E00D06976 /* FreMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreMacros.h; sourceTree = "<group>"; };
 		CE265749208E5BBF00C561E8 /* gRPC-ProtoRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "gRPC-ProtoRPC.framework"; path = "Carthage/Build/iOS/gRPC-ProtoRPC.framework"; sourceTree = "<group>"; };
@@ -213,8 +199,6 @@
 		CE743203208D493800E388D3 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		CE743204208D493800E388D3 /* Where.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Where.swift; sourceTree = "<group>"; };
 		CE743207208D49AC00E388D3 /* FirestoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreController.swift; sourceTree = "<group>"; };
-		CE74320C208D4B8100E388D3 /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
-		CE74320D208D4B8100E388D3 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		CE743212208D4F6300E388D3 /* DocumentEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentEvent.swift; sourceTree = "<group>"; };
 		CE83B03D20A752EC0095C4F9 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCoreDiagnostics.framework; path = Carthage/Build/iOS/FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
 		CE83B04220A7536B0095C4F9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -232,7 +216,6 @@
 		CE8BC4CB20B1CAF3009164ED /* DynamicLinksANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicLinksANE.m; sourceTree = "<group>"; };
 		CE8BC4CD20B1CB62009164ED /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		CE8BC4CF20B1CB8B009164ED /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
-		CE8BC4D120B1CC47009164ED /* DynamicLinksANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DynamicLinksANE-Swift.h"; sourceTree = "<group>"; };
 		CE8BC4D320B1D04C009164ED /* FreDynamicLinkIOSParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreDynamicLinkIOSParameters.swift; sourceTree = "<group>"; };
 		CE8BC4D520B1D42D009164ED /* FreDynamicLinkItunesConnectAnalyticsParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreDynamicLinkItunesConnectAnalyticsParameters.swift; sourceTree = "<group>"; };
 		CE8BC4D720B1D4AE009164ED /* FreDynamicLinkGoogleAnalyticsParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreDynamicLinkGoogleAnalyticsParameters.swift; sourceTree = "<group>"; };
@@ -254,7 +237,6 @@
 		CE94519A2095212F00FE2BD7 /* RemoteConfigANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemoteConfigANE.m; sourceTree = "<group>"; };
 		CE94519C209521BE00FE2BD7 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		CE94519E209521EE00FE2BD7 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
-		CE9451A02095224400FE2BD7 /* RemoteConfigANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RemoteConfigANE-Swift.h"; sourceTree = "<group>"; };
 		CE9451A22095323B00FE2BD7 /* FirebaseABTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseABTesting.framework; path = Carthage/Build/iOS/FirebaseABTesting.framework; sourceTree = "<group>"; };
 		CE9451A32095323C00FE2BD7 /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseRemoteConfig.framework; path = Carthage/Build/iOS/FirebaseRemoteConfig.framework; sourceTree = "<group>"; };
 		CE9451A92095347700FE2BD7 /* RemoteConfigEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteConfigEvent.swift; path = ../../../../ios_LAST/FirebaseANE/RemoteConfigANE_FW/RemoteConfigEvent.swift; sourceTree = "<group>"; };
@@ -263,10 +245,8 @@
 		CE9451AF209536B300FE2BD7 /* FreRemoteConfigSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreRemoteConfigSettings.swift; sourceTree = "<group>"; };
 		CEA9AC1F201E5F4400BFB223 /* FirebaseANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FirebaseANE-Bridging-Header.h"; sourceTree = "<group>"; };
 		CEA9AC20201E5F4500BFB223 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
-		CEA9AC22201E611600BFB223 /* FirebaseANE-Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FirebaseANE-Swift.h"; sourceTree = "<group>"; };
 		CEB57299208CF73F00CF6B1B /* libFirestoreANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFirestoreANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB572A7208CF8F400CF6B1B /* SwiftController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
-		CEB572A8208CF8F400CF6B1B /* FirestoreANE-Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FirestoreANE-Swift.h"; sourceTree = "<group>"; };
 		CEB572A9208CF8F400CF6B1B /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
 		CEB572AA208CF8F400CF6B1B /* FirestoreANE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirestoreANE.m; sourceTree = "<group>"; };
 		CEB572AF208CF92400CF6B1B /* FirestoreANE-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FirestoreANE-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -291,7 +271,6 @@
 		CED7490E20929586000327CD /* libStorageANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libStorageANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED7491120929657000327CD /* StorageANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StorageANE.m; sourceTree = "<group>"; };
 		CED749132092966D000327CD /* StorageANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageANE_oc.h; sourceTree = "<group>"; };
-		CED74917209297A7000327CD /* StorageANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StorageANE-Swift.h"; sourceTree = "<group>"; };
 		CED7491920929803000327CD /* StorageANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StorageANE-Bridging-Header.h"; sourceTree = "<group>"; };
 		CED7491B2092989B000327CD /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		CED7491D209298B0000327CD /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
@@ -315,7 +294,6 @@
 		CEE3AE9A20A0745E00D3AAF6 /* PerformanceANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerformanceANE_oc.h; sourceTree = "<group>"; };
 		CEE3AE9C20A0749200D3AAF6 /* PerformanceANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PerformanceANE-Bridging-Header.h"; sourceTree = "<group>"; };
 		CEE3AE9E20A074C200D3AAF6 /* PerformanceANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerformanceANE.m; sourceTree = "<group>"; };
-		CEE3AEA020A0751E00D3AAF6 /* PerformanceANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PerformanceANE-Swift.h"; sourceTree = "<group>"; };
 		CEE3AEA420A0895F00D3AAF6 /* FirebasePerformance.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebasePerformance.framework; path = Carthage/Build/iOS/FirebasePerformance.framework; sourceTree = "<group>"; };
 		CEE3AEA720A0C44200D3AAF6 /* FirebaseISASwizzler.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseISASwizzler.framework; path = Carthage/Build/iOS/FirebaseISASwizzler.framework; sourceTree = "<group>"; };
 		CEE3AEA920A0C44D00D3AAF6 /* FirebaseMethodSwizzler.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMethodSwizzler.framework; path = Carthage/Build/iOS/FirebaseMethodSwizzler.framework; sourceTree = "<group>"; };
@@ -331,7 +309,6 @@
 		CEE80D73208CF50E00C96EC6 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		CEE80D75208CF51F00C96EC6 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
 		CEE80D77208CF5A600C96EC6 /* AnalyticsANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnalyticsANE-Bridging-Header.h"; sourceTree = "<group>"; };
-		CEE80D79208CF5D400C96EC6 /* AnalyticsANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnalyticsANE-Swift.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +333,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE00E76820BC0A73002B569A /* SwiftyJSON.framework in Frameworks */,
 				CE8BC4AA20B1C890009164ED /* FreSwift.framework in Frameworks */,
 				CE8BC4C420B1C9BE009164ED /* FirebaseDynamicLinks.framework in Frameworks */,
 				CE8BC4BA20B1C8F6009164ED /* FirebaseCore.framework in Frameworks */,
@@ -371,6 +349,7 @@
 				CE94518520951FCF00FE2BD7 /* FirebaseCore.framework in Frameworks */,
 				CE9451A42095323C00FE2BD7 /* FirebaseABTesting.framework in Frameworks */,
 				CE9451A62095324600FE2BD7 /* Protobuf.framework in Frameworks */,
+				CE00E76520BC09AE002B569A /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +365,7 @@
 				CE265754208E5BC100C561E8 /* BoringSSL.framework in Frameworks */,
 				CE743202208D490600E388D3 /* FirebaseCore.framework in Frameworks */,
 				CE265756208E5BC100C561E8 /* gRPC-RxLibrary.framework in Frameworks */,
+				CE00E76320BC08D4002B569A /* SwiftyJSON.framework in Frameworks */,
 				CE265753208E5BC100C561E8 /* FirebaseFirestore.framework in Frameworks */,
 				CE265755208E5BC100C561E8 /* Protobuf.framework in Frameworks */,
 				CE265757208E5BC100C561E8 /* leveldb-library.framework in Frameworks */,
@@ -400,6 +380,7 @@
 				CEBCF7CD209611B00028601B /* GTMSessionFetcher.framework in Frameworks */,
 				CEBCF7A82095F9160028601B /* FreSwift.framework in Frameworks */,
 				CEBCF7A92095F9160028601B /* FirebaseCore.framework in Frameworks */,
+				CE00E76620BC09E7002B569A /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +392,7 @@
 				CED748FA20929586000327CD /* FreSwift.framework in Frameworks */,
 				CED748FF20929586000327CD /* FirebaseCore.framework in Frameworks */,
 				CED7492320929C1F000327CD /* FirebaseStorage.framework in Frameworks */,
+				CE00E76420BC09A6002B569A /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +414,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE00E76720BC0A43002B569A /* SwiftyJSON.framework in Frameworks */,
 				CE83B04420A755400095C4F9 /* AddressBook.framework in Frameworks */,
 				CE83B01820A74F6F0095C4F9 /* GoogleToolboxForMac.framework in Frameworks */,
 				CE83B01720A74F690095C4F9 /* nanopb.framework in Frameworks */,
@@ -467,6 +450,7 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE00E76220BC08D4002B569A /* SwiftyJSON.framework */,
 				CE8BC50F20B2061E009164ED /* WebKit.framework */,
 				CE8BC50B20B20601009164ED /* Security.framework */,
 				CE8BC50920B205F9009164ED /* SafariServices.framework */,
@@ -534,15 +518,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		CE74320B208D4B5000E388D3 /* SwiftyJSON */ = {
-			isa = PBXGroup;
-			children = (
-				CE74320C208D4B8100E388D3 /* SwiftyJSON.h */,
-				CE74320D208D4B8100E388D3 /* SwiftyJSON.swift */,
-			);
-			path = SwiftyJSON;
-			sourceTree = "<group>";
-		};
 		CE7D4331208CF6D000DF8B79 /* FirestoreANE */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,7 +525,6 @@
 				CE265759208E5C0900C561E8 /* Events */,
 				CE743203208D493800E388D3 /* Order.swift */,
 				CE743204208D493800E388D3 /* Where.swift */,
-				CEB572A8208CF8F400CF6B1B /* FirestoreANE-Swift.h */,
 				CEB572AA208CF8F400CF6B1B /* FirestoreANE.m */,
 				CEB572A7208CF8F400CF6B1B /* SwiftController.swift */,
 				CEB572A9208CF8F400CF6B1B /* SwiftController+FreSwift.swift */,
@@ -567,7 +541,6 @@
 				CEE3AE5820A0691000D3AAF6 /* MessagingANE */,
 				CEE3AE5720A068FF00D3AAF6 /* PerformanceANE */,
 				CEBCF7962095F8730028601B /* AuthANE */,
-				CE74320B208D4B5000E388D3 /* SwiftyJSON */,
 				CEB572B3208D0FAA00CF6B1B /* .swiftlint.yml */,
 				CE05603D1FB25CD100D06976 /* Frameworks */,
 				CEE4F878209150AB00222131 /* StorageANE */,
@@ -599,7 +572,6 @@
 			isa = PBXGroup;
 			children = (
 				CE94517220951E6600FE2BD7 /* Extensions */,
-				CEA9AC22201E611600BFB223 /* FirebaseANE-Swift.h */,
 				CEE80D46208CE15A00C96EC6 /* Headers */,
 				CE87F4781FB259DB005CF7DF /* FirebaseANE.m */,
 				CEA9AC20201E5F4500BFB223 /* SwiftController.swift */,
@@ -617,7 +589,6 @@
 				CE8BC4CB20B1CAF3009164ED /* DynamicLinksANE.m */,
 				CE8BC4CD20B1CB62009164ED /* SwiftController.swift */,
 				CE8BC4CF20B1CB8B009164ED /* SwiftController+FreSwift.swift */,
-				CE8BC4D120B1CC47009164ED /* DynamicLinksANE-Swift.h */,
 			);
 			path = DynamicLinksANE;
 			sourceTree = "<group>";
@@ -669,7 +640,6 @@
 				CE94519A2095212F00FE2BD7 /* RemoteConfigANE.m */,
 				CE94519C209521BE00FE2BD7 /* SwiftController.swift */,
 				CE94519E209521EE00FE2BD7 /* SwiftController+FreSwift.swift */,
-				CE9451A02095224400FE2BD7 /* RemoteConfigANE-Swift.h */,
 			);
 			path = RemoteConfigANE;
 			sourceTree = "<group>";
@@ -789,7 +759,6 @@
 				CEE3AE9620A073E000D3AAF6 /* SwiftController.swift */,
 				CEE3AE9820A073FF00D3AAF6 /* SwiftController+FreSwift.swift */,
 				CEE3AE9E20A074C200D3AAF6 /* PerformanceANE.m */,
-				CEE3AEA020A0751E00D3AAF6 /* PerformanceANE-Swift.h */,
 			);
 			path = PerformanceANE;
 			sourceTree = "<group>";
@@ -864,7 +833,6 @@
 				CED7491020929622000327CD /* Events */,
 				CED7490F2092961C000327CD /* Headers */,
 				CED7491120929657000327CD /* StorageANE.m */,
-				CED74917209297A7000327CD /* StorageANE-Swift.h */,
 				CED7491B2092989B000327CD /* SwiftController.swift */,
 				CED7491D209298B0000327CD /* SwiftController+FreSwift.swift */,
 				CED7491F20929B22000327CD /* StorageController.swift */,
@@ -889,7 +857,6 @@
 				CEE80D6E208CF46800C96EC6 /* AnalyticsANE.m */,
 				CEE80D73208CF50E00C96EC6 /* SwiftController.swift */,
 				CEE80D75208CF51F00C96EC6 /* SwiftController+FreSwift.swift */,
-				CEE80D79208CF5D400C96EC6 /* AnalyticsANE-Swift.h */,
 			);
 			path = AnalyticsANE;
 			sourceTree = "<group>";
@@ -910,7 +877,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE80D57208CEABD00C96EC6 /* FirebaseANE-Swift.h in Headers */,
 				CEB572A6208CF7EB00CF6B1B /* FirebaseANE-Bridging-Header.h in Headers */,
 				CE05604A1FB25DF600D06976 /* FirebaseANE_oc.h in Headers */,
 				CE05604E1FB25E8E00D06976 /* FreMacros.h in Headers */,
@@ -921,8 +887,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE8BC4B120B1C890009164ED /* SwiftyJSON.h in Headers */,
-				CE8BC4D220B1CC47009164ED /* DynamicLinksANE-Swift.h in Headers */,
 				CE8BC4CA20B1CABE009164ED /* DynamicLinksANE-Bridging-Header.h in Headers */,
 				CE8BC4C820B1CA71009164ED /* DynamicLinksANE_oc.h in Headers */,
 				CE8BC4B220B1C890009164ED /* FreMacros.h in Headers */,
@@ -933,8 +897,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9451A12095224400FE2BD7 /* RemoteConfigANE-Swift.h in Headers */,
-				CE94518820951FCF00FE2BD7 /* SwiftyJSON.h in Headers */,
 				CE94518C20951FCF00FE2BD7 /* FreMacros.h in Headers */,
 				CE945199209520EF00FE2BD7 /* RemoteConfigANE-Bridging-Header.h in Headers */,
 				CE945197209520AA00FE2BD7 /* RemoteConfigANE_oc.h in Headers */,
@@ -948,8 +910,6 @@
 				CEB572B2208CF92400CF6B1B /* FirestoreANE_oc.h in Headers */,
 				CED749152092975C000327CD /* FreMacros.h in Headers */,
 				CEB572B1208CF92400CF6B1B /* FirestoreANE-Bridging-Header.h in Headers */,
-				CE74320E208D4B8100E388D3 /* SwiftyJSON.h in Headers */,
-				CEB572AC208CF8F400CF6B1B /* FirestoreANE-Swift.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -958,7 +918,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEBCF7C22095FA0F0028601B /* AuthANE-Bridging-Header.h in Headers */,
-				CEBCF7AC2095F9160028601B /* SwiftyJSON.h in Headers */,
 				CEBCF7BC2095F9B40028601B /* AuthANE-Swift.h in Headers */,
 				CEBCF7BA2095F99B0028601B /* AuthANE_oc.h in Headers */,
 				CEBCF7B02095F9160028601B /* FreMacros.h in Headers */,
@@ -969,10 +928,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CED7492B20929D9E000327CD /* SwiftyJSON.h in Headers */,
 				CED7491A20929803000327CD /* StorageANE-Bridging-Header.h in Headers */,
 				CED7491420929670000327CD /* StorageANE_oc.h in Headers */,
-				CED74918209297A7000327CD /* StorageANE-Swift.h in Headers */,
 				CED749162092975D000327CD /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -981,9 +938,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE3AE6A20A0691700D3AAF6 /* SwiftyJSON.h in Headers */,
 				CEE3AE6D20A0691700D3AAF6 /* FreMacros.h in Headers */,
-				CEE3AEA120A0751E00D3AAF6 /* PerformanceANE-Swift.h in Headers */,
 				CEE3AE9D20A0749200D3AAF6 /* PerformanceANE-Bridging-Header.h in Headers */,
 				CEE3AE9B20A0745E00D3AAF6 /* PerformanceANE_oc.h in Headers */,
 			);
@@ -995,7 +950,6 @@
 			files = (
 				CEE3AE8F20A06FA100D3AAF6 /* MessagingANE-Swift.h in Headers */,
 				CEE3AE8920A06F2D00D3AAF6 /* MessagingANE_oc.h in Headers */,
-				CEE3AE7C20A06D2600D3AAF6 /* SwiftyJSON.h in Headers */,
 				CEE3AE7D20A06D2600D3AAF6 /* FreMacros.h in Headers */,
 				CEE3AE8B20A06F5000D3AAF6 /* MessagingANE-Bridging-Header.h in Headers */,
 			);
@@ -1005,7 +959,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE80D7A208CF5D400C96EC6 /* AnalyticsANE-Swift.h in Headers */,
 				CEE80D6F208CF46800C96EC6 /* AnalyticsANE_oc.h in Headers */,
 				CEE80D72208CF4B200C96EC6 /* FreMacros.h in Headers */,
 				CEB572B6208D181F00CF6B1B /* AnalyticsANE-Bridging-Header.h in Headers */,
@@ -1482,7 +1435,6 @@
 			files = (
 				CE8BC51420B22242009164ED /* FreDynamicLinkSocialMetaTagParameters.swift in Sources */,
 				CE8BC51320B22240009164ED /* FreDynamicLinkGoogleAnalyticsParameters.swift in Sources */,
-				CE8BC49C20B1C890009164ED /* SwiftyJSON.swift in Sources */,
 				CE8BC51620B22248009164ED /* FreDynamicLinkNavigationInfoParameters.swift in Sources */,
 				CE8BC51120B2223A009164ED /* FreDynamicLinkIOSParameters.swift in Sources */,
 				CE8BC51520B22245009164ED /* FreDynamicLinkAndroidParameters.swift in Sources */,
@@ -1502,7 +1454,6 @@
 				CE9451B0209536B300FE2BD7 /* FreRemoteConfigSettings.swift in Sources */,
 				CE94519D209521BE00FE2BD7 /* SwiftController.swift in Sources */,
 				CE9451AA2095347700FE2BD7 /* RemoteConfigEvent.swift in Sources */,
-				CE94517920951FCF00FE2BD7 /* SwiftyJSON.swift in Sources */,
 				CE94519F209521EE00FE2BD7 /* SwiftController+FreSwift.swift in Sources */,
 				CE9451AC2095348F00FE2BD7 /* RemoteConfigErrorEvent.swift in Sources */,
 				CE9451AE2095355600FE2BD7 /* FreRemoteConfig.swift in Sources */,
@@ -1519,7 +1470,6 @@
 				CE265764208E7B7700C561E8 /* FreQuerySnapshot.swift in Sources */,
 				CEB572AD208CF8F400CF6B1B /* SwiftController+FreSwift.swift in Sources */,
 				CE743205208D493800E388D3 /* Order.swift in Sources */,
-				CE74320F208D4B8100E388D3 /* SwiftyJSON.swift in Sources */,
 				CE743213208D4F6300E388D3 /* DocumentEvent.swift in Sources */,
 				CE743208208D49AC00E388D3 /* FirestoreController.swift in Sources */,
 				CE26575C208E6FD500C561E8 /* FreDocumentSnaphot.swift in Sources */,
@@ -1540,7 +1490,6 @@
 				CEBCF7B82095F9820028601B /* AuthANE.m in Sources */,
 				CEBCF7BE2095F9C80028601B /* SwiftController.swift in Sources */,
 				CEBCF7C42095FC190028601B /* AuthController.swift in Sources */,
-				CEBCF79D2095F9160028601B /* SwiftyJSON.swift in Sources */,
 				CEBCF7D1209612060028601B /* AuthEvent.swift in Sources */,
 				CE62952B20A8DD2600EEF76E /* FreAuthCredential.swift in Sources */,
 				CEBCF7C02095F9D90028601B /* SwiftController+FreSwift.swift in Sources */,
@@ -1552,7 +1501,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0038CB2094E9B7002A657A /* FreStorageMetadata.swift in Sources */,
-				CED7492C20929DA5000327CD /* SwiftyJSON.swift in Sources */,
 				CED7491220929657000327CD /* StorageANE.m in Sources */,
 				CED7492820929D54000327CD /* StorageEvent.swift in Sources */,
 				CED7491C2092989B000327CD /* SwiftController.swift in Sources */,
@@ -1568,7 +1516,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE3AE7420A0699B00D3AAF6 /* SwiftyJSON.swift in Sources */,
 				CEE3AE9F20A074C200D3AAF6 /* PerformanceANE.m in Sources */,
 				CEE3AE9720A073E000D3AAF6 /* SwiftController.swift in Sources */,
 				CEE3AE9920A073FF00D3AAF6 /* SwiftController+FreSwift.swift in Sources */,
@@ -1579,7 +1526,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE3AE7720A06D2600D3AAF6 /* SwiftyJSON.swift in Sources */,
 				CE83B04620A7793A0095C4F9 /* SwiftController+UNUserNotificationCenter.swift in Sources */,
 				CEE3AE9120A06FB100D3AAF6 /* SwiftController.swift in Sources */,
 				CE2BDB4720A6222900C89A7C /* SwiftController+Messaging.swift in Sources */,
@@ -1874,6 +1820,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "FirestoreANE/Headers/FirestoreANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "FirestoreANE/FirestoreANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -1897,6 +1844,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "FirestoreANE/Headers/FirestoreANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "FirestoreANE/FirestoreANE-Swift.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

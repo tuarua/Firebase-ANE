@@ -15,6 +15,7 @@
  */
 
 import Foundation
+import SwiftyJSON
 
 class StorageErrorEvent: NSObject {
     public static let ERROR = "StorageErrorEvent.Error"

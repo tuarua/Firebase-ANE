@@ -14,6 +14,7 @@
     </linkerOptions>
     
     <packagedDependencies>
+        <packagedDependency>Frameworks/SwiftyJSON.framework</packagedDependency>
         <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseMessaging.framework</packagedDependency>
         <packagedDependency>Frameworks/Protobuf.framework</packagedDependency>

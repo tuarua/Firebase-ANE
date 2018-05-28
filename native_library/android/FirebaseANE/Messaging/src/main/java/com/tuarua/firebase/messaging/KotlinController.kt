@@ -57,7 +57,7 @@ class KotlinController : FreKotlinMainController {
                 notificationManager?.createNotificationChannel(NotificationChannel(channelId,
                         channelName, NotificationManager.IMPORTANCE_LOW))
 
-
+                // TODO
                 if (appActivity.intent.extras != null) {
                     for (key in appActivity.intent.extras.keySet()) {
                         val value = appActivity.intent.extras.get(key)

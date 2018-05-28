@@ -13,6 +13,7 @@
     </linkerOptions>
     
     <packagedDependencies>
+        <packagedDependency>Frameworks/SwiftyJSON.framework</packagedDependency>
         <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseDynamicLinks.framework</packagedDependency>
     </packagedDependencies>

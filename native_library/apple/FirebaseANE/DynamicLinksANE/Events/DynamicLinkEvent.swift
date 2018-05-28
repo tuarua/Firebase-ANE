@@ -15,6 +15,7 @@
  */
 
 import Foundation
+import SwiftyJSON
 
 class DynamicLinkEvent: NSObject {
     public static let ON_CREATED = "DynamicLinkEvent.OnCreated"

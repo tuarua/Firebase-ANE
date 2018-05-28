@@ -60,7 +60,7 @@ public class AuthANEContext {
     private static function gotEvent(event:StatusEvent):void {
         var err:AuthError;
         var closure:Function;
-        trace(event.level, event.code);
+        // trace(event.level, event.code);
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);

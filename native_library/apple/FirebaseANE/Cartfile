@@ -6,4 +6,5 @@ binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseRemoteConfigBinar
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAuthBinary.json" == 4.12.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebasePerformanceBinary.json" == 4.12.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseMessagingBinary.json" == 4.12.0
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseInvitesBinary.json" == 4.12.0
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseDynamicLinksBinary.json" == 4.12.0
+github "SwiftyJSON/SwiftyJSON" ~> 4.0

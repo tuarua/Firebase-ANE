@@ -36,9 +36,6 @@ public class SwiftController: NSObject {
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         Messaging.messaging().shouldEstablishDirectChannel = true
-        // trace("Messaging.messaging().isAutoInitEnabled \(Messaging.messaging().isAutoInitEnabled)")
-        trace(appDidFinishLaunchingNotif?.debugDescription ?? "")
-        trace("startToken:", startToken ?? "")
         isInited = true
         startToken = nil
         return true.toFREObject()

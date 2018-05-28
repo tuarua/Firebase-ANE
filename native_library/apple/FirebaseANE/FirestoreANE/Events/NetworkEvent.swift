@@ -15,6 +15,8 @@
  */
 
 import Foundation
+import SwiftyJSON
+
 class NetworkEvent: NSObject {
     public static let ENABLED = "NetworkEvent.Enabled"
     public static let DISABLED = "NetworkEvent.Disabled"

@@ -10,6 +10,7 @@
     </linkerOptions>
     
     <packagedDependencies>
+        <packagedDependency>Frameworks/SwiftyJSON.framework</packagedDependency>
         <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseStorage.framework</packagedDependency>
         <packagedDependency>Frameworks/GTMSessionFetcher.framework</packagedDependency>

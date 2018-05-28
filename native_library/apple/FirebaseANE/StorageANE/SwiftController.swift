@@ -50,52 +50,47 @@ public class SwiftController: NSObject {
     
     func getFile(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 2,
-            let sc = storageController,
             let path = String(argv[0]),
             let destinationFile = String(argv[1]),
             let asId = String(argv[2])
             else {
                 return ArgCountError(message: "getFile").getError(#file, #line, #column)
         }
-        sc.getFile(path: path, destinationFile: destinationFile, asId: asId)
+        storageController?.getFile(path: path, destinationFile: destinationFile, asId: asId)
         return nil
     }
     
     func getParent(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let sc = storageController,
             let path = String(argv[0])
             else {
                 return ArgCountError(message: "getParent").getError(#file, #line, #column)
         }
-        return sc.getParent(path: path)?.toFREObject()
+        return storageController?.getParent(path: path)?.toFREObject()
     }
     
     func getRoot(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let sc = storageController,
             let path = String(argv[0])
             else {
                 return ArgCountError(message: "getRoot").getError(#file, #line, #column)
         }
-        return sc.getRoot(path: path)?.toFREObject()
+        return storageController?.getRoot(path: path)?.toFREObject()
     }
     
     func deleteReference(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
-            let sc = storageController,
             let path = String(argv[0])
             else {
                 return ArgCountError(message: "deleteReference").getError(#file, #line, #column)
         }
         let eventId = String(argv[1])
-        sc.deleteReference(path: path, eventId: eventId)
+        storageController?.deleteReference(path: path, eventId: eventId)
         return nil
     }
     
     func putBytes(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 3,
-            let sc = storageController,
             let path = String(argv[0]),
             let asId = String(argv[1]),
             let inFRE2 = argv[2]
@@ -105,7 +100,7 @@ public class SwiftController: NSObject {
         let metadata = StorageMetadata(argv[3])
         let ba = FreByteArraySwift.init(freByteArray: inFRE2)
         if let byteData = ba.value {
-            sc.putBytes(path: path, asId: asId, bytes: byteData, metadata: metadata)
+            storageController?.putBytes(path: path, asId: asId, bytes: byteData, metadata: metadata)
         }
         ba.releaseBytes()
         return nil
@@ -113,7 +108,6 @@ public class SwiftController: NSObject {
     
     func putFile(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 3,
-            let sc = storageController,
             let path = String(argv[0]),
             let asId = String(argv[1]),
             let filePath = String(argv[2])
@@ -123,57 +117,53 @@ public class SwiftController: NSObject {
         
         let metadata = StorageMetadata(argv[3])
         
-        sc.putFile(path: path, asId: asId, filePath: filePath, metadata: metadata)
+        storageController?.putFile(path: path, asId: asId, filePath: filePath, metadata: metadata)
         return nil
     }
     
     func getDownloadUrl(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
-            let sc = storageController,
             let path = String(argv[0]),
             let eventId = String(argv[1])
             else {
                 return ArgCountError(message: "getDownloadUrl").getError(#file, #line, #column)
         }
-        sc.getDownloadUrl(path: path, eventId: eventId)
+        storageController?.getDownloadUrl(path: path, eventId: eventId)
         return nil
     }
     
     func getBytes(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 2,
-            let sc = storageController,
             let path = String(argv[0]),
             let asId = String(argv[2])
             else {
                 return ArgCountError(message: "getBytes").getError(#file, #line, #column)
         }
         let maxDownloadSizeBytes = Int(argv[1])
-        sc.getBytes(path: path, maxDownloadSizeBytes: maxDownloadSizeBytes, asId: asId)
+        storageController?.getBytes(path: path, maxDownloadSizeBytes: maxDownloadSizeBytes, asId: asId)
         return nil
     }
     
     func getMetadata(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
-            let sc = storageController,
             let path = String(argv[0]),
             let eventId = String(argv[1])
             else {
                 return ArgCountError(message: "getMetadata").getError(#file, #line, #column)
         }
-        sc.getMetadata(path: path, eventId: eventId)
+        storageController?.getMetadata(path: path, eventId: eventId)
         return nil
     }
     
     func updateMetadata(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 2,
-            let sc = storageController,
             let path = String(argv[0]),
             let metadata = StorageMetadata(argv[2])
             else {
                 return ArgCountError(message: "updateMetadata").getError(#file, #line, #column)
         }
         let eventId = String(argv[1])
-        sc.updateMetadata(path: path, eventId: eventId, metadata: metadata)
+        storageController?.updateMetadata(path: path, eventId: eventId, metadata: metadata)
         return nil
     }
     
@@ -191,32 +181,29 @@ public class SwiftController: NSObject {
     
     func setMaxDownloadRetryTime(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let sc = storageController,
             let value = Double(argv[0])
             else {
                 return ArgCountError(message: "setMaxDownloadRetryTime").getError(#file, #line, #column)
         }
-        sc.maxDownloadRetryTime = value
+        storageController?.maxDownloadRetryTime = value
         return nil
     }
     func setMaxUploadRetryTime(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let sc = storageController,
             let value = Double(argv[0])
             else {
                 return ArgCountError(message: "setMaxUploadRetryTime").getError(#file, #line, #column)
         }
-        sc.maxUploadRetryTime = value
+        storageController?.maxUploadRetryTime = value
         return nil
     }
     func setMaxOperationRetryTime(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let sc = storageController,
             let value = Double(argv[0])
             else {
                 return ArgCountError(message: "setMaxUploadRetryTime").getError(#file, #line, #column)
         }
-        sc.maxOperationRetryTime = value
+        storageController?.maxOperationRetryTime = value
         return nil
     }
     
@@ -224,34 +211,31 @@ public class SwiftController: NSObject {
     
     func pauseTask(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let sc = storageController,
             let asId = String(argv[0])
             else {
                 return ArgCountError(message: "pauseTask").getError(#file, #line, #column)
         }
-        sc.pauseTask(asId: asId)
+        storageController?.pauseTask(asId: asId)
         return nil
     }
     
     func resumeTask(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let sc = storageController,
             let asId = String(argv[0])
             else {
                 return ArgCountError(message: "resumeTask").getError(#file, #line, #column)
         }
-        sc.resumeTask(asId: asId)
+        storageController?.resumeTask(asId: asId)
         return nil
     }
     
     func cancelTask(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let sc = storageController,
             let asId = String(argv[0])
             else {
                 return ArgCountError(message: "cancelTask").getError(#file, #line, #column)
         }
-        sc.cancelTask(asId: asId)
+        storageController?.cancelTask(asId: asId)
         return nil
     }
     

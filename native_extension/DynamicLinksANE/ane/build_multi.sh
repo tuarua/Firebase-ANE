@@ -73,6 +73,9 @@ cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Rel
 cp -R -L "$pathtome/../../../example/ios_dependencies/simulator/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../example/ios_dependencies/device/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/device/Frameworks"
 
+cp -R -L "$pathtome/../../../example/ios_dependencies/simulator/Frameworks/SwiftyJSON.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../../example/ios_dependencies/device/Frameworks/SwiftyJSON.framework" "$pathtome/platforms/ios/device/Frameworks"
+
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/FirebaseDynamicLinks.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseDynamicLinks.framework" "$pathtome/platforms/ios/device/Frameworks"
 
