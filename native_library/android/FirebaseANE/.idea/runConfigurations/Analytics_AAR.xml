@@ -15,6 +15,9 @@
       </option>
       <option name="vmOptions" value="" />
     </ExternalSystemSettings>
-    <method />
+    <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <method>
+      <option name="Gradle.BeforeRunTask" enabled="true" tasks="lint" externalProjectPath="$PROJECT_DIR$/Analytics" vmOptions="" scriptParameters="" />
+    </method>
   </configuration>
 </component>

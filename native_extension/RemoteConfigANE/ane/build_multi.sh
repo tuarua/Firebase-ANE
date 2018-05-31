@@ -100,6 +100,10 @@ echo "Building ANE."
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.firebase.$PROJECTNAME-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
+-platform Android-x86 \
+-C "$pathtome/platforms/android" "library.swf" "classes.jar" \
+com.tuarua.firebase.$PROJECTNAME-res/. \
+-platformoptions "$pathtome/platforms/android/platform.xml" \
 -platform default -C "$pathtome/platforms/default" "library.swf"
 
 echo "Packaging docs into ANE."

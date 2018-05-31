@@ -100,21 +100,21 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
                     cmd[customMetadataKey] = meta.getCustomMetadata(customMetadataKey)
                 }
                 sendEvent(StorageEvent.GET_METADATA, gson.toJson(StorageEvent(asId, mapOf("data" to
-                        mapOf("bucket" to meta.bucket
-                                , "cacheControl" to meta.cacheControl
-                                , "contentDisposition" to meta.contentDisposition
-                                , "contentEncoding" to meta.contentEncoding
-                                , "contentLanguage" to meta.contentLanguage
-                                , "contentType" to meta.contentType
-                                , "creationTime" to meta.creationTimeMillis
-                                , "updatedTime" to meta.updatedTimeMillis
-                                , "generation" to meta.generation
-                                , "md5Hash" to meta.md5Hash
-                                , "metadataGeneration" to meta.metadataGeneration
-                                , "name" to meta.name
-                                , "path" to meta.path
-                                , "size" to meta.sizeBytes
-                                , "customMetadata" to cmd
+                        mapOf("bucket" to meta.bucket,
+                                "cacheControl" to meta.cacheControl,
+                                "contentDisposition" to meta.contentDisposition,
+                                "contentEncoding" to meta.contentEncoding,
+                                "contentLanguage" to meta.contentLanguage,
+                                "contentType" to meta.contentType,
+                                "creationTime" to meta.creationTimeMillis,
+                                "updatedTime" to meta.updatedTimeMillis,
+                                "generation" to meta.generation,
+                                "md5Hash" to meta.md5Hash,
+                                "metadataGeneration" to meta.metadataGeneration,
+                                "name" to meta.name,
+                                "path" to meta.path,
+                                "size" to meta.sizeBytes,
+                                "customMetadata" to cmd
                         )))))
             } else {
                 val error = task.exception as StorageException

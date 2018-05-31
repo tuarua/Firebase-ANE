@@ -72,7 +72,7 @@ public class DynamicLinksExample extends Sprite implements IExample {
             statusLabel.text = "Dynamic Link error: " + error.errorID + " : " + error.message;
             return;
         }
-        if(dynamicLinkResult.url){
+        if (dynamicLinkResult.url) {
             statusLabel.text = dynamicLinkResult.url;
         } else {
             statusLabel.text = "Preview link: " + dynamicLinkResult.previewLink + "\n" +
@@ -98,13 +98,12 @@ public class DynamicLinksExample extends Sprite implements IExample {
     }
 
     private function onGetDynamicLink(dynamicLinkResult:DynamicLinkResult, error:DynamicLinkError):void {
+        trace("onGetDynamicLink");
         if (error) {
             statusLabel.text = "Dynamic Link error: " + error.errorID + " : " + error.message;
             return;
         }
-        if(dynamicLinkResult.url) {
-            statusLabel.text = dynamicLinkResult.url;
-        }
+        statusLabel.text = "Dynamic Link: " + dynamicLinkResult.url;
     }
 
 }

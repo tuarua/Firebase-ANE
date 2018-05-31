@@ -35,7 +35,6 @@ public final class FirebaseANE extends EventDispatcher {
     public static function get isGooglePlayServicesAvailable():Boolean {
         FirebaseANEContext.validate();
         var theRet:* = FirebaseANEContext.context.call("isGooglePlayServicesAvailable");
-        trace("theRet", theRet);
         if (theRet is ANEError) throw theRet as ANEError;
         return theRet as Boolean;
     }

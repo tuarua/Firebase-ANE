@@ -8,6 +8,7 @@ public class RemoteMessage {
     public var sentTime:Number;
     public var ttl:int;
     public var notification:Notification;
+    public var data:Object;
 
     public function RemoteMessage() {
     }

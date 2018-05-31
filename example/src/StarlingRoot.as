@@ -62,7 +62,7 @@ public class StarlingRoot extends Sprite {
         try {
             FirebaseANE.init();
             if(!FirebaseANE.isGooglePlayServicesAvailable) {
-                trace("Google Play Services Not Available ")
+                trace("Google Play Services Not Available");
                 return;
             }
             var fo:FirebaseOptions = FirebaseANE.options;

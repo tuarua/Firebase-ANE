@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension xmlns="http://ns.adobe.com/air/extension/19.0">
     <id>com.tuarua.firebase.AnalyticsANE</id>
-	<name>Firebase Analytics ANE</name>
-	<copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
-	<versionNumber>0.0.1</versionNumber>
+    <name>Firebase Analytics ANE</name>
+    <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
+    <versionNumber>0.0.1</versionNumber>
     <platforms>
-		<platform name="Android-ARM"> 
-           <applicationDeployment>
-				<nativeLibrary>classes.jar</nativeLibrary>
-				<initializer>com.tuarua.firebase.AnalyticsANE</initializer>
-				<finalizer>com.tuarua.firebase.AnalyticsANE</finalizer>
-			</applicationDeployment>
+        <platform name="Android-ARM">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.firebase.AnalyticsANE</initializer>
+                <finalizer>com.tuarua.firebase.AnalyticsANE</finalizer>
+            </applicationDeployment>
+        </platform>
+        <platform name="Android-x86">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.firebase.AnalyticsANE</initializer>
+                <finalizer>com.tuarua.firebase.AnalyticsANE</finalizer>
+            </applicationDeployment>
         </platform>
     </platforms>
 </extension>

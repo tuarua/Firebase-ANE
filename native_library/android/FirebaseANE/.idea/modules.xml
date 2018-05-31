@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/Analytics/Analytics.iml" filepath="$PROJECT_DIR$/Analytics/Analytics.iml" />
       <module fileurl="file://$PROJECT_DIR$/Auth/Auth.iml" filepath="$PROJECT_DIR$/Auth/Auth.iml" />
       <module fileurl="file://$PROJECT_DIR$/DynamicLinks/DynamicLinks.iml" filepath="$PROJECT_DIR$/DynamicLinks/DynamicLinks.iml" />
-      <module fileurl="file://$PROJECT_DIR$/DynamicLinks/DynamicLinks.iml" filepath="$PROJECT_DIR$/DynamicLinks/DynamicLinks.iml" />
       <module fileurl="file://$PROJECT_DIR$/Firebase/Firebase.iml" filepath="$PROJECT_DIR$/Firebase/Firebase.iml" />
       <module fileurl="file://$PROJECT_DIR$/FirebaseANE.iml" filepath="$PROJECT_DIR$/FirebaseANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/Firestore/Firestore.iml" filepath="$PROJECT_DIR$/Firestore/Firestore.iml" />

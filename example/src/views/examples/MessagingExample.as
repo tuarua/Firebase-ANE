@@ -71,7 +71,7 @@ public class MessagingExample extends Sprite implements IExample {
         messaging = MessagingANE.messaging;
         messaging.addEventListener(MessagingEvent.ON_TOKEN_REFRESHED, onTokenRefreshed);
         messaging.addEventListener(MessagingEvent.ON_MESSAGE_RECEIVED, onMessageReceived);
-        // messaging.addEventListener(MessagingEvent.ON_DEBUG, OnDebug);
+        messaging.addEventListener(MessagingEvent.ON_DEBUG, OnDebug);
         isInited = true;
     }
 
@@ -80,9 +80,15 @@ public class MessagingExample extends Sprite implements IExample {
         statusLabel.text = "Message Received" + "\n" +
                 "From: " + remoteMessage.from + "\n" +
                 "MessageId: " + remoteMessage.messageId + "\n" +
-                "Notification Body: " + remoteMessage.notification.body + "\n" +
-                "Notification Title: " + remoteMessage.notification.title + "\n";
+                "Sent at: " + new Date(remoteMessage.sentTime) + "\n";
 
+        if (remoteMessage.notification) {
+            statusLabel.text = statusLabel.text + "Notification Body: " + remoteMessage.notification.body + "\n" +
+                    "Notification Title: " + remoteMessage.notification.title + "\n";
+        }
+        if (remoteMessage.data) {
+            statusLabel.text = statusLabel.text + "Data: " + JSON.stringify(remoteMessage.data) + "\n";
+        }
     }
 
     private function onTokenRefreshed(event:MessagingEvent):void {
@@ -91,7 +97,7 @@ public class MessagingExample extends Sprite implements IExample {
 
     private function OnDebug(event:MessagingEvent):void {
         trace("FCM Debug: ", event.token);
-        statusLabel.text = "FCM Debug: " + event.token;
+        statusLabel.text = statusLabel.text + "FCM Debug: " + event.token + "\n";
     }
 }
 }

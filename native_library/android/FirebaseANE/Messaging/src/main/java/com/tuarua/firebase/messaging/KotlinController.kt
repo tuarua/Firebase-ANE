@@ -15,10 +15,10 @@
  */
 package com.tuarua.firebase.messaging
 
+import android.app.Activity
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
-import android.util.Log
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.iid.FirebaseInstanceId
@@ -30,6 +30,7 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import java.util.*
+import kotlin.concurrent.schedule
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
@@ -47,8 +48,8 @@ class KotlinController : FreKotlinMainController {
         val channelName = String(argv[1])
 
         val appActivity = ctx.activity
-        if (channelName != null && appActivity != null) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (appActivity != null) {
+            if (channelName != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 val notificationManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     appActivity.getSystemService(NotificationManager::class.java)
                 } else {
@@ -56,19 +57,12 @@ class KotlinController : FreKotlinMainController {
                 }
                 notificationManager?.createNotificationChannel(NotificationChannel(channelId,
                         channelName, NotificationManager.IMPORTANCE_LOW))
+            }
 
-                // TODO
-                if (appActivity.intent.extras != null) {
-                    for (key in appActivity.intent.extras.keySet()) {
-                        val value = appActivity.intent.extras.get(key)
-                    }
-                }
-
+            if (appActivity.intent.extras != null) {
+                sendMessageFromExtras(appActivity)
             }
         }
-
-
-
         return true.toFREObject()
     }
 
@@ -93,7 +87,61 @@ class KotlinController : FreKotlinMainController {
     @Throws(FreException::class)
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: MessageEvent) {
-        sendEvent(event.eventId, gson.toJson(MessageEvent(event.eventId, event.data)))
+        if (_context != null) {
+            sendEvent(event.eventId, gson.toJson(MessageEvent(event.eventId, event.data)))
+        }
+    }
+
+    private fun sendMessageFromExtras(appActivity: Activity) {
+        if (appActivity.intent.extras.isEmpty) return
+        var from: String? = null
+        var ttl = 0
+        var messageId: String? = null
+        var sentTime: Long = 0
+        var collapseKey: String? = null
+        val data = mutableMapOf<String, String>()
+
+        if (appActivity.intent.extras.keySet().contains("google.message_id")) {
+            for (key in appActivity.intent.extras.keySet()) {
+                val value = appActivity.intent.extras.get(key)
+                
+                when (key) {
+                    "google.sent_time" -> sentTime = value as Long
+                    "google.ttl" -> ttl = value as Int
+                    "from" -> from = value as String
+                    "google.message_id" -> messageId = value as String
+                    "collapse_key" -> collapseKey = value as String
+                    else -> {
+                        data[key] = value as String
+                    }
+                }
+                appActivity.intent.removeExtra(key)
+            }
+
+            val payload = mapOf(
+                    "from" to from,
+                    "data" to data,
+                    "messageId" to messageId,
+                    "collapseKey" to collapseKey,
+                    "sentTime" to sentTime,
+                    "ttl" to ttl
+            )
+            Timer("IntentMessageEvent", false).schedule(500) {
+                sendEvent(MessageEvent.ON_MESSAGE_RECEIVED,
+                        gson.toJson(MessageEvent(MessageEvent.ON_MESSAGE_RECEIVED, payload)))
+            }
+        }
+
+    }
+
+    override fun onResumed() {
+        super.onResumed()
+        val appActivity = _context?.activity
+        if (appActivity != null) {
+            if (appActivity.intent.extras != null) {
+                sendMessageFromExtras(appActivity)
+            }
+        }
     }
 
     override val TAG: String

@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension xmlns="http://ns.adobe.com/air/extension/19.0">
     <id>com.tuarua.firebase.RemoteConfigANE</id>
-	<name>Firebase Remote Config ANE</name>
-	<copyright>This work is licensed under Apache License, Copyright (c) 2017 Tua Rua Ltd.</copyright>
-	<versionNumber>0.0.1</versionNumber>
+    <name>Firebase Remote Config ANE</name>
+    <copyright>This work is licensed under Apache License, Copyright (c) 2017 Tua Rua Ltd.</copyright>
+    <versionNumber>0.0.1</versionNumber>
     <platforms>
-		<platform name="Android-ARM"> 
-           <applicationDeployment>
-				<nativeLibrary>classes.jar</nativeLibrary>
-				<initializer>com.tuarua.firebase.RemoteConfigANE</initializer>
-				<finalizer>com.tuarua.firebase.RemoteConfigANE</finalizer>
-			</applicationDeployment>
+        <platform name="Android-ARM">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.firebase.RemoteConfigANE</initializer>
+                <finalizer>com.tuarua.firebase.RemoteConfigANE</finalizer>
+            </applicationDeployment>
+        </platform>
+        <platform name="Android-x86">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.firebase.RemoteConfigANE</initializer>
+                <finalizer>com.tuarua.firebase.RemoteConfigANE</finalizer>
+            </applicationDeployment>
         </platform>
     </platforms>
 </extension>

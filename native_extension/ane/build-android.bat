@@ -33,6 +33,10 @@ call %AIR_PATH%adt.bat -package -target ane %pathtome%%projectName%.ane extensio
 -platform Android-ARM ^
 -C platforms/android library.swf classes.jar ^
 com.tuarua.firebase.%projectName%-res/. ^
+-platformoptions platforms/android/platform.xml ^
+-platform Android-x86 ^
+-C platforms/android library.swf classes.jar ^
+com.tuarua.firebase.%projectName%-res/. ^
 -platformoptions platforms/android/platform.xml
 
 ren %pathtome%FirebaseANE.ane FirebaseANE.zip
