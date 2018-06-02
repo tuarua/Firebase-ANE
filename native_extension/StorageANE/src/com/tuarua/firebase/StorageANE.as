@@ -42,7 +42,7 @@ public class StorageANE extends EventDispatcher {
         return _storage;
     }
 
-    public function getReference(path:String = null, url:String = null):StorageReference {
+    public function reference(path:String = null, url:String = null):StorageReference {
         StorageANEContext.validate();
         return new StorageReference(path, url);
     }

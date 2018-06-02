@@ -59,7 +59,7 @@ public class StorageExample extends Sprite implements IExample {
         trace("storage.maxOperationRetryTime", storage.maxOperationRetryTime);
         trace("storage.maxUploadRetryTime", storage.maxUploadRetryTime);
 
-        storageRef = storage.getReference("images/logo.png");
+        storageRef = storage.reference("images/logo.png");
         trace(storageRef.path, storageRef.name, storageRef.bucket);
 
         isInited = true;
@@ -156,7 +156,7 @@ public class StorageExample extends Sprite implements IExample {
             var imageFile:File = File.applicationStorageDirectory.resolvePath("local-logo.png");
             trace("imageFile.exists", imageFile.exists);
             if (!imageFile.exists) return;
-            var storageRef:StorageReference = storage.getReference("images/uploaded-logo.png");
+            var storageRef:StorageReference = storage.reference("images/uploaded-logo.png");
             var uploadTask:UploadTask = storageRef.putFile(imageFile);
             uploadTask.addEventListener(StorageProgressEvent.PROGRESS, onUploadProgress);
             uploadTask.addEventListener(StorageEvent.TASK_COMPLETE, onUploadFileSuccess, false, 0, true);
