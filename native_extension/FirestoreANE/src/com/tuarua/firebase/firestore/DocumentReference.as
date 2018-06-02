@@ -39,6 +39,14 @@ public class DocumentReference {
     }
 
     /**
+     * @return A CollectionReference pointing to the document at the specified path
+     */
+    public function collection(collectionPath:String):CollectionReference {
+        FirestoreANEContext.validate();
+        return new CollectionReference(_path + "/" + collectionPath);
+    }
+
+    /**
      * Attaches a listener for DocumentSnapshot events.
      * @param listener Optional Function to be called on completion.
      * The function is expected to have the following signature:
@@ -113,7 +121,7 @@ public class DocumentReference {
      * </listing>
      * @param merge
      */
-    public function set(data:*, listener:Function = null, merge:Boolean = false):void {
+    public function setData(data:*, listener:Function = null, merge:Boolean = false):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("setDocumentReference", _path,
                 FirestoreANEContext.createEventId(listener), data, merge);
@@ -133,7 +141,7 @@ public class DocumentReference {
      * }
      * </listing>
      */
-    public function update(data:*, listener:Function = null):void {
+    public function updateData(data:*, listener:Function = null):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("updateDocumentReference", _path,
                 FirestoreANEContext.createEventId(listener), data);
@@ -159,6 +167,7 @@ public class DocumentReference {
         if (theRet is ANEError) throw theRet as ANEError;
         return new CollectionReference(theRet as String);
     }
+
     /**@private */
     public function get id():String {
         return _id;
@@ -167,6 +176,7 @@ public class DocumentReference {
     public function get path():String {
         return _path;
     }
+
     /**@private */
     public function get mapTo():Class {
         return _mapTo;

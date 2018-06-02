@@ -34,15 +34,28 @@ public class CollectionReference extends Query {
         _id = theRet as String;
     }
 
-    public function add(data:*):CollectionReference {
+    /**
+     * Add a new document to this collection with the specified data, assigning it a document ID automatically.
+     * @return A DocumentReference pointing to a new document with an auto-generated ID.
+     * @param data
+     * @param listener Optional Function to be called on completion.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(path:String, error:FirestoreError):void {
+     *
+     * }
+     * </listing>
+     */
+    public function addDocument(data:*, listener:Function = null):DocumentReference {
+        FirestoreANEContext.validate();
         var doc:DocumentReference = this.document();
-        doc.set(data);
-        return this;
+        doc.setData(data, listener);
+        return doc;
     }
 
     /**
-     * Returns a DocumentReference pointing to a new document with an auto-generated ID.
-     * @return A DocumentReference pointing to a new document with an auto-generated ID.
+     * @return A DocumentReference pointing to the document at the specified path or if documentPath is null a
+     * new document with an auto-generated ID.
      */
     public function document(documentPath:String = null):DocumentReference {
         FirestoreANEContext.validate();

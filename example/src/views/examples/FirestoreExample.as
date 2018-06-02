@@ -2,6 +2,8 @@ package views.examples {
 import com.tuarua.City;
 import com.tuarua.firebase.FirestoreANE;
 import com.tuarua.firebase.firestore.CollectionReference;
+import com.tuarua.firebase.firestore.DocumentChange;
+import com.tuarua.firebase.firestore.DocumentChangeType;
 import com.tuarua.firebase.firestore.DocumentReference;
 import com.tuarua.firebase.firestore.DocumentSnapshot;
 import com.tuarua.firebase.firestore.FirestoreError;
@@ -132,44 +134,45 @@ public class FirestoreExample extends Sprite implements IExample {
             var batch:WriteBatch = db.batch();
             var citiesRef:CollectionReference = db.collection("cities");
 
-            batch.set(citiesRef.document("SF"), {
+            batch.setData({
                 "name": "San Francisco",
                 "state": "CA",
                 "country": "USA",
                 "capital": false,
                 "population": 860000
-            });
+            }, citiesRef.document("SF"));
 
-            batch.set(citiesRef.document("LA"), {
+            batch.setData({
                 "name": "Los Angeles",
                 "state": "CA",
                 "country": "USA",
                 "capital": false,
                 "population": 3900000
-            });
+            }, citiesRef.document("LA"));
 
-            batch.set(citiesRef.document("DC"), {
+            batch.setData({
                 "name": "Washington D.C.",
                 "country": "USA",
                 "capital": true,
                 "population": 680000
-            });
+            }, citiesRef.document("DC"));
 
-            batch.set(citiesRef.document("TOK"), {
+            batch.setData({
                 "name": "Tokyo",
                 "country": "Japan",
                 "capital": true,
                 "population": 9000000
-            });
+            }, citiesRef.document("TOK"));
 
-            batch.set(citiesRef.document("BJ"), {
+            batch.setData({
                 "name": "Beijing",
                 "country": "China",
                 "capital": true,
                 "population": 21500000
-            });
+            }, citiesRef.document("BJ"));
 
             batch.commit(onCitiesCreated);
+            
         }
     }
 
@@ -216,7 +219,7 @@ public class FirestoreExample extends Sprite implements IExample {
     private function onUpdateDocumentClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnUpdateDocument);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            sanFran.update({"population": 860999}, onDocUpdated);
+            sanFran.updateData({"population": 860999}, onDocUpdated);
         }
     }
 
@@ -240,7 +243,7 @@ public class FirestoreExample extends Sprite implements IExample {
         var touch:Touch = event.getTouch(btnAddDocument);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             var doc:DocumentReference = new DocumentReference("cities/DUB");
-            doc.set({
+            doc.setData({
                 "name": "Dublin",
                 "country": "Rep. of Ireland",
                 "capital": true,

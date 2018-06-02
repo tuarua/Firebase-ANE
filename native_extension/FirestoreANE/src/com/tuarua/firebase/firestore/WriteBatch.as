@@ -28,7 +28,7 @@ public class WriteBatch {
      *
      * @param documentReference
      */
-    public function clear(documentReference:DocumentReference):void {
+    public function deleteDocument(documentReference:DocumentReference):void {
         FirestoreANEContext.validate();
         var theRet:* = FirestoreANEContext.context.call("deleteBatch", documentReference.path);
         if (theRet is ANEError) throw theRet as ANEError;
@@ -38,12 +38,12 @@ public class WriteBatch {
      * Updates fields in the document referred to by `documentReference`.
      * If document does not exist, the write batch will fail.
      *
-     * @param documentReference
+     * @param forDocument A reference to the document whose data should be overwritten.
      * @param data
      */
-    public function update(documentReference:DocumentReference, data:*):void {
+    public function updateData(data:*, forDocument:DocumentReference):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("updateBatch", documentReference.path, data);
+        var theRet:* = FirestoreANEContext.context.call("updateBatch", forDocument.path, data);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
@@ -52,14 +52,14 @@ public class WriteBatch {
      * this method creates it and then sets the data. If the document exists, this method overwrites
      * the document data with the new values.
      *
-     * @param documentReference
      * @param data
-     * @param merge
+     * @param forDocument A reference to the document whose data should be overwritten.
+     * @param merge Whether to merge the provided data into any existing document.
      * @return This `WriteBatch` instance. Used for chaining method calls.
      */
-    public function set(documentReference:DocumentReference, data:*, merge:Boolean = false):void {
+    public function setData(data:*, forDocument:DocumentReference, merge:Boolean = false):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("setBatch", documentReference.path, data, merge);
+        var theRet:* = FirestoreANEContext.context.call("setBatch", forDocument.path, data, merge);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
