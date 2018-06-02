@@ -5,14 +5,12 @@ import flash.events.EventDispatcher;
 
 public class MessagingANE extends EventDispatcher {
     private static var _messaging:MessagingANE;
-
-    private static var _shouldEstablishDirectChannel:Boolean = false;
     private static var _channelId:String;
     private static var _channelName:String;
     /** @private */
     public function MessagingANE() {
         if (MessagingANEContext.context) {
-            var theRet:* = MessagingANEContext.context.call("init", _channelId, _channelName, _shouldEstablishDirectChannel);
+            var theRet:* = MessagingANEContext.context.call("init", _channelId, _channelName);
             if (theRet is ANEError) throw theRet as ANEError;
         }
         _messaging = this;
@@ -92,14 +90,5 @@ public class MessagingANE extends EventDispatcher {
         _channelName = value;
     }
 
-    /**
-     *  When set to true, Firebase Messaging will automatically establish a socket-based, direct
-     *  channel to the FCM server. Enable this only if you are sending upstream messages or
-     *  receiving non-APNS, data-only messages in foregrounded apps.
-     *  Default is false.
-     */
-    public static function set shouldEstablishDirectChannel(value:Boolean):void {
-        _shouldEstablishDirectChannel = value;
-    }
 }
 }

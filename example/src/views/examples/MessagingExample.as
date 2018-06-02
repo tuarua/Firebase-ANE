@@ -23,6 +23,7 @@ public class MessagingExample extends Sprite implements IExample {
     private var btnSubscribe:SimpleButton = new SimpleButton("Subscribe");
     private var messaging:MessagingANE;
     private var statusLabel:TextField;
+    private var debugLabel:TextField;
 
     public function MessagingExample(stageWidth:Number) {
         super();
@@ -41,10 +42,16 @@ public class MessagingExample extends Sprite implements IExample {
         addChild(btnSubscribe);
 
         statusLabel = new TextField(stageWidth, 1400, "");
-        statusLabel.format.setTo(Fonts.NAME, 13, 0x222222, Align.CENTER, Align.TOP);
+        statusLabel.format.setTo(Fonts.NAME, 13, 0x222222, Align.LEFT, Align.TOP);
         statusLabel.touchable = false;
         statusLabel.y = btnSubscribe.y + (StarlingRoot.GAP * 1.25);
         addChild(statusLabel);
+
+        debugLabel = new TextField(stageWidth, 1400, "---------");
+        debugLabel.format.setTo(Fonts.NAME, 13, 0x008000, Align.LEFT, Align.TOP);
+        debugLabel.touchable = false;
+        debugLabel.y = statusLabel.y + 200;
+        addChild(debugLabel);
     }
 
 
@@ -96,8 +103,7 @@ public class MessagingExample extends Sprite implements IExample {
     }
 
     private function OnDebug(event:MessagingEvent):void {
-        trace("FCM Debug: ", event.token);
-        statusLabel.text = statusLabel.text + "FCM Debug: " + event.token + "\n";
+        debugLabel.text = debugLabel.text + "FCM Debug: " + event.token + "\n";
     }
 }
 }

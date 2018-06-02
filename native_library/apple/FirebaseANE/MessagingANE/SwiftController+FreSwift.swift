@@ -55,8 +55,5 @@ extension SwiftController: FreSwiftMainController {
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidFinishLaunching),
                                                name: NSNotification.Name.UIApplicationDidFinishLaunching, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveRemoteNotification),
-                                               name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
-        
     }
 }

@@ -18,7 +18,6 @@ import Foundation
 import UserNotifications
 
 extension SwiftController: UNUserNotificationCenterDelegate {
-    
     // [START ios_10_message_handling]
     // Receive displayed notifications for iOS 10 devices.
     // Called when a notification is delivered to a foreground app.
@@ -35,38 +34,8 @@ extension SwiftController: UNUserNotificationCenterDelegate {
                        value: MessageEvent(data: parseUserInfo(userInfo: userInfo)).toJSONString())
     }
     
-    private func parseUserInfo(userInfo: [AnyHashable: Any]) -> [String: Any] {
-        var data = [String: Any]()
-        data["messageId"] = userInfo["gcm.message_id"]
-        data["sentTime"] = userInfo["google.c.a.ts"] ?? 0
-        var notification = [String: Any]()
-        if let aps = userInfo["aps"] as? NSDictionary {
-            if let alert = aps["alert"] as? NSDictionary {
-                if let body = alert["body"] as? String {
-                    notification["body"] = body
-                }
-                if let title = alert["title"] as? String {
-                    notification["title"] = title
-                }
-            } else if let alert = aps["alert"] as? NSString {
-                notification["body"] = alert
-            }
-        }
-        data["notification"] = notification
-        
-        /*
-         public var clickAction:String;
-         public var color:String;
-         public var icon:String;
-         public var link:String;
-         public var sound:String;
-         public var tag:String;
-         */
-        
-        return data
-    }
-    
     @available(iOS 10, *)
+    // Called when a notification is delivered to a background app.
     // Called to let your app know which action was selected by the user for a given notification.
     public func userNotificationCenter(
         _ center: UNUserNotificationCenter,
@@ -80,10 +49,5 @@ extension SwiftController: UNUserNotificationCenterDelegate {
         self.sendEvent(name: MessageEvent.ON_MESSAGE_RECEIVED,
                        value: MessageEvent(data: parseUserInfo(userInfo: userInfo)).toJSONString())
     }
-    
-    @objc public func didReceiveRemoteNotification(_ notification: Notification) {
-        // If you are receiving a notification message while your app is in the background,
-        // this callback will not be fired till the user taps on the notification launching the application.
-        // TODO: Handle data of notification
-    }
+     
 }
