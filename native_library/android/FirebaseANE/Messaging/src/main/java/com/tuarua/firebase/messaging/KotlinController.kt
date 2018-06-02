@@ -71,15 +71,15 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun subscribe(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("subscribe")
-        val toTopic = String(argv[1]) ?: return FreConversionException("toTopic")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException("subscribe")
+        val toTopic = String(argv[0]) ?: return FreConversionException("toTopic")
         FirebaseMessaging.getInstance().subscribeToTopic(toTopic)
         return null
     }
 
     fun unsubscribe(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("unsubscribe")
-        val fromTopic = String(argv[1]) ?: return FreConversionException("fromTopic")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException("unsubscribe")
+        val fromTopic = String(argv[0]) ?: return FreConversionException("fromTopic")
         FirebaseMessaging.getInstance().unsubscribeFromTopic(fromTopic)
         return null
     }

@@ -40,21 +40,24 @@ public class DocumentReference {
 
     /**
      * Attaches a listener for DocumentSnapshot events.
+     * @param listener Optional Function to be called on completion.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(snapshot:DocumentSnapshot, error:FirestoreError, realtime:Boolean):void {
      *
-     * @param listener The listener to attach.
-     *
+     * }
+     * </listing>
      */
     public function addSnapshotListener(listener:Function):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("addSnapshotListenerDocument", _path, FirestoreANEContext.createEventId(listener, this), _asId);
+        var theRet:* = FirestoreANEContext.context.call("addSnapshotListenerDocument", _path,
+                FirestoreANEContext.createEventId(listener, this), _asId);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
     /**
      * Detaches a listener for DocumentSnapshot events.
-     *
-     * @param listener The listener to dettach.
-     *
+     * @param listener
      */
     public function removeSnapshotListener(listener:Function):void {
         FirestoreANEContext.validate();
@@ -73,17 +76,23 @@ public class DocumentReference {
     /**
      * Reads the document referenced by this `DocumentReference`.
      *
-     * @param listener executes once the document has been successfully read.
+     * @param listener Optional Function to be called on completion.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(snapshot:DocumentSnapshot, error:FirestoreError, realtime:Boolean):void {
+     *
+     * }
+     * </listing>
      */
     public function getDocument(listener:Function):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("getDocumentReference", _path, FirestoreANEContext.createEventId(listener, this));
+        var theRet:* = FirestoreANEContext.context.call("getDocumentReference", _path,
+                FirestoreANEContext.createEventId(listener, this));
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
     /**
      * Converts the Document into an as3 Class with properties mapped to the Document's fields.
-     *
      * @param to AS3 class to map to
      */
     public function map(to:Class):void {
@@ -95,12 +104,19 @@ public class DocumentReference {
      * exist, it will be created.
      *
      * @param data
-     * @param listener
+     * @param listener Optional Function to be called on completion.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(path:String, error:FirestoreError):void {
+     *
+     * }
+     * </listing>
      * @param merge
      */
     public function set(data:*, listener:Function = null, merge:Boolean = false):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("setDocumentReference", _path, FirestoreANEContext.createEventId(listener), data, merge);
+        var theRet:* = FirestoreANEContext.context.call("setDocumentReference", _path,
+                FirestoreANEContext.createEventId(listener), data, merge);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
@@ -109,11 +125,18 @@ public class DocumentReference {
      * does not exist, the update fails and the specified completion block receives an error.
      *
      * @param data
-     * @param listener
+     * @param listener Optional Function to be called on completion.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(path:String, error:FirestoreError):void {
+     *
+     * }
+     * </listing>
      */
     public function update(data:*, listener:Function = null):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("updateDocumentReference", _path, FirestoreANEContext.createEventId(listener), data);
+        var theRet:* = FirestoreANEContext.context.call("updateDocumentReference", _path,
+                FirestoreANEContext.createEventId(listener), data);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
@@ -124,7 +147,8 @@ public class DocumentReference {
      */
     public function remove(listener:Function = null):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("deleteDocumentReference", _path, FirestoreANEContext.createEventId(listener));
+        var theRet:* = FirestoreANEContext.context.call("deleteDocumentReference", _path,
+                FirestoreANEContext.createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
@@ -135,7 +159,7 @@ public class DocumentReference {
         if (theRet is ANEError) throw theRet as ANEError;
         return new CollectionReference(theRet as String);
     }
-
+    /**@private */
     public function get id():String {
         return _id;
     }
@@ -143,7 +167,7 @@ public class DocumentReference {
     public function get path():String {
         return _path;
     }
-
+    /**@private */
     public function get mapTo():Class {
         return _mapTo;
     }

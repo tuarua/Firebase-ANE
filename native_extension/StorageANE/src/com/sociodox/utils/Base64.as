@@ -16,6 +16,7 @@
  */
 package com.sociodox.utils {
 import flash.utils.ByteArray;
+/** @private*/
 public class Base64 {
     private static const _encodeChars:Vector.<int> = InitEncoreChar();
     private static const _decodeChars:Vector.<int> = InitDecodeChar();

@@ -129,7 +129,7 @@ public class AuthExample extends Sprite implements IExample {
             statusLabel.text = "onLinked error: " + error.errorID + " : " + error.message;
             return;
         }
-        trace("");
+        statusLabel.text = "User linked";
     }
 
     private function onNewUser(error:AuthError):void {

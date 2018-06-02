@@ -32,7 +32,13 @@
      memory to complete the download. For downloading large files, getFile may be a better option.
      
      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.storage:StorageReference:getDownloadUrl"><apiName>getDownloadUrl</apiName><shortdesc>
-     Asynchronously retrieves a long lived download URL with a revokable token.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Optional
+     Asynchronously retrieves a long lived download URL with a revokable token.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Function to be called on completion.
+     The function is expected to have the following signature:
+     <codeblock rev="3.0">
+     function callback(url:String, error:StorageError):void {
+     
+     }
+     </codeblock>
      </apiDesc></apiParam></apiOperationDef><apiDesc>
      Asynchronously retrieves a long lived download URL with a revokable token.
      This can be used to share the file with others, but can be revoked by a developer
@@ -45,7 +51,13 @@
      </apiDesc></apiParam></apiOperationDef><apiDesc>
      Asynchronously downloads the object at the current path to a specified system filepath.
      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.storage:StorageReference:getMetadata"><apiName>getMetadata</apiName><shortdesc>
-     Retrieves metadata associated with an object at the current path.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Optional
+     Retrieves metadata associated with an object at the current path.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Function to be called on completion.
+     The function is expected to have the following signature:
+     <codeblock rev="3.0">
+     function callback(metadata:StorageMetadata, error:StorageError):void {
+     
+     }
+     </codeblock>
      </apiDesc></apiParam></apiOperationDef><apiDesc>
      Retrieves metadata associated with an object at the current path.
      
@@ -70,8 +82,13 @@
      Deletes the object at the current path.
      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.storage:StorageReference:updateMetadata"><apiName>updateMetadata</apiName><shortdesc>
      Updates the metadata associated with an object at the current path.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>metadata</apiItemName><apiOperationClassifier>com.tuarua.firebase.storage:StorageMetadata</apiOperationClassifier><apiDesc>An StorageMetadata object with the metadata to update.
-     </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiData>null</apiData><apiDesc>Optional
+     </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiData>null</apiData><apiDesc>Optional Function to be called on completion.
+     The function is expected to have the following signature:
+     <codeblock rev="3.0">
+     function callback(error:StorageError):void {
      
+     }
+     </codeblock>
      </apiDesc></apiParam></apiOperationDef><apiDesc>
      Updates the metadata associated with an object at the current path.
      </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.tuarua.firebase.storage:StorageReference:bucket:get"><apiName>bucket</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.storage:StorageReference:name:get"><apiName>name</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.storage:StorageReference:parent:get"><apiName>parent</apiName><shortdesc>

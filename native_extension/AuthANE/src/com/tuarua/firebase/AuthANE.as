@@ -37,7 +37,13 @@ public final class AuthANE extends EventDispatcher {
 
     /** Initiates a password reset for the given email address.
      * @param email
-     * @param listener Optional
+     * @param listener Optional Function to be called on completion.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(error:AuthError):void {
+     *
+     * }
+     * </listing>
      */
     public function sendPasswordResetEmail(email:String, listener:Function = null):void {
         AuthANEContext.validate();
@@ -50,7 +56,13 @@ public final class AuthANE extends EventDispatcher {
     /** Creates and, on success, signs in a user with the given email address and password.
      * @param email
      * @param password
-     * @param listener Optional
+     * @param listener Optional Function to be called on completion.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(error:AuthError):void {
+     *
+     * }
+     * </listing>
      */
     public function createUserWithEmailAndPassword(email:String, password:String, listener:Function = null):void {
         AuthANEContext.validate();
@@ -64,7 +76,13 @@ public final class AuthANE extends EventDispatcher {
 
     /** Asynchronously signs in to Firebase with the given Auth token.
      * @param token A self-signed custom auth token.
-     * @param listener Optional
+     * @param listener Optional Function to be called on completion.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(error:AuthError):void {
+     *
+     * }
+     * </listing>
      */
     public function signInWithCustomToken(token:String, listener:Function = null):void {
         AuthANEContext.validate();
@@ -74,7 +92,13 @@ public final class AuthANE extends EventDispatcher {
     }
 
     /** Asynchronously creates and becomes an anonymous user.
-     * @param listener Optional
+     * @param listener Optional Function to be called on completion.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(error:AuthError):void {
+     *
+     * }
+     * </listing>
      */
     public function signInAnonymously(listener:Function = null):void {
         AuthANEContext.validate();
@@ -101,7 +125,13 @@ public final class AuthANE extends EventDispatcher {
      * login Access Token, a Google ID Token/Access Token pair, etc.) and returns additional
      * identity provider data.
      * @param credential
-     * @param listener Optional
+     * @param listener Optional Function to be called on completion.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(error:AuthError):void {
+     *
+     * }
+     * </listing>
      */
     public function signIn(credential:AuthCredential, listener:Function = null):void {
         AuthANEContext.validate();
@@ -115,7 +145,13 @@ public final class AuthANE extends EventDispatcher {
      * specified phone number.
      *
      * @param phoneNumber The phone number to be verified.
-     * @param listener Optional
+     * @param listener Optional Function to be called on completion.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(error:AuthError):void {
+     *
+     * }
+     * </listing>
      */
     public function verifyPhoneNumber(phoneNumber:String, listener:Function):void {
         AuthANEContext.validate();

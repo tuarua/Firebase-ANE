@@ -136,7 +136,13 @@ public class StorageReference {
      * This can be used to share the file with others, but can be revoked by a developer
      * in the Firebase Console if desired.
      *
-     * @param listener Optional
+     * @param listener Function to be called on completion.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(url:String, error:StorageError):void {
+     *
+     * }
+     * </listing>
      */
     public function getDownloadUrl(listener:Function):void {
         if (_path == null) return;
@@ -148,7 +154,13 @@ public class StorageReference {
     /**
      * Retrieves metadata associated with an object at the current path.
      *
-     * @param listener Optional
+     * @param listener Function to be called on completion.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(metadata:StorageMetadata, error:StorageError):void {
+     *
+     * }
+     * </listing>
      */
     public function getMetadata(listener:Function):void {
         StorageANEContext.validate();
@@ -159,8 +171,13 @@ public class StorageReference {
     /**
      * Updates the metadata associated with an object at the current path.
      * @param metadata An StorageMetadata object with the metadata to update.
-     * @param listener Optional
+     * @param listener Optional Function to be called on completion.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(error:StorageError):void {
      *
+     * }
+     * </listing>
      */
     public function updateMetadata(metadata:StorageMetadata, listener:Function = null):void {
         if (_path == null || _name == null) return;

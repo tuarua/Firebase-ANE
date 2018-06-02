@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://$DOCUMENTS$/Firebase-ANE/native_extension/DynamicLinksANE/ane/DynamicLinksANE.ane!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="https://tuarua.github.io/asdocs/firebaseane/dynamiclinks/index.html" />
+    </JAVADOC>
     <SOURCES />
   </library>
 </component>

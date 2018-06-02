@@ -17,17 +17,12 @@ public class MessagingANE extends EventDispatcher {
     }
 
     /**
-     *  The FCM token is used to identify this device so that FCM can send notifications to it.
+     *  <p>The FCM token is used to identify this device so that FCM can send notifications to it.
      *  It is associated with your APNS token when the APNS token is supplied, so that sending
-     *  messages to the FCM token will be delivered over APNS.
-     *
-     *  The FCM token is sometimes refreshed automatically. In your FIRMessaging delegate, the
-     *  delegate method `messaging:didReceiveRegistrationToken:` will be called once a token is
-     *  available, or has been refreshed. Typically it should be called once per app start, but
-     *  may be called more often, if token is invalidated or updated.
-     *
-     *  Once you have an FCM token, you should send it to your application server, so it can use
-     *  the FCM token to send notifications to your device.
+     *  messages to the FCM token will be delivered over APNS. </p>
+     *  <p>The FCM token is sometimes refreshed automatically.</p>
+     *  <p>Once you have an FCM token, you should send it to your application server, so it can use
+     *  the FCM token to send notifications to your device.</p>
      */
     public function get token():String {
         MessagingANEContext.validate();
@@ -38,25 +33,21 @@ public class MessagingANE extends EventDispatcher {
 
     /**
      *  Asynchronously subscribes to a topic.
-     *
      *  @param toTopic The name of the topic, for example, "sports".
-     *  @param listener Optional
      */
-    public function subscribe(toTopic:String, listener:Function = null):void {
+    public function subscribe(toTopic:String):void {
         MessagingANEContext.validate();
-        var theRet:* = MessagingANEContext.context.call("subscribe", MessagingANEContext.createEventId(listener), toTopic);
+        var theRet:* = MessagingANEContext.context.call("subscribe", toTopic);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
     /**
      *  Asynchronously unsubscribe from a topic.
-     *
      *  @param fromTopic The name of the topic, for example "sports".
-     *  @param listener Optional
      */
-    public function unsubscribe(fromTopic:String, listener:Function = null):void {
+    public function unsubscribe(fromTopic:String):void {
         MessagingANEContext.validate();
-        var theRet:* = MessagingANEContext.context.call("unsubscribe", MessagingANEContext.createEventId(listener), fromTopic);
+        var theRet:* = MessagingANEContext.context.call("unsubscribe", fromTopic);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 

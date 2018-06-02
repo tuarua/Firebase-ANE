@@ -24,7 +24,6 @@ public class CollectionReference extends Query {
     /**
      * Gets a `CollectionReference` referring to the collection at the specified path within the
      * database.
-     *
      * @param path
      */
     public function CollectionReference(path:String) {
@@ -43,7 +42,6 @@ public class CollectionReference extends Query {
 
     /**
      * Returns a DocumentReference pointing to a new document with an auto-generated ID.
-     *
      * @return A DocumentReference pointing to a new document with an auto-generated ID.
      */
     public function document(documentPath:String = null):DocumentReference {

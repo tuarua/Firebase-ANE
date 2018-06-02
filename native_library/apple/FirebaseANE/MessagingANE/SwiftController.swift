@@ -59,8 +59,8 @@ public class SwiftController: NSObject {
     }
     
     func subscribe(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 1,
-            let toTopic = String(argv[1])
+        guard argc > 0,
+            let toTopic = String(argv[0])
             else {
                 return ArgCountError(message: "subscribe").getError(#file, #line, #column)
         }
@@ -69,8 +69,8 @@ public class SwiftController: NSObject {
     }
     
     func unsubscribe(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 1,
-            let fromTopic = String(argv[1])
+        guard argc > 0,
+            let fromTopic = String(argv[0])
             else {
                 return ArgCountError(message: "unsubscribe").getError(#file, #line, #column)
         }

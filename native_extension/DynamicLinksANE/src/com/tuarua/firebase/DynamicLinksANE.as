@@ -39,7 +39,13 @@ public final class DynamicLinksANE {
 
     /** Create a long or short Dynamic Link.
      * @param dynamicLink
-     * @param listener
+     * @param listener Optional Function to be called on completion
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(dynamicLinkResult:DynamicLinkResult, error:DynamicLinkError):void {
+     *
+     * }
+     * </listing>
      * @param copyToClipboard
      * @param shorten
      * @param suffix
@@ -53,7 +59,13 @@ public final class DynamicLinksANE {
     }
 
     /** Determine if the app has a pending dynamic link and provide access to the dynamic link parameters.
-     * @param listener
+     * @param listener Optional Function to be called on completion
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(dynamicLinkResult:DynamicLinkResult, error:DynamicLinkError):void {
+     *
+     * }
+     * </listing>
      */
     public function getDynamicLink(listener:Function):void {
         DynamicLinksANEContext.validate();

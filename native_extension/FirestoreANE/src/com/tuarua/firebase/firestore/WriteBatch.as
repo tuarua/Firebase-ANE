@@ -55,7 +55,7 @@ public class WriteBatch {
      * @param documentReference
      * @param data
      * @param merge
-     * @return This `FIRWriteBatch` instance. Used for chaining method calls.
+     * @return This `WriteBatch` instance. Used for chaining method calls.
      */
     public function set(documentReference:DocumentReference, data:*, merge:Boolean = false):void {
         FirestoreANEContext.validate();
@@ -66,11 +66,16 @@ public class WriteBatch {
     /**
      * Commits all of the writes in this write batch as a single atomic unit.
      *
-     * @param listener This function will only execute
+     * @param listener Optional This function will only execute
      * when the client is online and the commit has completed against the server. The
      * completion handler will not be called when the device is offline, though local
      * changes will be visible immediately.
+     * The function is expected to have the following signature:
+     * <listing version="3.0">
+     * function callback(error:FirestoreError):void {
      *
+     * }
+     * </listing>
      */
     public function commit(listener:Function = null):void {
         FirestoreANEContext.validate();
@@ -80,3 +85,4 @@ public class WriteBatch {
 
 }
 }
+
