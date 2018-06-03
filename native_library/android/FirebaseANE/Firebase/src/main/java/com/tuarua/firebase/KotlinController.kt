@@ -32,7 +32,7 @@ class KotlinController : FreKotlinMainController {
             ).getError(Thread.currentThread().stackTrace)
         }
 
-        FirebaseApp.initializeApp(ac)
+        // FirebaseApp.initializeApp(ac)
         return true.toFREObject()
     }
 

@@ -16,7 +16,7 @@
 
 package com.tuarua.firebase.auth
 
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeUnit
 import com.adobe.fre.FREContext
 import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseNetworkException

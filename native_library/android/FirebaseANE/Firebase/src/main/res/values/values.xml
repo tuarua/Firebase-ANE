@@ -8,5 +8,5 @@
     <string name="project_id" translatable="false">xxx_xxx</string> <!-- firestore specific -->
     <string name="google_storage_bucket" translatable="false">xxx_xxx</string> <!-- storage specific -->
     <string name="google_crash_reporting_api_key" translatable="false">xxx_xxx</string>
-    <!--<string name="ga_trackingId" translatable="false">UA-XXXXXXXX-X</string>-->
+    <string name="ga_trackingId" translatable="false">UA-XXXXXXXX-X</string>
 </resources>
