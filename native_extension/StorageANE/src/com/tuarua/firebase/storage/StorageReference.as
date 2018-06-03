@@ -144,7 +144,7 @@ public class StorageReference {
      * }
      * </listing>
      */
-    public function getDownloadUrl(listener:Function):void {
+    public function downloadUrl(listener:Function):void {
         if (_path == null) return;
         StorageANEContext.validate();
         var theRet:* = StorageANEContext.context.call("getDownloadUrl", _path, StorageANEContext.createEventId(listener));
@@ -188,15 +188,15 @@ public class StorageReference {
 
     /**
      * Asynchronously downloads the object at the current path to a specified system filepath.
-     * @param destinationFile A File representing the path the object should be downloaded to.
+     * @param toFile A File representing the path the object should be downloaded to.
      *
      * @return An DownloadTask that can be used to monitor or manage the download.
      */
-    public function getFile(destinationFile:File):DownloadTask {
+    public function write(toFile:File):DownloadTask {
         var downloadTask:DownloadTask = new DownloadTask(_asId);
         StorageANEContext.validate();
         StorageANEContext.tasks[downloadTask.asId] = downloadTask;
-        var theRet:* = StorageANEContext.context.call("getFile", _path, destinationFile.nativePath, downloadTask.asId);
+        var theRet:* = StorageANEContext.context.call("getFile", _path, toFile.nativePath, downloadTask.asId);
         if (theRet is ANEError) throw theRet as ANEError;
         return downloadTask;
     }
@@ -210,7 +210,7 @@ public class StorageReference {
      * @param maxDownloadSizeBytes The maximum size in bytes to download. If the download exceeds this size
      * the task will be cancelled and an error will be returned.
      */
-    public function getBytes(maxDownloadSizeBytes:Number = -1):DownloadTask {
+    public function getData(maxDownloadSizeBytes:Number = -1):DownloadTask {
         var downloadTask:DownloadTask = new DownloadTask(_asId);
         StorageANEContext.validate();
         StorageANEContext.tasks[downloadTask.asId] = downloadTask;
@@ -244,7 +244,7 @@ public class StorageReference {
      * about the object being uploaded.
      * @return An instance of UploadTask, which can be used to monitor or manage the upload.
      */
-    public function putBytes(byteArray:ByteArray, metadata:StorageMetadata = null):UploadTask {
+    public function putData(byteArray:ByteArray, metadata:StorageMetadata = null):UploadTask {
         if (_path == null || _name == null) return null;
         StorageANEContext.validate();
         var uploadTask:UploadTask = new UploadTask(_asId);

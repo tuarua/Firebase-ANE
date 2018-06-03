@@ -109,7 +109,7 @@ public class StorageExample extends Sprite implements IExample {
     private function onGetUrlClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnGetUrl);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            storageRef.getDownloadUrl(onGetUrl);
+            storageRef.downloadUrl(onGetUrl);
         }
     }
 
@@ -134,7 +134,7 @@ public class StorageExample extends Sprite implements IExample {
     private function onDownloadBytesClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnDownloadBytes);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            var downloadTask:DownloadTask = storageRef.getBytes(); // Progress is not available for getBytes()
+            var downloadTask:DownloadTask = storageRef.getData(); // Progress is not available for getBytes()
             downloadTask.addEventListener(StorageEvent.TASK_COMPLETE, onDownloadBytesSuccess, false, 0, true);
             downloadTask.addEventListener(StorageErrorEvent.ERROR, onDownloadError, false, 0, true)
         }
@@ -143,7 +143,7 @@ public class StorageExample extends Sprite implements IExample {
     private function onDownloadFileClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnDownloadFile);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            var downloadTask:DownloadTask = storageRef.getFile(File.applicationStorageDirectory.resolvePath("downloaded-logo.png"));
+            var downloadTask:DownloadTask = storageRef.write(File.applicationStorageDirectory.resolvePath("downloaded-logo.png"));
             downloadTask.addEventListener(StorageProgressEvent.PROGRESS, onDownloadProgress);
             downloadTask.addEventListener(StorageEvent.TASK_COMPLETE, onDownloadFileSuccess, false, 0, true);
             downloadTask.addEventListener(StorageErrorEvent.ERROR, onDownloadError, false, 0, true)
