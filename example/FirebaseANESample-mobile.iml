@@ -59,9 +59,6 @@
             <entry library-name="com.google.firebase.firebase-auth-16.0.1" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.firebase.firebase-common-16.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="com.google.firebase.firebase-config-16.0.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
@@ -74,10 +71,13 @@
             <entry library-name="com.google.firebase.firebase-messaging-17.0.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.firebase.firebase-perf-16.0.0" library-level="project">
+            <entry library-name="com.google.firebase.firebase-storage-16.0.1" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.firebase.firebase-storage-16.0.1" library-level="project">
+            <entry library-name="com.google.firebase.firebase-perf-15.0.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.guava.guava-20.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -280,5 +280,7 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-messaging-17.0.0" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-perf-16.0.0" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-storage-16.0.1" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-perf-15.0.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.guava.guava-20.0" level="project" />
   </component>
 </module>

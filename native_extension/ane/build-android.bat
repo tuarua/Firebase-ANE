@@ -39,9 +39,9 @@ com.tuarua.firebase.%projectName%-res/. ^
 com.tuarua.firebase.%projectName%-res/. ^
 -platformoptions platforms/android/platform.xml
 
-rem ren %pathtome%FirebaseANE.ane FirebaseANE.zip
-rem call %SZIP% u %pathtome%FirebaseANE.zip -ir!META-INF\*.xml
-rem ren %pathtome%FirebaseANE.zip FirebaseANE.ane
+ren %pathtome%FirebaseANE.ane FirebaseANE.zip
+call %SZIP% u %pathtome%FirebaseANE.zip -ir!META-INF\*.xml
+ren %pathtome%FirebaseANE.zip FirebaseANE.ane
 
 del %pathtome%platforms\\android\\classes.jar
 del %pathtome%platforms\\android\\app-release.aar

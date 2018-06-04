@@ -38,8 +38,6 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
         val app = FirebaseApp.getInstance()
         if (app != null) {
             auth = FirebaseAuth.getInstance(app)
-
-
         } else {
             trace(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
         }

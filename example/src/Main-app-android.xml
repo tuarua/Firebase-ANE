@@ -4,7 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-iOS-Device</name>
-    <versionNumber>0.0.1</versionNumber>
+    <versionNumber>0.0.2</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -58,8 +58,10 @@
                         <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
                     </service>
-
 
                     <provider
                         android:authorities="air.com.tuarua.firebaseane.example.firebaseinitprovider"
@@ -70,37 +72,47 @@
                     <!-- analytics -->
                     <receiver
                         android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-                        android:enabled="true">
+                        android:enabled="true"
+                        android:exported="false" >
+                    </receiver>
+
+                    <receiver
+                        android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+                        android:enabled="true"
+                        android:exported="true"
+                        android:permission="android.permission.INSTALL_PACKAGES" >
                         <intent-filter>
-                            <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+                            <action android:name="com.android.vending.INSTALL_REFERRER" />
                         </intent-filter>
                     </receiver>
 
                     <service
                         android:name="com.google.android.gms.measurement.AppMeasurementService"
                         android:enabled="true"
-                        android:exported="false"/>
+                        android:exported="false" />
+                    <service
+                        android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+                        android:enabled="true"
+                        android:exported="false"
+                        android:permission="android.permission.BIND_JOB_SERVICE" />
 
 
-                    <!-- iid -->
+                   <!-- iid -->
                     <receiver
                         android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
                         android:exported="true"
                         android:permission="com.google.android.c2dm.permission.SEND" >
                         <intent-filter>
                             <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                            <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
                             <category android:name="air.com.tuarua.firebaseane.example" />
                         </intent-filter>
                     </receiver>
-                    <receiver
-                        android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
-                        android:exported="false" />
 
                     <service
                         android:name="com.google.firebase.iid.FirebaseInstanceIdService"
-                        android:exported="true">
-                        <intent-filter android:priority="-500">
+                        android:exported="true" >
+                        <intent-filter android:priority="-500" >
                             <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
                         </intent-filter>
                     </service>
@@ -117,14 +129,7 @@
                         </intent-filter>
 				    </service>
 
-                    <!-- performance -->
-                    <provider
-                        android:name="com.google.firebase.perf.provider.FirebasePerfProvider"
-                        android:authorities="air.com.tuarua.firebaseane.example.firebaseperfprovider"
-                        android:exported="false"
-                        android:initOrder="101" />
-
-                    <!-- invites -->
+                    <!-- dynamic links -->
                     <intent-filter>
                         <action android:name="android.intent.action.VIEW"/>
                         <category android:name="android.intent.category.DEFAULT"/>
@@ -133,12 +138,25 @@
                         <data android:host="tuarua.com" android:scheme="https"/>
                     </intent-filter>
 
+                    <!-- performance -->
+                    <provider
+                        android:name="com.google.firebase.perf.provider.FirebasePerfProvider"
+                        android:authorities="air.com.tuarua.firebaseane.example.firebaseperfprovider"
+                        android:exported="false"
+                        android:initOrder="101" />
+                    <!--
+                    <meta-data android:name="firebase_performance_collection_deactivated" android:value="true" />
+                    <meta-data android:name="firebase_performance_collection_enabled" android:value="false" />
+                    -->
+
                     <activity android:excludeFromRecents="false">
                         <intent-filter>
                             <action android:name="android.intent.action.MAIN"/>
                             <category android:name="android.intent.category.LAUNCHER"/>
                         </intent-filter>
                     </activity>
+
+
 
                 </application>
             </manifest>
@@ -148,30 +166,33 @@
     </android>
 
     <extensions>
+
         <extensionID>com.tuarua.frekotlin</extensionID>
         <extensionID>org.greenrobot.eventbus</extensionID>
         <extensionID>com.google.code.gson.gson</extensionID>
         <extensionID>com.squareup.okhttp.okhttp</extensionID>
+        <extensionID>com.google.guava.guava</extensionID>
         <extensionID>com.android.support.support-v4</extensionID>
-        <extensionID>com.google.android.gms.play-services-base</extensionID>
-        <extensionID>com.google.firebase.firebase-common</extensionID>
-        <extensionID>com.google.firebase.firebase-config</extensionID>
-        <extensionID>com.google.firebase.firebase-auth</extensionID>
-        <extensionID>com.google.firebase.firebase-analytics</extensionID>
-        <extensionID>com.google.firebase.firebase-iid</extensionID>
-        <extensionID>com.google.firebase.firebase-firestore</extensionID>
-        <extensionID>com.google.firebase.firebase-storage</extensionID>
-        <extensionID>com.google.firebase.firebase-perf</extensionID>
-        <extensionID>com.google.firebase.firebase-messaging</extensionID>
-        <extensionID>com.google.firebase.firebase-dynamic-links</extensionID>
+
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
         <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
         <extensionID>com.tuarua.firebase.FirestoreANE</extensionID>
         <extensionID>com.tuarua.firebase.StorageANE</extensionID>
         <extensionID>com.tuarua.firebase.RemoteConfigANE</extensionID>
         <extensionID>com.tuarua.firebase.AuthANE</extensionID>
-        <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
-        <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
         <extensionID>com.tuarua.firebase.DynamicLinksANE</extensionID>
+        <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
+        <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
+
+        <extensionID>com.google.android.gms.play-services-base</extensionID>
+        <extensionID>com.google.firebase.firebase-analytics</extensionID>
+        <extensionID>com.google.firebase.firebase-iid</extensionID>
+        <extensionID>com.google.firebase.firebase-firestore</extensionID>
+        <extensionID>com.google.firebase.firebase-storage</extensionID>
+        <extensionID>com.google.firebase.firebase-config</extensionID>
+        <extensionID>com.google.firebase.firebase-auth</extensionID>
+        <extensionID>com.google.firebase.firebase-dynamic-links</extensionID>
+        <extensionID>com.google.firebase.firebase-messaging</extensionID>
+        <extensionID>com.google.firebase.firebase-perf</extensionID>
     </extensions>
 </application>
