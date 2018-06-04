@@ -58,6 +58,8 @@ public class StarlingRoot extends Sprite {
         NativeApplication.nativeApplication.addEventListener(Event.EXITING, onExiting);
     }
 
+    // Attempt to invoke virtual method 'boolean com.google.firebase.perf.FirebasePerformance.isPerformanceCollectionEnabled()' on a null object reference
+
     public function start():void {
         try {
             FirebaseANE.init();

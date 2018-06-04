@@ -86,6 +86,7 @@ class KotlinController : FreKotlinMainController {
         val counterName = String(argv[1]) ?: return FreConversionException("counterName")
         val by = Long(argv[2]) ?: return FreConversionException("by")
         traces[name]?.incrementCounter(counterName, by)
+        // traces[name]?.incrementMetric(counterName, by)
         return null
     }
 

@@ -142,7 +142,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getInfo(ctx: FREContext, argv: FREArgv): FREObject? {
-       return remoteConfig.getInfo()?.toFREObject()
+       return remoteConfig.info?.toFREObject()
     }
 
     override val TAG: String

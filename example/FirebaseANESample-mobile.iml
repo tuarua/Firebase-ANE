@@ -14,22 +14,10 @@
             <entry library-name="FirebaseANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.android.gms.play-services-base-12.0.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-common-12.0.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="com.android.support.support-v4-27.1.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="AnalyticsANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-analytics-12.0.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-iid-12.0.1" library-level="project">
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="com.google.code.gson.gson-2.8.1" library-level="project">
@@ -41,25 +29,13 @@
             <entry library-name="com.squareup.okhttp.okhttp-2.7.2" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.firebase.firebase-storage-12.0.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="StorageANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="RemoteConfigANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.firebase.firebase-config-12.0.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-auth-12.0.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="AuthANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-perf-12.0.1" library-level="project">
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="PerformanceANE" library-level="project">
@@ -68,16 +44,40 @@
             <entry library-name="org.greenrobot.eventbus-3.0.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.firebase.firebase-messaging-12.0.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="MessagingANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="DynamicLinksANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.firebase.firebase-dynamic-links-12.0.1" library-level="project">
+            <entry library-name="com.google.android.gms.play-services-base-15.0.1" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-analytics-16.0.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-auth-16.0.1" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-config-16.0.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-dynamic-links-16.0.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-iid-16.0.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-messaging-17.0.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-storage-16.0.1" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-perf-15.0.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.guava.guava-20.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -270,5 +270,17 @@
     <orderEntry type="library" exported="" name="InvitesANE" level="project" />
     <orderEntry type="library" exported="" name="DynamicLinksANE" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-dynamic-links-12.0.1" level="project" />
+    <orderEntry type="library" exported="" name="com.google.android.gms.play-services-base-15.0.1" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-analytics-16.0.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-auth-16.0.1" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-common-16.0.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-config-16.0.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-dynamic-links-16.0.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-iid-16.0.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-messaging-17.0.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-perf-16.0.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-storage-16.0.1" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-perf-15.0.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.guava.guava-20.0" level="project" />
   </component>
 </module>

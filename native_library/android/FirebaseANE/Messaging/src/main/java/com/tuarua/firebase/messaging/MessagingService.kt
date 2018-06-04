@@ -1,12 +1,10 @@
 package com.tuarua.firebase.messaging
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.tuarua.firebase.MessagingANE
 import com.tuarua.firebase.messaging.events.MessageEvent
 import org.greenrobot.eventbus.EventBus
-import com.google.gson.Gson
 
-class MessagingService() : FirebaseMessagingService() {
+class MessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
         if (remoteMessage != null) {
             val bodyLocalizationArgs = mutableListOf<String>()

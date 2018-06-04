@@ -16,7 +16,7 @@
 
 package com.tuarua.firebase.auth
 
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeUnit
 import com.adobe.fre.FREContext
 import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseNetworkException
@@ -38,8 +38,6 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
         val app = FirebaseApp.getInstance()
         if (app != null) {
             auth = FirebaseAuth.getInstance(app)
-
-
         } else {
             trace(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
         }

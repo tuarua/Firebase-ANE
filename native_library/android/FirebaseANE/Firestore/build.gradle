@@ -21,6 +21,7 @@ android {
 
     lintOptions {
         disable 'GradleDependency','UnusedResources'
+        abortOnError false
     }
 }
 
@@ -28,7 +29,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "com.google.code.gson:gson:$gson_version"
     implementation "com.google.firebase:firebase-core:$firebase_version"
-    implementation "com.google.firebase:firebase-firestore:$firebase_version"
+    implementation "com.google.firebase:firebase-firestore:17.0.1"
     implementation files('../shared/libs/runtimeClasses.jar')
     implementation files('../shared/libs/FlashRuntimeExtensions.jar')
     implementation files('../shared/libs/frekotlin-1.2.41.jar')
