@@ -85,7 +85,7 @@ class UserController: FreSwiftController {
     
     func link(credential: AuthCredential, eventId: String?) {
         let user = Auth.auth().currentUser
-        user?.link(with: credential, completion: { (_, error) in
+        user?.linkAndRetrieveData(with: credential, completion: { (_, error) in
             if eventId == nil { return }
             if let err = error as NSError? {
                 self.sendEvent(name: AuthEvent.USER_LINKED,

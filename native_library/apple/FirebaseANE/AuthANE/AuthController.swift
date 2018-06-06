@@ -49,7 +49,7 @@ class AuthController: FreSwiftController {
     }
     
     func signIn(credential: AuthCredential, eventId: String?) {
-        auth?.signIn(with: credential, completion: { (_, error) in
+        auth?.signInAndRetrieveData(with: credential, completion: { (_, error) in
             if eventId == nil { return }
             if let err = error as NSError? {
                 self.sendEvent(name: AuthEvent.SIGN_IN,
@@ -135,7 +135,7 @@ class AuthController: FreSwiftController {
     func reauthenticate(email: String, password: String, eventId: String?) {
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         let user = Auth.auth().currentUser
-        user?.reauthenticate(with: credential) {error in
+        user?.reauthenticateAndRetrieveData(with: credential, completion: { (_, error) in
             if eventId == nil { return }
             if let err = error as NSError? {
                 self.sendEvent(name: AuthEvent.USER_REAUTHENTICATED,
@@ -146,7 +146,7 @@ class AuthController: FreSwiftController {
                 self.sendEvent(name: AuthEvent.USER_REAUTHENTICATED,
                                value: AuthEvent(eventId: eventId).toJSONString())
             }
-        }
+        })
     }
     
     func verifyPhoneNumber(phoneNumber: String, eventId: String?) {

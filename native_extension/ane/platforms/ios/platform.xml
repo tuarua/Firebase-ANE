@@ -9,6 +9,7 @@
         <option>-lz</option>
         <option>-w</option>
         <option>-ObjC</option>
+        <option>-lclang_rt.ios</option>
         <option>-rpath @executable_path/Frameworks</option>
         <option>-framework StoreKit</option>
         <option>-framework SystemConfiguration</option>

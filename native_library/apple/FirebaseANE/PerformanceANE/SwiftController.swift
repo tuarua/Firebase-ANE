@@ -67,7 +67,7 @@ public class SwiftController: NSObject {
             else {
                 return ArgCountError(message: "incrementCounter").getError(#file, #line, #column)
         }
-        traces[name]?.incrementCounter(named: counterName, by: by)
+        traces[name]?.incrementMetric(counterName, by: Int64(by))
         return nil
     }
     

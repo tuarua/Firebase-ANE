@@ -106,7 +106,6 @@
 		CEBCF7B02095F9160028601B /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
 		CEBCF7B82095F9820028601B /* AuthANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBCF7B72095F9820028601B /* AuthANE.m */; };
 		CEBCF7BA2095F99B0028601B /* AuthANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBCF7B92095F99B0028601B /* AuthANE_oc.h */; };
-		CEBCF7BC2095F9B40028601B /* AuthANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBCF7BB2095F9B40028601B /* AuthANE-Swift.h */; };
 		CEBCF7BE2095F9C80028601B /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCF7BD2095F9C80028601B /* SwiftController.swift */; };
 		CEBCF7C02095F9D90028601B /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBCF7BF2095F9D90028601B /* SwiftController+FreSwift.swift */; };
 		CEBCF7C22095FA0F0028601B /* AuthANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBCF7C12095FA0F0028601B /* AuthANE-Bridging-Header.h */; };
@@ -143,7 +142,6 @@
 		CEE3AE8920A06F2D00D3AAF6 /* MessagingANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE3AE8820A06F2D00D3AAF6 /* MessagingANE_oc.h */; };
 		CEE3AE8B20A06F5000D3AAF6 /* MessagingANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE3AE8A20A06F5000D3AAF6 /* MessagingANE-Bridging-Header.h */; };
 		CEE3AE8D20A06F6500D3AAF6 /* MessagingANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE3AE8C20A06F6500D3AAF6 /* MessagingANE.m */; };
-		CEE3AE8F20A06FA100D3AAF6 /* MessagingANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE3AE8E20A06FA100D3AAF6 /* MessagingANE-Swift.h */; };
 		CEE3AE9120A06FB100D3AAF6 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3AE9020A06FB100D3AAF6 /* SwiftController.swift */; };
 		CEE3AE9320A06FC400D3AAF6 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3AE9220A06FC400D3AAF6 /* SwiftController+FreSwift.swift */; };
 		CEE3AE9720A073E000D3AAF6 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3AE9620A073E000D3AAF6 /* SwiftController.swift */; };
@@ -206,10 +204,6 @@
 		CE87F4771FB259DB005CF7DF /* FirebaseANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirebaseANE_oc.h; sourceTree = "<group>"; };
 		CE87F4781FB259DB005CF7DF /* FirebaseANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirebaseANE.m; sourceTree = "<group>"; };
 		CE8BC4B920B1C890009164ED /* libDynamicLinksANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDynamicLinksANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE8BC4BB20B1C96A009164ED /* FirebaseInvites.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInvites.framework; path = Carthage/Build/iOS/FirebaseInvites.framework; sourceTree = "<group>"; };
-		CE8BC4BD20B1C979009164ED /* GoogleAPIClientForREST.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAPIClientForREST.framework; path = Carthage/Build/iOS/GoogleAPIClientForREST.framework; sourceTree = "<group>"; };
-		CE8BC4BF20B1C986009164ED /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = Carthage/Build/iOS/GoogleSignIn.framework; sourceTree = "<group>"; };
-		CE8BC4C120B1C990009164ED /* GTMOAuth2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMOAuth2.framework; path = Carthage/Build/iOS/GTMOAuth2.framework; sourceTree = "<group>"; };
 		CE8BC4C320B1C9BE009164ED /* FirebaseDynamicLinks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDynamicLinks.framework; path = Carthage/Build/iOS/FirebaseDynamicLinks.framework; sourceTree = "<group>"; };
 		CE8BC4C720B1CA71009164ED /* DynamicLinksANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicLinksANE_oc.h; sourceTree = "<group>"; };
 		CE8BC4C920B1CABE009164ED /* DynamicLinksANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DynamicLinksANE-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -243,6 +237,7 @@
 		CE9451AB2095348E00FE2BD7 /* RemoteConfigErrorEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteConfigErrorEvent.swift; path = ../../../../ios_LAST/FirebaseANE/RemoteConfigANE_FW/RemoteConfigErrorEvent.swift; sourceTree = "<group>"; };
 		CE9451AD2095355600FE2BD7 /* FreRemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreRemoteConfig.swift; sourceTree = "<group>"; };
 		CE9451AF209536B300FE2BD7 /* FreRemoteConfigSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreRemoteConfigSettings.swift; sourceTree = "<group>"; };
+		CE96FFA620C759640032F5BF /* libclang_rt.ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libclang_rt.ios.a; path = Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/lib/darwin/libclang_rt.ios.a; sourceTree = DEVELOPER_DIR; };
 		CEA9AC1F201E5F4400BFB223 /* FirebaseANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FirebaseANE-Bridging-Header.h"; sourceTree = "<group>"; };
 		CEA9AC20201E5F4500BFB223 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		CEB57299208CF73F00CF6B1B /* libFirestoreANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFirestoreANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,7 +252,6 @@
 		CEBCF7B62095F9160028601B /* libAuthANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAuthANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBCF7B72095F9820028601B /* AuthANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthANE.m; sourceTree = "<group>"; };
 		CEBCF7B92095F99B0028601B /* AuthANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthANE_oc.h; sourceTree = "<group>"; };
-		CEBCF7BB2095F9B40028601B /* AuthANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AuthANE-Swift.h"; sourceTree = "<group>"; };
 		CEBCF7BD2095F9C80028601B /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		CEBCF7BF2095F9D90028601B /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
 		CEBCF7C12095FA0F0028601B /* AuthANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AuthANE-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -286,7 +280,6 @@
 		CEE3AE8820A06F2D00D3AAF6 /* MessagingANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagingANE_oc.h; sourceTree = "<group>"; };
 		CEE3AE8A20A06F5000D3AAF6 /* MessagingANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MessagingANE-Bridging-Header.h"; sourceTree = "<group>"; };
 		CEE3AE8C20A06F6500D3AAF6 /* MessagingANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessagingANE.m; sourceTree = "<group>"; };
-		CEE3AE8E20A06FA100D3AAF6 /* MessagingANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MessagingANE-Swift.h"; sourceTree = "<group>"; };
 		CEE3AE9020A06FB100D3AAF6 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		CEE3AE9220A06FC400D3AAF6 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
 		CEE3AE9620A073E000D3AAF6 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
@@ -450,6 +443,7 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE96FFA620C759640032F5BF /* libclang_rt.ios.a */,
 				CE00E76220BC08D4002B569A /* SwiftyJSON.framework */,
 				CE8BC50F20B2061E009164ED /* WebKit.framework */,
 				CE8BC50B20B20601009164ED /* Security.framework */,
@@ -459,10 +453,6 @@
 				CE8BC50320B205CF009164ED /* CoreText.framework */,
 				CE8BC50120B205BF009164ED /* AssetsLibrary.framework */,
 				CE8BC4C320B1C9BE009164ED /* FirebaseDynamicLinks.framework */,
-				CE8BC4C120B1C990009164ED /* GTMOAuth2.framework */,
-				CE8BC4BF20B1C986009164ED /* GoogleSignIn.framework */,
-				CE8BC4BD20B1C979009164ED /* GoogleAPIClientForREST.framework */,
-				CE8BC4BB20B1C96A009164ED /* FirebaseInvites.framework */,
 				CE83B04220A7536B0095C4F9 /* SystemConfiguration.framework */,
 				CE83B03D20A752EC0095C4F9 /* FirebaseCoreDiagnostics.framework */,
 				CEE3AEAB20A0C89300D3AAF6 /* FirebaseMessaging.framework */,
@@ -687,7 +677,6 @@
 				CEBCF7982095F88D0028601B /* Events */,
 				CEBCF7972095F8850028601B /* Extensions */,
 				CEBCF7B72095F9820028601B /* AuthANE.m */,
-				CEBCF7BB2095F9B40028601B /* AuthANE-Swift.h */,
 				CEBCF7BD2095F9C80028601B /* SwiftController.swift */,
 				CEBCF7BF2095F9D90028601B /* SwiftController+FreSwift.swift */,
 				CEBCF7C32095FC190028601B /* AuthController.swift */,
@@ -770,7 +759,6 @@
 				CEE3AE8520A06EC900D3AAF6 /* Extensions */,
 				CEE3AE8620A06EFB00D3AAF6 /* Events */,
 				CEE3AE8C20A06F6500D3AAF6 /* MessagingANE.m */,
-				CEE3AE8E20A06FA100D3AAF6 /* MessagingANE-Swift.h */,
 				CEE3AE9020A06FB100D3AAF6 /* SwiftController.swift */,
 				CEE3AE9220A06FC400D3AAF6 /* SwiftController+FreSwift.swift */,
 				CE2BDB4620A6222900C89A7C /* SwiftController+Messaging.swift */,
@@ -918,7 +906,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEBCF7C22095FA0F0028601B /* AuthANE-Bridging-Header.h in Headers */,
-				CEBCF7BC2095F9B40028601B /* AuthANE-Swift.h in Headers */,
 				CEBCF7BA2095F99B0028601B /* AuthANE_oc.h in Headers */,
 				CEBCF7B02095F9160028601B /* FreMacros.h in Headers */,
 			);
@@ -948,7 +935,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE3AE8F20A06FA100D3AAF6 /* MessagingANE-Swift.h in Headers */,
 				CEE3AE8920A06F2D00D3AAF6 /* MessagingANE_oc.h in Headers */,
 				CEE3AE7D20A06D2600D3AAF6 /* FreMacros.h in Headers */,
 				CEE3AE8B20A06F5000D3AAF6 /* MessagingANE-Bridging-Header.h in Headers */,
@@ -1339,14 +1325,14 @@
 		};
 		CEDDADE01FBFB84900D6EB5F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/ane/build_multi.sh;
 		};

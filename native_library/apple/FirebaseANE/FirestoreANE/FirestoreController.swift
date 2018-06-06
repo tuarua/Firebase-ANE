@@ -199,37 +199,21 @@ class FirestoreController: FreSwiftController {
         guard let docRef: DocumentReference = firestore?.document(path) else {
             return
         }
-        if merge {
-            docRef.setData(documentData, options: .merge(), completion: { error in
-                if eventId == nil { return }
-                if let err = error as NSError? {
-                    self.sendEvent(name: DocumentEvent.SET,
-                                   value: DocumentEvent(eventId: eventId,
-                                                        data: ["path": path],
-                                                        error: ["text": err.localizedDescription,
-                                                                "id": err.code]).toJSONString())
-                } else {
-                    self.sendEvent(name: DocumentEvent.SET,
-                                   value: DocumentEvent(eventId: eventId,
-                                                        data: ["path": path]).toJSONString())
-                    
-                }
-            })
-        } else {
-            docRef.setData(documentData, completion: { error in
-                if eventId == nil { return }
-                if let err = error as NSError? {
-                    self.sendEvent(name: DocumentEvent.SET,
-                                   value: DocumentEvent(eventId: eventId, data: nil,
-                                                        error: ["text": err.localizedDescription,
-                                                                "id": err.code]).toJSONString())
-                } else {
-                    self.sendEvent(name: DocumentEvent.SET,
-                                   value: DocumentEvent(eventId: eventId, data: nil).toJSONString())
-                    
-                }
-            })
-        }
+        docRef.setData(documentData, merge: merge, completion: { error in
+            if eventId == nil { return }
+            if let err = error as NSError? {
+                self.sendEvent(name: DocumentEvent.SET,
+                               value: DocumentEvent(eventId: eventId,
+                                                    data: ["path": path],
+                                                    error: ["text": err.localizedDescription,
+                                                            "id": err.code]).toJSONString())
+            } else {
+                self.sendEvent(name: DocumentEvent.SET,
+                               value: DocumentEvent(eventId: eventId,
+                                                    data: ["path": path]).toJSONString())
+                
+            }
+        })
     }
     
     func updateDocumentReference(path: String, eventId: String?, documentData: [String: Any]) {
@@ -270,11 +254,7 @@ class FirestoreController: FreSwiftController {
     
     func setBatch(path: String, documentData: [String: Any], merge: Bool) {
         if let docRef: DocumentReference = firestore?.document(path) {
-            if merge {
-                batch?.setData(documentData, forDocument: docRef, options: .merge())
-            } else {
-                batch?.setData(documentData, forDocument: docRef)
-            }
+            batch?.setData(documentData, forDocument: docRef, merge: merge)
         }
     }
     

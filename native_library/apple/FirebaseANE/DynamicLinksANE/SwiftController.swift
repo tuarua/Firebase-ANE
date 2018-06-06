@@ -111,7 +111,7 @@ public class SwiftController: NSObject {
             let userActivity = userActivityDict["UIApplicationLaunchOptionsUserActivityKey"] as? NSUserActivity,
             let webpageURL = userActivity.webpageURL {
     
-            DynamicLinks.dynamicLinks()?.handleUniversalLink(webpageURL, completion: { (link, error) in
+            DynamicLinks.dynamicLinks().handleUniversalLink(webpageURL, completion: { (link, error) in
                 if let err = error {
                     self.trace(err.localizedDescription)
                     return
