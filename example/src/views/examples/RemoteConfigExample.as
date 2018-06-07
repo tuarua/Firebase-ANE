@@ -79,8 +79,6 @@ public class RemoteConfigExample extends Sprite implements IExample {
             message = message.toUpperCase();
         }
         statusLabel.text = message;
-
-
     }
 }
 }

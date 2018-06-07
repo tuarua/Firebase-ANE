@@ -38,12 +38,13 @@ public class PerformanceExample extends Sprite implements IExample {
         addChild(btnStartTrace);
         addChild(btnStopTrace);
         addChild(btnIncrementCounter);
+
     }
 
     private function onIncrementClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnIncrementCounter);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            tracer.incrementCounter("hits");
+            tracer.incrementMetric("hits");
         }
     }
 

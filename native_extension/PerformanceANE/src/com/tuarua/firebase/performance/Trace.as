@@ -38,12 +38,12 @@ public class Trace {
      * counter value will be initialized to 1. Does nothing if the trace has not been started or has
      * already been stopped.
      *
-     * @param counterName The name of the counter to increment.
+     * @param named
      * @param by
      */
-    public function incrementCounter(counterName:String, by:int = 1):void {
+    public function incrementMetric(named:String, by:int = 1):void {
         PerformanceANEContext.validate();
-        var theRet:* = PerformanceANEContext.context.call("incrementCounter", name, counterName, by);
+        var theRet:* = PerformanceANEContext.context.call("incrementCounter", name, named, by);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 }
