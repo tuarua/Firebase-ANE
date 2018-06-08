@@ -22,16 +22,7 @@
        child = /foo/bar     newPath = foo/bar
        child = foo/bar/     newPath = foo/bar
        child = foo///bar    newPath = foo/bar
-     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.storage:StorageReference:getBytes"><apiName>getBytes</apiName><shortdesc>
-     Asynchronously downloads the object at the StorageReference to a ByteArray in memory.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>A DownloadTask that can be used to monitor or manage the download.
-     </apiDesc><apiOperationClassifier>com.tuarua.firebase.storage:DownloadTask</apiOperationClassifier></apiReturn><apiParam><apiItemName>maxDownloadSizeBytes</apiItemName><apiType value="Number"/><apiData>-1</apiData><apiDesc>The maximum size in bytes to download. If the download exceeds this size
-     the task will be cancelled and an error will be returned.
-     </apiDesc></apiParam></apiOperationDef><apiDesc>
-     Asynchronously downloads the object at the StorageReference to a ByteArray in memory.
-     A ByteArray of the provided max size will be allocated, so ensure that the device has enough free
-     memory to complete the download. For downloading large files, getFile may be a better option.
-     
-     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.storage:StorageReference:getDownloadUrl"><apiName>getDownloadUrl</apiName><shortdesc>
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.storage:StorageReference:downloadUrl"><apiName>downloadUrl</apiName><shortdesc>
      Asynchronously retrieves a long lived download URL with a revokable token.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Function to be called on completion.
      The function is expected to have the following signature:
      <codeblock rev="3.0">
@@ -44,12 +35,15 @@
      This can be used to share the file with others, but can be revoked by a developer
      in the Firebase Console if desired.
      
-     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.storage:StorageReference:getFile"><apiName>getFile</apiName><shortdesc>
-     Asynchronously downloads the object at the current path to a specified system filepath.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An DownloadTask that can be used to monitor or manage the download.
-     </apiDesc><apiOperationClassifier>com.tuarua.firebase.storage:DownloadTask</apiOperationClassifier></apiReturn><apiParam><apiItemName>destinationFile</apiItemName><apiType value="flash.filesystem:File"/><apiDesc>A File representing the path the object should be downloaded to.
-     
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.storage:StorageReference:getData"><apiName>getData</apiName><shortdesc>
+     Asynchronously downloads the object at the StorageReference to a ByteArray in memory.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>A DownloadTask that can be used to monitor or manage the download.
+     </apiDesc><apiOperationClassifier>com.tuarua.firebase.storage:DownloadTask</apiOperationClassifier></apiReturn><apiParam><apiItemName>maxDownloadSizeBytes</apiItemName><apiType value="Number"/><apiData>-1</apiData><apiDesc>The maximum size in bytes to download. If the download exceeds this size
+     the task will be cancelled and an error will be returned.
      </apiDesc></apiParam></apiOperationDef><apiDesc>
-     Asynchronously downloads the object at the current path to a specified system filepath.
+     Asynchronously downloads the object at the StorageReference to a ByteArray in memory.
+     A ByteArray of the provided max size will be allocated, so ensure that the device has enough free
+     memory to complete the download. For downloading large files, getFile may be a better option.
+     
      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.storage:StorageReference:getMetadata"><apiName>getMetadata</apiName><shortdesc>
      Retrieves metadata associated with an object at the current path.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Function to be called on completion.
      The function is expected to have the following signature:
@@ -61,7 +55,7 @@
      </apiDesc></apiParam></apiOperationDef><apiDesc>
      Retrieves metadata associated with an object at the current path.
      
-     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.storage:StorageReference:putBytes"><apiName>putBytes</apiName><shortdesc>
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.storage:StorageReference:putData"><apiName>putData</apiName><shortdesc>
      Asynchronously uploads data to the currently specified FIRStorageReference.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An instance of UploadTask, which can be used to monitor or manage the upload.
      </apiDesc><apiOperationClassifier>com.tuarua.firebase.storage:UploadTask</apiOperationClassifier></apiReturn><apiParam><apiItemName>byteArray</apiItemName><apiType value="flash.utils:ByteArray"/><apiDesc>The ByteArray to upload.
      </apiDesc></apiParam><apiParam><apiItemName>metadata</apiItemName><apiOperationClassifier>com.tuarua.firebase.storage:StorageMetadata</apiOperationClassifier><apiData>null</apiData><apiDesc>Optional StorageMetadata containing additional information (MIME type, etc.)
@@ -91,6 +85,12 @@
      </codeblock>
      </apiDesc></apiParam></apiOperationDef><apiDesc>
      Updates the metadata associated with an object at the current path.
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.storage:StorageReference:write"><apiName>write</apiName><shortdesc>
+     Asynchronously downloads the object at the current path to a specified system filepath.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>An DownloadTask that can be used to monitor or manage the download.
+     </apiDesc><apiOperationClassifier>com.tuarua.firebase.storage:DownloadTask</apiOperationClassifier></apiReturn><apiParam><apiItemName>toFile</apiItemName><apiType value="flash.filesystem:File"/><apiDesc>A File representing the path the object should be downloaded to.
+     
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Asynchronously downloads the object at the current path to a specified system filepath.
      </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.tuarua.firebase.storage:StorageReference:bucket:get"><apiName>bucket</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.storage:StorageReference:name:get"><apiName>name</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.storage:StorageReference:parent:get"><apiName>parent</apiName><shortdesc>
      Creates a new StorageReference pointing to the parent of the current reference
      or nil if this instance references the root location.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiValueClassifier>com.tuarua.firebase.storage:StorageReference</apiValueClassifier></apiValueDef><apiDesc>
