@@ -6,7 +6,6 @@ import flash.events.EventDispatcher;
 
 public final class FirebaseANE extends EventDispatcher {
     private static var _firebase:FirebaseANE;
-    private static var _test:Boolean = false;
 
     /** @private */
     public function FirebaseANE() {

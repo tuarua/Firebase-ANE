@@ -69,7 +69,7 @@
 		    <array>
 			    <string>applinks:fq7yh.app.goo.gl</string>
 		    </array>
-          <key>keychain-access-groups</key>
+            <key>keychain-access-groups</key>
             <array>
                 <string>FWEQJ32FGC.*</string>
             </array>

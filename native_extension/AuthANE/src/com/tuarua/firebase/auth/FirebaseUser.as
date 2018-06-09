@@ -67,6 +67,16 @@ public class FirebaseUser {
     }
 
     /**
+     * Deletes the user account (also signs out the user, if this was the current user).
+     * @param listener Optional
+     */
+    public function remove(listener:Function = null):void {
+        AuthANEContext.validate();
+        var theRet:* = AuthANEContext.context.call("remove", AuthANEContext.createEventId(listener));
+        if (theRet is ANEError) throw theRet as ANEError;
+    }
+
+    /**
      * Reloads the user's profile data from the server.
      * @param listener Optional
      */
@@ -75,7 +85,6 @@ public class FirebaseUser {
         var theRet:* = AuthANEContext.context.call("reload", AuthANEContext.createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
-
 
     /**
      * Retrieves the Firebase authentication token, possibly refreshing it if it has expired.
