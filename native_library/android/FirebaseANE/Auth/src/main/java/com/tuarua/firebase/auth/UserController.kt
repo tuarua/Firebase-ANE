@@ -176,16 +176,7 @@ class UserController(override var context: FREContext?) : FreKotlinController {
                     sendEvent(AuthEvent.USER_LINKED,
                             gson.toJson(AuthEvent(eventId)))
                 }
-                else -> {
-                    trace(">>>>>>>>>>>>>>>>>>")
-                    trace("SEND ERROR")
-                    trace(AuthEvent.USER_LINKED)
-                    trace(eventId)
-                    trace(task.exception?.localizedMessage)
-                    trace(task.exception.toString())
-                    trace(">>>>>>>>>>>>>>>>>>")
-                    sendError(AuthEvent.USER_LINKED, eventId, task.exception)
-                }
+                else -> sendError(AuthEvent.USER_LINKED, eventId, task.exception)
             }
         }
     }

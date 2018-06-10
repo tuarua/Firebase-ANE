@@ -139,16 +139,6 @@ public class SwiftController: NSObject {
         return nil
     }
     
-    func deleteUser(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0
-            else {
-                return ArgCountError(message: "deleteUser").getError(#file, #line, #column)
-        }
-        let eventId = String(argv[0])
-        authController?.deleteUser(eventId: eventId)
-        return nil
-    }
-    
     func reauthenticate(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 2,
             let email = String(argv[0]),
@@ -180,6 +170,16 @@ public class SwiftController: NSObject {
         }
         let eventId = String(argv[1])
         userController?.link(credential: credential, eventId: eventId)
+        return nil
+    }
+    
+    func deleteUser(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard argc > 0
+            else {
+                return ArgCountError(message: "remove").getError(#file, #line, #column)
+        }
+        let eventId = String(argv[0])
+        userController?.deleteUser(eventId: eventId)
         return nil
     }
     

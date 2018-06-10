@@ -72,7 +72,7 @@ public class FirebaseUser {
      */
     public function remove(listener:Function = null):void {
         AuthANEContext.validate();
-        var theRet:* = AuthANEContext.context.call("remove", AuthANEContext.createEventId(listener));
+        var theRet:* = AuthANEContext.context.call("deleteUser", AuthANEContext.createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
 

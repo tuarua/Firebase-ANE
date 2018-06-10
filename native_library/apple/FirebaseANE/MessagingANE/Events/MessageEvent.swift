@@ -20,7 +20,6 @@ import SwiftyJSON
 class MessageEvent: NSObject {
     public static let ON_MESSAGE_RECEIVED = "FirebaseMessaging.OnMessageReceived"
     public static let ON_TOKEN_REFRESHED = "FirebaseMessaging.OnTokenRefreshed"
-    public static let ON_DEBUG = "FirebaseMessaging.OnDebug"
     
     var data: [String: Any]?
     var error: [String: Any]?

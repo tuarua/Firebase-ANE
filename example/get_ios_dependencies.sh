@@ -7,9 +7,9 @@ wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/2.4.0/ios_depende
 unzip -u -o ios_dependencies.zip
 rm ios_dependencies.zip
 
-wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/2.4.0/swift_4.1_binaries.zip
-unzip -u -o swift_4.1_binaries.zip
-rm swift_4.1_binaries.zip
+wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/2.4.0/AIRSDK_additions.zip
+unzip -u -o AIRSDK_additions.zip
+rm AIRSDK_additions.zip
 
 wget https://github.com/tuarua/FirebaseANE/releases/download/0.0.1/ios_dependencies.zip
 unzip -u -o ios_dependencies.zip

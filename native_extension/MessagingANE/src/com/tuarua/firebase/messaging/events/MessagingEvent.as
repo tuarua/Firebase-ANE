@@ -6,7 +6,6 @@ import flash.events.Event;
 public class MessagingEvent extends Event {
     public static const ON_MESSAGE_RECEIVED:String = "FirebaseMessaging.OnMessageReceived";
     public static const ON_TOKEN_REFRESHED:String = "FirebaseMessaging.OnTokenRefreshed";
-    public static const ON_DEBUG:String = "FirebaseMessaging.OnDebug";
     public var remoteMessage:RemoteMessage;
     public var token:String;
 

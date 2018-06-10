@@ -116,6 +116,22 @@ class UserController: FreSwiftController {
         
     }
     
+    func deleteUser(eventId: String?) {
+        let user = Auth.auth().currentUser
+        user?.delete(completion: { (error) in
+            if eventId == nil { return }
+            if let err = error as NSError? {
+                self.sendEvent(name: AuthEvent.USER_DELETED,
+                               value: AuthEvent(eventId: eventId, data: nil,
+                                                error: ["text": err.localizedDescription,
+                                                        "id": err.code]).toJSONString())
+            } else {
+                self.sendEvent(name: AuthEvent.USER_DELETED,
+                               value: AuthEvent(eventId: eventId).toJSONString())
+            }
+        })
+    }
+    
     func getCurrentUser() -> User? {
         return auth?.currentUser
     }

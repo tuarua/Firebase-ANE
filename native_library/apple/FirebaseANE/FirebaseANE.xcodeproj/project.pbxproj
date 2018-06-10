@@ -237,7 +237,6 @@
 		CE9451AB2095348E00FE2BD7 /* RemoteConfigErrorEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoteConfigErrorEvent.swift; path = ../../../../ios_LAST/FirebaseANE/RemoteConfigANE_FW/RemoteConfigErrorEvent.swift; sourceTree = "<group>"; };
 		CE9451AD2095355600FE2BD7 /* FreRemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreRemoteConfig.swift; sourceTree = "<group>"; };
 		CE9451AF209536B300FE2BD7 /* FreRemoteConfigSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreRemoteConfigSettings.swift; sourceTree = "<group>"; };
-		CE96FFA620C759640032F5BF /* libclang_rt.ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libclang_rt.ios.a; path = Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/lib/darwin/libclang_rt.ios.a; sourceTree = DEVELOPER_DIR; };
 		CEA9AC1F201E5F4400BFB223 /* FirebaseANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FirebaseANE-Bridging-Header.h"; sourceTree = "<group>"; };
 		CEA9AC20201E5F4500BFB223 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		CEB57299208CF73F00CF6B1B /* libFirestoreANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFirestoreANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -443,7 +442,6 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE96FFA620C759640032F5BF /* libclang_rt.ios.a */,
 				CE00E76220BC08D4002B569A /* SwiftyJSON.framework */,
 				CE8BC50F20B2061E009164ED /* WebKit.framework */,
 				CE8BC50B20B20601009164ED /* Security.framework */,
@@ -1325,14 +1323,14 @@
 		};
 		CEDDADE01FBFB84900D6EB5F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/ane/build_multi.sh;
 		};

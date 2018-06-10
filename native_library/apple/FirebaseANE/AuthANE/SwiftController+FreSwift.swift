@@ -36,6 +36,7 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)reauthenticate"] = reauthenticate
         functionsToSet["\(prefix)unlink"] = unlink
         functionsToSet["\(prefix)link"] = link
+        functionsToSet["\(prefix)deleteUser"] = deleteUser
         functionsToSet["\(prefix)setLanguageCode"] = setLanguageCode
         functionsToSet["\(prefix)getLanguageCode"] = getLanguageCode
         functionsToSet["\(prefix)getCurrentUser"] = getCurrentUser

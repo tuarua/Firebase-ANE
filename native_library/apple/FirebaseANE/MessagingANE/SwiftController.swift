@@ -162,7 +162,6 @@ public class SwiftController: NSObject {
          public var color:String;
          public var icon:String;
          public var link:String;
-         public var sound:String;
          public var tag:String;
          */
         

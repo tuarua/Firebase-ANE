@@ -3,10 +3,6 @@ import com.tuarua.firebase.MessagingANE;
 import com.tuarua.firebase.messaging.RemoteMessage;
 import com.tuarua.firebase.messaging.events.MessagingEvent;
 
-import flash.desktop.NativeApplication;
-
-import flash.events.InvokeEvent;
-
 import starling.display.Sprite;
 import starling.events.Touch;
 import starling.events.TouchEvent;
@@ -23,7 +19,7 @@ public class MessagingExample extends Sprite implements IExample {
     private var btnSubscribe:SimpleButton = new SimpleButton("Subscribe");
     private var messaging:MessagingANE;
     private var statusLabel:TextField;
-    private var debugLabel:TextField;
+
 
     public function MessagingExample(stageWidth:Number) {
         super();
@@ -47,11 +43,6 @@ public class MessagingExample extends Sprite implements IExample {
         statusLabel.y = btnSubscribe.y + (StarlingRoot.GAP * 1.25);
         addChild(statusLabel);
 
-        debugLabel = new TextField(stageWidth, 1400, "---------");
-        debugLabel.format.setTo(Fonts.NAME, 13, 0x008000, Align.LEFT, Align.TOP);
-        debugLabel.touchable = false;
-        debugLabel.y = statusLabel.y + 200;
-        addChild(debugLabel);
     }
 
 
@@ -78,7 +69,6 @@ public class MessagingExample extends Sprite implements IExample {
         messaging = MessagingANE.messaging;
         messaging.addEventListener(MessagingEvent.ON_TOKEN_REFRESHED, onTokenRefreshed);
         messaging.addEventListener(MessagingEvent.ON_MESSAGE_RECEIVED, onMessageReceived);
-        messaging.addEventListener(MessagingEvent.ON_DEBUG, OnDebug);
         isInited = true;
     }
 
@@ -102,8 +92,5 @@ public class MessagingExample extends Sprite implements IExample {
         statusLabel.text = "FCM Refreshed Token: " + event.token;
     }
 
-    private function OnDebug(event:MessagingEvent):void {
-        debugLabel.text = debugLabel.text + "FCM Debug: " + event.token + "\n";
-    }
 }
 }
