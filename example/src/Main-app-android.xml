@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/30.0">
+
+    <id>com.tuarua.firebaseane.example</id>
+    <filename>FireBaseExample</filename>
+    <name>FIR-Example-iOS-Device</name>
+    <versionNumber>0.0.2</versionNumber>
+
+
+    <!-- Settings for the application's initial window. Required. -->
+    <initialWindow>
+        <content>[This value will be overwritten by Flash Builder in the output app.xml]</content>
+        <aspectRatio>portrait</aspectRatio>
+        <autoOrients>false</autoOrients>
+        <fullScreen>true</fullScreen>
+        <renderMode>direct</renderMode>
+        <depthAndStencil>true</depthAndStencil>
+        <visible>true</visible>
+    </initialWindow>
+
+
+    <!-- The icon the system uses for the application. For at least one resolution,
+    specify the path to a PNG file included in the AIR package. Optional. -->
+    <icon>
+        <image76x76>AppIcon76x76~ipad.png</image76x76>
+        <image120x120>AppIcon60x60@2x.png</image120x120>
+        <image152x152>AppIcon76x76@2x~ipad.png</image152x152>
+        <image167x167>AppIcon83.5x83.5@2x~ipad.png</image167x167>
+        <image180x180>AppIcon60x60@3x.png</image180x180>
+    </icon>
+
+    <!-- Specify Android specific tags that get passed to AndroidManifest.xml file. -->
+    <android>
+        <manifestAdditions>
+            <![CDATA[
+            <manifest android:installLocation="auto">
+            <uses-sdk android:minSdkVersion="19" />
+                <uses-permission android:name="android.permission.INTERNET"/>
+                <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+                <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+                <uses-permission android:name="android.permission.WAKE_LOCK"/>
+                <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+                <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+                <uses-permission android:name="com.google.android.providers.gsf.permission.WRITE_GSERVICES" />
+                <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+                <permission android:name="air.com.tuarua.firebaseane.example.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+                <uses-permission android:name="air.com.tuarua.firebaseane.example.permission.C2D_MESSAGE" />
+
+                <application android:enabled="true">
+                    <meta-data
+                        android:name="com.google.android.gms.version"
+                        android:value="@integer/google_play_services_version" />
+
+                    <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                    </service>
+
+                    <provider
+                        android:authorities="air.com.tuarua.firebaseane.example.firebaseinitprovider"
+                        android:name="com.google.firebase.provider.FirebaseInitProvider"
+                        android:exported="false"
+                        android:initOrder="100" />
+
+                    <!-- analytics -->
+                    <receiver
+                        android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+                        android:enabled="true"
+                        android:exported="false" >
+                    </receiver>
+
+                    <receiver
+                        android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+                        android:enabled="true"
+                        android:exported="true"
+                        android:permission="android.permission.INSTALL_PACKAGES" >
+                        <intent-filter>
+                            <action android:name="com.android.vending.INSTALL_REFERRER" />
+                        </intent-filter>
+                    </receiver>
+
+                    <service
+                        android:name="com.google.android.gms.measurement.AppMeasurementService"
+                        android:enabled="true"
+                        android:exported="false" />
+                    <service
+                        android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+                        android:enabled="true"
+                        android:exported="false"
+                        android:permission="android.permission.BIND_JOB_SERVICE" />
+
+
+                   <!-- iid -->
+                    <receiver
+                        android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+                        android:exported="true"
+                        android:permission="com.google.android.c2dm.permission.SEND" >
+                        <intent-filter>
+                            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                            <category android:name="air.com.tuarua.firebaseane.example" />
+                        </intent-filter>
+                    </receiver>
+
+                    <service
+                        android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+                        android:exported="true" >
+                        <intent-filter android:priority="-500" >
+                            <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+                        </intent-filter>
+                    </service>
+
+                    <!-- messaging -->
+                    <service android:name="com.tuarua.firebase.messaging.MessagingService">
+                        <intent-filter>
+                            <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                        </intent-filter>
+				    </service>
+				    <service android:name="com.tuarua.firebase.messaging.InstanceIDService">
+                        <intent-filter>
+                            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                        </intent-filter>
+				    </service>
+
+                    <!-- dynamic links -->
+                    <intent-filter>
+                        <action android:name="android.intent.action.VIEW"/>
+                        <category android:name="android.intent.category.DEFAULT"/>
+                        <category android:name="android.intent.category.BROWSABLE"/>
+                        <data android:host="tuarua.com" android:scheme="http"/>
+                        <data android:host="tuarua.com" android:scheme="https"/>
+                    </intent-filter>
+
+                    <!-- performance -->
+                    <provider
+                        android:name="com.google.firebase.perf.provider.FirebasePerfProvider"
+                        android:authorities="air.com.tuarua.firebaseane.example.firebaseperfprovider"
+                        android:exported="false"
+                        android:initOrder="101" />
+                    <!--
+                    <meta-data android:name="firebase_performance_collection_deactivated" android:value="true" />
+                    <meta-data android:name="firebase_performance_collection_enabled" android:value="false" />
+                    -->
+
+                    <activity android:excludeFromRecents="false">
+                        <intent-filter>
+                            <action android:name="android.intent.action.MAIN"/>
+                            <category android:name="android.intent.category.LAUNCHER"/>
+                        </intent-filter>
+                    </activity>
+
+
+
+                </application>
+            </manifest>
+            ]]>
+        </manifestAdditions>
+
+    </android>
+
+    <extensions>
+
+        <extensionID>com.tuarua.frekotlin</extensionID>
+        <extensionID>org.greenrobot.eventbus</extensionID>
+        <extensionID>com.google.code.gson.gson</extensionID>
+        <extensionID>com.squareup.okhttp.okhttp</extensionID>
+        <extensionID>com.google.guava.guava</extensionID>
+        <extensionID>com.android.support.support-v4</extensionID>
+
+        <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
+        <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
+        <extensionID>com.tuarua.firebase.FirestoreANE</extensionID>
+        <extensionID>com.tuarua.firebase.StorageANE</extensionID>
+        <extensionID>com.tuarua.firebase.RemoteConfigANE</extensionID>
+        <extensionID>com.tuarua.firebase.AuthANE</extensionID>
+        <extensionID>com.tuarua.firebase.DynamicLinksANE</extensionID>
+        <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
+        <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
+
+        <extensionID>com.google.android.gms.play-services-base</extensionID>
+        <extensionID>com.google.firebase.firebase-analytics</extensionID>
+        <extensionID>com.google.firebase.firebase-iid</extensionID>
+        <extensionID>com.google.firebase.firebase-firestore</extensionID>
+        <extensionID>com.google.firebase.firebase-storage</extensionID>
+        <extensionID>com.google.firebase.firebase-config</extensionID>
+        <extensionID>com.google.firebase.firebase-auth</extensionID>
+        <extensionID>com.google.firebase.firebase-dynamic-links</extensionID>
+        <extensionID>com.google.firebase.firebase-messaging</extensionID>
+        <extensionID>com.google.firebase.firebase-perf</extensionID>
+    </extensions>
+</application>

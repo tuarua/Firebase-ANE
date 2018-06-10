@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.tuarua.firebase"><apiName>com.tuarua.firebase</apiName><apiDetail/><apiClassifier id="com.tuarua.firebase:AnalyticsANE"><apiName>AnalyticsANE</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:EventDispatcher</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiOperation id="com.tuarua.firebase:AnalyticsANE:dispose"><apiName>dispose</apiName><shortdesc> Disposes the ANE </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc> Disposes the ANE </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase:AnalyticsANE:logEvent"><apiName>logEvent</apiName><shortdesc>
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc><p>The name of the event. Should contain 1 to 40 alphanumeric characters or
+     underscores. The name must start with an alphabetic character. Some event names are
+     reserved.</p>
+     </apiDesc></apiParam><apiParam><apiItemName>params</apiItemName><apiType value="Object"/><apiDesc><p>The Object of event parameters. Passing null indicates that the event has
+     no parameters. Parameter names can be up to 40 characters long and must start with an
+     alphabetic character and contain only alphanumeric characters and underscores. Only String
+     and Number parameter types are
+     supported.</p>
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase:AnalyticsANE:resetAnalyticsData"><apiName>resetAnalyticsData</apiName><shortdesc> Clears all analytics data for this app from the device and resets the app instance id.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc> Clears all analytics data for this app from the device and resets the app instance id.
+     Android only.</apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase:AnalyticsANE:setUserProperty"><apiName>setUserProperty</apiName><shortdesc>
+     </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc><p>The name of the user property to set. Should contain 1 to 24 alphanumeric characters
+     or underscores and must start with an alphabetic character. The "firebase_", "google_", and
+     "ga_" prefixes are reserved and should not be used for user property names.</p>
+     </apiDesc></apiParam><apiParam><apiItemName>value</apiItemName><apiType value="String"/><apiDesc><p>The value of the user property. Values can be up to 36 characters long. Setting the
+     value to null removes the user property.</p>
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.tuarua.firebase:AnalyticsANE:analytics:get"><apiName>analytics</apiName><shortdesc> The ANE instance.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiStatic/><apiValueAccess value="read"/><apiValueClassifier>com.tuarua.firebase:AnalyticsANE</apiValueClassifier></apiValueDef><apiDesc> The ANE instance. </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase:AnalyticsANE:appInstanceId:get"><apiName>appInstanceId</apiName><shortdesc> The unique ID for this instance of the application.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc> The unique ID for this instance of the application. </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase:AnalyticsANE:analyticsCollectionEnabled:set"><apiName>analyticsCollectionEnabled</apiName><shortdesc>
+     Sets whether analytics collection is enabled for this app on this device.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="write"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+     Sets whether analytics collection is enabled for this app on this device. This setting is
+     persisted across app sessions. By default it is enabled.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase:AnalyticsANE:currentScreen:set"><apiName>currentScreen</apiName><shortdesc>
+     The name of the current screen.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="write"/><apiType value="String"/></apiValueDef><apiDesc>
+     The name of the current screen. Should contain 1 to 100 characters.
+     Set to null to clear the current screen name.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase:AnalyticsANE:minimumSessionDuration:set"><apiName>minimumSessionDuration</apiName><shortdesc>
+     Sets the minimum engagement time in seconds required to start a new session.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="write"/><apiType value="Number"/></apiValueDef><apiDesc>
+     Sets the minimum engagement time in seconds required to start a new session. The default value
+     is 10000 milliseconds.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase:AnalyticsANE:sessionTimeoutDuration:set"><apiName>sessionTimeoutDuration</apiName><shortdesc>
+     Sets the interval of inactivity in seconds that terminates the current session.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="write"/><apiType value="Number"/></apiValueDef><apiDesc>
+     Sets the interval of inactivity in seconds that terminates the current session. The default
+     value is 1800000 milliseconds (30 minutes).
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase:AnalyticsANE:userId:set"><apiName>userId</apiName><shortdesc>
+     The user ID to ascribe to the user of this app on this device, which must be
+     non-empty and no more than 256 characters long.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="write"/><apiType value="String"/></apiValueDef><apiDesc>
+     The user ID to ascribe to the user of this app on this device, which must be
+     non-empty and no more than 256 characters long. Setting userID to null removes the user ID.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="PerformanceANE" type="flex">
+    <CLASSES>
+      <root url="jar://$DOCUMENTS$/Firebase-ANE/native_extension/PerformanceANE/ane/PerformanceANE.ane!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="https://tuarua.github.io/asdocs/firebaseane/performance/index.html" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

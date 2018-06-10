@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="MessagingANE" type="flex">
+    <CLASSES>
+      <root url="jar://$DOCUMENTS$/Firebase-ANE/native_extension/MessagingANE/ane/MessagingANE.ane!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="https://tuarua.github.io/asdocs/firebaseane/messaging/index.html" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

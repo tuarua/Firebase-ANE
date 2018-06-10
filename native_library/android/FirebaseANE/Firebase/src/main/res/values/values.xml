@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="google_app_id" translatable="false">xxx_xxx</string>
+    <string name="gcm_defaultSenderId" translatable="false">xxx_xxx</string>
+    <string name="default_web_client_id" translatable="false">xxx_xxx</string>
+    <string name="firebase_database_url" translatable="false">xxx_xxx</string>
+    <string name="google_api_key" translatable="false">xxx_xxx</string>
+    <string name="project_id" translatable="false">xxx_xxx</string> <!-- firestore specific -->
+    <string name="google_storage_bucket" translatable="false">xxx_xxx</string> <!-- storage specific -->
+    <string name="google_crash_reporting_api_key" translatable="false">xxx_xxx</string>
+    <string name="ga_trackingId" translatable="false">UA-XXXXXXXX-X</string>
+</resources>

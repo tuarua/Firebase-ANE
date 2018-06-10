@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="org.greenrobot.eventbus-3.0.0" type="flex">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android_dependencies/org.greenrobot.eventbus-3.0.0.ane!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

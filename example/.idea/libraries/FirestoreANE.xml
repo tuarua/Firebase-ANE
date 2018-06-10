@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="FirestoreANE" type="flex">
+    <CLASSES>
+      <root url="jar://$DOCUMENTS$/Firebase-ANE/native_extension/FirestoreANE/ane/FirestoreANE.ane!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="https://tuarua.github.io/asdocs/firebaseane/firestore/index.html" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/30.0">
+
+    <id>com.tuarua.firebaseane.example</id>
+    <filename>FireBaseExample</filename>
+    <name>FIR-Example-iOS-Device</name>
+    <versionNumber>0.0.5</versionNumber>
+
+
+    <!-- Settings for the application's initial window. Required. -->
+    <initialWindow>
+        <content>[This value will be overwritten by Flash Builder in the output app.xml]</content>
+        <aspectRatio>portrait</aspectRatio>
+        <autoOrients>false</autoOrients>
+        <fullScreen>true</fullScreen>
+        <renderMode>direct</renderMode>
+        <depthAndStencil>true</depthAndStencil>
+        <visible>true</visible>
+    </initialWindow>
+
+
+
+    <!-- The icon the system uses for the application. For at least one resolution,
+    specify the path to a PNG file included in the AIR package. Optional. -->
+    <icon>
+        <image76x76>AppIcon76x76~ipad.png</image76x76>
+        <image120x120>AppIcon60x60@2x.png</image120x120>
+        <image152x152>AppIcon76x76@2x~ipad.png</image152x152>
+        <image167x167>AppIcon83.5x83.5@2x~ipad.png</image167x167>
+        <image180x180>AppIcon60x60@3x.png</image180x180>
+    </icon>
+
+    <!-- iOS specific capabilities -->
+    <iPhone>
+        <!-- A list of plist key/value pairs to be added to the application Info.plist -->
+        <InfoAdditions>
+            <![CDATA[
+            <key>CFBundleURLTypes</key>
+            <array>
+                <dict>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>tuarua</string>
+                    </array>
+                </dict>
+            </array>
+            <key>UIDeviceFamily</key>
+            <array>
+                <!-- iPhone and iPod touch devices -->
+                <string>1</string>
+                <!-- iPad devices -->
+                <string>2</string>
+            </array>
+            <key>MinimumOSVersion</key>
+            <string>9.0</string>
+		    <key>FirebaseAutomaticScreenReportingEnabled</key>
+		    <false/>
+		    <!-- <key>FirebaseAppDelegateProxyEnabled</key><false/> -->
+		    <key>UIBackgroundModes</key>
+		    <array>
+			    <string>remote-notification</string>
+		    </array>
+            ]]>
+        </InfoAdditions>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+        <Entitlements>
+            <![CDATA[
+            <key>com.apple.developer.associated-domains</key>
+		    <array>
+			    <string>applinks:fq7yh.app.goo.gl</string>
+		    </array>
+            <key>keychain-access-groups</key>
+            <array>
+                <string>FWEQJ32FGC.*</string>
+            </array>
+            <key>get-task-allow</key>
+            <true/>
+            <key>application-identifier</key>
+            <string>FWEQJ32FGC.com.tuarua.firebaseane.example</string>
+            <key>com.apple.developer.team-identifier</key>
+            <string>FWEQJ32FGC</string>
+            <key>aps-environment</key>
+            <string>development</string>
+            ]]>
+        </Entitlements>
+
+    </iPhone>
+    <extensions>
+        <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
+        <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
+        <extensionID>com.tuarua.firebase.FirestoreANE</extensionID>
+        <extensionID>com.tuarua.firebase.StorageANE</extensionID>
+        <extensionID>com.tuarua.firebase.RemoteConfigANE</extensionID>
+        <extensionID>com.tuarua.firebase.AuthANE</extensionID>
+        <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
+        <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
+        <extensionID>com.tuarua.firebase.DynamicLinksANE</extensionID>
+    </extensions>
+</application>

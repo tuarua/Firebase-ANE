@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AnalyticsANE/AnalyticsANE.iml" filepath="$PROJECT_DIR$/AnalyticsANE/AnalyticsANE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AuthANE/AuthANE.iml" filepath="$PROJECT_DIR$/AuthANE/AuthANE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DynamicLinksANE/DynamicLinksANE.iml" filepath="$PROJECT_DIR$/DynamicLinksANE/DynamicLinksANE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FirebaseANE.iml" filepath="$PROJECT_DIR$/FirebaseANE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FirestoreANE/FirestoreANE.iml" filepath="$PROJECT_DIR$/FirestoreANE/FirestoreANE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MessagingANE/MessagingANE.iml" filepath="$PROJECT_DIR$/MessagingANE/MessagingANE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PerformanceANE/PerformanceANE.iml" filepath="$PROJECT_DIR$/PerformanceANE/PerformanceANE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RemoteConfigANE/RemoteConfigANE.iml" filepath="$PROJECT_DIR$/RemoteConfigANE/RemoteConfigANE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StorageANE/StorageANE.iml" filepath="$PROJECT_DIR$/StorageANE/StorageANE.iml" />
+    </modules>
+  </component>
+</project>

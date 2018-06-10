@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Analytics" />
+            <option value="$PROJECT_DIR$/Auth" />
+            <option value="$PROJECT_DIR$/DynamicLinks" />
+            <option value="$PROJECT_DIR$/Firebase" />
+            <option value="$PROJECT_DIR$/Firestore" />
+            <option value="$PROJECT_DIR$/Messaging" />
+            <option value="$PROJECT_DIR$/Performance" />
+            <option value="$PROJECT_DIR$/RemoteConfig" />
+            <option value="$PROJECT_DIR$/Storage" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,18 @@
+disabled_rules: # rule identifiers to exclude from running
+- trailing_whitespace
+- identifier_name
+- function_body_length
+- cyclomatic_complexity
+- todo
+- file_length
+- unused_optional_binding
+- notification_center_detachment
+- block_based_kvo
+- function_parameter_count
+
+type_body_length:
+ - 1000 # warning
+
+excluded:
+  - SwiftyJSON/
+  - Carthage/

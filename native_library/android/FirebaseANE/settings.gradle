@@ -1,0 +1,1 @@
+include ':Firebase', ':Firestore', ':Auth', ':RemoteConfig', ':Storage', ':Analytics', ':Performance', ':Messaging', ':DynamicLinks'

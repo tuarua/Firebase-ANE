@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<platform xmlns="http://ns.adobe.com/air/extension/19.0">
+    <sdkVersion>11.3</sdkVersion>
+    <linkerOptions>
+        <option>-ios_version_min 9.0</option>
+        <option>-lstdc++</option>
+        <option>-w</option>
+        <option>-ObjC</option>
+        <option>-rpath @executable_path/Frameworks</option>
+    </linkerOptions>
+    
+    <packagedDependencies>
+        <packagedDependency>Frameworks/SwiftyJSON.framework</packagedDependency>
+        <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseAuth.framework</packagedDependency>
+        <packagedDependency>Frameworks/GTMSessionFetcher.framework</packagedDependency>
+    </packagedDependencies>
+    
+</platform>
