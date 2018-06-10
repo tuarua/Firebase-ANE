@@ -1,4 +1,4 @@
-# Firebase-ANE
+![Adobe AIR + Firebase](firebaseane.png)
 
 Firebase Adobe Air Native Extension for iOS 9.0+ and Android 19+. This project aims to provide an Open Source alternative to the commercially available FirebaseANEs
 
@@ -15,7 +15,7 @@ Firebase Adobe Air Native Extension for iOS 9.0+ and Android 19+. This project a
 
 ## WIKI
 
-**!! Important !!** The [wiki page](https://github.com/tuarua/Firebase-ANE/wiki) contains extensive information 
+The [wiki page](https://github.com/tuarua/Firebase-ANE/wiki) contains extensive information 
 on set-up and each of the FirebaseANEs.
 
 ## Asdocs
@@ -42,7 +42,7 @@ on set-up and each of the FirebaseANEs.
 Pull requests and contributions are welcome! This might entail: 
 - Fixing issues
 - Adding any missing APIs
-- Adding example projects for other IDEs such as Flash Builder, Visual Studio
+- Adding example projects for other IDEs such as Flash Builder, Animate, Visual Studio
 
 ### Task List
 - [x] Firebase Core
