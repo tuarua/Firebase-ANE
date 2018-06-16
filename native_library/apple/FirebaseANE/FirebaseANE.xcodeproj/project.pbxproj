@@ -19,7 +19,6 @@
 		CE05604E1FB25E8E00D06976 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
 		CE265751208E5BC100C561E8 /* gRPC-ProtoRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE265749208E5BBF00C561E8 /* gRPC-ProtoRPC.framework */; };
 		CE265752208E5BC100C561E8 /* gRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574A208E5BC000C561E8 /* gRPC.framework */; };
-		CE265753208E5BC100C561E8 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574B208E5BC000C561E8 /* FirebaseFirestore.framework */; };
 		CE265754208E5BC100C561E8 /* BoringSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574C208E5BC000C561E8 /* BoringSSL.framework */; };
 		CE265755208E5BC100C561E8 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; };
 		CE265756208E5BC100C561E8 /* gRPC-RxLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574E208E5BC000C561E8 /* gRPC-RxLibrary.framework */; };
@@ -33,6 +32,26 @@
 		CE2BDB4720A6222900C89A7C /* SwiftController+Messaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDB4620A6222900C89A7C /* SwiftController+Messaging.swift */; };
 		CE2BDB4920A6243800C89A7C /* MessageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDB4820A6243800C89A7C /* MessageEvent.swift */; };
 		CE62952B20A8DD2600EEF76E /* FreAuthCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62952A20A8DD2600EEF76E /* FreAuthCredential.swift */; };
+		CE62B35920D0618E002837B7 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
+		CE62B35D20D0618E002837B7 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
+		CE62B36920D062E7002837B7 /* GoogleSignInANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE62B36820D062E7002837B7 /* GoogleSignInANE_oc.h */; };
+		CE62B36B20D06361002837B7 /* GoogleSignInANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE62B36A20D06361002837B7 /* GoogleSignInANE.m */; };
+		CE62B36D20D063CD002837B7 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62B36C20D063CD002837B7 /* SwiftController.swift */; };
+		CE62B36F20D063EA002837B7 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62B36E20D063EA002837B7 /* SwiftController+FreSwift.swift */; };
+		CE62B37120D0646A002837B7 /* GoogleSignInANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CE62B37020D0646A002837B7 /* GoogleSignInANE-Bridging-Header.h */; };
+		CE62B37420D06A9A002837B7 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37220D06A86002837B7 /* GoogleSignIn.framework */; };
+		CE62B37620D06AAD002837B7 /* GoogleAPIClientForREST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */; };
+		CE62B37720D06AD9002837B7 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB572BC208D21C300CF6B1B /* GoogleToolboxForMac.framework */; };
+		CE62B37920D06AF9002837B7 /* GTMOAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37820D06AF9002837B7 /* GTMOAuth2.framework */; };
+		CE62B37A20D06B1E002837B7 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED7492220929C1F000327CD /* GTMSessionFetcher.framework */; };
+		CE62B37B20D06CF4002837B7 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
+		CE62B37C20D06D0A002837B7 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
+		CE62B37E20D06D5D002837B7 /* SwiftController+GIDSignInDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62B37D20D06D5D002837B7 /* SwiftController+GIDSignInDelegate.swift */; };
+		CE62B37F20D06F1D002837B7 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8BC50920B205F9009164ED /* SafariServices.framework */; };
+		CE62B38020D06F23002837B7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED748E32092558C000327CD /* StoreKit.framework */; };
+		CE62B38120D06F2A002837B7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE83B04220A7536B0095C4F9 /* SystemConfiguration.framework */; };
+		CE62B38320D086DE002837B7 /* SwiftController+GIDSignInUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62B38220D086DE002837B7 /* SwiftController+GIDSignInUIDelegate.swift */; };
+		CE62B38520D09223002837B7 /* GoogleSignInEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62B38420D09223002837B7 /* GoogleSignInEvent.swift */; };
 		CE69C8DB208FEE1E004A1A5A /* BatchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C8D9208FEE1A004A1A5A /* BatchEvent.swift */; };
 		CE69C8DE208FF9E9004A1A5A /* NetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C8DC208FF963004A1A5A /* NetworkEvent.swift */; };
 		CE743201208D48E000E388D3 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE743200208D48E000E388D3 /* FirebaseFirestore.framework */; };
@@ -176,7 +195,6 @@
 		CE05604D1FB25E8E00D06976 /* FreMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreMacros.h; sourceTree = "<group>"; };
 		CE265749208E5BBF00C561E8 /* gRPC-ProtoRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "gRPC-ProtoRPC.framework"; path = "Carthage/Build/iOS/gRPC-ProtoRPC.framework"; sourceTree = "<group>"; };
 		CE26574A208E5BC000C561E8 /* gRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gRPC.framework; path = Carthage/Build/iOS/gRPC.framework; sourceTree = "<group>"; };
-		CE26574B208E5BC000C561E8 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseFirestore.framework; path = Carthage/Build/iOS/FirebaseFirestore.framework; sourceTree = "<group>"; };
 		CE26574C208E5BC000C561E8 /* BoringSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BoringSSL.framework; path = Carthage/Build/iOS/BoringSSL.framework; sourceTree = "<group>"; };
 		CE26574D208E5BC000C561E8 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Protobuf.framework; path = Carthage/Build/iOS/Protobuf.framework; sourceTree = "<group>"; };
 		CE26574E208E5BC000C561E8 /* gRPC-RxLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "gRPC-RxLibrary.framework"; path = "Carthage/Build/iOS/gRPC-RxLibrary.framework"; sourceTree = "<group>"; };
@@ -191,6 +209,18 @@
 		CE2BDB4820A6243800C89A7C /* MessageEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEvent.swift; sourceTree = "<group>"; };
 		CE2BDB4A20A6270C00C89A7C /* SwiftController+UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+UNUserNotificationCenter.swift"; sourceTree = "<group>"; };
 		CE62952A20A8DD2600EEF76E /* FreAuthCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreAuthCredential.swift; sourceTree = "<group>"; };
+		CE62B36320D0618E002837B7 /* libGoogleSignInANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGoogleSignInANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE62B36820D062E7002837B7 /* GoogleSignInANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleSignInANE_oc.h; sourceTree = "<group>"; };
+		CE62B36A20D06361002837B7 /* GoogleSignInANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoogleSignInANE.m; sourceTree = "<group>"; };
+		CE62B36C20D063CD002837B7 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
+		CE62B36E20D063EA002837B7 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		CE62B37020D0646A002837B7 /* GoogleSignInANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoogleSignInANE-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE62B37220D06A86002837B7 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = Carthage/Build/iOS/GoogleSignIn.framework; sourceTree = "<group>"; };
+		CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAPIClientForREST.framework; path = Carthage/Build/iOS/GoogleAPIClientForREST.framework; sourceTree = "<group>"; };
+		CE62B37820D06AF9002837B7 /* GTMOAuth2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMOAuth2.framework; path = Carthage/Build/iOS/GTMOAuth2.framework; sourceTree = "<group>"; };
+		CE62B37D20D06D5D002837B7 /* SwiftController+GIDSignInDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+GIDSignInDelegate.swift"; sourceTree = "<group>"; };
+		CE62B38220D086DE002837B7 /* SwiftController+GIDSignInUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+GIDSignInUIDelegate.swift"; sourceTree = "<group>"; };
+		CE62B38420D09223002837B7 /* GoogleSignInEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInEvent.swift; sourceTree = "<group>"; };
 		CE69C8D9208FEE1A004A1A5A /* BatchEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchEvent.swift; sourceTree = "<group>"; };
 		CE69C8DC208FF963004A1A5A /* NetworkEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEvent.swift; sourceTree = "<group>"; };
 		CE743200208D48E000E388D3 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseFirestore.framework; path = Carthage/Build/iOS/FirebaseFirestore.framework; sourceTree = "<group>"; };
@@ -304,6 +334,24 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CE62B34F20D0618E002837B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE62B38120D06F2A002837B7 /* SystemConfiguration.framework in Frameworks */,
+				CE62B38020D06F23002837B7 /* StoreKit.framework in Frameworks */,
+				CE62B37F20D06F1D002837B7 /* SafariServices.framework in Frameworks */,
+				CE62B37C20D06D0A002837B7 /* SwiftyJSON.framework in Frameworks */,
+				CE62B35920D0618E002837B7 /* FreSwift.framework in Frameworks */,
+				CE62B37B20D06CF4002837B7 /* FirebaseCore.framework in Frameworks */,
+				CE62B37A20D06B1E002837B7 /* GTMSessionFetcher.framework in Frameworks */,
+				CE62B37920D06AF9002837B7 /* GTMOAuth2.framework in Frameworks */,
+				CE62B37720D06AD9002837B7 /* GoogleToolboxForMac.framework in Frameworks */,
+				CE62B37620D06AAD002837B7 /* GoogleAPIClientForREST.framework in Frameworks */,
+				CE62B37420D06A9A002837B7 /* GoogleSignIn.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE87F4721FB259DB005CF7DF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -358,7 +406,6 @@
 				CE743202208D490600E388D3 /* FirebaseCore.framework in Frameworks */,
 				CE265756208E5BC100C561E8 /* gRPC-RxLibrary.framework in Frameworks */,
 				CE00E76320BC08D4002B569A /* SwiftyJSON.framework in Frameworks */,
-				CE265753208E5BC100C561E8 /* FirebaseFirestore.framework in Frameworks */,
 				CE265755208E5BC100C561E8 /* Protobuf.framework in Frameworks */,
 				CE265757208E5BC100C561E8 /* leveldb-library.framework in Frameworks */,
 			);
@@ -442,6 +489,9 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE62B37820D06AF9002837B7 /* GTMOAuth2.framework */,
+				CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */,
+				CE62B37220D06A86002837B7 /* GoogleSignIn.framework */,
 				CE00E76220BC08D4002B569A /* SwiftyJSON.framework */,
 				CE8BC50F20B2061E009164ED /* WebKit.framework */,
 				CE8BC50B20B20601009164ED /* Security.framework */,
@@ -466,7 +516,6 @@
 				CED748E120925586000327CD /* AddressBook.framework */,
 				CE26574C208E5BC000C561E8 /* BoringSSL.framework */,
 				CE743200208D48E000E388D3 /* FirebaseFirestore.framework */,
-				CE26574B208E5BC000C561E8 /* FirebaseFirestore.framework */,
 				CE265750208E5BC000C561E8 /* gRPC-Core.framework */,
 				CE265749208E5BBF00C561E8 /* gRPC-ProtoRPC.framework */,
 				CE26574E208E5BC000C561E8 /* gRPC-RxLibrary.framework */,
@@ -506,6 +555,45 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		CE62B36420D061A7002837B7 /* GoogleSignInANE */ = {
+			isa = PBXGroup;
+			children = (
+				CE62B36720D062B5002837B7 /* Extensions */,
+				CE62B36620D062AF002837B7 /* Headers */,
+				CE62B36520D062A9002837B7 /* Events */,
+				CE62B36A20D06361002837B7 /* GoogleSignInANE.m */,
+				CE62B36C20D063CD002837B7 /* SwiftController.swift */,
+				CE62B36E20D063EA002837B7 /* SwiftController+FreSwift.swift */,
+				CE62B37020D0646A002837B7 /* GoogleSignInANE-Bridging-Header.h */,
+				CE62B37D20D06D5D002837B7 /* SwiftController+GIDSignInDelegate.swift */,
+				CE62B38220D086DE002837B7 /* SwiftController+GIDSignInUIDelegate.swift */,
+			);
+			path = GoogleSignInANE;
+			sourceTree = "<group>";
+		};
+		CE62B36520D062A9002837B7 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				CE62B38420D09223002837B7 /* GoogleSignInEvent.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		CE62B36620D062AF002837B7 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				CE62B36820D062E7002837B7 /* GoogleSignInANE_oc.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		CE62B36720D062B5002837B7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CE7D4331208CF6D000DF8B79 /* FirestoreANE */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +613,7 @@
 		CE87F45C1FB259C9005CF7DF = {
 			isa = PBXGroup;
 			children = (
+				CE62B36420D061A7002837B7 /* GoogleSignInANE */,
 				CE8BC49620B1C85E009164ED /* DynamicLinksANE */,
 				CEE3AE5820A0691000D3AAF6 /* MessagingANE */,
 				CEE3AE5720A068FF00D3AAF6 /* PerformanceANE */,
@@ -552,6 +641,7 @@
 				CEE3AE7320A0691700D3AAF6 /* libPerformanceANE_LIB.a */,
 				CEE3AE8320A06D2600D3AAF6 /* libMessagingANE_LIB.a */,
 				CE8BC4B920B1C890009164ED /* libDynamicLinksANE_LIB.a */,
+				CE62B36320D0618E002837B7 /* libGoogleSignInANE_LIB.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -869,6 +959,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE62B35A20D0618E002837B7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE62B36920D062E7002837B7 /* GoogleSignInANE_oc.h in Headers */,
+				CE62B35D20D0618E002837B7 /* FreMacros.h in Headers */,
+				CE62B37120D0646A002837B7 /* GoogleSignInANE-Bridging-Header.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE8BC4AE20B1C890009164ED /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -952,6 +1052,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		CE62B34920D0618E002837B7 /* GoogleSignInANE_LIB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE62B36020D0618E002837B7 /* Build configuration list for PBXNativeTarget "GoogleSignInANE_LIB" */;
+			buildPhases = (
+				CE62B34A20D0618E002837B7 /* Sources */,
+				CE62B34F20D0618E002837B7 /* Frameworks */,
+				CE62B35A20D0618E002837B7 /* Headers */,
+				CE62B35E20D0618E002837B7 /* ShellScript */,
+				CE62B35F20D0618E002837B7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoogleSignInANE_LIB;
+			productName = HelloWorldANE_LIB;
+			productReference = CE62B36320D0618E002837B7 /* libGoogleSignInANE_LIB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		CE87F4741FB259DB005CF7DF /* FirebaseANE_LIB */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE87F47B1FB259DB005CF7DF /* Build configuration list for PBXNativeTarget "FirebaseANE_LIB" */;
@@ -1160,11 +1279,38 @@
 				CEE3AE5920A0691700D3AAF6 /* PerformanceANE_LIB */,
 				CEE3AE7520A06D2600D3AAF6 /* MessagingANE_LIB */,
 				CE8BC49A20B1C890009164ED /* DynamicLinksANE_LIB */,
+				CE62B34920D0618E002837B7 /* GoogleSignInANE_LIB */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		CE62B35E20D0618E002837B7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		CE62B35F20D0618E002837B7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ../../../native_extension/GoogleSignInANE/ane/build_ios.sh;
+		};
 		CE7431FF208D488000E388D3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1402,6 +1548,19 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CE62B34A20D0618E002837B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE62B36F20D063EA002837B7 /* SwiftController+FreSwift.swift in Sources */,
+				CE62B37E20D06D5D002837B7 /* SwiftController+GIDSignInDelegate.swift in Sources */,
+				CE62B36B20D06361002837B7 /* GoogleSignInANE.m in Sources */,
+				CE62B38320D086DE002837B7 /* SwiftController+GIDSignInUIDelegate.swift in Sources */,
+				CE62B36D20D063CD002837B7 /* SwiftController.swift in Sources */,
+				CE62B38520D09223002837B7 /* GoogleSignInEvent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE87F4711FB259DB005CF7DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1532,6 +1691,53 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		CE62B36120D0618E002837B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "GoogleSignInANE/GoogleSignInANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "GoogleSignInANE/GoogleSignInANE-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		CE62B36220D0618E002837B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "GoogleSignInANE/GoogleSignInANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "GoogleSignInANE/GoogleSignInANE-Swift.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		CE87F46C1FB259C9005CF7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2071,6 +2277,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CE62B36020D0618E002837B7 /* Build configuration list for PBXNativeTarget "GoogleSignInANE_LIB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE62B36120D0618E002837B7 /* Debug */,
+				CE62B36220D0618E002837B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CE87F4601FB259C9005CF7DF /* Build configuration list for PBXProject "FirebaseANE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

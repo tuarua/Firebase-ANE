@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<platform xmlns="http://ns.adobe.com/air/extension/19.0">
+    <sdkVersion>11.3</sdkVersion>
+    <linkerOptions>
+        <option>-ios_version_min 9.0</option>
+        <option>-lstdc++</option>
+        <option>-lc++</option>
+        <option>-lsqlite3</option>
+        <option>-lz</option>
+        <option>-w</option>
+        <option>-ObjC</option>
+        <option>-framework SafariServices</option>
+        <option>-framework StoreKit</option>
+        <option>-framework SystemConfiguration</option>
+        <option>-rpath @executable_path/Frameworks</option>
+    </linkerOptions>
+    
+    <packagedDependencies>
+        <packagedDependency>Frameworks/SwiftyJSON.framework</packagedDependency>
+        <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
+        <packagedDependency>Frameworks/GTMSessionFetcher.framework</packagedDependency>
+        <packagedDependency>Frameworks/GoogleSignIn.framework</packagedDependency>
+        <packagedDependency>Frameworks/GTMOAuth2.framework</packagedDependency>
+        <packagedDependency>Frameworks/GoogleAPIClientForREST.framework</packagedDependency> 
+    </packagedDependencies>
+    
+</platform>

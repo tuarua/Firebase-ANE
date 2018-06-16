@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="http://ns.adobe.com/air/extension/19.0">
+    <id>com.tuarua.google.GoogleSignInANE</id>
+    <name>Google Sign In ANE</name>
+	<copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
+	<versionNumber>0.0.2</versionNumber>
+    <platforms>
+     <platform name="iPhone-ARM">
+        <applicationDeployment>
+            <nativeLibrary>libGoogleSignInANE.a</nativeLibrary>
+            <initializer>TRGSIExtInizer</initializer>
+            <finalizer>TRGSIExtFinizer</finalizer>
+        </applicationDeployment>
+    </platform>
+     <platform name="iPhone-x86">
+         <applicationDeployment>
+             <nativeLibrary>libGoogleSignInANE.a</nativeLibrary>
+             <initializer>TRGSIExtInizer</initializer>
+             <finalizer>TRGSIExtFinizer</finalizer>
+         </applicationDeployment>
+     </platform>
+     <platform name="default">
+         <applicationDeployment/>
+     </platform>
+    </platforms>
+</extension>

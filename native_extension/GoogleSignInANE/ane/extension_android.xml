@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="http://ns.adobe.com/air/extension/19.0">
+    <id>com.tuarua.google.GoogleSignInANE</id>
+    <name>Google Sign In ANE</name>
+    <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
+    <versionNumber>0.0.2</versionNumber>
+    <platforms>
+        <platform name="Android-ARM">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.google.GoogleSignInANE</initializer>
+                <finalizer>com.tuarua.google.GoogleSignInANE</finalizer>
+            </applicationDeployment>
+        </platform>
+    </platforms>
+</extension>

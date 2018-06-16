@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="android.arch.lifecycle.runtime-1.1.1" type="flex">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android_dependencies/android.arch.lifecycle.runtime-1.1.1.ane!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

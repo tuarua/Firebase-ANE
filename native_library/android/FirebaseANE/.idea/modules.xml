@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/Firebase/Firebase.iml" filepath="$PROJECT_DIR$/Firebase/Firebase.iml" />
       <module fileurl="file://$PROJECT_DIR$/FirebaseANE.iml" filepath="$PROJECT_DIR$/FirebaseANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/Firestore/Firestore.iml" filepath="$PROJECT_DIR$/Firestore/Firestore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GoogleSignIn/GoogleSignIn.iml" filepath="$PROJECT_DIR$/GoogleSignIn/GoogleSignIn.iml" />
       <module fileurl="file://$PROJECT_DIR$/Messaging/Messaging.iml" filepath="$PROJECT_DIR$/Messaging/Messaging.iml" />
       <module fileurl="file://$PROJECT_DIR$/Performance/Performance.iml" filepath="$PROJECT_DIR$/Performance/Performance.iml" />
       <module fileurl="file://$PROJECT_DIR$/RemoteConfig/RemoteConfig.iml" filepath="$PROJECT_DIR$/RemoteConfig/RemoteConfig.iml" />

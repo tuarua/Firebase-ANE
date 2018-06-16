@@ -50,7 +50,6 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
                             "text" to exception.message,
                             "id" to 17020))))
             is FirebaseAuthException -> {
-                trace(exception.errorCode)
                 sendEvent(type, gson.toJson(
                         AuthEvent(eventId, error = exception.toMap()))
                 )

@@ -22,7 +22,8 @@ import com.adobe.air.TRStateChangeCallback;
 import com.tuarua.frekotlin.FreKotlinContext;
 import com.tuarua.frekotlin.FreKotlinMainController;
 
-public class FirestoreANEContext extends FreKotlinContext implements TRActivityResultCallback, TRStateChangeCallback {
+public class FirestoreANEContext extends FreKotlinContext implements TRActivityResultCallback,
+        TRStateChangeCallback {
     private AndroidActivityWrapper aaw;
     private FreKotlinMainController controller;
 

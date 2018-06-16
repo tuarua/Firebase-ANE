@@ -41,6 +41,7 @@
                     <key>CFBundleURLSchemes</key>
                     <array>
                         <string>tuarua</string>
+                        <string>com.googleusercontent.apps.743883671330-rkc5bj0qf69443tcghuu0r0up7gjinth</string>
                     </array>
                 </dict>
             </array>
@@ -95,5 +96,6 @@
         <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
         <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
         <extensionID>com.tuarua.firebase.DynamicLinksANE</extensionID>
+        <extensionID>com.tuarua.google.GoogleSignInANE</extensionID>
     </extensions>
 </application>
