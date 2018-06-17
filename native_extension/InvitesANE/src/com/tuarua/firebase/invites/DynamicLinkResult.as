@@ -17,10 +17,10 @@ package com.tuarua.firebase.invites {
 public final class DynamicLinkResult {
     public var url:String;
     public var invitationId:String;
-    /** The value of this key is an NSString object that represents the bundle ID of the
+    /** The value of this key is a String that represents the bundle ID of the
      * app that made the request. iOS only.*/
     public var sourceApplication:String;
-    /** The value of this key is an NSURL object containing the URL to open. iOS only. */
+    /** The value of this key is a String containing the URL to open. iOS only. */
     public var sourceUrl:String;
     public function DynamicLinkResult() {
     }
