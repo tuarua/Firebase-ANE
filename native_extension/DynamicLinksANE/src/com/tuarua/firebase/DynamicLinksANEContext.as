@@ -26,7 +26,7 @@ import flash.utils.Dictionary;
 public class DynamicLinksANEContext {
     internal static const NAME:String = "DynamicLinksANE";
     internal static const TRACE:String = "TRACE";
-    internal static const INIT_ERROR_MESSAGE:String = NAME + " not initialised... use .firestore";
+    internal static const INIT_ERROR_MESSAGE:String = NAME + " not initialised... use .dynamicLinks";
 
     private static const ON_CREATED:String = "DynamicLinkEvent.OnCreated";
     private static const ON_LINK:String = "DynamicLinkEvent.OnLink";
@@ -107,7 +107,7 @@ public class DynamicLinksANEContext {
         _isInited = false;
     }
 
-    public static function createEventId(listener:Function, listenerCaller:Object = null):String {
+    public static function createEventId(listener:Function):String {
         var eventId:String;
         if (listener) {
             eventId = context.call("createGUID") as String;

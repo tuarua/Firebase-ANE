@@ -14,10 +14,10 @@
  *  limitations under the License.
  */
 package com.tuarua.firebase.messaging.events
-class MessageEvent(val eventId: String, val data: Map<String, Any?>? = null){
+
+class MessageEvent(val eventId: String, val data: Map<String, Any?>? = null) {
     companion object {
         const val ON_MESSAGE_RECEIVED = "FirebaseMessaging.OnMessageReceived"
         const val ON_TOKEN_REFRESHED = "FirebaseMessaging.OnTokenRefreshed"
-        const val ON_DEBUG = "FirebaseMessaging.OnDebug"
     }
 }

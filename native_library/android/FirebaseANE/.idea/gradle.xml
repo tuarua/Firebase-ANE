@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/Firebase" />
             <option value="$PROJECT_DIR$/Firestore" />
             <option value="$PROJECT_DIR$/GoogleSignIn" />
+            <option value="$PROJECT_DIR$/Invites" />
             <option value="$PROJECT_DIR$/Messaging" />
             <option value="$PROJECT_DIR$/Performance" />
             <option value="$PROJECT_DIR$/RemoteConfig" />

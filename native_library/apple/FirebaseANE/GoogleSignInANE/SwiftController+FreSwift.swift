@@ -26,6 +26,7 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)signInSilently"] = signInSilently
         functionsToSet["\(prefix)signOut"] = signOut
         functionsToSet["\(prefix)revokeAccess"] = revokeAccess
+        functionsToSet["\(prefix)handle"] = handle
         
         var arr: [String] = []
         for key in functionsToSet.keys {

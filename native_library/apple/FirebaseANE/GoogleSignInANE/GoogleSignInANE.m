@@ -37,6 +37,7 @@ CONTEXT_INIT(TRGSI) {
         ,MAP_FUNCTION(TRGSI, signInSilently)
         ,MAP_FUNCTION(TRGSI, signOut)
         ,MAP_FUNCTION(TRGSI, revokeAccess)
+        ,MAP_FUNCTION(TRGSI, handle)
     };
     SET_FUNCTIONS
     

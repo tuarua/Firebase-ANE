@@ -76,6 +76,10 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
+    fun handle(ctx: FREContext, argv: FREArgv): FREObject? {
+        return null
+    }
+
     override val TAG: String
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null

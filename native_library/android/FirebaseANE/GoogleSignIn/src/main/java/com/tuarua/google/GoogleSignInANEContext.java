@@ -14,7 +14,6 @@
  *  limitations under the License.
  */
 package com.tuarua.google;
-
 import com.adobe.air.AndroidActivityWrapper;
 import com.adobe.air.TRStateChangeCallback;
 import com.tuarua.frekotlin.FreKotlinContext;
@@ -22,45 +21,14 @@ import com.tuarua.frekotlin.FreKotlinMainController;
 import com.tuarua.google.googlesignin.ResultListener;
 
 import java.util.Objects;
-
-public class GoogleSignInANEContext extends FreKotlinContext implements TRStateChangeCallback {
+public class GoogleSignInANEContext extends FreKotlinContext {
     private AndroidActivityWrapper aaw;
-    private FreKotlinMainController controller;
     private ResultListener resultListener;
     GoogleSignInANEContext(String name, FreKotlinMainController controller, String[] functions) {
         super(name, controller, functions);
-        this.controller = controller;
         aaw = AndroidActivityWrapper.GetAndroidActivityWrapper();
-
-        resultListener = new ResultListener(Objects.requireNonNull(this.controller.getContext()));
-
+        resultListener = new ResultListener(Objects.requireNonNull(controller.getContext()));
         aaw.addActivityResultListener(resultListener);
-        aaw.addActivityStateChangeListner(this);
-    }
-
-    @Override
-    public void onActivityStateChanged(AndroidActivityWrapper.ActivityState activityState) {
-        super.onActivityStateChanged(activityState);
-        switch (activityState) {
-            case STARTED:
-                this.controller.onStarted();
-                break;
-            case RESTARTED:
-                this.controller.onRestarted();
-                break;
-            case RESUMED:
-                this.controller.onResumed();
-                break;
-            case PAUSED:
-                this.controller.onPaused();
-                break;
-            case STOPPED:
-                this.controller.onStopped();
-                break;
-            case DESTROYED:
-                this.controller.onDestroyed();
-                break;
-        }
     }
 
     @Override
@@ -70,7 +38,6 @@ public class GoogleSignInANEContext extends FreKotlinContext implements TRStateC
             if (resultListener != null) {
                 aaw.removeActivityResultListener(resultListener);
             }
-            aaw.removeActivityStateChangeListner(this);
             aaw = null;
         }
     }

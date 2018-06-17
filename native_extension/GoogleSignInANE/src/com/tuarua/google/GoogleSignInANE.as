@@ -71,6 +71,13 @@ public final class GoogleSignInANE extends EventDispatcher {
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /** */
+    public function handle(url:String, sourceApplication:String):void {
+        GoogleSignInANEContext.validate();
+        var theRet:* = GoogleSignInANEContext.context.call("handle", url, sourceApplication);
+        if (theRet is ANEError) throw theRet as ANEError;
+    }
+
     /** Disposes the ANE */
     public static function dispose():void {
         if (GoogleSignInANEContext.context) {

@@ -120,6 +120,24 @@
 		CEB572C3208D221100CF6B1B /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
 		CEB572C4208D221600CF6B1B /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		CEB572C5208D221900CF6B1B /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D49208CE3FF00C96EC6 /* FirebaseInstanceID.framework */; };
+		CEB947F020D5CED000F707C1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
+		CEB947F120D5CED000F707C1 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
+		CEB947F220D5CED000F707C1 /* FirebaseDynamicLinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8BC4C320B1C9BE009164ED /* FirebaseDynamicLinks.framework */; };
+		CEB947F320D5CED000F707C1 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
+		CEB947F720D5CED000F707C1 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
+		CEB9480220D5CFEB00F707C1 /* InvitesANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9480120D5CFEB00F707C1 /* InvitesANE.m */; };
+		CEB9480420D5D00500F707C1 /* InvitesANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB9480320D5D00500F707C1 /* InvitesANE_oc.h */; };
+		CEB9480620D5D02A00F707C1 /* InvitesANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB9480520D5D02A00F707C1 /* InvitesANE-Bridging-Header.h */; };
+		CEB9480820D5D04300F707C1 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9480720D5D04300F707C1 /* SwiftController.swift */; };
+		CEB9480A20D5D05700F707C1 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9480920D5D05700F707C1 /* SwiftController+FreSwift.swift */; };
+		CEB9480B20D5D5AD00F707C1 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; };
+		CEB9480C20D5D5B200F707C1 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED7492220929C1F000327CD /* GTMSessionFetcher.framework */; };
+		CEB9480D20D5D5B900F707C1 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37220D06A86002837B7 /* GoogleSignIn.framework */; };
+		CEB9480E20D5D5BF00F707C1 /* GoogleAPIClientForREST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */; };
+		CEB9480F20D5D5DD00F707C1 /* GTMOAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37820D06AF9002837B7 /* GTMOAuth2.framework */; };
+		CEB9481120D5D60100F707C1 /* FirebaseInvites.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB9481020D5D60100F707C1 /* FirebaseInvites.framework */; };
+		CEB9481320D5D64B00F707C1 /* SwiftController+InviteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9481220D5D64B00F707C1 /* SwiftController+InviteDelegate.swift */; };
+		CEB9481720D5DB5700F707C1 /* InvitesEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9481620D5DB5700F707C1 /* InvitesEvent.swift */; };
 		CEBCF7A82095F9160028601B /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CEBCF7A92095F9160028601B /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		CEBCF7B02095F9160028601B /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
@@ -278,6 +296,15 @@
 		CEB572B3208D0FAA00CF6B1B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		CEB572BA208D21A200CF6B1B /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Carthage/Build/iOS/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		CEB572BC208D21C300CF6B1B /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = Carthage/Build/iOS/GoogleToolboxForMac.framework; sourceTree = "<group>"; };
+		CEB947FD20D5CED000F707C1 /* libInvitesANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInvitesANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB9480120D5CFEB00F707C1 /* InvitesANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvitesANE.m; sourceTree = "<group>"; };
+		CEB9480320D5D00500F707C1 /* InvitesANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvitesANE_oc.h; sourceTree = "<group>"; };
+		CEB9480520D5D02A00F707C1 /* InvitesANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InvitesANE-Bridging-Header.h"; sourceTree = "<group>"; };
+		CEB9480720D5D04300F707C1 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
+		CEB9480920D5D05700F707C1 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		CEB9481020D5D60100F707C1 /* FirebaseInvites.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInvites.framework; path = Carthage/Build/iOS/FirebaseInvites.framework; sourceTree = "<group>"; };
+		CEB9481220D5D64B00F707C1 /* SwiftController+InviteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+InviteDelegate.swift"; sourceTree = "<group>"; };
+		CEB9481620D5DB5700F707C1 /* InvitesEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitesEvent.swift; sourceTree = "<group>"; };
 		CEBCF7B62095F9160028601B /* libAuthANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAuthANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBCF7B72095F9820028601B /* AuthANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthANE.m; sourceTree = "<group>"; };
 		CEBCF7B92095F99B0028601B /* AuthANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthANE_oc.h; sourceTree = "<group>"; };
@@ -411,6 +438,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEB947EF20D5CED000F707C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB947F020D5CED000F707C1 /* SwiftyJSON.framework in Frameworks */,
+				CEB947F120D5CED000F707C1 /* FreSwift.framework in Frameworks */,
+				CEB9480B20D5D5AD00F707C1 /* Protobuf.framework in Frameworks */,
+				CEB9481120D5D60100F707C1 /* FirebaseInvites.framework in Frameworks */,
+				CEB9480D20D5D5B900F707C1 /* GoogleSignIn.framework in Frameworks */,
+				CEB9480E20D5D5BF00F707C1 /* GoogleAPIClientForREST.framework in Frameworks */,
+				CEB9480C20D5D5B200F707C1 /* GTMSessionFetcher.framework in Frameworks */,
+				CEB9480F20D5D5DD00F707C1 /* GTMOAuth2.framework in Frameworks */,
+				CEB947F220D5CED000F707C1 /* FirebaseDynamicLinks.framework in Frameworks */,
+				CEB947F320D5CED000F707C1 /* FirebaseCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEBCF7A62095F9160028601B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -489,6 +533,7 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEB9481020D5D60100F707C1 /* FirebaseInvites.framework */,
 				CE62B37820D06AF9002837B7 /* GTMOAuth2.framework */,
 				CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */,
 				CE62B37220D06A86002837B7 /* GoogleSignIn.framework */,
@@ -613,6 +658,7 @@
 		CE87F45C1FB259C9005CF7DF = {
 			isa = PBXGroup;
 			children = (
+				CEB947E220D5CEBD00F707C1 /* InvitesANE */,
 				CE62B36420D061A7002837B7 /* GoogleSignInANE */,
 				CE8BC49620B1C85E009164ED /* DynamicLinksANE */,
 				CEE3AE5820A0691000D3AAF6 /* MessagingANE */,
@@ -642,6 +688,7 @@
 				CEE3AE8320A06D2600D3AAF6 /* libMessagingANE_LIB.a */,
 				CE8BC4B920B1C890009164ED /* libDynamicLinksANE_LIB.a */,
 				CE62B36320D0618E002837B7 /* libGoogleSignInANE_LIB.a */,
+				CEB947FD20D5CED000F707C1 /* libInvitesANE_LIB.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -756,6 +803,44 @@
 				CEB572AF208CF92400CF6B1B /* FirestoreANE-Bridging-Header.h */,
 			);
 			path = Headers;
+			sourceTree = "<group>";
+		};
+		CEB947E220D5CEBD00F707C1 /* InvitesANE */ = {
+			isa = PBXGroup;
+			children = (
+				CEB9480020D5CF4B00F707C1 /* Extensions */,
+				CEB947FF20D5CF4400F707C1 /* Headers */,
+				CEB947FE20D5CF3B00F707C1 /* Events */,
+				CEB9480120D5CFEB00F707C1 /* InvitesANE.m */,
+				CEB9480720D5D04300F707C1 /* SwiftController.swift */,
+				CEB9480920D5D05700F707C1 /* SwiftController+FreSwift.swift */,
+				CEB9481220D5D64B00F707C1 /* SwiftController+InviteDelegate.swift */,
+			);
+			path = InvitesANE;
+			sourceTree = "<group>";
+		};
+		CEB947FE20D5CF3B00F707C1 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				CEB9481620D5DB5700F707C1 /* InvitesEvent.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		CEB947FF20D5CF4400F707C1 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				CEB9480520D5D02A00F707C1 /* InvitesANE-Bridging-Header.h */,
+				CEB9480320D5D00500F707C1 /* InvitesANE_oc.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		CEB9480020D5CF4B00F707C1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CEBCF7962095F8730028601B /* AuthANE */ = {
@@ -999,6 +1084,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEB947F420D5CED000F707C1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB9480420D5D00500F707C1 /* InvitesANE_oc.h in Headers */,
+				CEB9480620D5D02A00F707C1 /* InvitesANE-Bridging-Header.h in Headers */,
+				CEB947F720D5CED000F707C1 /* FreMacros.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEBCF7AB2095F9160028601B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1147,6 +1242,25 @@
 			productReference = CEB57299208CF73F00CF6B1B /* libFirestoreANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		CEB947E320D5CED000F707C1 /* InvitesANE_LIB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEB947FA20D5CED000F707C1 /* Build configuration list for PBXNativeTarget "InvitesANE_LIB" */;
+			buildPhases = (
+				CEB947E420D5CED000F707C1 /* Sources */,
+				CEB947EF20D5CED000F707C1 /* Frameworks */,
+				CEB947F420D5CED000F707C1 /* Headers */,
+				CEB947F820D5CED000F707C1 /* ShellScript */,
+				CEB947F920D5CED000F707C1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InvitesANE_LIB;
+			productName = HelloWorldANE_LIB;
+			productReference = CEB947FD20D5CED000F707C1 /* libInvitesANE_LIB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		CEBCF79A2095F9160028601B /* AuthANE_LIB */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEBCF7B32095F9160028601B /* Build configuration list for PBXNativeTarget "AuthANE_LIB" */;
@@ -1280,6 +1394,7 @@
 				CEE3AE7520A06D2600D3AAF6 /* MessagingANE_LIB */,
 				CE8BC49A20B1C890009164ED /* DynamicLinksANE_LIB */,
 				CE62B34920D0618E002837B7 /* GoogleSignInANE_LIB */,
+				CEB947E320D5CED000F707C1 /* InvitesANE_LIB */,
 			);
 		};
 /* End PBXProject section */
@@ -1309,7 +1424,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/GoogleSignInANE/ane/build_ios.sh;
+			shellScript = ../../../native_extension/GoogleSignInANE/ane/build_multi.sh;
 		};
 		CE7431FF208D488000E388D3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1414,6 +1529,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		CEB947F820D5CED000F707C1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		CEB947F920D5CED000F707C1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ../../../native_extension/InvitesANE/ane/build_multi.sh;
 		};
 		CEBCF7B12095F9160028601B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1621,6 +1762,18 @@
 				CE26575E208E744D00C561E8 /* FreQueryDocumentSnapshot.swift in Sources */,
 				CE69C8DE208FF9E9004A1A5A /* NetworkEvent.swift in Sources */,
 				CE69C8DB208FEE1E004A1A5A /* BatchEvent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB947E420D5CED000F707C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB9480220D5CFEB00F707C1 /* InvitesANE.m in Sources */,
+				CEB9481320D5D64B00F707C1 /* SwiftController+InviteDelegate.swift in Sources */,
+				CEB9480820D5D04300F707C1 /* SwiftController.swift in Sources */,
+				CEB9480A20D5D05700F707C1 /* SwiftController+FreSwift.swift in Sources */,
+				CEB9481720D5DB5700F707C1 /* InvitesEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2039,6 +2192,53 @@
 			};
 			name = Release;
 		};
+		CEB947FB20D5CED000F707C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "InvitesANE/Headers/InvitesANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "InvitesANE/InvitesANE-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		CEB947FC20D5CED000F707C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "InvitesANE/Headers/InvitesANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "InvitesANE/InvitesANE-Swift.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		CEBCF7B42095F9160028601B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2327,6 +2527,15 @@
 			buildConfigurations = (
 				CEB57297208CF73F00CF6B1B /* Debug */,
 				CEB57298208CF73F00CF6B1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEB947FA20D5CED000F707C1 /* Build configuration list for PBXNativeTarget "InvitesANE_LIB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEB947FB20D5CED000F707C1 /* Debug */,
+				CEB947FC20D5CED000F707C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

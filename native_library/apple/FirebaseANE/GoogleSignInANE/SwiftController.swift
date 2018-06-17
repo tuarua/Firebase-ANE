@@ -52,5 +52,16 @@ public class SwiftController: NSObject {
         GIDSignIn.sharedInstance().disconnect()
         return nil
     }
+    
+    func handle(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard argc > 1,
+            let url = String(argv[0]),
+            let sourceApplication = String(argv[1])
+            else {
+                return ArgCountError(message: "handle").getError(#file, #line, #column)
+        }
+        GIDSignIn.sharedInstance().handle(URL.init(string: url), sourceApplication: sourceApplication, annotation: "")
+        return nil
+    }
 
 }

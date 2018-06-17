@@ -139,8 +139,8 @@
                         <action android:name="android.intent.action.VIEW"/>
                         <category android:name="android.intent.category.DEFAULT"/>
                         <category android:name="android.intent.category.BROWSABLE"/>
-                        <data android:host="tuarua.com" android:scheme="http"/>
-                        <data android:host="tuarua.com" android:scheme="https"/>
+                        <data android:host="example.com" android:scheme="http"/>
+                        <data android:host="example.com" android:scheme="https"/>
                     </intent-filter>
 
                     <!-- performance -->
@@ -194,6 +194,7 @@
         <extensionID>com.tuarua.firebase.RemoteConfigANE</extensionID>
         <extensionID>com.tuarua.firebase.AuthANE</extensionID>
         <extensionID>com.tuarua.firebase.DynamicLinksANE</extensionID>
+        <extensionID>com.tuarua.firebase.InvitesANE</extensionID>
         <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
         <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
 
@@ -205,6 +206,7 @@
         <extensionID>com.google.firebase.firebase-config</extensionID>
         <extensionID>com.google.firebase.firebase-auth</extensionID>
         <extensionID>com.google.firebase.firebase-dynamic-links</extensionID>
+        <extensionID>com.google.firebase.firebase-invites</extensionID>
         <extensionID>com.google.firebase.firebase-messaging</extensionID>
         <extensionID>com.google.firebase.firebase-perf</extensionID>
     </extensions>

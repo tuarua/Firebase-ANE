@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="Android Device">
+  <component name="FlexBuildConfigurationManager" active="iOS Device">
     <configurations>
       <configuration name="Android Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies>
@@ -89,6 +89,12 @@
             <entry library-name="android.arch.lifecycle.runtime-1.1.1" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="com.google.firebase.firebase-invites-16.0.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="InvitesANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_30" />
         </dependencies>
@@ -146,6 +152,9 @@
             <entry library-name="GoogleSignInANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="InvitesANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_30" />
         </dependencies>
@@ -173,6 +182,8 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="." />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/gRPCCertificates.bundle" path-in-package="gRPCCertificates.bundle" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleSignIn.bundle" path-in-package="GoogleSignIn.bundle" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GINInviteResources.bundle" path-in-package="GINInviteResources.bundle" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GPPACLPickerResources.bundle" path-in-package="GPPACLPickerResources.bundle" />
           </files-to-package>
           <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/tua_rua_dev_2018.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/TuaRuaFirebase_Dev_Prov.mobileprovision" />
         </packaging-ios>
@@ -213,6 +224,9 @@
             <entry library-name="GoogleSignInANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="InvitesANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_30" />
         </dependencies>
@@ -240,8 +254,10 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="." />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/gRPCCertificates.bundle" path-in-package="gRPCCertificates.bundle" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleSignIn.bundle" path-in-package="GoogleSignIn.bundle" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GINInviteResources.bundle" path-in-package="GINInviteResources.bundle" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GPPACLPickerResources.bundle" path-in-package="GPPACLPickerResources.bundle" />
           </files-to-package>
-          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/tua_rua_dev_2018.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/Tua_Rua_Dev_Provisioning-2.mobileprovision" />
+          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/tua_rua_dev_2018.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/TuaRuaFirebase_Dev_Prov.mobileprovision" />
         </packaging-ios>
       </configuration>
     </configurations>
@@ -305,5 +321,6 @@
     <orderEntry type="library" exported="" name="com.google.android.gms.play-services-auth-15.0.1" level="project" />
     <orderEntry type="library" exported="" name="android.arch.lifecycle.runtime-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="android.arch.lifecycle.runtime-1.1.1" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-invites-16.0.0" level="project" />
   </component>
 </module>

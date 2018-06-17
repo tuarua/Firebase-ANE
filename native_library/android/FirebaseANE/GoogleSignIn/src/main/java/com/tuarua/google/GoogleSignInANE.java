@@ -26,6 +26,7 @@ public class GoogleSignInANE implements FREExtension {
             ,"signInSilently"
             ,"signOut"
             ,"revokeAccess"
+            ,"handle"
     };
 
     private static GoogleSignInANEContext extensionContext;

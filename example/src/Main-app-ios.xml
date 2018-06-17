@@ -54,9 +54,13 @@
             </array>
             <key>MinimumOSVersion</key>
             <string>9.0</string>
+            <!-- For Invites -->
+            <key>NSContactsUsageDescription</key>
+	        <string>MyExampleApp uses your contacts to make it easy to share recipes with your friends.</string>
+		    <!-- For Performance -->
 		    <key>FirebaseAutomaticScreenReportingEnabled</key>
 		    <false/>
-		    <!-- <key>FirebaseAppDelegateProxyEnabled</key><false/> -->
+		    <!-- For Messaging -->
 		    <key>UIBackgroundModes</key>
 		    <array>
 			    <string>remote-notification</string>
@@ -96,6 +100,7 @@
         <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
         <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
         <extensionID>com.tuarua.firebase.DynamicLinksANE</extensionID>
+        <extensionID>com.tuarua.firebase.InvitesANE</extensionID>
         <extensionID>com.tuarua.google.GoogleSignInANE</extensionID>
     </extensions>
 </application>

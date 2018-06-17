@@ -24,7 +24,8 @@ public class GoogleSignInEvent extends Event {
     public var credential:GoogleAuthCredential;
     public var error:Error;
 
-    public function GoogleSignInEvent(type:String, credential:GoogleAuthCredential = null, error:Error = null, bubbles:Boolean = false, cancelable:Boolean = false) {
+    public function GoogleSignInEvent(type:String, credential:GoogleAuthCredential = null, error:Error = null,
+                                      bubbles:Boolean = false, cancelable:Boolean = false) {
         super(type, bubbles, cancelable);
         this.credential = credential;
         this.error = error;
