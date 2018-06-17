@@ -5,6 +5,7 @@ import com.tuarua.firebase.AuthANE;
 import com.tuarua.firebase.DynamicLinksANE;
 import com.tuarua.firebase.FirebaseOptions;
 import com.tuarua.firebase.FirestoreANE;
+import com.tuarua.firebase.InvitesANE;
 import com.tuarua.firebase.MessagingANE;
 import com.tuarua.firebase.PerformanceANE;
 import com.tuarua.firebase.RemoteConfigANE;
@@ -39,6 +40,7 @@ public class StarlingRoot extends Sprite {
     private var btnPerformance:SimpleButton = new SimpleButton("Performance");
     private var btnMessaging:SimpleButton = new SimpleButton("Messaging");
     private var btnDynamicLinks:SimpleButton = new SimpleButton("Dynamic Links");
+    private var btnInvites:SimpleButton = new SimpleButton("Invites");
 
     private var btnBack:SimpleButton = new SimpleButton("Back");
     private var menuContainer:Sprite = new Sprite();
@@ -52,13 +54,12 @@ public class StarlingRoot extends Sprite {
     private var performanceExample:PerformanceExample;
     private var messagingExample:MessagingExample;
     private var dynamicLinksExample:DynamicLinksExample;
+    private var invitesExample:InvitesExample;
 
     public function StarlingRoot() {
         TextField.registerCompositor(Fonts.getFont("fira-sans-semi-bold-13"), "Fira Sans Semi-Bold 13");
         NativeApplication.nativeApplication.addEventListener(Event.EXITING, onExiting);
     }
-
-    // Attempt to invoke virtual method 'boolean com.google.firebase.perf.FirebasePerformance.isPerformanceCollectionEnabled()' on a null object reference
 
     public function start():void {
         try {
@@ -111,10 +112,15 @@ public class StarlingRoot extends Sprite {
         dynamicLinksExample.x = stage.stageWidth;
         addChild(dynamicLinksExample);
 
+        invitesExample = new InvitesExample(stage.stageWidth);
+        invitesExample.x = stage.stageWidth;
+        addChild(invitesExample);
+
+
     }
 
     private function initMenu():void {
-        btnDynamicLinks.x = btnMessaging.x = btnPerformance.x = btnAuth.x = btnRemoteConfig.x = btnBack.x = btnStorage.x =
+        btnInvites.x = btnDynamicLinks.x = btnMessaging.x = btnPerformance.x = btnAuth.x = btnRemoteConfig.x = btnBack.x = btnStorage.x =
                 btnFirestore.x = btnAnalytics.x = (stage.stageWidth - 200) * 0.5;
         btnAnalytics.y = GAP;
         btnAnalytics.addEventListener(TouchEvent.TOUCH, onAnalyticsClick);
@@ -147,6 +153,10 @@ public class StarlingRoot extends Sprite {
         btnDynamicLinks.y = btnMessaging.y + GAP;
         btnDynamicLinks.addEventListener(TouchEvent.TOUCH, onDynamicLinksClick);
         menuContainer.addChild(btnDynamicLinks);
+
+        btnInvites.y = btnDynamicLinks.y + GAP;
+        btnInvites.addEventListener(TouchEvent.TOUCH, onInvitesClick);
+        menuContainer.addChild(btnInvites);
 
         btnBack.y = stage.stageHeight - 100;
         btnBack.addEventListener(TouchEvent.TOUCH, onBackClick);
@@ -235,6 +245,15 @@ public class StarlingRoot extends Sprite {
         }
     }
 
+    private function onInvitesClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnInvites);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            showMenu(false);
+            showExample(invitesExample);
+            btnBack.visible = true;
+        }
+    }
+
     private function showExample(example:IExample, value:Boolean = true):void {
         var tween:Tween = new Tween(example, 0.5, Transitions.EASE_OUT);
         tween.moveTo(value ? 0 : stage.stageWidth, 0);
@@ -258,6 +277,8 @@ public class StarlingRoot extends Sprite {
             showExample(performanceExample, false);
             showExample(messagingExample, false);
             showExample(dynamicLinksExample, false);
+            showExample(invitesExample, false);
+
             btnBack.visible = false;
         }
     }
@@ -272,6 +293,7 @@ public class StarlingRoot extends Sprite {
         PerformanceANE.dispose();
         MessagingANE.dispose();
         DynamicLinksANE.dispose();
+        InvitesANE.dispose();
     }
 
 }

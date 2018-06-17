@@ -25,6 +25,7 @@ import com.google.gson.Gson
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import com.tuarua.firebase.dynamiclinks.events.DynamicLinkEvent
 
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")

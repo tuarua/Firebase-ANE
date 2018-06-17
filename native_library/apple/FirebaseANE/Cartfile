@@ -7,4 +7,5 @@ binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAuthBinary.json" 
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebasePerformanceBinary.json" == 5.1.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseMessagingBinary.json" == 5.1.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseDynamicLinksBinary.json" == 5.1.0
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseInvitesBinary.json" == 5.1.0
 github "SwiftyJSON/SwiftyJSON" ~> 4.0

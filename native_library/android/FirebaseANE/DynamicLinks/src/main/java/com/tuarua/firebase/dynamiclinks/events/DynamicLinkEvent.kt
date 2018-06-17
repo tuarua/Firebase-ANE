@@ -1,4 +1,4 @@
-package com.tuarua.firebase.dynamiclinks
+package com.tuarua.firebase.dynamiclinks.events
 
 data class DynamicLinkEvent(val eventId: String,
                             val short: Boolean,

@@ -113,19 +113,22 @@ public class SwiftController: NSObject {
     
             DynamicLinks.dynamicLinks().handleUniversalLink(webpageURL, completion: { (link, error) in
                 if let err = error {
-                    self.trace(err.localizedDescription)
+                    self.sendEvent(name: DynamicLinkEvent.ON_LINK,
+                                   value: DynamicLinkEvent(eventId: eventId,
+                                                           error: ["text": err.localizedDescription, "id": 0]
+                                    ).toJSONString())
                     return
                 }
                 self.sendEvent(name: DynamicLinkEvent.ON_LINK,
                                value: DynamicLinkEvent(eventId: eventId,
-                                                       data: ["url": link?.url?.absoluteString ?? ""
-                                ]).toJSONString())
+                                                       data: ["url": link?.url?.absoluteString ?? ""]
+                                ).toJSONString())
             })
         } else {
             self.sendEvent(name: DynamicLinkEvent.ON_LINK,
                            value: DynamicLinkEvent(eventId: eventId,
-                                                   data: ["url": ""
-                            ]).toJSONString())
+                                                   data: ["url": ""]
+                            ).toJSONString())
         }
         
         return nil

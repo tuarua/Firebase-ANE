@@ -98,7 +98,6 @@ public class DynamicLinksExample extends Sprite implements IExample {
     }
 
     private function onGetDynamicLink(dynamicLinkResult:DynamicLinkResult, error:DynamicLinkError):void {
-        trace("onGetDynamicLink");
         if (error) {
             statusLabel.text = "Dynamic Link error: " + error.errorID + " : " + error.message;
             return;

@@ -46,6 +46,11 @@
                 <permission android:name="air.com.tuarua.firebaseane.example.permission.C2D_MESSAGE" android:protectionLevel="signature" />
                 <uses-permission android:name="air.com.tuarua.firebaseane.example.permission.C2D_MESSAGE" />
 
+                <!-- To access accounts configured on device -->
+                <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+                <!-- To use account credentials -->
+                <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+
                 <application android:enabled="true">
                     <meta-data
                         android:name="com.google.android.gms.version"
@@ -134,8 +139,8 @@
                         <action android:name="android.intent.action.VIEW"/>
                         <category android:name="android.intent.category.DEFAULT"/>
                         <category android:name="android.intent.category.BROWSABLE"/>
-                        <data android:host="tuarua.com" android:scheme="http"/>
-                        <data android:host="tuarua.com" android:scheme="https"/>
+                        <data android:host="example.com" android:scheme="http"/>
+                        <data android:host="example.com" android:scheme="https"/>
                     </intent-filter>
 
                     <!-- performance -->
@@ -156,7 +161,10 @@
                         </intent-filter>
                     </activity>
 
-
+                    <!-- Google Sign In -->
+                    <activity android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+                    android:screenOrientation="portrait"
+                    android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
 
                 </application>
             </manifest>
@@ -173,6 +181,11 @@
         <extensionID>com.squareup.okhttp.okhttp</extensionID>
         <extensionID>com.google.guava.guava</extensionID>
         <extensionID>com.android.support.support-v4</extensionID>
+        <extensionID>com.google.android.gms.play-services-base</extensionID>
+        <!-- Google Sign In -->
+        <extensionID>android.arch.lifecycle.runtime</extensionID>
+        <extensionID>com.google.android.gms.play-services-auth</extensionID>
+        <extensionID>com.tuarua.google.GoogleSignInANE</extensionID>
 
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
         <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
@@ -181,10 +194,11 @@
         <extensionID>com.tuarua.firebase.RemoteConfigANE</extensionID>
         <extensionID>com.tuarua.firebase.AuthANE</extensionID>
         <extensionID>com.tuarua.firebase.DynamicLinksANE</extensionID>
+        <extensionID>com.tuarua.firebase.InvitesANE</extensionID>
         <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
         <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
 
-        <extensionID>com.google.android.gms.play-services-base</extensionID>
+
         <extensionID>com.google.firebase.firebase-analytics</extensionID>
         <extensionID>com.google.firebase.firebase-iid</extensionID>
         <extensionID>com.google.firebase.firebase-firestore</extensionID>
@@ -192,6 +206,7 @@
         <extensionID>com.google.firebase.firebase-config</extensionID>
         <extensionID>com.google.firebase.firebase-auth</extensionID>
         <extensionID>com.google.firebase.firebase-dynamic-links</extensionID>
+        <extensionID>com.google.firebase.firebase-invites</extensionID>
         <extensionID>com.google.firebase.firebase-messaging</extensionID>
         <extensionID>com.google.firebase.firebase-perf</extensionID>
     </extensions>
