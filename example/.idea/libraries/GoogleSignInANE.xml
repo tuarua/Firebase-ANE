@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://$DOCUMENTS$/Firebase-ANE/native_extension/GoogleSignInANE/ane/GoogleSignInANE.ane!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="https://tuarua.github.io/asdocs/firebaseane/googlesignin/" />
+    </JAVADOC>
     <SOURCES />
   </library>
 </component>

@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Remote Config AAR" type="GradleRunConfiguration" factoryName="Gradle">
+  <configuration default="false" name="Build All AARs" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
       <option name="executionName" />
-      <option name="externalProjectPath" value="$PROJECT_DIR$/RemoteConfig" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$" />
       <option name="externalSystemIdString" value="GRADLE" />
       <option name="scriptParameters" value="" />
       <option name="taskDescriptions">
@@ -10,7 +10,7 @@
       </option>
       <option name="taskNames">
         <list>
-          <option value=":RemoteConfig:assembleRelease" />
+          <option value="assembleRelease" />
         </list>
       </option>
       <option name="vmOptions" value="" />
