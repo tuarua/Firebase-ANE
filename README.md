@@ -37,7 +37,7 @@ on set-up and each of the FirebaseANEs.
 - The Issue Tracker is for **reproducible bugs only**. Use the supplied template.
 - Spend at least 1 hour investigating the issue yourself.
 - The project is open source, that is, the code is free to use and free to modify. 
-- If you require general support then Paid for consultancy is available.
+- Paid Support is available for anything which falls outside bug fixing and minor help.
 
 ## Contributing
 
