@@ -54,5 +54,6 @@ Pull requests and contributions are welcome! This might entail:
 - [x] Performance
 - [x] Remote Config
 - [x] Storage
-- [ ] Google Sign In
-- [ ] Invites
+- [x] Google Sign In
+- [x] Invites
+- [ ] Crashlytics
