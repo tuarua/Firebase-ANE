@@ -24,6 +24,8 @@ on set-up and each of the FirebaseANEs.
 - https://tuarua.github.io/asdocs/firebaseane/auth/
 - https://tuarua.github.io/asdocs/firebaseane/core/
 - https://tuarua.github.io/asdocs/firebaseane/dynamiclinks/
+- https://tuarua.github.io/asdocs/firebaseane/invites/
+- https://tuarua.github.io/asdocs/firebaseane/googlesignin/
 - https://tuarua.github.io/asdocs/firebaseane/firestore/
 - https://tuarua.github.io/asdocs/firebaseane/messaging/
 - https://tuarua.github.io/asdocs/firebaseane/performance/
