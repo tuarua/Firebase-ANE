@@ -157,9 +157,7 @@ public class AuthExample extends Sprite implements IExample {
     private function onSignOutClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnSignOut);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            googleSignIn.signOut();
-
-            //auth.signOut();
+            auth.signOut();
             statusLabel.text = "Signed Out";
         }
     }
