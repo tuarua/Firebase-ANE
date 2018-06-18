@@ -14,7 +14,7 @@ Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/PerformanceANE.ane?raw=true -OutFile "$currentDir\..\native_extension\PerformanceANE\ane\PerformanceANE.ane"
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/RemoteConfigANE.ane?raw=true -OutFile "$currentDir\..\native_extension\RemoteConfigANE\ane\RemoteConfigANE.ane"
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/StorageANE.ane?raw=true -OutFile "$currentDir\..\native_extension\StorageANE\ane\StorageANE.ane"
-Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/GoogleSignInANE.ane?raw=true -OutFile "$currentDir\..\native_extension\InvitesANE\ane\InvitesANE.ane"
+Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/GoogleSignInANE.ane?raw=true -OutFile "$currentDir\..\native_extension\GoogleSignInANE\ane\GoogleSignInANE.ane"
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/InvitesANE.ane?raw=true -OutFile "$currentDir\..\native_extension\InvitesANE\ane\InvitesANE.ane"#
 
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.tuarua.frekotlin.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin.ane?raw=true
