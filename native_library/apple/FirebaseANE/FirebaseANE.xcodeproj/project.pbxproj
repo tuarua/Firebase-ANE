@@ -54,6 +54,37 @@
 		CE62B38520D09223002837B7 /* GoogleSignInEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62B38420D09223002837B7 /* GoogleSignInEvent.swift */; };
 		CE69C8DB208FEE1E004A1A5A /* BatchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C8D9208FEE1A004A1A5A /* BatchEvent.swift */; };
 		CE69C8DE208FF9E9004A1A5A /* NetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C8DC208FF963004A1A5A /* NetworkEvent.swift */; };
+		CE6E036420EEC828008D6CE8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
+		CE6E036520EEC828008D6CE8 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
+		CE6E036D20EEC828008D6CE8 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
+		CE6E037120EEC828008D6CE8 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
+		CE6E037820EECA32008D6CE8 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB572BC208D21C300CF6B1B /* GoogleToolboxForMac.framework */; };
+		CE6E037920EECA3F008D6CE8 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED7492220929C1F000327CD /* GTMSessionFetcher.framework */; };
+		CE6E037A20EECA45008D6CE8 /* GoogleAPIClientForREST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */; };
+		CE6E037B20EECA4C008D6CE8 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; };
+		CE6E037D20EECA9F008D6CE8 /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */; };
+		CE6E037F20EECAA8008D6CE8 /* FirebaseMLVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */; };
+		CE6E038120EECAB6008D6CE8 /* FirebaseMLVisionBarcodeModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E038020EECAB5008D6CE8 /* FirebaseMLVisionBarcodeModel.framework */; };
+		CE6E038320EECAD5008D6CE8 /* GoogleMobileVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E038220EECAD5008D6CE8 /* GoogleMobileVision.framework */; };
+		CE6E038920EECB6B008D6CE8 /* VisionBarcodeANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE6E038720EECB6B008D6CE8 /* VisionBarcodeANE_oc.h */; };
+		CE6E038A20EECB6B008D6CE8 /* VisionBarcodeANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6E038820EECB6B008D6CE8 /* VisionBarcodeANE.m */; };
+		CE6E038C20EECBE7008D6CE8 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E038B20EECBE7008D6CE8 /* SwiftController.swift */; };
+		CE6E038E20EECC14008D6CE8 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E038D20EECC14008D6CE8 /* SwiftController+FreSwift.swift */; };
+		CE6E039120EECD5C008D6CE8 /* VisionBarcodeANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CE6E038F20EECC95008D6CE8 /* VisionBarcodeANE-Bridging-Header.h */; };
+		CE6E039320EED12C008D6CE8 /* FreVisionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039220EED12C008D6CE8 /* FreVisionImage.swift */; };
+		CE6E039520EED2A8008D6CE8 /* FreVisionImageMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039420EED2A8008D6CE8 /* FreVisionImageMetadata.swift */; };
+		CE6E039720EED577008D6CE8 /* FreVisionBarcodeDetectorOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039620EED577008D6CE8 /* FreVisionBarcodeDetectorOptions.swift */; };
+		CE6E039D20EEE630008D6CE8 /* BarcodeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039C20EEE630008D6CE8 /* BarcodeEvent.swift */; };
+		CE6E039F20EEE7FB008D6CE8 /* FreVisionBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039E20EEE7FB008D6CE8 /* FreVisionBarcode.swift */; };
+		CE6E03A120EEEA25008D6CE8 /* FreVisionBarcodeEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E03A020EEEA25008D6CE8 /* FreVisionBarcodeEmail.swift */; };
+		CE6E03A320EEEB07008D6CE8 /* FreVisionBarcodePhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E03A220EEEB07008D6CE8 /* FreVisionBarcodePhone.swift */; };
+		CE6E03A520EEEB68008D6CE8 /* FreVisionBarcodeSMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E03A420EEEB68008D6CE8 /* FreVisionBarcodeSMS.swift */; };
+		CE6E03A720EEEBCE008D6CE8 /* FreVisionBarcodeURLBookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E03A620EEEBCE008D6CE8 /* FreVisionBarcodeURLBookmark.swift */; };
+		CE6E03A920EEEBF1008D6CE8 /* FreVisionBarcodeWifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E03A820EEEBF1008D6CE8 /* FreVisionBarcodeWifi.swift */; };
+		CE6E03AB20EEEC61008D6CE8 /* FreVisionBarcodeGeoPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E03AA20EEEC61008D6CE8 /* FreVisionBarcodeGeoPoint.swift */; };
+		CE6E03AD20EEED09008D6CE8 /* FreVisionBarcodeDriverLicense.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E03AC20EEED09008D6CE8 /* FreVisionBarcodeDriverLicense.swift */; };
+		CE6E03AF20EEEDE2008D6CE8 /* FreVisionBarcodeCalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E03AE20EEEDE2008D6CE8 /* FreVisionBarcodeCalendarEvent.swift */; };
+		CE6E03B120EEEEBC008D6CE8 /* FreVisionBarcodeContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E03B020EEEEBC008D6CE8 /* FreVisionBarcodeContactInfo.swift */; };
 		CE743201208D48E000E388D3 /* FirebaseFirestore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE743200208D48E000E388D3 /* FirebaseFirestore.framework */; };
 		CE743202208D490600E388D3 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		CE743205208D493800E388D3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE743203208D493800E388D3 /* Order.swift */; };
@@ -241,6 +272,30 @@
 		CE62B38420D09223002837B7 /* GoogleSignInEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInEvent.swift; sourceTree = "<group>"; };
 		CE69C8D9208FEE1A004A1A5A /* BatchEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchEvent.swift; sourceTree = "<group>"; };
 		CE69C8DC208FF963004A1A5A /* NetworkEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEvent.swift; sourceTree = "<group>"; };
+		CE6E037720EEC828008D6CE8 /* libVisionBarcodeANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVisionBarcodeANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMLCommon.framework; path = Carthage/Build/iOS/FirebaseMLCommon.framework; sourceTree = "<group>"; };
+		CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMLVision.framework; path = Carthage/Build/iOS/FirebaseMLVision.framework; sourceTree = "<group>"; };
+		CE6E038020EECAB5008D6CE8 /* FirebaseMLVisionBarcodeModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMLVisionBarcodeModel.framework; path = Carthage/Build/iOS/FirebaseMLVisionBarcodeModel.framework; sourceTree = "<group>"; };
+		CE6E038220EECAD5008D6CE8 /* GoogleMobileVision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileVision.framework; path = Carthage/Build/iOS/GoogleMobileVision.framework; sourceTree = "<group>"; };
+		CE6E038720EECB6B008D6CE8 /* VisionBarcodeANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisionBarcodeANE_oc.h; sourceTree = "<group>"; };
+		CE6E038820EECB6B008D6CE8 /* VisionBarcodeANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionBarcodeANE.m; sourceTree = "<group>"; };
+		CE6E038B20EECBE7008D6CE8 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
+		CE6E038D20EECC14008D6CE8 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		CE6E038F20EECC95008D6CE8 /* VisionBarcodeANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionBarcodeANE-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE6E039220EED12C008D6CE8 /* FreVisionImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionImage.swift; sourceTree = "<group>"; };
+		CE6E039420EED2A8008D6CE8 /* FreVisionImageMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionImageMetadata.swift; sourceTree = "<group>"; };
+		CE6E039620EED577008D6CE8 /* FreVisionBarcodeDetectorOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcodeDetectorOptions.swift; sourceTree = "<group>"; };
+		CE6E039C20EEE630008D6CE8 /* BarcodeEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeEvent.swift; sourceTree = "<group>"; };
+		CE6E039E20EEE7FB008D6CE8 /* FreVisionBarcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcode.swift; sourceTree = "<group>"; };
+		CE6E03A020EEEA25008D6CE8 /* FreVisionBarcodeEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcodeEmail.swift; sourceTree = "<group>"; };
+		CE6E03A220EEEB07008D6CE8 /* FreVisionBarcodePhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcodePhone.swift; sourceTree = "<group>"; };
+		CE6E03A420EEEB68008D6CE8 /* FreVisionBarcodeSMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcodeSMS.swift; sourceTree = "<group>"; };
+		CE6E03A620EEEBCE008D6CE8 /* FreVisionBarcodeURLBookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcodeURLBookmark.swift; sourceTree = "<group>"; };
+		CE6E03A820EEEBF1008D6CE8 /* FreVisionBarcodeWifi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcodeWifi.swift; sourceTree = "<group>"; };
+		CE6E03AA20EEEC61008D6CE8 /* FreVisionBarcodeGeoPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcodeGeoPoint.swift; sourceTree = "<group>"; };
+		CE6E03AC20EEED09008D6CE8 /* FreVisionBarcodeDriverLicense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcodeDriverLicense.swift; sourceTree = "<group>"; };
+		CE6E03AE20EEEDE2008D6CE8 /* FreVisionBarcodeCalendarEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcodeCalendarEvent.swift; sourceTree = "<group>"; };
+		CE6E03B020EEEEBC008D6CE8 /* FreVisionBarcodeContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcodeContactInfo.swift; sourceTree = "<group>"; };
 		CE743200208D48E000E388D3 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseFirestore.framework; path = Carthage/Build/iOS/FirebaseFirestore.framework; sourceTree = "<group>"; };
 		CE743203208D493800E388D3 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		CE743204208D493800E388D3 /* Where.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Where.swift; sourceTree = "<group>"; };
@@ -376,6 +431,24 @@
 				CE62B37720D06AD9002837B7 /* GoogleToolboxForMac.framework in Frameworks */,
 				CE62B37620D06AAD002837B7 /* GoogleAPIClientForREST.framework in Frameworks */,
 				CE62B37420D06A9A002837B7 /* GoogleSignIn.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE6E036320EEC828008D6CE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE6E036520EEC828008D6CE8 /* FreSwift.framework in Frameworks */,
+				CE6E036420EEC828008D6CE8 /* SwiftyJSON.framework in Frameworks */,
+				CE6E036D20EEC828008D6CE8 /* FirebaseCore.framework in Frameworks */,
+				CE6E037D20EECA9F008D6CE8 /* FirebaseMLCommon.framework in Frameworks */,
+				CE6E037F20EECAA8008D6CE8 /* FirebaseMLVision.framework in Frameworks */,
+				CE6E038120EECAB6008D6CE8 /* FirebaseMLVisionBarcodeModel.framework in Frameworks */,
+				CE6E037920EECA3F008D6CE8 /* GTMSessionFetcher.framework in Frameworks */,
+				CE6E037A20EECA45008D6CE8 /* GoogleAPIClientForREST.framework in Frameworks */,
+				CE6E038320EECAD5008D6CE8 /* GoogleMobileVision.framework in Frameworks */,
+				CE6E037820EECA32008D6CE8 /* GoogleToolboxForMac.framework in Frameworks */,
+				CE6E037B20EECA4C008D6CE8 /* Protobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +606,10 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE6E038220EECAD5008D6CE8 /* GoogleMobileVision.framework */,
+				CE6E038020EECAB5008D6CE8 /* FirebaseMLVisionBarcodeModel.framework */,
+				CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */,
+				CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */,
 				CEB9481020D5D60100F707C1 /* FirebaseInvites.framework */,
 				CE62B37820D06AF9002837B7 /* GTMOAuth2.framework */,
 				CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */,
@@ -609,7 +686,6 @@
 				CE62B36A20D06361002837B7 /* GoogleSignInANE.m */,
 				CE62B36C20D063CD002837B7 /* SwiftController.swift */,
 				CE62B36E20D063EA002837B7 /* SwiftController+FreSwift.swift */,
-				CE62B37020D0646A002837B7 /* GoogleSignInANE-Bridging-Header.h */,
 				CE62B37D20D06D5D002837B7 /* SwiftController+GIDSignInDelegate.swift */,
 				CE62B38220D086DE002837B7 /* SwiftController+GIDSignInUIDelegate.swift */,
 			);
@@ -627,6 +703,7 @@
 		CE62B36620D062AF002837B7 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				CE62B37020D0646A002837B7 /* GoogleSignInANE-Bridging-Header.h */,
 				CE62B36820D062E7002837B7 /* GoogleSignInANE_oc.h */,
 			);
 			path = Headers;
@@ -635,6 +712,71 @@
 		CE62B36720D062B5002837B7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE6E035B20EEC80B008D6CE8 /* VisionBarcodeANE */ = {
+			isa = PBXGroup;
+			children = (
+				CE6E038620EECB3C008D6CE8 /* Events */,
+				CE6E038520EECB36008D6CE8 /* Headers */,
+				CE6E038420EECB2B008D6CE8 /* Extensions */,
+				CE6E038820EECB6B008D6CE8 /* VisionBarcodeANE.m */,
+				CE6E038B20EECBE7008D6CE8 /* SwiftController.swift */,
+				CE6E038D20EECC14008D6CE8 /* SwiftController+FreSwift.swift */,
+			);
+			path = VisionBarcodeANE;
+			sourceTree = "<group>";
+		};
+		CE6E038420EECB2B008D6CE8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE6E039620EED577008D6CE8 /* FreVisionBarcodeDetectorOptions.swift */,
+				CE6E039E20EEE7FB008D6CE8 /* FreVisionBarcode.swift */,
+				CE6E03A020EEEA25008D6CE8 /* FreVisionBarcodeEmail.swift */,
+				CE6E03A220EEEB07008D6CE8 /* FreVisionBarcodePhone.swift */,
+				CE6E03A420EEEB68008D6CE8 /* FreVisionBarcodeSMS.swift */,
+				CE6E03A620EEEBCE008D6CE8 /* FreVisionBarcodeURLBookmark.swift */,
+				CE6E03A820EEEBF1008D6CE8 /* FreVisionBarcodeWifi.swift */,
+				CE6E03AA20EEEC61008D6CE8 /* FreVisionBarcodeGeoPoint.swift */,
+				CE6E03AC20EEED09008D6CE8 /* FreVisionBarcodeDriverLicense.swift */,
+				CE6E03AE20EEEDE2008D6CE8 /* FreVisionBarcodeCalendarEvent.swift */,
+				CE6E03B020EEEEBC008D6CE8 /* FreVisionBarcodeContactInfo.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE6E038520EECB36008D6CE8 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				CE6E038F20EECC95008D6CE8 /* VisionBarcodeANE-Bridging-Header.h */,
+				CE6E038720EECB6B008D6CE8 /* VisionBarcodeANE_oc.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		CE6E038620EECB3C008D6CE8 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				CE6E039C20EEE630008D6CE8 /* BarcodeEvent.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		CE6E039A20EED9FA008D6CE8 /* VisionCommon */ = {
+			isa = PBXGroup;
+			children = (
+				CE6E039B20EEDA0A008D6CE8 /* Extensions */,
+			);
+			path = VisionCommon;
+			sourceTree = "<group>";
+		};
+		CE6E039B20EEDA0A008D6CE8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE6E039220EED12C008D6CE8 /* FreVisionImage.swift */,
+				CE6E039420EED2A8008D6CE8 /* FreVisionImageMetadata.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -658,6 +800,8 @@
 		CE87F45C1FB259C9005CF7DF = {
 			isa = PBXGroup;
 			children = (
+				CE6E039A20EED9FA008D6CE8 /* VisionCommon */,
+				CE6E035B20EEC80B008D6CE8 /* VisionBarcodeANE */,
 				CEB947E220D5CEBD00F707C1 /* InvitesANE */,
 				CE62B36420D061A7002837B7 /* GoogleSignInANE */,
 				CE8BC49620B1C85E009164ED /* DynamicLinksANE */,
@@ -689,6 +833,7 @@
 				CE8BC4B920B1C890009164ED /* libDynamicLinksANE_LIB.a */,
 				CE62B36320D0618E002837B7 /* libGoogleSignInANE_LIB.a */,
 				CEB947FD20D5CED000F707C1 /* libInvitesANE_LIB.a */,
+				CE6E037720EEC828008D6CE8 /* libVisionBarcodeANE_LIB.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1054,6 +1199,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE6E036E20EEC828008D6CE8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE6E039120EECD5C008D6CE8 /* VisionBarcodeANE-Bridging-Header.h in Headers */,
+				CE6E038920EECB6B008D6CE8 /* VisionBarcodeANE_oc.h in Headers */,
+				CE6E037120EEC828008D6CE8 /* FreMacros.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE8BC4AE20B1C890009164ED /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1164,6 +1319,25 @@
 			name = GoogleSignInANE_LIB;
 			productName = HelloWorldANE_LIB;
 			productReference = CE62B36320D0618E002837B7 /* libGoogleSignInANE_LIB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CE6E035C20EEC828008D6CE8 /* VisionBarcodeANE_LIB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE6E037420EEC828008D6CE8 /* Build configuration list for PBXNativeTarget "VisionBarcodeANE_LIB" */;
+			buildPhases = (
+				CE6E035D20EEC828008D6CE8 /* Sources */,
+				CE6E036320EEC828008D6CE8 /* Frameworks */,
+				CE6E036E20EEC828008D6CE8 /* Headers */,
+				CE6E037220EEC828008D6CE8 /* ShellScript */,
+				CE6E037320EEC828008D6CE8 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VisionBarcodeANE_LIB;
+			productName = HelloWorldANE_LIB;
+			productReference = CE6E037720EEC828008D6CE8 /* libVisionBarcodeANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		CE87F4741FB259DB005CF7DF /* FirebaseANE_LIB */ = {
@@ -1395,6 +1569,7 @@
 				CE8BC49A20B1C890009164ED /* DynamicLinksANE_LIB */,
 				CE62B34920D0618E002837B7 /* GoogleSignInANE_LIB */,
 				CEB947E320D5CED000F707C1 /* InvitesANE_LIB */,
+				CE6E035C20EEC828008D6CE8 /* VisionBarcodeANE_LIB */,
 			);
 		};
 /* End PBXProject section */
@@ -1425,6 +1600,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/GoogleSignInANE/ane/build_multi.sh;
+		};
+		CE6E037220EEC828008D6CE8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		CE6E037320EEC828008D6CE8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = ../../../native_extension/VisionBarcodeANE/ane/build_multi.sh;
 		};
 		CE7431FF208D488000E388D3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1702,6 +1903,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE6E035D20EEC828008D6CE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE6E039D20EEE630008D6CE8 /* BarcodeEvent.swift in Sources */,
+				CE6E038A20EECB6B008D6CE8 /* VisionBarcodeANE.m in Sources */,
+				CE6E03AB20EEEC61008D6CE8 /* FreVisionBarcodeGeoPoint.swift in Sources */,
+				CE6E03A920EEEBF1008D6CE8 /* FreVisionBarcodeWifi.swift in Sources */,
+				CE6E03A120EEEA25008D6CE8 /* FreVisionBarcodeEmail.swift in Sources */,
+				CE6E039720EED577008D6CE8 /* FreVisionBarcodeDetectorOptions.swift in Sources */,
+				CE6E03A520EEEB68008D6CE8 /* FreVisionBarcodeSMS.swift in Sources */,
+				CE6E03AF20EEEDE2008D6CE8 /* FreVisionBarcodeCalendarEvent.swift in Sources */,
+				CE6E038C20EECBE7008D6CE8 /* SwiftController.swift in Sources */,
+				CE6E03AD20EEED09008D6CE8 /* FreVisionBarcodeDriverLicense.swift in Sources */,
+				CE6E038E20EECC14008D6CE8 /* SwiftController+FreSwift.swift in Sources */,
+				CE6E039320EED12C008D6CE8 /* FreVisionImage.swift in Sources */,
+				CE6E03A320EEEB07008D6CE8 /* FreVisionBarcodePhone.swift in Sources */,
+				CE6E03B120EEEEBC008D6CE8 /* FreVisionBarcodeContactInfo.swift in Sources */,
+				CE6E039F20EEE7FB008D6CE8 /* FreVisionBarcode.swift in Sources */,
+				CE6E03A720EEEBCE008D6CE8 /* FreVisionBarcodeURLBookmark.swift in Sources */,
+				CE6E039520EED2A8008D6CE8 /* FreVisionImageMetadata.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE87F4711FB259DB005CF7DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1861,7 +2086,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "GoogleSignInANE/GoogleSignInANE-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "GoogleSignInANE/Headers/GoogleSignInANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "GoogleSignInANE/GoogleSignInANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -1885,8 +2110,55 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "GoogleSignInANE/GoogleSignInANE-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "GoogleSignInANE/Headers/GoogleSignInANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "GoogleSignInANE/GoogleSignInANE-Swift.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		CE6E037520EEC828008D6CE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "VisionBarcodeANE/Headers/VisionBarcodeANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionBarcodeANE/VisionBarcodeANE-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		CE6E037620EEC828008D6CE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "VisionBarcodeANE/Headers/VisionBarcodeANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionBarcodeANE/VisionBarcodeANE-Swift.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -2209,7 +2481,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "InvitesANE/Headers/InvitesANE-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "InvitesANE/InvitesANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "InvitesANE/InvitesANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -2233,7 +2505,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "InvitesANE/Headers/InvitesANE-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "InvitesANE/InvitesANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "InvitesANE/InvitesANE-Swift.h";
 				SWIFT_VERSION = 4.0;
 			};
@@ -2482,6 +2754,15 @@
 			buildConfigurations = (
 				CE62B36120D0618E002837B7 /* Debug */,
 				CE62B36220D0618E002837B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE6E037420EEC828008D6CE8 /* Build configuration list for PBXNativeTarget "VisionBarcodeANE_LIB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE6E037520EEC828008D6CE8 /* Debug */,
+				CE6E037620EEC828008D6CE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
