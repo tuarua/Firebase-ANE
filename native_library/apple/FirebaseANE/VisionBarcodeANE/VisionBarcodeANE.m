@@ -34,7 +34,7 @@
              MAP_FUNCTION(TRFBVBC, init)
             ,MAP_FUNCTION(TRFBVBC, createGUID)
             ,MAP_FUNCTION(TRFBVBC, detect)
-            ,MAP_FUNCTION(TRFBVBC, getResult)
+            ,MAP_FUNCTION(TRFBVBC, getResults)
         };
         SET_FUNCTIONS
         

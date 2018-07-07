@@ -18,12 +18,12 @@ import Foundation
 import FreSwift
 import FirebaseMLVision
 
-public extension VisionBarcodePhone {
+public extension VisionBarcodeAddress {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.barcode.Phone")
-            try ret?.setProp(name: "number", value: self.number)
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.barcode.Address")
             try ret?.setProp(name: "type", value: self.type.rawValue)
+            try ret?.setProp(name: "addressLines", value: self.addressLines?.toFREObject())
             return ret
         } catch {
         }
@@ -31,15 +31,15 @@ public extension VisionBarcodePhone {
     }
 }
 
-public extension Array where Element == VisionBarcodePhone {
+public extension Array where Element == VisionBarcodeAddress {
     func toFREObject() -> FREArray? {
         do {
-            let ret = try FREArray(className: "Vector.<com.tuarua.firebase.vision.barcode.Phone>",
+            let ret = try FREArray(className: "Vector.<com.tuarua.firebase.vision.barcode.Address>",
                                    args: self.count)
             var cnt: UInt = 0
-            for phone in self {
-                if let frePhone = phone.toFREObject() {
-                    try ret.set(index: cnt, value: frePhone)
+            for address in self {
+                if let freAddress = address.toFREObject() {
+                    try ret.set(index: cnt, value: freAddress)
                     cnt += 1
                 }
             }

@@ -32,3 +32,22 @@ public extension VisionBarcodeEmail {
         return nil
     }
 }
+
+public extension Array where Element == VisionBarcodeEmail {
+    func toFREObject() -> FREArray? {
+        do {
+            let ret = try FREArray(className: "Vector.<com.tuarua.firebase.vision.barcode.Email>",
+                                   args: self.count)
+            var cnt: UInt = 0
+            for email in self {
+                if let freEmail = email.toFREObject() {
+                    try ret.set(index: cnt, value: freEmail)
+                    cnt += 1
+                }
+            }
+            return ret
+        } catch {
+        }
+        return nil
+    }
+}

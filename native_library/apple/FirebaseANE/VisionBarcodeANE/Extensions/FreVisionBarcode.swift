@@ -26,13 +26,16 @@ public extension VisionBarcode {
             try ret?.setProp(name: "rawValue", value: self.rawValue)
             try ret?.setProp(name: "displayValue", value: self.displayValue)
             try ret?.setProp(name: "format", value: self.format.rawValue)
-            
-            // NSValue
-            //for cornerPoint in self.cornerPoints ?? [] {
-                //cornerPoint
-            //}
-            //try ret?.setProp(name: "cornerPoints", value: self.cornerPoints?.toFREObject())
-            
+            let freCornerPoints = try FREArray(className: "Vector.<flash.geom.Point>",
+                                               args: self.cornerPoints?.count ?? 0)
+            var cnt: UInt = 0
+            for cornerPoint in self.cornerPoints ?? [] {
+                if let freCornerPoint = cornerPoint.cgPointValue.toFREObject() {
+                    try freCornerPoints.set(index: cnt, value: freCornerPoint)
+                    cnt += 1
+                }
+            }
+            try ret?.setProp(name: "cornerPoints", value: freCornerPoints)
             try ret?.setProp(name: "valueType", value: self.valueType.rawValue)
             try ret?.setProp(name: "email", value: self.email?.toFREObject())
             try ret?.setProp(name: "phone", value: self.phone?.toFREObject())

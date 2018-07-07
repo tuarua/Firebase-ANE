@@ -23,7 +23,7 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)init"] = initController
         functionsToSet["\(prefix)createGUID"] = createGUID
         functionsToSet["\(prefix)detect"] = detect
-        functionsToSet["\(prefix)getResult"] = getResult
+        functionsToSet["\(prefix)getResults"] = getResults
         
         var arr: [String] = []
         for key in functionsToSet.keys {

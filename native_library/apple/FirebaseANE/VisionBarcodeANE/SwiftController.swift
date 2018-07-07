@@ -60,18 +60,26 @@ public class SwiftController: NSObject {
         return nil
     }
     
-    func getResult(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+    func getResults(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
             let eventId = String(argv[0])
             else {
                 return ArgCountError(message: "getResult").getError(#file, #line, #column)
         }
-        
-        if let result = results[eventId] {
-            for barcode in result {
-                trace(barcode.debugDescription)
+        do {
+            if let result = results[eventId] {
+                let freArray = try FREArray(className: "Vector.<com.tuarua.arane.Node>", args: result.count)
+                var cnt: UInt = 0
+                for barcode in result {
+                    trace(barcode.debugDescription)
+                    if let freBarcode = barcode?.toFREObject() {
+                        try freArray.set(index: cnt, value: freBarcode)
+                        cnt += 1
+                    } 
+                }
+                return freArray.rawValue
             }
-        }
+        } catch {}
         
         return nil
     }

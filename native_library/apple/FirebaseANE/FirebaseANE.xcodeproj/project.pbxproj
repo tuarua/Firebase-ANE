@@ -31,6 +31,8 @@
 		CE265764208E7B7700C561E8 /* FreQuerySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE265763208E7B7700C561E8 /* FreQuerySnapshot.swift */; };
 		CE2BDB4720A6222900C89A7C /* SwiftController+Messaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDB4620A6222900C89A7C /* SwiftController+Messaging.swift */; };
 		CE2BDB4920A6243800C89A7C /* MessageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDB4820A6243800C89A7C /* MessageEvent.swift */; };
+		CE420A0B20F0DFBD0095967F /* FreVisionBarcodePersonName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE420A0A20F0DFBD0095967F /* FreVisionBarcodePersonName.swift */; };
+		CE420A0D20F0E26B0095967F /* FreVisionBarcodeAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE420A0C20F0E26B0095967F /* FreVisionBarcodeAddress.swift */; };
 		CE62952B20A8DD2600EEF76E /* FreAuthCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62952A20A8DD2600EEF76E /* FreAuthCredential.swift */; };
 		CE62B35920D0618E002837B7 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CE62B35D20D0618E002837B7 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
@@ -257,6 +259,8 @@
 		CE2BDB4620A6222900C89A7C /* SwiftController+Messaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+Messaging.swift"; sourceTree = "<group>"; };
 		CE2BDB4820A6243800C89A7C /* MessageEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEvent.swift; sourceTree = "<group>"; };
 		CE2BDB4A20A6270C00C89A7C /* SwiftController+UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+UNUserNotificationCenter.swift"; sourceTree = "<group>"; };
+		CE420A0A20F0DFBD0095967F /* FreVisionBarcodePersonName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcodePersonName.swift; sourceTree = "<group>"; };
+		CE420A0C20F0E26B0095967F /* FreVisionBarcodeAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcodeAddress.swift; sourceTree = "<group>"; };
 		CE62952A20A8DD2600EEF76E /* FreAuthCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreAuthCredential.swift; sourceTree = "<group>"; };
 		CE62B36320D0618E002837B7 /* libGoogleSignInANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGoogleSignInANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE62B36820D062E7002837B7 /* GoogleSignInANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleSignInANE_oc.h; sourceTree = "<group>"; };
@@ -743,6 +747,8 @@
 				CE6E03AC20EEED09008D6CE8 /* FreVisionBarcodeDriverLicense.swift */,
 				CE6E03AE20EEEDE2008D6CE8 /* FreVisionBarcodeCalendarEvent.swift */,
 				CE6E03B020EEEEBC008D6CE8 /* FreVisionBarcodeContactInfo.swift */,
+				CE420A0A20F0DFBD0095967F /* FreVisionBarcodePersonName.swift */,
+				CE420A0C20F0E26B0095967F /* FreVisionBarcodeAddress.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1907,12 +1913,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE420A0D20F0E26B0095967F /* FreVisionBarcodeAddress.swift in Sources */,
 				CE6E039D20EEE630008D6CE8 /* BarcodeEvent.swift in Sources */,
 				CE6E038A20EECB6B008D6CE8 /* VisionBarcodeANE.m in Sources */,
 				CE6E03AB20EEEC61008D6CE8 /* FreVisionBarcodeGeoPoint.swift in Sources */,
 				CE6E03A920EEEBF1008D6CE8 /* FreVisionBarcodeWifi.swift in Sources */,
 				CE6E03A120EEEA25008D6CE8 /* FreVisionBarcodeEmail.swift in Sources */,
 				CE6E039720EED577008D6CE8 /* FreVisionBarcodeDetectorOptions.swift in Sources */,
+				CE420A0B20F0DFBD0095967F /* FreVisionBarcodePersonName.swift in Sources */,
 				CE6E03A520EEEB68008D6CE8 /* FreVisionBarcodeSMS.swift in Sources */,
 				CE6E03AF20EEEDE2008D6CE8 /* FreVisionBarcodeCalendarEvent.swift in Sources */,
 				CE6E038C20EECBE7008D6CE8 /* SwiftController.swift in Sources */,

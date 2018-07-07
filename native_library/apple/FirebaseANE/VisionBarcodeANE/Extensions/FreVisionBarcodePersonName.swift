@@ -18,17 +18,17 @@ import Foundation
 import FreSwift
 import FirebaseMLVision
 
-public extension VisionBarcodeContactInfo {
+public extension VisionBarcodePersonName {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.barcode.ContactInfo")
-            try ret?.setProp(name: "jobTitle", value: self.jobTitle)
-            try ret?.setProp(name: "name", value: self.name)
-            try ret?.setProp(name: "organization", value: self.organization)
-            try ret?.setProp(name: "addresses", value: self.addresses?.toFREObject())
-            try ret?.setProp(name: "emails", value: self.emails?.toFREObject())
-            try ret?.setProp(name: "phones", value: self.phones?.toFREObject())
-            // TODO array types
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.barcode.PersonName")
+            try ret?.setProp(name: "formattedName", value: self.formattedName)
+            try ret?.setProp(name: "first", value: self.first)
+            try ret?.setProp(name: "last", value: self.last)
+            try ret?.setProp(name: "middle", value: self.middle)
+            try ret?.setProp(name: "prefix", value: self.prefix)
+            try ret?.setProp(name: "pronounciation", value: self.pronounciation)
+            try ret?.setProp(name: "suffix", value: self.suffix)
             return ret
         } catch {
         }
