@@ -28,7 +28,6 @@ public extension VisionBarcodeContactInfo {
             try ret?.setProp(name: "addresses", value: self.addresses?.toFREObject())
             try ret?.setProp(name: "emails", value: self.emails?.toFREObject())
             try ret?.setProp(name: "phones", value: self.phones?.toFREObject())
-            // TODO array types
             return ret
         } catch {
         }

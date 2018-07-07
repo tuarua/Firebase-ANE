@@ -68,7 +68,8 @@ public class SwiftController: NSObject {
         }
         do {
             if let result = results[eventId] {
-                let freArray = try FREArray(className: "Vector.<com.tuarua.arane.Node>", args: result.count)
+                let freArray = try FREArray(className: "Vector.<com.tuarua.firebase.vision.barcode.Barcode>",
+                                            args: result.count)
                 var cnt: UInt = 0
                 for barcode in result {
                     trace(barcode.debugDescription)
