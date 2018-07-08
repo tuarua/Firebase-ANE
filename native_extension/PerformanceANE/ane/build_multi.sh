@@ -8,7 +8,7 @@ pathtome="${pathtome%/*}"
 PROJECTNAME=PerformanceANE
 libSuffix="_LIB"
 
-AIR_SDK="/Users/User/sdks/AIR/AIRSDK_29"
+AIR_SDK="/Users/User/sdks/AIR/AIRSDK_30"
 echo $AIR_SDK
 
 if [ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/" ]; then

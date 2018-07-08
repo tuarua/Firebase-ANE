@@ -8,7 +8,7 @@ pathtome="${pathtome%/*}"
 PROJECTNAME=RemoteConfigANE
 libSuffix="_LIB"
 
-AIR_SDK="/Users/User/sdks/AIR/AIRSDK_29"
+AIR_SDK="/Users/User/sdks/AIR/AIRSDK_30"
 
 if [ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/" ]; then
 echo "No Simulator build. Build using Xcode"

@@ -24,24 +24,32 @@ public class SwiftController: NSObject {
     public var functionsToSet: FREFunctionMap = [:]
     private var results: [String: [VisionBarcode?]] = [:]
     lazy var vision = Vision.vision()
+    private var options: VisionBarcodeDetectorOptions?
     
     func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return UUID().uuidString.toFREObject()
     }
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        trace("initController")
+        guard argc > 0,
+            let options = VisionBarcodeDetectorOptions(argv[0])
+            else {
+                return ArgCountError(message: "initController").getError(#file, #line, #column)
+        }
+        self.options = options
         return true.toFREObject()
     }
     
     func detect(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 2,
+        trace("detect")
+        guard argc > 1,
             let image = VisionImage(argv[0]),
-            let options = VisionBarcodeDetectorOptions(argv[1]),
-            let eventId = String(argv[2])
+            let eventId = String(argv[1]),
+            let options = self.options
             else {
                 return ArgCountError(message: "detect").getError(#file, #line, #column)
         }
-        
         let barcodeDetector = vision.barcodeDetector(options: options)
         barcodeDetector.detect(in: image) { (features, error) in
             if let err = error as NSError? {
@@ -61,6 +69,7 @@ public class SwiftController: NSObject {
     }
     
     func getResults(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        trace("getResults")
         guard argc > 0,
             let eventId = String(argv[0])
             else {

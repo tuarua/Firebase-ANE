@@ -23,7 +23,6 @@ public extension VisionImageMetadata {
         guard let rv = freObject,
         let orientation = VisionDetectorImageOrientation(rawValue: UInt(rv["orientation"]) ?? 1)
             else { return nil }
-        
         self.init()
         self.orientation = orientation
         

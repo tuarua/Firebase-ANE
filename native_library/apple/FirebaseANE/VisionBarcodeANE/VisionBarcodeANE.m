@@ -26,27 +26,27 @@
     @end
 
 @implementation VisionBarcodeANE_LIB
-    SWIFT_DECL(TRFBVBC) // use unique prefix throughout to prevent clashes with other ANEs
-    CONTEXT_INIT(TRFBVBC) {
-        SWIFT_INITS(TRFBVBC)
-        static FRENamedFunction extensionFunctions[] =
-        {
-             MAP_FUNCTION(TRFBVBC, init)
-            ,MAP_FUNCTION(TRFBVBC, createGUID)
-            ,MAP_FUNCTION(TRFBVBC, detect)
-            ,MAP_FUNCTION(TRFBVBC, getResults)
-        };
-        SET_FUNCTIONS
-        
-    }
+SWIFT_DECL(TRFBVBC) // use unique prefix throughout to prevent clashes with other ANEs
+CONTEXT_INIT(TRFBVBC) {
+    SWIFT_INITS(TRFBVBC)
+    static FRENamedFunction extensionFunctions[] =
+    {
+         MAP_FUNCTION(TRFBVBC, init)
+        ,MAP_FUNCTION(TRFBVBC, createGUID)
+        ,MAP_FUNCTION(TRFBVBC, detect)
+        ,MAP_FUNCTION(TRFBVBC, getResults)
+    };
+    SET_FUNCTIONS
     
-    CONTEXT_FIN(TRFBVBC) {
-        [TRFBVBC_swft dispose];
-        TRFBVBC_swft = nil;
-        TRFBVBC_freBridge = nil;
-        TRFBVBC_swftBridge = nil;
-        TRFBVBC_funcArray = nil;
-    }
-    EXTENSION_INIT(TRFBVBC)
-    EXTENSION_FIN(TRFBVBC)
-    @end
+}
+
+CONTEXT_FIN(TRFBVBC) {
+    [TRFBVBC_swft dispose];
+    TRFBVBC_swft = nil;
+    TRFBVBC_freBridge = nil;
+    TRFBVBC_swftBridge = nil;
+    TRFBVBC_funcArray = nil;
+}
+EXTENSION_INIT(TRFBVBC)
+EXTENSION_FIN(TRFBVBC)
+@end

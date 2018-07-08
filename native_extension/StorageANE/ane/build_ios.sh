@@ -11,7 +11,7 @@ echo $pathtome
 PROJECTNAME=StorageANE
 libSuffix="_LIB"
 
-AIR_SDK="/Users/User/sdks/AIR/AIRSDK_29"
+AIR_SDK="/Users/User/sdks/AIR/AIRSDK_30"
 echo $AIR_SDK
 
 if [ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/" ]; then
@@ -25,7 +25,7 @@ exit
 fi
 
 #Setup the directory.
-echo "Making directories."ex
+echo "Making directories."
 
 if [ ! -d "$pathtome/platforms" ]; then
 mkdir "$pathtome/platforms"

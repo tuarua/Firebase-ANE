@@ -33,6 +33,13 @@
 		CE2BDB4920A6243800C89A7C /* MessageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDB4820A6243800C89A7C /* MessageEvent.swift */; };
 		CE420A0B20F0DFBD0095967F /* FreVisionBarcodePersonName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE420A0A20F0DFBD0095967F /* FreVisionBarcodePersonName.swift */; };
 		CE420A0D20F0E26B0095967F /* FreVisionBarcodeAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE420A0C20F0E26B0095967F /* FreVisionBarcodeAddress.swift */; };
+		CE5E6B1220F1787D001398C5 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
+		CE5E6B2020F1787D001398C5 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
+		CE5E6B2820F178CF001398C5 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E6B2720F178CF001398C5 /* SwiftController.swift */; };
+		CE5E6B2A20F178E6001398C5 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5E6B2920F178E6001398C5 /* SwiftController+FreSwift.swift */; };
+		CE5E6B2D20F178FB001398C5 /* VisionANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE5E6B2B20F178FB001398C5 /* VisionANE_oc.h */; };
+		CE5E6B2E20F178FB001398C5 /* VisionANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5E6B2C20F178FB001398C5 /* VisionANE.m */; };
+		CE5E6B3020F17A17001398C5 /* VisionANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CE5E6B2F20F17A17001398C5 /* VisionANE-Bridging-Header.h */; };
 		CE62952B20A8DD2600EEF76E /* FreAuthCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62952A20A8DD2600EEF76E /* FreAuthCredential.swift */; };
 		CE62B35920D0618E002837B7 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CE62B35D20D0618E002837B7 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
@@ -237,6 +244,13 @@
 		CEE80D72208CF4B200C96EC6 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
 		CEE80D74208CF50E00C96EC6 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE80D73208CF50E00C96EC6 /* SwiftController.swift */; };
 		CEE80D76208CF51F00C96EC6 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE80D75208CF51F00C96EC6 /* SwiftController+FreSwift.swift */; };
+		CEF921D520F23FC6005DE361 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF921D320F23ECC005DE361 /* Accelerate.framework */; };
+		CEF921D720F23FD5005DE361 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF921D620F23FD5005DE361 /* AVFoundation.framework */; };
+		CEF921D920F23FE0005DE361 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF921D820F23FE0005DE361 /* CoreGraphics.framework */; };
+		CEF921DB20F23FEC005DE361 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF921DA20F23FEC005DE361 /* CoreImage.framework */; };
+		CEF921DF20F23FFD005DE361 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF921DE20F23FFD005DE361 /* CoreVideo.framework */; };
+		CEF921E120F24127005DE361 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF921E020F24127005DE361 /* LocalAuthentication.framework */; };
+		CEF921E220F26616005DE361 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF921DC20F23FF7005DE361 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -261,6 +275,12 @@
 		CE2BDB4A20A6270C00C89A7C /* SwiftController+UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+UNUserNotificationCenter.swift"; sourceTree = "<group>"; };
 		CE420A0A20F0DFBD0095967F /* FreVisionBarcodePersonName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcodePersonName.swift; sourceTree = "<group>"; };
 		CE420A0C20F0E26B0095967F /* FreVisionBarcodeAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionBarcodeAddress.swift; sourceTree = "<group>"; };
+		CE5E6B2620F1787D001398C5 /* libVisionANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVisionANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE5E6B2720F178CF001398C5 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
+		CE5E6B2920F178E6001398C5 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		CE5E6B2B20F178FB001398C5 /* VisionANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisionANE_oc.h; sourceTree = "<group>"; };
+		CE5E6B2C20F178FB001398C5 /* VisionANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionANE.m; sourceTree = "<group>"; };
+		CE5E6B2F20F17A17001398C5 /* VisionANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionANE-Bridging-Header.h"; sourceTree = "<group>"; };
 		CE62952A20A8DD2600EEF76E /* FreAuthCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreAuthCredential.swift; sourceTree = "<group>"; };
 		CE62B36320D0618E002837B7 /* libGoogleSignInANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGoogleSignInANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE62B36820D062E7002837B7 /* GoogleSignInANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleSignInANE_oc.h; sourceTree = "<group>"; };
@@ -417,9 +437,31 @@
 		CEE80D73208CF50E00C96EC6 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		CEE80D75208CF51F00C96EC6 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
 		CEE80D77208CF5A600C96EC6 /* AnalyticsANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnalyticsANE-Bridging-Header.h"; sourceTree = "<group>"; };
+		CEF921D320F23ECC005DE361 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		CEF921D620F23FD5005DE361 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CEF921D820F23FE0005DE361 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CEF921DA20F23FEC005DE361 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		CEF921DC20F23FF7005DE361 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		CEF921DE20F23FFD005DE361 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		CEF921E020F24127005DE361 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CE5E6B1120F1787D001398C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEF921E220F26616005DE361 /* CoreMedia.framework in Frameworks */,
+				CEF921E120F24127005DE361 /* LocalAuthentication.framework in Frameworks */,
+				CEF921DF20F23FFD005DE361 /* CoreVideo.framework in Frameworks */,
+				CEF921DB20F23FEC005DE361 /* CoreImage.framework in Frameworks */,
+				CEF921D920F23FE0005DE361 /* CoreGraphics.framework in Frameworks */,
+				CEF921D720F23FD5005DE361 /* AVFoundation.framework in Frameworks */,
+				CEF921D520F23FC6005DE361 /* Accelerate.framework in Frameworks */,
+				CE5E6B1220F1787D001398C5 /* FreSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE62B34F20D0618E002837B7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -610,6 +652,13 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEF921E020F24127005DE361 /* LocalAuthentication.framework */,
+				CEF921DE20F23FFD005DE361 /* CoreVideo.framework */,
+				CEF921DC20F23FF7005DE361 /* CoreMedia.framework */,
+				CEF921DA20F23FEC005DE361 /* CoreImage.framework */,
+				CEF921D820F23FE0005DE361 /* CoreGraphics.framework */,
+				CEF921D620F23FD5005DE361 /* AVFoundation.framework */,
+				CEF921D320F23ECC005DE361 /* Accelerate.framework */,
 				CE6E038220EECAD5008D6CE8 /* GoogleMobileVision.framework */,
 				CE6E038020EECAB5008D6CE8 /* FirebaseMLVisionBarcodeModel.framework */,
 				CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */,
@@ -806,6 +855,7 @@
 		CE87F45C1FB259C9005CF7DF = {
 			isa = PBXGroup;
 			children = (
+				CE8D621320F16ABC00FB2569 /* VisionANE */,
 				CE6E039A20EED9FA008D6CE8 /* VisionCommon */,
 				CE6E035B20EEC80B008D6CE8 /* VisionBarcodeANE */,
 				CEB947E220D5CEBD00F707C1 /* InvitesANE */,
@@ -840,6 +890,7 @@
 				CE62B36320D0618E002837B7 /* libGoogleSignInANE_LIB.a */,
 				CEB947FD20D5CED000F707C1 /* libInvitesANE_LIB.a */,
 				CE6E037720EEC828008D6CE8 /* libVisionBarcodeANE_LIB.a */,
+				CE5E6B2620F1787D001398C5 /* libVisionANE_LIB.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -897,6 +948,26 @@
 				CE8BC4DF20B1D9B3009164ED /* DynamicLinkEvent.swift */,
 			);
 			path = Events;
+			sourceTree = "<group>";
+		};
+		CE8D621320F16ABC00FB2569 /* VisionANE */ = {
+			isa = PBXGroup;
+			children = (
+				CE8D621420F16AD200FB2569 /* Headers */,
+				CE5E6B2720F178CF001398C5 /* SwiftController.swift */,
+				CE5E6B2920F178E6001398C5 /* SwiftController+FreSwift.swift */,
+				CE5E6B2C20F178FB001398C5 /* VisionANE.m */,
+			);
+			path = VisionANE;
+			sourceTree = "<group>";
+		};
+		CE8D621420F16AD200FB2569 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				CE5E6B2B20F178FB001398C5 /* VisionANE_oc.h */,
+				CE5E6B2F20F17A17001398C5 /* VisionANE-Bridging-Header.h */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		CE94517220951E6600FE2BD7 /* Extensions */ = {
@@ -1195,6 +1266,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE5E6B1D20F1787D001398C5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE5E6B2020F1787D001398C5 /* FreMacros.h in Headers */,
+				CE5E6B2D20F178FB001398C5 /* VisionANE_oc.h in Headers */,
+				CE5E6B3020F17A17001398C5 /* VisionANE-Bridging-Header.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE62B35A20D0618E002837B7 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1308,6 +1389,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		CE5E6AFC20F1787D001398C5 /* VisionANE_LIB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE5E6B2320F1787D001398C5 /* Build configuration list for PBXNativeTarget "VisionANE_LIB" */;
+			buildPhases = (
+				CE5E6AFD20F1787D001398C5 /* Sources */,
+				CE5E6B1120F1787D001398C5 /* Frameworks */,
+				CE5E6B1D20F1787D001398C5 /* Headers */,
+				CE5E6B2120F1787D001398C5 /* ShellScript */,
+				CE5E6B2220F1787D001398C5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VisionANE_LIB;
+			productName = HelloWorldANE_LIB;
+			productReference = CE5E6B2620F1787D001398C5 /* libVisionANE_LIB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		CE62B34920D0618E002837B7 /* GoogleSignInANE_LIB */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE62B36020D0618E002837B7 /* Build configuration list for PBXNativeTarget "GoogleSignInANE_LIB" */;
@@ -1576,11 +1676,38 @@
 				CE62B34920D0618E002837B7 /* GoogleSignInANE_LIB */,
 				CEB947E320D5CED000F707C1 /* InvitesANE_LIB */,
 				CE6E035C20EEC828008D6CE8 /* VisionBarcodeANE_LIB */,
+				CE5E6AFC20F1787D001398C5 /* VisionANE_LIB */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		CE5E6B2120F1787D001398C5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		CE5E6B2220F1787D001398C5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ../../../native_extension/VisionANE/ane/build_ios.sh;
+		};
 		CE62B35E20D0618E002837B7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1622,16 +1749,16 @@
 		};
 		CE6E037320EEC828008D6CE8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/VisionBarcodeANE/ane/build_multi.sh;
+			shellScript = ../../../native_extension/VisionBarcodeANE/ane/build_ios.sh;
 		};
 		CE7431FF208D488000E388D3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1896,6 +2023,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CE5E6AFD20F1787D001398C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE5E6B2820F178CF001398C5 /* SwiftController.swift in Sources */,
+				CE5E6B2A20F178E6001398C5 /* SwiftController+FreSwift.swift in Sources */,
+				CE5E6B2E20F178FB001398C5 /* VisionANE.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE62B34A20D0618E002837B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2077,6 +2214,53 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		CE5E6B2420F1787D001398C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "VisionANE/Headers/VisionANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionANE/VisionANE-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		CE5E6B2520F1787D001398C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "VisionANE/Headers/VisionANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionANE/VisionANE-Swift.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		CE62B36120D0618E002837B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2757,6 +2941,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CE5E6B2320F1787D001398C5 /* Build configuration list for PBXNativeTarget "VisionANE_LIB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE5E6B2420F1787D001398C5 /* Debug */,
+				CE5E6B2520F1787D001398C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CE62B36020D0618E002837B7 /* Build configuration list for PBXNativeTarget "GoogleSignInANE_LIB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
