@@ -29,7 +29,7 @@ public class BarcodeDetector extends EventDispatcher {
     private static var _context:ExtensionContext;
     private var _options:DetectorOptions = new DetectorOptions();
     public static var closures:Dictionary = new Dictionary();
-    private var pObj:Object;
+
     private static const DETECTED:String = "BarcodeEvent.Detected";
 
     public function BarcodeDetector(options:DetectorOptions) {
@@ -64,7 +64,8 @@ public class BarcodeDetector extends EventDispatcher {
     }
 
     /** @private */
-    public function gotEvent(event:StatusEvent):void {
+    public static function gotEvent(event:StatusEvent):void {
+        var pObj:Object;
         var closure:Function;
         var err:BarcodeError;
         switch (event.level) {
@@ -95,7 +96,7 @@ public class BarcodeDetector extends EventDispatcher {
         return _context;
     }
 
-    public function dispose():void {
+    public static function dispose():void {
         if (!_context) {
             trace("[" + NAME + "] Error. ANE Already in a disposed or failed state...");
             return;

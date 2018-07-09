@@ -34,14 +34,6 @@ public class VisionANE extends EventDispatcher {
         _vision = this;
     }
 
-    /** The barcode ANE instance. */
-//    public static function get barcodeDetector():BarcodeDetector {
-//        if (!_barcodeDetector) {
-//            new BarcodeDetector();
-//        }
-//        return _barcodeDetector;
-//    }
-
     public function barcodeDetector(options:DetectorOptions = null):BarcodeDetector {
         if (_barcodeDetector) {
             _barcodeDetector.options = options;
@@ -64,9 +56,9 @@ public class VisionANE extends EventDispatcher {
         if (VisionANEContext.context) {
             VisionANEContext.dispose();
         }
-//        if (_barcodeDetector != null) {
-//            _barcodeDetector.dispose();
-//        }
+        if (BarcodeDetector.context) {
+            BarcodeDetector.dispose();
+        }
     }
 
 }
