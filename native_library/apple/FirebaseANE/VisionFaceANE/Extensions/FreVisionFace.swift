@@ -37,7 +37,7 @@ public extension VisionFace {
             try ret?.setProp(name: "rightEyeOpenProbability", value: self.rightEyeOpenProbability.toFREObject())
             
             // landmarks
-            let freLandMarks = try FREArray(className: "Vector.<com.tuarua.firebase.vision.VisionFaceLandmark>",
+            let freLandMarks = try FREArray(className: "Vector.<com.tuarua.firebase.vision.FaceLandmark>",
                                    args: 0)
             
             var cnt: UInt = 0
