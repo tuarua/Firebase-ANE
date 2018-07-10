@@ -21,7 +21,7 @@ import FirebaseMLVision
 public extension VisionBarcodeGeoPoint {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.barcode.GeoPoint")
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.BarcodeGeoPoint")
             try ret?.setProp(name: "latitude", value: self.latitude)
             try ret?.setProp(name: "longitude", value: self.longitude)
             return ret

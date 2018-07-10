@@ -21,7 +21,7 @@ import FirebaseMLVision
 public extension VisionBarcodeAddress {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.barcode.Address")
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.BarcodeAddress")
             try ret?.setProp(name: "type", value: self.type.rawValue)
             try ret?.setProp(name: "addressLines", value: self.addressLines?.toFREObject())
             return ret
@@ -34,7 +34,7 @@ public extension VisionBarcodeAddress {
 public extension Array where Element == VisionBarcodeAddress {
     func toFREObject() -> FREArray? {
         do {
-            let ret = try FREArray(className: "Vector.<com.tuarua.firebase.vision.barcode.Address>",
+            let ret = try FREArray(className: "Vector.<com.tuarua.firebase.vision.BarcodeAddress>",
                                    args: self.count)
             var cnt: UInt = 0
             for address in self {

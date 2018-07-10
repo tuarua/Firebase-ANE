@@ -21,7 +21,7 @@ import FirebaseMLVision
 public extension VisionBarcodeSMS {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.barcode.SMS")
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.BarcodeSMS")
             try ret?.setProp(name: "message", value: self.message)
             try ret?.setProp(name: "phoneNumber", value: self.phoneNumber)
             return ret

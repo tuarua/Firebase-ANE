@@ -21,7 +21,7 @@ import FirebaseMLVision
 public extension VisionBarcodePersonName {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.barcode.PersonName")
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.BarcodePersonName")
             try ret?.setProp(name: "formattedName", value: self.formattedName)
             try ret?.setProp(name: "first", value: self.first)
             try ret?.setProp(name: "last", value: self.last)

@@ -21,7 +21,7 @@ import FirebaseMLVision
 public extension VisionBarcodeCalendarEvent {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.barcode.CalendarEvent")
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.BarcodeCalendarEvent")
             try ret?.setProp(name: "end", value: self.end?.toFREObject())
             try ret?.setProp(name: "eventDescription", value: self.eventDescription)
             try ret?.setProp(name: "location", value: self.location)

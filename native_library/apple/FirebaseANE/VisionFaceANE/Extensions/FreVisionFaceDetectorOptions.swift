@@ -27,7 +27,6 @@ public extension VisionFaceDetectorOptions {
             let isTrackingEnabled = Bool(rv["isTrackingEnabled"]),
             let minFaceSize = CGFloat(rv["minFaceSize"])
             else { return nil }
-        
         self.init()
         self.modeType = modeType
         self.classificationType = classificationType

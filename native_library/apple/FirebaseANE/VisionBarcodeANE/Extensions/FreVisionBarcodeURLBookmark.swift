@@ -21,7 +21,7 @@ import FirebaseMLVision
 public extension VisionBarcodeURLBookmark {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.barcode.URLBookmark")
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.BarcodeURLBookmark")
             try ret?.setProp(name: "title", value: self.title)
             try ret?.setProp(name: "url", value: self.url)
             return ret

@@ -15,13 +15,15 @@
  */
 
 package com.tuarua.firebase {
-import com.tuarua.firebase.vision.barcode.DetectorOptions;
+import com.tuarua.firebase.vision.BarcodeDetectorOptions;
+import com.tuarua.firebase.vision.FaceDetectorOptions;
 import com.tuarua.fre.ANEError;
 
 import flash.events.EventDispatcher;
 
 public class VisionANE extends EventDispatcher {
     private var _barcodeDetector:BarcodeDetector;
+    private var _faceDetector:FaceDetector;
     private static var _vision:VisionANE;
 
     public function VisionANE() {
@@ -34,13 +36,22 @@ public class VisionANE extends EventDispatcher {
         _vision = this;
     }
 
-    public function barcodeDetector(options:DetectorOptions = null):BarcodeDetector {
+    public function barcodeDetector(options:BarcodeDetectorOptions = null):BarcodeDetector {
         if (_barcodeDetector) {
             _barcodeDetector.options = options;
         } else {
             _barcodeDetector = new BarcodeDetector(options);
         }
         return _barcodeDetector;
+    }
+
+    public function faceDetector(options:FaceDetectorOptions = null):FaceDetector {
+        if (_faceDetector) {
+            _faceDetector.options = options;
+        } else {
+            _faceDetector = new FaceDetector(options);
+        }
+        return _faceDetector;
     }
 
     /** The Vision ANE instance. */
@@ -58,6 +69,9 @@ public class VisionANE extends EventDispatcher {
         }
         if (BarcodeDetector.context) {
             BarcodeDetector.dispose();
+        }
+        if (FaceDetector.context) {
+            FaceDetector.dispose();
         }
     }
 

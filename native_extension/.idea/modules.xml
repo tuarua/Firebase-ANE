@@ -15,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/StorageANE/StorageANE.iml" filepath="$PROJECT_DIR$/StorageANE/StorageANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/VisionANE/VisionANE.iml" filepath="$PROJECT_DIR$/VisionANE/VisionANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/VisionBarcodeANE/VisionBarcodeANE.iml" filepath="$PROJECT_DIR$/VisionBarcodeANE/VisionBarcodeANE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VisionFaceANE/VisionFaceANE.iml" filepath="$PROJECT_DIR$/VisionFaceANE/VisionFaceANE.iml" />
     </modules>
   </component>
 </project>

@@ -31,7 +31,6 @@ public class SwiftController: NSObject {
     }
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        trace("initController")
         guard argc > 0,
             let options = VisionBarcodeDetectorOptions(argv[0])
             else {
@@ -42,7 +41,6 @@ public class SwiftController: NSObject {
     }
     
     func detect(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        trace("detect")
         guard argc > 1,
             let image = VisionImage(argv[0]),
             let eventId = String(argv[1]),
@@ -69,7 +67,6 @@ public class SwiftController: NSObject {
     }
     
     func getResults(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        trace("getResults")
         guard argc > 0,
             let eventId = String(argv[0])
             else {
@@ -77,11 +74,10 @@ public class SwiftController: NSObject {
         }
         do {
             if let result = results[eventId] {
-                let freArray = try FREArray(className: "Vector.<com.tuarua.firebase.vision.barcode.Barcode>",
+                let freArray = try FREArray(className: "Vector.<com.tuarua.firebase.vision.Barcode>",
                                             args: result.count)
                 var cnt: UInt = 0
                 for barcode in result {
-                    trace(barcode.debugDescription)
                     if let freBarcode = barcode?.toFREObject() {
                         try freArray.set(index: cnt, value: freBarcode)
                         cnt += 1

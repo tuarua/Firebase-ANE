@@ -15,8 +15,8 @@
  */
 
 package com.tuarua.firebase {
-import com.tuarua.firebase.vision.Image;
-import com.tuarua.firebase.vision.barcode.DetectorOptions;
+import com.tuarua.firebase.vision.BarcodeDetectorOptions;
+import com.tuarua.firebase.vision.VisionImage;
 import com.tuarua.fre.ANEError;
 
 import flash.events.EventDispatcher;
@@ -27,12 +27,11 @@ import flash.utils.Dictionary;
 public class BarcodeDetector extends EventDispatcher {
     internal static const NAME:String = "VisionBarcodeANE";
     private static var _context:ExtensionContext;
-    private var _options:DetectorOptions = new DetectorOptions();
+    private var _options:BarcodeDetectorOptions = new BarcodeDetectorOptions();
     public static var closures:Dictionary = new Dictionary();
-
     private static const DETECTED:String = "BarcodeEvent.Detected";
-
-    public function BarcodeDetector(options:DetectorOptions) {
+    
+    public function BarcodeDetector(options:BarcodeDetectorOptions) {
         try {
             if (options) {
                 _options = options;
@@ -58,7 +57,7 @@ public class BarcodeDetector extends EventDispatcher {
         return eventId;
     }
 
-    public function detect(image:Image, listener:Function):void {
+    public function detect(image:VisionImage, listener:Function):void {
         var theRet:* = _context.call("detect", image, createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
@@ -107,8 +106,8 @@ public class BarcodeDetector extends EventDispatcher {
         _context = null;
     }
 
-    internal function set options(options:DetectorOptions):void {
-        _options = options ? options : new DetectorOptions();
+    internal function set options(options:BarcodeDetectorOptions):void {
+        _options = options ? options : new BarcodeDetectorOptions();
     }
 }
 }

@@ -8,6 +8,12 @@
             <entry module-name="VisionBarcodeANE" build-configuration-name="VisionBarcodeANE">
               <dependency linkage="External" />
             </entry>
+            <entry module-name="FirebaseANE" build-configuration-name="FirebaseANE">
+              <dependency linkage="External" />
+            </entry>
+            <entry module-name="VisionFaceANE" build-configuration-name="VisionFaceANE">
+              <dependency linkage="External" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_30" />
         </dependencies>
@@ -30,5 +36,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="VisionBarcodeANE" level="project" />
     <orderEntry type="module" module-name="VisionBarcodeANE" exported="" />
+    <orderEntry type="module" module-name="FirebaseANE" exported="" />
+    <orderEntry type="module" module-name="VisionFaceANE" exported="" />
   </component>
 </module>

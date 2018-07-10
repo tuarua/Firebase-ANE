@@ -31,7 +31,6 @@ public class SwiftController: NSObject {
     }
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        trace("initController")
         guard argc > 0,
             let options = VisionFaceDetectorOptions(argv[0])
             else {
@@ -42,7 +41,6 @@ public class SwiftController: NSObject {
     }
     
     func detect(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        trace("detect")
         guard argc > 1,
             let image = VisionImage(argv[0]),
             let eventId = String(argv[1]),
@@ -71,7 +69,6 @@ public class SwiftController: NSObject {
     }
     
     func getResults(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        trace("getResults")
         guard argc > 0,
             let eventId = String(argv[0])
             else {
@@ -79,11 +76,10 @@ public class SwiftController: NSObject {
         }
         do {
             if let result = results[eventId] {
-                let freArray = try FREArray(className: "Vector.<com.tuarua.firebase.vision.face.Face>",
+                let freArray = try FREArray(className: "Vector.<com.tuarua.firebase.vision.Face>",
                                             args: result.count)
                 var cnt: UInt = 0
                 for face in result {
-                    trace(face.debugDescription)
                     if let freFace = face?.toFREObject() {
                         try freArray.set(index: cnt, value: freFace)
                         cnt += 1

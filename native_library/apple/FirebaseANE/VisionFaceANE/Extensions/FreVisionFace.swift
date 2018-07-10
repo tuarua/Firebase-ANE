@@ -21,10 +21,10 @@ import FirebaseMLVision
 public extension VisionFace {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.face.Face")
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.Face")
             try ret?.setProp(name: "frame", value: self.frame.toFREObject())
             try ret?.setProp(name: "hasTrackingID", value: self.hasTrackingID)
-            try ret?.setProp(name: "trackingID", value: self.trackingID.toFREObject())
+            try ret?.setProp(name: "trackingID", value: self.trackingID)
             try ret?.setProp(name: "hasHeadEulerAngleY", value: self.hasHeadEulerAngleY)
             try ret?.setProp(name: "headEulerAngleY", value: self.headEulerAngleY.toFREObject())
             try ret?.setProp(name: "hasHeadEulerAngleZ", value: self.hasHeadEulerAngleZ)
@@ -37,7 +37,7 @@ public extension VisionFace {
             try ret?.setProp(name: "rightEyeOpenProbability", value: self.rightEyeOpenProbability.toFREObject())
             
             // landmarks
-            let freLandMarks = try FREArray(className: "Vector.<com.tuarua.firebase.vision.barcode.FaceLandmark>",
+            let freLandMarks = try FREArray(className: "Vector.<com.tuarua.firebase.vision.VisionFaceLandmark>",
                                    args: 0)
             
             var cnt: UInt = 0

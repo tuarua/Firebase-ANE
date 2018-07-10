@@ -21,7 +21,7 @@ import FirebaseMLVision
 public extension VisionBarcodeEmail {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.barcode.Email")
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.BarcodeEmail")
             try ret?.setProp(name: "address", value: self.address)
             try ret?.setProp(name: "body", value: self.body)
             try ret?.setProp(name: "subject", value: self.subject)
@@ -36,7 +36,7 @@ public extension VisionBarcodeEmail {
 public extension Array where Element == VisionBarcodeEmail {
     func toFREObject() -> FREArray? {
         do {
-            let ret = try FREArray(className: "Vector.<com.tuarua.firebase.vision.barcode.Email>",
+            let ret = try FREArray(className: "Vector.<com.tuarua.firebase.vision.BarcodeEmail>",
                                    args: self.count)
             var cnt: UInt = 0
             for email in self {

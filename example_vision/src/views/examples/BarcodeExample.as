@@ -3,10 +3,10 @@ package views.examples {
 import com.tuarua.firebase.BarcodeError;
 import com.tuarua.firebase.VisionANE;
 import com.tuarua.firebase.BarcodeDetector;
-import com.tuarua.firebase.vision.Image;
-import com.tuarua.firebase.vision.barcode.Barcode;
-import com.tuarua.firebase.vision.barcode.BarcodeFormat;
-import com.tuarua.firebase.vision.barcode.DetectorOptions;
+import com.tuarua.firebase.vision.Barcode;
+import com.tuarua.firebase.vision.BarcodeDetectorOptions;
+import com.tuarua.firebase.vision.BarcodeFormat;
+import com.tuarua.firebase.vision.VisionImage;
 
 import flash.display.Bitmap;
 
@@ -42,8 +42,8 @@ public class BarcodeExample extends Sprite implements IExample {
 
     public function initANE():void {
         if (isInited) return;
-        // var options:DetectorOptions = new DetectorOptions();
-        // options.formats = new <int>[BarcodeFormat.qrCode];
+//        var options:BarcodeDetectorOptions = new BarcodeDetectorOptions();
+//        options.formats = new <int>[BarcodeFormat.qrCode];
         this.barcodeDetector = vision.barcodeDetector();
         isInited = true;
     }
@@ -73,7 +73,7 @@ public class BarcodeExample extends Sprite implements IExample {
     private function onQrCodeClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnQrCode);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            var barcodeImage:Image = new Image((new qrBitmap() as Bitmap).bitmapData);
+            var barcodeImage:VisionImage = new VisionImage((new qrBitmap() as Bitmap).bitmapData);
             barcodeDetector.detect(barcodeImage,
                     function (features:Vector.<Barcode>, error:BarcodeError):void {
                         statusLabel.text = "";

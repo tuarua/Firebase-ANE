@@ -21,7 +21,7 @@ import FirebaseMLVision
 public extension VisionBarcodeContactInfo {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.barcode.ContactInfo")
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.BarcodeContactInfo")
             try ret?.setProp(name: "jobTitle", value: self.jobTitle)
             try ret?.setProp(name: "name", value: self.name)
             try ret?.setProp(name: "organization", value: self.organization)

@@ -21,7 +21,7 @@ import FirebaseMLVision
 public extension VisionBarcodeDriverLicense {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.barcode.DriverLicense")
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.BarcodeDriverLicense")
             try ret?.setProp(name: "addressCity", value: self.addressCity)
             try ret?.setProp(name: "addressState", value: self.addressState)
             try ret?.setProp(name: "addressStreet", value: self.addressStreet)
