@@ -15,6 +15,7 @@
  */
 
 package com.tuarua.firebase.vision {
+[RemoteClass(alias="com.tuarua.firebase.vision.BarcodeDetectorOptions")]
 public class BarcodeDetectorOptions {
     public var formats:Vector.<int> = new <int>[0xFFFF];
     public function BarcodeDetectorOptions() {

@@ -15,6 +15,7 @@
  */
 
 package com.tuarua.firebase.vision {
+[RemoteClass(alias="com.tuarua.firebase.vision.BarcodeCalendarEvent")]
 public class BarcodeCalendarEvent {
     public var end:Date;
     public var eventDescription:String;

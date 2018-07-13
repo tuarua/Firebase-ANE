@@ -15,7 +15,7 @@
  */
 package com.tuarua.firebase.vision {
 import flash.geom.Rectangle;
-
+[RemoteClass(alias="com.tuarua.firebase.vision.Face")]
 public class Face {
     public var frame:Rectangle;
     public var hasTrackingID:Boolean = false;
@@ -30,8 +30,7 @@ public class Face {
     public var smilingProbability:Number;
     public var leftEyeOpenProbability:Number;
     public var rightEyeOpenProbability:Number;
-
-    // landmarks TODO
+    public var landmarks:Vector.<FaceLandmark> = new <FaceLandmark>[];
 
     public function Face() {
     }

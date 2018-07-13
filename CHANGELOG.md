@@ -1,3 +1,6 @@
+### 0.0.3
+- Vision Barcode and Face
+
 ### 0.0.2
 Invites and Google Sign In
 

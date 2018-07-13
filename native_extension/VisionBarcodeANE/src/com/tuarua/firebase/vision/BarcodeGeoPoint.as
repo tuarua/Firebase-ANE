@@ -15,10 +15,22 @@
  */
 
 package com.tuarua.firebase.vision {
+[RemoteClass(alias="com.tuarua.firebase.vision.BarcodeGeoPoint")]
 public class BarcodeGeoPoint {
-    public var latitude:Number;
-    public var longitude:Number;
-    public function BarcodeGeoPoint() {
+    private var _latitude:Number;
+    private var _longitude:Number;
+    public function BarcodeGeoPoint(latitude:Number, longitude:Number) {
+        this._latitude = latitude;
+        this._longitude = longitude;
+
+    }
+
+    public function get latitude():Number {
+        return _latitude;
+    }
+
+    public function get longitude():Number {
+        return _longitude;
     }
 }
 }

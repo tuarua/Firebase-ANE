@@ -23,7 +23,7 @@ import flash.events.EventDispatcher;
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
 import flash.utils.Dictionary;
-
+[RemoteClass(alias="com.tuarua.firebase.vision.BarcodeDetector")]
 public class BarcodeDetector extends EventDispatcher {
     internal static const NAME:String = "VisionBarcodeANE";
     private static var _context:ExtensionContext;
@@ -106,7 +106,7 @@ public class BarcodeDetector extends EventDispatcher {
         _context = null;
     }
 
-    internal function set options(options:BarcodeDetectorOptions):void {
+    public function set options(options:BarcodeDetectorOptions):void {
         _options = options ? options : new BarcodeDetectorOptions();
     }
 }

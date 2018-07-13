@@ -14,29 +14,28 @@
  *  limitations under the License.
  */
 
-package com.tuarua.firebase.vision {
-[RemoteClass(alias="com.tuarua.firebase.vision.BarcodeWifi")]
-public class BarcodeWifi {
-    private var _password:String;
-    private var _ssid:String;
-    private var _type:int;
+import Foundation
+import SwiftyJSON
 
-    public function BarcodeWifi(password:String, ssid:String, type:int) {
-        this._password = password;
-        this._ssid = ssid;
-        this._type = type;
+class RemoteConfigErrorEvent: NSObject {
+    public static let FETCH_ERROR = "RemoteConfigErrorEvent.FetchError"
+    
+    var eventId: String?
+    var text: String?
+    var id: Int = 0
+    
+    convenience init(eventId: String?, text: String?, id: Int = 0) {
+        self.init()
+        self.eventId = eventId
+        self.text = text
+        self.id = id
     }
-
-    public function get password():String {
-        return _password;
+    
+    public func toJSONString() -> String {
+        var props = [String: Any]()
+        props["eventId"] = eventId
+        props["text"] = text
+        props["id"] = id
+        return JSON(props).description
     }
-
-    public function get ssid():String {
-        return _ssid;
-    }
-
-    public function get type():int {
-        return _type;
-    }
-}
 }

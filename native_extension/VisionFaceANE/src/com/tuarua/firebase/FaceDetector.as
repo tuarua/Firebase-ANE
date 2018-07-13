@@ -64,6 +64,7 @@ public class FaceDetector extends EventDispatcher {
 
     /** @private */
     public static function gotEvent(event:StatusEvent):void {
+        trace("[" + NAME + "]", event);
         var pObj:Object;
         var closure:Function;
         var err:FaceError;
@@ -106,7 +107,7 @@ public class FaceDetector extends EventDispatcher {
         _context = null;
     }
 
-    internal function set options(options:FaceDetectorOptions):void {
+    public function set options(options:FaceDetectorOptions):void {
         _options = options ? options : new FaceDetectorOptions();
     }
 }

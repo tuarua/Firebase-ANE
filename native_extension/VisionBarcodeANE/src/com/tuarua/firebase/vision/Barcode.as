@@ -18,7 +18,7 @@ package com.tuarua.firebase.vision {
 
 import flash.geom.Point;
 import flash.geom.Rectangle;
-
+[RemoteClass(alias="com.tuarua.firebase.vision.Barcode")]
 public class Barcode {
     public var frame:Rectangle;
     public var rawValue:String;

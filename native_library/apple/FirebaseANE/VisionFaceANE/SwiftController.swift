@@ -34,7 +34,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let options = VisionFaceDetectorOptions(argv[0])
             else {
-                return ArgCountError(message: "initController").getError(#file, #line, #column)
+                return FreArgError(message: "initController").getError(#file, #line, #column)
         }
         self.options = options
         return true.toFREObject()
@@ -46,8 +46,10 @@ public class SwiftController: NSObject {
             let eventId = String(argv[1]),
             let options = self.options
             else {
-                return ArgCountError(message: "detect").getError(#file, #line, #column)
+                return FreArgError(message: "detect").getError(#file, #line, #column)
         }
+        
+        trace(image.debugDescription)
         
         let faceDetector = vision.faceDetector(options: options)
         faceDetector.detect(in: image) { (features, error) in
@@ -72,7 +74,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let eventId = String(argv[0])
             else {
-                return ArgCountError(message: "getResult").getError(#file, #line, #column)
+                return FreArgError(message: "getResult").getError(#file, #line, #column)
         }
         do {
             if let result = results[eventId] {

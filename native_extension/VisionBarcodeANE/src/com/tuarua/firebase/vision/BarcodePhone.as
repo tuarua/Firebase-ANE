@@ -15,10 +15,21 @@
  */
 
 package com.tuarua.firebase.vision {
+[RemoteClass(alias="com.tuarua.firebase.vision.BarcodePhone")]
 public class BarcodePhone {
-    public var number:String;
-    public var type:int;
-    public function BarcodePhone() {
+    private var _number:String;
+    private var _type:int;
+    public function BarcodePhone(number:String, type:int) {
+        this._number = number;
+        this._type = type;
+    }
+
+    public function get number():String {
+        return _number;
+    }
+
+    public function get type():int {
+        return _type;
     }
 }
 }

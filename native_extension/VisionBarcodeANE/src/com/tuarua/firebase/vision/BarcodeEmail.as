@@ -15,6 +15,7 @@
  */
 
 package com.tuarua.firebase.vision {
+[RemoteClass(alias="com.tuarua.firebase.vision.BarcodeEmail")]
 public class BarcodeEmail {
     public var address:String;
     public var body:String;

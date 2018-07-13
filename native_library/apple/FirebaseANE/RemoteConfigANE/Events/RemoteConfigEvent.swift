@@ -15,17 +15,27 @@
  */
 
 import Foundation
-import FreSwift
-import FirebaseMLVision
+import SwiftyJSON
 
-public extension VisionBarcodeURLBookmark {
-    func toFREObject() -> FREObject? {
-        do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.BarcodeURLBookmark",
-                                    args: self.title, self.url)
-            return ret
-        } catch {
-        }
-        return nil
+class RemoteConfigEvent: NSObject {
+    public static let FETCH = "RemoteConfigEvent.Fetch"
+    
+    var eventId: String?
+    var data: [String: Any]?
+    var error: [String: Any]?
+    
+    convenience init(eventId: String?, data: [String: Any]? = nil, error: [String: Any]? = nil) {
+        self.init()
+        self.eventId = eventId
+        self.data = data
+        self.error = error
+    }
+    
+    public func toJSONString() -> String {
+        var props = [String: Any]()
+        props["eventId"] = eventId
+        props["data"] = data
+        props["error"] = error
+        return JSON(props).description
     }
 }

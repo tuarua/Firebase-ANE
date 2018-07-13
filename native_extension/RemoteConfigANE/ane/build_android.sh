@@ -10,10 +10,7 @@ echo $pathtome
 
 PROJECTNAME=RemoteConfigANE
 
-AIR_SDK="/Users/User/sdks/AIR/AIRSDK_29"
-echo $AIR_SDK
-
-
+AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_30"
 
 #Copy SWC into place.
 echo "Copying SWC into place."

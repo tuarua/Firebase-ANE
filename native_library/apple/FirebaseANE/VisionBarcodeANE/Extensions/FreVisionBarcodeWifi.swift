@@ -21,10 +21,8 @@ import FirebaseMLVision
 public extension VisionBarcodeWifi {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.BarcodeWifi")
-            try ret?.setProp(name: "password", value: self.password)
-            try ret?.setProp(name: "ssid", value: self.ssid)
-            try ret?.setProp(name: "type", value: self.type.rawValue)
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.BarcodeWifi",
+                                    args: self.password, self.ssid, self.type.rawValue)
             return ret
         } catch {
         }

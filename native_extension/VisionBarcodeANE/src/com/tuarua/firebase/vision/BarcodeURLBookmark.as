@@ -15,11 +15,22 @@
  */
 
 package com.tuarua.firebase.vision {
+[RemoteClass(alias="com.tuarua.firebase.vision.BarcodeURLBookmark")]
 public class BarcodeURLBookmark {
-    public var title:String;
-    public var url:String;
+    private var _title:String;
+    private var _url:String;
 
-    public function BarcodeURLBookmark() {
+    public function BarcodeURLBookmark(title:String, url:String) {
+        this._title = title;
+        this._url = url;
+    }
+
+    public function get title():String {
+        return _title;
+    }
+
+    public function get url():String {
+        return _url;
     }
 }
 }

@@ -16,7 +16,7 @@
 
 package com.tuarua.firebase.vision {
 import flash.display.BitmapData;
-
+[RemoteClass(alias="com.tuarua.firebase.vision.VisionImage")]
 public class VisionImage {
     private var _bitmapdata:BitmapData;
     private var _metadata:VisionImageMetadata = new VisionImageMetadata();

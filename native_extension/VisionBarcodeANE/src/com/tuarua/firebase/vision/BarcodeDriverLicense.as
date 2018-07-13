@@ -15,6 +15,7 @@
  */
 
 package com.tuarua.firebase.vision {
+[RemoteClass(alias="com.tuarua.firebase.vision.BarcodeDriverLicense")]
 public class BarcodeDriverLicense {
     public var expiryDate:String;
     public var firstName:String;

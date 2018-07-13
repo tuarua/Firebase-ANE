@@ -15,10 +15,22 @@
  */
 
 package com.tuarua.firebase.vision {
+[RemoteClass(alias="com.tuarua.firebase.vision.BarcodeSMS")]
 public class BarcodeSMS {
-    public var message:String;
-    public var phoneNumber:String;
-    public function BarcodeSMS() {
+    private var _message:String;
+    private var _phoneNumber:String;
+
+    public function BarcodeSMS(message:String, phoneNumber:String) {
+        this._message = message;
+        this._phoneNumber = phoneNumber;
+    }
+
+    public function get message():String {
+        return _message;
+    }
+
+    public function get phoneNumber():String {
+        return _phoneNumber;
     }
 }
 }

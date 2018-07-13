@@ -21,9 +21,8 @@ import FirebaseMLVision
 public extension VisionFaceLandmark {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.FaceLandmark")
-            try ret?.setProp(name: "position", value: self.position.toFREObject())
-            try ret?.setProp(name: "type", value: self.type.rawValue)
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.FaceLandmark",
+                                    args: self.position.toFREObject(), self.type.rawValue)
             return ret
         } catch {
         }

@@ -15,6 +15,7 @@
  */
 
 package com.tuarua.firebase.vision {
+[RemoteClass(alias="com.tuarua.firebase.vision.VisionImageMetadata")]
 public class VisionImageMetadata {
     private var _orientation:uint = DetectorImageOrientation.topLeft;
 

@@ -20,21 +20,19 @@ import FirebaseMLVision
 
 public extension VisionBarcodeEmail {
     func toFREObject() -> FREObject? {
-        do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.BarcodeEmail")
-            try ret?.setProp(name: "address", value: self.address)
-            try ret?.setProp(name: "body", value: self.body)
-            try ret?.setProp(name: "subject", value: self.subject)
-            try ret?.setProp(name: "type", value: self.type.rawValue)
-            return ret
-        } catch {
-        }
-        return nil
+        guard let freObject = try? FREObject(className: "com.tuarua.firebase.vision.BarcodeEmail"),
+        var ret = freObject
+            else { return nil }
+        ret["address"] = self.address?.toFREObject()
+        ret["body"] = self.body?.toFREObject()
+        ret["subject"] = self.subject?.toFREObject()
+        ret["type"] = self.type.rawValue.toFREObject()
+        return ret
     }
 }
 
 public extension Array where Element == VisionBarcodeEmail {
-    func toFREObject() -> FREArray? {
+    func toFREObject() -> FREObject? {
         do {
             let ret = try FREArray(className: "Vector.<com.tuarua.firebase.vision.BarcodeEmail>",
                                    args: self.count)
@@ -45,7 +43,7 @@ public extension Array where Element == VisionBarcodeEmail {
                     cnt += 1
                 }
             }
-            return ret
+            return ret.rawValue
         } catch {
         }
         return nil

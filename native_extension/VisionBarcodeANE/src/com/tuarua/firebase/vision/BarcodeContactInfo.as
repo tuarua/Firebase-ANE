@@ -15,7 +15,7 @@
  */
 
 package com.tuarua.firebase.vision {
-
+[RemoteClass(alias="com.tuarua.firebase.vision.BarcodeContactInfo")]
 public class BarcodeContactInfo {
     public var jobTitle:String;
     public var name:String;

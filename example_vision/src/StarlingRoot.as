@@ -24,12 +24,14 @@ import views.examples.*;
 
 public class StarlingRoot extends Sprite {
     private var btnBarcode:SimpleButton = new SimpleButton("Barcode");
+    private var btnFace:SimpleButton = new SimpleButton("Face");
 
     private var btnBack:SimpleButton = new SimpleButton("Back");
     private var menuContainer:Sprite = new Sprite();
 
     public static const GAP:int = 60;
     private var barcodeExample:BarcodeExample;
+    private var faceExample:FaceExample;
 
     private var vision:VisionANE;
 
@@ -53,9 +55,6 @@ public class StarlingRoot extends Sprite {
             }
 
             vision = VisionANE.vision;
-
-            trace(vision)
-
         } catch (e:ANEError) {
             trace(e.errorID, e.message, e.getStackTrace(), e.source);
         }
@@ -66,15 +65,21 @@ public class StarlingRoot extends Sprite {
         barcodeExample.x = stage.stageWidth;
         addChild(barcodeExample);
 
+        faceExample = new FaceExample(stage.stageWidth, vision);
+        faceExample.x = stage.stageWidth;
+        addChild(faceExample);
 
     }
 
     private function initMenu():void {
-        btnBack.x = btnBarcode.x = (stage.stageWidth - 200) * 0.5;
+        btnFace.x = btnBack.x = btnBarcode.x = (stage.stageWidth - 200) * 0.5;
         btnBarcode.y = GAP;
         btnBarcode.addEventListener(TouchEvent.TOUCH, onBarcodeClick);
         menuContainer.addChild(btnBarcode);
 
+        btnFace.y = btnBarcode.y + GAP;
+        btnFace.addEventListener(TouchEvent.TOUCH, onFaceClick);
+        menuContainer.addChild(btnFace);
 
         btnBack.y = stage.stageHeight - 100;
         btnBack.addEventListener(TouchEvent.TOUCH, onBackClick);
@@ -90,6 +95,15 @@ public class StarlingRoot extends Sprite {
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             showMenu(false);
             showExample(barcodeExample);
+            btnBack.visible = true;
+        }
+    }
+
+    private function onFaceClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnFace);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            showMenu(false);
+            showExample(faceExample);
             btnBack.visible = true;
         }
     }
@@ -117,6 +131,7 @@ public class StarlingRoot extends Sprite {
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             showMenu(true);
             showExample(barcodeExample, false);
+            showExample(faceExample, false);
 
             btnBack.visible = false;
         }

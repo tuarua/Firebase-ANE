@@ -47,6 +47,7 @@ Pull requests and contributions are welcome! This might entail:
 - Adding example projects for other IDEs such as Flash Builder, Animate, Visual Studio
 
 ### Task List
+* Firebase
 - [x] Firebase Core
 - [x] Analytics
 - [x] Authentication
@@ -59,3 +60,6 @@ Pull requests and contributions are welcome! This might entail:
 - [x] Google Sign In
 - [x] Invites
 - [ ] Crashlytics
+* Vision
+- [ ] Face
+- [ ] Barcode

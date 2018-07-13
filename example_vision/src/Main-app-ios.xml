@@ -53,6 +53,7 @@
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionBarcodeANE</extensionID>
+        <extensionID>com.tuarua.firebase.VisionFaceANE</extensionID>
     </extensions>
 
 </application>

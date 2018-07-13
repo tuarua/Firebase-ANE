@@ -26,25 +26,27 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation VisionFaceANE_LIB
-    SWIFT_DECL(TRFBVFC) // use unique prefix throughout to prevent clashes with other ANEs
-    CONTEXT_INIT(TRFBVFC) {
-        SWIFT_INITS(TRFBVFC)
-        static FRENamedFunction extensionFunctions[] =
-        {
-             MAP_FUNCTION(TRFBVFC, init)
-            ,MAP_FUNCTION(TRFBVFC, createGUID)
-        };
-        SET_FUNCTIONS
-        
-    }
+SWIFT_DECL(TRFBVFC) // use unique prefix throughout to prevent clashes with other ANEs
+CONTEXT_INIT(TRFBVFC) {
+    SWIFT_INITS(TRFBVFC)
+    static FRENamedFunction extensionFunctions[] =
+    {
+         MAP_FUNCTION(TRFBVFC, init)
+        ,MAP_FUNCTION(TRFBVFC, createGUID)
+        ,MAP_FUNCTION(TRFBVFC, detect)
+        ,MAP_FUNCTION(TRFBVFC, getResults)
+    };
+    SET_FUNCTIONS
     
-    CONTEXT_FIN(TRFBVFC) {
-        [TRFBVFC_swft dispose];
-        TRFBVFC_swft = nil;
-        TRFBVFC_freBridge = nil;
-        TRFBVFC_swftBridge = nil;
-        TRFBVFC_funcArray = nil;
-    }
-    EXTENSION_INIT(TRFBVFC)
-    EXTENSION_FIN(TRFBVFC)
-    @end
+}
+
+CONTEXT_FIN(TRFBVFC) {
+    [TRFBVFC_swft dispose];
+    TRFBVFC_swft = nil;
+    TRFBVFC_freBridge = nil;
+    TRFBVFC_swftBridge = nil;
+    TRFBVFC_funcArray = nil;
+}
+EXTENSION_INIT(TRFBVFC)
+EXTENSION_FIN(TRFBVFC)
+@end
