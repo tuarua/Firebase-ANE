@@ -49,8 +49,6 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         
-        trace(image.debugDescription)
-        
         let faceDetector = vision.faceDetector(options: options)
         faceDetector.detect(in: image) { (features, error) in
             if let err = error as NSError? {
@@ -78,8 +76,8 @@ public class SwiftController: NSObject {
         }
         do {
             if let result = results[eventId] {
-                let freArray = try FREArray(className: "Vector.<com.tuarua.firebase.vision.Face>",
-                                            args: result.count)
+                let freArray = try FREArray(className: "com.tuarua.firebase.vision.Face",
+                                                 length: result.count, fixed: true)
                 var cnt: UInt = 0
                 for face in result {
                     if let freFace = face?.toFREObject() {

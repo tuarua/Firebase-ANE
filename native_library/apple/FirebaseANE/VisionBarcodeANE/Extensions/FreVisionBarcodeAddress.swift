@@ -32,8 +32,8 @@ public extension VisionBarcodeAddress {
 public extension Array where Element == VisionBarcodeAddress {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREArray(className: "Vector.<com.tuarua.firebase.vision.BarcodeAddress>",
-                                   args: self.count)
+            let ret = try FREArray(className: "com.tuarua.firebase.vision.BarcodeAddress",
+                                   length: self.count, fixed: true)
             var cnt: UInt = 0
             for address in self {
                 if let freAddress = address.toFREObject() {

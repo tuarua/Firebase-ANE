@@ -20,70 +20,41 @@ import FirebaseMLVision
 
 public extension VisionFace {
     func toFREObject() -> FREObject? {
-        guard let freFace = try? FREObject(className: "com.tuarua.firebase.vision.Face")
-            else { return nil }
-        guard let freLandMarks = try? FREArray(className: "Vector.<com.tuarua.firebase.vision.FaceLandmark>",
-                                         args: 0) else { return nil }
+        guard let freFace = try? FREObject(className: "com.tuarua.firebase.vision.Face"),
         var ret = freFace
-        ret?["frame"] = self.frame.toFREObject()
-        ret?["hasTrackingID"] = self.hasTrackingID.toFREObject()
-        ret?["trackingID"] = self.trackingID.toFREObject()
-        ret?["hasHeadEulerAngleY"] = self.hasHeadEulerAngleY.toFREObject()
-        ret?["headEulerAngleY"] = self.headEulerAngleY.toFREObject()
-        ret?["hasHeadEulerAngleZ"] = self.hasHeadEulerAngleZ.toFREObject()
-        ret?["headEulerAngleZ"] = self.headEulerAngleZ.toFREObject()
-        ret?["hasSmilingProbability"] = self.hasSmilingProbability.toFREObject()
-        ret?["smilingProbability"] = self.smilingProbability.toFREObject()
-        ret?["hasLeftEyeOpenProbability"] = self.hasLeftEyeOpenProbability.toFREObject()
-        ret?["leftEyeOpenProbability"] = self.leftEyeOpenProbability.toFREObject()
-        ret?["hasRightEyeOpenProbability"] = self.hasRightEyeOpenProbability.toFREObject()
-        ret?["rightEyeOpenProbability"] = self.rightEyeOpenProbability.toFREObject()
+            else { return nil }
+        
+        guard let freLandMarks = try? FREArray(className: "com.tuarua.firebase.vision.FaceLandmark",
+                                               length: 0) else { return nil }
+        
+        ret["frame"] = self.frame.toFREObject()
+        ret["hasTrackingId"] = self.hasTrackingID.toFREObject()
+        ret["trackingId"] = self.trackingID.toFREObject()
+        ret["hasHeadEulerAngleY"] = self.hasHeadEulerAngleY.toFREObject()
+        ret["headEulerAngleY"] = self.headEulerAngleY.toFREObject()
+        ret["hasHeadEulerAngleZ"] = self.hasHeadEulerAngleZ.toFREObject()
+        ret["headEulerAngleZ"] = self.headEulerAngleZ.toFREObject()
+        ret["hasSmilingProbability"] = self.hasSmilingProbability.toFREObject()
+        ret["smilingProbability"] = self.smilingProbability.toFREObject()
+        ret["hasLeftEyeOpenProbability"] = self.hasLeftEyeOpenProbability.toFREObject()
+        ret["leftEyeOpenProbability"] = self.leftEyeOpenProbability.toFREObject()
+        ret["hasRightEyeOpenProbability"] = self.hasRightEyeOpenProbability.toFREObject()
+        ret["rightEyeOpenProbability"] = self.rightEyeOpenProbability.toFREObject()
 
         // landmarks
+        let types: [FaceLandmarkType] = [.leftEye, .rightEye, .mouthBottom, .mouthRight,
+                                         .mouthLeft, .leftEar, .rightEar,
+                                         .leftCheek, .rightCheek, .noseBase]
         
         var cnt: UInt = 0
-        if let leftEye = self.landmark(ofType: .leftEye)?.toFREObject() {
-            freLandMarks[cnt] = leftEye
-            cnt+=1
-        }
-        if let rightEye = self.landmark(ofType: .rightEye)?.toFREObject() {
-            freLandMarks[cnt] = rightEye
-            cnt+=1
-        }
-        if let mouthBottom = self.landmark(ofType: .mouthBottom)?.toFREObject() {
-            freLandMarks[cnt] = mouthBottom
-            cnt+=1
-        }
-        if let mouthRight = self.landmark(ofType: .mouthRight)?.toFREObject() {
-            freLandMarks[cnt] = mouthRight
-            cnt+=1
-        }
-        if let mouthLeft = self.landmark(ofType: .mouthLeft)?.toFREObject() {
-            freLandMarks[cnt] = mouthLeft
-            cnt+=1
-        }
-        if let leftEar = self.landmark(ofType: .leftEar)?.toFREObject() {
-            freLandMarks[cnt] = leftEar
-            cnt+=1
-        }
-        if let rightEar = self.landmark(ofType: .rightEar)?.toFREObject() {
-            freLandMarks[cnt] = rightEar
-            cnt+=1
-        }
-        if let leftCheek = self.landmark(ofType: .leftCheek)?.toFREObject() {
-            freLandMarks[cnt] = leftCheek
-            cnt+=1
-        }
-        if let rightCheek = self.landmark(ofType: .rightCheek)?.toFREObject() {
-            freLandMarks[cnt] = rightCheek
-            cnt+=1
-        }
-        if let noseBase = self.landmark(ofType: .noseBase)?.toFREObject() {
-            freLandMarks[cnt] = noseBase
-            cnt+=1
+        for type in types {
+            if let lm = self.landmark(ofType: type)?.toFREObject() {
+                freLandMarks[cnt] = lm
+                cnt+=1
+            }
         }
         
-        ret?["landmarks"] = freLandMarks.rawValue
+        ret["landmarks"] = freLandMarks.rawValue
         return ret
     }
 }

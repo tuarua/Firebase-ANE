@@ -31,6 +31,7 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.WriteBatch
 import com.tuarua.firebase.firestore.events.*
+import com.tuarua.firebase.firestore.extensions.*
 
 class FirestoreController(override var context: FREContext?, loggingEnabled: Boolean,
                           settings: FirebaseFirestoreSettings?) : FreKotlinController {

@@ -18,7 +18,7 @@ import flash.geom.Rectangle;
 [RemoteClass(alias="com.tuarua.firebase.vision.Face")]
 public class Face {
     public var frame:Rectangle;
-    public var hasTrackingID:Boolean = false;
+    public var hasTrackingId:Boolean = false;
     public var hasHeadEulerAngleY:Boolean = false;
     public var hasHeadEulerAngleZ:Boolean = false;
     public var headEulerAngleY:Number;
@@ -26,7 +26,7 @@ public class Face {
     public var hasSmilingProbability:Boolean = false;
     public var hasLeftEyeOpenProbability:Boolean = false;
     public var hasRightEyeOpenProbability:Boolean = false;
-    public var trackingID:int;
+    public var trackingId:int;
     public var smilingProbability:Number;
     public var leftEyeOpenProbability:Number;
     public var rightEyeOpenProbability:Number;
