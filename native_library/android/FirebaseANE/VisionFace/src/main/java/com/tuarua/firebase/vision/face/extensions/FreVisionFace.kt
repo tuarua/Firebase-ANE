@@ -17,7 +17,7 @@ package com.tuarua.firebase.vision.face.extensions
 
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.face.FirebaseVisionFace
-import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark
+import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark.*
 import com.tuarua.frekotlin.*
 import com.tuarua.frekotlin.geom.Rect
 import com.tuarua.frekotlin.geom.toFREObject
@@ -45,15 +45,16 @@ fun FirebaseVisionFace.toFREObject(): FREObject? {
 
         var cnt = 0
         val freLandMarks = FREArray("com.tuarua.firebase.vision.FaceLandmark")
-
-        val types = listOf(FirebaseVisionFaceLandmark.LEFT_EYE, FirebaseVisionFaceLandmark.RIGHT_EYE, FirebaseVisionFaceLandmark.BOTTOM_MOUTH, FirebaseVisionFaceLandmark.RIGHT_MOUTH, FirebaseVisionFaceLandmark.LEFT_MOUTH,
-                FirebaseVisionFaceLandmark.LEFT_EAR, FirebaseVisionFaceLandmark.RIGHT_EAR, FirebaseVisionFaceLandmark.LEFT_CHEEK, FirebaseVisionFaceLandmark.RIGHT_CHEEK, FirebaseVisionFaceLandmark.NOSE_BASE)
+        val types = listOf(
+                LEFT_EYE, RIGHT_EYE,
+                BOTTOM_MOUTH, RIGHT_MOUTH, LEFT_MOUTH,
+                LEFT_EAR, RIGHT_EAR,
+                LEFT_CHEEK, RIGHT_CHEEK,
+                NOSE_BASE)
         for (type in types) {
-            val lm = this.getLandmark(type)
-            if (lm != null) {
-                freLandMarks[cnt] = lm.toFREObject()
-                cnt += 1
-            }
+            val lm = this.getLandmark(type) ?: continue
+            freLandMarks[cnt] = lm.toFREObject()
+            cnt += 1
         }
         ret["landmarks"] = freLandMarks
 

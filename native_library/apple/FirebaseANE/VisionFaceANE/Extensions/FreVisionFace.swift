@@ -41,10 +41,11 @@ public extension VisionFace {
         ret["hasRightEyeOpenProbability"] = self.hasRightEyeOpenProbability.toFREObject()
         ret["rightEyeOpenProbability"] = self.rightEyeOpenProbability.toFREObject()
 
-        // landmarks
-        let types: [FaceLandmarkType] = [.leftEye, .rightEye, .mouthBottom, .mouthRight,
-                                         .mouthLeft, .leftEar, .rightEar,
-                                         .leftCheek, .rightCheek, .noseBase]
+        let types: [FaceLandmarkType] = [.leftEye, .rightEye,
+                                         .mouthBottom, .mouthRight, .mouthLeft,
+                                         .leftEar, .rightEar,
+                                         .leftCheek, .rightCheek,
+                                         .noseBase]
         
         var cnt: UInt = 0
         for type in types {
