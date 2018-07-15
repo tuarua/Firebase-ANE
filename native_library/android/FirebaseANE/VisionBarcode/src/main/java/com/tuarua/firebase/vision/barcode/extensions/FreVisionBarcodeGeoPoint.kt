@@ -22,8 +22,7 @@ import com.tuarua.frekotlin.FreException
 
 fun FirebaseVisionBarcode.GeoPoint.toFREObject(): FREObject? {
     try {
-        return FREObject("com.tuarua.firebase.vision.BarcodeGeoPoint",
-                this.lat, this.lng)
+        return FREObject("com.tuarua.firebase.vision.BarcodeGeoPoint", lat, lng)
     } catch (e: FreException) {
     }
     return null

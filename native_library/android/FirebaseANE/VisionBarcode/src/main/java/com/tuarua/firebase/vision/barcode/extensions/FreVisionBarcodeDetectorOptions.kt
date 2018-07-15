@@ -28,10 +28,10 @@ fun FirebaseVisionBarcodeDetectorOptions(freObject: FREObject?): FirebaseVisionB
 
     val builder = FirebaseVisionBarcodeDetectorOptions.Builder()
     if (formats.size == 1) {
-        builder.setBarcodeFormats(formats[0])
+        builder.setBarcodeFormats(formats.first())
     } else {
         val formatsRest = formats.copyOfRange(1, formats.lastIndex)
-        builder.setBarcodeFormats(formats[0], *formatsRest)
+        builder.setBarcodeFormats(formats.first(), *formatsRest)
     }
 
     return builder.build()

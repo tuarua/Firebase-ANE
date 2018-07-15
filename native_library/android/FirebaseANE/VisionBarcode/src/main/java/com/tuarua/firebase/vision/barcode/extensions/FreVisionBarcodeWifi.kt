@@ -23,7 +23,7 @@ import com.tuarua.frekotlin.FreException
 fun FirebaseVisionBarcode.WiFi.toFREObject(): FREObject? {
     try {
         return FREObject("com.tuarua.firebase.vision.BarcodeWifi",
-                this.password, this.ssid, this.encryptionType)
+                password, ssid, encryptionType)
     } catch (e: FreException) {
     }
     return null

@@ -22,8 +22,7 @@ import com.tuarua.frekotlin.FreException
 
 fun FirebaseVisionBarcode.UrlBookmark.toFREObject(): FREObject? {
     try {
-        return FREObject("com.tuarua.firebase.vision.BarcodeURLBookmark",
-                this.title, this.url)
+        return FREObject("com.tuarua.firebase.vision.BarcodeURLBookmark", title, url)
     } catch (e: FreException) {
     }
     return null

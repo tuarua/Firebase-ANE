@@ -25,9 +25,8 @@ import com.tuarua.frekotlin.geom.Point
 fun FirebaseVisionBarcode.toFREObject(): FREObject? {
     try {
         val ret = FREObject("com.tuarua.firebase.vision.Barcode")
-        val freCornerPoints = FREArray("com.tuarua.firebase.vision.Barcode",
-                this.cornerPoints?.size
-                ?: 0, true)
+        val freCornerPoints = FREArray("flash.geom.Point",
+                this.cornerPoints?.size ?: 0, true)
 
         ret["frame"] = Rect(this.boundingBox?.left ?: 0,
                 this.boundingBox?.bottom ?: 0,
@@ -42,8 +41,7 @@ fun FirebaseVisionBarcode.toFREObject(): FREObject? {
         if (cornerPoints != null && !cornerPoints.isEmpty()) {
             for (i in cornerPoints.indices) {
                 val p = cornerPoints[0]
-                val frePoint = Point(p.x, p.y).toFREObject()
-                freCornerPoints[i] = frePoint
+                freCornerPoints[i] = Point(p.x, p.y).toFREObject()
             }
         }
 
@@ -60,7 +58,6 @@ fun FirebaseVisionBarcode.toFREObject(): FREObject? {
         ret["calendarEvent"] = this.calendarEvent?.toFREObject()
         return ret
     } catch (e: FreException) {
-
     }
 
     return null

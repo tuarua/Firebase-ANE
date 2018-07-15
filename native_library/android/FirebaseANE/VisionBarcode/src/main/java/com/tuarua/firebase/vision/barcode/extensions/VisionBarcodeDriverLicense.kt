@@ -24,7 +24,7 @@ import com.tuarua.frekotlin.toFREObject
 
 fun FirebaseVisionBarcode.DriverLicense.toFREObject(): FREObject? {
     try {
-        val ret = FREObject("com.tuarua.firebase.vision.BarcodePersonName")
+        val ret = FREObject("com.tuarua.firebase.vision.BarcodeDriverLicense")
         ret["addressCity"] = this.addressCity?.toFREObject()
         ret["addressState"] = this.addressState?.toFREObject()
         ret["addressStreet"] = this.addressStreet?.toFREObject()

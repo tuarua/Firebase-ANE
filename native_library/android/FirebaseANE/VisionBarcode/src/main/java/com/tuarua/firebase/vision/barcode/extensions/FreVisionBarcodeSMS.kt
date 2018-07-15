@@ -23,8 +23,7 @@ import com.tuarua.frekotlin.FreException
 
 fun FirebaseVisionBarcode.Sms.toFREObject(): FREObject? {
     try {
-        return FREObject("com.tuarua.firebase.vision.BarcodeSMS",
-                this.message, this.phoneNumber)
+        return FREObject("com.tuarua.firebase.vision.BarcodeSMS", message, phoneNumber)
     } catch (e: FreException) {
     }
     return null

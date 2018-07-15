@@ -22,8 +22,7 @@ import com.tuarua.frekotlin.FreException
 
 fun FirebaseVisionBarcode.Phone.toFREObject(): FREObject? {
     try {
-        return FREObject("com.tuarua.firebase.vision.BarcodePhone",
-                this.number, this.type)
+        return FREObject("com.tuarua.firebase.vision.BarcodePhone", number, type)
     } catch (e: FreException) {
     }
     return null
