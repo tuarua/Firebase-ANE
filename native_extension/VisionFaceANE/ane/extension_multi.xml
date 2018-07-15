@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="http://ns.adobe.com/air/extension/19.0">
+    <id>com.tuarua.firebase.VisionFaceANE</id>
+    <name>Firebase Vision Face ANE</name>
+    <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
+    <versionNumber>0.0.3</versionNumber>
+    <platforms>
+        <platform name="iPhone-ARM">
+            <applicationDeployment>
+                <nativeLibrary>libVisionFaceANE.a</nativeLibrary>
+                <initializer>TRFBVFCExtInizer</initializer>
+                <finalizer>TRFBVFCExtFinizer</finalizer>
+            </applicationDeployment>
+        </platform>
+        <platform name="iPhone-x86">
+            <applicationDeployment>
+                <nativeLibrary>libVisionFaceANE.a</nativeLibrary>
+                <initializer>TRFBVFCExtInizer</initializer>
+                <finalizer>TRFBVFCExtFinizer</finalizer>
+            </applicationDeployment>
+        </platform>
+        <platform name="default">
+            <applicationDeployment/>
+        </platform>
+        <platform name="Android-ARM">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.firebase.VisionFaceANE</initializer>
+                <finalizer>com.tuarua.firebase.VisionFaceANE</finalizer>
+            </applicationDeployment>
+        </platform>
+        <platform name="Android-x86">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.firebase.VisionFaceANE</initializer>
+                <finalizer>com.tuarua.firebase.VisionFaceANE</finalizer>
+            </applicationDeployment>
+        </platform>
+    </platforms>
+</extension>
