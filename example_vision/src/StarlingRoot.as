@@ -58,8 +58,6 @@ public class StarlingRoot extends Sprite {
         } catch (e:ANEError) {
             trace(e.errorID, e.message, e.getStackTrace(), e.source);
         }
-        initMenu();
-
 
         barcodeExample = new BarcodeExample(stage.stageWidth, vision);
         barcodeExample.x = stage.stageWidth;
@@ -68,6 +66,8 @@ public class StarlingRoot extends Sprite {
         faceExample = new FaceExample(stage.stageWidth, vision);
         faceExample.x = stage.stageWidth;
         addChild(faceExample);
+
+        initMenu();
 
     }
 

@@ -24,8 +24,24 @@ import com.tuarua.frekotlin.toFREObject
 fun FirebaseVisionFaceLandmark.toFREObject(): FREObject? {
     try {
         return FREObject("com.tuarua.firebase.vision.FaceLandmark",
-                position.toFREObject(), faceLandmarkType.toFREObject())
+                position.toFREObject(), landmarkTypeString(faceLandmarkType)?.toFREObject())
     } catch (e: FreException) {
     }
     return null
+}
+
+private fun landmarkTypeString(value: Int): String? {
+    return when (value) {
+        0 -> "MouthBottom"
+        1 -> "LeftCheek"
+        3 -> "LeftEar"
+        4 -> "LeftEye"
+        5 -> "MouthLeft"
+        6 -> "NoseBase"
+        7 -> "RightCheek"
+        9 -> "RightEar"
+        10 -> "RightEye"
+        11 -> "MouthRight"
+        else -> null
+    }
 }

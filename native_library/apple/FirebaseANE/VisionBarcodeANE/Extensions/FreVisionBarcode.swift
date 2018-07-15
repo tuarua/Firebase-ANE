@@ -28,7 +28,6 @@ public extension VisionBarcode {
         ret["rawValue"] = self.rawValue?.toFREObject()
         ret["displayValue"] = self.displayValue?.toFREObject()
         ret["format"] = self.format.rawValue.toFREObject()
-        VisionBarcodeWiFiEncryptionType.unknown
         var cnt: UInt = 0
         for cornerPoint in self.cornerPoints ?? [] {
             if let freCornerPoint = cornerPoint.cgPointValue.toFREObject() {

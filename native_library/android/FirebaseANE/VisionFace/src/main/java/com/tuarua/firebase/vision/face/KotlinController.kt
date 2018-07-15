@@ -21,12 +21,14 @@ import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.face.FirebaseVisionFace
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetector
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions
+import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark
 import com.google.gson.Gson
 import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
 import com.tuarua.firebase.vision.face.events.FaceEvent
 import com.tuarua.firebase.vision.face.extensions.FirebaseVisionFaceDetectorOptions
 import com.tuarua.firebase.vision.face.extensions.toFREObject
 import com.tuarua.frekotlin.*
+import java.util.*
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
@@ -39,6 +41,10 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
         options = FirebaseVisionFaceDetectorOptions(argv[0])
         return true.toFREObject()
+    }
+
+    fun createGUID(ctx: FREContext, argv: FREArgv): FREObject? {
+        return UUID.randomUUID().toString().toFREObject()
     }
 
     fun detect(ctx: FREContext, argv: FREArgv): FREObject? {

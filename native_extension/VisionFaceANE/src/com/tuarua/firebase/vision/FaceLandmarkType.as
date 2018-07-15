@@ -13,29 +13,17 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
 package com.tuarua.firebase.vision {
-[RemoteClass(alias="com.tuarua.firebase.vision.VisionPoint")]
-public class VisionPoint {
-    private var _x:Number;
-    private var _y:Number;
-    private var _z:Number;
-    public function VisionPoint(x:Number, y:Number, z:Number) {
-        this._x = x;
-        this._y = y;
-        this._z = z;
-    }
-
-    public function get x():Number {
-        return _x;
-    }
-
-    public function get y():Number {
-        return _y;
-    }
-
-    public function get z():Number {
-        return _z;
-    }
+public final class FaceLandmarkType {
+    public static const leftEar:String = "LeftEar";
+    public static const rightEar:String = "RightEar";
+    public static const leftEye:String = "LeftEye";
+    public static const rightEye:String = "RightEye";
+    public static const mouthBottom:String = "MouthBottom";
+    public static const mouthRight:String = "MouthRight";
+    public static const mouthLeft:String = "MouthLeft";
+    public static const leftCheek:String = "LeftCheek";
+    public static const rightCheek:String = "RightCheek";
+    public static const noseBase:String = "NoseBase";
 }
 }

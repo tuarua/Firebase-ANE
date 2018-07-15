@@ -27,8 +27,9 @@ public class Main extends Sprite {
         _starling = new Starling(StarlingRoot, stage, screen.viewPort);
         _starling.stage.stageWidth = screen.stageWidth;
         _starling.stage.stageHeight = screen.stageHeight;
-
+        _starling.antiAliasing = 16;
         _starling.skipUnchangedFrames = true;
+        _starling.supportHighResolutions = true;
         _starling.addEventListener(starling.events.Event.ROOT_CREATED, function ():void {
             var game:StarlingRoot = _starling.root as StarlingRoot;
             game.start();

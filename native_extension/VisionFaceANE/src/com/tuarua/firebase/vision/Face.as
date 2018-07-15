@@ -15,6 +15,7 @@
  */
 package com.tuarua.firebase.vision {
 import flash.geom.Rectangle;
+
 [RemoteClass(alias="com.tuarua.firebase.vision.Face")]
 public class Face {
     public var frame:Rectangle;
@@ -33,6 +34,15 @@ public class Face {
     public var landmarks:Vector.<FaceLandmark> = new <FaceLandmark>[];
 
     public function Face() {
+    }
+
+    public function landmark(ofType:String):FaceLandmark {
+        for each (var landmark:FaceLandmark in landmarks) {
+            if(landmark.type == ofType){
+                return landmark;
+            }
+        }
+        return null;
     }
 }
 }

@@ -36,6 +36,7 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "initController").getError(#file, #line, #column)
         }
+        
         self.options = options
         return true.toFREObject()
     }

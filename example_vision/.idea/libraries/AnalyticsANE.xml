@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="AnalyticsANE" type="flex">
+    <CLASSES>
+      <root url="jar://$DOCUMENTS$/Firebase-ANE/native_extension/AnalyticsANE/ane/AnalyticsANE.ane!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

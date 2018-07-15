@@ -26,7 +26,7 @@ fun FirebaseVisionFace.toFREObject(): FREObject? {
     try {
         val ret = FREObject("com.tuarua.firebase.vision.Face")
         ret["frame"] = Rect(this.boundingBox?.left ?: 0,
-                this.boundingBox?.bottom ?: 0,
+                this.boundingBox?.top ?: 0,
                 this.boundingBox?.width() ?: 0,
                 this.boundingBox?.height() ?: 0).toFREObject()
 

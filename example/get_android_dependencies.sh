@@ -19,7 +19,7 @@ wget -O ../native_extension/InvitesANE/ane/InvitesANE.ane https://github.com/tua
 
 wget -O android_dependencies/com.tuarua.frekotlin.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin.ane?raw=true
 wget -O android_dependencies/org.greenrobot.eventbus-3.0.0.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/org.greenrobot.eventbus-3.0.0.ane?raw=true
-wget -O android_dependencies/com.google.code.gson.gson-2.8.1.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.google.code.gson.gson-2.8.1.ane?raw=true
+wget -O android_dependencies/com.google.code.gson.gson-2.8.4.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.google.code.gson.gson-2.8.4.ane?raw=true
 wget -O android_dependencies/com.squareup.okhttp.okhttp-2.7.2.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.squareup.okhttp.okhttp-2.7.2.ane?raw=true
 wget -O android_dependencies/com.android.support.support-v4-$SupportV4Version.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/support/com.android.support.support-v4-$SupportV4Version.ane?raw=true
 wget -O android_dependencies/com.google.guava.guava-20.0.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.google.guava.guava-20.0.ane?raw=true

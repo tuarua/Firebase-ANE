@@ -19,9 +19,6 @@
                 <finalizer>TRFBVFCExtFinizer</finalizer>
             </applicationDeployment>
         </platform>
-        <platform name="default">
-            <applicationDeployment/>
-        </platform>
         <platform name="Android-ARM">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>
@@ -35,6 +32,9 @@
                 <initializer>com.tuarua.firebase.VisionFaceANE</initializer>
                 <finalizer>com.tuarua.firebase.VisionFaceANE</finalizer>
             </applicationDeployment>
+        </platform>
+        <platform name="default">
+            <applicationDeployment/>
         </platform>
     </platforms>
 </extension>

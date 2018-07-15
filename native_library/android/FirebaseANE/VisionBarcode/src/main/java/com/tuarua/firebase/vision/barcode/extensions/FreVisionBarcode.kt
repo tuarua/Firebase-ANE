@@ -54,7 +54,7 @@ fun FirebaseVisionBarcode.toFREObject(): FREObject? {
         ret["wifi"] = this.wifi?.toFREObject()
         ret["geoPoint"] = this.geoPoint?.toFREObject()
         ret["contactInfo"] = this.contactInfo?.toFREObject()
-        ret["driverLicense?"] = this.driverLicense?.toFREObject()
+        ret["driverLicense"] = this.driverLicense?.toFREObject()
         ret["calendarEvent"] = this.calendarEvent?.toFREObject()
         return ret
     } catch (e: FreException) {

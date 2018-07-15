@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/30.0">
+
+    <id>com.tuarua.firebaseane.example</id>
+    <filename>FireBaseExample</filename>
+    <name>FIR-Example-iOS-Android</name>
+    <versionNumber>0.0.6</versionNumber>
+
+
+    <!-- Settings for the application's initial window. Required. -->
+    <initialWindow>
+        <content>[This value will be overwritten by Flash Builder in the output app.xml]</content>
+        <aspectRatio>portrait</aspectRatio>
+        <autoOrients>false</autoOrients>
+        <fullScreen>true</fullScreen>
+        <renderMode>direct</renderMode>
+        <depthAndStencil>true</depthAndStencil>
+        <visible>true</visible>
+    </initialWindow>
+
+
+    <!-- The icon the system uses for the application. For at least one resolution,
+    specify the path to a PNG file included in the AIR package. Optional. -->
+    <icon>
+        <image76x76>AppIcon76x76~ipad.png</image76x76>
+        <image120x120>AppIcon60x60@2x.png</image120x120>
+        <image152x152>AppIcon76x76@2x~ipad.png</image152x152>
+        <image167x167>AppIcon83.5x83.5@2x~ipad.png</image167x167>
+        <image180x180>AppIcon60x60@3x.png</image180x180>
+    </icon>
+
+
+    <!-- Specify Android specific tags that get passed to AndroidManifest.xml file. -->
+    <android>
+        <manifestAdditions>
+            <![CDATA[
+            <manifest android:installLocation="auto">
+            <uses-sdk android:minSdkVersion="19" />
+                <uses-permission android:name="android.permission.INTERNET"/>
+                <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+                <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+                <uses-permission android:name="android.permission.WAKE_LOCK"/>
+                <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+                <application android:enabled="true">
+
+                    <meta-data
+                        android:name="com.google.android.gms.version"
+                        android:value="@integer/google_play_services_version" />
+
+                    <meta-data
+                        android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+                        android:value="face,barcode" />
+                        <!-- To use multiple models: android:value="face,model2,model3" -->
+
+
+                    <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                    </service>
+
+                    <provider
+                        android:authorities="air.com.tuarua.firebaseane.example.firebaseinitprovider"
+                        android:name="com.google.firebase.provider.FirebaseInitProvider"
+                        android:exported="false"
+                        android:initOrder="100" />
+
+                    <receiver
+                        android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+                        android:enabled="true"
+                        android:exported="false" >
+                    </receiver>
+
+                    <receiver
+                        android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+                        android:enabled="true"
+                        android:exported="true"
+                        android:permission="android.permission.INSTALL_PACKAGES" >
+                        <intent-filter>
+                            <action android:name="com.android.vending.INSTALL_REFERRER" />
+                        </intent-filter>
+                    </receiver>
+
+                    <service
+                        android:name="com.google.android.gms.measurement.AppMeasurementService"
+                        android:enabled="true"
+                        android:exported="false" />
+                    <service
+                        android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+                        android:enabled="true"
+                        android:exported="false"
+                        android:permission="android.permission.BIND_JOB_SERVICE" />
+
+                    <!-- iid -->
+                    <receiver
+                        android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+                        android:exported="true"
+                        android:permission="com.google.android.c2dm.permission.SEND" >
+                        <intent-filter>
+                            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                            <category android:name="air.com.tuarua.firebaseane.example" />
+                        </intent-filter>
+                    </receiver>
+
+                    <service
+                        android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+                        android:exported="true" >
+                        <intent-filter android:priority="-500" >
+                            <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+                        </intent-filter>
+                    </service>
+
+                    <activity android:excludeFromRecents="false">
+                        <intent-filter>
+                            <action android:name="android.intent.action.MAIN"/>
+                            <category android:name="android.intent.category.LAUNCHER"/>
+                        </intent-filter>
+                    </activity>
+
+                </application>
+            </manifest>
+            ]]>
+        </manifestAdditions>
+
+    </android>
+
+
+    <extensions>
+        <extensionID>com.tuarua.frekotlin</extensionID>
+        <extensionID>com.google.code.gson.gson</extensionID>
+        <extensionID>com.android.support.support-v4</extensionID>
+        <extensionID>com.google.android.gms.play-services-base</extensionID>
+
+        <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
+        <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
+        <extensionID>com.tuarua.firebase.VisionANE</extensionID>
+        <extensionID>com.tuarua.firebase.VisionBarcodeANE</extensionID>
+        <extensionID>com.tuarua.firebase.VisionFaceANE</extensionID>
+
+        <extensionID>com.google.firebase.firebase-analytics</extensionID>
+        <extensionID>com.google.firebase.firebase-iid</extensionID>
+        <extensionID>com.google.firebase.firebase-ml-vision</extensionID>
+
+    </extensions>
+
+</application>

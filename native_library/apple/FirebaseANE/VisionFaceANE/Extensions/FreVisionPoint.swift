@@ -21,8 +21,10 @@ import FirebaseMLVision
 public extension VisionPoint {
     func toFREObject() -> FREObject? {
         do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.Point",
-                                    args: self.x, self.y, self.z)
+            let ret = try FREObject(className: "com.tuarua.firebase.vision.VisionPoint",
+                                    args: Double(truncating: self.x),
+                                    Double(truncating: self.y),
+                                    Double(truncating: self.z ?? 0.0))
             return ret
         } catch {
         }
