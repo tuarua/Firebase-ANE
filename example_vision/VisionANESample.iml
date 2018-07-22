@@ -114,6 +114,9 @@
             <entry library-name="AnalyticsANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="org.greenrobot.eventbus-3.0.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_30" />
         </dependencies>
@@ -153,5 +156,6 @@
     <orderEntry type="library" exported="" name="com.tuarua.frekotlin" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-iid-16.0.0" level="project" />
     <orderEntry type="library" exported="" name="AnalyticsANE" level="project" />
+    <orderEntry type="library" exported="" name="org.greenrobot.eventbus-3.0.0" level="project" />
   </component>
 </module>

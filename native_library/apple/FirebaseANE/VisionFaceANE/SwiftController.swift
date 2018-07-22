@@ -53,14 +53,14 @@ public class SwiftController: NSObject {
         let faceDetector = vision.faceDetector(options: options)
         faceDetector.detect(in: image) { (features, error) in
             if let err = error as NSError? {
-                self.sendEvent(name: FaceEvent.DETECTED,
+                self.dispatchEvent(name: FaceEvent.DETECTED,
                                value: FaceEvent(eventId: eventId,
                                                    error: ["text": err.localizedDescription,
                                                            "id": err.code]).toJSONString())
             } else {
                 if let features = features, !features.isEmpty {
                     self.results[eventId] = features
-                    self.sendEvent(name: FaceEvent.DETECTED,
+                    self.dispatchEvent(name: FaceEvent.DETECTED,
                                    value: FaceEvent(eventId: eventId).toJSONString())
                 }
             }

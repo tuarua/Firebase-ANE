@@ -29,9 +29,7 @@ public class VisionANE extends EventDispatcher {
     public function VisionANE() {
         if (VisionANEContext.context) {
             var theRet:* = VisionANEContext.context.call("init");
-            if (theRet is ANEError) {
-                throw theRet as ANEError;
-            }
+            if (theRet is ANEError) throw theRet as ANEError;
         }
         _vision = this;
     }
@@ -60,6 +58,13 @@ public class VisionANE extends EventDispatcher {
             new VisionANE();
         }
         return _vision;
+    }
+
+    /** Requests permissions for this ANE */
+    public function requestPermissions():void {
+        if (VisionANEContext.context) {
+            VisionANEContext.context.call("requestPermissions");
+        }
     }
 
     /** Disposes the ANE */

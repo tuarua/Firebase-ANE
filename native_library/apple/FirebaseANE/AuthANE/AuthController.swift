@@ -37,12 +37,12 @@ class AuthController: FreSwiftController {
         auth?.createUser(withEmail: email, password: password) { (_, error) in
             if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: AuthEvent.USER_CREATED,
+                self.dispatchEvent(name: AuthEvent.USER_CREATED,
                                value: AuthEvent(eventId: eventId, data: nil,
                                                     error: ["text": err.localizedDescription,
                                                             "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: AuthEvent.USER_CREATED,
+                self.dispatchEvent(name: AuthEvent.USER_CREATED,
                                value: AuthEvent(eventId: eventId).toJSONString())
             }
         }
@@ -52,12 +52,12 @@ class AuthController: FreSwiftController {
         auth?.signInAndRetrieveData(with: credential, completion: { (_, error) in
             if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: AuthEvent.SIGN_IN,
+                self.dispatchEvent(name: AuthEvent.SIGN_IN,
                                value: AuthEvent(eventId: eventId, data: nil,
                                                 error: ["text": err.localizedDescription,
                                                         "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: AuthEvent.SIGN_IN,
+                self.dispatchEvent(name: AuthEvent.SIGN_IN,
                                value: AuthEvent(eventId: eventId).toJSONString())
             }
         })
@@ -67,12 +67,12 @@ class AuthController: FreSwiftController {
         auth?.signInAnonymously { _, error in
             if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: AuthEvent.SIGN_IN,
+                self.dispatchEvent(name: AuthEvent.SIGN_IN,
                                value: AuthEvent(eventId: eventId, data: nil,
                                                 error: ["text": err.localizedDescription,
                                                         "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: AuthEvent.SIGN_IN,
+                self.dispatchEvent(name: AuthEvent.SIGN_IN,
                                value: AuthEvent(eventId: eventId).toJSONString())
             }
         }
@@ -82,12 +82,12 @@ class AuthController: FreSwiftController {
         auth?.signIn(withCustomToken: token, completion: { (_, error) in
             if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: AuthEvent.SIGN_IN,
+                self.dispatchEvent(name: AuthEvent.SIGN_IN,
                                value: AuthEvent(eventId: eventId, data: nil,
                                                 error: ["text": err.localizedDescription,
                                                         "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: AuthEvent.SIGN_IN,
+                self.dispatchEvent(name: AuthEvent.SIGN_IN,
                                value: AuthEvent(eventId: eventId).toJSONString())
             }
         })
@@ -105,12 +105,12 @@ class AuthController: FreSwiftController {
         auth?.sendPasswordReset(withEmail: email) { error in
             if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: AuthEvent.PASSWORD_RESET_EMAIL_SENT,
+                self.dispatchEvent(name: AuthEvent.PASSWORD_RESET_EMAIL_SENT,
                                value: AuthEvent(eventId: eventId, data: nil,
                                                 error: ["text": err.localizedDescription,
                                                         "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: AuthEvent.PASSWORD_RESET_EMAIL_SENT,
+                self.dispatchEvent(name: AuthEvent.PASSWORD_RESET_EMAIL_SENT,
                                value: AuthEvent(eventId: eventId).toJSONString())
             }
         }
@@ -122,12 +122,12 @@ class AuthController: FreSwiftController {
         user?.reauthenticateAndRetrieveData(with: credential, completion: { (_, error) in
             if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: AuthEvent.USER_REAUTHENTICATED,
+                self.dispatchEvent(name: AuthEvent.USER_REAUTHENTICATED,
                                value: AuthEvent(eventId: eventId, data: nil,
                                                 error: ["text": err.localizedDescription,
                                                         "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: AuthEvent.USER_REAUTHENTICATED,
+                self.dispatchEvent(name: AuthEvent.USER_REAUTHENTICATED,
                                value: AuthEvent(eventId: eventId).toJSONString())
             }
         })
@@ -137,12 +137,12 @@ class AuthController: FreSwiftController {
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationId, error) in
             if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: AuthEvent.PHONE_CODE_SENT,
+                self.dispatchEvent(name: AuthEvent.PHONE_CODE_SENT,
                                value: AuthEvent(eventId: eventId, data: nil,
                                                 error: ["text": err.localizedDescription,
                                                         "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: AuthEvent.PHONE_CODE_SENT,
+                self.dispatchEvent(name: AuthEvent.PHONE_CODE_SENT,
                                value: AuthEvent(eventId: eventId,
                                                 data: ["verificationId": verificationId ?? ""]).toJSONString())
             }

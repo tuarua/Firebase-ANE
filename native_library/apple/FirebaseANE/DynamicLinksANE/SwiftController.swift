@@ -70,7 +70,7 @@ public class SwiftController: NSObject {
             components.options = options
             components.shorten { (shortURL, warnings, error) in
                 if let err = error {
-                    self.sendEvent(name: DynamicLinkEvent.ON_CREATED,
+                    self.dispatchEvent(name: DynamicLinkEvent.ON_CREATED,
                                    value: DynamicLinkEvent(eventId: eventId,
                                                        data: nil,
                                                        error: ["text": err.localizedDescription,
@@ -80,7 +80,7 @@ public class SwiftController: NSObject {
                 if copyToClipboard {
                     UIPasteboard.general.string = shortURL?.absoluteString
                 }
-                self.sendEvent(name: DynamicLinkEvent.ON_CREATED,
+                self.dispatchEvent(name: DynamicLinkEvent.ON_CREATED,
                                value: DynamicLinkEvent(eventId: eventId,
                                                        data: ["shortLink": shortURL?.absoluteString ?? "",
                                                               "warnings": warnings ?? []]
@@ -91,7 +91,7 @@ public class SwiftController: NSObject {
                 if copyToClipboard {
                     UIPasteboard.general.string = dynamicLink
                 }
-                self.sendEvent(name: DynamicLinkEvent.ON_CREATED,
+                self.dispatchEvent(name: DynamicLinkEvent.ON_CREATED,
                                value: DynamicLinkEvent(eventId: eventId,
                                                        data: ["url": dynamicLink]).toJSONString())
             }
@@ -113,19 +113,19 @@ public class SwiftController: NSObject {
     
             DynamicLinks.dynamicLinks().handleUniversalLink(webpageURL, completion: { (link, error) in
                 if let err = error {
-                    self.sendEvent(name: DynamicLinkEvent.ON_LINK,
+                    self.dispatchEvent(name: DynamicLinkEvent.ON_LINK,
                                    value: DynamicLinkEvent(eventId: eventId,
                                                            error: ["text": err.localizedDescription, "id": 0]
                                     ).toJSONString())
                     return
                 }
-                self.sendEvent(name: DynamicLinkEvent.ON_LINK,
+                self.dispatchEvent(name: DynamicLinkEvent.ON_LINK,
                                value: DynamicLinkEvent(eventId: eventId,
                                                        data: ["url": link?.url?.absoluteString ?? ""]
                                 ).toJSONString())
             })
         } else {
-            self.sendEvent(name: DynamicLinkEvent.ON_LINK,
+            self.dispatchEvent(name: DynamicLinkEvent.ON_LINK,
                            value: DynamicLinkEvent(eventId: eventId,
                                                    data: ["url": ""]
                             ).toJSONString())

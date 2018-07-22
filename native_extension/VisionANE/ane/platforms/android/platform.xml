@@ -2,7 +2,7 @@
 <platform xmlns="http://ns.adobe.com/air/extension/19.0">
     <packagedResources>
         <packagedResource>
-            <packageName>com.tuarua.firebase.VisionANE</packageName>
+            <packageName>com.tuarua.firebase.visionane</packageName>
             <folderName>com.tuarua.firebase.VisionANE-res</folderName>
         </packagedResource>
     </packagedResources>

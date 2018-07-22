@@ -12,13 +12,9 @@ import com.tuarua.firebase.vision.FaceLandmarkType;
 import com.tuarua.firebase.vision.VisionImage;
 
 import flash.display.Bitmap;
-
 import roipeker.display.MeshRoundRect;
-
 import starling.display.Canvas;
-
 import starling.display.Image;
-import starling.display.Quad;
 import starling.display.Sprite;
 import starling.events.Touch;
 import starling.events.TouchEvent;
@@ -109,14 +105,12 @@ public class FaceExample extends Sprite implements IExample {
                         for each (var face:Face in features) {
                             trace(face.frame.toString());
 
-                            var box:MeshRoundRect = new MeshRoundRect();
-                            box.setup(face.frame.width, face.frame.height, 20);
-                            box.color = Color.GREEN;
-                            box.x = face.frame.x;
-                            box.y = face.frame.y;
-                            box.alpha = 0.3;
-
-                            trace("face.landmarks.length", face.landmarks.length);
+                            var frame:MeshRoundRect = new MeshRoundRect();
+                            frame.setup(face.frame.width, face.frame.height, 20);
+                            frame.color = Color.GREEN;
+                            frame.x = face.frame.x;
+                            frame.y = face.frame.y;
+                            frame.alpha = 0.3;
 
                             var canvas:Canvas = new Canvas();
 
@@ -161,7 +155,7 @@ public class FaceExample extends Sprite implements IExample {
                             canvas.filter = filter;
                             canvas.filter.cache();
 
-                            faceContainer.addChild(box);
+                            faceContainer.addChild(frame);
                             faceContainer.addChild(canvas);
                         }
                     });

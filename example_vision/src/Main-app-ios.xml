@@ -44,6 +44,8 @@
             </array>
             <key>MinimumOSVersion</key>
             <string>9.0</string>
+            <key>NSCameraUsageDescription</key>
+            <string>You need to allow camera to use VisionANE Sample</string>
             ]]>
         </InfoAdditions>
         <requestedDisplayResolution>high</requestedDisplayResolution>

@@ -35,6 +35,8 @@ CONTEXT_INIT(TRFBVBC) {
         ,MAP_FUNCTION(TRFBVBC, createGUID)
         ,MAP_FUNCTION(TRFBVBC, detect)
         ,MAP_FUNCTION(TRFBVBC, getResults)
+        ,MAP_FUNCTION(TRFBVBC, inputFromCamera)
+        ,MAP_FUNCTION(TRFBVBC, closeCamera)
     };
     SET_FUNCTIONS
     

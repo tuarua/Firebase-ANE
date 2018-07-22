@@ -21,17 +21,20 @@ class BarcodeEvent: NSObject {
     public static let DETECTED = "BarcodeEvent.Detected"
     var eventId: String?
     var error: [String: Any]?
+    var continuous: Bool = false
     
-    convenience init(eventId: String?, error: [String: Any]? = nil) {
+    convenience init(eventId: String?, error: [String: Any]? = nil, continuous: Bool = false) {
         self.init()
         self.eventId = eventId
         self.error = error
+        self.continuous = continuous
     }
     
     public func toJSONString() -> String {
         var props = [String: Any]()
         props["eventId"] = eventId
         props["error"] = error
+        props["continuous"] = continuous
         return JSON(props).description
     }
 }

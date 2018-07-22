@@ -15,19 +15,11 @@
  */
 
 import Foundation
-import FreSwift
-import FirebaseMLVision
 
-public extension VisionPoint {
-    func toFREObject() -> FREObject? {
-        do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.VisionPoint",
-                                    args: Double(truncating: self.x),
-                                    Double(truncating: self.y),
-                                    Double(truncating: self.z ?? 0.0))
-            return ret
-        } catch {
-        }
-        return nil
-    }
+public struct PermissionEvent {
+    public static let NOT_DETERMINED = 0
+    public static let RESTRICTED = 1
+    public static let DENIED = 2
+    public static let ALLOWED = 3
+    public static let ON_STATUS = "Permission.OnStatus"
 }

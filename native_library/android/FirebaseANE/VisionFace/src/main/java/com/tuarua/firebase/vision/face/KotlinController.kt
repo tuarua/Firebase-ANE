@@ -21,12 +21,10 @@ import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.face.FirebaseVisionFace
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetector
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions
-import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark
 import com.google.gson.Gson
 import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
 import com.tuarua.firebase.vision.face.events.FaceEvent
-import com.tuarua.firebase.vision.face.extensions.FirebaseVisionFaceDetectorOptions
-import com.tuarua.firebase.vision.face.extensions.toFREObject
+import com.tuarua.firebase.vision.face.extensions.*
 import com.tuarua.frekotlin.*
 import java.util.*
 
@@ -63,12 +61,12 @@ class KotlinController : FreKotlinMainController {
             if (task.isSuccessful) {
                 if (!task.result.isEmpty()) {
                     results[eventId] = task.result
-                    sendEvent(FaceEvent.DETECTED,
+                    dispatchEvent(FaceEvent.DETECTED,
                             gson.toJson(FaceEvent(eventId, null)))
                 }
             } else {
                 val error = task.exception
-                sendEvent(FaceEvent.DETECTED,
+                dispatchEvent(FaceEvent.DETECTED,
                         gson.toJson(
                                 FaceEvent(eventId, mapOf(
                                         "text" to error?.message.toString(),

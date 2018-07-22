@@ -135,9 +135,9 @@ public class SwiftController: NSObject {
         remoteConfig?.fetch(withExpirationDuration: TimeInterval(self.cacheExpiration)) { (status, error) -> Void in
             if status == .success {
                 self.remoteConfig?.activateFetched()
-                self.sendEvent(name: RemoteConfigEvent.FETCH, value: "")
+                self.dispatchEvent(name: RemoteConfigEvent.FETCH, value: "")
             } else {
-                self.sendEvent(name: RemoteConfigErrorEvent.FETCH_ERROR,
+                self.dispatchEvent(name: RemoteConfigErrorEvent.FETCH_ERROR,
                                value: RemoteConfigErrorEvent(
                                 eventId: "",
                                 text: error?.localizedDescription,

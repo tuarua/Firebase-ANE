@@ -28,6 +28,7 @@ import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
+import com.tuarua.firebase.auth.extensions.toMap
 
 class AuthController(override var context: FREContext?) : FreKotlinController {
     private lateinit var auth: FirebaseAuth
@@ -45,12 +46,12 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
 
     private fun sendError(type: String, eventId: String, exception: Exception?) {
         when (exception) {
-            is FirebaseNetworkException -> sendEvent(type, gson.toJson(
+            is FirebaseNetworkException -> dispatchEvent(type, gson.toJson(
                     AuthEvent(eventId, error = mapOf(
                             "text" to exception.message,
                             "id" to 17020))))
             is FirebaseAuthException -> {
-                sendEvent(type, gson.toJson(
+                dispatchEvent(type, gson.toJson(
                         AuthEvent(eventId, error = exception.toMap()))
                 )
             }
@@ -61,7 +62,7 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> sendEvent(AuthEvent.USER_CREATED, gson.toJson(AuthEvent(eventId)))
+                task.isSuccessful -> dispatchEvent(AuthEvent.USER_CREATED, gson.toJson(AuthEvent(eventId)))
                 else -> sendError(AuthEvent.USER_CREATED, eventId, task.exception)
             }
         }
@@ -75,7 +76,7 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
         auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> sendEvent(AuthEvent.PASSWORD_RESET_EMAIL_SENT, gson.toJson(AuthEvent(eventId)))
+                task.isSuccessful -> dispatchEvent(AuthEvent.PASSWORD_RESET_EMAIL_SENT, gson.toJson(AuthEvent(eventId)))
                 else -> sendError(AuthEvent.PASSWORD_RESET_EMAIL_SENT, eventId, task.exception)
             }
         }
@@ -85,7 +86,7 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
         auth.signInAnonymously().addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> sendEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(eventId)))
+                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(eventId)))
                 else -> sendError(AuthEvent.SIGN_IN, eventId, task.exception)
             }
         }
@@ -95,7 +96,7 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
         auth.signInWithCustomToken(token).addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> sendEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(eventId)))
+                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(eventId)))
                 else -> sendError(AuthEvent.SIGN_IN, eventId, task.exception)
             }
         }
@@ -105,7 +106,7 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
         auth.signInWithCredential(value).addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> sendEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(eventId)))
+                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(eventId)))
                 else -> sendError(AuthEvent.SIGN_IN, eventId, task.exception)
             }
         }
@@ -128,7 +129,7 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
             override fun onCodeSent(verificationId: String?,
                                     token: PhoneAuthProvider.ForceResendingToken?) {
                 if (eventId == null) return
-                sendEvent(AuthEvent.PHONE_CODE_SENT, gson.toJson(AuthEvent(eventId,
+                dispatchEvent(AuthEvent.PHONE_CODE_SENT, gson.toJson(AuthEvent(eventId,
                         mapOf("verificationId" to verificationId))))
 
             }

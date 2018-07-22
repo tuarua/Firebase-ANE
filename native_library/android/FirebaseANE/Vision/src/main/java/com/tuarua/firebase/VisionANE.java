@@ -22,7 +22,8 @@ import com.tuarua.firebase.vision.KotlinController;
 @SuppressWarnings("unused")
 public class VisionANE implements FREExtension {
     private static final String[] FUNCTIONS = {
-            "init"
+             "init"
+            ,"requestPermissions"
     };
     private static VisionANEContext extensionContext;
 

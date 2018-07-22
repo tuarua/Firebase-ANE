@@ -15,7 +15,11 @@
  */
 
 package com.tuarua.firebase {
+import com.tuarua.firebase.permissions.PermissionEvent;
+
+import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
+import flash.utils.setTimeout;
 
 public class VisionANEContext {
     internal static const NAME:String = "VisionANE";
@@ -27,11 +31,27 @@ public class VisionANEContext {
         if (_context == null) {
             try {
                 _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
+                _context.addEventListener(StatusEvent.STATUS, gotEvent);
             } catch (e:Error) {
                 trace("[" + NAME + "] ANE Not loaded properly.  Future calls will fail.");
             }
         }
         return _context;
+    }
+
+    private static function gotEvent(event:StatusEvent):void {
+        switch (event.level) {
+            case PermissionEvent.STATUS_CHANGED:
+                try {
+                    var argsAsJSON:Object = JSON.parse(event.code);
+                    setTimeout(function():void{
+                        VisionANE.vision.dispatchEvent(new PermissionEvent(event.level, argsAsJSON.status));
+                    }, (1 / 15)); //put a delay to prevent Stage3D Error #3768
+                } catch (e:Error) {
+                    trace(e.message);
+                }
+                break;
+        }
     }
 
     public static function dispose():void {

@@ -2,7 +2,7 @@
 <platform xmlns="http://ns.adobe.com/air/extension/19.0">
     <packagedResources>
         <packagedResource>
-            <packageName>com.tuarua.google.GoogleSignInANE</packageName>
+            <packageName>com.tuarua.google.googlesigninane</packageName>
             <folderName>com.tuarua.google.GoogleSignInANE-res</folderName>
         </packagedResource>
     </packagedResources>

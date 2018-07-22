@@ -26,6 +26,8 @@ import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import java.util.*
 import com.google.firebase.appinvite.FirebaseAppInvite
+import com.tuarua.firebase.invites.extensions.InviteIntent
+
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
@@ -42,7 +44,7 @@ class KotlinController : FreKotlinMainController {
 
     fun openInvite(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("openInvite")
-        val intent = InviteIntent(argv[0])
+        val intent = InviteIntent(argv[0]) //TODO ??
         ctx.activity.startActivityForResult(intent, REQUEST_INVITE)
         return null
     }
@@ -61,7 +63,7 @@ class KotlinController : FreKotlinMainController {
                     invite != null -> invite.invitationId
                     else -> ""
                 }
-                sendEvent(InvitesEvent.ON_LINK,
+                dispatchEvent(InvitesEvent.ON_LINK,
                         Gson().toJson(
                                 InvitesEvent(eventId, mapOf(
                                         "url" to link.toString(),
@@ -72,7 +74,7 @@ class KotlinController : FreKotlinMainController {
                         ))
             }
             task.addOnFailureListener {
-                sendEvent(InvitesEvent.ON_LINK, Gson().toJson(
+                dispatchEvent(InvitesEvent.ON_LINK, Gson().toJson(
                         InvitesEvent(eventId, error = mapOf(
                                 "text" to it.localizedMessage.toString(),
                                 "id" to 0))
@@ -86,7 +88,7 @@ class KotlinController : FreKotlinMainController {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: InvitesEvent) {
         if (_context != null) {
-            sendEvent(event.eventId, Gson().toJson(InvitesEvent(event.eventId, event.data)))
+            dispatchEvent(event.eventId, Gson().toJson(InvitesEvent(event.eventId, event.data)))
         }
     }
 

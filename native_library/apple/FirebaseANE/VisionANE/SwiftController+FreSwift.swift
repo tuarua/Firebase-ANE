@@ -21,6 +21,7 @@ extension SwiftController: FreSwiftMainController {
     @objc public func getFunctions(prefix: String) -> [String] {
         
         functionsToSet["\(prefix)init"] = initController
+        functionsToSet["\(prefix)requestPermissions"] = requestPermissions
         
         var arr: [String] = []
         for key in functionsToSet.keys {

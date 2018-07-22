@@ -20,9 +20,6 @@
             <entry library-name="AnalyticsANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.code.gson.gson-2.8.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="FirestoreANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
@@ -93,6 +90,9 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="InvitesANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.code.gson.gson-2.8.4" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -322,5 +322,6 @@
     <orderEntry type="library" exported="" name="android.arch.lifecycle.runtime-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="android.arch.lifecycle.runtime-1.1.1" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-invites-16.0.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.code.gson.gson-2.8.4" level="project" />
   </component>
 </module>

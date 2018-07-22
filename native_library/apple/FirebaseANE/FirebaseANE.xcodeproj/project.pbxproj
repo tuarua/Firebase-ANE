@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9033688B20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033688A20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift */; };
+		9033689420FCBFE5001A3B24 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033689320FCBFE5001A3B24 /* UIUtilities.swift */; };
 		9062053F20F800B400AFCE48 /* RemoteConfigErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062053E20F800B400AFCE48 /* RemoteConfigErrorEvent.swift */; };
 		9062054120F801A300AFCE48 /* RemoteConfigEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062054020F801A300AFCE48 /* RemoteConfigEvent.swift */; };
+		90BABA7220FBE90800C012F8 /* PermissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BABA7020FBE8C500C012F8 /* PermissionController.swift */; };
+		90BABA7520FBE93D00C012F8 /* PermissionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BABA7420FBE93D00C012F8 /* PermissionEvent.swift */; };
+		90BABA7620FBE98300C012F8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		CE0038CB2094E9B7002A657A /* FreStorageMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0038CA2094E9B7002A657A /* FreStorageMetadata.swift */; };
 		CE00E76320BC08D4002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		CE00E76420BC09A6002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
@@ -280,8 +285,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9033688A20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift; sourceTree = "<group>"; };
+		9033689320FCBFE5001A3B24 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		9062053E20F800B400AFCE48 /* RemoteConfigErrorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigErrorEvent.swift; sourceTree = "<group>"; };
 		9062054020F801A300AFCE48 /* RemoteConfigEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigEvent.swift; sourceTree = "<group>"; };
+		90BABA7020FBE8C500C012F8 /* PermissionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionController.swift; sourceTree = "<group>"; };
+		90BABA7420FBE93D00C012F8 /* PermissionEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionEvent.swift; sourceTree = "<group>"; };
 		CE0038CA2094E9B7002A657A /* FreStorageMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreStorageMetadata.swift; sourceTree = "<group>"; };
 		CE00E76220BC08D4002B569A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		CE05603E1FB25CE200D06976 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/iOS/FreSwift.framework; sourceTree = "<group>"; };
@@ -518,6 +527,7 @@
 				CEF921D720F23FD5005DE361 /* AVFoundation.framework in Frameworks */,
 				CEF921D520F23FC6005DE361 /* Accelerate.framework in Frameworks */,
 				CE5E6B1220F1787D001398C5 /* FreSwift.framework in Frameworks */,
+				90BABA7620FBE98300C012F8 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +719,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		90BABA7320FBE91E00C012F8 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				90BABA7420FBE93D00C012F8 /* PermissionEvent.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -812,7 +830,6 @@
 				CE2C3F9D20F3F84700B9E210 /* FreVisionFaceDetectorOptions.swift */,
 				CE2C3FA320F3FCB400B9E210 /* FreVisionFace.swift */,
 				CE2C3FA520F403FA00B9E210 /* FreVisionFaceLandmark.swift */,
-				CE2C3FA720F4046600B9E210 /* FreVisionPoint.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -889,6 +906,7 @@
 				CE6E038820EECB6B008D6CE8 /* VisionBarcodeANE.m */,
 				CE6E038B20EECBE7008D6CE8 /* SwiftController.swift */,
 				CE6E038D20EECC14008D6CE8 /* SwiftController+FreSwift.swift */,
+				9033688A20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift */,
 			);
 			path = VisionBarcodeANE;
 			sourceTree = "<group>";
@@ -927,6 +945,7 @@
 			children = (
 				CE2C3F9F20F3FB8A00B9E210 /* Events */,
 				CE6E039B20EEDA0A008D6CE8 /* Extensions */,
+				9033689320FCBFE5001A3B24 /* UIUtilities.swift */,
 			);
 			path = VisionCommon;
 			sourceTree = "<group>";
@@ -934,6 +953,7 @@
 		CE6E039B20EEDA0A008D6CE8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CE2C3FA720F4046600B9E210 /* FreVisionPoint.swift */,
 				CE6E039220EED12C008D6CE8 /* FreVisionImage.swift */,
 				CE6E039420EED2A8008D6CE8 /* FreVisionImageMetadata.swift */,
 			);
@@ -1059,6 +1079,8 @@
 		CE8D621320F16ABC00FB2569 /* VisionANE */ = {
 			isa = PBXGroup;
 			children = (
+				90BABA7320FBE91E00C012F8 /* Events */,
+				90BABA7020FBE8C500C012F8 /* PermissionController.swift */,
 				CE8D621420F16AD200FB2569 /* Headers */,
 				CE5E6B2720F178CF001398C5 /* SwiftController.swift */,
 				CE5E6B2920F178E6001398C5 /* SwiftController+FreSwift.swift */,
@@ -1893,14 +1915,14 @@
 		};
 		CE62B35F20D0618E002837B7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/GoogleSignInANE/ane/build_multi.sh;
 		};
@@ -1958,14 +1980,14 @@
 		};
 		CE8BC4B520B1C890009164ED /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/DynamicLinksANE/ane/build_multi.sh;
 		};
@@ -1984,27 +2006,27 @@
 		};
 		CE94518E20951FCF00FE2BD7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/RemoteConfigANE/ane/build_multi.sh;
 		};
 		CEB57295208CF73F00CF6B1B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/FirestoreANE/ane/build_multi.sh;
 		};
@@ -2049,14 +2071,14 @@
 		};
 		CEB947F920D5CED000F707C1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/InvitesANE/ane/build_multi.sh;
 		};
@@ -2075,14 +2097,14 @@
 		};
 		CEBCF7B22095F9160028601B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/AuthANE/ane/build_multi.sh;
 		};
@@ -2114,14 +2136,14 @@
 		};
 		CEDDADE01FBFB84900D6EB5F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/ane/build_multi.sh;
 		};
@@ -2140,14 +2162,14 @@
 		};
 		CEE3AE6F20A0691700D3AAF6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/PerformanceANE/ane/build_multi.sh;
 		};
@@ -2166,27 +2188,27 @@
 		};
 		CEE3AE7F20A06D2600D3AAF6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/MessagingANE/ane/build_multi.sh;
 		};
 		CEE80D67208CF3E200C96EC6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/AnalyticsANE/ane/build_multi.sh;
 		};
@@ -2215,7 +2237,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5E6B2820F178CF001398C5 /* SwiftController.swift in Sources */,
+				90BABA7520FBE93D00C012F8 /* PermissionEvent.swift in Sources */,
 				CE5E6B2A20F178E6001398C5 /* SwiftController+FreSwift.swift in Sources */,
+				90BABA7220FBE90800C012F8 /* PermissionController.swift in Sources */,
 				CE5E6B2E20F178FB001398C5 /* VisionANE.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2244,6 +2268,7 @@
 				CE6E03A120EEEA25008D6CE8 /* FreVisionBarcodeEmail.swift in Sources */,
 				CE6E039720EED577008D6CE8 /* FreVisionBarcodeDetectorOptions.swift in Sources */,
 				CE420A0B20F0DFBD0095967F /* FreVisionBarcodePersonName.swift in Sources */,
+				9033688B20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift in Sources */,
 				CE6E03A520EEEB68008D6CE8 /* FreVisionBarcodeSMS.swift in Sources */,
 				CE6E03AF20EEEDE2008D6CE8 /* FreVisionBarcodeCalendarEvent.swift in Sources */,
 				CE6E038C20EECBE7008D6CE8 /* SwiftController.swift in Sources */,
@@ -2255,6 +2280,7 @@
 				CE6E03B120EEEEBC008D6CE8 /* FreVisionBarcodeContactInfo.swift in Sources */,
 				CE6E039F20EEE7FB008D6CE8 /* FreVisionBarcode.swift in Sources */,
 				CE6E03A720EEEBCE008D6CE8 /* FreVisionBarcodeURLBookmark.swift in Sources */,
+				9033689420FCBFE5001A3B24 /* UIUtilities.swift in Sources */,
 				CE6E039520EED2A8008D6CE8 /* FreVisionImageMetadata.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

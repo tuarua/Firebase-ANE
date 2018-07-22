@@ -31,7 +31,8 @@ CONTEXT_INIT(TRFBVIS) {
     SWIFT_INITS(TRFBVIS)
     static FRENamedFunction extensionFunctions[] =
     {
-        MAP_FUNCTION(TRFBVIS, init)
+         MAP_FUNCTION(TRFBVIS, init)
+        ,MAP_FUNCTION(TRFBVIS, requestPermissions)
     };
     SET_FUNCTIONS
     

@@ -15,6 +15,7 @@
  */
 package com.tuarua.firebase.vision.barcode
 
+import android.view.ViewGroup
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.FirebaseVision
@@ -29,9 +30,9 @@ import com.google.gson.Gson
 import com.tuarua.firebase.vision.barcode.events.BarcodeEvent
 import com.tuarua.firebase.vision.barcode.extensions.toFREObject
 
-
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
+    private lateinit var airView: ViewGroup
     private val TRACE = "TRACE"
     private var options: FirebaseVisionBarcodeDetectorOptions? = null
     private var results: MutableMap<String, MutableList<FirebaseVisionBarcode>> = mutableMapOf()
@@ -40,6 +41,19 @@ class KotlinController : FreKotlinMainController {
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
         options = FirebaseVisionBarcodeDetectorOptions(argv[0])
+
+        val appActivity = ctx.activity
+        if (appActivity != null) {
+            airView = appActivity.findViewById(android.R.id.content) as ViewGroup
+            airView = airView.getChildAt(0) as ViewGroup
+        }
+
+        // https://github.com/christophesmet/android_maskable_layout/blob/master/library/src/main/java/com/christophesmet/android/views/maskableframelayout/MaskableFrameLayout.java
+        // https://stackoverflow.com/questions/7559171/is-it-possible-to-mask-a-view-in-android
+        // http://nerdposts.blogspot.com/2010/05/android-alpha-masking.html
+        // https://stackoverflow.com/questions/8604018/android-mask-bitmap?rq=1
+        //https://stackoverflow.com/questions/32080070/android-what-is-the-simplest-way-to-mask-a-shape-onto-a-view?noredirect=1&lq=1
+
         return true.toFREObject()
     }
 
@@ -63,12 +77,12 @@ class KotlinController : FreKotlinMainController {
             if (task.isSuccessful) {
                 if (!task.result.isEmpty()) {
                     results[eventId] = task.result
-                    sendEvent(BarcodeEvent.DETECTED,
+                    dispatchEvent(BarcodeEvent.DETECTED,
                             gson.toJson(BarcodeEvent(eventId, null)))
                 }
             } else {
                 val error = task.exception
-                sendEvent(BarcodeEvent.DETECTED,
+                dispatchEvent(BarcodeEvent.DETECTED,
                         gson.toJson(
                                 BarcodeEvent(eventId, mapOf(
                                         "text" to error?.message.toString(),
@@ -77,7 +91,6 @@ class KotlinController : FreKotlinMainController {
                 )
             }
         }
-
         return null
     }
 
@@ -99,6 +112,14 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
+    fun inputFromCamera(ctx: FREContext, argv: FREArgv): FREObject? {
+        return null
+    }
+
+    fun closeCamera(ctx: FREContext, argv: FREArgv): FREObject? {
+        return null
+    }
+
     override val TAG: String
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
@@ -109,4 +130,3 @@ class KotlinController : FreKotlinMainController {
         }
 
 }
-

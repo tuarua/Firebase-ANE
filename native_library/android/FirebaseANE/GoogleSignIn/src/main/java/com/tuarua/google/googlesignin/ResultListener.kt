@@ -31,13 +31,13 @@ class ResultListener(override var context: FREContext?) : FreKotlinController, T
             val completedTask = task ?: return
             try {
                 val account = completedTask.getResult(ApiException::class.java)
-                sendEvent(GoogleSignInEvent.SIGN_IN,
+                dispatchEvent(GoogleSignInEvent.SIGN_IN,
                         Gson().toJson(GoogleSignInEvent(
                                 mapOf("idToken" to account.idToken))
                         )
                 )
             } catch (e: ApiException) {
-                sendEvent(GoogleSignInEvent.ERROR,
+                dispatchEvent(GoogleSignInEvent.ERROR,
                         Gson().toJson(GoogleSignInEvent(
                                 mapOf("text" to e.localizedMessage,
                                         "id" to e.statusCode))

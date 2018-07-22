@@ -13,9 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-@file:Suppress("FunctionName")
-
-package com.tuarua.firebase.invites
+package com.tuarua.firebase.invites.extensions
 
 import android.content.Intent
 import android.net.Uri
@@ -26,6 +24,7 @@ import com.tuarua.frekotlin.String
 import com.tuarua.frekotlin.Int
 import com.tuarua.frekotlin.get
 
+@Suppress("FunctionName")
 fun InviteIntent(freObject: FREObject?): Intent? {
     val rv = freObject ?: return null
     val title = String(rv["title"]) ?: return null

@@ -82,7 +82,7 @@ public class SwiftController: NSObject {
             let webpageURL = userActivity.webpageURL {
             Invites.handleUniversalLink(webpageURL) { (invite, error) in
                 if let err = error {
-                    self.sendEvent(name: InvitesEvent.ON_LINK,
+                    self.dispatchEvent(name: InvitesEvent.ON_LINK,
                                    value: InvitesEvent(eventId: eventId,
                                                            error: ["text": err.localizedDescription, "id": 0]
                                     ).toJSONString())
@@ -97,7 +97,7 @@ public class SwiftController: NSObject {
                     sourceUrl = url
                 }
                 
-                self.sendEvent(name: InvitesEvent.ON_LINK,
+                self.dispatchEvent(name: InvitesEvent.ON_LINK,
                                value: InvitesEvent(eventId: eventId,
                                                    data: ["url": invite?.deepLink ?? "",
                                                           "invitationId": invite?.inviteId ?? "",
@@ -106,7 +106,7 @@ public class SwiftController: NSObject {
                                 ).toJSONString())
             } 
         } else {
-            self.sendEvent(name: InvitesEvent.ON_LINK,
+            self.dispatchEvent(name: InvitesEvent.ON_LINK,
                            value: InvitesEvent(eventId: eventId,
                                                data: ["url": "", "invitationId": ""]
                             ).toJSONString())

@@ -14,19 +14,17 @@
  *  limitations under the License.
  */
 
-@file:Suppress("FunctionName")
+@file:Suppress("unused")
 
-package com.tuarua.firebase.storage
+package com.tuarua.firebase.storage.extensions
 
 import com.adobe.fre.FREObject
 import com.google.firebase.storage.StorageMetadata
-import com.google.firebase.storage.StorageReference
-import com.tuarua.frekotlin.FREObject
 import com.tuarua.frekotlin.Map
-import com.tuarua.frekotlin.get
-import com.tuarua.frekotlin.setProp
 import com.tuarua.frekotlin.String
+import com.tuarua.frekotlin.get
 
+@Suppress("FunctionName")
 fun StorageMetadata(freObject: FREObject?): StorageMetadata? {
     val rv = freObject ?: return null
     val builder = StorageMetadata.Builder()
@@ -59,12 +57,4 @@ fun StorageMetadata(freObject: FREObject?): StorageMetadata? {
         }
     }
     return builder.build()
-}
-
-fun StorageReference.toFREObject(): FREObject? {
-    val ret = FREObject("Object")
-    ret.setProp("bucket", this.bucket)
-    ret.setProp("name", this.name)
-    ret.setProp("path", this.path)
-    return ret
 }

@@ -1,8 +1,8 @@
 package views.examples {
+import com.tuarua.utils.GUID;
 import com.tuarua.firebase.AnalyticsANE;
 import com.tuarua.firebase.analytics.FirebaseAnalyticsEvent;
 import com.tuarua.firebase.analytics.FirebaseAnalyticsParam;
-import com.tuarua.utils.GUID;
 
 import starling.display.Sprite;
 import starling.events.Touch;

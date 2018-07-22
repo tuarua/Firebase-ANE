@@ -94,7 +94,7 @@ class FirestoreController: FreSwiftController {
         
         q.getDocuments { querySnapshot, error in
             if let err = error as NSError? {
-                self.sendEvent(name: DocumentEvent.QUERY_SNAPSHOT,
+                self.dispatchEvent(name: DocumentEvent.QUERY_SNAPSHOT,
                                value: DocumentEvent(
                                 eventId: eventId,
                                 error: ["text": err.localizedDescription,
@@ -103,7 +103,7 @@ class FirestoreController: FreSwiftController {
                 
             } else {
                 if let qSnapshot: QuerySnapshot = querySnapshot {
-                    self.sendEvent(name: DocumentEvent.QUERY_SNAPSHOT,
+                    self.dispatchEvent(name: DocumentEvent.QUERY_SNAPSHOT,
                                    value: DocumentEvent(
                                     eventId: eventId,
                                     data: qSnapshot.toDictionary()).toJSONString()
@@ -128,13 +128,13 @@ class FirestoreController: FreSwiftController {
         docRef?.delete { error in
             if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: DocumentEvent.DELETED,
+                self.dispatchEvent(name: DocumentEvent.DELETED,
                                value: DocumentEvent(eventId: eventId,
                                                     data: ["path": path],
                                                     error: ["text": err.localizedDescription,
                                                             "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: DocumentEvent.DELETED,
+                self.dispatchEvent(name: DocumentEvent.DELETED,
                                value: DocumentEvent(eventId: eventId,
                                                     data: ["path": path]).toJSONString())
             }
@@ -149,7 +149,7 @@ class FirestoreController: FreSwiftController {
         guard let docRef = firestore?.document(path) else { return }
         snapshotRegistrations[asId] = docRef.addSnapshotListener({ snapshot, error in
             if let err = error as NSError? {
-                self.sendEvent(name: DocumentEvent.SNAPSHOT,
+                self.dispatchEvent(name: DocumentEvent.SNAPSHOT,
                                value: DocumentEvent(
                                 eventId: eventId,
                                 data: nil,
@@ -160,7 +160,7 @@ class FirestoreController: FreSwiftController {
                 
             } else {
                 if let document = snapshot {
-                    self.sendEvent(name: DocumentEvent.SNAPSHOT,
+                    self.dispatchEvent(name: DocumentEvent.SNAPSHOT,
                                    value: DocumentEvent(
                                     eventId: eventId,
                                     data: document.toDictionary(),
@@ -180,13 +180,13 @@ class FirestoreController: FreSwiftController {
         let docRef = firestore?.document(path)
         docRef?.getDocument { snapshot, error in
             if let err = error as NSError? {
-                self.sendEvent(name: DocumentEvent.SNAPSHOT,
+                self.dispatchEvent(name: DocumentEvent.SNAPSHOT,
                                value: DocumentEvent(eventId: eventId,
                                                     error: ["text": err.localizedDescription,
                                                             "id": err.code]).toJSONString())
             } else {
                 if let document = snapshot {
-                    self.sendEvent(name: DocumentEvent.SNAPSHOT,
+                    self.dispatchEvent(name: DocumentEvent.SNAPSHOT,
                                    value: DocumentEvent(eventId: eventId,
                                                         data: document.toDictionary()).toJSONString()
                     )
@@ -202,13 +202,13 @@ class FirestoreController: FreSwiftController {
         docRef.setData(documentData, merge: merge, completion: { error in
             if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: DocumentEvent.SET,
+                self.dispatchEvent(name: DocumentEvent.SET,
                                value: DocumentEvent(eventId: eventId,
                                                     data: ["path": path],
                                                     error: ["text": err.localizedDescription,
                                                             "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: DocumentEvent.SET,
+                self.dispatchEvent(name: DocumentEvent.SET,
                                value: DocumentEvent(eventId: eventId,
                                                     data: ["path": path]).toJSONString())
                 
@@ -223,13 +223,13 @@ class FirestoreController: FreSwiftController {
         docRef.updateData(documentData, completion: { error in
             if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: DocumentEvent.UPDATED,
+                self.dispatchEvent(name: DocumentEvent.UPDATED,
                                value: DocumentEvent(eventId: eventId,
                                                     data: ["path": path],
                                                     error: ["text": err.localizedDescription,
                                                             "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: DocumentEvent.UPDATED,
+                self.dispatchEvent(name: DocumentEvent.UPDATED,
                                value: DocumentEvent(eventId: eventId,
                                                     data: ["path": path]).toJSONString())
             }
@@ -274,13 +274,13 @@ class FirestoreController: FreSwiftController {
         batch?.commit { error in
             if let err = error as NSError? {
                 if eventId == nil { return }
-                self.sendEvent(name: BatchEvent.COMPLETE,
+                self.dispatchEvent(name: BatchEvent.COMPLETE,
                                value: BatchEvent(eventId: eventId,
                                                  error: ["text": err.localizedDescription,
                                                          "id": err.code]).toJSONString())
                 
             } else {
-                self.sendEvent(name: BatchEvent.COMPLETE,
+                self.dispatchEvent(name: BatchEvent.COMPLETE,
                                value: BatchEvent(eventId: eventId).toJSONString())
             }
         }
@@ -292,12 +292,12 @@ class FirestoreController: FreSwiftController {
         firestore?.enableNetwork(completion: { error in
             if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: NetworkEvent.ENABLED,
+                self.dispatchEvent(name: NetworkEvent.ENABLED,
                                value: NetworkEvent(eventId: eventId,
                                                    error: ["text": err.localizedDescription,
                                                            "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: NetworkEvent.ENABLED,
+                self.dispatchEvent(name: NetworkEvent.ENABLED,
                                value: NetworkEvent(eventId: eventId).toJSONString())
             }
         })
@@ -307,12 +307,12 @@ class FirestoreController: FreSwiftController {
         firestore?.disableNetwork(completion: { error in
             if eventId == nil { return }
             if let err = error as NSError? {
-                self.sendEvent(name: NetworkEvent.DISABLED,
+                self.dispatchEvent(name: NetworkEvent.DISABLED,
                                value: NetworkEvent(eventId: eventId,
                                                    error: ["text": err.localizedDescription,
                                                            "id": err.code]).toJSONString())
             } else {
-                self.sendEvent(name: NetworkEvent.DISABLED,
+                self.dispatchEvent(name: NetworkEvent.DISABLED,
                                value: NetworkEvent(eventId: eventId).toJSONString())
             }
         })

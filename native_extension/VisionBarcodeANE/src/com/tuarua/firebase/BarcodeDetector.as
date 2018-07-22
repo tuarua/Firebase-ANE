@@ -19,10 +19,13 @@ import com.tuarua.firebase.vision.BarcodeDetectorOptions;
 import com.tuarua.firebase.vision.VisionImage;
 import com.tuarua.fre.ANEError;
 
+import flash.display.BitmapData;
+
 import flash.events.EventDispatcher;
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
 import flash.utils.Dictionary;
+
 [RemoteClass(alias="com.tuarua.firebase.vision.BarcodeDetector")]
 public class BarcodeDetector extends EventDispatcher {
     internal static const NAME:String = "VisionBarcodeANE";
@@ -30,7 +33,7 @@ public class BarcodeDetector extends EventDispatcher {
     private var _options:BarcodeDetectorOptions = new BarcodeDetectorOptions();
     public static var closures:Dictionary = new Dictionary();
     private static const DETECTED:String = "BarcodeEvent.Detected";
-    
+
     public function BarcodeDetector(options:BarcodeDetectorOptions) {
         try {
             if (options) {
@@ -62,6 +65,16 @@ public class BarcodeDetector extends EventDispatcher {
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+//    public function inputFromCamera(listener:Function, mask:BitmapData):void {
+//        var theRet:* = _context.call("inputFromCamera", createEventId(listener), mask);
+//        if (theRet is ANEError) throw theRet as ANEError;
+//    }
+//
+//    public function closeCamera():void {
+//        var theRet:* = _context.call("closeCamera");
+//        if (theRet is ANEError) throw theRet as ANEError;
+//    }
+
     /** @private */
     public static function gotEvent(event:StatusEvent):void {
         var pObj:Object;
@@ -82,7 +95,7 @@ public class BarcodeDetector extends EventDispatcher {
                     var theRet:* = _context.call("getResults", pObj.eventId);
                     if (theRet is ANEError) throw theRet as ANEError;
                     closure.call(null, theRet, err);
-                    delete closures[pObj.eventId]; // TODO don't delete if we are running camera detection
+                    if (!pObj.continuous) delete closures[pObj.eventId];
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }

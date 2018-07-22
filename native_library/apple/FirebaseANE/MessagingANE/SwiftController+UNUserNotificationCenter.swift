@@ -30,7 +30,7 @@ extension SwiftController: UNUserNotificationCenterDelegate {
         let userInfo = notification.request.content.userInfo
         completionHandler([.alert, .badge, .sound])
         if context == nil { return }
-        self.sendEvent(name: MessageEvent.ON_MESSAGE_RECEIVED,
+        self.dispatchEvent(name: MessageEvent.ON_MESSAGE_RECEIVED,
                        value: MessageEvent(data: parseUserInfo(userInfo: userInfo)).toJSONString())
     }
     
@@ -46,7 +46,7 @@ extension SwiftController: UNUserNotificationCenterDelegate {
         completionHandler()
         
         if context == nil { return }
-        self.sendEvent(name: MessageEvent.ON_MESSAGE_RECEIVED,
+        self.dispatchEvent(name: MessageEvent.ON_MESSAGE_RECEIVED,
                        value: MessageEvent(data: parseUserInfo(userInfo: userInfo)).toJSONString())
     }
      

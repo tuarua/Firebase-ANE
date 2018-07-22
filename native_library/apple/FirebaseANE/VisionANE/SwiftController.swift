@@ -22,6 +22,12 @@ public class SwiftController: NSObject {
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     
+    public func requestPermissions(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        let pc = PermissionController(context: context)
+        pc.requestPermissions()
+        return nil
+    }
+    
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return true.toFREObject()
     }

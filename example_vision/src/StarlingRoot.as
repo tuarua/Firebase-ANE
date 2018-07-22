@@ -1,7 +1,12 @@
 package {
 import com.tuarua.FirebaseANE;
+import com.tuarua.firebase.BarcodeDetector;
+import com.tuarua.firebase.FaceDetector;
 import com.tuarua.firebase.FirebaseOptions;
 import com.tuarua.firebase.VisionANE;
+import com.tuarua.firebase.permissions.PermissionEvent;
+import com.tuarua.firebase.permissions.PermissionStatus;
+import com.tuarua.firebase.vision.Barcode;
 import com.tuarua.fre.ANEError;
 
 import flash.desktop.NativeApplication;
@@ -59,7 +64,13 @@ public class StarlingRoot extends Sprite {
             trace(e.errorID, e.message, e.getStackTrace(), e.source);
         }
 
-        barcodeExample = new BarcodeExample(stage.stageWidth, vision);
+        vision.addEventListener(PermissionEvent.STATUS_CHANGED, onPermissionsStatus);
+        vision.requestPermissions();
+
+    }
+
+    private function initMenu():void {
+        barcodeExample = new BarcodeExample(stage.stageWidth, stage.stageHeight, vision);
         barcodeExample.x = stage.stageWidth;
         addChild(barcodeExample);
 
@@ -67,11 +78,6 @@ public class StarlingRoot extends Sprite {
         faceExample.x = stage.stageWidth;
         addChild(faceExample);
 
-        initMenu();
-
-    }
-
-    private function initMenu():void {
         btnFace.x = btnBack.x = btnBarcode.x = (stage.stageWidth - 200) * 0.5;
         btnBarcode.y = GAP;
         btnBarcode.addEventListener(TouchEvent.TOUCH, onBarcodeClick);
@@ -137,8 +143,20 @@ public class StarlingRoot extends Sprite {
         }
     }
 
-    private function onExiting(event:Event):void {
+    private function onPermissionsStatus(event:PermissionEvent):void {
+        if (event.status == PermissionStatus.ALLOWED) {
+            initMenu();
+        } else if (event.status == PermissionStatus.NOT_DETERMINED) {
+        } else {
+            trace("Allow camera for Vision usage");
+        }
+    }
+
+    private static function onExiting(event:Event):void {
         FirebaseANE.dispose();
+        BarcodeDetector.dispose();
+        FaceDetector.dispose();
+        VisionANE.dispose();
     }
 
 }

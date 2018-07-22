@@ -76,10 +76,10 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
         storageRef.updateMetadata(metadata).addOnCompleteListener { task ->
             if (asId == null) return@addOnCompleteListener
             if (task.isSuccessful) {
-                sendEvent(StorageEvent.UPDATE_METADATA, gson.toJson(StorageEvent(asId, null)))
+                dispatchEvent(StorageEvent.UPDATE_METADATA, gson.toJson(StorageEvent(asId, null)))
             } else {
                 val error = task.exception as StorageException
-                sendEvent(StorageEvent.UPDATE_METADATA,
+                dispatchEvent(StorageEvent.UPDATE_METADATA,
                         gson.toJson(
                                 StorageEvent(asId, null, mapOf(
                                         "text" to error.message.toString(),
@@ -99,7 +99,7 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
                 meta.customMetadataKeys.forEach { customMetadataKey ->
                     cmd[customMetadataKey] = meta.getCustomMetadata(customMetadataKey)
                 }
-                sendEvent(StorageEvent.GET_METADATA, gson.toJson(StorageEvent(asId, mapOf("data" to
+                dispatchEvent(StorageEvent.GET_METADATA, gson.toJson(StorageEvent(asId, mapOf("data" to
                         mapOf("bucket" to meta.bucket,
                                 "cacheControl" to meta.cacheControl,
                                 "contentDisposition" to meta.contentDisposition,
@@ -118,7 +118,7 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
                         )))))
             } else {
                 val error = task.exception as StorageException
-                sendEvent(StorageEvent.GET_METADATA,
+                dispatchEvent(StorageEvent.GET_METADATA,
                         gson.toJson(
                                 StorageEvent(asId, null, mapOf(
                                         "text" to error.message.toString(),
@@ -143,11 +143,11 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
         storage.getReference(path).delete().addOnCompleteListener { task ->
             if (asId == null) return@addOnCompleteListener
             if (task.isSuccessful) {
-                sendEvent(StorageEvent.DELETED,
+                dispatchEvent(StorageEvent.DELETED,
                         gson.toJson(StorageEvent(asId, mapOf("localPath" to path))))
             } else {
                 val error = task.exception as StorageException
-                sendEvent(StorageEvent.DELETED,
+                dispatchEvent(StorageEvent.DELETED,
                         gson.toJson(
                                 StorageEvent(asId, null, mapOf(
                                         "text" to error.message.toString(),
@@ -166,19 +166,19 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
         downloadTasks[asId]?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 if (!hasEventListener(asId, StorageEvent.TASK_COMPLETE)) return@addOnCompleteListener
-                sendEvent(StorageEvent.TASK_COMPLETE,
+                dispatchEvent(StorageEvent.TASK_COMPLETE,
                         gson.toJson(StorageEvent(asId, mapOf("localPath" to destinationFile))))
             } else {
                 if (!hasEventListener(asId, StorageErrorEvent.ERROR)) return@addOnCompleteListener
                 val error = task.exception as StorageException
-                sendEvent(StorageErrorEvent.ERROR,
+                dispatchEvent(StorageErrorEvent.ERROR,
                         gson.toJson(StorageErrorEvent(asId, error.message, error.errorCode)))
             }
 
         }?.addOnProgressListener { taskSnapshot ->
             if (!hasEventListener(asId, StorageProgressEvent.PROGRESS)) return@addOnProgressListener
             if (taskSnapshot.totalByteCount > 0 && taskSnapshot.bytesTransferred > 0) {
-                sendEvent(StorageProgressEvent.PROGRESS,
+                dispatchEvent(StorageProgressEvent.PROGRESS,
                         gson.toJson(StorageProgressEvent(asId,
                                 taskSnapshot.bytesTransferred,
                                 taskSnapshot.totalByteCount))
@@ -198,12 +198,12 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
         storageRef.getBytes(_maxDownloadSizeBytes).addOnSuccessListener { bytes ->
             if (!hasEventListener(asId, StorageEvent.TASK_COMPLETE)) return@addOnSuccessListener
             val b64 = Base64.encodeToString(bytes, Base64.NO_WRAP)
-            sendEvent(StorageEvent.TASK_COMPLETE, gson.toJson(StorageEvent(asId, mapOf("b64" to b64))))
+            dispatchEvent(StorageEvent.TASK_COMPLETE, gson.toJson(StorageEvent(asId, mapOf("b64" to b64))))
 
         }.addOnFailureListener { exception ->
             if (!hasEventListener(asId, StorageErrorEvent.ERROR)) return@addOnFailureListener
             val error = exception as StorageException
-            sendEvent(StorageErrorEvent.ERROR,
+            dispatchEvent(StorageErrorEvent.ERROR,
                     gson.toJson(StorageErrorEvent(asId, error.message, error.errorCode)))
         }
     }
@@ -218,18 +218,18 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
         uploadTasks[asId]?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 if (!hasEventListener(asId, StorageEvent.TASK_COMPLETE)) return@addOnCompleteListener
-                sendEvent(StorageEvent.TASK_COMPLETE, gson.toJson(StorageEvent(asId, null)))
+                dispatchEvent(StorageEvent.TASK_COMPLETE, gson.toJson(StorageEvent(asId, null)))
             } else {
                 if (!hasEventListener(asId, StorageErrorEvent.ERROR)) return@addOnCompleteListener
                 val error = task.exception as StorageException
-                sendEvent(StorageErrorEvent.ERROR,
+                dispatchEvent(StorageErrorEvent.ERROR,
                         gson.toJson(StorageErrorEvent(asId, error.message, error.errorCode)))
             }
             uploadTasks.remove(asId)
         }?.addOnProgressListener { taskSnapshot ->
             if (!hasEventListener(asId, StorageProgressEvent.PROGRESS)) return@addOnProgressListener
             if (taskSnapshot.totalByteCount > 0 && taskSnapshot.bytesTransferred > 0) {
-                sendEvent(StorageProgressEvent.PROGRESS, gson.toJson(
+                dispatchEvent(StorageProgressEvent.PROGRESS, gson.toJson(
                         StorageProgressEvent(asId,
                                 taskSnapshot.bytesTransferred,
                                 taskSnapshot.totalByteCount))
@@ -249,19 +249,19 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
         uploadTasks[asId]?.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 if (!hasEventListener(asId, StorageEvent.TASK_COMPLETE)) return@addOnCompleteListener
-                sendEvent(StorageEvent.TASK_COMPLETE,
+                dispatchEvent(StorageEvent.TASK_COMPLETE,
                         gson.toJson(StorageEvent(asId, mapOf("localPath" to filePath))))
             } else {
                 if (!hasEventListener(asId, StorageErrorEvent.ERROR)) return@addOnCompleteListener
                 val error = task.exception as StorageException
-                sendEvent(StorageErrorEvent.ERROR,
+                dispatchEvent(StorageErrorEvent.ERROR,
                         gson.toJson(StorageErrorEvent(asId, error.message, error.errorCode)))
             }
             uploadTasks.remove(asId)
         }?.addOnProgressListener { taskSnapshot ->
             if (!hasEventListener(asId, StorageProgressEvent.PROGRESS)) return@addOnProgressListener
             if (taskSnapshot.totalByteCount > 0 && taskSnapshot.bytesTransferred > 0) {
-                sendEvent(StorageProgressEvent.PROGRESS, gson.toJson(
+                dispatchEvent(StorageProgressEvent.PROGRESS, gson.toJson(
                         StorageProgressEvent(asId,
                                 taskSnapshot.bytesTransferred,
                                 taskSnapshot.totalByteCount))
@@ -291,11 +291,11 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
         storageRef.downloadUrl.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val url: String = task.result.toString()
-                sendEvent(StorageEvent.GET_DOWNLOAD_URL,
+                dispatchEvent(StorageEvent.GET_DOWNLOAD_URL,
                         gson.toJson(StorageEvent(asId, mapOf("url" to url))))
             } else {
                 val error = task.exception as StorageException
-                sendEvent(StorageEvent.GET_DOWNLOAD_URL,
+                dispatchEvent(StorageEvent.GET_DOWNLOAD_URL,
                         gson.toJson(
                                 StorageEvent(asId, null, mapOf(
                                         "text" to error.message.toString(),
