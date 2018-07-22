@@ -4,7 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-iOS-Device</name>
-    <versionNumber>0.0.5</versionNumber>
+    <versionNumber>0.0.6</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->

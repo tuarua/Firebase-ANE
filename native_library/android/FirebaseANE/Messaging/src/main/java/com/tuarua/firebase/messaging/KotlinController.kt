@@ -88,7 +88,7 @@ class KotlinController : FreKotlinMainController {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: MessageEvent) {
         if (_context != null) {
-            sendEvent(event.eventId, gson.toJson(MessageEvent(event.eventId, event.data)))
+            dispatchEvent(event.eventId, gson.toJson(MessageEvent(event.eventId, event.data)))
         }
     }
 
@@ -127,7 +127,7 @@ class KotlinController : FreKotlinMainController {
                     "ttl" to ttl
             )
             Timer("IntentMessageEvent", false).schedule(500) {
-                sendEvent(MessageEvent.ON_MESSAGE_RECEIVED,
+                dispatchEvent(MessageEvent.ON_MESSAGE_RECEIVED,
                         gson.toJson(MessageEvent(MessageEvent.ON_MESSAGE_RECEIVED, payload)))
             }
         }

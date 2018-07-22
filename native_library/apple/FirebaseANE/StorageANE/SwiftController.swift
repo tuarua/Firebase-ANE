@@ -33,7 +33,7 @@ public class SwiftController: NSObject {
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0
             else {
-                return ArgCountError(message: "initController").getError(#file, #line, #column)
+                return FreArgError(message: "initController").getError(#file, #line, #column)
         }
         storageController = StorageController(context: context, url: String(argv[0]))
         return true.toFREObject()
@@ -42,7 +42,7 @@ public class SwiftController: NSObject {
     func getReference(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1
             else {
-                return ArgCountError(message: "getReference").getError(#file, #line, #column)
+                return FreArgError(message: "getReference").getError(#file, #line, #column)
         }
         return storageController?.getReference(path: String(argv[0]),
                                                url: String(argv[1]))?.toFREObject()
@@ -54,7 +54,7 @@ public class SwiftController: NSObject {
             let destinationFile = String(argv[1]),
             let asId = String(argv[2])
             else {
-                return ArgCountError(message: "getFile").getError(#file, #line, #column)
+                return FreArgError(message: "getFile").getError(#file, #line, #column)
         }
         storageController?.getFile(path: path, destinationFile: destinationFile, asId: asId)
         return nil
@@ -64,7 +64,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let path = String(argv[0])
             else {
-                return ArgCountError(message: "getParent").getError(#file, #line, #column)
+                return FreArgError(message: "getParent").getError(#file, #line, #column)
         }
         return storageController?.getParent(path: path)?.toFREObject()
     }
@@ -73,7 +73,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let path = String(argv[0])
             else {
-                return ArgCountError(message: "getRoot").getError(#file, #line, #column)
+                return FreArgError(message: "getRoot").getError(#file, #line, #column)
         }
         return storageController?.getRoot(path: path)?.toFREObject()
     }
@@ -82,7 +82,7 @@ public class SwiftController: NSObject {
         guard argc > 1,
             let path = String(argv[0])
             else {
-                return ArgCountError(message: "deleteReference").getError(#file, #line, #column)
+                return FreArgError(message: "deleteReference").getError(#file, #line, #column)
         }
         let eventId = String(argv[1])
         storageController?.deleteReference(path: path, eventId: eventId)
@@ -95,7 +95,7 @@ public class SwiftController: NSObject {
             let asId = String(argv[1]),
             let inFRE2 = argv[2]
             else {
-                return ArgCountError(message: "putBytes").getError(#file, #line, #column)
+                return FreArgError(message: "putBytes").getError(#file, #line, #column)
         }
         let metadata = StorageMetadata(argv[3])
         let ba = FreByteArraySwift.init(freByteArray: inFRE2)
@@ -112,7 +112,7 @@ public class SwiftController: NSObject {
             let asId = String(argv[1]),
             let filePath = String(argv[2])
             else {
-                return ArgCountError(message: "putFile").getError(#file, #line, #column)
+                return FreArgError(message: "putFile").getError(#file, #line, #column)
         }
         
         let metadata = StorageMetadata(argv[3])
@@ -126,7 +126,7 @@ public class SwiftController: NSObject {
             let path = String(argv[0]),
             let eventId = String(argv[1])
             else {
-                return ArgCountError(message: "getDownloadUrl").getError(#file, #line, #column)
+                return FreArgError(message: "getDownloadUrl").getError(#file, #line, #column)
         }
         storageController?.getDownloadUrl(path: path, eventId: eventId)
         return nil
@@ -137,7 +137,7 @@ public class SwiftController: NSObject {
             let path = String(argv[0]),
             let asId = String(argv[2])
             else {
-                return ArgCountError(message: "getBytes").getError(#file, #line, #column)
+                return FreArgError(message: "getBytes").getError(#file, #line, #column)
         }
         let maxDownloadSizeBytes = Int(argv[1])
         storageController?.getBytes(path: path, maxDownloadSizeBytes: maxDownloadSizeBytes, asId: asId)
@@ -149,7 +149,7 @@ public class SwiftController: NSObject {
             let path = String(argv[0]),
             let eventId = String(argv[1])
             else {
-                return ArgCountError(message: "getMetadata").getError(#file, #line, #column)
+                return FreArgError(message: "getMetadata").getError(#file, #line, #column)
         }
         storageController?.getMetadata(path: path, eventId: eventId)
         return nil
@@ -160,7 +160,7 @@ public class SwiftController: NSObject {
             let path = String(argv[0]),
             let metadata = StorageMetadata(argv[2])
             else {
-                return ArgCountError(message: "updateMetadata").getError(#file, #line, #column)
+                return FreArgError(message: "updateMetadata").getError(#file, #line, #column)
         }
         let eventId = String(argv[1])
         storageController?.updateMetadata(path: path, eventId: eventId, metadata: metadata)
@@ -183,7 +183,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let value = Double(argv[0])
             else {
-                return ArgCountError(message: "setMaxDownloadRetryTime").getError(#file, #line, #column)
+                return FreArgError(message: "setMaxDownloadRetryTime").getError(#file, #line, #column)
         }
         storageController?.maxDownloadRetryTime = value
         return nil
@@ -192,7 +192,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let value = Double(argv[0])
             else {
-                return ArgCountError(message: "setMaxUploadRetryTime").getError(#file, #line, #column)
+                return FreArgError(message: "setMaxUploadRetryTime").getError(#file, #line, #column)
         }
         storageController?.maxUploadRetryTime = value
         return nil
@@ -201,7 +201,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let value = Double(argv[0])
             else {
-                return ArgCountError(message: "setMaxUploadRetryTime").getError(#file, #line, #column)
+                return FreArgError(message: "setMaxUploadRetryTime").getError(#file, #line, #column)
         }
         storageController?.maxOperationRetryTime = value
         return nil
@@ -213,7 +213,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let asId = String(argv[0])
             else {
-                return ArgCountError(message: "pauseTask").getError(#file, #line, #column)
+                return FreArgError(message: "pauseTask").getError(#file, #line, #column)
         }
         storageController?.pauseTask(asId: asId)
         return nil
@@ -223,7 +223,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let asId = String(argv[0])
             else {
-                return ArgCountError(message: "resumeTask").getError(#file, #line, #column)
+                return FreArgError(message: "resumeTask").getError(#file, #line, #column)
         }
         storageController?.resumeTask(asId: asId)
         return nil
@@ -233,7 +233,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let asId = String(argv[0])
             else {
-                return ArgCountError(message: "cancelTask").getError(#file, #line, #column)
+                return FreArgError(message: "cancelTask").getError(#file, #line, #column)
         }
         storageController?.cancelTask(asId: asId)
         return nil
@@ -246,7 +246,7 @@ public class SwiftController: NSObject {
             let asId = String(argv[0]),
             let type = String(argv[1])
             else {
-                return ArgCountError(message: "addEventListener").getError(#file, #line, #column)
+                return FreArgError(message: "addEventListener").getError(#file, #line, #column)
         }
         storageController?.addEventListener(asId: asId, type: type)
         return nil
@@ -257,7 +257,7 @@ public class SwiftController: NSObject {
             let asId = String(argv[0]),
             let type = String(argv[1])
             else {
-                return ArgCountError(message: "removeEventListener").getError(#file, #line, #column)
+                return FreArgError(message: "removeEventListener").getError(#file, #line, #column)
         }
         storageController?.removeEventListener(asId: asId, type: type)
         return nil

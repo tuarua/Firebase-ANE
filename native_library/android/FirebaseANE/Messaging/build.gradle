@@ -3,14 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
-
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.libVersionCode
+        versionName rootProject.ext.libVersionName
     }
 
     buildTypes {
@@ -23,7 +22,6 @@ android {
     lintOptions {
         disable 'GradleDependency','UnusedResources'
     }
-
 }
 
 dependencies {
@@ -32,7 +30,5 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
     implementation "com.google.firebase:firebase-core:$firebase_version"
     implementation "com.google.firebase:firebase-messaging:17.0.0"
-    implementation files('../shared/libs/runtimeClasses.jar')
-    implementation files('../shared/libs/FlashRuntimeExtensions.jar')
-    implementation files('../shared/libs/frekotlin-1.2.41.jar')
+    implementation "com.tuarua:FreKotlin:$frekotlin_version"
 }

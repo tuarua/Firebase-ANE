@@ -26,6 +26,8 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigException
 import com.google.gson.Gson
 import com.tuarua.firebase.remoteconfig.events.RemoteConfigErrorEvent
 import com.tuarua.firebase.remoteconfig.events.RemoteConfigEvent
+import com.tuarua.firebase.remoteconfig.extensions.FirebaseRemoteConfigSettings
+import com.tuarua.firebase.remoteconfig.extensions.toFREObject
 import com.tuarua.frekotlin.*
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
@@ -128,10 +130,10 @@ class KotlinController : FreKotlinMainController {
         }
         remoteConfig.fetch(this.cacheExpiration).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                sendEvent(RemoteConfigEvent.FETCH, "")
+                dispatchEvent(RemoteConfigEvent.FETCH, "")
             } else {
                 val error = task.exception as FirebaseRemoteConfigException
-                sendEvent(RemoteConfigErrorEvent.FETCH_ERROR, gson.toJson(RemoteConfigErrorEvent(error.message, 0)))
+                dispatchEvent(RemoteConfigErrorEvent.FETCH_ERROR, gson.toJson(RemoteConfigErrorEvent(error.message, 0)))
             }
         }
         return null

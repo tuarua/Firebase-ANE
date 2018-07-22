@@ -4,7 +4,12 @@
     <configurations>
       <configuration name="PerformanceANE" target-platform="Mobile" pure-as="true" output-type="Library" output-file="PerformanceANE.swc" output-folder="$MODULE_DIR$/bin">
         <dependencies target-player="29.0">
-          <sdk name="AIRSDK_29" />
+          <entries>
+            <entry module-name="FirebaseANE" build-configuration-name="FirebaseANE">
+              <dependency linkage="External" />
+            </entry>
+          </entries>
+          <sdk name="AIRSDK_30" />
         </dependencies>
         <compiler-options>
           <option name="additionalOptions" value="-swf-version=30" />
@@ -21,7 +26,8 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="AIRSDK_29" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="AIRSDK_30" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="FirebaseANE" exported="" />
   </component>
 </module>

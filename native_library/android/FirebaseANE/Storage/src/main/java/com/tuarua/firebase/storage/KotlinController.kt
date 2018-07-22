@@ -20,6 +20,8 @@ import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.tuarua.frekotlin.*
 import com.adobe.fre.FREByteArray
+import com.tuarua.firebase.storage.extensions.StorageMetadata
+import com.tuarua.firebase.storage.extensions.toFREObject
 import java.util.*
 
 

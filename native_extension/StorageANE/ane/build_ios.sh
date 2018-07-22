@@ -11,8 +11,7 @@ echo $pathtome
 PROJECTNAME=StorageANE
 libSuffix="_LIB"
 
-AIR_SDK="/Users/User/sdks/AIR/AIRSDK_29"
-echo $AIR_SDK
+AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_30"
 
 if [ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/" ]; then
 echo "No Simulator build. Build using Xcode"
@@ -25,7 +24,7 @@ exit
 fi
 
 #Setup the directory.
-echo "Making directories."ex
+echo "Making directories."
 
 if [ ! -d "$pathtome/platforms" ]; then
 mkdir "$pathtome/platforms"
@@ -68,12 +67,6 @@ cp "$pathtome/library.swf" "$pathtome/platforms/default"
 echo "Copying native libraries into place."
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Debug-iphonesimulator/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/simulator/lib$PROJECTNAME.a"
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/device/lib$PROJECTNAME.a"
-
-cp -R -L "$pathtome/../../../example/ios_dependencies/simulator/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../example/ios_dependencies/device/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../../example/ios_dependencies/simulator/Frameworks/SwiftyJSON.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../example/ios_dependencies/device/Frameworks/SwiftyJSON.framework" "$pathtome/platforms/ios/device/Frameworks"
 
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/FirebaseStorage.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseStorage.framework" "$pathtome/platforms/ios/device/Frameworks"

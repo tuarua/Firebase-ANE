@@ -2,4 +2,7 @@
 
 Install [Carthage](https://github.com/Carthage/Carthage)  
  
-run Carthage update in Terminal
+run in Terminal
+```shell
+carthage update --platform iOS 
+```

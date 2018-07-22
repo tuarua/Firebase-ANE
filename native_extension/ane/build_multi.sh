@@ -9,11 +9,9 @@ pathtome="${pathtome%/*}"
 echo $pathtome
 
 PROJECTNAME=FirebaseANE
-#fwSuffix="_FW"
 libSuffix="_LIB"
 
-AIR_SDK="/Users/User/sdks/AIR/AIRSDK_29"
-echo $AIR_SDK
+AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_30"
 
 if [ ! -d "$pathtome/../../native_library/apple/$PROJECTNAME/Build/Products/Release-iphonesimulator/" ]; then
 echo "No Simulator build. Build using Xcode"
@@ -85,6 +83,9 @@ cp -R -L "$pathtome/../../native_library/apple/$PROJECTNAME/Build/Products/Relea
 cp -R -L "$pathtome/../../example/ios_dependencies/simulator/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../example/ios_dependencies/device/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/device/Frameworks"
 
+cp -R -L "$pathtome/../../example/ios_dependencies/simulator/Frameworks/SwiftyJSON.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../example/ios_dependencies/device/Frameworks/SwiftyJSON.framework" "$pathtome/platforms/ios/device/Frameworks"
+
 cp -R -L "$pathtome/../../firebase_frameworks/simulator/Firebase.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../firebase_frameworks/device/Firebase.framework" "$pathtome/platforms/ios/device/Frameworks"
 
@@ -132,8 +133,8 @@ com.tuarua.firebase.$PROJECTNAME-res/. \
 echo "Packaging docs into ANE."
 zip "$pathtome/$PROJECTNAME.ane" -u docs/*
 
-echo "Packaging Google Services values into ANE."
-zip "$pathtome/$PROJECTNAME.ane" META-INF/ANE/Android-ARM/com.tuarua.firebase.FirebaseANE-res/values/values.xml
+#echo "Packaging Google Services values into ANE."
+#zip "$pathtome/$PROJECTNAME.ane" META-INF/ANE/Android-ARM/com.tuarua.firebase.FirebaseANE-res/values/values.xml
 
 #remove the frameworks from sim and device, as not needed any more
 rm "$pathtome/platforms/android/classes.jar"

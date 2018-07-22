@@ -45,7 +45,7 @@ public class SwiftController: NSObject {
             let linkUrl = URL(string: link),
             let dynamicLinkDomain = String(linkFre["dynamicLinkDomain"])
             else {
-                return ArgCountError(message: "buildDynamicLink").getError(#file, #line, #column)
+                return FreArgError(message: "buildDynamicLink").getError(#file, #line, #column)
         }
 
         let components = DynamicLinkComponents(link: linkUrl, domain: dynamicLinkDomain)
@@ -70,7 +70,7 @@ public class SwiftController: NSObject {
             components.options = options
             components.shorten { (shortURL, warnings, error) in
                 if let err = error {
-                    self.sendEvent(name: DynamicLinkEvent.ON_CREATED,
+                    self.dispatchEvent(name: DynamicLinkEvent.ON_CREATED,
                                    value: DynamicLinkEvent(eventId: eventId,
                                                        data: nil,
                                                        error: ["text": err.localizedDescription,
@@ -80,7 +80,7 @@ public class SwiftController: NSObject {
                 if copyToClipboard {
                     UIPasteboard.general.string = shortURL?.absoluteString
                 }
-                self.sendEvent(name: DynamicLinkEvent.ON_CREATED,
+                self.dispatchEvent(name: DynamicLinkEvent.ON_CREATED,
                                value: DynamicLinkEvent(eventId: eventId,
                                                        data: ["shortLink": shortURL?.absoluteString ?? "",
                                                               "warnings": warnings ?? []]
@@ -91,7 +91,7 @@ public class SwiftController: NSObject {
                 if copyToClipboard {
                     UIPasteboard.general.string = dynamicLink
                 }
-                self.sendEvent(name: DynamicLinkEvent.ON_CREATED,
+                self.dispatchEvent(name: DynamicLinkEvent.ON_CREATED,
                                value: DynamicLinkEvent(eventId: eventId,
                                                        data: ["url": dynamicLink]).toJSONString())
             }
@@ -104,7 +104,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let eventId = String(argv[0])
             else {
-                return ArgCountError(message: "getDynamicLink").getError(#file, #line, #column)
+                return FreArgError(message: "getDynamicLink").getError(#file, #line, #column)
         }
         if let userInfo = appDidFinishLaunchingNotif?.userInfo,
             let userActivityDict = userInfo[UIApplicationLaunchOptionsKey.userActivityDictionary] as? NSDictionary,
@@ -113,19 +113,19 @@ public class SwiftController: NSObject {
     
             DynamicLinks.dynamicLinks().handleUniversalLink(webpageURL, completion: { (link, error) in
                 if let err = error {
-                    self.sendEvent(name: DynamicLinkEvent.ON_LINK,
+                    self.dispatchEvent(name: DynamicLinkEvent.ON_LINK,
                                    value: DynamicLinkEvent(eventId: eventId,
                                                            error: ["text": err.localizedDescription, "id": 0]
                                     ).toJSONString())
                     return
                 }
-                self.sendEvent(name: DynamicLinkEvent.ON_LINK,
+                self.dispatchEvent(name: DynamicLinkEvent.ON_LINK,
                                value: DynamicLinkEvent(eventId: eventId,
                                                        data: ["url": link?.url?.absoluteString ?? ""]
                                 ).toJSONString())
             })
         } else {
-            self.sendEvent(name: DynamicLinkEvent.ON_LINK,
+            self.dispatchEvent(name: DynamicLinkEvent.ON_LINK,
                            value: DynamicLinkEvent(eventId: eventId,
                                                    data: ["url": ""]
                             ).toJSONString())

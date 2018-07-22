@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/30.0">
+
+    <id>com.tuarua.firebaseane.example</id>
+    <filename>FireBaseExample</filename>
+    <name>FIR-Example-iOS-Device</name>
+    <versionNumber>0.0.6</versionNumber>
+
+
+    <!-- Settings for the application's initial window. Required. -->
+    <initialWindow>
+        <content>[This value will be overwritten by Flash Builder in the output app.xml]</content>
+        <aspectRatio>portrait</aspectRatio>
+        <autoOrients>false</autoOrients>
+        <fullScreen>true</fullScreen>
+        <renderMode>direct</renderMode>
+        <depthAndStencil>true</depthAndStencil>
+        <visible>true</visible>
+    </initialWindow>
+
+
+
+    <!-- The icon the system uses for the application. For at least one resolution,
+    specify the path to a PNG file included in the AIR package. Optional. -->
+    <icon>
+        <image76x76>AppIcon76x76~ipad.png</image76x76>
+        <image120x120>AppIcon60x60@2x.png</image120x120>
+        <image152x152>AppIcon76x76@2x~ipad.png</image152x152>
+        <image167x167>AppIcon83.5x83.5@2x~ipad.png</image167x167>
+        <image180x180>AppIcon60x60@3x.png</image180x180>
+    </icon>
+
+    <!-- iOS specific capabilities -->
+    <iPhone>
+        <!-- A list of plist key/value pairs to be added to the application Info.plist -->
+        <InfoAdditions>
+            <![CDATA[
+            <key>UIDeviceFamily</key>
+            <array>
+                <!-- iPhone and iPod touch devices -->
+                <string>1</string>
+                <!-- iPad devices -->
+                <string>2</string>
+            </array>
+            <key>MinimumOSVersion</key>
+            <string>9.0</string>
+            <key>NSCameraUsageDescription</key>
+            <string>You need to allow camera to use VisionANE Sample</string>
+            ]]>
+        </InfoAdditions>
+        <requestedDisplayResolution>high</requestedDisplayResolution>
+
+    </iPhone>
+    <extensions>
+        <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
+        <extensionID>com.tuarua.firebase.VisionANE</extensionID>
+        <extensionID>com.tuarua.firebase.VisionBarcodeANE</extensionID>
+        <extensionID>com.tuarua.firebase.VisionFaceANE</extensionID>
+    </extensions>
+
+</application>

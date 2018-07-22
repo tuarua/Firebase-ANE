@@ -17,6 +17,8 @@ package com.tuarua.firebase.auth
 
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
+import com.tuarua.firebase.auth.extensions.AuthCredential
+import com.tuarua.firebase.auth.extensions.toFREObject
 import com.tuarua.frekotlin.*
 import java.util.*
 

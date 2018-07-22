@@ -14,6 +14,9 @@
       <module fileurl="file://$PROJECT_DIR$/Performance/Performance.iml" filepath="$PROJECT_DIR$/Performance/Performance.iml" />
       <module fileurl="file://$PROJECT_DIR$/RemoteConfig/RemoteConfig.iml" filepath="$PROJECT_DIR$/RemoteConfig/RemoteConfig.iml" />
       <module fileurl="file://$PROJECT_DIR$/Storage/Storage.iml" filepath="$PROJECT_DIR$/Storage/Storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Vision/Vision.iml" filepath="$PROJECT_DIR$/Vision/Vision.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VisionBarcode/VisionBarcode.iml" filepath="$PROJECT_DIR$/VisionBarcode/VisionBarcode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VisionFace/VisionFace.iml" filepath="$PROJECT_DIR$/VisionFace/VisionFace.iml" />
     </modules>
   </component>
 </project>

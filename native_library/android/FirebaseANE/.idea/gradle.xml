@@ -19,6 +19,9 @@
             <option value="$PROJECT_DIR$/Performance" />
             <option value="$PROJECT_DIR$/RemoteConfig" />
             <option value="$PROJECT_DIR$/Storage" />
+            <option value="$PROJECT_DIR$/Vision" />
+            <option value="$PROJECT_DIR$/VisionBarcode" />
+            <option value="$PROJECT_DIR$/VisionFace" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

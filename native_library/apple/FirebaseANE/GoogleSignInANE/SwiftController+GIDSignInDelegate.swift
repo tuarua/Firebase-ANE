@@ -22,12 +22,12 @@ extension SwiftController: GIDSignInDelegate {
     
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let err = error as NSError? {
-            self.sendEvent(name: GoogleSignInEvent.ERROR,
+            self.dispatchEvent(name: GoogleSignInEvent.ERROR,
                            value: GoogleSignInEvent(data: ["text": err.localizedDescription,
                                                            "id": err.code]).toJSONString())
         } else {
             guard let authentication = user.authentication else { return }
-            self.sendEvent(name: GoogleSignInEvent.SIGN_IN,
+            self.dispatchEvent(name: GoogleSignInEvent.SIGN_IN,
                            value: GoogleSignInEvent(data: ["idToken": authentication.idToken,
                                                            "accessToken": authentication.accessToken]).toJSONString())
         }

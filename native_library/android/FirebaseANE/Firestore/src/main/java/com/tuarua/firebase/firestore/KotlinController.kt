@@ -20,6 +20,7 @@ import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.tuarua.firebase.firestore.data.Order
 import com.tuarua.firebase.firestore.data.Where
+import com.tuarua.firebase.firestore.extensions.*
 import com.tuarua.frekotlin.*
 import java.util.*
 

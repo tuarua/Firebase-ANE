@@ -40,12 +40,12 @@ public class SwiftController: NSObject {
         // read userInfo here to determine message received on start up
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             if let st = self.startToken {
-                self.sendEvent(name: MessageEvent.ON_TOKEN_REFRESHED,
+                self.dispatchEvent(name: MessageEvent.ON_TOKEN_REFRESHED,
                                value: MessageEvent(data: ["token": st]).toJSONString())
             }
             if let userInfo = self.appDidFinishLaunchingNotif?.userInfo,
                 let message = userInfo["UIApplicationLaunchOptionsRemoteNotificationKey"] as? [AnyHashable: Any] {
-                self.sendEvent(name: MessageEvent.ON_MESSAGE_RECEIVED,
+                self.dispatchEvent(name: MessageEvent.ON_MESSAGE_RECEIVED,
                                value: MessageEvent(data: self.parseUserInfo(userInfo: message)).toJSONString())
             }
             self.startToken = nil
@@ -62,7 +62,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let toTopic = String(argv[0])
             else {
-                return ArgCountError(message: "subscribe").getError(#file, #line, #column)
+                return FreArgError(message: "subscribe").getError(#file, #line, #column)
         }
         Messaging.messaging().subscribe(toTopic: toTopic)
         return nil
@@ -72,7 +72,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let fromTopic = String(argv[0])
             else {
-                return ArgCountError(message: "unsubscribe").getError(#file, #line, #column)
+                return FreArgError(message: "unsubscribe").getError(#file, #line, #column)
         }
         Messaging.messaging().unsubscribe(fromTopic: fromTopic)
         return nil

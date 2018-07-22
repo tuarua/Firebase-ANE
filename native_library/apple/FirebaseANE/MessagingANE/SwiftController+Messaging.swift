@@ -24,7 +24,7 @@ extension SwiftController: MessagingDelegate {
             startToken = fcmToken
         }
         if context == nil { return }
-        self.sendEvent(name: MessageEvent.ON_TOKEN_REFRESHED,
+        self.dispatchEvent(name: MessageEvent.ON_TOKEN_REFRESHED,
                        value: MessageEvent(data: ["token": fcmToken]).toJSONString())
     }
     // [END refresh_token]

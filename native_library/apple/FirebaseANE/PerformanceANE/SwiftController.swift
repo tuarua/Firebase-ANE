@@ -29,7 +29,7 @@ public class SwiftController: NSObject {
             let isDataCollectionEnabled = Bool(argv[0]),
             let isInstrumentationEnabled = Bool(argv[1])
             else {
-                return ArgCountError(message: "initController").getError(#file, #line, #column)
+                return FreArgError(message: "initController").getError(#file, #line, #column)
         }
         Performance.sharedInstance().isDataCollectionEnabled = isDataCollectionEnabled
         Performance.sharedInstance().isInstrumentationEnabled = isInstrumentationEnabled
@@ -40,7 +40,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let name = String(argv[0])
             else {
-                return ArgCountError(message: "startTrace").getError(#file, #line, #column)
+                return FreArgError(message: "startTrace").getError(#file, #line, #column)
         }
         if traces[name] == nil {
             traces[name] = Performance.startTrace(name: name)
@@ -53,7 +53,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let name = String(argv[0])
             else {
-                return ArgCountError(message: "stopTrace").getError(#file, #line, #column)
+                return FreArgError(message: "stopTrace").getError(#file, #line, #column)
         }
         traces[name]?.stop()
         return nil
@@ -65,7 +65,7 @@ public class SwiftController: NSObject {
             let counterName = String(argv[1]),
             let by = Int(argv[2])
             else {
-                return ArgCountError(message: "incrementCounter").getError(#file, #line, #column)
+                return FreArgError(message: "incrementCounter").getError(#file, #line, #column)
         }
         traces[name]?.incrementMetric(counterName, by: Int64(by))
         return nil
@@ -75,7 +75,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let value = Bool(argv[0])
             else {
-                return ArgCountError(message: "setIsDataCollectionEnabled").getError(#file, #line, #column)
+                return FreArgError(message: "setIsDataCollectionEnabled").getError(#file, #line, #column)
         }
         Performance.sharedInstance().isDataCollectionEnabled = value
         return nil
@@ -85,7 +85,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let value = Bool(argv[0])
             else {
-                return ArgCountError(message: "setIsInstrumentationEnabled").getError(#file, #line, #column)
+                return FreArgError(message: "setIsInstrumentationEnabled").getError(#file, #line, #column)
         }
         Performance.sharedInstance().isInstrumentationEnabled = value
         return nil

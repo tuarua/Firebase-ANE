@@ -26,6 +26,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import com.tuarua.firebase.dynamiclinks.events.DynamicLinkEvent
+import com.tuarua.firebase.dynamiclinks.extensions.*
 
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
@@ -97,7 +98,7 @@ class KotlinController : FreKotlinMainController {
                                 task.result.shortLink.toString())
                     }
 
-                    sendEvent(DynamicLinkEvent.ON_CREATED,
+                    dispatchEvent(DynamicLinkEvent.ON_CREATED,
                             gson.toJson(
                                     DynamicLinkEvent(eventId, true, mapOf(
                                             "previewLink" to task.result.previewLink.toString(),
@@ -107,7 +108,7 @@ class KotlinController : FreKotlinMainController {
                     )
                 } else {
                     val error = task.exception
-                    sendEvent(DynamicLinkEvent.ON_CREATED, gson.toJson(
+                    dispatchEvent(DynamicLinkEvent.ON_CREATED, gson.toJson(
                             DynamicLinkEvent(eventId, true, null, mapOf(
                                     "text" to error?.localizedMessage.toString(),
                                     "id" to 0))
@@ -123,7 +124,7 @@ class KotlinController : FreKotlinMainController {
                 cb.primaryClip = ClipData.newPlainText("link", dynamicLink.uri.toString())
             }
 
-            sendEvent(DynamicLinkEvent.ON_CREATED,
+            dispatchEvent(DynamicLinkEvent.ON_CREATED,
                     gson.toJson(
                             DynamicLinkEvent(eventId, false, mapOf(
                                     "url" to dynamicLink.uri.toString())
@@ -141,14 +142,14 @@ class KotlinController : FreKotlinMainController {
             val task = FirebaseDynamicLinks.getInstance().getDynamicLink(appActivity.intent)
             task.addOnSuccessListener {
                 val link = it?.link ?: ""
-                sendEvent(DynamicLinkEvent.ON_LINK,
+                dispatchEvent(DynamicLinkEvent.ON_LINK,
                         gson.toJson(
                                 DynamicLinkEvent(eventId, false, mapOf(
                                         "url" to link.toString()))
                         ))
             }
             task.addOnFailureListener {
-                sendEvent(DynamicLinkEvent.ON_LINK, gson.toJson(
+                dispatchEvent(DynamicLinkEvent.ON_LINK, gson.toJson(
                         DynamicLinkEvent(eventId, true, null, mapOf(
                                 "text" to it.localizedMessage.toString(),
                                 "id" to 0))
