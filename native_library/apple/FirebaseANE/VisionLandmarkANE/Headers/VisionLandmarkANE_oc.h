@@ -14,17 +14,8 @@
  *  limitations under the License.
  */
 
-package com.tuarua.firebase.vision {
-[RemoteClass(alias="com.tuarua.firebase.vision.VisionImageMetadata")]
-public class VisionImageMetadata {
-    private var _orientation:uint = DetectorImageOrientation.topLeft;
+#import <Foundation/Foundation.h>
+#import <VisionLandmarkANE/VisionLandmarkANE-Swift.h>
+@interface VisionLandmarkANE_LIB : NSObject
 
-    public function VisionImageMetadata(orientation:uint = DetectorImageOrientation.topLeft) {
-        this._orientation = orientation;
-    }
-
-    public function get orientation():uint {
-        return _orientation;
-    }
-}
-}
+@end

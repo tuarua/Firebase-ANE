@@ -93,7 +93,10 @@ public class BarcodeDetector extends EventDispatcher {
                         err = new BarcodeError(pObj.error.text, pObj.error.id);
                     }
                     var theRet:* = _context.call("getResults", pObj.eventId);
-                    if (theRet is ANEError) throw theRet as ANEError;
+                    if (theRet is ANEError) {
+                        printANEError(theRet as ANEError);
+                        return;
+                    }
                     closure.call(null, theRet, err);
                     if (!pObj.continuous) delete closures[pObj.eventId];
                 } catch (e:Error) {
@@ -106,6 +109,11 @@ public class BarcodeDetector extends EventDispatcher {
     /** @private */
     public static function get context():ExtensionContext {
         return _context;
+    }
+
+    /** @private */
+    private static function printANEError(error:ANEError):void {
+        trace("[" + NAME + "] Error: ", error.type, error.errorID, "\n", error.source, "\n", error.getStackTrace());
     }
 
     public static function dispose():void {

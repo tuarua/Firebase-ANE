@@ -22,21 +22,12 @@ public extension VisionBarcode {
     func toFREObject() -> FREObject? {
         guard let freObject = try? FREObject(className: "com.tuarua.firebase.vision.Barcode"),
             var ret = freObject else { return nil }
-        guard let freCornerPoints = try? FREArray(className: "flash.geom.Point",
-                                                 length: self.cornerPoints?.count ?? 0, fixed: true) else { return nil }
+        
         ret["frame"] = self.frame.toFREObject()
         ret["rawValue"] = self.rawValue?.toFREObject()
         ret["displayValue"] = self.displayValue?.toFREObject()
         ret["format"] = self.format.rawValue.toFREObject()
-        var cnt: UInt = 0
-        for cornerPoint in self.cornerPoints ?? [] {
-            if let freCornerPoint = cornerPoint.cgPointValue.toFREObject() {
-                freCornerPoints[cnt] = freCornerPoint
-                cnt += 1
-            }
-        }
-        ret["cornerPoints"] = freCornerPoints.rawValue
-        
+        ret["cornerPoints"] = self.cornerPoints?.toFREObject()
         ret["valueType"] = self.valueType.rawValue.toFREObject()
         ret["email"] = self.email?.toFREObject()
         ret["phone"] = self.phone?.toFREObject()

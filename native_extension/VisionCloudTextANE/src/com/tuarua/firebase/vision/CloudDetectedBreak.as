@@ -15,25 +15,11 @@
  */
 
 package com.tuarua.firebase.vision {
-import flash.display.BitmapData;
-[RemoteClass(alias="com.tuarua.firebase.vision.VisionImage")]
-public class VisionImage {
-    private var _bitmapdata:BitmapData;
-    private var _metadata:VisionImageMetadata = new VisionImageMetadata();
-
-    public function VisionImage(bitmapdata:BitmapData, metadata:VisionImageMetadata = null) {
-        this._bitmapdata = bitmapdata;
-        if(metadata != null){
-            this._metadata = metadata;
-        }
-    }
-
-    public function get bitmapdata():BitmapData {
-        return _bitmapdata;
-    }
-
-    public function get metadata():VisionImageMetadata {
-        return _metadata;
+[RemoteClass(alias="com.tuarua.firebase.vision.CloudDetectedBreak")]
+public class CloudDetectedBreak {
+    public var isPrefix:Boolean;
+    public var type:int; // CloudDetectedBreakType
+    public function CloudDetectedBreak() {
     }
 }
 }

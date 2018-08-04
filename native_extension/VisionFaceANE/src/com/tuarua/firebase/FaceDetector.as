@@ -81,7 +81,10 @@ public class FaceDetector extends EventDispatcher {
                         err = new FaceError(pObj.error.text, pObj.error.id);
                     }
                     var theRet:* = _context.call("getResults", pObj.eventId);
-                    if (theRet is ANEError) throw theRet as ANEError;
+                    if (theRet is ANEError) {
+                        printANEError(theRet as ANEError);
+                        return;
+                    }
                     closure.call(null, theRet, err);
                     delete closures[pObj.eventId]; // TODO don't delete if we are running camera detection
                 } catch (e:Error) {
@@ -94,6 +97,11 @@ public class FaceDetector extends EventDispatcher {
     /** @private */
     public static function get context():ExtensionContext {
         return _context;
+    }
+
+    /** @private */
+    private static function printANEError(error:ANEError):void {
+        trace("[" + NAME + "] Error: ", error.type, error.errorID, "\n", error.source, "\n", error.getStackTrace());
     }
 
     public static function dispose():void {
