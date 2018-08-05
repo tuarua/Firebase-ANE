@@ -17,8 +17,13 @@
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.LabelDetectorOptions")]
 public class LabelDetectorOptions {
-    public var confidenceThreshold:Number;
-    public function LabelDetectorOptions() {
+    private var _confidenceThreshold:Number = 0.5;
+    public function LabelDetectorOptions(confidenceThreshold:Number = 0.5) {
+        this._confidenceThreshold = confidenceThreshold;
+    }
+
+    public function get confidenceThreshold():Number {
+        return _confidenceThreshold;
     }
 }
 }

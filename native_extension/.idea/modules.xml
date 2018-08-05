@@ -19,6 +19,7 @@
       <module fileurl="file://$PROJECT_DIR$/VisionCloudTextANE/VisionCloudTextANE.iml" filepath="$PROJECT_DIR$/VisionCloudTextANE/VisionCloudTextANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/VisionFaceANE/VisionFaceANE.iml" filepath="$PROJECT_DIR$/VisionFaceANE/VisionFaceANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/VisionLabelANE/VisionLabelANE.iml" filepath="$PROJECT_DIR$/VisionLabelANE/VisionLabelANE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VisionLandmarkANE/VisionLandmarkANE.iml" filepath="$PROJECT_DIR$/VisionLandmarkANE/VisionLandmarkANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/VisionTextANE/VisionTextANE.iml" filepath="$PROJECT_DIR$/VisionTextANE/VisionTextANE.iml" />
     </modules>
   </component>

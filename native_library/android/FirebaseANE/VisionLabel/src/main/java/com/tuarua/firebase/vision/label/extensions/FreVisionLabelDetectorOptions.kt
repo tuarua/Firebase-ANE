@@ -24,7 +24,7 @@ import com.tuarua.frekotlin.get
 @Suppress("FunctionName")
 fun FirebaseVisionLabelDetectorOptions(freObject: FREObject?): FirebaseVisionLabelDetectorOptions? {
     val rv = freObject ?: return null
-    val confidenceThreshold = Float(rv["confidenceThreshold"]) ?: 0.5f // TODO set in as3 as default
+    val confidenceThreshold = Float(rv["confidenceThreshold"]) ?: 0.5f
 
     return FirebaseVisionLabelDetectorOptions.Builder()
             .setConfidenceThreshold(confidenceThreshold).build()

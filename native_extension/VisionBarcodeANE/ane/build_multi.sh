@@ -105,6 +105,7 @@ com.tuarua.firebase.$PROJECTNAME-res/. \
 #remove the frameworks from sim and device, as not needed any more
 rm "$pathtome/platforms/android/classes.jar"
 rm "$pathtome/platforms/android/app-release.aar"
+rm "$pathtome/platforms/android/library.swf"
 rm -r "$pathtome/platforms/ios/simulator"
 rm -r "$pathtome/platforms/ios/device"
 rm -r "$pathtome/platforms/default"

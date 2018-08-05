@@ -20,9 +20,9 @@ import FirebaseMLVision
 
 public extension VisionLabelDetectorOptions {
     convenience init?(_ freObject: FREObject?) {
-        guard let rv = freObject,
-            let confidenceThreshold = Float(rv["confidenceThreshold"])
+        guard let rv = freObject
             else { return nil }
+        let confidenceThreshold = Float(rv["confidenceThreshold"]) ?? 0.5
         self.init(confidenceThreshold: confidenceThreshold)
     }
 }

@@ -20,6 +20,15 @@
             <entry library-name="VisionFaceANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="VisionTextANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VisionCloudTextANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VisionLabelANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_30" />
         </dependencies>
@@ -33,6 +42,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Assets.car" path-in-package="Assets.car" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/GoogleService-Info.plist" path-in-package="GoogleService-Info.plist" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleMVFaceDetectorResources.bundle" path-in-package="GoogleMVFaceDetectorResources.bundle" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleMVTextDetectorResources.bundle" path-in-package="GoogleMVTextDetectorResources.bundle" />
           </files-to-package>
           <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/tua_rua_dev_2018.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/TuaRuaFirebase_Dev_Prov.mobileprovision" />
         </packaging-ios>
@@ -55,6 +65,15 @@
             <entry library-name="VisionFaceANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="VisionTextANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VisionCloudTextANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VisionLabelANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_30" />
         </dependencies>
@@ -68,6 +87,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Assets.car" path-in-package="Assets.car" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/GoogleService-Info.plist" path-in-package="GoogleService-Info.plist" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleMVFaceDetectorResources.bundle" path-in-package="GoogleMVFaceDetectorResources.bundle" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleMVTextDetectorResources.bundle" path-in-package="GoogleMVTextDetectorResources.bundle" />
           </files-to-package>
           <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/tua_rua_dev_2018.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/TuaRuaFirebase_Dev_Prov.mobileprovision" />
         </packaging-ios>
@@ -117,6 +137,15 @@
             <entry library-name="org.greenrobot.eventbus-3.0.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="VisionTextANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VisionCloudTextANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VisionLabelANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_30" />
         </dependencies>
@@ -157,5 +186,8 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-iid-16.0.0" level="project" />
     <orderEntry type="library" exported="" name="AnalyticsANE" level="project" />
     <orderEntry type="library" exported="" name="org.greenrobot.eventbus-3.0.0" level="project" />
+    <orderEntry type="library" exported="" name="VisionTextANE" level="project" />
+    <orderEntry type="library" exported="" name="VisionCloudTextANE" level="project" />
+    <orderEntry type="library" exported="" name="VisionLabelANE" level="project" />
   </component>
 </module>

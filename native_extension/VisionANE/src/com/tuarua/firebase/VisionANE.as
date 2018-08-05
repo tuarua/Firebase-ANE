@@ -16,6 +16,7 @@
 
 package com.tuarua.firebase {
 import com.tuarua.firebase.vision.BarcodeDetectorOptions;
+import com.tuarua.firebase.vision.CloudDetectorOptions;
 import com.tuarua.firebase.vision.FaceDetectorOptions;
 import com.tuarua.fre.ANEError;
 
@@ -24,6 +25,11 @@ import flash.events.EventDispatcher;
 public class VisionANE extends EventDispatcher {
     private var _barcodeDetector:BarcodeDetector;
     private var _faceDetector:FaceDetector;
+    private var _textDetector:TextDetector;
+    private var _cloudTextDetector:CloudTextDetector;
+    private var _labelDetector:LabelDetector;
+    private var _cloudLabelDetector:CloudLabelDetector;
+    private var _cloudLandmarkDetector:CloudLandmarkDetector;
     private static var _vision:VisionANE;
 
     public function VisionANE() {
@@ -35,7 +41,7 @@ public class VisionANE extends EventDispatcher {
     }
 
     public function barcodeDetector(options:BarcodeDetectorOptions = null):BarcodeDetector {
-        if (_barcodeDetector) {
+        if (_barcodeDetector != null) {
             _barcodeDetector.options = options;
         } else {
             _barcodeDetector = new BarcodeDetector(options);
@@ -44,12 +50,53 @@ public class VisionANE extends EventDispatcher {
     }
 
     public function faceDetector(options:FaceDetectorOptions = null):FaceDetector {
-        if (_faceDetector) {
+        if (_faceDetector != null) {
             _faceDetector.options = options;
         } else {
             _faceDetector = new FaceDetector(options);
         }
         return _faceDetector;
+    }
+
+    public function textDetector():TextDetector {
+        if (_textDetector == null) {
+            _textDetector = new TextDetector();
+        }
+        return _textDetector
+    }
+
+    public function cloudTextDetector(options:CloudDetectorOptions = null):CloudTextDetector {
+        if (_cloudTextDetector != null) {
+            _cloudTextDetector.options = options;
+        } else {
+            _cloudTextDetector = new CloudTextDetector(options);
+        }
+        return _cloudTextDetector
+    }
+
+    public function get labelDetector():LabelDetector {
+        if (_labelDetector == null) {
+            _labelDetector = new LabelDetector();
+        }
+        return _labelDetector;
+    }
+
+    public function cloudLabelDetector(options:CloudDetectorOptions = null):CloudLabelDetector {
+        if (_cloudLabelDetector != null) {
+            _cloudLabelDetector.options = options;
+        } else {
+            _cloudLabelDetector = new CloudLabelDetector(options);
+        }
+        return _cloudLabelDetector
+    }
+
+    public function cloudLandmarkDetector(options:CloudDetectorOptions = null):CloudLandmarkDetector {
+        if (_cloudLandmarkDetector != null) {
+            _cloudLandmarkDetector.options = options;
+        } else {
+            _cloudLandmarkDetector = new CloudLandmarkDetector(options);
+        }
+        return _cloudLandmarkDetector
     }
 
     /** The Vision ANE instance. */
@@ -78,7 +125,24 @@ public class VisionANE extends EventDispatcher {
         if (FaceDetector.context) {
             FaceDetector.dispose();
         }
+        if (TextDetector.context) {
+            TextDetector.dispose();
+        }
+        if (CloudTextDetector.context) {
+            CloudTextDetector.dispose();
+        }
+        if (LabelDetector.context) {
+            LabelDetector.dispose();
+        }
+        if (CloudLabelDetector.context) {
+            CloudLabelDetector.dispose();
+        }
+        if (CloudLandmarkDetector.context) {
+            CloudLandmarkDetector.dispose();
+        }
+
     }
+
 
 }
 }

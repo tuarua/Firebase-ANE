@@ -6,13 +6,28 @@
         <dependencies target-player="30.0">
           <entries>
             <entry module-name="VisionBarcodeANE" build-configuration-name="VisionBarcodeANE">
-              <dependency linkage="External" />
+              <dependency linkage="Include" />
             </entry>
             <entry module-name="FirebaseANE" build-configuration-name="FirebaseANE">
               <dependency linkage="External" />
             </entry>
             <entry module-name="VisionFaceANE" build-configuration-name="VisionFaceANE">
-              <dependency linkage="External" />
+              <dependency linkage="Include" />
+            </entry>
+            <entry module-name="VisionTextANE" build-configuration-name="VisionTextANE">
+              <dependency linkage="Include" />
+            </entry>
+            <entry module-name="VisionCloudTextANE" build-configuration-name="VisionCloudTextANE">
+              <dependency linkage="Include" />
+            </entry>
+            <entry module-name="VisionLandmarkANE" build-configuration-name="VisionLandmarkANE">
+              <dependency linkage="Include" />
+            </entry>
+            <entry module-name="VisionCloudLabelANE" build-configuration-name="VisionCloudLabelANE">
+              <dependency linkage="Include" />
+            </entry>
+            <entry module-name="VisionLabelANE" build-configuration-name="VisionLabelANE">
+              <dependency linkage="Include" />
             </entry>
           </entries>
           <sdk name="AIRSDK_30" />
@@ -38,5 +53,10 @@
     <orderEntry type="module" module-name="VisionBarcodeANE" exported="" />
     <orderEntry type="module" module-name="FirebaseANE" exported="" />
     <orderEntry type="module" module-name="VisionFaceANE" exported="" />
+    <orderEntry type="module" module-name="VisionTextANE" exported="" />
+    <orderEntry type="module" module-name="VisionLabelANE" exported="" />
+    <orderEntry type="module" module-name="VisionCloudLabelANE" exported="" />
+    <orderEntry type="module" module-name="VisionLandmarkANE" exported="" />
+    <orderEntry type="module" module-name="VisionCloudTextANE" exported="" />
   </component>
 </module>

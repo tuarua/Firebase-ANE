@@ -23,8 +23,10 @@ public extension VisionLatitudeLongitude {
         guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.LatitudeLongitude"),
             var ret = fre
             else { return nil }
-        ret["latitude"] = self.latitude?.toFREObject()
-        ret["longitude"] = self.longitude?.toFREObject()
+        let lat = self.latitude ?? 0.0
+        let lng = self.longitude ?? 0.0
+        ret["latitude"] = lat.toFREObject()
+        ret["longitude"] = lng.toFREObject()
         return ret
     }
 }
