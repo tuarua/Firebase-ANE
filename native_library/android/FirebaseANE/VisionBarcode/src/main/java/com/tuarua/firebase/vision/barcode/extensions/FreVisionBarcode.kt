@@ -17,6 +17,8 @@ package com.tuarua.firebase.vision.barcode.extensions
 
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
+import com.tuarua.firebase.vision.extensions.FREArray
+import com.tuarua.firebase.vision.extensions.toFREObject
 import com.tuarua.frekotlin.*
 import com.tuarua.frekotlin.geom.Rect
 import com.tuarua.frekotlin.geom.toFREObject
@@ -25,27 +27,11 @@ import com.tuarua.frekotlin.geom.Point
 fun FirebaseVisionBarcode.toFREObject(): FREObject? {
     try {
         val ret = FREObject("com.tuarua.firebase.vision.Barcode")
-        val freCornerPoints = FREArray("flash.geom.Point",
-                this.cornerPoints?.size ?: 0, true)
-
-        ret["frame"] = Rect(this.boundingBox?.left ?: 0,
-                this.boundingBox?.bottom ?: 0,
-                this.boundingBox?.width() ?: 0,
-                this.boundingBox?.height() ?: 0).toFREObject()
-
+        ret["frame"] = this.boundingBox?.toFREObject()
         ret["rawValue"] = this.rawValue?.toFREObject()
         ret["displayValue"] = this.displayValue?.toFREObject()
         ret["format"] = this.format.toFREObject()
-
-        val cornerPoints = this.cornerPoints
-        if (cornerPoints != null && !cornerPoints.isEmpty()) {
-            for (i in cornerPoints.indices) {
-                val p = cornerPoints[0]
-                freCornerPoints[i] = Point(p.x, p.y).toFREObject()
-            }
-        }
-
-        ret["cornerPoints"] = freCornerPoints
+        ret["cornerPoints"] = FREArray(this.cornerPoints)
         ret["valueType"] = this.valueType.toFREObject()
         ret["email"] = this.email?.toFREObject()
         ret["phone"] = this.phone?.toFREObject()

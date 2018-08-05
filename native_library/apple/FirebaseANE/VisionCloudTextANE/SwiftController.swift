@@ -37,6 +37,8 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "initController").getError(#file, #line, #column)
         }
         
+        trace("VisionCloudModelType.stable", VisionCloudModelType.stable.rawValue)
+        trace("VisionCloudModelType.latest", VisionCloudModelType.latest.rawValue)
         self.options = options
         return true.toFREObject()
     }

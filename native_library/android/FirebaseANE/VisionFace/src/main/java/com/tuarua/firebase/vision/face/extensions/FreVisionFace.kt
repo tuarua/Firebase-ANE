@@ -18,6 +18,7 @@ package com.tuarua.firebase.vision.face.extensions
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.face.FirebaseVisionFace
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark.*
+import com.tuarua.firebase.vision.extensions.toFREObject
 import com.tuarua.frekotlin.*
 import com.tuarua.frekotlin.geom.Rect
 import com.tuarua.frekotlin.geom.toFREObject
@@ -25,11 +26,7 @@ import com.tuarua.frekotlin.geom.toFREObject
 fun FirebaseVisionFace.toFREObject(): FREObject? {
     try {
         val ret = FREObject("com.tuarua.firebase.vision.Face")
-        ret["frame"] = Rect(this.boundingBox?.left ?: 0,
-                this.boundingBox?.top ?: 0,
-                this.boundingBox?.width() ?: 0,
-                this.boundingBox?.height() ?: 0).toFREObject()
-
+        ret["frame"] = this.boundingBox?.toFREObject()
         ret["hasTrackingId"] = true.toFREObject()
         ret["trackingId"] = this.trackingId.toFREObject()
         ret["hasHeadEulerAngleY"] = true.toFREObject()

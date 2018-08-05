@@ -48,12 +48,6 @@ class KotlinController : FreKotlinMainController {
             airView = airView.getChildAt(0) as ViewGroup
         }
 
-        // https://github.com/christophesmet/android_maskable_layout/blob/master/library/src/main/java/com/christophesmet/android/views/maskableframelayout/MaskableFrameLayout.java
-        // https://stackoverflow.com/questions/7559171/is-it-possible-to-mask-a-view-in-android
-        // http://nerdposts.blogspot.com/2010/05/android-alpha-masking.html
-        // https://stackoverflow.com/questions/8604018/android-mask-bitmap?rq=1
-        //https://stackoverflow.com/questions/32080070/android-what-is-the-simplest-way-to-mask-a-shape-onto-a-view?noredirect=1&lq=1
-
         return true.toFREObject()
     }
 

@@ -44,7 +44,7 @@ class KotlinController : FreKotlinMainController {
 
     fun openInvite(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("openInvite")
-        val intent = InviteIntent(argv[0]) //TODO ??
+        val intent = InviteIntent(argv[0])
         ctx.activity.startActivityForResult(intent, REQUEST_INVITE)
         return null
     }

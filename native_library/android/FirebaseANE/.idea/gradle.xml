@@ -21,7 +21,12 @@
             <option value="$PROJECT_DIR$/Storage" />
             <option value="$PROJECT_DIR$/Vision" />
             <option value="$PROJECT_DIR$/VisionBarcode" />
+            <option value="$PROJECT_DIR$/VisionCloudLabel" />
+            <option value="$PROJECT_DIR$/VisionCloudText" />
             <option value="$PROJECT_DIR$/VisionFace" />
+            <option value="$PROJECT_DIR$/VisionLabel" />
+            <option value="$PROJECT_DIR$/VisionLandmark" />
+            <option value="$PROJECT_DIR$/VisionText" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

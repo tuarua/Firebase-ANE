@@ -41,8 +41,8 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         
-        let textRecognizer = vision.textDetector()
-        textRecognizer.detect(in: image) { (result, error) in
+        let detector = vision.textDetector()
+        detector.detect(in: image) { (result, error) in
             if let err = error as NSError? {
                 self.dispatchEvent(name: TextEvent.RECOGNIZED,
                                    value: TextEvent(eventId: eventId,
