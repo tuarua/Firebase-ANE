@@ -29,6 +29,12 @@
             <entry library-name="VisionLabelANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="VisionCloudLabelANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VisionLandmarkANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_30" />
         </dependencies>
@@ -72,6 +78,12 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="VisionLabelANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VisionCloudLabelANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VisionLandmarkANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -146,6 +158,15 @@
             <entry library-name="VisionLabelANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="VisionCloudLabelANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VisionLandmarkANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.android.gms.play-services-vision-image-label-15.0.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_30" />
         </dependencies>
@@ -189,5 +210,8 @@
     <orderEntry type="library" exported="" name="VisionTextANE" level="project" />
     <orderEntry type="library" exported="" name="VisionCloudTextANE" level="project" />
     <orderEntry type="library" exported="" name="VisionLabelANE" level="project" />
+    <orderEntry type="library" exported="" name="VisionCloudLabelANE" level="project" />
+    <orderEntry type="library" exported="" name="VisionLandmarkANE" level="project" />
+    <orderEntry type="library" exported="" name="com.google.android.gms.play-services-vision-image-label-15.0.0" level="project" />
   </component>
 </module>

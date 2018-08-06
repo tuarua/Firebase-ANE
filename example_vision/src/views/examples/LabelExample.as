@@ -1,19 +1,19 @@
 package views.examples {
-import com.tuarua.firebase.CloudTextDetector;
-import com.tuarua.firebase.CloudTextError;
-import com.tuarua.firebase.TextDetector;
-import com.tuarua.firebase.TextError;
+import com.tuarua.firebase.CloudLabelDetector;
+import com.tuarua.firebase.CloudLabelError;
+import com.tuarua.firebase.LabelDetector;
+import com.tuarua.firebase.LabelError;
 import com.tuarua.firebase.VisionANE;
-import com.tuarua.firebase.vision.CloudText;
-import com.tuarua.firebase.vision.TextBlock;
-import com.tuarua.firebase.vision.TextElement;
-import com.tuarua.firebase.vision.TextLine;
+import com.tuarua.firebase.vision.CloudLabel;
+import com.tuarua.firebase.vision.Label;
+import com.tuarua.firebase.vision.LabelDetectorOptions;
 import com.tuarua.firebase.vision.VisionImage;
 
 import flash.display.Bitmap;
-import flash.geom.Rectangle;
 
 import starling.display.Image;
+import starling.display.Quad;
+
 import starling.display.Sprite;
 import starling.events.Touch;
 import starling.events.TouchEvent;
@@ -21,19 +21,17 @@ import starling.events.TouchPhase;
 import starling.text.TextField;
 import starling.textures.Texture;
 import starling.utils.Align;
+import starling.utils.Color;
 
 import views.SimpleButton;
 
-public class TextExample extends Sprite implements IExample {
+public class LabelExample extends Sprite implements IExample {
+    [Embed(source="../../../assets/beach.jpg")]
+    public static const labelImageBitmap:Class;
 
-    [Embed(source="../../../assets/walk-on-grass.jpg")]
-    public static const textImageBitmap:Class;
+    private static const COLORS:Array = [Color.GREEN, Color.YELLOW, Color.BLUE];
 
-    [Embed(source="../../../assets/do-not-feed-birds.jpg")]
-    public static const textCloudImageBitmap:Class;
-
-    private var bmpTextImage:Bitmap = new textImageBitmap() as Bitmap;
-    private var bmpCloudTextImage:Bitmap = new textCloudImageBitmap() as Bitmap;
+    private var bmpLabelImage:Bitmap = new labelImageBitmap() as Bitmap;
 
     private var textImageDisplay:Image;
     private var textContainer:Sprite = new Sprite();
@@ -44,24 +42,15 @@ public class TextExample extends Sprite implements IExample {
     private var stageWidth:Number;
     private var stageHeight:Number;
     private var isInited:Boolean;
-    private var textDetector:TextDetector;
-    private var cloudTextDetector:CloudTextDetector;
     private var vision:VisionANE;
-
-    public function TextExample(stageWidth:int, vision:VisionANE) {
+    private var labelDetector:LabelDetector;
+    private var cloudLabelDetector:CloudLabelDetector;
+    public function LabelExample(stageWidth:int, vision:VisionANE) {
         super();
         this.vision = vision;
         this.stageWidth = stageWidth;
         this.stageHeight = stageHeight;
         initMenu();
-    }
-
-    public function initANE():void {
-        if (isInited) return;
-
-        textDetector = vision.textDetector();
-        cloudTextDetector = vision.cloudTextDetector();
-        isInited = true;
     }
 
     private function initMenu():void {
@@ -80,7 +69,7 @@ public class TextExample extends Sprite implements IExample {
         statusLabel.y = btnInCloud.y + (StarlingRoot.GAP * 1.25);
         addChild(statusLabel);
 
-        textImageDisplay = new Image(Texture.fromBitmap(bmpTextImage));
+        textImageDisplay = new Image(Texture.fromBitmap(bmpLabelImage));
         textContainer.visible = false;
         textContainer.addChild(textImageDisplay);
 
@@ -93,29 +82,33 @@ public class TextExample extends Sprite implements IExample {
         addChild(textContainer);
     }
 
+    public function initANE():void {
+        if (isInited) return;
+        var options:LabelDetectorOptions = new LabelDetectorOptions(0.75);
+        labelDetector = vision.labelDetector(options);
+        cloudLabelDetector = vision.cloudLabelDetector();
+
+        isInited = true;
+    }
+
     private function onDeviceClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnOnDevice);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             textContainer.visible = true;
             textImageDisplay.visible = true;
-            var visionImage:VisionImage = new VisionImage(bmpTextImage.bitmapData);
-            textDetector.detect(visionImage, function (blocks:Vector.<TextBlock>, error:TextError):void {
+            var visionImage:VisionImage = new VisionImage(bmpLabelImage.bitmapData);
+
+            labelDetector.detect(visionImage, function (labels:Vector.<Label>, error:LabelError):void {
                 if (error) {
-                    statusLabel.text = "Text error: " + error.errorID + " : " + error.message;
+                    statusLabel.text = "Label error: " + error.errorID + " : " + error.message;
                     return;
                 }
-                for each (var block:TextBlock in blocks) {
-                    for each (var line:TextLine in block.lines) {
-                        var frame:Rectangle;
-                        for each (var element:TextElement in line.elements) {
-                            frame = element.frame;
-                            var hl:TextElementHighlight = new TextElementHighlight(frame, element.text);
-                            textContainer.addChild(hl);
-                            trace(element.text);
-
-                        }
-                    }
-
+                statusLabel.text = "";
+                var index:int = 0;
+                for each (var label:Label in labels) {
+                    statusLabel.text = statusLabel.text + label.label + " : " + Math.floor(label.confidence * 100) + "%\n";
+                    index++;
+                    if (index > 2) break;
                 }
             });
         }
@@ -124,14 +117,20 @@ public class TextExample extends Sprite implements IExample {
     private function OnCloudClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnInCloud);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            var visionImage:VisionImage = new VisionImage(bmpCloudTextImage.bitmapData);
-            cloudTextDetector.detect(visionImage, function (cloudText:Vector.<CloudText>, error:CloudTextError):void {
+            var visionImage:VisionImage = new VisionImage(bmpLabelImage.bitmapData);
+            cloudLabelDetector.detect(visionImage, function (labels:Vector.<CloudLabel>, error:CloudLabelError):void {
                 if (error) {
-                    statusLabel.text = "Text error: " + error.errorID + " : " + error.message;
+                    statusLabel.text = "Cloud Label error: " + error.errorID + " : " + error.message;
                     return;
                 }
-                trace(cloudText.length);
-            })
+                statusLabel.text = "";
+                var index:int = 0;
+                for each (var label:CloudLabel in labels) {
+                    statusLabel.text = statusLabel.text + label.label + " : " + Math.floor(label.confidence * 100) + "%\n";
+                    index++;
+                    if (index > 2) break;
+                }
+            });
 
         }
     }

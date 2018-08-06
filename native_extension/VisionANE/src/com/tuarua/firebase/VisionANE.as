@@ -18,6 +18,7 @@ package com.tuarua.firebase {
 import com.tuarua.firebase.vision.BarcodeDetectorOptions;
 import com.tuarua.firebase.vision.CloudDetectorOptions;
 import com.tuarua.firebase.vision.FaceDetectorOptions;
+import com.tuarua.firebase.vision.LabelDetectorOptions;
 import com.tuarua.fre.ANEError;
 
 import flash.events.EventDispatcher;
@@ -74,9 +75,11 @@ public class VisionANE extends EventDispatcher {
         return _cloudTextDetector
     }
 
-    public function get labelDetector():LabelDetector {
-        if (_labelDetector == null) {
-            _labelDetector = new LabelDetector();
+    public function labelDetector(options:LabelDetectorOptions = null):LabelDetector {
+        if (_labelDetector != null) {
+            _labelDetector.options = options;
+        } else {
+            _labelDetector = new LabelDetector(options);
         }
         return _labelDetector;
     }

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="VisionLandmarkANE" type="flex">
+    <CLASSES>
+      <root url="jar://$DOCUMENTS$/Firebase-ANE/native_extension/VisionLandmarkANE/ane/VisionLandmarkANE.ane!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

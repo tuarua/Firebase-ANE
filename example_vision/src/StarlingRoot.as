@@ -1,13 +1,16 @@
 package {
 import com.tuarua.FirebaseANE;
 import com.tuarua.firebase.BarcodeDetector;
+import com.tuarua.firebase.CloudLabelDetector;
+import com.tuarua.firebase.CloudLandmarkDetector;
+import com.tuarua.firebase.CloudTextDetector;
 import com.tuarua.firebase.FaceDetector;
 import com.tuarua.firebase.FirebaseOptions;
+import com.tuarua.firebase.LabelDetector;
 import com.tuarua.firebase.TextDetector;
 import com.tuarua.firebase.VisionANE;
 import com.tuarua.firebase.permissions.PermissionEvent;
 import com.tuarua.firebase.permissions.PermissionStatus;
-import com.tuarua.firebase.vision.Barcode;
 import com.tuarua.fre.ANEError;
 
 import flash.desktop.NativeApplication;
@@ -32,6 +35,8 @@ public class StarlingRoot extends Sprite {
     private var btnBarcode:SimpleButton = new SimpleButton("Barcode");
     private var btnFace:SimpleButton = new SimpleButton("Face");
     private var btnText:SimpleButton = new SimpleButton("Text");
+    private var btnLabel:SimpleButton = new SimpleButton("Label");
+    private var btnLandmark:SimpleButton = new SimpleButton("Landmark");
 
     private var btnBack:SimpleButton = new SimpleButton("Back");
     private var menuContainer:Sprite = new Sprite();
@@ -40,6 +45,8 @@ public class StarlingRoot extends Sprite {
     private var barcodeExample:BarcodeExample;
     private var faceExample:FaceExample;
     private var textExample:TextExample;
+    private var labelExample:LabelExample;
+    private var landmarkExample:LandmarkExample;
 
     private var vision:VisionANE;
 
@@ -85,7 +92,15 @@ public class StarlingRoot extends Sprite {
         textExample.x = stage.stageWidth;
         addChild(textExample);
 
-        btnText.x = btnFace.x = btnBack.x = btnBarcode.x = (stage.stageWidth - 200) * 0.5;
+        labelExample = new LabelExample(stage.stageWidth, vision);
+        labelExample.x = stage.stageWidth;
+        addChild(labelExample);
+
+        landmarkExample = new LandmarkExample(stage.stageWidth, vision);
+        landmarkExample.x = stage.stageWidth;
+        addChild(landmarkExample);
+
+        btnLandmark.x =  btnLabel.x = btnText.x = btnFace.x = btnBack.x = btnBarcode.x = (stage.stageWidth - 200) * 0.5;
         btnBarcode.y = GAP;
         btnBarcode.addEventListener(TouchEvent.TOUCH, onBarcodeClick);
         menuContainer.addChild(btnBarcode);
@@ -97,6 +112,15 @@ public class StarlingRoot extends Sprite {
         btnText.y = btnFace.y + GAP;
         btnText.addEventListener(TouchEvent.TOUCH, onTextClick);
         menuContainer.addChild(btnText);
+
+        btnLabel.y = btnText.y + GAP;
+        btnLabel.addEventListener(TouchEvent.TOUCH, onLabelClick);
+        menuContainer.addChild(btnLabel);
+
+        btnLandmark.y = btnLabel.y + GAP;
+        btnLandmark.addEventListener(TouchEvent.TOUCH, onLandmarkClick);
+        menuContainer.addChild(btnLandmark);
+
 
         btnBack.y = stage.stageHeight - 100;
         btnBack.addEventListener(TouchEvent.TOUCH, onBackClick);
@@ -134,6 +158,24 @@ public class StarlingRoot extends Sprite {
         }
     }
 
+    private function onLabelClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnLabel);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            showMenu(false);
+            showExample(labelExample);
+            btnBack.visible = true;
+        }
+    }
+
+    private function onLandmarkClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnLandmark);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            showMenu(false);
+            showExample(landmarkExample);
+            btnBack.visible = true;
+        }
+    }
+
     private function showMenu(value:Boolean):void {
         var tween:Tween = new Tween(menuContainer, 0.5, Transitions.EASE_OUT);
         tween.moveTo(value ? 0 : -stage.stageWidth, 0);
@@ -158,7 +200,8 @@ public class StarlingRoot extends Sprite {
             showExample(barcodeExample, false);
             showExample(faceExample, false);
             showExample(textExample, false);
-
+            showExample(labelExample, false);
+            showExample(landmarkExample, false);
             btnBack.visible = false;
         }
     }
@@ -177,6 +220,10 @@ public class StarlingRoot extends Sprite {
         BarcodeDetector.dispose();
         FaceDetector.dispose();
         TextDetector.dispose();
+        CloudTextDetector.dispose();
+        LabelDetector.dispose();
+        CloudLabelDetector.dispose();
+        CloudLandmarkDetector.dispose();
         VisionANE.dispose();
     }
 

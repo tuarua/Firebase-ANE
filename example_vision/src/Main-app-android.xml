@@ -54,7 +54,7 @@
 
                     <meta-data
                         android:name="com.google.firebase.ml.vision.DEPENDENCIES"
-                        android:value="face,barcode,text" />
+                        android:value="face,barcode,text,label" />
                         <!-- To use multiple models: android:value="face,model2,model3" -->
 
 
@@ -147,6 +147,7 @@
         <extensionID>com.google.code.gson.gson</extensionID>
         <extensionID>com.android.support.support-v4</extensionID>
         <extensionID>com.google.android.gms.play-services-base</extensionID>
+        <extensionID>com.google.android.gms.play-services-vision-image-label</extensionID>
 
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
         <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
@@ -162,6 +163,7 @@
         <extensionID>com.google.firebase.firebase-analytics</extensionID>
         <extensionID>com.google.firebase.firebase-iid</extensionID>
         <extensionID>com.google.firebase.firebase-ml-vision</extensionID>
+
 
     </extensions>
 

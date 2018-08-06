@@ -14,8 +14,8 @@
  *  limitations under the License.
  */
 package com.tuarua.firebase {
-public class LabelError extends Error {
-    public function LabelError(message:* = "", id:* = 0) {
+public class CloudLabelError extends Error {
+    public function CloudLabelError(message:* = "", id:* = 0) {
         super(message, id);
     }
 }

@@ -8,7 +8,7 @@ pathtome="${pathtome%/*}"
 
 echo $pathtome
 
-PROJECTNAME=VisionFaceANE
+PROJECTNAME=VisionLandmarkANE
 libSuffix="_LIB"
 
 AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_30"
@@ -69,14 +69,8 @@ echo "Copying native libraries into place."
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Debug-iphonesimulator/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/simulator/lib$PROJECTNAME.a"
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/device/lib$PROJECTNAME.a"
 
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/FirebaseMLVisionFaceModel.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseMLVisionFaceModel.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/FaceDetector.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/FaceDetector.framework" "$pathtome/platforms/ios/device/Frameworks"
-
 echo "Copying Android aars into place"
-cp "$pathtome/../../../native_library/android/FirebaseANE/VisionFace/build/outputs/aar/VisionFace-release.aar" "$pathtome/platforms/android/app-release.aar"
+cp "$pathtome/../../../native_library/android/FirebaseANE/VisionLandmark/build/outputs/aar/VisionLandmark-release.aar" "$pathtome/platforms/android/app-release.aar"
 echo "getting Android jars"
 unzip "$pathtome/platforms/android/app-release.aar" "classes.jar" -d "$pathtome/platforms/android"
 unzip "$pathtome/platforms/android/app-release.aar" "res/*" -d "$pathtome/platforms/android"

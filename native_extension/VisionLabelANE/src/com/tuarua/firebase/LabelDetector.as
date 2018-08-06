@@ -15,6 +15,7 @@
  */
 
 package com.tuarua.firebase {
+import com.tuarua.firebase.vision.LabelDetectorOptions;
 import com.tuarua.firebase.vision.VisionImage;
 import com.tuarua.fre.ANEError;
 
@@ -27,11 +28,15 @@ public class LabelDetector {
     private static var _context:ExtensionContext;
     public static var closures:Dictionary = new Dictionary();
     private static const RECOGNIZED:String = "LabelEvent.Recognized";
-    public function LabelDetector() {
+    private var _options:LabelDetectorOptions = new LabelDetectorOptions();
+    public function LabelDetector(options:LabelDetectorOptions) {
         try {
+            if (options) {
+                _options = options;
+            }
             _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
             _context.addEventListener(StatusEvent.STATUS, gotEvent);
-            _context.call("init");
+            _context.call("init", _options);
         } catch (e:Error) {
             trace(e.name);
             trace(e.message);
@@ -52,7 +57,6 @@ public class LabelDetector {
 
     /** @private */
     public static function gotEvent(event:StatusEvent):void {
-        trace("[" + NAME + "]", event);
         var pObj:Object;
         var closure:Function;
         var err:LabelError;
@@ -106,6 +110,10 @@ public class LabelDetector {
         _context.removeEventListener(StatusEvent.STATUS, gotEvent);
         _context.dispose();
         _context = null;
+    }
+
+    public function set options(options:LabelDetectorOptions):void {
+        _options = options ? options : new LabelDetectorOptions();
     }
 
 }

@@ -1,0 +1,103 @@
+package views.examples {
+import com.tuarua.firebase.CloudLandmarkDetector;
+import com.tuarua.firebase.LandmarkError;
+import com.tuarua.firebase.VisionANE;
+import com.tuarua.firebase.vision.CloudLandmark;
+import com.tuarua.firebase.vision.VisionImage;
+
+import flash.display.Bitmap;
+
+import starling.display.Image;
+
+import starling.display.Sprite;
+import starling.events.Touch;
+import starling.events.TouchEvent;
+import starling.events.TouchPhase;
+import starling.text.TextField;
+import starling.textures.Texture;
+import starling.utils.Align;
+
+import views.SimpleButton;
+
+public class LandmarkExample extends Sprite implements IExample {
+    [Embed(source="../../../assets/bruges.jpg")]
+    public static const brugesImageBitmap:Class;
+
+    private var bmpLandmarkImage:Bitmap = new brugesImageBitmap() as Bitmap;
+
+    private var btnInCloud:SimpleButton = new SimpleButton("Detect Landmark");
+
+    private var textImageDisplay:Image;
+    private var textContainer:Sprite = new Sprite();
+
+    private var statusLabel:TextField;
+    private var stageWidth:Number;
+    private var stageHeight:Number;
+    private var isInited:Boolean;
+    private var vision:VisionANE;
+    private var cloudLandmarkDetector:CloudLandmarkDetector;
+    public function LandmarkExample(stageWidth:int, vision:VisionANE) {
+        super();
+        this.vision = vision;
+        this.stageWidth = stageWidth;
+        this.stageHeight = stageHeight;
+        initMenu();
+    }
+
+    private function initMenu():void {
+        btnInCloud.x = (stageWidth - 200) * 0.5;
+
+        btnInCloud.y = StarlingRoot.GAP;
+        btnInCloud.addEventListener(TouchEvent.TOUCH, OnCloudClick);
+        addChild(btnInCloud);
+
+        statusLabel = new TextField(stageWidth, 100, "");
+        statusLabel.format.setTo(Fonts.NAME, 13, 0x222222, Align.CENTER, Align.TOP);
+        statusLabel.touchable = false;
+        statusLabel.y = btnInCloud.y + (StarlingRoot.GAP * 1.25);
+        addChild(statusLabel);
+
+        textImageDisplay = new Image(Texture.fromBitmap(bmpLandmarkImage));
+        textContainer.visible = false;
+        textContainer.addChild(textImageDisplay);
+
+        var newScale:Number = (stageWidth - 30) / textContainer.width;
+        textContainer.scaleY = textContainer.scaleX = newScale;
+
+        textContainer.x = (stageWidth - textContainer.width) * 0.5;
+        textContainer.y = statusLabel.y + StarlingRoot.GAP;
+
+        addChild(textContainer);
+    }
+
+    public function initANE():void {
+        if (isInited) return;
+        cloudLandmarkDetector = vision.cloudLandmarkDetector();
+
+        isInited = true;
+    }
+
+    private function OnCloudClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnInCloud);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            var visionImage:VisionImage = new VisionImage(bmpLandmarkImage.bitmapData);
+
+            cloudLandmarkDetector.detect(visionImage, function (landmarks:Vector.<CloudLandmark>, error:LandmarkError):void {
+                if (error) {
+                    statusLabel.text = "Landmark error: " + error.errorID + " : " + error.message;
+                    return;
+                }
+                statusLabel.text = "";
+                var index:int = 0;
+                for each (var landmark:CloudLandmark in landmarks) {
+                    statusLabel.text = statusLabel.text + landmark.landmark + " : " + Math.floor(landmark.confidence * 100) + "%\n";
+                    index++;
+                    if (index > 2) break;
+                }
+            });
+
+        }
+    }
+
+}
+}

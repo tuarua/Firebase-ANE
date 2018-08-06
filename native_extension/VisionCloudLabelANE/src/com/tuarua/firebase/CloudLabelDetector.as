@@ -59,7 +59,7 @@ public class CloudLabelDetector {
     public static function gotEvent(event:StatusEvent):void {
         var pObj:Object;
         var closure:Function;
-        var err:LabelError;
+        var err:CloudLabelError;
         switch (event.level) {
             case "TRACE":
                 trace("[" + NAME + "]", event.code);
@@ -70,7 +70,7 @@ public class CloudLabelDetector {
                     closure = closures[pObj.eventId];
                     if (closure == null) return;
                     if (pObj.hasOwnProperty("error") && pObj.error) {
-                        err = new LabelError(pObj.error.text, pObj.error.id);
+                        err = new CloudLabelError(pObj.error.text, pObj.error.id);
                     }
                     var theRet:* = _context.call("getResults", pObj.eventId);
                     if (theRet is ANEError) {
