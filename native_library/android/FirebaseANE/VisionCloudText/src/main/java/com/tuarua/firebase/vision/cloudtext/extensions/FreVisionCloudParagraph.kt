@@ -31,7 +31,7 @@ fun FirebaseVisionCloudText.Paragraph.toFREObject(): FREObject? {
         ret["frame"] = boundingBox?.toFREObject()
         ret["confidence"] = confidence.toFREObject()
         ret["textProperty"] = textProperty?.toFREObject()
-        ret["words"] = FREArray(words)
+        ret["words"] = words.toFREArray()
         return ret
     } catch (e: FreException) {
 
@@ -39,11 +39,10 @@ fun FirebaseVisionCloudText.Paragraph.toFREObject(): FREObject? {
     return null
 }
 
-fun FREArray(value: List<FirebaseVisionCloudText.Paragraph>): FREArray {
-    val ret = FREArray("com.tuarua.firebase.vision.CloudParagraph",
-            value.size, true)
-    for (i in value.indices) {
-        ret[i] = value[i].toFREObject()
+fun List<FirebaseVisionCloudText.Paragraph>.toFREArray(): FREArray? {
+    val ret = FREArray("com.tuarua.firebase.vision.CloudParagraph", this.size, true)
+    for (i in this.indices) {
+        ret[i] = this[i].toFREObject()
     }
     return ret
 }

@@ -83,18 +83,7 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
         val eventId = String(argv[0]) ?: return FreConversionException("eventId")
         val result = results[eventId] ?: return null
-        try {
-            val freArray = FREArray("com.tuarua.firebase.vision.Face",
-                    result.size, true)
-            for (i in result.indices) {
-                freArray[i] = result[i].toFREObject()
-            }
-            return freArray
-        } catch (e: FreException) {
-            trace(e.message)
-            trace(e.stackTrace)
-        }
-        return null
+        return result.toFREArray()
     }
 
     override val TAG: String

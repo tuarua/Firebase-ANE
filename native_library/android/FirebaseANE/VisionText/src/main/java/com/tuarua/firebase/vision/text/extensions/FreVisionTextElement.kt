@@ -39,10 +39,10 @@ fun FirebaseVisionText.Element.toFREObject(): FREObject? {
     return null
 }
 
-fun FREArray(value: List<FirebaseVisionText.Element>): FREArray {
-    val ret = FREArray("com.tuarua.firebase.vision.TextElement")
-    for (i in value.indices) {
-        ret[i] = value[i].toFREObject()
+fun List<FirebaseVisionText.Element>.toFREArray(): FREArray? {
+    val ret = FREArray("com.tuarua.firebase.vision.TextElement", this.size, true)
+    for (i in this.indices) {
+        ret[i] = this[i].toFREObject()
     }
     return ret
 }

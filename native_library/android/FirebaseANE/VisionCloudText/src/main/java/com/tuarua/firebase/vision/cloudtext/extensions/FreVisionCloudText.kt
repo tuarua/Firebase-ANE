@@ -24,7 +24,7 @@ fun FirebaseVisionCloudText.toFREObject(): FREObject? {
     try {
         val ret = FREObject("com.tuarua.firebase.vision.CloudText")
         ret["text"] = text.toFREObject()
-        ret["pages"] = FREArray(pages)
+        ret["pages"] = pages.toFREArray()
         return ret
     } catch (e: FreException) {
 

@@ -15,7 +15,9 @@
  */
 package com.tuarua.firebase.vision.face.extensions
 
+import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
+import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.google.firebase.ml.vision.face.FirebaseVisionFace
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark.*
 import com.tuarua.firebase.vision.extensions.toFREObject
@@ -61,4 +63,12 @@ fun FirebaseVisionFace.toFREObject(): FREObject? {
     }
     return null
 
+}
+
+fun List<FirebaseVisionFace>.toFREArray(): FREArray? {
+    val ret = FREArray("com.tuarua.firebase.vision.Face", this.size, true)
+    for (i in this.indices) {
+        ret[i] = this[i].toFREObject()
+    }
+    return ret
 }

@@ -19,7 +19,7 @@ package com.tuarua.firebase.vision.landmark.extensions
 import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.cloud.landmark.FirebaseVisionCloudLandmark
-import com.tuarua.firebase.vision.extensions.FREArray
+import com.tuarua.firebase.vision.extensions.toFREArray
 import com.tuarua.firebase.vision.extensions.toFREObject
 import com.tuarua.frekotlin.*
 
@@ -30,9 +30,7 @@ fun FirebaseVisionCloudLandmark.toFREObject(): FREObject? {
         ret["landmark"] = landmark.toFREObject()
         ret["entityId"] = entityId.toFREObject()
         ret["frame"] = boundingBox.toFREObject()
-
-        ret["locations"] = FREArray(this.locations)
-
+        ret["locations"] = locations.toFREArray()
         return ret
     } catch (e: FreException) {
 
@@ -40,10 +38,10 @@ fun FirebaseVisionCloudLandmark.toFREObject(): FREObject? {
     return null
 }
 
-fun FREArray(value: List<FirebaseVisionCloudLandmark>): FREArray {
-    val ret = FREArray("com.tuarua.firebase.vision.CloudLandmark", value.size, true)
-    for (i in value.indices) {
-        ret[i] = value[i].toFREObject()
+fun List<FirebaseVisionCloudLandmark>.toFREArray(): FREArray? {
+    val ret = FREArray("com.tuarua.firebase.vision.CloudLandmark", this.size, true)
+    for (i in this.indices) {
+        ret[i] = this[i].toFREObject()
     }
     return ret
 }

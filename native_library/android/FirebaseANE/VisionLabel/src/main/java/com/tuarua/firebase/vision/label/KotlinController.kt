@@ -25,8 +25,8 @@ import com.google.firebase.ml.vision.label.FirebaseVisionLabelDetectorOptions
 import com.google.gson.Gson
 import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
 import com.tuarua.firebase.vision.label.events.LabelEvent
-import com.tuarua.firebase.vision.label.extensions.FREArray
 import com.tuarua.firebase.vision.label.extensions.FirebaseVisionLabelDetectorOptions
+import com.tuarua.firebase.vision.label.extensions.toFREArray
 import com.tuarua.frekotlin.*
 import java.util.*
 
@@ -82,7 +82,7 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
         val eventId = String(argv[0]) ?: return FreConversionException("eventId")
         val result = results[eventId] ?: return null
-        return FREArray(result)
+        return result.toFREArray()
     }
 
     override val TAG: String

@@ -38,10 +38,10 @@ fun FirebaseVisionCloudText.Symbol.toFREObject(): FREObject? {
     return null
 }
 
-fun FREArray(value: List<FirebaseVisionCloudText.Symbol>): FREArray {
-    val ret = FREArray("com.tuarua.firebase.vision.CloudSymbol", value.size, true)
-    for (i in value.indices) {
-        ret[i] = value[i].toFREObject()
+fun List<FirebaseVisionCloudText.Symbol>.toFREArray(): FREArray? {
+    val ret = FREArray("com.tuarua.firebase.vision.CloudSymbol", this.size, true)
+    for (i in this.indices) {
+        ret[i] = this[i].toFREObject()
     }
     return ret
 }

@@ -26,7 +26,7 @@ fun FirebaseVisionCloudText.TextProperty.toFREObject(): FREObject? {
     try {
         val ret = FREObject("com.tuarua.firebase.vision.CloudTextProperty")
         ret["detectedBreak"] = detectedBreak?.toFREObject()
-        ret["detectedLanguages"] = FREArray(detectedLanguages)
+        ret["detectedLanguages"] = detectedLanguages.toFREArray()
         return ret
     } catch (e: FreException) {
 

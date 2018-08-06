@@ -35,10 +35,10 @@ fun FirebaseVisionLatLng.toFREObject(): FREObject? {
     return null
 }
 
-fun FREArray(value: List<FirebaseVisionLatLng>): FREArray {
-    val ret = FREArray("com.tuarua.firebase.vision.LatitudeLongitude", value.size, true)
-    for (i in value.indices) {
-        ret[i] = value[i].toFREObject()
+fun List<FirebaseVisionLatLng>.toFREArray(): FREArray? {
+    val ret = FREArray("com.tuarua.firebase.vision.LatitudeLongitude", this.size, true)
+    for (i in this.indices) {
+        ret[i] = this[i].toFREObject()
     }
     return ret
 }

@@ -26,7 +26,7 @@ import com.google.gson.Gson
 import com.tuarua.firebase.vision.extensions.FirebaseVisionCloudDetectorOptions
 import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
 import com.tuarua.firebase.vision.landmark.events.LandmarkEvent
-import com.tuarua.firebase.vision.landmark.extensions.FREArray
+import com.tuarua.firebase.vision.landmark.extensions.toFREArray
 import com.tuarua.frekotlin.*
 import java.util.*
 
@@ -82,7 +82,7 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
         val eventId = com.tuarua.frekotlin.String(argv[0]) ?: return FreConversionException("eventId")
         val result = results[eventId] ?: return null
-        return FREArray(result)
+        return result.toFREArray()
     }
 
     override val TAG: String

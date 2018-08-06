@@ -36,10 +36,10 @@ fun FirebaseVisionLabel.toFREObject(): FREObject? {
     return null
 }
 
-fun FREArray(value: List<FirebaseVisionLabel>): FREArray {
-    val ret = FREArray("com.tuarua.firebase.vision.Label", value.size, true)
-    for (i in value.indices) {
-        ret[i] = value[i].toFREObject()
+fun List<FirebaseVisionLabel>.toFREArray(): FREArray? {
+    val ret = FREArray("com.tuarua.firebase.vision.Label", this.size, true)
+    for (i in this.indices) {
+        ret[i] = this[i].toFREObject()
     }
     return ret
 }

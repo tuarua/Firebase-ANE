@@ -26,10 +26,10 @@ fun FirebaseVisionText.Block.toFREObject(): FREObject? {
     try {
         val ret = FREObject("com.tuarua.firebase.vision.TextBlock")
 
-        ret["lines"] = FREArray(this.lines)
-        ret["frame"] = this.boundingBox?.toFREObject()
-        ret["text"] = this.text.toFREObject()
-        ret["cornerPoints"] = FREArray(this.cornerPoints)
+        ret["lines"] = lines.toFREArray()
+        ret["frame"] = boundingBox?.toFREObject()
+        ret["text"] = text.toFREObject()
+        ret["cornerPoints"] = FREArray(cornerPoints)
         return ret
     } catch (e: FreException) {
 

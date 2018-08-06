@@ -30,7 +30,7 @@ fun FirebaseVisionCloudText.Page.toFREObject(): FREObject? {
         ret["confidence"] = confidence.toFREObject()
         ret["width"] = width.toFREObject()
         ret["height"] = height.toFREObject()
-        ret["blocks"] = FREArray(blocks)
+        ret["blocks"] = blocks.toFREArray()
         ret["textProperty"] = textProperty?.toFREObject()
         return ret
     } catch (e: FreException) {
@@ -39,10 +39,10 @@ fun FirebaseVisionCloudText.Page.toFREObject(): FREObject? {
     return null
 }
 
-fun FREArray(value: List<FirebaseVisionCloudText.Page>): FREArray {
-    val ret = FREArray("com.tuarua.firebase.vision.CloudPage", value.size, true)
-    for (i in value.indices) {
-        ret[i] = value[i].toFREObject()
+fun List<FirebaseVisionCloudText.Page>.toFREArray(): FREArray? {
+    val ret = FREArray("com.tuarua.firebase.vision.CloudPage", this.size, true)
+    for (i in this.indices) {
+        ret[i] = this[i].toFREObject()
     }
     return ret
 }

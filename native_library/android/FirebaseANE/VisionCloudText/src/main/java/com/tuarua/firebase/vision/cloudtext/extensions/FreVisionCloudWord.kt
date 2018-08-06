@@ -30,7 +30,7 @@ fun FirebaseVisionCloudText.Word.toFREObject(): FREObject? {
         ret["confidence"] = confidence.toFREObject()
         ret["textProperty"] = textProperty?.toFREObject()
         ret["frame"] = boundingBox.toFREObject()
-        ret["symbols"] = FREArray(symbols)
+        ret["symbols"] = symbols.toFREArray()
         return ret
     } catch (e: FreException) {
 
@@ -38,10 +38,10 @@ fun FirebaseVisionCloudText.Word.toFREObject(): FREObject? {
     return null
 }
 
-fun FREArray(value: List<FirebaseVisionCloudText.Word>): FREArray {
-    val ret = FREArray("com.tuarua.firebase.vision.CloudWord", value.size, true)
-    for (i in value.indices) {
-        ret[i] = value[i].toFREObject()
+fun List<FirebaseVisionCloudText.Word>.toFREArray(): FREArray? {
+    val ret = FREArray("com.tuarua.firebase.vision.CloudWord", this.size, true)
+    for (i in this.indices) {
+        ret[i] = this[i].toFREObject()
     }
     return ret
 }
