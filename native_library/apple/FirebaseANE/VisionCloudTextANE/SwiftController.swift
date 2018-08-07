@@ -23,6 +23,7 @@ public class SwiftController: NSObject {
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     lazy var vision = Vision.vision()
+    private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.ctx.uiq", qos: .userInitiated)
     private var results: [String: VisionCloudText?] = [:]
     private var options: VisionCloudDetectorOptions?
     
@@ -48,19 +49,20 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
-        
-        let detector = vision.cloudTextDetector(options: options)
-        detector.detect(in: image) { (result, error) in
-            if let err = error as NSError? {
-                self.dispatchEvent(name: CloudTextEvent.RECOGNIZED,
-                                   value: CloudTextEvent(eventId: eventId,
-                                                    error: ["text": err.localizedDescription,
-                                                            "id": err.code]).toJSONString())
-            } else {
-                if let result = result {
-                    self.results[eventId] = result
+        userInitiatedQueue.async {
+            let detector = self.vision.cloudTextDetector(options: options)
+            detector.detect(in: image) { (result, error) in
+                if let err = error as NSError? {
                     self.dispatchEvent(name: CloudTextEvent.RECOGNIZED,
-                                       value: CloudTextEvent(eventId: eventId).toJSONString())
+                                       value: CloudTextEvent(eventId: eventId,
+                                                        error: ["text": err.localizedDescription,
+                                                                "id": err.code]).toJSONString())
+                } else {
+                    if let result = result {
+                        self.results[eventId] = result
+                        self.dispatchEvent(name: CloudTextEvent.RECOGNIZED,
+                                           value: CloudTextEvent(eventId: eventId).toJSONString())
+                    }
                 }
             }
         }

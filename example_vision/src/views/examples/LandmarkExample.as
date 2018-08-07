@@ -81,7 +81,8 @@ public class LandmarkExample extends Sprite implements IExample {
         var touch:Touch = event.getTouch(btnInCloud);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             var visionImage:VisionImage = new VisionImage(bmpLandmarkImage.bitmapData);
-
+            textContainer.visible = true;
+            textImageDisplay.visible = true;
             cloudLandmarkDetector.detect(visionImage, function (landmarks:Vector.<CloudLandmark>, error:LandmarkError):void {
                 if (error) {
                     statusLabel.text = "Landmark error: " + error.errorID + " : " + error.message;

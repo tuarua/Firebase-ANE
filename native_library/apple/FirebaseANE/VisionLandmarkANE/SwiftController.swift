@@ -23,6 +23,7 @@ public class SwiftController: NSObject {
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     lazy var vision = Vision.vision()
+    private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.lm.uiq", qos: .userInitiated)
     private var results: [String: [VisionCloudLandmark?]] = [:]
     private var options: VisionCloudDetectorOptions?
     
@@ -49,19 +50,20 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
-        
-        let detector = vision.cloudLandmarkDetector(options: options)
-        detector.detect(in: image) { (result, error) in
-            if let err = error as NSError? {
-                self.dispatchEvent(name: LandmarkEvent.RECOGNIZED,
-                                   value: LandmarkEvent(eventId: eventId,
-                                                     error: ["text": err.localizedDescription,
-                                                             "id": err.code]).toJSONString())
-            } else {
-                if let result = result, !result.isEmpty {
-                    self.results[eventId] = result
+        userInitiatedQueue.async {
+            let detector = self.vision.cloudLandmarkDetector(options: options)
+            detector.detect(in: image) { (result, error) in
+                if let err = error as NSError? {
                     self.dispatchEvent(name: LandmarkEvent.RECOGNIZED,
-                                       value: LandmarkEvent(eventId: eventId).toJSONString())
+                                       value: LandmarkEvent(eventId: eventId,
+                                                            error: ["text": err.localizedDescription,
+                                                                    "id": err.code]).toJSONString())
+                } else {
+                    if let result = result, !result.isEmpty {
+                        self.results[eventId] = result
+                        self.dispatchEvent(name: LandmarkEvent.RECOGNIZED,
+                                           value: LandmarkEvent(eventId: eventId).toJSONString())
+                    }
                 }
             }
         }

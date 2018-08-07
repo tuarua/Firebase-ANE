@@ -36,7 +36,9 @@ public class TextExample extends Sprite implements IExample {
     private var bmpCloudTextImage:Bitmap = new textCloudImageBitmap() as Bitmap;
 
     private var textImageDisplay:Image;
+    private var cloudTextImageDisplay:Image;
     private var textContainer:Sprite = new Sprite();
+    private var overlayContainer:Sprite = new Sprite();
 
     private var btnOnDevice:SimpleButton = new SimpleButton("Detect On Device");
     private var btnInCloud:SimpleButton = new SimpleButton("Detect In Cloud");
@@ -81,8 +83,10 @@ public class TextExample extends Sprite implements IExample {
         addChild(statusLabel);
 
         textImageDisplay = new Image(Texture.fromBitmap(bmpTextImage));
-        textContainer.visible = false;
         textContainer.addChild(textImageDisplay);
+        cloudTextImageDisplay = new Image(Texture.fromBitmap(bmpCloudTextImage));
+        textContainer.addChild(cloudTextImageDisplay);
+        textImageDisplay.visible = false;
 
         var newScale:Number = (stageWidth - 30) / textContainer.width;
         textContainer.scaleY = textContainer.scaleX = newScale;
@@ -90,14 +94,17 @@ public class TextExample extends Sprite implements IExample {
         textContainer.x = (stageWidth - textContainer.width) * 0.5;
         textContainer.y = statusLabel.y + StarlingRoot.GAP;
 
+        textContainer.addChild(overlayContainer);
         addChild(textContainer);
     }
 
     private function onDeviceClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnOnDevice);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
+            clearOverlay();
             textContainer.visible = true;
             textImageDisplay.visible = true;
+            cloudTextImageDisplay.visible = false;
             var visionImage:VisionImage = new VisionImage(bmpTextImage.bitmapData);
             textDetector.detect(visionImage, function (blocks:Vector.<TextBlock>, error:TextError):void {
                 if (error) {
@@ -110,9 +117,8 @@ public class TextExample extends Sprite implements IExample {
                         for each (var element:TextElement in line.elements) {
                             frame = element.frame;
                             var hl:TextElementHighlight = new TextElementHighlight(frame, element.text);
-                            textContainer.addChild(hl);
+                            overlayContainer.addChild(hl);
                             trace(element.text);
-
                         }
                     }
 
@@ -124,15 +130,26 @@ public class TextExample extends Sprite implements IExample {
     private function OnCloudClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnInCloud);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
+            clearOverlay();
+            textContainer.visible = true;
+            textImageDisplay.visible = false;
+            cloudTextImageDisplay.visible = true;
             var visionImage:VisionImage = new VisionImage(bmpCloudTextImage.bitmapData);
-            cloudTextDetector.detect(visionImage, function (cloudText:Vector.<CloudText>, error:CloudTextError):void {
+
+            cloudTextDetector.detect(visionImage, function (cloudText:CloudText, error:CloudTextError):void {
                 if (error) {
                     statusLabel.text = "Text error: " + error.errorID + " : " + error.message;
                     return;
                 }
-                trace(cloudText.length);
+                statusLabel.text = "Text: " + cloudText.text;
             })
 
+        }
+    }
+
+    private function clearOverlay():void {
+        while (overlayContainer.numChildren > 0) {
+            overlayContainer.removeChildAt(0);
         }
     }
 

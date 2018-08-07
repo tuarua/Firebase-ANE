@@ -117,6 +117,8 @@ public class LabelExample extends Sprite implements IExample {
     private function OnCloudClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnInCloud);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
+            textContainer.visible = true;
+            textImageDisplay.visible = true;
             var visionImage:VisionImage = new VisionImage(bmpLabelImage.bitmapData);
             cloudLabelDetector.detect(visionImage, function (labels:Vector.<CloudLabel>, error:CloudLabelError):void {
                 if (error) {

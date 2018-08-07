@@ -23,6 +23,7 @@ public class SwiftController: NSObject {
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     lazy var vision = Vision.vision()
+    private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.tx.uiq", qos: .userInitiated)
     private var results: [String: [VisionText?]] = [:]
     
     func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
@@ -40,19 +41,20 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
-        
-        let detector = vision.textDetector()
-        detector.detect(in: image) { (result, error) in
-            if let err = error as NSError? {
-                self.dispatchEvent(name: TextEvent.RECOGNIZED,
-                                   value: TextEvent(eventId: eventId,
-                                                    error: ["text": err.localizedDescription,
-                                                            "id": err.code]).toJSONString())
-            } else {
-                if let result = result, !result.isEmpty {
-                    self.results[eventId] = result
+        userInitiatedQueue.async {
+            let detector = self.vision.textDetector()
+            detector.detect(in: image) { (result, error) in
+                if let err = error as NSError? {
                     self.dispatchEvent(name: TextEvent.RECOGNIZED,
-                                       value: TextEvent(eventId: eventId).toJSONString())
+                                       value: TextEvent(eventId: eventId,
+                                                        error: ["text": err.localizedDescription,
+                                                                "id": err.code]).toJSONString())
+                } else {
+                    if let result = result, !result.isEmpty {
+                        self.results[eventId] = result
+                        self.dispatchEvent(name: TextEvent.RECOGNIZED,
+                                           value: TextEvent(eventId: eventId).toJSONString())
+                    }
                 }
             }
         }

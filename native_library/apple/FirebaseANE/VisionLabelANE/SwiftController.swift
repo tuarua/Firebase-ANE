@@ -23,6 +23,7 @@ public class SwiftController: NSObject {
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     lazy var vision = Vision.vision()
+    private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.lbl.uiq", qos: .userInitiated)
     private var results: [String: [VisionLabel?]] = [:]
     private var options: VisionLabelDetectorOptions?
     
@@ -49,19 +50,20 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
-        
-        let labelDetector = vision.labelDetector(options: options)
-        labelDetector.detect(in: image) { (result, error) in
-            if let err = error as NSError? {
-                self.dispatchEvent(name: LabelEvent.RECOGNIZED,
-                                   value: LabelEvent(eventId: eventId,
-                                                    error: ["text": err.localizedDescription,
-                                                            "id": err.code]).toJSONString())
-            } else {
-                if let result = result, !result.isEmpty {
-                    self.results[eventId] = result
+        userInitiatedQueue.async {
+            let labelDetector = self.vision.labelDetector(options: options)
+            labelDetector.detect(in: image) { (result, error) in
+                if let err = error as NSError? {
                     self.dispatchEvent(name: LabelEvent.RECOGNIZED,
-                                       value: LabelEvent(eventId: eventId).toJSONString())
+                                       value: LabelEvent(eventId: eventId,
+                                                        error: ["text": err.localizedDescription,
+                                                                "id": err.code]).toJSONString())
+                } else {
+                    if let result = result, !result.isEmpty {
+                        self.results[eventId] = result
+                        self.dispatchEvent(name: LabelEvent.RECOGNIZED,
+                                           value: LabelEvent(eventId: eventId).toJSONString())
+                    }
                 }
             }
         }

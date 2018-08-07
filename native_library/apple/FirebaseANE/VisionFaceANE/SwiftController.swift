@@ -23,6 +23,7 @@ public class SwiftController: NSObject {
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     lazy var vision = Vision.vision()
+    private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.fce.uiq", qos: .userInitiated)
     private var results: [String: [VisionFace?]] = [:]
     private var options: VisionFaceDetectorOptions?
     
@@ -49,23 +50,23 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
-        
-        let faceDetector = vision.faceDetector(options: options)
-        faceDetector.detect(in: image) { (features, error) in
-            if let err = error as NSError? {
-                self.dispatchEvent(name: FaceEvent.DETECTED,
-                               value: FaceEvent(eventId: eventId,
-                                                   error: ["text": err.localizedDescription,
-                                                           "id": err.code]).toJSONString())
-            } else {
-                if let features = features, !features.isEmpty {
-                    self.results[eventId] = features
+        userInitiatedQueue.async {
+            let faceDetector = self.vision.faceDetector(options: options)
+            faceDetector.detect(in: image) { (features, error) in
+                if let err = error as NSError? {
                     self.dispatchEvent(name: FaceEvent.DETECTED,
-                                   value: FaceEvent(eventId: eventId).toJSONString())
+                                   value: FaceEvent(eventId: eventId,
+                                                       error: ["text": err.localizedDescription,
+                                                               "id": err.code]).toJSONString())
+                } else {
+                    if let features = features, !features.isEmpty {
+                        self.results[eventId] = features
+                        self.dispatchEvent(name: FaceEvent.DETECTED,
+                                       value: FaceEvent(eventId: eventId).toJSONString())
+                    }
                 }
             }
         }
-        
         return nil
     }
     

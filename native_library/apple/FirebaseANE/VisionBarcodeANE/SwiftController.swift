@@ -25,6 +25,7 @@ public class SwiftController: NSObject {
     public var functionsToSet: FREFunctionMap = [:]
     internal var results: [String: [VisionBarcode?]] = [:]
     lazy var vision = Vision.vision()
+    private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.bc.uiq", qos: .userInitiated)
     internal var options: VisionBarcodeDetectorOptions?
     
     internal lazy var captureSession = AVCaptureSession()
@@ -55,18 +56,20 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
-        let barcodeDetector = vision.barcodeDetector(options: options)
-        barcodeDetector.detect(in: image) { (features, error) in
-            if let err = error as NSError? {
-                self.dispatchEvent(name: BarcodeEvent.DETECTED,
-                               value: BarcodeEvent(eventId: eventId,
-                                                   error: ["text": err.localizedDescription,
-                                                           "id": err.code]).toJSONString())
-            } else {
-                if let features = features, !features.isEmpty {
-                    self.results[eventId] = features
+        userInitiatedQueue.async {
+            let barcodeDetector = self.vision.barcodeDetector(options: options)
+            barcodeDetector.detect(in: image) { (features, error) in
+                if let err = error as NSError? {
                     self.dispatchEvent(name: BarcodeEvent.DETECTED,
-                                   value: BarcodeEvent(eventId: eventId).toJSONString())
+                                   value: BarcodeEvent(eventId: eventId,
+                                                       error: ["text": err.localizedDescription,
+                                                               "id": err.code]).toJSONString())
+                } else {
+                    if let features = features, !features.isEmpty {
+                        self.results[eventId] = features
+                        self.dispatchEvent(name: BarcodeEvent.DETECTED,
+                                       value: BarcodeEvent(eventId: eventId).toJSONString())
+                    }
                 }
             }
         }
