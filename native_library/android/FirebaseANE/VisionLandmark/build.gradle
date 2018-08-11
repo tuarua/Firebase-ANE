@@ -30,6 +30,12 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
     implementation "com.google.firebase:firebase-core:$firebase_version"
     implementation "com.google.firebase:firebase-ml-vision:$firebase_version"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.24.0'
     implementation "com.tuarua:FreKotlin:$frekotlin_version"
     implementation project(':Vision')
+}
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
 }

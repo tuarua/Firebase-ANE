@@ -64,7 +64,6 @@ public class FaceDetector extends EventDispatcher {
 
     /** @private */
     public static function gotEvent(event:StatusEvent):void {
-        trace("[" + NAME + "]", event);
         var pObj:Object;
         var closure:Function;
         var err:FaceError;

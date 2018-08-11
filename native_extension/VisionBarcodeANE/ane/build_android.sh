@@ -43,7 +43,10 @@ echo "Building ANE."
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.firebase.$PROJECTNAME-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
-
+-platform Android-x86 \
+-C "$pathtome/platforms/android" "library.swf" "classes.jar" \
+com.tuarua.firebase.$PROJECTNAME-res/. \
+-platformoptions "$pathtome/platforms/android/platform.xml" \
 
 #remove the frameworks from sim and device, as not needed any more
 rm "$pathtome/platforms/android/classes.jar"

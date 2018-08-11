@@ -16,14 +16,20 @@
 
 package com.tuarua.firebase.vision {
 import flash.display.BitmapData;
+
 [RemoteClass(alias="com.tuarua.firebase.vision.VisionImage")]
 public class VisionImage {
     private var _bitmapdata:BitmapData;
     private var _metadata:VisionImageMetadata = new VisionImageMetadata();
+    private var _path:String;
 
-    public function VisionImage(bitmapdata:BitmapData, metadata:VisionImageMetadata = null) {
+    public function VisionImage(bitmapdata:BitmapData = null, path:String = null, metadata:VisionImageMetadata = null) {
+        if (bitmapdata == null && path == null) {
+            throw new ArgumentError("Please pass either bitmapdata or a path to constructor");
+        }
         this._bitmapdata = bitmapdata;
-        if(metadata != null){
+        this._path = path;
+        if (metadata != null) {
             this._metadata = metadata;
         }
     }
@@ -34,6 +40,10 @@ public class VisionImage {
 
     public function get metadata():VisionImageMetadata {
         return _metadata;
+    }
+
+    public function get path():String {
+        return _path;
     }
 }
 }

@@ -28,7 +28,11 @@ import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
 import com.tuarua.firebase.vision.landmark.events.LandmarkEvent
 import com.tuarua.firebase.vision.landmark.extensions.toFREArray
 import com.tuarua.frekotlin.*
+import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.experimental.CommonPool
+import kotlin.coroutines.experimental.CoroutineContext
 import java.util.*
+
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
@@ -36,6 +40,7 @@ class KotlinController : FreKotlinMainController {
     private var options: FirebaseVisionCloudDetectorOptions? = null
     private var results: MutableMap<String, MutableList<FirebaseVisionCloudLandmark>> = mutableMapOf()
     private val gson = Gson()
+    private val bgContext: CoroutineContext = CommonPool
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
@@ -49,38 +54,43 @@ class KotlinController : FreKotlinMainController {
 
     fun detect(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
-        val image = FirebaseVisionImage(argv[0]) ?: return FreConversionException("image")
-        val eventId = com.tuarua.frekotlin.String(argv[1]) ?: return FreConversionException("eventId")
+        val image = FirebaseVisionImage(argv[0], ctx) ?: return FreConversionException("image")
+        val eventId = com.tuarua.frekotlin.String(argv[1])
+                ?: return FreConversionException("eventId")
         val options = this.options
 
-        val detector: FirebaseVisionCloudLandmarkDetector = if (options != null) {
-            FirebaseVision.getInstance().getVisionCloudLandmarkDetector(options)
-        } else {
-            FirebaseVision.getInstance().visionCloudLandmarkDetector
-        }
-
-        detector.detectInImage(image).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                results[eventId] = task.result
-                dispatchEvent(LandmarkEvent.RECOGNIZED,
-                        gson.toJson(LandmarkEvent(eventId, null)))
+        launch(bgContext) {
+            val detector: FirebaseVisionCloudLandmarkDetector = if (options != null) {
+                FirebaseVision.getInstance().getVisionCloudLandmarkDetector(options)
             } else {
-                val error = task.exception
-                dispatchEvent(LandmarkEvent.RECOGNIZED,
-                        gson.toJson(
-                                LandmarkEvent(eventId, mapOf(
-                                        "text" to error?.message.toString(),
-                                        "id" to 0))
-                        )
-                )
+                FirebaseVision.getInstance().visionCloudLandmarkDetector
+            }
+
+            detector.detectInImage(image).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    results[eventId] = task.result
+                    dispatchEvent(LandmarkEvent.RECOGNIZED,
+                            gson.toJson(LandmarkEvent(eventId, null)))
+                } else {
+                    val error = task.exception
+                    dispatchEvent(LandmarkEvent.RECOGNIZED,
+                            gson.toJson(
+                                    LandmarkEvent(eventId, mapOf(
+                                            "text" to error?.message.toString(),
+                                            "id" to 0))
+                            )
+                    )
+                }
             }
         }
+
         return null
     }
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
-        val eventId = com.tuarua.frekotlin.String(argv[0]) ?: return FreConversionException("eventId")
+        val eventId = com.tuarua.frekotlin.String(argv[0])
+                ?: return FreConversionException("eventId")
         val result = results[eventId] ?: return null
         return result.toFREArray()
     }

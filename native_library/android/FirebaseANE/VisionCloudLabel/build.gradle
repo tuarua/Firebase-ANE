@@ -31,5 +31,12 @@ dependencies {
     implementation "com.google.firebase:firebase-core:$firebase_version"
     implementation "com.google.firebase:firebase-ml-vision:$firebase_version"
     implementation "com.tuarua:FreKotlin:$frekotlin_version"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.24.0'
     implementation project(':Vision')
 }
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}
+

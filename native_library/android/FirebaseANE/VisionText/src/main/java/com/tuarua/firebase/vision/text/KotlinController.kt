@@ -10,12 +10,16 @@ import com.tuarua.firebase.vision.text.events.TextEvent
 import com.tuarua.firebase.vision.text.extensions.toFREObject
 import com.tuarua.frekotlin.*
 import java.util.*
+import kotlinx.coroutines.experimental.CommonPool
+import kotlin.coroutines.experimental.CoroutineContext
+import kotlinx.coroutines.experimental.launch
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
     private val TRACE = "TRACE"
     private var results: MutableMap<String, MutableList<FirebaseVisionText.Block>> = mutableMapOf()
     private val gson = Gson()
+    private val bgContext: CoroutineContext = CommonPool
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         return true.toFREObject()
@@ -27,25 +31,28 @@ class KotlinController : FreKotlinMainController {
 
     fun detect(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
-        val image = FirebaseVisionImage(argv[0]) ?: return FreConversionException("image")
+        val image = FirebaseVisionImage(argv[0], ctx) ?: return FreConversionException("image")
         val eventId = String(argv[1]) ?: return FreConversionException("eventId")
-        val detector = FirebaseVision.getInstance().visionTextDetector
-        detector.detectInImage(image).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                results[eventId] = task.result.blocks
+        launch(bgContext) {
+            val detector = FirebaseVision.getInstance().visionTextDetector
+            detector.detectInImage(image).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    results[eventId] = task.result.blocks
                     dispatchEvent(TextEvent.RECOGNIZED,
                             gson.toJson(TextEvent(eventId, null)))
-            } else {
-                val error = task.exception
-                dispatchEvent(TextEvent.RECOGNIZED,
-                        gson.toJson(
-                                TextEvent(eventId, mapOf(
-                                        "text" to error?.message.toString(),
-                                        "id" to 0))
-                        )
-                )
+                } else {
+                    val error = task.exception
+                    dispatchEvent(TextEvent.RECOGNIZED,
+                            gson.toJson(
+                                    TextEvent(eventId, mapOf(
+                                            "text" to error?.message.toString(),
+                                            "id" to 0))
+                            )
+                    )
+                }
             }
         }
+
         return null
     }
 

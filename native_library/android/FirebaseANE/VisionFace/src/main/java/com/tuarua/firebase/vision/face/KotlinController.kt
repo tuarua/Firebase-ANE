@@ -26,7 +26,11 @@ import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
 import com.tuarua.firebase.vision.face.events.FaceEvent
 import com.tuarua.firebase.vision.face.extensions.*
 import com.tuarua.frekotlin.*
+import kotlinx.coroutines.experimental.CommonPool
+import kotlinx.coroutines.experimental.launch
+import kotlin.coroutines.experimental.CoroutineContext
 import java.util.*
+
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
@@ -34,6 +38,7 @@ class KotlinController : FreKotlinMainController {
     private var options: FirebaseVisionFaceDetectorOptions? = null
     private var results: MutableMap<String, MutableList<FirebaseVisionFace>> = mutableMapOf()
     private val gson = Gson()
+    private val bgContext: CoroutineContext = CommonPool
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
@@ -47,35 +52,36 @@ class KotlinController : FreKotlinMainController {
 
     fun detect(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
-        val image = FirebaseVisionImage(argv[0]) ?: return FreConversionException("image")
+        val image = FirebaseVisionImage(argv[0], ctx) ?: return FreConversionException("image")
         val eventId = String(argv[1]) ?: return FreConversionException("eventId")
         val options = this.options
 
-        val detector: FirebaseVisionFaceDetector = if (options != null) {
-            FirebaseVision.getInstance().getVisionFaceDetector(options)
-        } else {
-            FirebaseVision.getInstance().visionFaceDetector
-        }
-
-        detector.detectInImage(image).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                if (!task.result.isEmpty()) {
-                    results[eventId] = task.result
-                    dispatchEvent(FaceEvent.DETECTED,
-                            gson.toJson(FaceEvent(eventId, null)))
-                }
+        launch(bgContext) {
+            val detector: FirebaseVisionFaceDetector = if (options != null) {
+                FirebaseVision.getInstance().getVisionFaceDetector(options)
             } else {
-                val error = task.exception
-                dispatchEvent(FaceEvent.DETECTED,
-                        gson.toJson(
-                                FaceEvent(eventId, mapOf(
-                                        "text" to error?.message.toString(),
-                                        "id" to 0))
-                        )
-                )
+                FirebaseVision.getInstance().visionFaceDetector
+            }
+
+            detector.detectInImage(image).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    if (!task.result.isEmpty()) {
+                        results[eventId] = task.result
+                        dispatchEvent(FaceEvent.DETECTED,
+                                gson.toJson(FaceEvent(eventId, null)))
+                    }
+                } else {
+                    val error = task.exception
+                    dispatchEvent(FaceEvent.DETECTED,
+                            gson.toJson(
+                                    FaceEvent(eventId, mapOf(
+                                            "text" to error?.message.toString(),
+                                            "id" to 0))
+                            )
+                    )
+                }
             }
         }
-
         return null
     }
 

@@ -12,7 +12,6 @@ import com.tuarua.firebase.vision.VisionImage;
 import flash.display.Bitmap;
 
 import starling.display.Image;
-import starling.display.Quad;
 
 import starling.display.Sprite;
 import starling.events.Touch;
@@ -21,15 +20,12 @@ import starling.events.TouchPhase;
 import starling.text.TextField;
 import starling.textures.Texture;
 import starling.utils.Align;
-import starling.utils.Color;
 
 import views.SimpleButton;
 
 public class LabelExample extends Sprite implements IExample {
     [Embed(source="../../../assets/beach.jpg")]
     public static const labelImageBitmap:Class;
-
-    private static const COLORS:Array = [Color.GREEN, Color.YELLOW, Color.BLUE];
 
     private var bmpLabelImage:Bitmap = new labelImageBitmap() as Bitmap;
 

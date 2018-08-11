@@ -143,6 +143,7 @@
 
     <extensions>
         <extensionID>com.tuarua.frekotlin</extensionID>
+        <extensionID>org.jetbrains.kotlinx.kotlinx-coroutines-android</extensionID>
         <extensionID>org.greenrobot.eventbus</extensionID>
         <extensionID>com.google.code.gson.gson</extensionID>
         <extensionID>com.android.support.support-v4</extensionID>

@@ -29,6 +29,9 @@ import com.tuarua.firebase.vision.label.extensions.FirebaseVisionLabelDetectorOp
 import com.tuarua.firebase.vision.label.extensions.toFREArray
 import com.tuarua.frekotlin.*
 import java.util.*
+import kotlinx.coroutines.experimental.CommonPool
+import kotlinx.coroutines.experimental.launch
+import kotlin.coroutines.experimental.CoroutineContext
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
@@ -36,6 +39,7 @@ class KotlinController : FreKotlinMainController {
     private var options: FirebaseVisionLabelDetectorOptions? = null
     private var results: MutableMap<String, MutableList<FirebaseVisionLabel>> = mutableMapOf()
     private val gson = Gson()
+    private val bgContext: CoroutineContext = CommonPool
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
@@ -49,32 +53,35 @@ class KotlinController : FreKotlinMainController {
 
     fun detect(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
-        val image = FirebaseVisionImage(argv[0]) ?: return FreConversionException("image")
+        val image = FirebaseVisionImage(argv[0], ctx) ?: return FreConversionException("image")
         val eventId = String(argv[1]) ?: return FreConversionException("eventId")
         val options = this.options
 
-        val detector: FirebaseVisionLabelDetector = if (options != null) {
-            FirebaseVision.getInstance().getVisionLabelDetector(options)
-        } else {
-            FirebaseVision.getInstance().visionLabelDetector
-        }
-
-        detector.detectInImage(image).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                results[eventId] = task.result
-                dispatchEvent(LabelEvent.RECOGNIZED,
-                        gson.toJson(LabelEvent(eventId, null)))
+        launch(bgContext) {
+            val detector: FirebaseVisionLabelDetector = if (options != null) {
+                FirebaseVision.getInstance().getVisionLabelDetector(options)
             } else {
-                val error = task.exception
-                dispatchEvent(LabelEvent.RECOGNIZED,
-                        gson.toJson(
-                                LabelEvent(eventId, mapOf(
-                                        "text" to error?.message.toString(),
-                                        "id" to 0))
-                        )
-                )
+                FirebaseVision.getInstance().visionLabelDetector
+            }
+
+            detector.detectInImage(image).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    results[eventId] = task.result
+                    dispatchEvent(LabelEvent.RECOGNIZED,
+                            gson.toJson(LabelEvent(eventId, null)))
+                } else {
+                    val error = task.exception
+                    dispatchEvent(LabelEvent.RECOGNIZED,
+                            gson.toJson(
+                                    LabelEvent(eventId, mapOf(
+                                            "text" to error?.message.toString(),
+                                            "id" to 0))
+                            )
+                    )
+                }
             }
         }
+
         return null
     }
 

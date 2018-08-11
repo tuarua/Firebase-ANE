@@ -90,7 +90,7 @@ public class TextExample extends Sprite implements IExample {
 
         var newScale:Number = (stageWidth - 30) / textContainer.width;
         textContainer.scaleY = textContainer.scaleX = newScale;
-
+        textContainer.visible = false;
         textContainer.x = (stageWidth - textContainer.width) * 0.5;
         textContainer.y = statusLabel.y + StarlingRoot.GAP;
 

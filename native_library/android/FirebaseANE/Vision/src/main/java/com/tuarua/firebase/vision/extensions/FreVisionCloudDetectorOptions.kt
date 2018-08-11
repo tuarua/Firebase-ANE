@@ -27,6 +27,6 @@ fun FirebaseVisionCloudDetectorOptions(freObject: FREObject?): FirebaseVisionClo
     val maxResults = Int(rv["maxResults"]) ?: 10
     val modelType = Int(rv["modelType"]) ?: return null
     return FirebaseVisionCloudDetectorOptions.Builder()
-            .setModelType(modelType + 1) //TODO check
+            .setModelType(modelType + 1)
             .setMaxResults(maxResults).build()
 }

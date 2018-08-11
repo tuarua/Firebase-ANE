@@ -20,11 +20,15 @@ import FirebaseMLVision
 
 public extension VisionImage {
     convenience init?(_ freObject: FREObject?) {
-        guard let rv = freObject,
-            let image = UIImage(freObject: rv["bitmapdata"])
+        guard let rv = freObject
             else { return nil }
-        
-        self.init(image: image)
+        if let image = UIImage(freObject: rv["bitmapdata"]) {
+            self.init(image: image)
+        } else if let path = String(rv["path"]), let image = UIImage(named: path) {
+            self.init(image: image)
+        } else {
+            return nil
+        }
         self.metadata = VisionImageMetadata(rv["metadata"])
     }
 }

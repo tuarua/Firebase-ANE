@@ -28,7 +28,11 @@ import com.tuarua.firebase.vision.cloudtext.extensions.toFREObject
 import com.tuarua.firebase.vision.extensions.FirebaseVisionCloudDetectorOptions
 import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
 import com.tuarua.frekotlin.*
+
 import java.util.*
+import kotlin.coroutines.experimental.CoroutineContext
+import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.experimental.CommonPool
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
@@ -36,6 +40,7 @@ class KotlinController : FreKotlinMainController {
     private var options: FirebaseVisionCloudDetectorOptions? = null
     private var results: MutableMap<String, FirebaseVisionCloudText> = mutableMapOf()
     private val gson = Gson()
+    private val bgContext: CoroutineContext = CommonPool
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
@@ -49,32 +54,35 @@ class KotlinController : FreKotlinMainController {
 
     fun detect(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
-        val image = FirebaseVisionImage(argv[0]) ?: return FreConversionException("image")
+        val image = FirebaseVisionImage(argv[0], ctx) ?: return FreConversionException("image")
         val eventId = String(argv[1]) ?: return FreConversionException("eventId")
         val options = this.options
 
-        val detector: FirebaseVisionCloudTextDetector = if (options != null) {
-            FirebaseVision.getInstance().getVisionCloudTextDetector(options)
-        } else {
-            FirebaseVision.getInstance().visionCloudTextDetector
-        }
-
-        detector.detectInImage(image).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                results[eventId] = task.result
-                dispatchEvent(CloudTextEvent.RECOGNIZED,
-                        gson.toJson(CloudTextEvent(eventId, null)))
+        launch(bgContext) {
+            val detector: FirebaseVisionCloudTextDetector = if (options != null) {
+                FirebaseVision.getInstance().getVisionCloudTextDetector(options)
             } else {
-                val error = task.exception
-                dispatchEvent(CloudTextEvent.RECOGNIZED,
-                        gson.toJson(
-                                CloudTextEvent(eventId, mapOf(
-                                        "text" to error?.message.toString(),
-                                        "id" to 0))
-                        )
-                )
+                FirebaseVision.getInstance().visionCloudTextDetector
+            }
+
+            detector.detectInImage(image).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    results[eventId] = task.result
+                    dispatchEvent(CloudTextEvent.RECOGNIZED,
+                            gson.toJson(CloudTextEvent(eventId, null)))
+                } else {
+                    val error = task.exception
+                    dispatchEvent(CloudTextEvent.RECOGNIZED,
+                            gson.toJson(
+                                    CloudTextEvent(eventId, mapOf(
+                                            "text" to error?.message.toString(),
+                                            "id" to 0))
+                            )
+                    )
+                }
             }
         }
+
         return null
     }
 
