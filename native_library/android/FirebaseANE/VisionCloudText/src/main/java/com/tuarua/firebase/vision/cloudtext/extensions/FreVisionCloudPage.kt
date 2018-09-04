@@ -24,23 +24,18 @@ import com.google.firebase.ml.vision.cloud.text.FirebaseVisionCloudText
 import com.tuarua.frekotlin.*
 
 fun FirebaseVisionCloudText.Page.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.CloudPage")
-
-        ret["confidence"] = confidence.toFREObject()
-        ret["width"] = width.toFREObject()
-        ret["height"] = height.toFREObject()
-        ret["blocks"] = blocks.toFREArray()
-        ret["textProperty"] = textProperty?.toFREObject()
-        return ret
-    } catch (e: FreException) {
-
-    }
-    return null
+    val ret = FREObject("com.tuarua.firebase.vision.CloudPage")
+    ret["confidence"] = confidence.toFREObject()
+    ret["width"] = width.toFREObject()
+    ret["height"] = height.toFREObject()
+    ret["blocks"] = blocks.toFREArray()
+    ret["textProperty"] = textProperty?.toFREObject()
+    return ret
 }
 
 fun List<FirebaseVisionCloudText.Page>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.vision.CloudPage", this.size, true)
+    val ret = FREArray("com.tuarua.firebase.vision.CloudPage", size, true)
+            ?: return null
     for (i in this.indices) {
         ret[i] = this[i].toFREObject()
     }

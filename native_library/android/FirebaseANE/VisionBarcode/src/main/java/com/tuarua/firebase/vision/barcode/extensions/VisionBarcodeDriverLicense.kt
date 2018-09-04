@@ -18,31 +18,24 @@ package com.tuarua.firebase.vision.barcode.extensions
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.tuarua.frekotlin.FREObject
-import com.tuarua.frekotlin.FreException
 import com.tuarua.frekotlin.set
 import com.tuarua.frekotlin.toFREObject
 
 fun FirebaseVisionBarcode.DriverLicense.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.BarcodeDriverLicense")
-        ret["addressCity"] = this.addressCity?.toFREObject()
-        ret["addressState"] = this.addressState?.toFREObject()
-        ret["addressStreet"] = this.addressStreet?.toFREObject()
-        ret["addressZip"] = this.addressZip?.toFREObject()
-        ret["birthDate"] = this.birthDate?.toFREObject()
-        ret["documentType"] = this.documentType?.toFREObject()
-        ret["expiryDate"] = this.expiryDate?.toFREObject()
-        ret["firstName"] = this.firstName?.toFREObject()
-        ret["gender"] = this.gender?.toFREObject()
-        ret["issuingCountry"] = this.issuingCountry?.toFREObject()
-        ret["issuingDate"] = this.issueDate?.toFREObject()
-        ret["lastName"] = this.lastName?.toFREObject()
-        ret["licenseNumber"] = this.licenseNumber?.toFREObject()
-        ret["middleName"] = this.middleName?.toFREObject()
-
-        return ret
-    } catch (e: FreException) {
-
-    }
-    return null
+    val ret = FREObject("com.tuarua.firebase.vision.BarcodeDriverLicense")
+    ret["addressCity"] = this.addressCity?.toFREObject()
+    ret["addressState"] = this.addressState?.toFREObject()
+    ret["addressStreet"] = this.addressStreet?.toFREObject()
+    ret["addressZip"] = this.addressZip?.toFREObject()
+    ret["birthDate"] = this.birthDate?.toFREObject()
+    ret["documentType"] = this.documentType?.toFREObject()
+    ret["expiryDate"] = this.expiryDate?.toFREObject()
+    ret["firstName"] = this.firstName?.toFREObject()
+    ret["gender"] = this.gender?.toFREObject()
+    ret["issuingCountry"] = this.issuingCountry?.toFREObject()
+    ret["issuingDate"] = this.issueDate?.toFREObject()
+    ret["lastName"] = this.lastName?.toFREObject()
+    ret["licenseNumber"] = this.licenseNumber?.toFREObject()
+    ret["middleName"] = this.middleName?.toFREObject()
+    return ret
 }

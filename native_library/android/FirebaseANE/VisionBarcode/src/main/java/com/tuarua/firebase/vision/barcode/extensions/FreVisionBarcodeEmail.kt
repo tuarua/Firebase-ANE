@@ -18,20 +18,14 @@ package com.tuarua.firebase.vision.barcode.extensions
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.tuarua.frekotlin.FREObject
-import com.tuarua.frekotlin.FreException
 import com.tuarua.frekotlin.set
 import com.tuarua.frekotlin.toFREObject
 
 fun FirebaseVisionBarcode.Email.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.BarcodeEmail")
-        ret["address"] = this.address?.toFREObject()
-        ret["body"] = this.body?.toFREObject()
-        ret["subject"] = this.subject?.toFREObject()
-        ret["type"] = this.type.toFREObject()
-        return ret
-    } catch (e: FreException) {
-
-    }
-    return null
+    val ret = FREObject("com.tuarua.firebase.vision.BarcodeEmail")
+    ret["address"] = this.address?.toFREObject()
+    ret["body"] = this.body?.toFREObject()
+    ret["subject"] = this.subject?.toFREObject()
+    ret["type"] = this.type.toFREObject()
+    return ret
 }

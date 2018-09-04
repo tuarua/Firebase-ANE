@@ -24,13 +24,8 @@ import com.tuarua.frekotlin.set
 import com.tuarua.frekotlin.toFREObject
 
 fun FirebaseVisionCloudText.DetectedBreak.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.CloudDetectedBreak")
-        ret["isPrefix"] = isPrefix.toFREObject()
-        ret["type"] = detectedBreakType.toFREObject()
-        return ret
-    } catch (e: FreException) {
-
-    }
-    return null
+    val ret = FREObject("com.tuarua.firebase.vision.CloudDetectedBreak")
+    ret["isPrefix"] = isPrefix.toFREObject()
+    ret["type"] = detectedBreakType.toFREObject()
+    return ret
 }

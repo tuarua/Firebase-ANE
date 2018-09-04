@@ -20,20 +20,15 @@ import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.tuarua.frekotlin.*
 
 fun FirebaseVisionBarcode.Address.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.BarcodeAddress")
-        ret["type"] = this.type.toFREObject()
-        if (this.addressLines.isNotEmpty()) {
-            val freAddressArr = FREArray("String",
-                    this.addressLines.size, true)
-            for (i in this.addressLines.indices) {
-                freAddressArr[i] = this.addressLines[i].toFREObject()
-            }
-            ret["addressLines"] = freAddressArr
+    val ret = FREObject("com.tuarua.firebase.vision.BarcodeAddress")
+    ret["type"] = this.type.toFREObject()
+    if (this.addressLines.isNotEmpty()) {
+        val freAddressArr = FREArray("String", addressLines.size, true)
+                ?: return null
+        for (i in this.addressLines.indices) {
+            freAddressArr[i] = this.addressLines[i].toFREObject()
         }
-        return ret
-    } catch (e: FreException) {
-
+        ret["addressLines"] = freAddressArr
     }
-    return null
+    return ret
 }

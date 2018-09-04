@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 @file:Suppress("FunctionName")
+
 package com.tuarua.firebase.vision.cloudtext.extensions
 
 import com.adobe.fre.FREObject
@@ -21,15 +22,10 @@ import com.google.firebase.ml.vision.cloud.text.FirebaseVisionCloudText
 import com.tuarua.frekotlin.*
 
 fun FirebaseVisionCloudText.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.CloudText")
-        ret["text"] = text.toFREObject()
-        ret["pages"] = pages.toFREArray()
-        return ret
-    } catch (e: FreException) {
-
-    }
-    return null
+    val ret = FREObject("com.tuarua.firebase.vision.CloudText")
+    ret["text"] = text.toFREObject()
+    ret["pages"] = pages.toFREArray()
+    return ret
 }
 
 

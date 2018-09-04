@@ -15,7 +15,6 @@
  */
 package com.tuarua.firebase.firestore
 
-import com.adobe.fre.FREArray
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.tuarua.firebase.firestore.data.Order
@@ -69,55 +68,54 @@ class KotlinController : FreKotlinMainController {
         val path = String(argv[0]) ?: return FreConversionException("path")
         val asId = String(argv[1]) ?: return FreConversionException("asId")
         try {
-            val whereClauses: FREArray? = FREArray(freObject = argv[2])
-            val orderClauses: FREArray? = FREArray(freObject = argv[3])
-            val startAtClauses: FREArray? = FREArray(freObject = argv[4])
-            val startAfterClauses: FREArray? = FREArray(freObject = argv[5])
-            val endAtClauses: FREArray? = FREArray(freObject = argv[6])
-            val endBeforeClauses: FREArray? = FREArray(freObject = argv[7])
+            val whereClauses = FREArray(argv[2])
+            val orderClauses = FREArray(argv[3])
+            val startAtClauses = FREArray(argv[4])
+            val startAfterClauses = FREArray(argv[5])
+            val endAtClauses = FREArray(argv[6])
+            val endBeforeClauses = FREArray(argv[7])
             val limitTo = Int(argv[8]) ?: 10000
             val whereList = mutableListOf<Where>()
-            for (i in 1..(whereClauses?.length ?: 0)) {
-                val fre: FREObject? = whereClauses?.at((i - 1).toInt())
-                if (fre != null) {
-                    val fieldPath = String(fre["fieldPath"])
-                    val operator = String(fre["operator"])
-                    val value = fre["value"]
-                    if (fieldPath != null && operator != null && value != null) {
-                        val freK = FreObjectKotlin(value).value
-                        if (freK != null) {
-                            val w = Where(fieldPath, operator, freK)
-                            whereList.add(w)
-                        }
-                    }
-                }
-            }
-
             val orderList = mutableListOf<Order>()
-            for (i in 1..(orderClauses?.length ?: 0)) {
-                val fre: FREObject? = orderClauses?.at((i - 1).toInt())
-                if (fre != null) {
-                    val by = String(fre["by"])
-                    val descending = Boolean(fre["descending"]) != false
-                    if (by != null) {
-                        val o = Order(by, descending)
-                        orderList.add(o)
-                    }
-                }
 
+            for (fre in whereClauses) {
+                if (fre == null) continue
+                val fieldPath = String(fre["fieldPath"]) ?: continue
+                val operator = String(fre["operator"]) ?: continue
+                val value = fre["value"] ?: continue
+                val freK = FreObjectKotlin(value).value ?: continue
+                whereList.add(Where(fieldPath, operator, freK))
             }
 
-            val startAtList = (1..(startAtClauses?.length?.toInt() ?: 0)).mapNotNull {
-                FreObjectKotlin(startAtClauses?.at(it - 1)).value
+            for (fre in orderClauses) {
+                if (fre == null) continue
+                val by = String(fre["by"]) ?: continue
+                val descending = Boolean(fre["descending"]) ?: continue
+                orderList.add(Order(by, descending))
             }
-            val startAfterList = (1..(startAfterClauses?.length?.toInt() ?: 0)).mapNotNull {
-                FreObjectKotlin(startAfterClauses?.at(it - 1)).value
+
+            val startAtList = mutableListOf<Any>()
+            for (fre in startAtClauses) {
+                val item = FreObjectKotlin(fre).value ?: continue
+                startAtList.add(item)
             }
-            val endAtList = (1..(endAtClauses?.length?.toInt() ?: 0)).mapNotNull {
-                FreObjectKotlin(endAtClauses?.at(it - 1)).value
+
+            val startAfterList = mutableListOf<Any>()
+            for (fre in startAfterClauses) {
+                val item = FreObjectKotlin(fre).value ?: continue
+                startAfterList.add(item)
             }
-            val endBeforeList = (1..(endBeforeClauses?.length?.toInt() ?: 0)).mapNotNull {
-                FreObjectKotlin(endBeforeClauses?.at(it - 1)).value
+
+            val endAtList = mutableListOf<Any>()
+            for (fre in endAtClauses) {
+                val item = FreObjectKotlin(fre).value ?: continue
+                endAtList.add(item)
+            }
+
+            val endBeforeList = mutableListOf<Any>()
+            for (fre in endBeforeClauses) {
+                val item = FreObjectKotlin(fre).value ?: continue
+                endBeforeList.add(item)
             }
 
             firestoreController.getDocuments(path, asId, whereList, orderList,
@@ -255,5 +253,6 @@ class KotlinController : FreKotlinMainController {
         get() = _context
         set(value) {
             _context = value
+            FreKotlinLogger.context = _context
         }
 }

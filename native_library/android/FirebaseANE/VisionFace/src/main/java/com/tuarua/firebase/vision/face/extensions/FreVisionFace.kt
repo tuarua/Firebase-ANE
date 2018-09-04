@@ -26,47 +26,41 @@ import com.tuarua.frekotlin.geom.Rect
 import com.tuarua.frekotlin.geom.toFREObject
 
 fun FirebaseVisionFace.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.Face")
-        ret["frame"] = this.boundingBox?.toFREObject()
-        ret["hasTrackingId"] = true.toFREObject()
-        ret["trackingId"] = this.trackingId.toFREObject()
-        ret["hasHeadEulerAngleY"] = true.toFREObject()
-        ret["headEulerAngleY"] = this.headEulerAngleY.toFREObject()
-        ret["hasHeadEulerAngleZ"] = true.toFREObject()
-        ret["headEulerAngleZ"] = this.headEulerAngleZ.toFREObject()
-        ret["hasSmilingProbability"] = true.toFREObject()
-        ret["smilingProbability"] = this.smilingProbability.toFREObject()
-        ret["hasLeftEyeOpenProbability"] = true.toFREObject()
-        ret["leftEyeOpenProbability"] = this.leftEyeOpenProbability.toFREObject()
-        ret["hasRightEyeOpenProbability"] = true.toFREObject()
-        ret["rightEyeOpenProbability"] = this.rightEyeOpenProbability.toFREObject()
+    val ret = FREObject("com.tuarua.firebase.vision.Face")
+    ret["frame"] = this.boundingBox?.toFREObject()
+    ret["hasTrackingId"] = true.toFREObject()
+    ret["trackingId"] = this.trackingId.toFREObject()
+    ret["hasHeadEulerAngleY"] = true.toFREObject()
+    ret["headEulerAngleY"] = this.headEulerAngleY.toFREObject()
+    ret["hasHeadEulerAngleZ"] = true.toFREObject()
+    ret["headEulerAngleZ"] = this.headEulerAngleZ.toFREObject()
+    ret["hasSmilingProbability"] = true.toFREObject()
+    ret["smilingProbability"] = this.smilingProbability.toFREObject()
+    ret["hasLeftEyeOpenProbability"] = true.toFREObject()
+    ret["leftEyeOpenProbability"] = this.leftEyeOpenProbability.toFREObject()
+    ret["hasRightEyeOpenProbability"] = true.toFREObject()
+    ret["rightEyeOpenProbability"] = this.rightEyeOpenProbability.toFREObject()
 
-        var cnt = 0
-        val freLandMarks = FREArray("com.tuarua.firebase.vision.FaceLandmark")
-        val types = listOf(
-                LEFT_EYE, RIGHT_EYE,
-                BOTTOM_MOUTH, RIGHT_MOUTH, LEFT_MOUTH,
-                LEFT_EAR, RIGHT_EAR,
-                LEFT_CHEEK, RIGHT_CHEEK,
-                NOSE_BASE)
-        for (type in types) {
-            val lm = this.getLandmark(type) ?: continue
-            freLandMarks[cnt] = lm.toFREObject()
-            cnt += 1
-        }
-        ret["landmarks"] = freLandMarks
-
-        return ret
-    } catch (e: FreException) {
-
+    var cnt = 0
+    val freLandMarks = FREArray("com.tuarua.firebase.vision.FaceLandmark") ?: return null
+    val types = listOf(
+            LEFT_EYE, RIGHT_EYE,
+            BOTTOM_MOUTH, RIGHT_MOUTH, LEFT_MOUTH,
+            LEFT_EAR, RIGHT_EAR,
+            LEFT_CHEEK, RIGHT_CHEEK,
+            NOSE_BASE)
+    for (type in types) {
+        val lm = this.getLandmark(type) ?: continue
+        freLandMarks[cnt] = lm.toFREObject()
+        cnt += 1
     }
-    return null
-
+    ret["landmarks"] = freLandMarks
+    return ret
 }
 
 fun List<FirebaseVisionFace>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.vision.Face", this.size, true)
+    val ret = FREArray("com.tuarua.firebase.vision.Face", size, true)
+            ?: return null
     for (i in this.indices) {
         ret[i] = this[i].toFREObject()
     }

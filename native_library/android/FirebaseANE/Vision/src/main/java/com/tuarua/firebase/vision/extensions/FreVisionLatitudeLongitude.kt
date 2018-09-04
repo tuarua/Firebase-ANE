@@ -24,19 +24,15 @@ import com.google.firebase.ml.vision.common.FirebaseVisionLatLng
 import com.tuarua.frekotlin.*
 
 fun FirebaseVisionLatLng.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.LatitudeLongitude")
-        ret["latitude"] = latitude.toFREObject()
-        ret["longitude"] = longitude.toFREObject()
-        return ret
-    } catch (e: FreException) {
-
-    }
-    return null
+    val ret = FREObject("com.tuarua.firebase.vision.LatitudeLongitude")
+    ret["latitude"] = latitude.toFREObject()
+    ret["longitude"] = longitude.toFREObject()
+    return ret
 }
 
 fun List<FirebaseVisionLatLng>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.vision.LatitudeLongitude", this.size, true)
+    val ret = FREArray("com.tuarua.firebase.vision.LatitudeLongitude", size, true)
+            ?: return null
     for (i in this.indices) {
         ret[i] = this[i].toFREObject()
     }

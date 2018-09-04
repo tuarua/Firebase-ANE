@@ -72,20 +72,15 @@ class KotlinController : FreKotlinMainController {
         } catch (e: Resources.NotFoundException) {
             null
         }
-        return try {
-            val ret = FREObject("com.tuarua.firebase.FirebaseOptions")
-            ret.setProp("apiKey", apiKey)
-            ret.setProp("googleAppId", googleAppId)
-            ret.setProp("databaseUrl", databaseUrl)
-            ret.setProp("storageBucket", storageBucket)
-            ret.setProp("projectId", projectId)
-            ret.setProp("gcmSenderId", gcmSenderId)
-            ret
-        } catch (e: Exception) {
-            FreException(e).getError(Thread.currentThread().stackTrace)
-        } catch (e: FreException) {
-            FreException("cannot create FirebaseOptions").getError(Thread.currentThread().stackTrace)
-        }
+        val ret = FREObject("com.tuarua.firebase.FirebaseOptions")
+        ret["apiKey"] = apiKey?.toFREObject()
+        ret["googleAppId"] = googleAppId?.toFREObject()
+        ret["databaseUrl"] = databaseUrl?.toFREObject()
+        ret["storageBucket"] = storageBucket?.toFREObject()
+        ret["projectId"] = projectId?.toFREObject()
+        ret["gcmSenderId"] = gcmSenderId?.toFREObject()
+        return ret
+
     }
 
     fun isGooglePlayServicesAvailable(ctx: FREContext, argv: FREArgv): FREObject? {
@@ -102,5 +97,6 @@ class KotlinController : FreKotlinMainController {
         get() = _context
         set(value) {
             _context = value
+            FreKotlinLogger.context = _context
         }
 }

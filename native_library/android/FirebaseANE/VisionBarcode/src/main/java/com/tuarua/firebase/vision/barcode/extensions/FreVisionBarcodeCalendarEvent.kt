@@ -18,27 +18,21 @@ package com.tuarua.firebase.vision.barcode.extensions
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.tuarua.frekotlin.FREObject
-import com.tuarua.frekotlin.FreException
 import com.tuarua.frekotlin.set
 import com.tuarua.frekotlin.toFREObject
 import java.text.DateFormat
 
 fun FirebaseVisionBarcode.CalendarEvent.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.BarcodeCalendarEvent")
-        ret["end"] = this.end?.toFREObject()
-        ret["eventDescription"] = this.description?.toFREObject()
-        ret["location"] = this.location?.toFREObject()
-        ret["organizer"] = this.organizer?.toFREObject()
-        ret["start"] = this.start?.toFREObject()
-        ret["status"] = this.status?.toFREObject()
-        ret["summary"] = this.summary?.toFREObject()
+    val ret = FREObject("com.tuarua.firebase.vision.BarcodeCalendarEvent")
+    ret["end"] = this.end?.toFREObject()
+    ret["eventDescription"] = this.description?.toFREObject()
+    ret["location"] = this.location?.toFREObject()
+    ret["organizer"] = this.organizer?.toFREObject()
+    ret["start"] = this.start?.toFREObject()
+    ret["status"] = this.status?.toFREObject()
+    ret["summary"] = this.summary?.toFREObject()
 
-        return ret
-    } catch (e: FreException) {
-
-    }
-    return null
+    return ret
 }
 
 private fun FirebaseVisionBarcode.CalendarDateTime.toFREObject(): FREObject? {

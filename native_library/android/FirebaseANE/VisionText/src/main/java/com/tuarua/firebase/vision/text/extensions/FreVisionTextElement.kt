@@ -22,25 +22,20 @@ import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.text.FirebaseVisionText
 import com.tuarua.firebase.vision.extensions.FREArray
-import com.tuarua.firebase.vision.extensions.toFREObject
 import com.tuarua.frekotlin.*
+import com.tuarua.frekotlin.geom.toFREObject
 
 fun FirebaseVisionText.Element.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.TextElement")
-
-        ret["frame"] = this.boundingBox?.toFREObject()
-        ret["text"] = this.text.toFREObject()
-        ret["cornerPoints"] = FREArray(this.cornerPoints)
-        return ret
-    } catch (e: FreException) {
-
-    }
-    return null
+    val ret = FREObject("com.tuarua.firebase.vision.TextElement")
+    ret["frame"] = this.boundingBox?.toFREObject()
+    ret["text"] = this.text.toFREObject()
+    ret["cornerPoints"] = FREArray(this.cornerPoints)
+    return ret
 }
 
 fun List<FirebaseVisionText.Element>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.vision.TextElement", this.size, true)
+    val ret = FREArray("com.tuarua.firebase.vision.TextElement", size, true)
+            ?: return null
     for (i in this.indices) {
         ret[i] = this[i].toFREObject()
     }

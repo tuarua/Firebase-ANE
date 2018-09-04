@@ -20,42 +20,37 @@ import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.tuarua.frekotlin.*
 
 fun FirebaseVisionBarcode.ContactInfo.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.BarcodeCalendarEvent")
-        ret["jobTitle"] = this.title?.toFREObject()
-        ret["name"] = this.name?.toFREObject()
-        ret["organization"] = this.organization?.toFREObject()
-        if (this.addresses.isNotEmpty()) {
-            val freAddressArr = FREArray("com.tuarua.firebase.vision.BarcodeAddress",
-                    this.addresses.size, true)
-            for (i in this.addresses.indices) {
-                freAddressArr[i] = this.addresses[i].toFREObject()
-            }
-            ret["addresses"] = freAddressArr
+    val ret = FREObject("com.tuarua.firebase.vision.BarcodeCalendarEvent")
+    ret["jobTitle"] = this.title?.toFREObject()
+    ret["name"] = this.name?.toFREObject()
+    ret["organization"] = this.organization?.toFREObject()
+    if (this.addresses.isNotEmpty()) {
+        val freAddressArr = FREArray("com.tuarua.firebase.vision.BarcodeAddress",
+                this.addresses.size, true) ?: return null
+        for (i in this.addresses.indices) {
+            freAddressArr[i] = this.addresses[i].toFREObject()
         }
-
-        if (this.emails.isNotEmpty()) {
-            val freEmailArr = FREArray("com.tuarua.firebase.vision.BarcodeEmail",
-                    this.emails.size, true)
-            for (i in this.emails.indices) {
-                freEmailArr[i] = this.emails[i].toFREObject()
-            }
-            ret["emails"] = freEmailArr
-        }
-
-        if (this.phones.isNotEmpty()) {
-            val frePhoneArr = FREArray("com.tuarua.firebase.vision.BarcodePhone",
-                    this.phones.size, true)
-            for (i in this.phones.indices) {
-                frePhoneArr[i] = this.phones[i].toFREObject()
-            }
-            ret["phones"] = frePhoneArr
-        }
-        return ret
-    } catch (e: FreException) {
-
+        ret["addresses"] = freAddressArr
     }
-    return null
+
+    if (this.emails.isNotEmpty()) {
+        val freEmailArr = FREArray("com.tuarua.firebase.vision.BarcodeEmail",
+                this.emails.size, true) ?: return null
+        for (i in this.emails.indices) {
+            freEmailArr[i] = this.emails[i].toFREObject()
+        }
+        ret["emails"] = freEmailArr
+    }
+
+    if (this.phones.isNotEmpty()) {
+        val frePhoneArr = FREArray("com.tuarua.firebase.vision.BarcodePhone",
+                this.phones.size, true) ?: return null
+        for (i in this.phones.indices) {
+            frePhoneArr[i] = this.phones[i].toFREObject()
+        }
+        ret["phones"] = frePhoneArr
+    }
+    return ret
 }
 
 

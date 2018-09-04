@@ -22,14 +22,9 @@ import com.tuarua.frekotlin.FREObject
 import com.tuarua.frekotlin.FreException
 import com.tuarua.frekotlin.toFREObject
 
-fun FirebaseVisionFaceLandmark.toFREObject(): FREObject? {
-    try {
-        return FREObject("com.tuarua.firebase.vision.FaceLandmark",
-                position.toFREObject(), landmarkTypeString(faceLandmarkType)?.toFREObject())
-    } catch (e: FreException) {
-    }
-    return null
-}
+fun FirebaseVisionFaceLandmark.toFREObject() =
+        FREObject("com.tuarua.firebase.vision.FaceLandmark",
+                    position.toFREObject(), landmarkTypeString(faceLandmarkType)?.toFREObject())
 
 private fun landmarkTypeString(value: Int): String? {
     return when (value) {

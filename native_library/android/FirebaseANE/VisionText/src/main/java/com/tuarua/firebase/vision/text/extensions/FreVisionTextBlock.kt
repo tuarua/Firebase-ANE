@@ -16,23 +16,18 @@
 @file:Suppress("FunctionName")
 
 package com.tuarua.firebase.vision.text.extensions
+
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.text.FirebaseVisionText
 import com.tuarua.firebase.vision.extensions.FREArray
-import com.tuarua.firebase.vision.extensions.toFREObject
 import com.tuarua.frekotlin.*
+import com.tuarua.frekotlin.geom.toFREObject
 
 fun FirebaseVisionText.Block.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.TextBlock")
-
-        ret["lines"] = lines.toFREArray()
-        ret["frame"] = boundingBox?.toFREObject()
-        ret["text"] = text.toFREObject()
-        ret["cornerPoints"] = FREArray(cornerPoints)
-        return ret
-    } catch (e: FreException) {
-
-    }
-    return null
+    val ret = FREObject("com.tuarua.firebase.vision.TextBlock")
+    ret["lines"] = lines.toFREArray()
+    ret["frame"] = boundingBox?.toFREObject()
+    ret["text"] = text.toFREObject()
+    ret["cornerPoints"] = FREArray(cornerPoints)
+    return ret
 }

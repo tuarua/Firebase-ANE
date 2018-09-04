@@ -21,26 +21,21 @@ package com.tuarua.firebase.vision.cloudtext.extensions
 import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.cloud.text.FirebaseVisionCloudText
-import com.tuarua.firebase.vision.extensions.toFREObject
 import com.tuarua.frekotlin.*
+import com.tuarua.frekotlin.geom.toFREObject
 
 fun FirebaseVisionCloudText.Paragraph.toFREObject(): FREObject? {
-    try {
-
-        val ret = FREObject("com.tuarua.firebase.vision.CloudParagraph")
-        ret["frame"] = boundingBox?.toFREObject()
-        ret["confidence"] = confidence.toFREObject()
-        ret["textProperty"] = textProperty?.toFREObject()
-        ret["words"] = words.toFREArray()
-        return ret
-    } catch (e: FreException) {
-
-    }
-    return null
+    val ret = FREObject("com.tuarua.firebase.vision.CloudParagraph")
+    ret["frame"] = boundingBox?.toFREObject()
+    ret["confidence"] = confidence.toFREObject()
+    ret["textProperty"] = textProperty?.toFREObject()
+    ret["words"] = words.toFREArray()
+    return ret
 }
 
 fun List<FirebaseVisionCloudText.Paragraph>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.vision.CloudParagraph", this.size, true)
+    val ret = FREArray("com.tuarua.firebase.vision.CloudParagraph", size, true)
+            ?: return null
     for (i in this.indices) {
         ret[i] = this[i].toFREObject()
     }

@@ -18,12 +18,6 @@ package com.tuarua.firebase.vision.barcode.extensions
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.tuarua.frekotlin.FREObject
-import com.tuarua.frekotlin.FreException
 
-fun FirebaseVisionBarcode.Phone.toFREObject(): FREObject? {
-    try {
-        return FREObject("com.tuarua.firebase.vision.BarcodePhone", number, type)
-    } catch (e: FreException) {
-    }
-    return null
-}
+fun FirebaseVisionBarcode.Phone.toFREObject(): FREObject? =
+        FREObject("com.tuarua.firebase.vision.BarcodePhone", number, type)

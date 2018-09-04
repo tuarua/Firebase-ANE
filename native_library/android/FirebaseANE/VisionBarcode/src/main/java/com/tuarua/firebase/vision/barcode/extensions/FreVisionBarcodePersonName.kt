@@ -18,25 +18,17 @@ package com.tuarua.firebase.vision.barcode.extensions
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.tuarua.frekotlin.FREObject
-import com.tuarua.frekotlin.FreException
 import com.tuarua.frekotlin.set
 import com.tuarua.frekotlin.toFREObject
 
 fun FirebaseVisionBarcode.PersonName.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.BarcodePersonName")
-        ret["formattedName"] = this.formattedName?.toFREObject()
-        ret["first"] = this.first?.toFREObject()
-        ret["last"] = this.last?.toFREObject()
-        ret["middle"] = this.middle?.toFREObject()
-        ret["prefix"] = this.prefix?.toFREObject()
-        ret["pronounciation"] = this.pronunciation?.toFREObject()
-        ret["suffix"] = this.suffix?.toFREObject()
-        return ret
-    } catch (e: FreException) {
-
-    }
-    return null
-
-
+    val ret = FREObject("com.tuarua.firebase.vision.BarcodePersonName")
+    ret["formattedName"] = this.formattedName?.toFREObject()
+    ret["first"] = this.first?.toFREObject()
+    ret["last"] = this.last?.toFREObject()
+    ret["middle"] = this.middle?.toFREObject()
+    ret["prefix"] = this.prefix?.toFREObject()
+    ret["pronounciation"] = this.pronunciation?.toFREObject()
+    ret["suffix"] = this.suffix?.toFREObject()
+    return ret
 }

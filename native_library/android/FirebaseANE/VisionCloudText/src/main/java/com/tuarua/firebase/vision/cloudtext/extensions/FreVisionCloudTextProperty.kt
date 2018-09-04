@@ -23,13 +23,8 @@ import com.tuarua.frekotlin.FreException
 import com.tuarua.frekotlin.set
 
 fun FirebaseVisionCloudText.TextProperty.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.CloudTextProperty")
-        ret["detectedBreak"] = detectedBreak?.toFREObject()
-        ret["detectedLanguages"] = detectedLanguages.toFREArray()
-        return ret
-    } catch (e: FreException) {
-
-    }
-    return null
+    val ret = FREObject("com.tuarua.firebase.vision.CloudTextProperty")
+    ret["detectedBreak"] = detectedBreak?.toFREObject()
+    ret["detectedLanguages"] = detectedLanguages.toFREArray()
+    return ret
 }

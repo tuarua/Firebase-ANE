@@ -62,7 +62,7 @@ public class CloudTextDetector {
                         return;
                     }
                     closure.call(null, theRet, err);
-                    delete closures[pObj.eventId]; // TODO don't delete if we are running camera detection
+                    delete closures[pObj.eventId];
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }

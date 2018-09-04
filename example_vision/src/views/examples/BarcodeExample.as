@@ -102,7 +102,7 @@ public class BarcodeExample extends Sprite implements IExample {
 
         barcodeDisplay.x = (stageWidth - barcodeDisplay.width) * 0.5;
         qrDisplay.x = (stageWidth - qrDisplay.width) * 0.5;
-        barcodeDisplay.y = qrDisplay.y = statusLabel.y + (StarlingRoot.GAP * 1.25);
+        barcodeDisplay.y = qrDisplay.y = statusLabel.y + StarlingRoot.GAP;
         qrDisplay.visible = barcodeDisplay.visible = false;
         addChild(qrDisplay);
         addChild(barcodeDisplay);

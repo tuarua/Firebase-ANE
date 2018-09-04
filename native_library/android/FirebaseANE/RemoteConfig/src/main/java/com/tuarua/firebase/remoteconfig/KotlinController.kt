@@ -78,7 +78,7 @@ class KotlinController : FreKotlinMainController {
         try {
             val ba = remoteConfig.getByteArray(key) ?: return null
             val ret = FREByteArray.newByteArray()
-            ret.setProp("length", ba.size)
+            ret["length"] = ba.size.toFREObject()
             ret.acquire()
             ret.bytes.get(ba)
             ret.release()
@@ -118,7 +118,7 @@ class KotlinController : FreKotlinMainController {
     fun getKeysByPrefix(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getKeysByPrefix")
         val prefix = String(argv[0]) ?: return FreConversionException("prefix")
-        return remoteConfig.getKeysByPrefix(prefix).toList().toFREArray()
+        return remoteConfig.getKeysByPrefix(prefix).toList().toFREObject()
     }
 
     fun fetch(ctx: FREContext, argv: FREArgv): FREObject? {
@@ -154,5 +154,6 @@ class KotlinController : FreKotlinMainController {
         get() = _context
         set(value) {
             _context = value
+            FreKotlinLogger.context = _context
         }
 }

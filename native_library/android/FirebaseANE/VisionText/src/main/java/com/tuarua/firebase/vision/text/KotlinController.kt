@@ -60,18 +60,12 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
         val eventId = String(argv[0]) ?: return FreConversionException("eventId")
         val result = results[eventId] ?: return null
-        try {
-            val freArray = FREArray("com.tuarua.firebase.vision.TextBlock",
-                    result.size, true)
-            for (i in result.indices) {
-                freArray[i] = result[i].toFREObject()
-            }
-            return freArray
-        } catch (e: FreException) {
-            trace(e.message)
-            trace(e.stackTrace)
+        val freArray = FREArray("com.tuarua.firebase.vision.TextBlock",
+                result.size, true) ?: return null
+        for (i in result.indices) {
+            freArray[i] = result[i].toFREObject()
         }
-        return null
+        return freArray
     }
 
     override val TAG: String
@@ -81,6 +75,7 @@ class KotlinController : FreKotlinMainController {
         get() = _context
         set(value) {
             _context = value
+            FreKotlinLogger.context = _context
         }
 
 }

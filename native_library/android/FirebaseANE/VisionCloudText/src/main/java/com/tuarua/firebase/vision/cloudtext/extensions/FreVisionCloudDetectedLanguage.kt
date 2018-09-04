@@ -24,19 +24,15 @@ import com.google.firebase.ml.vision.cloud.text.FirebaseVisionCloudText
 import com.tuarua.frekotlin.*
 
 fun FirebaseVisionCloudText.DetectedLanguage.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.CloudDetectedLanguage")
-        ret["confidence"] = confidence.toFREObject()
-        ret["languageCode"] = languageCode?.toFREObject()
-        return ret
-    } catch (e: FreException) {
-
-    }
-    return null
+    val ret = FREObject("com.tuarua.firebase.vision.CloudDetectedLanguage")
+    ret["confidence"] = confidence.toFREObject()
+    ret["languageCode"] = languageCode?.toFREObject()
+    return ret
 }
 
 fun List<FirebaseVisionCloudText.DetectedLanguage>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.vision.CloudDetectedLanguage", this.size, true)
+    val ret = FREArray("com.tuarua.firebase.vision.CloudDetectedLanguage", size, true)
+            ?: return null
     for (i in this.indices) {
         ret[i] = this[i].toFREObject()
     }

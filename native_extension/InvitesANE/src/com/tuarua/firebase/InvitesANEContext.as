@@ -69,7 +69,6 @@ public class InvitesANEContext {
                 break;
             case InvitesEvent.ERROR:
                 try {
-                    trace(event.code);
                     pObj = JSON.parse(event.code);
                     InvitesANE.invites.dispatchEvent(new InvitesEvent(event.level, null,
                             new Error(pObj.error.text, pObj.error.id)));

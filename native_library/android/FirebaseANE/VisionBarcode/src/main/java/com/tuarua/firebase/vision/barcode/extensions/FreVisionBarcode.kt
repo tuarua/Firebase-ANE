@@ -19,36 +19,32 @@ import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.tuarua.firebase.vision.extensions.FREArray
-import com.tuarua.firebase.vision.extensions.toFREObject
 import com.tuarua.frekotlin.*
+import com.tuarua.frekotlin.geom.toFREObject
 
 fun FirebaseVisionBarcode.toFREObject(): FREObject? {
-    try {
-        val ret = FREObject("com.tuarua.firebase.vision.Barcode")
-        ret["frame"] = this.boundingBox?.toFREObject()
-        ret["rawValue"] = this.rawValue?.toFREObject()
-        ret["displayValue"] = this.displayValue?.toFREObject()
-        ret["format"] = this.format.toFREObject()
-        ret["cornerPoints"] = FREArray(this.cornerPoints)
-        ret["valueType"] = this.valueType.toFREObject()
-        ret["email"] = this.email?.toFREObject()
-        ret["phone"] = this.phone?.toFREObject()
-        ret["sms"] = this.sms?.toFREObject()
-        ret["url"] = this.url?.toFREObject()
-        ret["wifi"] = this.wifi?.toFREObject()
-        ret["geoPoint"] = this.geoPoint?.toFREObject()
-        ret["contactInfo"] = this.contactInfo?.toFREObject()
-        ret["driverLicense"] = this.driverLicense?.toFREObject()
-        ret["calendarEvent"] = this.calendarEvent?.toFREObject()
-        return ret
-    } catch (e: FreException) {
-    }
-
-    return null
+    val ret = FREObject("com.tuarua.firebase.vision.Barcode")
+    ret["frame"] = this.boundingBox?.toFREObject()
+    ret["rawValue"] = this.rawValue?.toFREObject()
+    ret["displayValue"] = this.displayValue?.toFREObject()
+    ret["format"] = this.format.toFREObject()
+    ret["cornerPoints"] = FREArray(this.cornerPoints)
+    ret["valueType"] = this.valueType.toFREObject()
+    ret["email"] = this.email?.toFREObject()
+    ret["phone"] = this.phone?.toFREObject()
+    ret["sms"] = this.sms?.toFREObject()
+    ret["url"] = this.url?.toFREObject()
+    ret["wifi"] = this.wifi?.toFREObject()
+    ret["geoPoint"] = this.geoPoint?.toFREObject()
+    ret["contactInfo"] = this.contactInfo?.toFREObject()
+    ret["driverLicense"] = this.driverLicense?.toFREObject()
+    ret["calendarEvent"] = this.calendarEvent?.toFREObject()
+    return ret
 }
 
 fun List<FirebaseVisionBarcode>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.vision.Barcode", this.size, true)
+    val ret = FREArray("com.tuarua.firebase.vision.Barcode", size, true)
+            ?: return null
     for (i in this.indices) {
         ret[i] = this[i].toFREObject()
     }

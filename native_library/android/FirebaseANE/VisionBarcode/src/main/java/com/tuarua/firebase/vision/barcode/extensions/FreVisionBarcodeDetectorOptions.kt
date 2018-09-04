@@ -23,7 +23,7 @@ import com.tuarua.frekotlin.get
 @Suppress("FunctionName")
 fun FirebaseVisionBarcodeDetectorOptions(freObject: FREObject?): FirebaseVisionBarcodeDetectorOptions? {
     val rv = freObject ?: return null
-    val formats = IntArray(rv["formats"]) ?: return null
+    val formats = IntArray(rv["formats"])
     if (formats.isEmpty()) return null
 
     val builder = FirebaseVisionBarcodeDetectorOptions.Builder()
