@@ -102,6 +102,10 @@ public class SwiftController: NSObject {
     
     // MARK: - Camera Input
     
+    func isCameraSupported(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        return true.toFREObject()
+    }
+    
     func inputFromCamera(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
             let eventId = String(argv[0]),
@@ -110,29 +114,16 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "inputFromCamera").getError(#file, #line, #column)
         }
         cameraEventId = eventId
-        var mask: CGImage? = nil
-        if let freMask = argv[1] {
-            let asBitmapData = FreBitmapDataSwift.init(freObject: freMask)
-            defer {
-                asBitmapData.releaseData()
-            }
-            do {
-                if let cgimg = try asBitmapData.asCGImage() {
-                    mask = cgimg
-                }
-            } catch {
-            }
-        }
-        inputFromCamera(rootViewController: rvc, eventId: eventId, mask: mask)
+        inputFromCamera(rootViewController: rvc, eventId: eventId)
         return nil
     }
     
     func closeCamera(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard let rvc = UIApplication.shared.keyWindow?.rootViewController
-            else {
-                return FreArgError(message: "closeCamera").getError(#file, #line, #column)
-        }
-        closeCamera(rootViewController: rvc)
+//        guard let rvc = UIApplication.shared.keyWindow?.rootViewController
+//            else {
+//                return FreArgError(message: "closeCamera").getError(#file, #line, #column)
+//        }
+//        closeCamera(rootViewController: rvc)
         return nil
     }
     

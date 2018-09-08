@@ -103,8 +103,6 @@ public class FaceExample extends Sprite implements IExample {
                             return;
                         }
                         for each (var face:Face in features) {
-                            trace(face.frame.toString());
-
                             var frame:MeshRoundRect = new MeshRoundRect();
                             frame.setup(face.frame.width, face.frame.height, 20);
                             frame.color = Color.GREEN;

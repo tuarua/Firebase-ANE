@@ -3,7 +3,7 @@
 rm -r ios_dependencies/device
 rm -r ios_dependencies/simulator
 
-AneVersion="0.0.4"
+AneVersion="0.0.5"
 FreSwiftVersion="2.5.0"
 
 wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/$FreSwiftVersion/ios_dependencies.zip

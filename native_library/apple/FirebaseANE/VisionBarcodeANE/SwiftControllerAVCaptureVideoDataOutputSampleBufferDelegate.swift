@@ -32,7 +32,6 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         let visionImage = VisionImage(buffer: sampleBuffer)
         let metadata = VisionImageMetadata()
         let orientation = UIUtilities.imageOrientation(
-            //fromDevicePosition: isUsingFrontCamera ? .front : .back
             fromDevicePosition: .back
         )
         let visionOrientation = UIUtilities.visionImageOrientation(from: orientation)
@@ -45,13 +44,14 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
                                value: BarcodeEvent(eventId: eventId,
                                                    error: ["text": err.localizedDescription,
                                                            "id": err.code],
-                                                   continuous: true).toJSONString())
+                                                   continuous: false).toJSONString())
             } else {
                 if let features = features, !features.isEmpty {
                     self.results[eventId] = features
                     self.dispatchEvent(name: BarcodeEvent.DETECTED,
                                    value: BarcodeEvent(eventId: eventId,
-                                                       continuous: true).toJSONString())
+                                                       continuous: false).toJSONString())
+                    self.closeCamera()
                 }
             }
         }
@@ -159,7 +159,7 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         }
     }
     
-    private func setUpPreviewLayer(rootViewController: UIViewController, mask: CGImage?) {
+    private func setUpPreviewLayer(rootViewController: UIViewController) {
         var props: [String: Any] = Dictionary()
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         guard let videoPreviewLayer = videoPreviewLayer,
@@ -172,37 +172,18 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPreviewLayer.frame = cameraView.layer.bounds
         cameraView.layer.addSublayer(videoPreviewLayer)
-        
-        if let mask = mask {
-            let newLayer = CALayer()
-            newLayer.backgroundColor = UIColor.clear.cgColor
-            newLayer.frame = CGRect.init(x: 0,
-                                         y: 0,
-                                         width: rootViewController.view.frame.width,
-                                         height: rootViewController.view.frame.height)
-            newLayer.contents = mask
-            for sv in rootViewController.view.subviews {
-                if sv.debugDescription.starts(with: "<CTStageView") && sv.layer is CAEAGLLayer {
-                    sv.layer.mask = newLayer
-                }
-            }
-            // insert under AIR subView
-            rootViewController.view.insertSubview(cameraView, at: 0)
-        } else {
-            rootViewController.view.addSubview(cameraView)
-        }
+        rootViewController.view.addSubview(cameraView)
     }
     
-    func inputFromCamera(rootViewController: UIViewController, eventId: String, mask: CGImage?) {
+    func inputFromCamera(rootViewController: UIViewController, eventId: String) {
         cameraView = UIView(frame: CGRect(x: 0, y: 0, width: rootViewController.view.frame.width,
                                           height: rootViewController.view.frame.height))
         setUpCaptureSessionInput()
-        setUpPreviewLayer(rootViewController: rootViewController, mask: mask)
-        // setUpCaptureSessionOutput()
-        
+        setUpPreviewLayer(rootViewController: rootViewController)
+        setUpCaptureSessionOutput()
     }
     
-    func closeCamera(rootViewController: UIViewController) {
+    func closeCamera() {
         sessionQueue.async {
             self.captureSession.stopRunning()
         }
@@ -218,12 +199,6 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         videoPreviewLayer = nil
         cameraView = nil
-        
-        for sv in rootViewController.view.subviews {
-            if sv.debugDescription.starts(with: "<CTStageView") && sv.layer is CAEAGLLayer {
-                sv.layer.mask = nil
-            }
-        }
     }
     
 }

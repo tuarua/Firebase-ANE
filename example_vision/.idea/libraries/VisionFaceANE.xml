@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://$DOCUMENTS$/Firebase-ANE/native_extension/VisionFaceANE/ane/VisionFaceANE.ane!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="https://tuarua.github.io/asdocs/visionane/index.html" />
+    </JAVADOC>
     <SOURCES />
   </library>
 </component>
