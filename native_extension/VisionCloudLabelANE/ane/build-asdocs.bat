@@ -8,8 +8,8 @@ echo build asdocs
 call D:\dev\sdks\AIR\AIRSDK_28\bin\asdoc ^
 -doc-sources %pathtome%..\src ^
 -source-path %pathtome%..\src ^
--window-title "Tua Rua Firebase StorageANE by Tua Rua Ltd." ^
--main-title "Firebase StorageANE Documentation" ^
+-window-title "Tua Rua Firebase VisionANE by Tua Rua Ltd." ^
+-main-title "Firebase VisionANE Documentation" ^
 -footer "Copyright Tua Rua Ltd. 2018" ^
 -output %pathtome%..\docs\asdocs ^
 -lenient ^
@@ -19,8 +19,8 @@ call D:\dev\sdks\AIR\AIRSDK_28\bin\asdoc ^
 call D:\dev\sdks\AIR\AIRSDK_28\bin\asdoc ^
 -doc-sources %pathtome%..\src ^
 -source-path %pathtome%..\src ^
--window-title "Tua Rua Firebase StorageANE by Tua Rua Ltd." ^
--main-title "Firebase StorageANE Documentation" ^
+-window-title "Tua Rua Firebase VisionANE by Tua Rua Ltd." ^
+-main-title "Firebase VisionANE Documentation" ^
 -footer "Copyright Tua Rua Ltd. 2018" ^
 -output %pathtome%..\docs\tmp ^
 -lenient -keep-xml=true -skip-xsl=true ^

@@ -31,6 +31,7 @@ on set-up and each of the FirebaseANEs.
 - https://tuarua.github.io/asdocs/firebaseane/performance/
 - https://tuarua.github.io/asdocs/firebaseane/remoteconfig/
 - https://tuarua.github.io/asdocs/firebaseane/storage/
+- https://tuarua.github.io/asdocs/visionane/
 
 ## Issue Tracker
 
@@ -61,5 +62,11 @@ Pull requests and contributions are welcome! This might entail:
 - [x] Invites
 - [ ] Crashlytics
 * Vision
-- [ ] Face
-- [ ] Barcode
+- [x] Face
+- [x] Barcode
+- [x] Text
+- [x] Cloud Text
+- [x] Label
+- [x] Cloud Label
+- [x] Landmark
+- [ ] Model Interpreter
