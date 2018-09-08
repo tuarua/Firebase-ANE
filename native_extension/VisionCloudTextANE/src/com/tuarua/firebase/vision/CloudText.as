@@ -16,10 +16,19 @@
 
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.CloudText")]
+/**
+ * Represents text identified by the vision cloud text detector.
+ */
 public class CloudText {
+    /**
+     * String representaton of the text that was detected.
+     */
     public var text:String;
+    /**
+     * An array of pages that were detected.
+     */
     public var pages:Vector.<CloudPage> = new <CloudPage>[];
-
+    /** @private */
     public function CloudText() {
     }
 }

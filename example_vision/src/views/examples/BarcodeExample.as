@@ -9,13 +9,9 @@ import com.tuarua.firebase.vision.BarcodeFormat;
 import com.tuarua.firebase.vision.VisionImage;
 
 import flash.display.Bitmap;
-import flash.display.BitmapData;
-import flash.geom.Point;
-import flash.geom.Rectangle;
 
 import roipeker.display.MeshRoundRect;
 
-import starling.core.Starling;
 import starling.display.Image;
 import starling.display.Sprite;
 import starling.events.Touch;
@@ -42,7 +38,6 @@ public class BarcodeExample extends Sprite implements IExample {
     private var qrDisplay:Image = new Image(Texture.fromBitmap(bmpQr));
     private var barcodeDisplay:Image = new Image(Texture.fromBitmap(bmpBarcode));
 
-    private var btnClose:SimpleButton = new SimpleButton("Close");
     private var btnQrCode:SimpleButton = new SimpleButton("QR Code");
     private var btnBarcode128:SimpleButton = new SimpleButton("Barcode 128");
     private var btnCamera:SimpleButton = new SimpleButton("Scan with Camera");
@@ -67,12 +62,15 @@ public class BarcodeExample extends Sprite implements IExample {
         if (isInited) return;
 
         barcodeDetector = vision.barcodeDetector();
+        if (barcodeDetector.isCameraSupported) {
+            addChild(btnCamera);
+        }
         isInited = true;
     }
 
     private function initMenu():void {
-        btnClose.x = btnCamera.x = btnBarcode128.x = btnQrCode.x = (stageWidth - 200) * 0.5;
-        btnClose.y = btnQrCode.y = StarlingRoot.GAP;
+        btnCamera.x = btnBarcode128.x = btnQrCode.x = (stageWidth - 200) * 0.5;
+        btnQrCode.y = StarlingRoot.GAP;
         btnQrCode.addEventListener(TouchEvent.TOUCH, onQrCodeClick);
         addChild(btnQrCode);
 
@@ -82,7 +80,7 @@ public class BarcodeExample extends Sprite implements IExample {
 
         btnCamera.y = btnBarcode128.y + StarlingRoot.GAP;
         btnCamera.addEventListener(TouchEvent.TOUCH, onCameraClick);
-        addChild(btnCamera);
+
 
         infoBox = new MeshRoundRect();
         infoBox.setup(300, 40, 10);
@@ -106,12 +104,6 @@ public class BarcodeExample extends Sprite implements IExample {
         qrDisplay.visible = barcodeDisplay.visible = false;
         addChild(qrDisplay);
         addChild(barcodeDisplay);
-
-        btnClose.addEventListener(TouchEvent.TOUCH, onCloseClick);
-        btnClose.visible = false;
-        addChild(btnClose);
-
-
     }
 
     private function onQrCodeClick(event:TouchEvent):void {
@@ -165,45 +157,27 @@ public class BarcodeExample extends Sprite implements IExample {
     private function onCameraClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnCamera);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            // TODO
-//            qrDisplay.visible = false;
-//            barcodeDisplay.visible = false;
-//            btnCamera.visible = btnBarcode128.visible = btnQrCode.visible = false;
-//
-//            btnClose.visible = true;
-//            infoBox.visible = true;
-//            statusLabel.text = "Find a book to scan";
-//
-//            var maskBmd:BitmapData = new BitmapData(Starling.current.nativeStage.fullScreenWidth,
-//                    Starling.current.nativeStage.fullScreenHeight, true, 0x00FFFFFF); //the full size mask
-//
-//            var spriteBmd:BitmapData = new BitmapData(this.width * 2, this.height * 2, true, 0xFFFFFFFF);
-//            this.drawToBitmapData(spriteBmd);
-//            maskBmd.copyPixels(spriteBmd, spriteBmd.rect, new Point(this.bounds.x * 2, this.bounds.y * 2));
-//
-//            var options:BarcodeDetectorOptions = new BarcodeDetectorOptions();
-//            options.formats = new <int>[BarcodeFormat.EAN13]; //ISBN barcode from a book
-//            barcodeDetector.options = options;
-//            barcodeDetector.inputFromCamera(function (features:Vector.<Barcode>, error:BarcodeError):void {
-//                if (error) {
-//                    // statusLabel.text = "Barcode error: " + error.errorID + " : " + error.message;
-//                    return;
-//                }
-//                for each (var barcode:Barcode in features) {
-//                    statusLabel.text = barcode.rawValue + "\n";
-//                }
-//            }, maskBmd);
+            qrDisplay.visible = false;
+            barcodeDisplay.visible = false;
+            btnCamera.visible = btnBarcode128.visible = btnQrCode.visible = false;
 
-        }
-    }
+            infoBox.visible = true;
+            statusLabel.text = "Find a book to scan";
 
-    private function onCloseClick(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(btnClose);
-        if (touch != null && touch.phase == TouchPhase.ENDED) {
-            // barcodeDetector.closeCamera();
-            btnClose.visible = false;
-            btnCamera.visible = btnBarcode128.visible = btnQrCode.visible = true;
-            statusLabel.text = "";
+
+            var options:BarcodeDetectorOptions = new BarcodeDetectorOptions();
+            options.formats = new <int>[BarcodeFormat.EAN13]; //ISBN barcode from a book
+            barcodeDetector.options = options;
+            barcodeDetector.inputFromCamera(function (features:Vector.<Barcode>, error:BarcodeError):void {
+                if (error) {
+                    // statusLabel.text = "Barcode error: " + error.errorID + " : " + error.message;
+                    return;
+                }
+                for each (var barcode:Barcode in features) {
+                    statusLabel.text = barcode.rawValue + "\n";
+                }
+            });
+
         }
     }
 

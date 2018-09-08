@@ -17,15 +17,39 @@
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.BarcodeDriverLicense")]
 public class BarcodeDriverLicense {
+    /**
+     * Driver license expiration date. The date format depends on the issuing country.
+     */
     public var expiryDate:String;
+    /**
+     * Holder's first name.
+     */
     public var firstName:String;
+    /**
+     * Holder's gender. 1 is male and 2 is female.
+     */
     public var gender:String;
+    /**
+     * A country in which DL/ID was issued.
+     */
     public var issuingCountry:String;
+    /**
+     * The date format depends on the issuing country.
+     */
     public var issuingDate:String;
+    /**
+     * Holder's last name.
+     */
     public var lastName:String;
+    /**
+     * Driver license ID number.
+     */
     public var licenseNumber:String;
+    /**
+     * Holder's middle name.
+     */
     public var middleName:String;
-
+    /** @private */
     public function BarcodeDriverLicense() {
     }
 }

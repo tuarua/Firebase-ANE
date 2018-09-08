@@ -16,18 +16,26 @@
 
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.FaceLandmark")]
+/**
+ * A landmark on a human face detected in an image.
+ */
 public class FaceLandmark {
     private var _position:VisionPoint;
     private var _type:String;
+    /** @private */
     public function FaceLandmark(position:VisionPoint, type:String) {
         this._position = position;
         this._type = type;
     }
-
+    /**
+     * 2D position of the facial landmark.
+     */
     public function get position():VisionPoint {
         return _position;
     }
-
+    /**
+     * The type of the facial landmark.
+     */
     public function get type():String {
         return _type;
     }

@@ -29,6 +29,7 @@ public extension VisionBarcodeContactInfo {
         ret["addresses"] = self.addresses?.toFREObject()
         ret["emails"] = self.emails?.toFREObject()
         ret["phones"] = self.phones?.toFREObject()
+        ret["urls"] = self.urls?.toFREObject()
         return ret
     }
 }

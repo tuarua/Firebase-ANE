@@ -17,6 +17,10 @@
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.BarcodeDetectorOptions")]
 public class BarcodeDetectorOptions {
+    /**
+     * The barcode formats detected in an image. Note that the detection time will increase for each
+     * additional format that is specified.
+     */
     public var formats:Vector.<int> = new <int>[0xFFFF];
     public function BarcodeDetectorOptions() {
     }

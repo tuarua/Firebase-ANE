@@ -15,7 +15,13 @@
  */
 package com.tuarua.firebase.vision {
 public final class FaceDetectorClassification {
+    /**
+     * Face classification type indicating it performs no classification.
+     */
     public static const none:uint = 1;
+    /**
+     * Face classification type indicating it performs all classification.
+     */
     public static const all:uint = 2;
 }
 }

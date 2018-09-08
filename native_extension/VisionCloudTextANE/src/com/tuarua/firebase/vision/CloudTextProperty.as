@@ -16,10 +16,19 @@
 
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.CloudTextProperty")]
+/**
+ * Additional information detected on the structural component for text detection.
+ */
 public class CloudTextProperty {
+    /**
+     * Detected start or end of a text segment.
+     */
     public var detectedBreak:CloudDetectedBreak;
+    /**
+     * An array of detected languages.
+     */
     public var detectedLanguages:Vector.<CloudDetectedLanguage> = new <CloudDetectedLanguage>[];
-
+    /** @private */
     public function CloudTextProperty() {
     }
 }

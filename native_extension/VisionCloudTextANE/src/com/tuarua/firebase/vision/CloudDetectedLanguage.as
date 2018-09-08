@@ -17,8 +17,16 @@
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.CloudDetectedLanguage")]
 public class CloudDetectedLanguage {
+    /**
+     * Confidence of detected language. The value is a float, in range [0, 1].
+     */
     public var confidence:Number;
+    /**
+     *  The BCP-47 language code, such as, "en-US" or "sr-Latn". For more information, see
+     *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+     */
     public var languageCode:String;
+    /** @private */
     public function CloudDetectedLanguage() {
     }
 }

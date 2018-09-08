@@ -27,8 +27,10 @@ public class CloudLabelDetector {
     internal static const NAME:String = "VisionCloudLabelANE";
     private static var _context:ExtensionContext;
     private var _options:CloudDetectorOptions = new CloudDetectorOptions();
+    /** @private */
     public static var closures:Dictionary = new Dictionary();
     private static const RECOGNIZED:String = "CloudLabelEvent.Recognized";
+    /** @private */
     public function CloudLabelDetector(options:CloudDetectorOptions) {
         try {
             if (options) {
@@ -42,7 +44,7 @@ public class CloudLabelDetector {
             trace(e.message);
             trace(e.getStackTrace());
             trace(e.errorID);
-            trace("[" + NAME + "] ANE Not loaded properly.  Future calls will fail.");
+            trace("[" + NAME + "] ANE Not loaded properly. Future calls will fail.");
         }
     }
 
@@ -86,6 +88,12 @@ public class CloudLabelDetector {
         }
     }
 
+    /**
+     * Detects labels in a given image.
+     *
+     * @param image The image to use when searching labels.
+     * @param listener Closure to call back on the main queue with label detected or error.
+     */
     public function detect(image:VisionImage, listener:Function):void {
         var theRet:* = _context.call("detect", image, createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
@@ -101,6 +109,7 @@ public class CloudLabelDetector {
         trace("[" + NAME + "] Error: ", error.type, error.errorID, "\n", error.source, "\n", error.getStackTrace());
     }
 
+    /** @private */
     public static function dispose():void {
         if (!_context) {
             trace("[" + NAME + "] Error. ANE Already in a disposed or failed state...");

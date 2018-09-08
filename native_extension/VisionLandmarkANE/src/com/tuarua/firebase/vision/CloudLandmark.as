@@ -17,12 +17,34 @@
 package com.tuarua.firebase.vision {
 import flash.geom.Rectangle;
 [RemoteClass(alias="com.tuarua.firebase.vision.CloudLandmark")]
+/**
+ * Set of landmark properties identified by a vision cloud detector.
+ */
 public class CloudLandmark {
+    /**
+     * Overall confidence of the result. The value is float, in range [0, 1].
+     */
     public var confidence:Number;
+    /**
+     * A rectangle image region to which this landmark belongs to (in the view coordinate system).
+     */
     public var frame:Rectangle;
+    /**
+     * Opaque entity ID. Some IDs may be available in [Google Knowledge Graph Search API]
+     * (https://developers.google.com/knowledge-graph/).
+     */
     public var entityId:String;
+    /**
+     * Textual description of the landmark.
+     */
     public var landmark:String;
+    /**
+     * <p>The location information for the detected landmark. Multiple LocationInfo elements can be present<br>
+     * because one location may indicate the location of the scene in the image, and another location<br>
+     * may indicate the location of the place where the image was taken.</p>
+     */
     public var locations:Vector.<LatitudeLongitude> = new <LatitudeLongitude>[];
+    /** @private */
     public function CloudLandmark() {
     }
 }

@@ -18,12 +18,27 @@ package com.tuarua.firebase.vision {
 import flash.geom.Rectangle;
 
 [RemoteClass(alias="com.tuarua.firebase.vision.CloudParagraph")]
+/**
+ * A paragraph consisting of `CloudWord` objects in a certain order.
+ */
 public class CloudParagraph {
+    /**
+     * Confidence of the OCR results for the paragraph. The value is a float, in range [0, 1].
+     */
     public var confidence:Number;
+    /**
+     * A rectangle image region to which this landmark belongs to (in the view coordinate system).
+     */
     public var frame:Rectangle;
+    /**
+     * Additional information detected for the paragraph.
+     */
     public var textProperty:CloudTextProperty;
+    /**
+     * An array of words in the paragraph.
+     */
     public var words:Vector.<CloudWord> = new <CloudWord>[];
-
+    /** @private */
     public function CloudParagraph() {
     }
 }

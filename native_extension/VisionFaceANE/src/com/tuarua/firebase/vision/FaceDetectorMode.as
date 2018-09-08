@@ -15,7 +15,15 @@
  */
 package com.tuarua.firebase.vision {
 public final class FaceDetectorMode {
+    /**
+     * Face detection mode code indicating detect fewer faces and may be less precise in determining
+     * values such as position, but will run faster.
+     */
     public static const fast:uint = 1;
+    /**
+     * Face detection mode code indicating detect more faces and may be more precise in determining
+     * values such as position, at the cost of speed.
+     */
     public static const accurate:uint = 2;
 }
 }

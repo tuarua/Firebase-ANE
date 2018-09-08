@@ -31,14 +31,13 @@ public class BarcodeDetector extends EventDispatcher {
     internal static const NAME:String = "VisionBarcodeANE";
     private static var _context:ExtensionContext;
     private var _options:BarcodeDetectorOptions = new BarcodeDetectorOptions();
+    /** @private */
     public static var closures:Dictionary = new Dictionary();
     private static const DETECTED:String = "BarcodeEvent.Detected";
-
+    /** @private */
     public function BarcodeDetector(options:BarcodeDetectorOptions) {
         try {
-            if (options) {
-                _options = options;
-            }
+            if (options) _options = options;
             _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
             _context.addEventListener(StatusEvent.STATUS, gotEvent);
             _context.call("init", _options);
@@ -47,7 +46,7 @@ public class BarcodeDetector extends EventDispatcher {
             trace(e.message);
             trace(e.getStackTrace());
             trace(e.errorID);
-            trace("[" + NAME + "] ANE Not loaded properly.  Future calls will fail.");
+            trace("[" + NAME + "] ANE Not loaded properly. Future calls will fail.");
         }
     }
 
@@ -60,16 +59,32 @@ public class BarcodeDetector extends EventDispatcher {
         return eventId;
     }
 
+    /**
+     * Detects barcodes in the given image.
+     *
+     * @param image The image to use for detecting barcodes.
+     * @param listener Closure to call back on the main queue with barcodes detected or error.
+     */
     public function detect(image:VisionImage, listener:Function):void {
         var theRet:* = _context.call("detect", image, createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
-//    public function inputFromCamera(listener:Function, mask:BitmapData):void {
-//        var theRet:* = _context.call("inputFromCamera", createEventId(listener), mask);
-//        if (theRet is ANEError) throw theRet as ANEError;
-//    }
-//
+    /** Whether the camera is supported on users version of Android. */
+    public function get isCameraSupported():Boolean {
+        return _context.call("isCameraSupported") as Boolean;
+    }
+
+    /**
+     * Opens the Camera, scans for and detects a barcode.
+     *
+     * @param listener Closure to call back on the main queue with barcodes detected.
+     */
+    public function inputFromCamera(listener:Function):void {
+        var theRet:* = _context.call("inputFromCamera", createEventId(listener));
+        if (theRet is ANEError) throw theRet as ANEError;
+    }
+
 //    public function closeCamera():void {
 //        var theRet:* = _context.call("closeCamera");
 //        if (theRet is ANEError) throw theRet as ANEError;
@@ -106,6 +121,11 @@ public class BarcodeDetector extends EventDispatcher {
         }
     }
 
+    /** Options containing barcode detector configuration. */
+    public function set options(options:BarcodeDetectorOptions):void {
+        _options = options ? options : new BarcodeDetectorOptions();
+    }
+
     /** @private */
     public static function get context():ExtensionContext {
         return _context;
@@ -116,6 +136,7 @@ public class BarcodeDetector extends EventDispatcher {
         trace("[" + NAME + "] Error: ", error.type, error.errorID, "\n", error.source, "\n", error.getStackTrace());
     }
 
+    /** @private */
     public static function dispose():void {
         if (!_context) {
             trace("[" + NAME + "] Error. ANE Already in a disposed or failed state...");
@@ -127,8 +148,5 @@ public class BarcodeDetector extends EventDispatcher {
         _context = null;
     }
 
-    public function set options(options:BarcodeDetectorOptions):void {
-        _options = options ? options : new BarcodeDetectorOptions();
-    }
 }
 }

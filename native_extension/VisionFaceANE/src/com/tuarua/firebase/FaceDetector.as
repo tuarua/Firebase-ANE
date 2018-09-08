@@ -28,9 +28,11 @@ public class FaceDetector extends EventDispatcher {
     internal static const NAME:String = "VisionFaceANE";
     private static var _context:ExtensionContext;
     private var _options:FaceDetectorOptions = new FaceDetectorOptions();
+    /** @private */
     public static var closures:Dictionary = new Dictionary();
     private static const DETECTED:String = "FaceEvent.Detected";
 
+    /** @private */
     public function FaceDetector(options:FaceDetectorOptions) {
         try {
             if (options) {
@@ -44,7 +46,7 @@ public class FaceDetector extends EventDispatcher {
             trace(e.message);
             trace(e.getStackTrace());
             trace(e.errorID);
-            trace("[" + NAME + "] ANE Not loaded properly.  Future calls will fail.");
+            trace("[" + NAME + "] ANE Not loaded properly. Future calls will fail.");
         }
     }
 
@@ -57,6 +59,12 @@ public class FaceDetector extends EventDispatcher {
         return eventId;
     }
 
+    /**
+     * Detects faces in a given image.
+     *
+     * @param image The image to use for detecting faces.
+     * @param listener Closure to call back on the main queue with faces detected or error.
+     */
     public function detect(image:VisionImage, listener:Function):void {
         var theRet:* = _context.call("detect", image, createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
@@ -85,7 +93,7 @@ public class FaceDetector extends EventDispatcher {
                         return;
                     }
                     closure.call(null, theRet, err);
-                    delete closures[pObj.eventId]; // TODO don't delete if we are running camera detection
+                    delete closures[pObj.eventId]; // TODO don't delete if we are running camera detection continuously
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
@@ -103,6 +111,7 @@ public class FaceDetector extends EventDispatcher {
         trace("[" + NAME + "] Error: ", error.type, error.errorID, "\n", error.source, "\n", error.getStackTrace());
     }
 
+    /** @private */
     public static function dispose():void {
         if (!_context) {
             trace("[" + NAME + "] Error. ANE Already in a disposed or failed state...");

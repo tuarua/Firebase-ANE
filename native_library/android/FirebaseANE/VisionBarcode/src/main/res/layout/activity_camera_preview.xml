@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:keepScreenOn="true"
+    >
+
+    <com.tuarua.firebase.view.widget.AutoFitTextureView
+        android:id="@+id/activity_camera_preview_mainview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|top|end"
+        tools:background="#000000"
+        tools:visibility="visible" />
+
+</FrameLayout>

@@ -16,10 +16,24 @@
 
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.CloudLabel")]
+/**
+ * Set of label properties identified by a vision cloud detector.
+ */
 public class CloudLabel {
+    /**
+     * Overall confidence of the result.  The value is float, in range [0, 1].
+     */
     public var confidence:Number;
+    /**
+     * Opaque entity ID. Some IDs may be available in [Google Knowledge Graph Search API]
+     * (https://developers.google.com/knowledge-graph/).
+     */
     public var entityId:String;
+    /**
+     * Textual label name.
+     */
     public var label:String;
+    /** @private */
     public function CloudLabel() {
     }
 }

@@ -26,6 +26,7 @@ public class VisionBarcodeANE implements FREExtension {
             ,"createGUID"
             ,"detect"
             ,"getResults"
+            ,"isCameraSupported"
             ,"inputFromCamera"
             ,"closeCamera"
     };

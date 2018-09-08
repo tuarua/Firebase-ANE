@@ -16,9 +16,19 @@
 
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.BarcodeAddress")]
+/**
+ * An address.
+ */
 public class BarcodeAddress {
+    /**
+     * Address type.
+     */
     public var type:int;
+    /**
+     * Formatted address, containing multiple lines when appropriate.
+     */
     public var addressLines:Vector.<String> = new <String>[];
+    /** @private */
     public function BarcodeAddress() {
     }
 }

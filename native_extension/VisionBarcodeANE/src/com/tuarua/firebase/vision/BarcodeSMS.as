@@ -16,19 +16,29 @@
 
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.BarcodeSMS")]
+/**
+ * An SMS message from an 'SMS:' or similar QR Code type.
+ */
 public class BarcodeSMS {
     private var _message:String;
     private var _phoneNumber:String;
 
+    /** @private */
     public function BarcodeSMS(message:String, phoneNumber:String) {
         this._message = message;
         this._phoneNumber = phoneNumber;
     }
 
+    /**
+     * An SMS message body.
+     */
     public function get message():String {
         return _message;
     }
 
+    /**
+     * An SMS message phone number.
+     */
     public function get phoneNumber():String {
         return _phoneNumber;
     }

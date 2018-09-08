@@ -15,15 +15,25 @@
  */
 package com.tuarua.firebase.vision {
 public final class FaceLandmarkType {
+    /** Midpoint of the left ear tip and left ear lobe. */
     public static const leftEar:String = "LeftEar";
+    /** Midpoint of the right ear tip and right ear lobe. */
     public static const rightEar:String = "RightEar";
+    /** Left eye. */
     public static const leftEye:String = "LeftEye";
+    /** Right eye. */
     public static const rightEye:String = "RightEye";
+    /** Center of the bottom lip. */
     public static const mouthBottom:String = "MouthBottom";
+    /** Right corner of the mouth */
     public static const mouthRight:String = "MouthRight";
+    /** Left corner of the mouth */
     public static const mouthLeft:String = "MouthLeft";
+    /** Left cheek. */
     public static const leftCheek:String = "LeftCheek";
+    /** Right cheek. */
     public static const rightCheek:String = "RightCheek";
+    /** Midpoint between the nostrils where the nose meets the face. */
     public static const noseBase:String = "NoseBase";
 }
 }

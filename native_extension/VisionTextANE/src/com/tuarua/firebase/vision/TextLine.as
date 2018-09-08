@@ -15,9 +15,15 @@
  */
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.TextLine")]
+/**
+ * A single line of text detected in an image.
+ */
 public class TextLine extends VisionText {
+    /**
+     * Text elements in this line.
+     */
     public var elements:Vector.<TextElement> = new <TextElement>[];
-
+    /** @private */
     public function TextLine() {
     }
 }

@@ -20,7 +20,7 @@ import com.tuarua.firebase.permissions.PermissionEvent;
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
 import flash.utils.setTimeout;
-
+/** @private */
 public class VisionANEContext {
     internal static const NAME:String = "VisionANE";
     private static var _context:ExtensionContext;
@@ -33,7 +33,7 @@ public class VisionANEContext {
                 _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
                 _context.addEventListener(StatusEvent.STATUS, gotEvent);
             } catch (e:Error) {
-                trace("[" + NAME + "] ANE Not loaded properly.  Future calls will fail.");
+                trace("[" + NAME + "] ANE Not loaded properly. Future calls will fail.");
             }
         }
         return _context;

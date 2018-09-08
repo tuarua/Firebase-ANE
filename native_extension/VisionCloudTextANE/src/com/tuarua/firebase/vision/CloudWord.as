@@ -18,12 +18,27 @@ package com.tuarua.firebase.vision {
 import flash.geom.Rectangle;
 
 [RemoteClass(alias="com.tuarua.firebase.vision.CloudWord")]
+/**
+ * A representation of a word consisting of `CloudSymbol` objects.
+ */
 public class CloudWord {
+    /**
+     * Confidence of the OCR results for the word. The value is a float, in range [0, 1].
+     */
     public var confidence:Number;
+    /**
+     * A rectangle image region to which this landmark belongs to (in the view coordinate system).
+     */
     public var frame:Rectangle;
+    /**
+     * Additional information detected for the word.
+     */
     public var textProperty:CloudTextProperty;
+    /**
+     * An array of symbols in the word.
+     */
     public var symbols:Vector.<CloudSymbol> = new <CloudSymbol>[];
-
+    /** @private */
     public function CloudWord() {
     }
 }

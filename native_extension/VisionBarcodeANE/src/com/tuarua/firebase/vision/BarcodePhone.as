@@ -16,18 +16,27 @@
 
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.BarcodePhone")]
+/**
+ * A phone number from a 'TEL:' or similar QR Code type.
+ */
 public class BarcodePhone {
     private var _number:String;
     private var _type:int;
+    /** @private */
     public function BarcodePhone(number:String, type:int) {
         this._number = number;
         this._type = type;
     }
 
+    /**
+     * Phone number.
+     */
     public function get number():String {
         return _number;
     }
-
+    /**
+     * Phone number type.
+     */
     public function get type():int {
         return _type;
     }

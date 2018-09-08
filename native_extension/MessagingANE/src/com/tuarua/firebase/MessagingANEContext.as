@@ -28,7 +28,7 @@ public class MessagingANEContext {
                 _context.addEventListener(StatusEvent.STATUS, gotEvent);
                 _isInited = true;
             } catch (e:Error) {
-                trace("[" + NAME + "] ANE Not loaded properly.  Future calls will fail.");
+                trace("[" + NAME + "] ANE Not loaded properly. Future calls will fail.");
             }
         }
         return _context;

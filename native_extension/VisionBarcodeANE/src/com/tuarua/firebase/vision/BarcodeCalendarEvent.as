@@ -16,15 +16,40 @@
 
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.BarcodeCalendarEvent")]
+/**
+ * A calendar event extracted from a QR code.
+ */
 public class BarcodeCalendarEvent {
+    /**
+     * Calendar event end date.
+     */
     public var end:Date;
+    /**
+     * Calendar event description.
+     */
     public var eventDescription:String;
+    /**
+     * Calendar event location.
+     */
     public var location:String;
+    /**
+     * Clendar event organizer.
+     */
     public var organizer:String;
+    /**
+     * Calendar event start date.
+     */
     public var start:Date;
+    /**
+     * Calendar event status.
+     */
     public var status:String;
+    /**
+     * Calendar event summary.
+     */
     public var summary:String;
 
+    /** @private */
     public function BarcodeCalendarEvent() {
     }
 }

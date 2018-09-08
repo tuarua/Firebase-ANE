@@ -23,6 +23,15 @@ public class VisionImage {
     private var _metadata:VisionImageMetadata = new VisionImageMetadata();
     private var _path:String;
 
+    /**
+     * Initializes a VisionImage object with the given image.
+     *
+     * @param bitmapdata BitmapData to use in vision detection. The given image should be rotated, so its
+     * orientation up. Set to null if using the path param.
+     * @param path File path to image file
+     * @param metadata
+     * @return A VisionImage instance with the given image.
+     */
     public function VisionImage(bitmapdata:BitmapData = null, path:String = null, metadata:VisionImageMetadata = null) {
         if (bitmapdata == null && path == null) {
             throw new ArgumentError("Please pass either bitmapdata or a path to constructor");
@@ -34,14 +43,17 @@ public class VisionImage {
         }
     }
 
+    /** @private */
     public function get bitmapdata():BitmapData {
         return _bitmapdata;
     }
 
+    /** @private */
     public function get metadata():VisionImageMetadata {
         return _metadata;
     }
 
+    /** @private */
     public function get path():String {
         return _path;
     }

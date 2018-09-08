@@ -16,13 +16,39 @@
 
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.BarcodeContactInfo")]
+/**
+ * A person's or organization's business card. For example, a vCard.
+ */
 public class BarcodeContactInfo {
+    /**
+     * A job title.
+     */
     public var jobTitle:String;
+    /**
+     * A person's name.
+     */
     public var name:String;
+    /**
+     * A business organization.
+     */
     public var organization:String;
+    /**
+     * Person's or organization's addresses.
+     */
     public var addresses:Vector.<BarcodeAddress> = new <BarcodeAddress>[];
+    /**
+     * Contact emails.
+     */
     public var emails:Vector.<BarcodeEmail> = new <BarcodeEmail>[];
+    /**
+     * Contact phone numbers.
+     */
     public var phones:Vector.<BarcodePhone> = new <BarcodePhone>[];
+    /**
+     * Contact URLs.
+     */
+    public var urls:Vector.<String> = new <String>[];
+    /** @private */
     public function BarcodeContactInfo() {
     }
 }

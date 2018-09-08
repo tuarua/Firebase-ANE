@@ -16,9 +16,17 @@
 package com.tuarua.firebase.vision {
 
 [RemoteClass(alias="com.tuarua.firebase.vision.TextBlock")]
+/**
+ * Describes a text block detected in a still image frame. Its properties provide details about
+ * detected text. A text block is a simple list of "lines".
+ */
 public class TextBlock extends VisionText {
+    /**
+     * The contents of the text block, broken down into individual lines.
+     */
     public var lines:Vector.<TextLine> = new <TextLine>[];
 
+    /** @private */
     public function TextBlock() {
     }
 }

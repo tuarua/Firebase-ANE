@@ -21,7 +21,6 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Build
 import android.support.v4.content.ContextCompat
-import android.view.ViewGroup
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.gson.Gson
@@ -85,7 +84,6 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    @Throws(FreException::class)
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: PermissionEvent) {
         dispatchEvent(PermissionEvent.ON_PERMISSION_STATUS, gson.toJson(event))

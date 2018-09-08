@@ -16,19 +16,29 @@
 
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.BarcodeURLBookmark")]
+/**
+ * A URL and title from a 'MEBKM:' or similar QR Code type.
+ */
 public class BarcodeURLBookmark {
     private var _title:String;
     private var _url:String;
 
+    /** @private */
     public function BarcodeURLBookmark(title:String, url:String) {
         this._title = title;
         this._url = url;
     }
 
+    /**
+     * A URL bookmark title.
+     */
     public function get title():String {
         return _title;
     }
 
+    /**
+     * A URL bookmark url.
+     */
     public function get url():String {
         return _url;
     }

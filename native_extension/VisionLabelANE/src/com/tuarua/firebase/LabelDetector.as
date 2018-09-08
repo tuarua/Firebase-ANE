@@ -42,7 +42,7 @@ public class LabelDetector {
             trace(e.message);
             trace(e.getStackTrace());
             trace(e.errorID);
-            trace("[" + NAME + "] ANE Not loaded properly.  Future calls will fail.");
+            trace("[" + NAME + "] ANE Not loaded properly. Future calls will fail.");
         }
     }
 
@@ -78,7 +78,7 @@ public class LabelDetector {
                         return;
                     }
                     closure.call(null, theRet, err);
-                    delete closures[pObj.eventId]; // TODO don't delete if we are running camera detection
+                    delete closures[pObj.eventId]; // TODO don't delete if we are running camera detection continuously
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
@@ -86,6 +86,12 @@ public class LabelDetector {
         }
     }
 
+    /**
+     * Detects labels in a given image.
+     *
+     * @param image The image to use for detecting labels.
+     * @param listener Closure to call back on the main queue with labels detected or error.
+     */
     public function detect(image:VisionImage, listener:Function):void {
         var theRet:* = _context.call("detect", image, createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
@@ -101,6 +107,7 @@ public class LabelDetector {
         trace("[" + NAME + "] Error: ", error.type, error.errorID, "\n", error.source, "\n", error.getStackTrace());
     }
 
+    /** @private */
     public static function dispose():void {
         if (!_context) {
             trace("[" + NAME + "] Error. ANE Already in a disposed or failed state...");

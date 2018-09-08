@@ -15,6 +15,9 @@
  */
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.TextElement")]
+/**
+ * Recognized text in an image.
+ */
 public class TextElement extends VisionText {
     public function TextElement() {
     }

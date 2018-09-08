@@ -18,10 +18,21 @@ import flash.geom.Point;
 import flash.geom.Rectangle;
 
 public class VisionText {
+    /**
+     * The rectangle that holds the discovered text relative to the detected image in the view
+     * coordinate system.
+     */
     public var frame:Rectangle;
+    /**
+     * Recognized text string.
+     */
     public var text:String;
+    /**
+     * <p>The four corner points of the text, in clockwise order starting with the top left relative<br>
+     * to the detected image in the view coordinate system. </p>
+     */
     public var cornerPoints:Vector.<Point> = new <Point>[];
-
+    /** @private */
     public function VisionText() {
     }
 }

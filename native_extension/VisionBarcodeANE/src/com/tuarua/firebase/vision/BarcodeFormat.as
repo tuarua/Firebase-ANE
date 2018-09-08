@@ -49,35 +49,35 @@ public final class BarcodeFormat {
 
     public static function toString(value:int):String {
         switch (value) {
-            case 0:
+            case unknown:
                 return "unknown";
-            case 0xFFFF:
+            case all:
                 return "all";
-            case 0x0001:
+            case code128:
                 return "code128";
-            case 0x0002:
+            case code39:
                 return "code39";
-            case 0x0004:
+            case code93:
                 return "code93";
-            case 0x0008:
+            case codaBar:
                 return "codaBar";
-            case 0x0002:
+            case dataMatrix:
                 return "dataMatrix";
-            case 0x0020:
+            case EAN13:
                 return "EAN13";
-            case 0x0040:
+            case EAN8:
                 return "EAN8";
-            case 0x0080:
+            case ITF:
                 return "ITF";
-            case 0x0100:
+            case qrCode:
                 return "qrCode";
-            case 0x0200:
+            case UPCA:
                 return "UPCA";
-            case 0x0400:
+            case UPCE:
                 return "UPCE";
-            case 0x0800:
+            case PDF417:
                 return "PDF417";
-            case 0x1000:
+            case aztec:
                 return "aztec";
             default:
                 return "unknown";

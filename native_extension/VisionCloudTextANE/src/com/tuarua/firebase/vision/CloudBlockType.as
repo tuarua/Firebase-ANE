@@ -16,11 +16,29 @@
 
 package com.tuarua.firebase.vision {
 public final class CloudBlockType {
+    /**
+     * Unknown block type.
+     */
     public static const unknown:int = 0;
+    /**
+     * Barcode block type.
+     */
     public static const barcode:int = 1;
+    /**
+     * Image block type.
+     */
     public static const picture:int = 2;
+    /**
+     * Horizontal/vertical line box.
+     */
     public static const ruler:int = 3;
+    /**
+     * Table block type.
+     */
     public static const table:int = 4;
+    /**
+     * Regular text block type.
+     */
     public static const text:int = 5;
 }
 }

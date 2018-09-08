@@ -16,11 +16,29 @@
 
 package com.tuarua.firebase.vision {
 public final class CloudDetectedBreakType {
+    /**
+     * Unknown break type.
+     */
     public static const unknown:int = 0;
+    /**
+     * Line-wrapping break type.
+     */
     public static const lineWrap:int = 1;
+    /**
+     * Hyphen break type.
+     */
     public static const hyphen:int = 2;
+    /**
+     * Line break that ends a paragraph.
+     */
     public static const lineBreak:int = 3;
+    /**
+     * Space break type.
+     */
     public static const space:int = 4;
+    /**
+     * Sure space break type.
+     */
     public static const sureSpace:int = 5;
 
 }

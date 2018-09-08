@@ -43,7 +43,7 @@
                 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
                 <uses-permission android:name="android.permission.CAMERA" />
 
-                <uses-feature android:name="android.hardware.camera" />
+                <uses-feature android:name="android.hardware.camera" android:required="false"  />
                 <uses-feature android:name="android.hardware.camera.autofocus" />
                 <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
                 <application android:enabled="true">
@@ -51,6 +51,12 @@
                     <meta-data
                         android:name="com.google.android.gms.version"
                         android:value="@integer/google_play_services_version" />
+
+                    <!-- Vision -->
+                    <activity
+                        android:name="com.tuarua.firebase.camerapreview.CameraPreviewActivity"
+                        android:hardwareAccelerated="true"
+                        android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
 
                     <meta-data
                         android:name="com.google.firebase.ml.vision.DEPENDENCIES"
@@ -133,6 +139,8 @@
                         </intent-filter>
                     </activity>
 
+
+
                 </application>
             </manifest>
             ]]>
@@ -149,6 +157,7 @@
         <extensionID>com.android.support.support-v4</extensionID>
         <extensionID>com.google.android.gms.play-services-base</extensionID>
         <extensionID>com.google.android.gms.play-services-vision-image-label</extensionID>
+
 
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
         <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>

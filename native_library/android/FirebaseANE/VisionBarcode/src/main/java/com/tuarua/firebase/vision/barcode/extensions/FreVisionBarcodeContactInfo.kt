@@ -50,6 +50,15 @@ fun FirebaseVisionBarcode.ContactInfo.toFREObject(): FREObject? {
         }
         ret["phones"] = frePhoneArr
     }
+
+    val urls = this.urls
+    if (urls != null && urls.isNotEmpty()) {
+        val freUrlArr = FREArray("String", urls.size, true) ?: return null
+        for (i in urls.indices) {
+            freUrlArr[i] = urls[i].toFREObject()
+        }
+        ret["urls"] = freUrlArr
+    }
     return ret
 }
 

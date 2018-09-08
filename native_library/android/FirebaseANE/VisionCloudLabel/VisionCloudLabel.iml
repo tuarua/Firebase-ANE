@@ -23,14 +23,13 @@
       </configuration>
     </facet>
     <facet type="kotlin-language" name="Kotlin">
-      <configuration version="3" platform="JVM 1.8" useProjectSettings="false">
+      <configuration version="3" platform="JVM 1.6" useProjectSettings="false">
         <compilerSettings />
         <compilerArguments>
           <option name="destination" value="$MODULE_DIR$/build/tmp/kotlin-classes/release" />
           <option name="noStdlib" value="true" />
           <option name="noReflect" value="true" />
           <option name="moduleName" value="VisionCloudLabel_release" />
-          <option name="jvmTarget" value="1.8" />
           <option name="addCompilerBuiltIns" value="true" />
           <option name="loadBuiltInsFromDependencies" value="true" />
           <option name="languageVersion" value="1.2" />
@@ -110,14 +109,12 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javaPrecompile" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_and_local_jars_jni" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged-aidl" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged-classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packagedAssets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged_res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/public_res" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/publish-proguard" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />

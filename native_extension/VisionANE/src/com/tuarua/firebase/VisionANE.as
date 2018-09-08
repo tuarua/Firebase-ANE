@@ -33,6 +33,7 @@ public class VisionANE extends EventDispatcher {
     private var _cloudLandmarkDetector:CloudLandmarkDetector;
     private static var _vision:VisionANE;
 
+    /** @private */
     public function VisionANE() {
         if (VisionANEContext.context) {
             var theRet:* = VisionANEContext.context.call("init");
@@ -41,6 +42,12 @@ public class VisionANE extends EventDispatcher {
         _vision = this;
     }
 
+    /**
+     * Gets a barcode detector with the given options.
+     *
+     * @param options Options containing barcode detector configuration.
+     * @return A barcode detector configured with the given options.
+     */
     public function barcodeDetector(options:BarcodeDetectorOptions = null):BarcodeDetector {
         if (_barcodeDetector != null) {
             _barcodeDetector.options = options;
@@ -50,6 +57,12 @@ public class VisionANE extends EventDispatcher {
         return _barcodeDetector;
     }
 
+    /**
+     * Gets a face detector with the given options.
+     *
+     * @param options Options for configuring the face detector.
+     * @return A face detector configured with the given options.
+     */
     public function faceDetector(options:FaceDetectorOptions = null):FaceDetector {
         if (_faceDetector != null) {
             _faceDetector.options = options;
@@ -59,6 +72,11 @@ public class VisionANE extends EventDispatcher {
         return _faceDetector;
     }
 
+    /**
+     * Gets a text detector.
+     *
+     * @return A text detector.
+     */
     public function textDetector():TextDetector {
         if (_textDetector == null) {
             _textDetector = new TextDetector();
@@ -66,6 +84,12 @@ public class VisionANE extends EventDispatcher {
         return _textDetector
     }
 
+    /**
+     * Gets an instance of cloud text detector with the given options.
+     *
+     * @param options Options for configuring the cloud text detector.
+     * @return A cloud text detector configured with the given options.
+     */
     public function cloudTextDetector(options:CloudDetectorOptions = null):CloudTextDetector {
         if (_cloudTextDetector != null) {
             _cloudTextDetector.options = options;
@@ -75,6 +99,12 @@ public class VisionANE extends EventDispatcher {
         return _cloudTextDetector
     }
 
+    /**
+     * Gets a label detector with the given options.
+     *
+     * @param options Options for configuring the label detector.
+     * @return A label detector configured with the given options.
+     */
     public function labelDetector(options:LabelDetectorOptions = null):LabelDetector {
         if (_labelDetector != null) {
             _labelDetector.options = options;
@@ -84,6 +114,12 @@ public class VisionANE extends EventDispatcher {
         return _labelDetector;
     }
 
+    /**
+     * Gets an instance of cloud label detector with the given options.
+     *
+     * @param options Options for configuring the cloud label detector.
+     * @return A cloud label detector configured with the given options.
+     */
     public function cloudLabelDetector(options:CloudDetectorOptions = null):CloudLabelDetector {
         if (_cloudLabelDetector != null) {
             _cloudLabelDetector.options = options;
@@ -93,6 +129,12 @@ public class VisionANE extends EventDispatcher {
         return _cloudLabelDetector
     }
 
+    /**
+     * Gets an instance of cloud landmark detector with the given options.
+     *
+     * @param options Options for configuring the cloud landmark detector.
+     * @return A cloud landmark detector configured with the given options.
+     */
     public function cloudLandmarkDetector(options:CloudDetectorOptions = null):CloudLandmarkDetector {
         if (_cloudLandmarkDetector != null) {
             _cloudLandmarkDetector.options = options;
@@ -110,14 +152,14 @@ public class VisionANE extends EventDispatcher {
         return _vision;
     }
 
-    /** Requests permissions for this ANE */
+    /** Requests permissions for this ANE. */
     public function requestPermissions():void {
         if (VisionANEContext.context) {
             VisionANEContext.context.call("requestPermissions");
         }
     }
 
-    /** Disposes the ANE */
+    /** Disposes the ANE and any Detector ANEs. */
     public static function dispose():void {
         if (VisionANEContext.context) {
             VisionANEContext.dispose();
@@ -143,9 +185,7 @@ public class VisionANE extends EventDispatcher {
         if (CloudLandmarkDetector.context) {
             CloudLandmarkDetector.dispose();
         }
-
     }
-
 
 }
 }

@@ -16,19 +16,28 @@
 
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.BarcodeGeoPoint")]
+/**
+ * GPS coordinates from a 'GEO:' or similar QR Code type data.
+ */
 public class BarcodeGeoPoint {
     private var _latitude:Number;
     private var _longitude:Number;
+    /** @private */
     public function BarcodeGeoPoint(latitude:Number, longitude:Number) {
         this._latitude = latitude;
         this._longitude = longitude;
 
     }
 
+    /**
+     * A location latitude.
+     */
     public function get latitude():Number {
         return _latitude;
     }
-
+    /**
+     * A location longitude.
+     */
     public function get longitude():Number {
         return _longitude;
     }

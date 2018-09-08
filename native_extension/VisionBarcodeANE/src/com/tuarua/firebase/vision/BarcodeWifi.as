@@ -16,25 +16,38 @@
 
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.BarcodeWifi")]
+/**
+ * Wi-Fi network parameters from a 'WIFI:' or similar QR Code type.
+ */
 public class BarcodeWifi {
     private var _password:String;
     private var _ssid:String;
     private var _type:int;
 
+    /** @private */
     public function BarcodeWifi(password:String, ssid:String, type:int) {
         this._password = password;
         this._ssid = ssid;
         this._type = type;
     }
 
+    /**
+     * A Wi-Fi access point password.
+     */
     public function get password():String {
         return _password;
     }
 
+    /**
+     * A Wi-Fi access point SSID.
+     */
     public function get ssid():String {
         return _ssid;
     }
 
+    /**
+     * A Wi-Fi access point encryption type.
+     */
     public function get type():int {
         return _type;
     }
