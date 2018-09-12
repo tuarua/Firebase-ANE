@@ -10,7 +10,7 @@ echo $pathtome
 
 PROJECTNAME=FirebaseANE
 
-AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_30"
+AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_31"
 
 #Copy SWC into place.
 echo "Copying SWC into place."

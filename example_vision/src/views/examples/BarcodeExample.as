@@ -94,16 +94,17 @@ public class BarcodeExample extends Sprite implements IExample {
         statusLabel.format.setTo(Fonts.NAME, 13, 0x222222, Align.CENTER, Align.TOP);
         statusLabel.touchable = false;
         statusLabel.y = btnCamera.y + (StarlingRoot.GAP * 1.25);
-        addChild(statusLabel);
 
         barcodeDisplay.scaleY = barcodeDisplay.scaleX = 0.20; // barcode is a little big
 
         barcodeDisplay.x = (stageWidth - barcodeDisplay.width) * 0.5;
         qrDisplay.x = (stageWidth - qrDisplay.width) * 0.5;
-        barcodeDisplay.y = qrDisplay.y = statusLabel.y + StarlingRoot.GAP;
+        barcodeDisplay.y = statusLabel.y + StarlingRoot.GAP;
+        qrDisplay.y = statusLabel.y;
         qrDisplay.visible = barcodeDisplay.visible = false;
         addChild(qrDisplay);
         addChild(barcodeDisplay);
+        addChild(statusLabel);
     }
 
     private function onQrCodeClick(event:TouchEvent):void {

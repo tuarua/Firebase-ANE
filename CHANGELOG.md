@@ -2,6 +2,7 @@
 - Invites: Fix error not returning on clicking back
 - AND: Updated to FreKotlin 1.5.0
 - iOS/AND: Added Vision from MLKit
+- iOS/AND: Improve map conversion performance
 
 ### 0.0.3
 - iOS: Updated to FreSwift 2.5.0
