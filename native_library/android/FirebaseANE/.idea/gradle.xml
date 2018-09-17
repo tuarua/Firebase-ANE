@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Analytics" />
             <option value="$PROJECT_DIR$/Auth" />
+            <option value="$PROJECT_DIR$/Crashlytics" />
             <option value="$PROJECT_DIR$/DynamicLinks" />
             <option value="$PROJECT_DIR$/Firebase" />
             <option value="$PROJECT_DIR$/Firestore" />

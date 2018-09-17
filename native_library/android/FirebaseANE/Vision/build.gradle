@@ -28,7 +28,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'org.greenrobot:eventbus:3.0.0'
     implementation "com.google.code.gson:gson:$gson_version"
-    implementation "com.google.firebase:firebase-core:$firebase_version"
-    implementation "com.google.firebase:firebase-ml-vision:$firebase_version"
+    implementation "com.google.firebase:firebase-core:$firebase_core_version"
+    implementation "com.google.firebase:firebase-ml-vision:$firebase_vision_version"
     implementation "com.tuarua:FreKotlin:$frekotlin_version"
 }

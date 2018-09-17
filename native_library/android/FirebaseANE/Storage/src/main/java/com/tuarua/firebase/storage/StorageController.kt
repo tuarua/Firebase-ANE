@@ -28,6 +28,7 @@ import com.tuarua.frekotlin.FreException
 import com.tuarua.frekotlin.FreKotlinController
 import com.tuarua.firebase.storage.events.StorageEvent
 import com.tuarua.firebase.storage.events.StorageProgressEvent
+import com.tuarua.firebase.storage.extensions.toMap
 import java.io.File
 
 
@@ -48,14 +49,14 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
                     else -> FirebaseStorage.getInstance(app, url)
                 }
             } else {
-                trace(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
+                warning(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
             }
         } catch (e: FreException) {
-            trace(e.message)
-            trace(e.stackTrace)
+            warning(e.message)
+            warning(e.stackTrace)
         } catch (e: Exception) {
-            Log.e(TAG, e.message)
-            e.printStackTrace()
+            warning(e.message)
+            warning(Log.getStackTraceString(e))
         }
     }
 
@@ -80,11 +81,7 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
             } else {
                 val error = task.exception as StorageException
                 dispatchEvent(StorageEvent.UPDATE_METADATA,
-                        gson.toJson(
-                                StorageEvent(asId, null, mapOf(
-                                        "text" to error.message.toString(),
-                                        "id" to error.errorCode))
-                        )
+                        gson.toJson(StorageEvent(asId, error = error.toMap()))
                 )
             }
         }
@@ -95,49 +92,18 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
         storageRef.metadata.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val meta = task.result
-                val cmd: MutableMap<String, String> = mutableMapOf()
-                meta.customMetadataKeys.forEach { customMetadataKey ->
-                    cmd[customMetadataKey] = meta.getCustomMetadata(customMetadataKey)
-                }
-                dispatchEvent(StorageEvent.GET_METADATA, gson.toJson(StorageEvent(asId, mapOf("data" to
-                        mapOf("bucket" to meta.bucket,
-                                "cacheControl" to meta.cacheControl,
-                                "contentDisposition" to meta.contentDisposition,
-                                "contentEncoding" to meta.contentEncoding,
-                                "contentLanguage" to meta.contentLanguage,
-                                "contentType" to meta.contentType,
-                                "creationTime" to meta.creationTimeMillis,
-                                "updatedTime" to meta.updatedTimeMillis,
-                                "generation" to meta.generation,
-                                "md5Hash" to meta.md5Hash,
-                                "metadataGeneration" to meta.metadataGeneration,
-                                "name" to meta.name,
-                                "path" to meta.path,
-                                "size" to meta.sizeBytes,
-                                "customMetadata" to cmd
-                        )))))
+                dispatchEvent(StorageEvent.GET_METADATA, gson.toJson(StorageEvent(asId, mapOf("data" to meta.toMap()))))
             } else {
                 val error = task.exception as StorageException
                 dispatchEvent(StorageEvent.GET_METADATA,
-                        gson.toJson(
-                                StorageEvent(asId, null, mapOf(
-                                        "text" to error.message.toString(),
-                                        "id" to error.errorCode))
-                        )
+                        gson.toJson(StorageEvent(asId, error = error.toMap()))
                 )
-
             }
         }
-
     }
 
-    fun getParent(path: String): StorageReference? {
-        return storage.getReference(path).parent
-    }
-
-    fun getRoot(path: String): StorageReference? {
-        return storage.getReference(path).root
-    }
+    fun getParent(path: String): StorageReference? = storage.getReference(path).parent
+    fun getRoot(path: String): StorageReference? = storage.getReference(path).root
 
     fun deleteReference(path: String, asId: String?) {
         storage.getReference(path).delete().addOnCompleteListener { task ->
@@ -148,11 +114,7 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
             } else {
                 val error = task.exception as StorageException
                 dispatchEvent(StorageEvent.DELETED,
-                        gson.toJson(
-                                StorageEvent(asId, null, mapOf(
-                                        "text" to error.message.toString(),
-                                        "id" to error.errorCode))
-                        )
+                        gson.toJson(StorageEvent(asId, error = error.toMap()))
                 )
             }
         }
@@ -296,11 +258,7 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
             } else {
                 val error = task.exception as StorageException
                 dispatchEvent(StorageEvent.GET_DOWNLOAD_URL,
-                        gson.toJson(
-                                StorageEvent(asId, null, mapOf(
-                                        "text" to error.message.toString(),
-                                        "id" to error.errorCode))
-                        )
+                        gson.toJson(StorageEvent(asId, error = error.toMap()))
                 )
             }
         }

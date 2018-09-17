@@ -39,9 +39,8 @@ class KotlinController : FreKotlinMainController {
                 return false.toFREObject()
             }
         } catch (e: Exception) {
-            trace("analytics Exception", e.message)
-            Log.e(TAG, "analytics Exception", e)
-            e.printStackTrace()
+            trace(e.message)
+            trace(Log.getStackTraceString(e))
             return false.toFREObject()
         }
         return true.toFREObject()

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AnalyticsANE/AnalyticsANE.iml" filepath="$PROJECT_DIR$/AnalyticsANE/AnalyticsANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/AuthANE/AuthANE.iml" filepath="$PROJECT_DIR$/AuthANE/AuthANE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CrashlyticsANE/CrashlyticsANE.iml" filepath="$PROJECT_DIR$/CrashlyticsANE/CrashlyticsANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/DynamicLinksANE/DynamicLinksANE.iml" filepath="$PROJECT_DIR$/DynamicLinksANE/DynamicLinksANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/FirebaseANE.iml" filepath="$PROJECT_DIR$/FirebaseANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/FirestoreANE/FirestoreANE.iml" filepath="$PROJECT_DIR$/FirestoreANE/FirestoreANE.iml" />

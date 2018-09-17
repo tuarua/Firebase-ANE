@@ -1,3 +1,8 @@
+### 0.0.6
+- AND: Updated to Storage 16.0.2
+- AND: Crashlytics 2.9.5
+- iOS: Crashlytics 3.10.7. Fabric 1.7.11
+
 ### 0.0.5
 - Invites: Fix error not returning on clicking back
 - AND: Updated to FreKotlin 1.5.0

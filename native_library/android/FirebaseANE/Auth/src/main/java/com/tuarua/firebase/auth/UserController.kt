@@ -35,7 +35,7 @@ class UserController(override var context: FREContext?) : FreKotlinController {
         if (app != null) {
             auth = FirebaseAuth.getInstance(app)
         } else {
-            trace(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
+            warning(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
         }
     }
 
@@ -181,8 +181,6 @@ class UserController(override var context: FREContext?) : FreKotlinController {
             }
         }
     }
-
-
 
     override val TAG: String
         get() = this::class.java.simpleName

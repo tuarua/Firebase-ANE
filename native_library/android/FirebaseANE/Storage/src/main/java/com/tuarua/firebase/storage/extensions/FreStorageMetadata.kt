@@ -58,3 +58,26 @@ fun StorageMetadata(freObject: FREObject?): StorageMetadata? {
     }
     return builder.build()
 }
+
+fun StorageMetadata.toMap(): Map<String, Any?> {
+    val cmd: MutableMap<String, String> = mutableMapOf()
+    this.customMetadataKeys.forEach { customMetadataKey ->
+        cmd[customMetadataKey] = this.getCustomMetadata(customMetadataKey)
+    }
+    return mapOf("bucket" to this.bucket,
+            "cacheControl" to this.cacheControl,
+            "contentDisposition" to this.contentDisposition,
+            "contentEncoding" to this.contentEncoding,
+            "contentLanguage" to this.contentLanguage,
+            "contentType" to this.contentType,
+            "creationTime" to this.creationTimeMillis,
+            "updatedTime" to this.updatedTimeMillis,
+            "generation" to this.generation,
+            "md5Hash" to this.md5Hash,
+            "metadataGeneration" to this.metadataGeneration,
+            "name" to this.name,
+            "path" to this.path,
+            "size" to this.sizeBytes,
+            "customMetadata" to cmd
+    )
+}

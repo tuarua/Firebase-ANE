@@ -161,6 +161,16 @@
 		909587D22115A65300AD59D5 /* GoogleAPIClientForREST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */; };
 		909587D32115A65300AD59D5 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; };
 		909587D72115A65300AD59D5 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
+		909ED0CC214EE7070059EB62 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
+		909ED0CD214EE7070059EB62 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
+		909ED0D9214EE7070059EB62 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
+		909ED0E2214EE79C0059EB62 /* CrashlyticsANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = 909ED0E0214EE79C0059EB62 /* CrashlyticsANE_oc.h */; };
+		909ED0E3214EE79C0059EB62 /* CrashlyticsANE.m in Sources */ = {isa = PBXBuildFile; fileRef = 909ED0E1214EE79C0059EB62 /* CrashlyticsANE.m */; };
+		909ED0E5214EE7D30059EB62 /* CrashlyticsANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 909ED0E4214EE7D30059EB62 /* CrashlyticsANE-Bridging-Header.h */; };
+		909ED0E7214EE7F90059EB62 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED0E6214EE7F90059EB62 /* SwiftController.swift */; };
+		909ED0E9214EE8210059EB62 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED0E8214EE8210059EB62 /* SwiftController+FreSwift.swift */; };
+		909ED0EB214EED0C0059EB62 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909ED0EA214EED0C0059EB62 /* Fabric.framework */; };
+		909ED0ED214EED170059EB62 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909ED0EC214EED170059EB62 /* Crashlytics.framework */; };
 		90BABA7220FBE90800C012F8 /* PermissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BABA7020FBE8C500C012F8 /* PermissionController.swift */; };
 		90BABA7520FBE93D00C012F8 /* PermissionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BABA7420FBE93D00C012F8 /* PermissionEvent.swift */; };
 		90BABA7620FBE98300C012F8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
@@ -508,6 +518,14 @@
 		909587E72115A75D00AD59D5 /* FreVisionCloudSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionCloudSymbol.swift; sourceTree = "<group>"; };
 		909587E82115A75E00AD59D5 /* FreVisionCloudTextProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionCloudTextProperty.swift; sourceTree = "<group>"; };
 		909587E92115A75E00AD59D5 /* FreVisionCloudBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionCloudBlock.swift; sourceTree = "<group>"; };
+		909ED0DF214EE7070059EB62 /* libCrashlyticsANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCrashlyticsANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		909ED0E0214EE79C0059EB62 /* CrashlyticsANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashlyticsANE_oc.h; sourceTree = "<group>"; };
+		909ED0E1214EE79C0059EB62 /* CrashlyticsANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrashlyticsANE.m; sourceTree = "<group>"; };
+		909ED0E4214EE7D30059EB62 /* CrashlyticsANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CrashlyticsANE-Bridging-Header.h"; sourceTree = "<group>"; };
+		909ED0E6214EE7F90059EB62 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
+		909ED0E8214EE8210059EB62 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		909ED0EA214EED0C0059EB62 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = Carthage/Build/iOS/Fabric.framework; sourceTree = "<group>"; };
+		909ED0EC214EED170059EB62 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Carthage/Build/iOS/Crashlytics.framework; sourceTree = "<group>"; };
 		90BABA7020FBE8C500C012F8 /* PermissionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionController.swift; sourceTree = "<group>"; };
 		90BABA7420FBE93D00C012F8 /* PermissionEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionEvent.swift; sourceTree = "<group>"; };
 		CE0038CA2094E9B7002A657A /* FreStorageMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreStorageMetadata.swift; sourceTree = "<group>"; };
@@ -818,6 +836,17 @@
 				909587D12115A65300AD59D5 /* GoogleToolboxForMac.framework in Frameworks */,
 				909587D22115A65300AD59D5 /* GoogleAPIClientForREST.framework in Frameworks */,
 				909587D32115A65300AD59D5 /* Protobuf.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		909ED0CB214EE7070059EB62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909ED0CC214EE7070059EB62 /* SwiftyJSON.framework in Frameworks */,
+				909ED0CD214EE7070059EB62 /* FreSwift.framework in Frameworks */,
+				909ED0ED214EED170059EB62 /* Crashlytics.framework in Frameworks */,
+				909ED0EB214EED0C0059EB62 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1283,6 +1312,42 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
+		909ED0C0214EE4E90059EB62 /* CrashlyticsANE */ = {
+			isa = PBXGroup;
+			children = (
+				909ED0C3214EE5100059EB62 /* Headers */,
+				909ED0C2214EE5090059EB62 /* Events */,
+				909ED0C1214EE5020059EB62 /* Extensions */,
+				909ED0E1214EE79C0059EB62 /* CrashlyticsANE.m */,
+				909ED0E6214EE7F90059EB62 /* SwiftController.swift */,
+				909ED0E8214EE8210059EB62 /* SwiftController+FreSwift.swift */,
+			);
+			path = CrashlyticsANE;
+			sourceTree = "<group>";
+		};
+		909ED0C1214EE5020059EB62 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		909ED0C2214EE5090059EB62 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		909ED0C3214EE5100059EB62 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				909ED0E0214EE79C0059EB62 /* CrashlyticsANE_oc.h */,
+				909ED0E4214EE7D30059EB62 /* CrashlyticsANE-Bridging-Header.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
 		90BABA7320FBE91E00C012F8 /* Events */ = {
 			isa = PBXGroup;
 			children = (
@@ -1294,6 +1359,8 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				909ED0EC214EED170059EB62 /* Crashlytics.framework */,
+				909ED0EA214EED0C0059EB62 /* Fabric.framework */,
 				90658AA42116481E003197A5 /* FirebaseMLModelInterpreter.framework */,
 				90658AA22116481A003197A5 /* tensorflow_lite.framework */,
 				90160DD12115CB9A0009A815 /* FirebaseMLVisionLabelModel.framework */,
@@ -1571,6 +1638,7 @@
 				CEBCF7962095F8730028601B /* AuthANE */,
 				CEB572B3208D0FAA00CF6B1B /* .swiftlint.yml */,
 				CE05603D1FB25CD100D06976 /* Frameworks */,
+				909ED0C0214EE4E90059EB62 /* CrashlyticsANE */,
 				CEE4F878209150AB00222131 /* StorageANE */,
 				CE7D4331208CF6D000DF8B79 /* FirestoreANE */,
 				CEE80D6C208CF43600C96EC6 /* AnalyticsANE */,
@@ -1603,6 +1671,7 @@
 				90160DF82115CCA30009A815 /* libVisionCloudLabelANE_LIB.a */,
 				90160E342115D3E60009A815 /* libVisionLandmarkANE_LIB.a */,
 				90658A8921162EF9003197A5 /* libModelInterpreterANE_LIB.a */,
+				909ED0DF214EE7070059EB62 /* libCrashlyticsANE_LIB.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2038,6 +2107,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		909ED0D6214EE7070059EB62 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909ED0D9214EE7070059EB62 /* FreMacros.h in Headers */,
+				909ED0E5214EE7D30059EB62 /* CrashlyticsANE-Bridging-Header.h in Headers */,
+				909ED0E2214EE79C0059EB62 /* CrashlyticsANE_oc.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE0560481FB25DEC00D06976 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -2293,6 +2372,25 @@
 			name = VisionCloudTextANE_LIB;
 			productName = HelloWorldANE_LIB;
 			productReference = 909587DF2115A65300AD59D5 /* libVisionCloudTextANE_LIB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		909ED0C4214EE7070059EB62 /* CrashlyticsANE_LIB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 909ED0DC214EE7070059EB62 /* Build configuration list for PBXNativeTarget "CrashlyticsANE_LIB" */;
+			buildPhases = (
+				909ED0C5214EE7070059EB62 /* Sources */,
+				909ED0CB214EE7070059EB62 /* Frameworks */,
+				909ED0D6214EE7070059EB62 /* Headers */,
+				909ED0DA214EE7070059EB62 /* ShellScript */,
+				909ED0DB214EE7070059EB62 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CrashlyticsANE_LIB;
+			productName = HelloWorldANE_LIB;
+			productReference = 909ED0DF214EE7070059EB62 /* libCrashlyticsANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		CE2C3F3E20F3F27200B9E210 /* VisionFaceANE_LIB */ = {
@@ -2609,6 +2707,7 @@
 				90160DD72115CCA30009A815 /* VisionCloudLabelANE_LIB */,
 				90160E132115D3E60009A815 /* VisionLandmarkANE_LIB */,
 				90658A6721162EF9003197A5 /* ModelInterpreterANE_LIB */,
+				909ED0C4214EE7070059EB62 /* CrashlyticsANE_LIB */,
 			);
 		};
 /* End PBXProject section */
@@ -2769,6 +2868,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/VisionCloudTextANE/ane/build_multi.sh;
+		};
+		909ED0DA214EE7070059EB62 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		909ED0DB214EE7070059EB62 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ../../../native_extension/CrashlyticsANE/ane/build_multi.sh;
 		};
 		CE2C3F6320F3F27200B9E210 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3243,6 +3368,16 @@
 				90160D8D2115A8640009A815 /* SwiftController.swift in Sources */,
 				90160D872115A7910009A815 /* FreVisionCloudWord.swift in Sources */,
 				909587B42115A65300AD59D5 /* FreVisionImage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		909ED0C5214EE7070059EB62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909ED0E3214EE79C0059EB62 /* CrashlyticsANE.m in Sources */,
+				909ED0E7214EE7F90059EB62 /* SwiftController.swift in Sources */,
+				909ED0E9214EE8210059EB62 /* SwiftController+FreSwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3737,6 +3872,53 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionCloudTextANE/Headers/VisionCloudTextANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionCloudTextANE/VisionCloudTextANE-Swift.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		909ED0DD214EE7070059EB62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "CrashlyticsANE/Headers/CrashlyticsANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "CrashlyticsANE/CrashlyticsANE-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		909ED0DE214EE7070059EB62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "CrashlyticsANE/Headers/CrashlyticsANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "CrashlyticsANE/CrashlyticsANE-Swift.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -4565,6 +4747,15 @@
 			buildConfigurations = (
 				909587DD2115A65300AD59D5 /* Debug */,
 				909587DE2115A65300AD59D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		909ED0DC214EE7070059EB62 /* Build configuration list for PBXNativeTarget "CrashlyticsANE_LIB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				909ED0DD214EE7070059EB62 /* Debug */,
+				909ED0DE214EE7070059EB62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

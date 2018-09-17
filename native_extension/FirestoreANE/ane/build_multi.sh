@@ -21,7 +21,7 @@ exit
 fi
 
 #Setup the directory.
-echo "Making directories."ex
+echo "Making directories."
 
 if [ ! -d "$pathtome/platforms" ]; then
 mkdir "$pathtome/platforms"

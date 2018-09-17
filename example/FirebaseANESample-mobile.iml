@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="Android Device">
+  <component name="FlexBuildConfigurationManager" active="iOS Device">
     <configurations>
       <configuration name="Android Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies>
@@ -68,9 +68,6 @@
             <entry library-name="com.google.firebase.firebase-messaging-17.0.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.firebase.firebase-storage-16.0.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="com.google.firebase.firebase-perf-15.0.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
@@ -93,6 +90,15 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="com.google.code.gson.gson-2.8.4" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-storage-16.0.2" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.crashlytics.sdk.android.crashlytics-2.9.5" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="CrashlyticsANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -153,6 +159,9 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="InvitesANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="CrashlyticsANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -227,6 +236,9 @@
             <entry library-name="InvitesANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="CrashlyticsANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_31" />
         </dependencies>
@@ -280,9 +292,6 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-common-15.0.0" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-analytics-15.0.0" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-firestore-15.0.0" level="project" />
-    <orderEntry type="library" exported="" name="FirebaseANE" level="project" />
-    <orderEntry type="library" exported="" name="AnalyticsANE" level="project" />
-    <orderEntry type="library" exported="" name="FirestoreANE" level="project" />
     <orderEntry type="library" exported="" name="com.google.android.gms.play-services-base-11.8.0" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-common-11.8.0" level="project" />
     <orderEntry type="library" exported="" name="com.google.android.gms.play-services-base-12.0.1" level="project" />
@@ -291,19 +300,12 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-analytics-12.0.1" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-iid-12.0.1" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-storage-12.0.1" level="project" />
-    <orderEntry type="library" exported="" name="StorageANE" level="project" />
-    <orderEntry type="library" exported="" name="RemoteConfigANE" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-config-12.0.1" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-auth-12.0.1" level="project" />
-    <orderEntry type="library" exported="" name="AuthANE" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-perf-12.0.1" level="project" />
-    <orderEntry type="library" exported="" name="PerformanceANE" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-messaging-12.0.1" level="project" />
-    <orderEntry type="library" exported="" name="MessagingANE" level="project" />
     <orderEntry type="library" exported="" name="com.google.android.gms.play-services-auth-12.0.1" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-invites-12.0.1" level="project" />
-    <orderEntry type="library" exported="" name="InvitesANE" level="project" />
-    <orderEntry type="library" exported="" name="DynamicLinksANE" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-dynamic-links-12.0.1" level="project" />
     <orderEntry type="library" exported="" name="com.google.android.gms.play-services-base-15.0.1" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-analytics-16.0.0" level="project" />
@@ -317,11 +319,24 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-storage-16.0.1" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-perf-15.0.0" level="project" />
     <orderEntry type="library" exported="" name="com.google.guava.guava-20.0" level="project" />
-    <orderEntry type="library" exported="" name="GoogleSignInANE" level="project" />
     <orderEntry type="library" exported="" name="com.google.android.gms.play-services-auth-15.0.1" level="project" />
     <orderEntry type="library" exported="" name="android.arch.lifecycle.runtime-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="android.arch.lifecycle.runtime-1.1.1" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-invites-16.0.0" level="project" />
     <orderEntry type="library" exported="" name="com.google.code.gson.gson-2.8.4" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-storage-16.0.2" level="project" />
+    <orderEntry type="library" exported="" name="FirebaseANE" level="project" />
+    <orderEntry type="library" exported="" name="AnalyticsANE" level="project" />
+    <orderEntry type="library" exported="" name="FirestoreANE" level="project" />
+    <orderEntry type="library" exported="" name="StorageANE" level="project" />
+    <orderEntry type="library" exported="" name="RemoteConfigANE" level="project" />
+    <orderEntry type="library" exported="" name="AuthANE" level="project" />
+    <orderEntry type="library" exported="" name="PerformanceANE" level="project" />
+    <orderEntry type="library" exported="" name="MessagingANE" level="project" />
+    <orderEntry type="library" exported="" name="DynamicLinksANE" level="project" />
+    <orderEntry type="library" exported="" name="GoogleSignInANE" level="project" />
+    <orderEntry type="library" exported="" name="InvitesANE" level="project" />
+    <orderEntry type="library" exported="" name="com.crashlytics.sdk.android.crashlytics-2.9.5" level="project" />
+    <orderEntry type="library" exported="" name="CrashlyticsANE" level="project" />
   </component>
 </module>
