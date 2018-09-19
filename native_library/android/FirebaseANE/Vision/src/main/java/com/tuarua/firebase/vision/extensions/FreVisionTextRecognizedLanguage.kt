@@ -14,27 +14,21 @@
  * limitations under the License.
  */
 
-@file:Suppress("FunctionName")
-
-package com.tuarua.firebase.vision.cloudtext.extensions
+package com.tuarua.firebase.vision.extensions
 
 import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
-import com.google.firebase.ml.vision.cloud.text.FirebaseVisionCloudText
 import com.tuarua.frekotlin.*
-import com.tuarua.frekotlin.geom.toFREObject
+import com.google.firebase.ml.vision.text.RecognizedLanguage
 
-fun FirebaseVisionCloudText.Word.toFREObject(): FREObject? {
-    val ret = FREObject("com.tuarua.firebase.vision.CloudWord")
-    ret["confidence"] = confidence.toFREObject()
-    ret["textProperty"] = textProperty?.toFREObject()
-    ret["frame"] = boundingBox?.toFREObject()
-    ret["symbols"] = symbols.toFREArray()
+fun RecognizedLanguage.toFREObject(): FREObject? {
+    val ret = FREObject("com.tuarua.firebase.vision.TextRecognizedLanguage")
+    ret["languageCode"] = languageCode?.toFREObject()
     return ret
 }
 
-fun List<FirebaseVisionCloudText.Word>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.vision.CloudWord", size, true)
+fun List<RecognizedLanguage>.toFREObject(): FREArray? {
+    val ret = FREArray("com.tuarua.firebase.vision.TextRecognizedLanguage", size, true)
             ?: return null
     for (i in this.indices) {
         ret[i] = this[i].toFREObject()

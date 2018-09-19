@@ -14,19 +14,10 @@
  *  limitations under the License.
  */
 
-package com.tuarua.firebase.vision {
-[RemoteClass(alias="com.tuarua.firebase.vision.CloudDetectedBreak")]
-public class CloudDetectedBreak {
-    /**
-     *  Indicates whether the break prepends the element. The value is a Boolean.
-     */
-    public var isPrefix:Boolean;
-    /**
-     *  The detected break type.
-     */
-    public var type:int; // CloudDetectedBreakType
-    /** @private */
-    public function CloudDetectedBreak() {
+import Foundation
+
+public extension NSError {
+    func toDictionary() -> [String: Any] {
+        return ["text": self.localizedDescription, "id": self.code]
     }
-}
 }

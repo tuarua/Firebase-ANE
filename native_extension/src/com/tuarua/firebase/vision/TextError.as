@@ -13,19 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package com.tuarua.firebase.vision.cloudtext.extensions
-
-import com.adobe.fre.FREObject
-import com.google.firebase.ml.vision.cloud.text.FirebaseVisionCloudText
-import com.tuarua.frekotlin.FREObject
-import com.tuarua.frekotlin.FreException
-import com.tuarua.frekotlin.set
-import com.tuarua.frekotlin.toFREObject
-
-fun FirebaseVisionCloudText.DetectedBreak.toFREObject(): FREObject? {
-    val ret = FREObject("com.tuarua.firebase.vision.CloudDetectedBreak")
-    ret["isPrefix"] = isPrefix.toFREObject()
-    ret["type"] = detectedBreakType.toFREObject()
-    return ret
+package com.tuarua.firebase.vision {
+public class TextError extends Error {
+    public function TextError(message:* = "", id:* = 0) {
+        super(message, id);
+    }
+}
 }

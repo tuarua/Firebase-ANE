@@ -31,7 +31,7 @@ CONTEXT_INIT(TRFBVCTX) {
     SWIFT_INITS(TRFBVCTX)
     static FRENamedFunction extensionFunctions[] =
     {
-        MAP_FUNCTION(TRFBVCTX, init)
+         MAP_FUNCTION(TRFBVCTX, init)
         ,MAP_FUNCTION(TRFBVCTX, createGUID)
         ,MAP_FUNCTION(TRFBVCTX, detect)
         ,MAP_FUNCTION(TRFBVCTX, getResults)

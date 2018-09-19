@@ -15,31 +15,22 @@
  */
 
 package com.tuarua.firebase.vision {
-public final class CloudDetectedBreakType {
+public class CloudTextRecognizerOptions {
     /**
-     * Unknown break type.
+     * API key to use for Cloud Vision API.  If `null`, the default API key from FirebaseApp will be
+     * used.
      */
-    public static const unknown:int = 0;
+    public var apiKeyOverride:String;
     /**
-     * Line-wrapping break type.
+     * Model type for cloud text recognition. The default is `CloudTextModelType.sparse`.
      */
-    public static const lineWrap:int = 1;
+    public var modelType:uint;
     /**
-     * Hyphen break type.
+     * An array of hinted language codes for cloud text recognition. The default is []. See
+     * https://cloud.google.com/vision/docs/languages for supported language codes.
      */
-    public static const hyphen:int = 2;
-    /**
-     * Line break that ends a paragraph.
-     */
-    public static const lineBreak:int = 3;
-    /**
-     * Space break type.
-     */
-    public static const space:int = 4;
-    /**
-     * Sure space break type.
-     */
-    public static const sureSpace:int = 5;
-
+    public var languageHints:Vector.<String> = new Vector.<String>();
+    public function CloudTextRecognizerOptions() {
+    }
 }
 }

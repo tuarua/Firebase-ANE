@@ -13,13 +13,20 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.tuarua.firebase.vision {
-[RemoteClass(alias="com.tuarua.firebase.vision.TextElement")]
-/**
- * Recognized text in an image.
- */
-public class TextElement extends VisionText {
-    public function TextElement() {
+
+import Foundation
+
+import Foundation
+import FreSwift
+import FirebaseMLVision
+
+public extension VisionText {
+    func toFREObject() -> FREObject? {
+        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.Text"),
+            var ret = fre
+            else { return nil }
+        ret["text"] = self.text.toFREObject()
+        ret["blocks"] = self.blocks.toFREObject()
+        return ret
     }
-}
 }

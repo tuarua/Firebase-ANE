@@ -17,6 +17,7 @@
 import Foundation
 import FreSwift
 import Firebase
+import FirebaseMLVision
 
 public class SwiftController: NSObject {
     public var TAG: String? = "SwiftController"
@@ -24,8 +25,8 @@ public class SwiftController: NSObject {
     public var functionsToSet: FREFunctionMap = [:]
     lazy var vision = Vision.vision()
     private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.ctx.uiq", qos: .userInitiated)
-    private var results: [String: VisionCloudText?] = [:]
-    private var options: VisionCloudDetectorOptions?
+    private var results: [String: VisionText] = [:]
+    private var options: VisionCloudTextRecognizerOptions?
     
     func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return UUID().uuidString.toFREObject()
@@ -33,7 +34,7 @@ public class SwiftController: NSObject {
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let options = VisionCloudDetectorOptions(argv[0])
+            let options = VisionCloudTextRecognizerOptions(argv[0])
             else {
                 return FreArgError(message: "initController").getError(#file, #line, #column)
         }
@@ -50,13 +51,12 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         userInitiatedQueue.async {
-            let detector = self.vision.cloudTextDetector(options: options)
-            detector.detect(in: image) { (result, error) in
+            let detector = self.vision.cloudTextRecognizer(options: options)
+            detector.process(image, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: CloudTextEvent.RECOGNIZED,
                                        value: CloudTextEvent(eventId: eventId,
-                                                        error: ["text": err.localizedDescription,
-                                                                "id": err.code]).toJSONString())
+                                                             error: err.toDictionary()).toJSONString())
                 } else {
                     if let result = result {
                         self.results[eventId] = result
@@ -64,21 +64,17 @@ public class SwiftController: NSObject {
                                            value: CloudTextEvent(eventId: eventId).toJSONString())
                     }
                 }
-            }
+            })
         }
         return nil
     }
-
+    
     func getResults(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
             let eventId = String(argv[0])
             else {
                 return FreArgError(message: "getResults").getError(#file, #line, #column)
         }
-        if let result = results[eventId] {
-            return result?.toFREObject()
-        }
-        return nil
+        return results[eventId]?.toFREObject()
     }
-    
 }

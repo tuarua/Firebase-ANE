@@ -8,7 +8,7 @@ buildscript {
     ext.firebase_dynamic_links_version = '16.0.0'
     ext.firebase_invites_version = '16.0.0'
     ext.firebase_config_version = '16.0.0'
-    ext.firebase_vision_version = '16.0.0'
+    ext.firebase_vision_version = '17.0.0'
     ext.firebase_storage_version = '16.0.2'
     ext.firebase_firestore_version = '17.0.1'
     ext.firebase_auth_version = '16.0.1'

@@ -60,7 +60,7 @@ Pull requests and contributions are welcome! This might entail:
 - [x] Storage
 - [x] Google Sign In
 - [x] Invites
-- [ ] Crashlytics
+- [x] Crashlytics
 * Vision
 - [x] Face
 - [x] Barcode

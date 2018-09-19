@@ -13,8 +13,6 @@
         <packagedDependency>Frameworks/FirebasePerformance.framework</packagedDependency>
         <packagedDependency>Frameworks/Protobuf.framework</packagedDependency>
         <packagedDependency>Frameworks/GTMSessionFetcher.framework</packagedDependency>
-        <packagedDependency>Frameworks/FirebaseMethodSwizzler.framework</packagedDependency>
-        <packagedDependency>Frameworks/FirebaseISASwizzler.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

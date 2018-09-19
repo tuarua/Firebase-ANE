@@ -14,17 +14,15 @@
  * limitations under the License.
  */
 
-package com.tuarua.firebase.vision.cloudtext.extensions
+package com.tuarua.firebase.vision.extensions
 
 import com.adobe.fre.FREObject
-import com.google.firebase.ml.vision.cloud.text.FirebaseVisionCloudText
-import com.tuarua.frekotlin.FREObject
-import com.tuarua.frekotlin.FreException
-import com.tuarua.frekotlin.set
+import com.google.firebase.ml.vision.text.FirebaseVisionText
+import com.tuarua.frekotlin.*
 
-fun FirebaseVisionCloudText.TextProperty.toFREObject(): FREObject? {
-    val ret = FREObject("com.tuarua.firebase.vision.CloudTextProperty")
-    ret["detectedBreak"] = detectedBreak?.toFREObject()
-    ret["detectedLanguages"] = detectedLanguages.toFREArray()
+fun FirebaseVisionText.toFREObject(): FREObject? {
+    val ret = FREObject("com.tuarua.firebase.vision.Text")
+    ret["text"] = this.text.toFREObject()
+    ret["blocks"] = this.textBlocks.toFREObject()
     return ret
 }

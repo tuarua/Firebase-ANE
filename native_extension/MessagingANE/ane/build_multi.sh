@@ -75,13 +75,6 @@ cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseMessaging.framew
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/Protobuf.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/Protobuf.framework" "$pathtome/platforms/ios/device/Frameworks"
 
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/FirebaseMethodSwizzler.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseMethodSwizzler.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/FirebaseISASwizzler.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseISASwizzler.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-
 #Run the build command.
 echo "Building ANE."
 "$AIR_SDK"/bin/adt -package \

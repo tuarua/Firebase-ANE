@@ -18,22 +18,19 @@ import Foundation
 import FreSwift
 import FirebaseMLVision
 
-public extension VisionCloudSymbol {
+public extension VisionTextRecognizedLanguage {
     func toFREObject() -> FREObject? {
-        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.CloudSymbol"),
+        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.TextRecognizedLanguage"),
             var ret = fre
             else { return nil }
-        ret["confidence"] = self.confidence?.toFREObject()
-        ret["frame"] = self.frame.toFREObject()
-        ret["text"] = self.text?.toFREObject()
-        ret["textProperty"] = self.textProperty?.toFREObject()
+        ret["languageCode"] = self.languageCode?.toFREObject()
         return ret
     }
 }
 
-public extension Array where Element == VisionCloudSymbol {
+public extension Array where Element == VisionTextRecognizedLanguage {
     func toFREObject() -> FREObject? {
-        guard let ret = try? FREArray(className: "com.tuarua.firebase.vision.CloudSymbol",
+        guard let ret = try? FREArray(className: "com.tuarua.firebase.vision.TextRecognizedLanguage",
                                       length: self.count, fixed: true) else { return nil }
         var cnt: UInt = 0
         for element in self {

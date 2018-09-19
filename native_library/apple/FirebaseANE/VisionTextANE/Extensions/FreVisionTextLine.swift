@@ -27,6 +27,8 @@ public extension VisionTextLine {
         ret["text"] = self.text.toFREObject()
         ret["cornerPoints"] = self.cornerPoints.toFREObject()
         ret["elements"] = self.elements.toFREObject()
+        ret["confidence"] = self.confidence?.toFREObject()
+        ret["recognizedLanguages"] = self.recognizedLanguages.toFREObject()
         return ret
     }
 }

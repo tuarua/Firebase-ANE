@@ -1,14 +1,13 @@
 package views.examples {
-import com.tuarua.firebase.CloudTextDetector;
-import com.tuarua.firebase.CloudTextError;
-import com.tuarua.firebase.TextDetector;
-import com.tuarua.firebase.TextError;
+import com.tuarua.firebase.CloudTextRecognizer;
+import com.tuarua.firebase.TextRecognizer;
 import com.tuarua.firebase.VisionANE;
-import com.tuarua.firebase.vision.CloudText;
-import com.tuarua.firebase.vision.TextBlock;
+import com.tuarua.firebase.vision.Text;
 import com.tuarua.firebase.vision.TextElement;
+import com.tuarua.firebase.vision.TextError;
 import com.tuarua.firebase.vision.TextLine;
 import com.tuarua.firebase.vision.VisionImage;
+import com.tuarua.firebase.vision.TextBlock;
 
 import flash.display.Bitmap;
 import flash.geom.Rectangle;
@@ -46,8 +45,8 @@ public class TextExample extends Sprite implements IExample {
     private var stageWidth:Number;
     private var stageHeight:Number;
     private var isInited:Boolean;
-    private var textDetector:TextDetector;
-    private var cloudTextDetector:CloudTextDetector;
+    private var textDetector:TextRecognizer;
+    private var cloudTextDetector:CloudTextRecognizer;
     private var vision:VisionANE;
 
     public function TextExample(stageWidth:int, vision:VisionANE) {
@@ -61,7 +60,7 @@ public class TextExample extends Sprite implements IExample {
     public function initANE():void {
         if (isInited) return;
 
-        textDetector = vision.textDetector();
+        textDetector = vision.onDeviceTextRecognizer();
         cloudTextDetector = vision.cloudTextDetector();
         isInited = true;
     }
@@ -106,24 +105,7 @@ public class TextExample extends Sprite implements IExample {
             textImageDisplay.visible = true;
             cloudTextImageDisplay.visible = false;
             var visionImage:VisionImage = new VisionImage(bmpTextImage.bitmapData);
-            textDetector.detect(visionImage, function (blocks:Vector.<TextBlock>, error:TextError):void {
-                if (error) {
-                    statusLabel.text = "Text error: " + error.errorID + " : " + error.message;
-                    return;
-                }
-                for each (var block:TextBlock in blocks) {
-                    for each (var line:TextLine in block.lines) {
-                        var frame:Rectangle;
-                        for each (var element:TextElement in line.elements) {
-                            frame = element.frame;
-                            var hl:TextElementHighlight = new TextElementHighlight(frame, element.text);
-                            overlayContainer.addChild(hl);
-                            trace(element.text);
-                        }
-                    }
-
-                }
-            });
+            textDetector.process(visionImage, onProcessed);
         }
     }
 
@@ -135,15 +117,26 @@ public class TextExample extends Sprite implements IExample {
             textImageDisplay.visible = false;
             cloudTextImageDisplay.visible = true;
             var visionImage:VisionImage = new VisionImage(bmpCloudTextImage.bitmapData);
+            cloudTextDetector.process(visionImage, onProcessed);
 
-            cloudTextDetector.detect(visionImage, function (cloudText:CloudText, error:CloudTextError):void {
-                if (error) {
-                    statusLabel.text = "Text error: " + error.errorID + " : " + error.message;
-                    return;
+        }
+    }
+
+    private function onProcessed(text:Text, error:TextError):void {
+        if (error) {
+            statusLabel.text = "Text error: " + error.errorID + " : " + error.message;
+            return;
+        }
+        trace(text.text);
+        for each (var block:TextBlock in text.blocks) {
+            for each (var line:TextLine in block.lines) {
+                var frame:Rectangle;
+                for each (var element:TextElement in line.elements) {
+                    frame = element.frame;
+                    var hl:TextElementHighlight = new TextElementHighlight(frame, element.text);
+                    overlayContainer.addChild(hl);
                 }
-                statusLabel.text = "Text: " + cloudText.text;
-            })
-
+            }
         }
     }
 

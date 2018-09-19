@@ -1,20 +1,6 @@
-/*
- *  Copyright 2018 Tua Rua Ltd.
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
 package com.tuarua.firebase {
-
+import com.tuarua.firebase.vision.CloudTextRecognizerOptions;
+import com.tuarua.firebase.vision.TextError;
 import com.tuarua.firebase.vision.VisionImage;
 import com.tuarua.fre.ANEError;
 
@@ -22,18 +8,20 @@ import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
 import flash.utils.Dictionary;
 
-public class TextDetector {
-    internal static const NAME:String = "VisionTextANE";
+public class CloudTextRecognizer {
+    internal static const NAME:String = "VisionCloudTextANE";
     private static var _context:ExtensionContext;
+    private var _options:CloudTextRecognizerOptions = new CloudTextRecognizerOptions();
     /** @private */
     public static var closures:Dictionary = new Dictionary();
-    private static const RECOGNIZED:String = "TextEvent.Recognized";
+    private static const RECOGNIZED:String = "CloudTextEvent.Recognized";
     /** @private */
-    public function TextDetector() {
+    public function CloudTextRecognizer(options:CloudTextRecognizerOptions) {
         try {
+            if (options) _options = options;
             _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
             _context.addEventListener(StatusEvent.STATUS, gotEvent);
-            _context.call("init");
+            _context.call("init", _options);
         } catch (e:Error) {
             trace(e.name);
             trace(e.message);
@@ -75,7 +63,7 @@ public class TextDetector {
                         return;
                     }
                     closure.call(null, theRet, err);
-                    delete closures[pObj.eventId]; // TODO don't delete if we are running camera detection continuously
+                    delete closures[pObj.eventId];
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
@@ -84,12 +72,12 @@ public class TextDetector {
     }
 
     /**
-     * Detects texts in the given image.
+     * Processes the given image for on-device or cloud text recognition.
      *
-     * @param image The image to use for detecting texts.
-     * @param listener Closure to call back on the main queue with texts detected or error.
+     * @param image The image to process for recognizing text.
+     * @param listener Closure to call back on the main queue when text recognition completes.
      */
-    public function detect(image:VisionImage, listener:Function):void {
+    public function process(image:VisionImage, listener:Function):void {
         var theRet:* = _context.call("detect", image, createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
@@ -114,6 +102,10 @@ public class TextDetector {
         _context.removeEventListener(StatusEvent.STATUS, gotEvent);
         _context.dispose();
         _context = null;
+    }
+
+    public function set options(options:CloudTextRecognizerOptions):void {
+        _options = options ? options : new CloudTextRecognizerOptions();
     }
 
 }

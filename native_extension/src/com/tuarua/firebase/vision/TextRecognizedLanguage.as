@@ -15,30 +15,18 @@
  */
 
 package com.tuarua.firebase.vision {
-public final class CloudBlockType {
+[RemoteClass(alias="com.tuarua.firebase.vision.TextRecognizedLanguage")]
+/**
+ * Detected language from text recognition.
+ */
+public class TextRecognizedLanguage {
     /**
-     * Unknown block type.
+     *  The BCP-47 language code, such as, "en-US" or "sr-Latn". For more information, see
+     *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
      */
-    public static const unknown:int = 0;
-    /**
-     * Barcode block type.
-     */
-    public static const barcode:int = 1;
-    /**
-     * Image block type.
-     */
-    public static const picture:int = 2;
-    /**
-     * Horizontal/vertical line box.
-     */
-    public static const ruler:int = 3;
-    /**
-     * Table block type.
-     */
-    public static const table:int = 4;
-    /**
-     * Regular text block type.
-     */
-    public static const text:int = 5;
+    public var languageCode:String;
+    /** @private */
+    public function TextRecognizedLanguage() {
+    }
 }
 }

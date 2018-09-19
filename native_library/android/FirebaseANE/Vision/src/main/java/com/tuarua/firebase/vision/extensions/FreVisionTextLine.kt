@@ -16,25 +16,27 @@
 
 @file:Suppress("FunctionName")
 
-package com.tuarua.firebase.vision.cloudtext.extensions
+package com.tuarua.firebase.vision.extensions
 
 import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
-import com.google.firebase.ml.vision.cloud.text.FirebaseVisionCloudText
+import com.google.firebase.ml.vision.text.FirebaseVisionText
 import com.tuarua.frekotlin.*
 import com.tuarua.frekotlin.geom.toFREObject
 
-fun FirebaseVisionCloudText.Symbol.toFREObject(): FREObject? {
-    val ret = FREObject("com.tuarua.firebase.vision.CloudSymbol")
-    ret["confidence"] = confidence.toFREObject()
-    ret["textProperty"] = textProperty?.toFREObject()
+fun FirebaseVisionText.Line.toFREObject(): FREObject? {
+    val ret = FREObject("com.tuarua.firebase.vision.TextLine")
     ret["frame"] = boundingBox?.toFREObject()
-    ret["text"] = text?.toFREObject()
+    ret["text"] = text.toFREObject()
+    ret["cornerPoints"] = FREArray(cornerPoints)
+    ret["elements"] = elements.toFREObject()
+    ret["confidence"] = confidence?.toFREObject()
+    ret["recognizedLanguages"] = this.recognizedLanguages.toFREObject()
     return ret
 }
 
-fun List<FirebaseVisionCloudText.Symbol>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.vision.CloudSymbol", size, true)
+fun List<FirebaseVisionText.Line>.toFREObject(): FREArray? {
+    val ret = FREArray("com.tuarua.firebase.vision.TextLine", size, true)
             ?: return null
     for (i in this.indices) {
         ret[i] = this[i].toFREObject()

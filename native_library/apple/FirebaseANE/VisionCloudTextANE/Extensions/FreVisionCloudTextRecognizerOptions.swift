@@ -18,13 +18,20 @@ import Foundation
 import FreSwift
 import FirebaseMLVision
 
-public extension VisionCloudTextProperty {
-    func toFREObject() -> FREObject? {
-        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.CloudTextProperty"),
-            var ret = fre
+public extension VisionCloudTextRecognizerOptions {
+    convenience init?(_ freObject: FREObject?) {
+        guard let rv = freObject,
+            let freModelType = UInt(rv["modelType"]),
+            let modelType = VisionCloudTextModelType(rawValue: freModelType),
+            let languageHints = [String](rv["languageHints"])
             else { return nil }
-        ret["detectedBreak"] = self.detectedBreak?.toFREObject()
-        ret["detectedLanguages"] = self.detectedLanguages?.toFREObject()
-        return ret
+        self.init()
+        if let apiKeyOverride = String(rv["apiKeyOverride"]) {
+            self.apiKeyOverride = apiKeyOverride
+        }
+        self.modelType = modelType
+        if !languageHints.isEmpty {
+            self.languageHints = languageHints
+        }
     }
 }

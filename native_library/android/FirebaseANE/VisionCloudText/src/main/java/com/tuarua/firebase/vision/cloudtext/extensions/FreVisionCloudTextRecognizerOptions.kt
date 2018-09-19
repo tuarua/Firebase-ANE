@@ -18,23 +18,21 @@
 
 package com.tuarua.firebase.vision.cloudtext.extensions
 
-import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
-import com.google.firebase.ml.vision.cloud.text.FirebaseVisionCloudText
-import com.tuarua.frekotlin.*
+import com.google.firebase.ml.vision.text.FirebaseVisionCloudTextRecognizerOptions
+import com.tuarua.frekotlin.Int
+import com.tuarua.frekotlin.List
+import com.tuarua.frekotlin.get
 
-fun FirebaseVisionCloudText.DetectedLanguage.toFREObject(): FREObject? {
-    val ret = FREObject("com.tuarua.firebase.vision.CloudDetectedLanguage")
-    ret["confidence"] = confidence.toFREObject()
-    ret["languageCode"] = languageCode?.toFREObject()
-    return ret
-}
-
-fun List<FirebaseVisionCloudText.DetectedLanguage>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.vision.CloudDetectedLanguage", size, true)
-            ?: return null
-    for (i in this.indices) {
-        ret[i] = this[i].toFREObject()
+fun FirebaseVisionCloudTextRecognizerOptions(freObject: FREObject?): FirebaseVisionCloudTextRecognizerOptions? {
+    val rv = freObject ?: return null
+    val modelType = Int(rv["modelType"]) ?: return null
+    val languageHints = List<String>(rv["languageHints"])
+    val builder = FirebaseVisionCloudTextRecognizerOptions.Builder()
+    if (languageHints.isNotEmpty()) {
+        builder.setLanguageHints(languageHints)
     }
-    return ret
+    builder.setModelType(modelType + 1)
+
+    return builder.build()
 }

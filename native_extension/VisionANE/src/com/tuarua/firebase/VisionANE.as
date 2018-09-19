@@ -17,6 +17,7 @@
 package com.tuarua.firebase {
 import com.tuarua.firebase.vision.BarcodeDetectorOptions;
 import com.tuarua.firebase.vision.CloudDetectorOptions;
+import com.tuarua.firebase.vision.CloudTextRecognizerOptions;
 import com.tuarua.firebase.vision.FaceDetectorOptions;
 import com.tuarua.firebase.vision.LabelDetectorOptions;
 import com.tuarua.fre.ANEError;
@@ -26,8 +27,8 @@ import flash.events.EventDispatcher;
 public class VisionANE extends EventDispatcher {
     private var _barcodeDetector:BarcodeDetector;
     private var _faceDetector:FaceDetector;
-    private var _textDetector:TextDetector;
-    private var _cloudTextDetector:CloudTextDetector;
+    private var _textRecognizer:TextRecognizer;
+    private var _cloudTextDetector:CloudTextRecognizer;
     private var _labelDetector:LabelDetector;
     private var _cloudLabelDetector:CloudLabelDetector;
     private var _cloudLandmarkDetector:CloudLandmarkDetector;
@@ -73,28 +74,28 @@ public class VisionANE extends EventDispatcher {
     }
 
     /**
-     * Gets a text detector.
+     * Gets an on-device text recognizer.
      *
-     * @return A text detector.
+     * @return A text recognizer.
      */
-    public function textDetector():TextDetector {
-        if (_textDetector == null) {
-            _textDetector = new TextDetector();
+    public function onDeviceTextRecognizer():TextRecognizer {
+        if (_textRecognizer == null) {
+            _textRecognizer = new TextRecognizer();
         }
-        return _textDetector
+        return _textRecognizer
     }
 
     /**
-     * Gets an instance of cloud text detector with the given options.
+     * Gets a cloud text recognizer configured with the given options.
      *
-     * @param options Options for configuring the cloud text detector.
-     * @return A cloud text detector configured with the given options.
+     * @param options Options for configuring the cloud text recognizer.
+     * @return A text recognizer configured with the given options.
      */
-    public function cloudTextDetector(options:CloudDetectorOptions = null):CloudTextDetector {
+    public function cloudTextDetector(options:CloudTextRecognizerOptions = null):CloudTextRecognizer {
         if (_cloudTextDetector != null) {
             _cloudTextDetector.options = options;
         } else {
-            _cloudTextDetector = new CloudTextDetector(options);
+            _cloudTextDetector = new CloudTextRecognizer(options);
         }
         return _cloudTextDetector
     }
@@ -170,11 +171,11 @@ public class VisionANE extends EventDispatcher {
         if (FaceDetector.context) {
             FaceDetector.dispose();
         }
-        if (TextDetector.context) {
-            TextDetector.dispose();
+        if (TextRecognizer.context) {
+            TextRecognizer.dispose();
         }
-        if (CloudTextDetector.context) {
-            CloudTextDetector.dispose();
+        if (CloudTextRecognizer.context) {
+            CloudTextRecognizer.dispose();
         }
         if (LabelDetector.context) {
             LabelDetector.dispose();

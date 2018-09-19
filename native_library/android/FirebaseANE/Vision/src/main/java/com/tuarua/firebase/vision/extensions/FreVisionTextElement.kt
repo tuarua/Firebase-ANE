@@ -14,27 +14,28 @@
  * limitations under the License.
  */
 
-@file:Suppress("unused", "FunctionName")
+@file:Suppress("FunctionName")
 
-package com.tuarua.firebase.vision.cloudtext.extensions
+package com.tuarua.firebase.vision.extensions
 
 import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
-import com.google.firebase.ml.vision.cloud.text.FirebaseVisionCloudText
+import com.google.firebase.ml.vision.text.FirebaseVisionText
 import com.tuarua.frekotlin.*
 import com.tuarua.frekotlin.geom.toFREObject
 
-fun FirebaseVisionCloudText.Block.toFREObject(): FREObject? {
-    val ret = FREObject("com.tuarua.firebase.vision.CloudBlock")
-    ret["confidence"] = confidence.toFREObject()
-    ret["textProperty"] = textProperty?.toFREObject()
-    ret["frame"] = boundingBox?.toFREObject()
-    ret["paragraphs"] = paragraphs.toFREArray()
+fun FirebaseVisionText.Element.toFREObject(): FREObject? {
+    val ret = FREObject("com.tuarua.firebase.vision.TextElement")
+    ret["frame"] = this.boundingBox?.toFREObject()
+    ret["text"] = this.text.toFREObject()
+    ret["cornerPoints"] = FREArray(this.cornerPoints)
+    ret["confidence"] = confidence?.toFREObject()
+    ret["recognizedLanguages"] = this.recognizedLanguages.toFREObject()
     return ret
 }
 
-fun List<FirebaseVisionCloudText.Block>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.vision.CloudBlock", size, true)
+fun List<FirebaseVisionText.Element>.toFREObject(): FREArray? {
+    val ret = FREArray("com.tuarua.firebase.vision.TextElement", size, true)
             ?: return null
     for (i in this.indices) {
         ret[i] = this[i].toFREObject()

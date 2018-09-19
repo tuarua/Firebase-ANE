@@ -13,19 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-@file:Suppress("FunctionName")
 
-package com.tuarua.firebase.vision.cloudtext.extensions
-
-import com.adobe.fre.FREObject
-import com.google.firebase.ml.vision.cloud.text.FirebaseVisionCloudText
-import com.tuarua.frekotlin.*
-
-fun FirebaseVisionCloudText.toFREObject(): FREObject? {
-    val ret = FREObject("com.tuarua.firebase.vision.CloudText")
-    ret["text"] = text.toFREObject()
-    ret["pages"] = pages.toFREArray()
-    return ret
+package com.tuarua.firebase.vision {
+public final class CloudTextModelType {
+    /**
+     * Sparse or regular text cloud model type.
+     */
+    public var sparse:uint = 0;
+    /**
+     * Dense or document text cloud model type.
+     */
+    public var dense:uint = 1;
 }
-
-
+}

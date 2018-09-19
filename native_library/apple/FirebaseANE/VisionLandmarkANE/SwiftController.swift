@@ -17,6 +17,7 @@
 import Foundation
 import FreSwift
 import Firebase
+import FirebaseMLVision
 
 public class SwiftController: NSObject {
     public var TAG: String? = "SwiftController"
@@ -55,9 +56,8 @@ public class SwiftController: NSObject {
             detector.detect(in: image) { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: LandmarkEvent.RECOGNIZED,
-                                       value: LandmarkEvent(eventId: eventId,
-                                                            error: ["text": err.localizedDescription,
-                                                                    "id": err.code]).toJSONString())
+                                       value: LandmarkEvent(eventId: eventId, error: err.toDictionary()).toJSONString()
+                    )
                 } else {
                     if let result = result, !result.isEmpty {
                         self.results[eventId] = result
