@@ -35,6 +35,9 @@
             <entry library-name="VisionLandmarkANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="CrashlyticsANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_31" />
         </dependencies>
@@ -88,6 +91,9 @@
             <entry library-name="VisionLandmarkANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="CrashlyticsANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_31" />
         </dependencies>
@@ -135,9 +141,6 @@
             <entry library-name="com.google.code.gson.gson-2.8.4" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.firebase.firebase-ml-vision-16.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="com.tuarua.frekotlin" library-level="project">
               <dependency linkage="Merged" />
             </entry>
@@ -172,6 +175,9 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="org.jetbrains.kotlinx.kotlinx-coroutines-android-0.24.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-ml-vision-17.0.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -223,5 +229,7 @@
     <orderEntry type="library" exported="" name="VisionLandmarkANE" level="project" />
     <orderEntry type="library" exported="" name="com.google.android.gms.play-services-vision-image-label-15.0.0" level="project" />
     <orderEntry type="library" exported="" name="org.jetbrains.kotlinx.kotlinx-coroutines-android-0.24.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-ml-vision-17.0.0" level="project" />
+    <orderEntry type="library" exported="" name="CrashlyticsANE" level="project" />
   </component>
 </module>
