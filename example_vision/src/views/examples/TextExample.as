@@ -45,8 +45,8 @@ public class TextExample extends Sprite implements IExample {
     private var stageWidth:Number;
     private var stageHeight:Number;
     private var isInited:Boolean;
-    private var textDetector:TextRecognizer;
-    private var cloudTextDetector:CloudTextRecognizer;
+    private var textRecognizer:TextRecognizer;
+    private var cloudTextRecognizer:CloudTextRecognizer;
     private var vision:VisionANE;
 
     public function TextExample(stageWidth:int, vision:VisionANE) {
@@ -60,8 +60,8 @@ public class TextExample extends Sprite implements IExample {
     public function initANE():void {
         if (isInited) return;
 
-        textDetector = vision.onDeviceTextRecognizer();
-        cloudTextDetector = vision.cloudTextDetector();
+        textRecognizer = vision.onDeviceTextRecognizer();
+        cloudTextRecognizer = vision.cloudTextRecognizer();
         isInited = true;
     }
 
@@ -105,7 +105,7 @@ public class TextExample extends Sprite implements IExample {
             textImageDisplay.visible = true;
             cloudTextImageDisplay.visible = false;
             var visionImage:VisionImage = new VisionImage(bmpTextImage.bitmapData);
-            textDetector.process(visionImage, onProcessed);
+            textRecognizer.process(visionImage, onProcessed);
         }
     }
 
@@ -117,7 +117,7 @@ public class TextExample extends Sprite implements IExample {
             textImageDisplay.visible = false;
             cloudTextImageDisplay.visible = true;
             var visionImage:VisionImage = new VisionImage(bmpCloudTextImage.bitmapData);
-            cloudTextDetector.process(visionImage, onProcessed);
+            cloudTextRecognizer.process(visionImage, onProcessed);
 
         }
     }
