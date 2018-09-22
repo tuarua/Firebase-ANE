@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="VisionCloudDocumentANE" type="flex">
+    <CLASSES>
+      <root url="jar://$DOCUMENTS$/Firebase-ANE/native_extension/VisionCloudDocumentANE/ane/VisionCloudDocumentANE.ane!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

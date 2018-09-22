@@ -185,11 +185,12 @@
 		909ED0E5214EE7D30059EB62 /* CrashlyticsANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 909ED0E4214EE7D30059EB62 /* CrashlyticsANE-Bridging-Header.h */; };
 		909ED0E7214EE7F90059EB62 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED0E6214EE7F90059EB62 /* SwiftController.swift */; };
 		909ED0E9214EE8210059EB62 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909ED0E8214EE8210059EB62 /* SwiftController+FreSwift.swift */; };
-		909ED0EB214EED0C0059EB62 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909ED0EA214EED0C0059EB62 /* Fabric.framework */; };
 		909ED0ED214EED170059EB62 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909ED0EC214EED170059EB62 /* Crashlytics.framework */; };
 		90BABA7220FBE90800C012F8 /* PermissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BABA7020FBE8C500C012F8 /* PermissionController.swift */; };
 		90BABA7520FBE93D00C012F8 /* PermissionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BABA7420FBE93D00C012F8 /* PermissionEvent.swift */; };
 		90BABA7620FBE98300C012F8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
+		90CDBBA0215673090056DD92 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDBB9F215673090056DD92 /* SwiftController+FreSwift.swift */; };
+		90CDBBA221567F910056DD92 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CDBBA121567F910056DD92 /* Fabric.framework */; };
 		90EF030B2154216000C91063 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
 		90EF030C2154216000C91063 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		90EF030D2154216000C91063 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
@@ -206,7 +207,6 @@
 		90EF0321215421E000C91063 /* VisionCloudDocumentANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EF02F6215420E500C91063 /* VisionCloudDocumentANE-Bridging-Header.h */; };
 		90EF0322215421E300C91063 /* VisionCloudDocumentANE.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EF02F52154205800C91063 /* VisionCloudDocumentANE.m */; };
 		90EF0323215421E600C91063 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF02F72154214800C91063 /* SwiftController.swift */; };
-		90EF0324215421F000C91063 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
 		90EF03262154230100C91063 /* FreVisionCloudDocumentTextRecognizerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03252154230100C91063 /* FreVisionCloudDocumentTextRecognizerOptions.swift */; };
 		90EF0327215423C300C91063 /* FreVisionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039220EED12C008D6CE8 /* FreVisionImage.swift */; };
 		90EF0328215423C700C91063 /* FreVisionImageMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039420EED2A8008D6CE8 /* FreVisionImageMetadata.swift */; };
@@ -558,10 +558,11 @@
 		909ED0E4214EE7D30059EB62 /* CrashlyticsANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CrashlyticsANE-Bridging-Header.h"; sourceTree = "<group>"; };
 		909ED0E6214EE7F90059EB62 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		909ED0E8214EE8210059EB62 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
-		909ED0EA214EED0C0059EB62 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = Carthage/Build/iOS/Fabric.framework; sourceTree = "<group>"; };
 		909ED0EC214EED170059EB62 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Carthage/Build/iOS/Crashlytics.framework; sourceTree = "<group>"; };
 		90BABA7020FBE8C500C012F8 /* PermissionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionController.swift; sourceTree = "<group>"; };
 		90BABA7420FBE93D00C012F8 /* PermissionEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionEvent.swift; sourceTree = "<group>"; };
+		90CDBB9F215673090056DD92 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		90CDBBA121567F910056DD92 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = Carthage/Build/iOS/Fabric.framework; sourceTree = "<group>"; };
 		90EF02F42154205800C91063 /* VisionCloudDocumentANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisionCloudDocumentANE_oc.h; sourceTree = "<group>"; };
 		90EF02F52154205800C91063 /* VisionCloudDocumentANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionCloudDocumentANE.m; sourceTree = "<group>"; };
 		90EF02F6215420E500C91063 /* VisionCloudDocumentANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionCloudDocumentANE-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -890,7 +891,7 @@
 				909ED0CC214EE7070059EB62 /* SwiftyJSON.framework in Frameworks */,
 				909ED0CD214EE7070059EB62 /* FreSwift.framework in Frameworks */,
 				909ED0ED214EED170059EB62 /* Crashlytics.framework in Frameworks */,
-				909ED0EB214EED0C0059EB62 /* Fabric.framework in Frameworks */,
+				90CDBBA221567F910056DD92 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1420,6 +1421,7 @@
 				90EF02F32154201500C91063 /* Extensions */,
 				90EF02F52154205800C91063 /* VisionCloudDocumentANE.m */,
 				90EF02F72154214800C91063 /* SwiftController.swift */,
+				90CDBB9F215673090056DD92 /* SwiftController+FreSwift.swift */,
 			);
 			path = VisionCloudDocumentANE;
 			sourceTree = "<group>";
@@ -1458,11 +1460,11 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90CDBBA121567F910056DD92 /* Fabric.framework */,
 				90741DB121504FC2003366E3 /* GoogleUtilities.framework */,
 				90741DAF21504FBA003366E3 /* GoogleAppMeasurement.framework */,
 				90741DAD21504F88003366E3 /* gRPC-C++.framework */,
 				909ED0EC214EED170059EB62 /* Crashlytics.framework */,
-				909ED0EA214EED0C0059EB62 /* Fabric.framework */,
 				90658AA42116481E003197A5 /* FirebaseMLModelInterpreter.framework */,
 				90658AA22116481A003197A5 /* tensorflow_lite.framework */,
 				90160DD12115CB9A0009A815 /* FirebaseMLVisionLabelModel.framework */,
@@ -2860,14 +2862,14 @@
 		};
 		90160DB72115C60B0009A815 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/VisionLabelANE/ane/build_multi.sh;
 		};
@@ -2886,14 +2888,14 @@
 		};
 		90160DF42115CCA30009A815 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/VisionCloudLabelANE/ane/build_multi.sh;
 		};
@@ -2912,14 +2914,14 @@
 		};
 		90160E302115D3E60009A815 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/VisionLandmarkANE/ane/build_multi.sh;
 		};
@@ -2964,14 +2966,14 @@
 		};
 		906A68092114EFB000848218 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/VisionTextANE/ane/build_multi.sh;
 		};
@@ -2990,14 +2992,14 @@
 		};
 		909587DB2115A65300AD59D5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/VisionCloudTextANE/ane/build_multi.sh;
 		};
@@ -3016,14 +3018,14 @@
 		};
 		909ED0DB214EE7070059EB62 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/CrashlyticsANE/ane/build_multi.sh;
 		};
@@ -3042,14 +3044,14 @@
 		};
 		90EF031B2154216000C91063 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/VisionCloudDocumentANE/ane/build_multi.sh;
 		};
@@ -3068,14 +3070,14 @@
 		};
 		CE2C3F6420F3F27200B9E210 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/VisionFaceANE/ane/build_multi.sh;
 		};
@@ -3094,14 +3096,14 @@
 		};
 		CE5E6B2220F1787D001398C5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/VisionANE/ane/build_multi.sh;
 		};
@@ -3146,14 +3148,14 @@
 		};
 		CE6E037320EEC828008D6CE8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/VisionBarcodeANE/ane/build_multi.sh;
 		};
@@ -3341,14 +3343,14 @@
 		};
 		CEDDADE01FBFB84900D6EB5F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/ane/build_multi.sh;
 		};
@@ -3554,7 +3556,6 @@
 				90EF03262154230100C91063 /* FreVisionCloudDocumentTextRecognizerOptions.swift in Sources */,
 				90EF0322215421E300C91063 /* VisionCloudDocumentANE.m in Sources */,
 				90EF0323215421E600C91063 /* SwiftController.swift in Sources */,
-				90EF0324215421F000C91063 /* SwiftController+FreSwift.swift in Sources */,
 				90EF0330215425AE00C91063 /* FreVisionTextRecognizedLanguage.swift in Sources */,
 				90EF032D215424BE00C91063 /* CloudDocumentEvent.swift in Sources */,
 				90EF03342154262000C91063 /* FreVisionTextRecognizedBreak.swift in Sources */,
@@ -3563,6 +3564,7 @@
 				90EF032B2154247500C91063 /* FreVisionDocumentText.swift in Sources */,
 				90EF03382154478D00C91063 /* FreVisionDocumentTextSymbol.swift in Sources */,
 				90EF0336215445E700C91063 /* FreVisionDocumentTextWord.swift in Sources */,
+				90CDBBA0215673090056DD92 /* SwiftController+FreSwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,7 +20,7 @@ package com.tuarua.firebase.vision {
  */
 public class CloudDocumentRecognizerOptions {
     /**
-     * API key to use for Cloud Vision API.  If `nil`, the default API key from FirebaseApp will be
+     * API key to use for Cloud Vision API.  If `null`, the default API key from FirebaseApp will be
      * used.
      */
     public var apiKeyOverride:String;

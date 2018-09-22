@@ -25,6 +25,6 @@ import com.tuarua.frekotlin.toFREObject
 fun FirebaseVisionDocumentText.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.vision.DocumentText")
     ret["text"] = text.toFREObject()
-    ret["lines"] = blocks.toFREObject()
+    ret["blocks"] = blocks.toFREObject()
     return ret
 }

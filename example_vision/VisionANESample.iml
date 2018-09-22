@@ -35,6 +35,9 @@
             <entry library-name="VisionLandmarkANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="VisionCloudDocumentANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
             <entry library-name="CrashlyticsANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
@@ -89,6 +92,9 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="VisionLandmarkANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VisionCloudDocumentANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="CrashlyticsANE" library-level="project">
@@ -180,6 +186,9 @@
             <entry library-name="com.google.firebase.firebase-ml-vision-17.0.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="VisionCloudDocumentANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_31" />
         </dependencies>
@@ -231,5 +240,6 @@
     <orderEntry type="library" exported="" name="org.jetbrains.kotlinx.kotlinx-coroutines-android-0.24.0" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-ml-vision-17.0.0" level="project" />
     <orderEntry type="library" exported="" name="CrashlyticsANE" level="project" />
+    <orderEntry type="library" exported="" name="VisionCloudDocumentANE" level="project" />
   </component>
 </module>

@@ -70,13 +70,11 @@ public class StarlingRoot extends Sprite {
             }
 
             vision = VisionANE.vision;
+            vision.addEventListener(PermissionEvent.STATUS_CHANGED, onPermissionsStatus);
+            vision.requestPermissions();
         } catch (e:ANEError) {
             trace(e.errorID, e.message, e.getStackTrace(), e.source);
         }
-
-        vision.addEventListener(PermissionEvent.STATUS_CHANGED, onPermissionsStatus);
-        vision.requestPermissions();
-
     }
 
     private function initMenu():void {
