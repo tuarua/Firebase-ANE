@@ -25,7 +25,6 @@ public extension VisionTextRecognizedBreak {
             else { return nil }
         ret["type"] = self.type.rawValue.toFREObject()
         ret["isPrefix"] = self.isPrefix.toFREObject()
-        VisionDocumentTextBlockType.text
         return ret
     }
 }

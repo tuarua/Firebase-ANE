@@ -81,7 +81,6 @@ class FrameVisionProcessor(private val visionImageProcessor: VisionImageProcesso
                         try {
                             dataLock.wait()
                         } catch (e: InterruptedException) {
-                            Log.e("EOIN ProcessingRunnable", Log.getStackTraceString(e))
                             return
                         }
                     }

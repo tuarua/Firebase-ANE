@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/Storage" />
             <option value="$PROJECT_DIR$/Vision" />
             <option value="$PROJECT_DIR$/VisionBarcode" />
+            <option value="$PROJECT_DIR$/VisionCloudDocument" />
             <option value="$PROJECT_DIR$/VisionCloudLabel" />
             <option value="$PROJECT_DIR$/VisionCloudText" />
             <option value="$PROJECT_DIR$/VisionFace" />
