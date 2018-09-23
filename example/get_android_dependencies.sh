@@ -15,7 +15,7 @@ GsonVersion="2.8.4"
 OkhttpVersion="2.7.2"
 GuavaVersion="20.0"
 LifeCycleVersion="1.1.1"
-CrashlyticsVersion = "2.9.5"
+CrashlyticsVersion="2.9.5"
 
 wget -O ../native_extension/ane/FirebaseANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/FirebaseANE.ane?raw=true
 wget -O ../native_extension/AnalyticsANE/ane/AnalyticsANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/AnalyticsANE.ane?raw=true
