@@ -31,6 +31,7 @@ on set-up and each of the FirebaseANEs.
 - https://tuarua.github.io/asdocs/firebaseane/performance/
 - https://tuarua.github.io/asdocs/firebaseane/remoteconfig/
 - https://tuarua.github.io/asdocs/firebaseane/storage/
+- https://tuarua.github.io/asdocs/firebaseane/crashlytics/
 - https://tuarua.github.io/asdocs/visionane/
 
 ## Issue Tracker
