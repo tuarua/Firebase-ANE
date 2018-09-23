@@ -43,16 +43,16 @@ class KotlinController : FreKotlinMainController {
             if (app != null) {
                 remoteConfig = FirebaseRemoteConfig.getInstance()
             } else {
-                trace(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
+                warning(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
                 return false.toFREObject()
             }
         } catch (e: FreException) {
-            trace(e.message)
-            trace(e.stackTrace)
+            warning(e.message)
+            warning(e.stackTrace)
             return false.toFREObject()
         } catch (e: Exception) {
-            Log.e(TAG, e.message)
-            e.printStackTrace()
+            warning(e.message)
+            warning(Log.getStackTraceString(e))
             return false.toFREObject()
         }
         return true.toFREObject()

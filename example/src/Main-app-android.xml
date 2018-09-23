@@ -4,7 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-iOS-Device</name>
-    <versionNumber>0.0.2</versionNumber>
+    <versionNumber>0.0.6</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -166,6 +166,17 @@
                     android:screenOrientation="portrait"
                     android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
 
+                    <!-- crashlytics -->
+                    <provider
+                        android:authorities="air.com.tuarua.firebaseane.example.crashlyticsinitprovider"
+                        android:name="com.crashlytics.android.CrashlyticsInitProvider"
+                        android:exported="false"
+                        android:initOrder="99" />
+                    <meta-data
+                        android:name="firebase_crashlytics_collection_enabled"
+                        android:value="false" />
+                    <activity android:name="com.tuarua.firebase.crashlytics.CrashlyticsActivity" />
+
                 </application>
             </manifest>
             ]]>
@@ -197,7 +208,7 @@
         <extensionID>com.tuarua.firebase.InvitesANE</extensionID>
         <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
         <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
-
+        <extensionID>com.tuarua.firebase.CrashlyticsANE</extensionID>
 
         <extensionID>com.google.firebase.firebase-analytics</extensionID>
         <extensionID>com.google.firebase.firebase-iid</extensionID>
@@ -209,5 +220,8 @@
         <extensionID>com.google.firebase.firebase-invites</extensionID>
         <extensionID>com.google.firebase.firebase-messaging</extensionID>
         <extensionID>com.google.firebase.firebase-perf</extensionID>
+
+        <extensionID>com.crashlytics.sdk.android.crashlytics</extensionID>
+
     </extensions>
 </application>

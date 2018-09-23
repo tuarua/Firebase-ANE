@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="CrashlyticsANE" type="flex">
+    <CLASSES>
+      <root url="jar://$DOCUMENTS$/Firebase-ANE/native_extension/CrashlyticsANE/ane/CrashlyticsANE.ane!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

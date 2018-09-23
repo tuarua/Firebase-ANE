@@ -17,6 +17,7 @@
 import Foundation
 import FreSwift
 import Firebase
+import FirebaseMLVision
 
 public class SwiftController: NSObject {
     public var TAG: String? = "SwiftController"
@@ -24,7 +25,7 @@ public class SwiftController: NSObject {
     public var functionsToSet: FREFunctionMap = [:]
     lazy var vision = Vision.vision()
     private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.tx.uiq", qos: .userInitiated)
-    private var results: [String: [VisionText?]] = [:]
+    private var results: [String: VisionText] = [:]
     
     func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return UUID().uuidString.toFREObject()
@@ -42,21 +43,19 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         userInitiatedQueue.async {
-            let detector = self.vision.textDetector()
-            detector.detect(in: image) { (result, error) in
+            let recognizer = self.vision.onDeviceTextRecognizer()
+            recognizer.process(image, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: TextEvent.RECOGNIZED,
-                                       value: TextEvent(eventId: eventId,
-                                                        error: ["text": err.localizedDescription,
-                                                                "id": err.code]).toJSONString())
+                                       value: TextEvent(eventId: eventId, error: err.toDictionary()).toJSONString())
                 } else {
-                    if let result = result, !result.isEmpty {
+                    if let result = result {
                         self.results[eventId] = result
                         self.dispatchEvent(name: TextEvent.RECOGNIZED,
                                            value: TextEvent(eventId: eventId).toJSONString())
                     }
                 }
-            }
+            })
         }
         return nil
     }
@@ -67,22 +66,7 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "getResults").getError(#file, #line, #column)
         }
-        do {
-            if let result = results[eventId] {
-                let freArray = try FREArray(className: "com.tuarua.firebase.vision.TextBlock",
-                                            length: result.count, fixed: true)
-                var cnt: UInt = 0
-                for text in result {
-                    if let block = text as? VisionTextBlock, let freBlock = block.toFREObject() {
-                        try freArray.set(index: cnt, value: freBlock)
-                        cnt += 1
-                    }
-                }
-                return freArray.rawValue
-            }
-        } catch {}
-        
-        return nil
+        return results[eventId]?.toFREObject()
     }
     
 }

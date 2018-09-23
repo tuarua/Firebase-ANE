@@ -24,8 +24,9 @@
         <packagedDependency>Frameworks/nanopb.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseCore.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseInstanceID.framework</packagedDependency>
-        <packagedDependency>Frameworks/FirebaseNanoPB.framework</packagedDependency>
+        <packagedDependency>Frameworks/GoogleAppMeasurement.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleToolboxForMac.framework</packagedDependency>
+        <packagedDependency>Frameworks/GoogleUtilities.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

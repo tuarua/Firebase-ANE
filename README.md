@@ -60,12 +60,13 @@ Pull requests and contributions are welcome! This might entail:
 - [x] Storage
 - [x] Google Sign In
 - [x] Invites
-- [ ] Crashlytics
+- [x] Crashlytics
 * Vision
 - [x] Face
 - [x] Barcode
 - [x] Text
 - [x] Cloud Text
+- [x] Cloud Document
 - [x] Label
 - [x] Cloud Label
 - [x] Landmark

@@ -92,6 +92,8 @@ cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseMLVision.framewo
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/GoogleMobileVision.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/GoogleMobileVision.framework" "$pathtome/platforms/ios/device/Frameworks"
 
+cp -R -L "$pathtome/../../../firebase_frameworks/simulator/Fabric.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../../firebase_frameworks/device/Fabric.framework" "$pathtome/platforms/ios/device/Frameworks"
 
 #Run the build command.
 echo "Building ANE."

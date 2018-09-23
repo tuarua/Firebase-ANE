@@ -21,7 +21,7 @@ exit
 fi
 
 #Setup the directory.
-echo "Making directories."ex
+echo "Making directories."
 
 if [ ! -d "$pathtome/platforms" ]; then
 mkdir "$pathtome/platforms"
@@ -86,6 +86,9 @@ cp -R -L "$pathtome/../../../firebase_frameworks/device/gRPC-RxLibrary.framework
 
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator//gRPC.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/gRPC.framework" "$pathtome/platforms/ios/device/Frameworks"
+
+cp -R -L "$pathtome/../../../firebase_frameworks/simulator/gRPC-C++.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../../firebase_frameworks/device/gRPC-C++.framework" "$pathtome/platforms/ios/device/Frameworks"
 
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/leveldb-library.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/leveldb-library.framework" "$pathtome/platforms/ios/device/Frameworks"

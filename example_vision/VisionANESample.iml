@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="iOS Device">
+  <component name="FlexBuildConfigurationManager" active="Android Device">
     <configurations>
       <configuration name="iOS Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies target-player="30.0">
@@ -33,6 +33,9 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="VisionLandmarkANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VisionCloudDocumentANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -88,6 +91,9 @@
             <entry library-name="VisionLandmarkANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="VisionCloudDocumentANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_31" />
         </dependencies>
@@ -135,9 +141,6 @@
             <entry library-name="com.google.code.gson.gson-2.8.4" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.firebase.firebase-ml-vision-16.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="com.tuarua.frekotlin" library-level="project">
               <dependency linkage="Merged" />
             </entry>
@@ -172,6 +175,12 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="org.jetbrains.kotlinx.kotlinx-coroutines-android-0.24.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-ml-vision-17.0.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="VisionCloudDocumentANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -223,5 +232,8 @@
     <orderEntry type="library" exported="" name="VisionLandmarkANE" level="project" />
     <orderEntry type="library" exported="" name="com.google.android.gms.play-services-vision-image-label-15.0.0" level="project" />
     <orderEntry type="library" exported="" name="org.jetbrains.kotlinx.kotlinx-coroutines-android-0.24.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-ml-vision-17.0.0" level="project" />
+    <orderEntry type="library" exported="" name="CrashlyticsANE" level="project" />
+    <orderEntry type="library" exported="" name="VisionCloudDocumentANE" level="project" />
   </component>
 </module>

@@ -16,8 +16,6 @@
     <packagedDependencies>
         <packagedDependency>Frameworks/FirebaseMessaging.framework</packagedDependency>
         <packagedDependency>Frameworks/Protobuf.framework</packagedDependency>
-        <packagedDependency>Frameworks/FirebaseMethodSwizzler.framework</packagedDependency>
-        <packagedDependency>Frameworks/FirebaseISASwizzler.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

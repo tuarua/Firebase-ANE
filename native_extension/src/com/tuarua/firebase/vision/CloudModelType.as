@@ -16,7 +16,9 @@
 
 package com.tuarua.firebase.vision {
 public final class CloudModelType {
+    /** Stable model. */
     public static const stable:uint = 0;
+    /** Latest model. */
     public static const latest:uint = 1;
 }
 }

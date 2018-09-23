@@ -40,7 +40,7 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
         if (app != null) {
             auth = FirebaseAuth.getInstance(app)
         } else {
-            trace(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
+            warning(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
         }
     }
 

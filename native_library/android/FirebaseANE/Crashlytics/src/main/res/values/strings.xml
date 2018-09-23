@@ -1,0 +1,4 @@
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <string name="app_name">CrashlyticsANE</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">6157916F-7C43-4A3F-94A9-5F70D9014B23</string>
+</resources>

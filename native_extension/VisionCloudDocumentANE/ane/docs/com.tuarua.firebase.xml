@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.tuarua.firebase"><apiName>com.tuarua.firebase</apiName><apiDetail/><apiClassifier id="com.tuarua.firebase:CloudDocumentRecognizer"><apiName>CloudDocumentRecognizer</apiName><shortdesc>
+ A cloud document text recognizer that recognizes text in an image.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ A cloud document text recognizer that recognizes text in an image.
+ </apiDesc></apiClassifierDetail><apiOperation id="com.tuarua.firebase:CloudDocumentRecognizer:process"><apiName>process</apiName><shortdesc>
+     Processes the given image for cloud document text recognition.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>image</apiItemName><apiOperationClassifier>com.tuarua.firebase.vision:VisionImage</apiOperationClassifier><apiDesc>The image to process for recognizing document text.
+     </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Closure to call back on the main queue when document text recognition
+         completes.
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Processes the given image for cloud document text recognition.
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.tuarua.firebase:CloudDocumentRecognizer:com.tuarua.firebase:NAME"><apiName>NAME</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>VisionCloudDocumentANE</apiData><apiType value="String"/></apiValueDef></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase:CloudDocumentRecognizer:options:set"><apiName>options</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="write"/><apiValueClassifier>com.tuarua.firebase.vision:CloudDocumentRecognizerOptions</apiValueClassifier></apiValueDef></apiValueDetail></apiValue></apiClassifier></apiPackage>

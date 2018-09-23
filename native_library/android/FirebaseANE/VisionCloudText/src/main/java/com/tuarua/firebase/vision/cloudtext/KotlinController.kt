@@ -19,14 +19,14 @@ package com.tuarua.firebase.vision.cloudtext
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.FirebaseVision
-import com.google.firebase.ml.vision.cloud.FirebaseVisionCloudDetectorOptions
-import com.google.firebase.ml.vision.cloud.text.FirebaseVisionCloudText
-import com.google.firebase.ml.vision.cloud.text.FirebaseVisionCloudTextDetector
+import com.google.firebase.ml.vision.text.FirebaseVisionCloudTextRecognizerOptions
+import com.google.firebase.ml.vision.text.FirebaseVisionText
+import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer
 import com.google.gson.Gson
 import com.tuarua.firebase.vision.cloudtext.events.CloudTextEvent
-import com.tuarua.firebase.vision.cloudtext.extensions.toFREObject
-import com.tuarua.firebase.vision.extensions.FirebaseVisionCloudDetectorOptions
+import com.tuarua.firebase.vision.cloudtext.extensions.FirebaseVisionCloudTextRecognizerOptions
 import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
+import com.tuarua.firebase.vision.extensions.toFREObject
 import com.tuarua.frekotlin.*
 
 import java.util.*
@@ -37,14 +37,14 @@ import kotlinx.coroutines.experimental.CommonPool
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
     private val TRACE = "TRACE"
-    private var options: FirebaseVisionCloudDetectorOptions? = null
-    private var results: MutableMap<String, FirebaseVisionCloudText> = mutableMapOf()
+    private var options: FirebaseVisionCloudTextRecognizerOptions? = null
+    private var results: MutableMap<String, FirebaseVisionText> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = CommonPool
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
-        options = FirebaseVisionCloudDetectorOptions(argv[0])
+        options = FirebaseVisionCloudTextRecognizerOptions(argv[0])
         return true.toFREObject()
     }
 
@@ -54,18 +54,18 @@ class KotlinController : FreKotlinMainController {
 
     fun detect(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
-        val image = FirebaseVisionImage(argv[0], ctx) ?: return FreConversionException("image")
-        val eventId = String(argv[1]) ?: return FreConversionException("eventId")
+        val image = FirebaseVisionImage(argv[0], ctx) ?: return null
+        val eventId = String(argv[1]) ?: return null
         val options = this.options
 
         launch(bgContext) {
-            val detector: FirebaseVisionCloudTextDetector = if (options != null) {
-                FirebaseVision.getInstance().getVisionCloudTextDetector(options)
+            val recognizer: FirebaseVisionTextRecognizer = if (options != null) {
+                FirebaseVision.getInstance().getCloudTextRecognizer(options)
             } else {
-                FirebaseVision.getInstance().visionCloudTextDetector
+                FirebaseVision.getInstance().cloudTextRecognizer
             }
 
-            detector.detectInImage(image).addOnCompleteListener { task ->
+            recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     results[eventId] = task.result
                     dispatchEvent(CloudTextEvent.RECOGNIZED,
@@ -88,9 +88,8 @@ class KotlinController : FreKotlinMainController {
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
-        val eventId = String(argv[0]) ?: return FreConversionException("eventId")
-        val result = results[eventId] ?: return null
-        return result.toFREObject()
+        val eventId = String(argv[0]) ?: return null
+        return results[eventId]?.toFREObject()
     }
 
     override val TAG: String

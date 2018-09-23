@@ -35,7 +35,6 @@ extension SwiftController: GIDSignInDelegate {
     }
     
     public func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        trace("didDisconnectWith")
     }
     
     @objc func applicationDidFinishLaunching(_ notification: Notification) {

@@ -3,11 +3,11 @@ import com.tuarua.FirebaseANE;
 import com.tuarua.firebase.BarcodeDetector;
 import com.tuarua.firebase.CloudLabelDetector;
 import com.tuarua.firebase.CloudLandmarkDetector;
-import com.tuarua.firebase.CloudTextDetector;
+import com.tuarua.firebase.CloudTextRecognizer;
 import com.tuarua.firebase.FaceDetector;
 import com.tuarua.firebase.FirebaseOptions;
 import com.tuarua.firebase.LabelDetector;
-import com.tuarua.firebase.TextDetector;
+import com.tuarua.firebase.TextRecognizer;
 import com.tuarua.firebase.VisionANE;
 import com.tuarua.firebase.permissions.PermissionEvent;
 import com.tuarua.firebase.permissions.PermissionStatus;
@@ -70,13 +70,11 @@ public class StarlingRoot extends Sprite {
             }
 
             vision = VisionANE.vision;
+            vision.addEventListener(PermissionEvent.STATUS_CHANGED, onPermissionsStatus);
+            vision.requestPermissions();
         } catch (e:ANEError) {
             trace(e.errorID, e.message, e.getStackTrace(), e.source);
         }
-
-        vision.addEventListener(PermissionEvent.STATUS_CHANGED, onPermissionsStatus);
-        vision.requestPermissions();
-
     }
 
     private function initMenu():void {
@@ -219,8 +217,8 @@ public class StarlingRoot extends Sprite {
         FirebaseANE.dispose();
         BarcodeDetector.dispose();
         FaceDetector.dispose();
-        TextDetector.dispose();
-        CloudTextDetector.dispose();
+        TextRecognizer.dispose();
+        CloudTextRecognizer.dispose();
         LabelDetector.dispose();
         CloudLabelDetector.dispose();
         CloudLandmarkDetector.dispose();

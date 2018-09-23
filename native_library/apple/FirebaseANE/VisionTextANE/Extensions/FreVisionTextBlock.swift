@@ -27,6 +27,21 @@ public extension VisionTextBlock {
         ret["frame"] = self.frame.toFREObject()
         ret["text"] = self.text.toFREObject()
         ret["cornerPoints"] = self.cornerPoints.toFREObject()
+        ret["confidence"] = self.confidence?.toFREObject()
+        ret["recognizedLanguages"] = self.recognizedLanguages.toFREObject()
         return ret
+    }
+}
+
+public extension Array where Element == VisionTextBlock {
+    func toFREObject() -> FREObject? {
+        guard let ret = try? FREArray(className: "com.tuarua.firebase.vision.TextBlock",
+                                      length: self.count, fixed: true) else { return nil }
+        var cnt: UInt = 0
+        for element in self {
+            ret[cnt] = element.toFREObject()
+            cnt+=1
+        }
+        return ret.rawValue
     }
 }

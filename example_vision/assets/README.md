@@ -1,1 +1,1 @@
-This folder will contain downloaded assets/materials/models
+This folder will contain downloaded assets

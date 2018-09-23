@@ -54,9 +54,8 @@ class KotlinController : FreKotlinMainController {
 
     fun detect(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
-        val image = FirebaseVisionImage(argv[0], ctx) ?: return FreConversionException("image")
-        val eventId = com.tuarua.frekotlin.String(argv[1])
-                ?: return FreConversionException("eventId")
+        val image = FirebaseVisionImage(argv[0], ctx) ?: return null
+        val eventId = String(argv[1]) ?: return null
         val options = this.options
 
         launch(bgContext) {
@@ -89,8 +88,7 @@ class KotlinController : FreKotlinMainController {
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
-        val eventId = com.tuarua.frekotlin.String(argv[0])
-                ?: return FreConversionException("eventId")
+        val eventId = String(argv[0]) ?: return null
         val result = results[eventId] ?: return null
         return result.toFREArray()
     }

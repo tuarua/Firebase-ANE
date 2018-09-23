@@ -3,7 +3,7 @@
 rm -r ios_dependencies/device
 rm -r ios_dependencies/simulator
 
-AneVersion="0.0.5"
+AneVersion="0.0.6"
 FreSwiftVersion="2.5.0"
 
 wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/$FreSwiftVersion/ios_dependencies.zip
@@ -29,3 +29,4 @@ wget -O ../native_extension/RemoteConfigANE/ane/RemoteConfigANE.ane https://gith
 wget -O ../native_extension/StorageANE/ane/StorageANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/StorageANE.ane?raw=true
 wget -O ../native_extension/GoogleSignInANE/ane/GoogleSignInANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/GoogleSignInANE.ane?raw=true
 wget -O ../native_extension/InvitesANE/ane/InvitesANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/InvitesANE.ane?raw=true
+wget -O ../native_extension/CrashlyticsANE/ane/CrashlyticsANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/CrashlyticsANE.ane?raw=true

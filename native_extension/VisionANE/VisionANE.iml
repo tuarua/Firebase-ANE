@@ -29,6 +29,9 @@
             <entry module-name="VisionLabelANE" build-configuration-name="VisionLabelANE">
               <dependency linkage="Include" />
             </entry>
+            <entry module-name="VisionCloudDocumentANE" build-configuration-name="VisionCloudDocumentANE">
+              <dependency linkage="Include" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_31" />
         </dependencies>
@@ -58,5 +61,6 @@
     <orderEntry type="module" module-name="VisionCloudLabelANE" exported="" />
     <orderEntry type="module" module-name="VisionLandmarkANE" exported="" />
     <orderEntry type="module" module-name="VisionCloudTextANE" exported="" />
+    <orderEntry type="module" module-name="VisionCloudDocumentANE" exported="" />
   </component>
 </module>

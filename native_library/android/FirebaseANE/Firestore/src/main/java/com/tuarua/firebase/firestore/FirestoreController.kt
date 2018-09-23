@@ -51,31 +51,23 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
                     firestore.firestoreSettings = settings
                 }
             } else {
-                trace(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
+                warning(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
             }
         } catch (e: FreException) {
-            trace(e.message)
-            trace(e.stackTrace)
+            warning(e.message)
+            warning(e.stackTrace)
         } catch (e: Exception) {
-            Log.e(TAG, e.message)
-            e.printStackTrace()
+            warning(e.message)
+            warning(Log.getStackTraceString(e))
         }
     }
 
-    fun getFirestoreSettings(): FirebaseFirestoreSettings {
-        return firestore.firestoreSettings
-    }
+    fun getFirestoreSettings(): FirebaseFirestoreSettings = firestore.firestoreSettings
 
     /**************** Collections ****************/
 
-    fun initCollectionReference(path: String): String {
-        val colRef: CollectionReference = firestore.collection(path)
-        return colRef.id
-    }
-
-    fun getCollectionParent(path: String): String? {
-        return firestore.collection(path).parent?.path
-    }
+    fun initCollectionReference(path: String): String = firestore.collection(path).id
+    fun getCollectionParent(path: String): String? = firestore.collection(path).parent?.path
 
     /**************** Documents ****************/
     fun getDocuments(path: String, eventId: String, whereList: MutableList<Where>,
@@ -131,16 +123,8 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
         }
     }
 
-    fun initDocumentReference(path: String): String {
-        val docRef: DocumentReference = firestore.document(path)
-        return docRef.id
-    }
-
-    fun documentWithAutoId(path: String): String {
-        val colRef: CollectionReference = firestore.collection(path)
-        val docRef: DocumentReference = colRef.document()
-        return docRef.path
-    }
+    fun initDocumentReference(path: String): String = firestore.document(path).id
+    fun documentWithAutoId(path: String): String = firestore.collection(path).document().path
 
     fun getDocumentReference(path: String, eventId: String) {
         val docRef: DocumentReference = firestore.document(path)
@@ -237,9 +221,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
         }
     }
 
-    fun getDocumentParent(path: String): String {
-        return firestore.document(path).parent.path
-    }
+    fun getDocumentParent(path: String): String = firestore.document(path).parent.path
 
 
     /**************** Batch ****************/

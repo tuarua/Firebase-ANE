@@ -17,7 +17,14 @@
 package com.tuarua.firebase.vision {
 [RemoteClass(alias="com.tuarua.firebase.vision.CloudDetectorOptions")]
 public class CloudDetectorOptions {
+    /**
+     * Maximum number of results to return.  Defaults to 10.  Does not apply to
+     * `VisionCloudTextDetector` and `VisionCloudDocumentTextDetector`.
+     */
     public var maxResults:uint = 10;
+    /**
+     * Type of model to use in vision cloud detection API.  Defaults to `.stable`.
+     */
     public var modelType:uint = CloudModelType.stable;
     public function CloudDetectorOptions() {
     }

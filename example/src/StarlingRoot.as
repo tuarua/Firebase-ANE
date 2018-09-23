@@ -2,6 +2,7 @@ package {
 import com.tuarua.FirebaseANE;
 import com.tuarua.firebase.AnalyticsANE;
 import com.tuarua.firebase.AuthANE;
+import com.tuarua.firebase.CrashlyticsANE;
 import com.tuarua.firebase.DynamicLinksANE;
 import com.tuarua.firebase.FirebaseOptions;
 import com.tuarua.firebase.FirestoreANE;
@@ -41,6 +42,7 @@ public class StarlingRoot extends Sprite {
     private var btnMessaging:SimpleButton = new SimpleButton("Messaging");
     private var btnDynamicLinks:SimpleButton = new SimpleButton("Dynamic Links");
     private var btnInvites:SimpleButton = new SimpleButton("Invites");
+    private var btnCrashlytics:SimpleButton = new SimpleButton("Crashlytics");
 
     private var btnBack:SimpleButton = new SimpleButton("Back");
     private var menuContainer:Sprite = new Sprite();
@@ -55,6 +57,7 @@ public class StarlingRoot extends Sprite {
     private var messagingExample:MessagingExample;
     private var dynamicLinksExample:DynamicLinksExample;
     private var invitesExample:InvitesExample;
+    private var crashlyticsExample:CrashlyticsExample;
 
     public function StarlingRoot() {
         TextField.registerCompositor(Fonts.getFont("fira-sans-semi-bold-13"), "Fira Sans Semi-Bold 13");
@@ -116,11 +119,15 @@ public class StarlingRoot extends Sprite {
         invitesExample.x = stage.stageWidth;
         addChild(invitesExample);
 
+        crashlyticsExample = new CrashlyticsExample(stage.stageWidth);
+        crashlyticsExample.x = stage.stageWidth;
+        addChild(crashlyticsExample);
+
 
     }
 
     private function initMenu():void {
-        btnInvites.x = btnDynamicLinks.x = btnMessaging.x = btnPerformance.x = btnAuth.x = btnRemoteConfig.x = btnBack.x = btnStorage.x =
+        btnCrashlytics.x = btnInvites.x = btnDynamicLinks.x = btnMessaging.x = btnPerformance.x = btnAuth.x = btnRemoteConfig.x = btnBack.x = btnStorage.x =
                 btnFirestore.x = btnAnalytics.x = (stage.stageWidth - 200) * 0.5;
         btnAnalytics.y = GAP;
         btnAnalytics.addEventListener(TouchEvent.TOUCH, onAnalyticsClick);
@@ -157,6 +164,10 @@ public class StarlingRoot extends Sprite {
         btnInvites.y = btnDynamicLinks.y + GAP;
         btnInvites.addEventListener(TouchEvent.TOUCH, onInvitesClick);
         menuContainer.addChild(btnInvites);
+
+        btnCrashlytics.y = btnInvites.y + GAP;
+        btnCrashlytics.addEventListener(TouchEvent.TOUCH, onCrashlyticsClick);
+        menuContainer.addChild(btnCrashlytics);
 
         btnBack.y = stage.stageHeight - 100;
         btnBack.addEventListener(TouchEvent.TOUCH, onBackClick);
@@ -254,6 +265,15 @@ public class StarlingRoot extends Sprite {
         }
     }
 
+    private function onCrashlyticsClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnCrashlytics);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            showMenu(false);
+            showExample(crashlyticsExample);
+            btnBack.visible = true;
+        }
+    }
+
     private function showExample(example:IExample, value:Boolean = true):void {
         var tween:Tween = new Tween(example, 0.5, Transitions.EASE_OUT);
         tween.moveTo(value ? 0 : stage.stageWidth, 0);
@@ -278,7 +298,7 @@ public class StarlingRoot extends Sprite {
             showExample(messagingExample, false);
             showExample(dynamicLinksExample, false);
             showExample(invitesExample, false);
-
+            showExample(crashlyticsExample, false);
             btnBack.visible = false;
         }
     }
@@ -294,6 +314,7 @@ public class StarlingRoot extends Sprite {
         MessagingANE.dispose();
         DynamicLinksANE.dispose();
         InvitesANE.dispose();
+        CrashlyticsANE.dispose();
     }
 
 }

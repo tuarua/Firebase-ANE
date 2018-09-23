@@ -42,8 +42,7 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
             if let err = error as NSError? {
                 self.dispatchEvent(name: BarcodeEvent.DETECTED,
                                value: BarcodeEvent(eventId: eventId,
-                                                   error: ["text": err.localizedDescription,
-                                                           "id": err.code],
+                                                   error: err.toDictionary(),
                                                    continuous: false).toJSONString())
             } else {
                 if let features = features, !features.isEmpty {

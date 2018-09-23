@@ -26,6 +26,8 @@ public extension VisionTextElement {
         ret["frame"] = self.frame.toFREObject()
         ret["text"] = self.text.toFREObject()
         ret["cornerPoints"] = self.cornerPoints.toFREObject()
+        ret["confidence"] = self.confidence?.toFREObject()
+        ret["recognizedLanguages"] = self.recognizedLanguages.toFREObject()
         return ret
     }
 }

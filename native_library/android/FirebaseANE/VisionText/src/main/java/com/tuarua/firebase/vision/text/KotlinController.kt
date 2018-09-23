@@ -7,7 +7,7 @@ import com.google.firebase.ml.vision.text.FirebaseVisionText
 import com.google.gson.Gson
 import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
 import com.tuarua.firebase.vision.text.events.TextEvent
-import com.tuarua.firebase.vision.text.extensions.toFREObject
+import com.tuarua.firebase.vision.extensions.toFREObject
 import com.tuarua.frekotlin.*
 import java.util.*
 import kotlinx.coroutines.experimental.CommonPool
@@ -17,7 +17,7 @@ import kotlinx.coroutines.experimental.launch
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
     private val TRACE = "TRACE"
-    private var results: MutableMap<String, MutableList<FirebaseVisionText.Block>> = mutableMapOf()
+    private var results: MutableMap<String, FirebaseVisionText> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = CommonPool
 
@@ -31,13 +31,13 @@ class KotlinController : FreKotlinMainController {
 
     fun detect(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
-        val image = FirebaseVisionImage(argv[0], ctx) ?: return FreConversionException("image")
-        val eventId = String(argv[1]) ?: return FreConversionException("eventId")
+        val image = FirebaseVisionImage(argv[0], ctx) ?: return null
+        val eventId = String(argv[1]) ?: return null
         launch(bgContext) {
-            val detector = FirebaseVision.getInstance().visionTextDetector
-            detector.detectInImage(image).addOnCompleteListener { task ->
+            val recognizer = FirebaseVision.getInstance().onDeviceTextRecognizer
+            recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    results[eventId] = task.result.blocks
+                    results[eventId] = task.result
                     dispatchEvent(TextEvent.RECOGNIZED,
                             gson.toJson(TextEvent(eventId, null)))
                 } else {
@@ -58,14 +58,8 @@ class KotlinController : FreKotlinMainController {
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
-        val eventId = String(argv[0]) ?: return FreConversionException("eventId")
-        val result = results[eventId] ?: return null
-        val freArray = FREArray("com.tuarua.firebase.vision.TextBlock",
-                result.size, true) ?: return null
-        for (i in result.indices) {
-            freArray[i] = result[i].toFREObject()
-        }
-        return freArray
+        val eventId = String(argv[0]) ?: return null
+        return results[eventId]?.toFREObject()
     }
 
     override val TAG: String

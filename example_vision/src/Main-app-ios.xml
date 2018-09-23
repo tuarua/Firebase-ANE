@@ -57,6 +57,7 @@
         <extensionID>com.tuarua.firebase.VisionFaceANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionTextANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudTextANE</extensionID>
+        <extensionID>com.tuarua.firebase.VisionCloudDocumentANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionLandmarkANE</extensionID>

@@ -95,6 +95,9 @@ cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseMLVision.framewo
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/GoogleMobileVision.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/GoogleMobileVision.framework" "$pathtome/platforms/ios/device/Frameworks"
 
+cp -R -L "$pathtome/../../../firebase_frameworks/simulator/Fabric.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../../firebase_frameworks/device/Fabric.framework" "$pathtome/platforms/ios/device/Frameworks"
+
 echo "Copying Android aars into place"
 cp "$pathtome/../../../native_library/android/FirebaseANE/Vision/build/outputs/aar/Vision-release.aar" "$pathtome/platforms/android/app-release.aar"
 echo "getting Android jars"

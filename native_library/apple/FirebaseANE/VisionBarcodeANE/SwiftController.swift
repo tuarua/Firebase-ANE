@@ -61,9 +61,7 @@ public class SwiftController: NSObject {
             barcodeDetector.detect(in: image) { (features, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: BarcodeEvent.DETECTED,
-                                   value: BarcodeEvent(eventId: eventId,
-                                                       error: ["text": err.localizedDescription,
-                                                               "id": err.code]).toJSONString())
+                                   value: BarcodeEvent(eventId: eventId, error: err.toDictionary()).toJSONString())
                 } else {
                     if let features = features, !features.isEmpty {
                         self.results[eventId] = features

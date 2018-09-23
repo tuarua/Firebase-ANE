@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Analytics/Analytics.iml" filepath="$PROJECT_DIR$/Analytics/Analytics.iml" />
       <module fileurl="file://$PROJECT_DIR$/Auth/Auth.iml" filepath="$PROJECT_DIR$/Auth/Auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Crashlytics/Crashlytics.iml" filepath="$PROJECT_DIR$/Crashlytics/Crashlytics.iml" />
       <module fileurl="file://$PROJECT_DIR$/DynamicLinks/DynamicLinks.iml" filepath="$PROJECT_DIR$/DynamicLinks/DynamicLinks.iml" />
       <module fileurl="file://$PROJECT_DIR$/Firebase/Firebase.iml" filepath="$PROJECT_DIR$/Firebase/Firebase.iml" />
       <module fileurl="file://$PROJECT_DIR$/FirebaseANE.iml" filepath="$PROJECT_DIR$/FirebaseANE.iml" />
@@ -16,6 +17,7 @@
       <module fileurl="file://$PROJECT_DIR$/Storage/Storage.iml" filepath="$PROJECT_DIR$/Storage/Storage.iml" />
       <module fileurl="file://$PROJECT_DIR$/Vision/Vision.iml" filepath="$PROJECT_DIR$/Vision/Vision.iml" />
       <module fileurl="file://$PROJECT_DIR$/VisionBarcode/VisionBarcode.iml" filepath="$PROJECT_DIR$/VisionBarcode/VisionBarcode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VisionCloudDocument/VisionCloudDocument.iml" filepath="$PROJECT_DIR$/VisionCloudDocument/VisionCloudDocument.iml" />
       <module fileurl="file://$PROJECT_DIR$/VisionCloudLabel/VisionCloudLabel.iml" filepath="$PROJECT_DIR$/VisionCloudLabel/VisionCloudLabel.iml" />
       <module fileurl="file://$PROJECT_DIR$/VisionCloudText/VisionCloudText.iml" filepath="$PROJECT_DIR$/VisionCloudText/VisionCloudText.iml" />
       <module fileurl="file://$PROJECT_DIR$/VisionFace/VisionFace.iml" filepath="$PROJECT_DIR$/VisionFace/VisionFace.iml" />

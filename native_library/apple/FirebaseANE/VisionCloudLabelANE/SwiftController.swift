@@ -17,6 +17,7 @@
 import Foundation
 import FreSwift
 import Firebase
+import FirebaseMLVision
 
 public class SwiftController: NSObject {
     public var TAG: String? = "SwiftController"
@@ -56,8 +57,7 @@ public class SwiftController: NSObject {
                 if let err = error as NSError? {
                     self.dispatchEvent(name: CloudLabelEvent.RECOGNIZED,
                                        value: CloudLabelEvent(eventId: eventId,
-                                                         error: ["text": err.localizedDescription,
-                                                                 "id": err.code]).toJSONString())
+                                                              error: err.toDictionary()).toJSONString())
                 } else {
                     if let result = result, !result.isEmpty {
                         self.results[eventId] = result
