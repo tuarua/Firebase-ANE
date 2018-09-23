@@ -45,9 +45,6 @@
             <string>9.0</string>
             <key>NSCameraUsageDescription</key>
             <string>You need to allow camera to use VisionANE Sample</string>
-            <!-- Crashlytics -->
-		    <key>firebase_crashlytics_collection_enabled</key>
-		    <false/>
             ]]>
         </InfoAdditions>
         <requestedDisplayResolution>high</requestedDisplayResolution>
@@ -64,7 +61,6 @@
         <extensionID>com.tuarua.firebase.VisionLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionLandmarkANE</extensionID>
-        <extensionID>com.tuarua.firebase.CrashlyticsANE</extensionID>
     </extensions>
 
 </application>

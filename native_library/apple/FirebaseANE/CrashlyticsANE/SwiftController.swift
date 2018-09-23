@@ -23,9 +23,7 @@ public class SwiftController: NSObject {
     public var TAG: String? = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
-    
-   // https://building42.github.io/Specs/
-    
+
     // MARK: - Init
     
     func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {

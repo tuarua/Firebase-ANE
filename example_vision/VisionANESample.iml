@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="iOS Device">
+  <component name="FlexBuildConfigurationManager" active="Android Device">
     <configurations>
       <configuration name="iOS Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies target-player="30.0">
@@ -36,9 +36,6 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="VisionCloudDocumentANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="CrashlyticsANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -95,9 +92,6 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="VisionCloudDocumentANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="CrashlyticsANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
