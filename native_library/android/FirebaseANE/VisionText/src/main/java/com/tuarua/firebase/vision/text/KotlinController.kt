@@ -34,8 +34,8 @@ class KotlinController : FreKotlinMainController {
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
         launch(bgContext) {
-            val detector = FirebaseVision.getInstance().onDeviceTextRecognizer
-            detector.processImage(image).addOnCompleteListener { task ->
+            val recognizer = FirebaseVision.getInstance().onDeviceTextRecognizer
+            recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     results[eventId] = task.result
                     dispatchEvent(TextEvent.RECOGNIZED,

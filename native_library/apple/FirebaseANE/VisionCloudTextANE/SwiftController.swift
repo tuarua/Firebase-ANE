@@ -51,8 +51,8 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         userInitiatedQueue.async {
-            let detector = self.vision.cloudTextRecognizer(options: options)
-            detector.process(image, completion: { (result, error) in
+            let recognizer = self.vision.cloudTextRecognizer(options: options)
+            recognizer.process(image, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: CloudTextEvent.RECOGNIZED,
                                        value: CloudTextEvent(eventId: eventId,

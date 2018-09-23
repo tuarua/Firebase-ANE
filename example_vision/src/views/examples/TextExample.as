@@ -73,9 +73,9 @@ public class TextExample extends Sprite implements IExample {
 
         textRecognizer = vision.onDeviceTextRecognizer();
         cloudTextRecognizer = vision.cloudTextRecognizer();
-        var options:CloudDocumentRecognizerOptions = new CloudDocumentRecognizerOptions();
-        options.languageHints = new <String>["en"];
-        cloudDocumentRecognizer = vision.cloudDocumentTextRecognizer(options);
+        var documentOptions:CloudDocumentRecognizerOptions = new CloudDocumentRecognizerOptions();
+        documentOptions.languageHints = new <String>["en"];
+        cloudDocumentRecognizer = vision.cloudDocumentTextRecognizer(documentOptions);
         isInited = true;
     }
 
@@ -187,7 +187,7 @@ public class TextExample extends Sprite implements IExample {
         if (blocks.length > 0) {
             var block:DocumentTextBlock = blocks[0];
             if (block != null) {
-                trace("block 0 recognizedLanguages", block.recognizedLanguages.toString());
+                trace("block.paragraphs.length", block.paragraphs.length);
             }
         }
         document.dispose();

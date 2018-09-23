@@ -51,8 +51,8 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         userInitiatedQueue.async {
-            let detector = self.vision.cloudDocumentTextRecognizer(options: options)
-            detector.process(image, completion: { (result, error) in
+            let recognizer = self.vision.cloudDocumentTextRecognizer(options: options)
+            recognizer.process(image, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: CloudDocumentEvent.RECOGNIZED,
                                        value: CloudDocumentEvent(eventId: eventId,
@@ -84,10 +84,8 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "getBlocks").getError(#file, #line, #column)
         }
-        if let document = results[resultId] {
-            return document.blocks.toFREObject(resultId: resultId)
-        }
-        return nil
+        guard let document = results[resultId]  else { return nil }
+        return document.blocks.toFREObject(resultId: resultId)
     }
     
     func getParagraphs(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
@@ -97,13 +95,11 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "getParagraphs").getError(#file, #line, #column)
         }
-        if let document = results[resultId] {
-            if document.blocks.count > blockIndex {
-                let block = document.blocks[blockIndex]
-                return block.paragraphs.toFREObject(resultId: resultId, blockIndex: blockIndex)
-            }
-        }
-        return nil
+        guard let document = results[resultId],
+            document.blocks.count > blockIndex else { return nil }
+        
+        let block = document.blocks[blockIndex]
+        return block.paragraphs.toFREObject(resultId: resultId, blockIndex: blockIndex)
     }
     
     func getWords(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
@@ -114,17 +110,16 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "getWords").getError(#file, #line, #column)
         }
+        guard let document = results[resultId],
+            document.blocks.count > blockIndex else { return nil }
         
-        if let document = results[resultId] {
-            if document.blocks.count > blockIndex {
-                let block = document.blocks[blockIndex]
-                if block.paragraphs.count > paragraphIndex {
-                    let paragraph = block.paragraphs[paragraphIndex]
-                    return paragraph.words.toFREObject(resultId: resultId, blockIndex: blockIndex,
-                                                       paragraphIndex: paragraphIndex)
-                }
-            }
+        let block = document.blocks[blockIndex]
+        if block.paragraphs.count > paragraphIndex {
+            let paragraph = block.paragraphs[paragraphIndex]
+            return paragraph.words.toFREObject(resultId: resultId, blockIndex: blockIndex,
+                                               paragraphIndex: paragraphIndex)
         }
+
         return nil
     }
     
@@ -137,20 +132,18 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "getSymbols").getError(#file, #line, #column)
         }
+        guard let document = results[resultId],
+            document.blocks.count > blockIndex else { return nil }
         
-        if let document = results[resultId] {
-            if document.blocks.count > blockIndex {
-                let block = document.blocks[blockIndex]
-                if block.paragraphs.count > paragraphIndex {
-                    let paragraph = block.paragraphs[paragraphIndex]
-                    if paragraph.words.count > wordIndex {
-                        let word = paragraph.words[wordIndex]
-                        return word.symbols.toFREObject()
-                    }
-                }
+        let block = document.blocks[blockIndex]
+        if block.paragraphs.count > paragraphIndex {
+            let paragraph = block.paragraphs[paragraphIndex]
+            if paragraph.words.count > wordIndex {
+                let word = paragraph.words[wordIndex]
+                return word.symbols.toFREObject()
             }
         }
-        
+
         return nil
     }
     

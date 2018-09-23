@@ -15,8 +15,17 @@
  */
 
 package com.tuarua.firebase.vision {
+/**
+ * Recognized text in an image.
+ */
 public class Text {
+    /**
+     * String representation of the recognized text.
+     */
     public var text:String;
+    /**
+     * An array of blocks recognized in the text.
+     */
     public var blocks:Vector.<TextBlock> = new <TextBlock>[];
     public function Text() {
     }

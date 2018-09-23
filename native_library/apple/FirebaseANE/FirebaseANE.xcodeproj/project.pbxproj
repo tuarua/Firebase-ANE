@@ -115,8 +115,6 @@
 		90658AA121164476003197A5 /* ModelInterpreterEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA021164476003197A5 /* ModelInterpreterEvent.swift */; };
 		90658AA32116481A003197A5 /* tensorflow_lite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90658AA22116481A003197A5 /* tensorflow_lite.framework */; };
 		90658AA52116481E003197A5 /* FirebaseMLModelInterpreter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90658AA42116481E003197A5 /* FirebaseMLModelInterpreter.framework */; };
-		90658AA72116493E003197A5 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
-		90658AA82116493E003197A5 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
 		90658AA92116493E003197A5 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
 		90658AAA2116493E003197A5 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
 		90658AAB2116493E003197A5 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
@@ -145,6 +143,8 @@
 		906A682E211516A900848218 /* FreVisionTextLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A682D211516A900848218 /* FreVisionTextLine.swift */; };
 		906A683021151A8100848218 /* FreCornerPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A682F21151A8100848218 /* FreCornerPoint.swift */; };
 		906A683121151B0C00848218 /* FreCornerPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A682F21151A8100848218 /* FreCornerPoint.swift */; };
+		906D44D92157AE9000CD0153 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906D44D82157AE9000CD0153 /* SwiftController+FreSwift.swift */; };
+		906D44DB2157AECC00CD0153 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906D44DA2157AECC00CD0153 /* SwiftController+FreSwift.swift */; };
 		90741DAE21504F88003366E3 /* gRPC-C++.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90741DAD21504F88003366E3 /* gRPC-C++.framework */; };
 		90741DB021504FBA003366E3 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90741DAF21504FBA003366E3 /* GoogleAppMeasurement.framework */; };
 		90741DB221504FC2003366E3 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90741DB121504FC2003366E3 /* GoogleUtilities.framework */; };
@@ -545,6 +545,8 @@
 		906A682B2114F68E00848218 /* FreVisionTextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionTextBlock.swift; sourceTree = "<group>"; };
 		906A682D211516A900848218 /* FreVisionTextLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionTextLine.swift; sourceTree = "<group>"; };
 		906A682F21151A8100848218 /* FreCornerPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreCornerPoint.swift; sourceTree = "<group>"; };
+		906D44D82157AE9000CD0153 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		906D44DA2157AECC00CD0153 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
 		90741DAD21504F88003366E3 /* gRPC-C++.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "gRPC-C++.framework"; path = "Carthage/Build/iOS/gRPC-C++.framework"; sourceTree = "<group>"; };
 		90741DAF21504FBA003366E3 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppMeasurement.framework; path = Carthage/Build/iOS/GoogleAppMeasurement.framework; sourceTree = "<group>"; };
 		90741DB121504FC2003366E3 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Carthage/Build/iOS/GoogleUtilities.framework; sourceTree = "<group>"; };
@@ -1299,6 +1301,7 @@
 				906A68102114F01A00848218 /* Headers */,
 				906A68142114F05000848218 /* VisionTextANE.m */,
 				906A68192114F12500848218 /* SwiftController.swift */,
+				906D44DA2157AECC00CD0153 /* SwiftController+FreSwift.swift */,
 			);
 			path = VisionTextANE;
 			sourceTree = "<group>";
@@ -1340,6 +1343,7 @@
 				909587AD2115A02F00AD59D5 /* Extensions */,
 				90160D892115A7BD0009A815 /* VisionCloudTextANE.m */,
 				90160D8C2115A8640009A815 /* SwiftController.swift */,
+				906D44D82157AE9000CD0153 /* SwiftController+FreSwift.swift */,
 			);
 			path = VisionCloudTextANE;
 			sourceTree = "<group>";
@@ -3500,6 +3504,7 @@
 				906A68272114F42300848218 /* FreVisionImage.swift in Sources */,
 				906A682A2114F5C200848218 /* TextEvent.swift in Sources */,
 				906A68282114F42300848218 /* FreVisionImageMetadata.swift in Sources */,
+				906D44DB2157AECC00CD0153 /* SwiftController+FreSwift.swift in Sources */,
 				90207A582151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift in Sources */,
 				906A682C2114F68E00848218 /* FreVisionTextBlock.swift in Sources */,
 				909587B12115A55E00AD59D5 /* FreVisionTextElement.swift in Sources */,
@@ -3508,7 +3513,6 @@
 				906A683021151A8100848218 /* FreCornerPoint.swift in Sources */,
 				906A68162114F05000848218 /* VisionTextANE.m in Sources */,
 				906A681A2114F12500848218 /* SwiftController.swift in Sources */,
-				90658AA72116493E003197A5 /* SwiftController+FreSwift.swift in Sources */,
 				908B92EB2150705D004C98C1 /* FreNSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3528,11 +3532,11 @@
 				90207A532151C07B0022B2C7 /* FreVisionTextBlock.swift in Sources */,
 				90207A562151C0850022B2C7 /* FreVisionText.swift in Sources */,
 				90207A552151C0810022B2C7 /* FreVisionTextElement.swift in Sources */,
-				90658AA82116493E003197A5 /* SwiftController+FreSwift.swift in Sources */,
 				90160D8B2115A7BD0009A815 /* VisionCloudTextANE.m in Sources */,
 				908B92EC21507223004C98C1 /* FreNSError.swift in Sources */,
 				90160D8D2115A8640009A815 /* SwiftController.swift in Sources */,
 				909587B42115A65300AD59D5 /* FreVisionImage.swift in Sources */,
+				906D44D92157AE9000CD0153 /* SwiftController+FreSwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -58,13 +58,13 @@ class KotlinController : FreKotlinMainController {
         val options = this.options
 
         launch(bgContext) {
-            val detector: FirebaseVisionDocumentTextRecognizer = if (options != null) {
+            val recognizer: FirebaseVisionDocumentTextRecognizer = if (options != null) {
                 FirebaseVision.getInstance().getCloudDocumentTextRecognizer(options)
             } else {
                 FirebaseVision.getInstance().cloudDocumentTextRecognizer
             }
 
-            detector.processImage(image).addOnCompleteListener { task ->
+            recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     results[eventId] = task.result
                     dispatchEvent(CloudDocumentEvent.RECOGNIZED,
@@ -88,7 +88,7 @@ class KotlinController : FreKotlinMainController {
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
         val eventId = String(argv[0]) ?: return null
-        return results[eventId]?.toFREObject()
+        return results[eventId]?.toFREObject(eventId)
     }
 
     fun getBlocks(ctx: FREContext, argv: FREArgv): FREObject? {

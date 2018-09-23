@@ -59,13 +59,13 @@ class KotlinController : FreKotlinMainController {
         val options = this.options
 
         launch(bgContext) {
-            val detector: FirebaseVisionTextRecognizer = if (options != null) {
+            val recognizer: FirebaseVisionTextRecognizer = if (options != null) {
                 FirebaseVision.getInstance().getCloudTextRecognizer(options)
             } else {
                 FirebaseVision.getInstance().cloudTextRecognizer
             }
 
-            detector.processImage(image).addOnCompleteListener { task ->
+            recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     results[eventId] = task.result
                     dispatchEvent(CloudTextEvent.RECOGNIZED,

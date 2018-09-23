@@ -22,8 +22,8 @@ import com.tuarua.frekotlin.FREObject
 import com.tuarua.frekotlin.set
 import com.tuarua.frekotlin.toFREObject
 
-fun FirebaseVisionDocumentText.toFREObject(): FREObject? {
-    val ret = FREObject("com.tuarua.firebase.vision.DocumentText")
+fun FirebaseVisionDocumentText.toFREObject(id: String): FREObject? {
+    val ret = FREObject("com.tuarua.firebase.vision.DocumentText", id)
     ret["text"] = text.toFREObject()
     return ret
 }

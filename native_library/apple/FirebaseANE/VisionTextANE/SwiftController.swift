@@ -43,8 +43,8 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         userInitiatedQueue.async {
-            let detector = self.vision.onDeviceTextRecognizer()
-            detector.process(image, completion: { (result, error) in
+            let recognizer = self.vision.onDeviceTextRecognizer()
+            recognizer.process(image, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: TextEvent.RECOGNIZED,
                                        value: TextEvent(eventId: eventId, error: err.toDictionary()).toJSONString())
