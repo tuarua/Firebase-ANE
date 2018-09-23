@@ -15,12 +15,23 @@
  */
 
 package com.tuarua.firebase.vision {
+import com.tuarua.firebase.CloudDocumentRecognizer;
+import com.tuarua.fre.ANEError;
+
 import flash.geom.Rectangle;
 
 /**
  * A document text word recognized in an image that consists of an array of symbols.
  */
 public class DocumentTextWord {
+    /** @private */
+    private var _id:String;
+    /** @private */
+    private var _blockIndex:uint;
+    /** @private */
+    private var _paragraphIndex:uint;
+    /** @private */
+    private var _index:uint;
     /**
      * The rectangle that contains the document text word relative to the image in the default
      * coordinate space.
@@ -43,13 +54,27 @@ public class DocumentTextWord {
      * array is empty.
      */
     public var recognizedLanguages:Vector.<TextRecognizedLanguage> = new <TextRecognizedLanguage>[];
+    /** @private */
+    private var _symbols:Vector.<DocumentTextSymbol> = new <DocumentTextSymbol>[];
+
+    /** @private */
+    public function DocumentTextWord(id:String, blockIndex:uint, paragraphIndex:uint, index:uint) {
+        this._id = id;
+        this._blockIndex = blockIndex;
+        this._paragraphIndex = paragraphIndex;
+        this._index = index;
+    }
+
     /**
      * An array of symbols in the document text word.
      */
-    public var symbols:Vector.<DocumentTextSymbol> = new <DocumentTextSymbol>[];
-
-    /** @private */
-    public function DocumentTextWord() {
+    public function get symbols():Vector.<DocumentTextSymbol> {
+        if (_symbols.length > 0) return _symbols;
+        var theRet:* = CloudDocumentRecognizer.context.call("getSymbols", this._id, this._blockIndex,
+                this._paragraphIndex, this._index);
+        if (theRet is ANEError) throw theRet as ANEError;
+        if (theRet != null) _symbols = theRet;
+        return _symbols;
     }
 }
 }

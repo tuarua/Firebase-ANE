@@ -19,8 +19,9 @@ import FreSwift
 import FirebaseMLVision
 
 public extension VisionDocumentTextWord {
-    func toFREObject() -> FREObject? {
-        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.DocumentTextWord"),
+    func toFREObject(resultId: String, blockIndex: Int, paragraphIndex: Int, index: UInt) -> FREObject? {
+        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.DocumentTextWord",
+                                       args: resultId, blockIndex, paragraphIndex, index),
             var ret = fre
             else { return nil }
         ret["frame"] = self.frame.toFREObject()
@@ -28,19 +29,19 @@ public extension VisionDocumentTextWord {
         ret["confidence"] = self.confidence.toFREObject()
         ret["recognizedBreak"] = self.recognizedBreak?.toFREObject()
         ret["recognizedLanguages"] = self.recognizedLanguages.toFREObject()
-        ret["symbols"] = self.symbols.toFREObject()
         return ret
     }
 }
 
 public extension Array where Element == VisionDocumentTextWord {
-    func toFREObject() -> FREObject? {
+    func toFREObject(resultId: String, blockIndex: Int, paragraphIndex: Int) -> FREObject? {
         guard let ret = try? FREArray(className: "com.tuarua.firebase.vision.DocumentTextWord",
                                       length: self.count, fixed: true) else { return nil }
-        var cnt: UInt = 0
+        var index: UInt = 0
         for element in self {
-            ret[cnt] = element.toFREObject()
-            cnt+=1
+            ret[index] = element.toFREObject(resultId: resultId, blockIndex: blockIndex,
+                                             paragraphIndex: paragraphIndex, index: index)
+            index+=1
         }
         return ret.rawValue
     }

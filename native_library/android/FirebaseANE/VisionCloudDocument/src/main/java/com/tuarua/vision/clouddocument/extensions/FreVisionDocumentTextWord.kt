@@ -26,22 +26,24 @@ import com.tuarua.frekotlin.geom.toFREObject
 import com.tuarua.frekotlin.set
 import com.tuarua.frekotlin.toFREObject
 
-fun FirebaseVisionDocumentText.Word.toFREObject(): FREObject? {
-    val ret = FREObject("com.tuarua.firebase.vision.DocumentTextWord")
+fun FirebaseVisionDocumentText.Word.toFREObject(resultId: String, blockIndex: Int,
+                                                paragraphIndex: Int, index: Int): FREObject? {
+    val ret = FREObject("com.tuarua.firebase.vision.DocumentTextWord",
+            resultId, blockIndex, paragraphIndex, index)
     ret["frame"] = boundingBox?.toFREObject()
     ret["text"] = text.toFREObject()
     ret["confidence"] = confidence?.toFREObject()
     ret["recognizedLanguages"] = this.recognizedLanguages.toFREObject()
     ret["recognizedBreak"] = this.recognizedBreak?.toFREObject()
-    ret["symbols"] = this.symbols.toFREObject()
     return ret
 }
 
-fun List<FirebaseVisionDocumentText.Word>.toFREObject(): FREArray? {
+fun List<FirebaseVisionDocumentText.Word>.toFREObject(resultId: String, blockIndex: Int,
+                                                      paragraphIndex: Int): FREArray? {
     val ret = FREArray("com.tuarua.firebase.vision.DocumentTextWord", size, true)
             ?: return null
     for (i in this.indices) {
-        ret[i] = this[i].toFREObject()
+        ret[i] = this[i].toFREObject(resultId, blockIndex, paragraphIndex, i)
     }
     return ret
 }

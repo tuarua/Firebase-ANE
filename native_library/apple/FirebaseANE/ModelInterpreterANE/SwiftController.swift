@@ -46,8 +46,6 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "registerLocalModel").getError(#file, #line, #column)
         }
-       // ModelManager.modelManager().cloudModelSource(modelName: <#T##String#>)
-        
         return ModelManager.modelManager().register(modelSource).toFREObject()
     }
     
@@ -72,7 +70,6 @@ public class SwiftController: NSObject {
                 if let outputs = outputs {
                     self.trace(outputs.debugDescription)
                     let probabilities = try? outputs.output(index: 0)
-                    self.trace(probabilities.debugDescription)
                 }
             }
         }

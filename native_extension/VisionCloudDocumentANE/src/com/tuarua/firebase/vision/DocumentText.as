@@ -15,19 +15,43 @@
  */
 
 package com.tuarua.firebase.vision {
+import com.tuarua.firebase.CloudDocumentRecognizer;
+import com.tuarua.fre.ANEError;
+
 /**
  * Recognized document text in an image.
  */
+[RemoteClass(alias="com.tuarua.firebase.vision.DocumentText")]
 public class DocumentText {
+    /** @private */
+    private var _id:String;
     /**
      * String representation of the recognized document text.
      */
     public var text:String;
+    private var _blocks:Vector.<DocumentTextBlock> = new <DocumentTextBlock>[];
+
+    /** @private */
+    public function DocumentText(id:String) {
+        this._id = id;
+    }
+
     /**
      * An array of blocks recognized in the document text.
      */
-    public var blocks:Vector.<DocumentTextBlock> = new <DocumentTextBlock>[];
-    public function DocumentText() {
+    public function get blocks():Vector.<DocumentTextBlock> {
+        if (_blocks.length > 0) return _blocks;
+        var theRet:* = CloudDocumentRecognizer.context.call("getBlocks", this._id);
+        if (theRet is ANEError) throw theRet as ANEError;
+        if (theRet != null) _blocks = theRet;
+        return _blocks;
+    }
+
+    /**
+     * Disposes the native code associated with this DocumentText.
+     */
+    public function dispose():void {
+        CloudDocumentRecognizer.context.call("disposeResult", this._id);
     }
 }
 }

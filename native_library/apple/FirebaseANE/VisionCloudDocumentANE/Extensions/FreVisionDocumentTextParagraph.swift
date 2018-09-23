@@ -19,13 +19,13 @@ import FreSwift
 import FirebaseMLVision
 
 public extension VisionDocumentTextParagraph {
-    func toFREObject() -> FREObject? {
-        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.DocumentTextParagraph"),
+    func toFREObject(resultId: String, blockIndex: Int, index: UInt) -> FREObject? {
+        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.DocumentTextParagraph",
+                                       args: resultId, blockIndex, index),
             var ret = fre
             else { return nil }
         ret["frame"] = self.frame.toFREObject()
         ret["text"] = self.text.toFREObject()
-        ret["words"] = self.words.toFREObject()
         ret["recognizedBreak"] = self.recognizedBreak?.toFREObject()
         ret["confidence"] = self.confidence.toFREObject()
         ret["recognizedLanguages"] = self.recognizedLanguages.toFREObject()
@@ -34,13 +34,13 @@ public extension VisionDocumentTextParagraph {
 }
 
 public extension Array where Element == VisionDocumentTextParagraph {
-    func toFREObject() -> FREObject? {
+    func toFREObject(resultId: String, blockIndex: Int) -> FREObject? {
         guard let ret = try? FREArray(className: "com.tuarua.firebase.vision.DocumentTextParagraph",
                                       length: self.count, fixed: true) else { return nil }
-        var cnt: UInt = 0
+        var index: UInt = 0
         for element in self {
-            ret[cnt] = element.toFREObject()
-            cnt+=1
+            ret[index] = element.toFREObject(resultId: resultId, blockIndex: blockIndex, index: index)
+            index+=1
         }
         return ret.rawValue
     }

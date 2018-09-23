@@ -26,7 +26,13 @@ public class VisionCloudDocumentANE implements FREExtension {
             ,"createGUID"
             ,"detect"
             ,"getResults"
+            ,"getBlocks"
+            ,"getParagraphs"
+            ,"getWords"
+            ,"getSymbols"
+            ,"disposeResult"
     };
+
     private static VisionCloudDocumentANEContext extensionContext;
 
     @Override

@@ -15,9 +15,16 @@
  */
 
 package com.tuarua.firebase.vision {
+import com.tuarua.firebase.CloudDocumentRecognizer;
+import com.tuarua.fre.ANEError;
+
 import flash.geom.Rectangle;
 
 public class DocumentTextBlock {
+    /** @private */
+    private var _id:String;
+    /** @private */
+    private var _index:uint;
     /**
      * The rectangle that contains the document text block relative to the image in the default
      * coordinate space.
@@ -31,11 +38,8 @@ public class DocumentTextBlock {
      * The detected block type.
      */
     public var type:uint;
-    /**
-     * An array of paragraphs in the block if the type is `DocumentBlockType.text`. Otherwise,
-     * the array is empty.
-     */
-    public var paragraphs:Vector.<DocumentTextParagraph> = new <DocumentTextParagraph>[];
+
+    private var _paragraphs:Vector.<DocumentTextParagraph> = new <DocumentTextParagraph>[];
     /**
      * The confidence of the recognized document text block.
      */
@@ -49,8 +53,22 @@ public class DocumentTextBlock {
      * The recognized start or end of the document text block.
      */
     public var recognizedBreak:TextRecognizedBreak;
+
     /** @private */
-    public function DocumentTextBlock() {
+    public function DocumentTextBlock(id:String, index:uint) {
+        this._id = id;
+        this._index = index;
+    }
+    /**
+     * An array of paragraphs in the block if the type is `DocumentBlockType.text`. Otherwise,
+     * the array is empty.
+     */
+    public function get paragraphs():Vector.<DocumentTextParagraph> {
+        if (_paragraphs.length > 0) return _paragraphs;
+        var theRet:* = CloudDocumentRecognizer.context.call("getParagraphs", this._id, this._index);
+        if (theRet is ANEError) throw theRet as ANEError;
+        if (theRet != null) _paragraphs = theRet;
+        return _paragraphs;
     }
 }
 }

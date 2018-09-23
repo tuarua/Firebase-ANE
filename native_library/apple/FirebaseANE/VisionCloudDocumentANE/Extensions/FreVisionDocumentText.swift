@@ -21,12 +21,11 @@ import FreSwift
 import FirebaseMLVision
 
 public extension VisionDocumentText {
-    func toFREObject() -> FREObject? {
-        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.DocumentText"),
+    func toFREObject(id: String) -> FREObject? {
+        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.DocumentText", args: id),
             var ret = fre
             else { return nil }
         ret["text"] = self.text.toFREObject()
-        ret["blocks"] = self.blocks.toFREObject()
         return ret
     }
 }

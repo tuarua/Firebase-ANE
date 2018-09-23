@@ -3,7 +3,9 @@ import com.tuarua.firebase.CloudDocumentRecognizer;
 import com.tuarua.firebase.CloudTextRecognizer;
 import com.tuarua.firebase.TextRecognizer;
 import com.tuarua.firebase.VisionANE;
+import com.tuarua.firebase.vision.CloudDocumentRecognizerOptions;
 import com.tuarua.firebase.vision.DocumentText;
+import com.tuarua.firebase.vision.DocumentTextBlock;
 import com.tuarua.firebase.vision.Text;
 import com.tuarua.firebase.vision.TextElement;
 import com.tuarua.firebase.vision.TextError;
@@ -71,7 +73,9 @@ public class TextExample extends Sprite implements IExample {
 
         textRecognizer = vision.onDeviceTextRecognizer();
         cloudTextRecognizer = vision.cloudTextRecognizer();
-        cloudDocumentRecognizer = vision.cloudDocumentTextRecognizer();
+        var options:CloudDocumentRecognizerOptions = new CloudDocumentRecognizerOptions();
+        options.languageHints = new <String>["en"];
+        cloudDocumentRecognizer = vision.cloudDocumentTextRecognizer(options);
         isInited = true;
     }
 
@@ -178,6 +182,15 @@ public class TextExample extends Sprite implements IExample {
             return;
         }
         trace(document.text);
+
+        var blocks:Vector.<DocumentTextBlock> = document.blocks;
+        if (blocks.length > 0) {
+            var block:DocumentTextBlock = blocks[0];
+            if (block != null) {
+                trace("block 0 recognizedLanguages", block.recognizedLanguages.toString());
+            }
+        }
+        document.dispose();
     }
 
     private function clearOverlay():void {

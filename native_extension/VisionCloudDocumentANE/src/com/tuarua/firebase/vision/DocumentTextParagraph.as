@@ -15,12 +15,21 @@
  */
 
 package com.tuarua.firebase.vision {
+import com.tuarua.firebase.CloudDocumentRecognizer;
+import com.tuarua.fre.ANEError;
+
 import flash.geom.Rectangle;
 
 /**
  * A document text paragraph recognized in an image that consists of an array of words.
  */
 public class DocumentTextParagraph {
+    /** @private */
+    private var _id:String;
+    /** @private */
+    private var _blockIndex:uint;
+    /** @private */
+    private var _index:uint;
     /**
      * The rectangle that contains the document text paragraph relative to the image in the default
      * coordinate space.
@@ -34,10 +43,8 @@ public class DocumentTextParagraph {
      * The confidence of the recognized document text paragraph.
      */
     public var confidence:Number;
-    /**
-     * An array of words in the document text paragraph.
-     */
-    public var words:Vector.<DocumentTextWord> = new <DocumentTextWord>[];
+    /** @private */
+    private var _words:Vector.<DocumentTextWord> = new <DocumentTextWord>[];
     /**
      * An array of recognized languages in the document text paragraph. If no languages are recognized,
      * the array is empty.
@@ -49,7 +56,20 @@ public class DocumentTextParagraph {
     public var recognizedBreak:TextRecognizedBreak;
 
     /** @private */
-    public function DocumentTextParagraph() {
+    public function DocumentTextParagraph(id: String, blockIndex: uint, index: uint) {
+        this._id = id;
+        this._blockIndex = blockIndex;
+        this._index = index;
+    }
+    /**
+     * An array of words in the document text paragraph.
+     */
+    public function get words():Vector.<DocumentTextWord> {
+        if (_words.length > 0) return _words;
+        var theRet:* = CloudDocumentRecognizer.context.call("getWords", this._id, this._blockIndex, this._index);
+        if (theRet is ANEError) throw theRet as ANEError;
+        if (theRet != null) _words = theRet;
+        return _words;
     }
 }
 }
