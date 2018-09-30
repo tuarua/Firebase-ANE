@@ -70,6 +70,12 @@ public class FaceDetector extends EventDispatcher {
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /** Closes the face detector and release its model resources. */
+    public function close():void {
+        if (!_context) return;
+        _context.call("close");
+    }
+
     /** @private */
     public static function gotEvent(event:StatusEvent):void {
         var pObj:Object;

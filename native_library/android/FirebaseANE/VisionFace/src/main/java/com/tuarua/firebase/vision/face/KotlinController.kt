@@ -89,7 +89,9 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
         val eventId = String(argv[0]) ?: return null
         val result = results[eventId] ?: return null
-        return result.toFREArray()
+        val ret = result.toFREArray()
+        results.remove(eventId)
+        return ret
     }
 
     override val TAG: String

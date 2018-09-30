@@ -23,11 +23,9 @@ public class SwiftController: NSObject {
     public var TAG: String? = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
-    lazy var vision = Vision.vision()
     private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.ctx.uiq", qos: .userInitiated)
     private var results: [String: VisionText] = [:]
-    private var options: VisionCloudTextRecognizerOptions?
-    
+    private var recognizer: VisionTextRecognizer?
     func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return UUID().uuidString.toFREObject()
     }
@@ -38,21 +36,19 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "initController").getError(#file, #line, #column)
         }
-        self.options = options
+        recognizer = Vision.vision().cloudTextRecognizer(options: options)
         return true.toFREObject()
     }
     
     func detect(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let image = VisionImage(argv[0]),
-            let eventId = String(argv[1]),
-            let options = self.options
+            let eventId = String(argv[1])
             else {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         userInitiatedQueue.async {
-            let recognizer = self.vision.cloudTextRecognizer(options: options)
-            recognizer.process(image, completion: { (result, error) in
+            self.recognizer?.process(image, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: CloudTextEvent.RECOGNIZED,
                                        value: CloudTextEvent(eventId: eventId,
@@ -75,6 +71,12 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "getResults").getError(#file, #line, #column)
         }
-        return results[eventId]?.toFREObject()
+        let ret = results[eventId]?.toFREObject()
+        results[eventId] = nil
+        return ret
+    }
+    
+    func close(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        return nil
     }
 }

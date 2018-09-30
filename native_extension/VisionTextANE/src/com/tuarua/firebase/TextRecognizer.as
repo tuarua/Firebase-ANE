@@ -29,6 +29,7 @@ public class TextRecognizer {
     /** @private */
     public static var closures:Dictionary = new Dictionary();
     private static const RECOGNIZED:String = "TextEvent.Recognized";
+
     /** @private */
     public function TextRecognizer() {
         try {
@@ -47,7 +48,7 @@ public class TextRecognizer {
     private function createEventId(listener:Function):String {
         var eventId:String;
         if (listener != null) {
-            eventId = context.call("createGUID") as String;
+            eventId = _context.call("createGUID") as String;
             closures[eventId] = listener;
         }
         return eventId;
@@ -91,8 +92,15 @@ public class TextRecognizer {
      * @param listener Closure to call back on the main queue with texts detected or error.
      */
     public function process(image:VisionImage, listener:Function):void {
+        if (!_context) return;
         var theRet:* = _context.call("detect", image, createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
+    }
+
+    /** Closes the text detector and release its model resources. */
+    public function close():void {
+        if (!_context) return;
+        _context.call("close");
     }
 
     /** @private */

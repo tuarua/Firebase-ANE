@@ -23,7 +23,7 @@ public class SwiftController: NSObject {
     public var TAG: String? = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
-    lazy var vision = Vision.vision()
+    private var recognizer: VisionTextRecognizer?
     private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.tx.uiq", qos: .userInitiated)
     private var results: [String: VisionText] = [:]
     
@@ -32,6 +32,7 @@ public class SwiftController: NSObject {
     }
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        recognizer = Vision.vision().onDeviceTextRecognizer()
         return true.toFREObject()
     }
     
@@ -43,8 +44,7 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         userInitiatedQueue.async {
-            let recognizer = self.vision.onDeviceTextRecognizer()
-            recognizer.process(image, completion: { (result, error) in
+            self.recognizer?.process(image, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: TextEvent.RECOGNIZED,
                                        value: TextEvent(eventId: eventId, error: err.toDictionary()).toJSONString())
@@ -66,7 +66,13 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "getResults").getError(#file, #line, #column)
         }
-        return results[eventId]?.toFREObject()
+        let ret = results[eventId]?.toFREObject()
+        results[eventId] = nil
+        return ret
+    }
+    
+    func close(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        return nil
     }
     
 }

@@ -36,14 +36,19 @@ import kotlin.coroutines.experimental.CoroutineContext
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
     private val TRACE = "TRACE"
-    private var options: FirebaseVisionCloudDocumentRecognizerOptions? = null
     private var results: MutableMap<String, FirebaseVisionDocumentText> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = CommonPool
+    private lateinit var recognizer: FirebaseVisionDocumentTextRecognizer
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
-        options = FirebaseVisionCloudDocumentRecognizerOptions(argv[0])
+        val options = FirebaseVisionCloudDocumentRecognizerOptions(argv[0])
+        recognizer = if (options != null) {
+            FirebaseVision.getInstance().getCloudDocumentTextRecognizer(options)
+        } else {
+            FirebaseVision.getInstance().cloudDocumentTextRecognizer
+        }
         return true.toFREObject()
     }
 
@@ -55,15 +60,7 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
-        val options = this.options
-
         launch(bgContext) {
-            val recognizer: FirebaseVisionDocumentTextRecognizer = if (options != null) {
-                FirebaseVision.getInstance().getCloudDocumentTextRecognizer(options)
-            } else {
-                FirebaseVision.getInstance().cloudDocumentTextRecognizer
-            }
-
             recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     results[eventId] = task.result
@@ -141,6 +138,11 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("disposeResult")
         val id = String(argv[0]) ?: return null
         results.remove(id)
+        return null
+    }
+
+    fun close(ctx: FREContext, argv: FREArgv): FREObject? {
+        recognizer.close()
         return null
     }
 

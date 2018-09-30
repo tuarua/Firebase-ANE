@@ -121,6 +121,12 @@ public class BarcodeDetector extends EventDispatcher {
         }
     }
 
+    /** Closes the barcode detector and release its model resources. */
+    public function close():void {
+        if (!_context) return;
+        _context.call("close");
+    }
+
     /** Options containing barcode detector configuration. */
     public function set options(options:BarcodeDetectorOptions):void {
         _options = options ? options : new BarcodeDetectorOptions();

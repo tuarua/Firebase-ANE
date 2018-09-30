@@ -24,7 +24,6 @@ public class SwiftController: NSObject {
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     internal var results: [String: [VisionBarcode?]] = [:]
-    lazy var vision = Vision.vision()
     private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.bc.uiq", qos: .userInitiated)
     internal var options: VisionBarcodeDetectorOptions?
     
@@ -33,6 +32,7 @@ public class SwiftController: NSObject {
     internal var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     internal var cameraView: UIView?
     internal var cameraEventId: String?
+    private var detector: VisionBarcodeDetector?
     
     func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return UUID().uuidString.toFREObject()
@@ -45,20 +45,19 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "initController").getError(#file, #line, #column)
         }
         self.options = options
+        detector = Vision.vision().barcodeDetector(options: options)
         return true.toFREObject()
     }
     
     func detect(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let image = VisionImage(argv[0]),
-            let eventId = String(argv[1]),
-            let options = self.options
+            let eventId = String(argv[1])
             else {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         userInitiatedQueue.async {
-            let barcodeDetector = self.vision.barcodeDetector(options: options)
-            barcodeDetector.detect(in: image) { (features, error) in
+            self.detector?.detect(in: image) { (features, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: BarcodeEvent.DETECTED,
                                    value: BarcodeEvent(eventId: eventId, error: err.toDictionary()).toJSONString())
@@ -91,10 +90,10 @@ public class SwiftController: NSObject {
                         cnt += 1
                     } 
                 }
+                results[eventId] = nil
                 return freArray.rawValue
             }
         } catch {}
-        
         return nil
     }
     
@@ -122,6 +121,10 @@ public class SwiftController: NSObject {
 //                return FreArgError(message: "closeCamera").getError(#file, #line, #column)
 //        }
 //        closeCamera(rootViewController: rvc)
+        return nil
+    }
+    
+    func close(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return nil
     }
     

@@ -15,12 +15,15 @@ public class CloudTextRecognizer {
     /** @private */
     public static var closures:Dictionary = new Dictionary();
     private static const RECOGNIZED:String = "CloudTextEvent.Recognized";
+
     /** @private */
     public function CloudTextRecognizer(options:CloudTextRecognizerOptions) {
         try {
             if (options) _options = options;
-            _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
-            _context.addEventListener(StatusEvent.STATUS, gotEvent);
+            if (_context == null) {
+                _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
+                _context.addEventListener(StatusEvent.STATUS, gotEvent);
+            }
             _context.call("init", _options);
         } catch (e:Error) {
             trace(e.name);
@@ -80,6 +83,12 @@ public class CloudTextRecognizer {
     public function process(image:VisionImage, listener:Function):void {
         var theRet:* = _context.call("detect", image, createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
+    }
+
+    /** Closes the cloud text recognizer and release its model resources. */
+    public function close():void {
+        if (!_context) return;
+        _context.call("close");
     }
 
     /** @private */

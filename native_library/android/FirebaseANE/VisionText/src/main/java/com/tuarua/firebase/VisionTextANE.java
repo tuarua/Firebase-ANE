@@ -26,6 +26,7 @@ public class VisionTextANE implements FREExtension {
             ,"createGUID"
             ,"detect"
             ,"getResults"
+            ,"close"
     };
     private static VisionTextANEContext extensionContext;
 

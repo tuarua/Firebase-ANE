@@ -27,6 +27,7 @@ public class VisionCloudTextANE implements FREExtension {
             ,"createGUID"
             ,"detect"
             ,"getResults"
+            ,"close"
     };
     private static VisionCloudTextANEContext extensionContext;
 

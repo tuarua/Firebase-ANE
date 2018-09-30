@@ -29,6 +29,11 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         guard let eventId = cameraEventId,
             let options = self.options else { return }
         
+        // let pixelBuffer: CVPixelBuffer? = CMSampleBufferGetImageBuffer(sampleBuffer)
+        
+        // let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+        // https://gist.github.com/levantAJ/4e3e40ba2fa190fd88e329ede8f27f3f
+        
         let visionImage = VisionImage(buffer: sampleBuffer)
         let metadata = VisionImageMetadata()
         let orientation = UIUtilities.imageOrientation(
@@ -37,7 +42,7 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         let visionOrientation = UIUtilities.visionImageOrientation(from: orientation)
         metadata.orientation = visionOrientation
         visionImage.metadata = metadata
-        let barcodeDetector = vision.barcodeDetector(options: options)
+        let barcodeDetector = Vision.vision().barcodeDetector(options: options)
         barcodeDetector.detect(in: visionImage) { (features, error) in
             if let err = error as NSError? {
                 self.dispatchEvent(name: BarcodeEvent.DETECTED,

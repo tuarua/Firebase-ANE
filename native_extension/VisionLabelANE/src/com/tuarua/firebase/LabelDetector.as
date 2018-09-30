@@ -97,6 +97,12 @@ public class LabelDetector {
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /** Closes the label detector and release its model resources. */
+    public function close():void {
+        if (!_context) return;
+        _context.call("close");
+    }
+
     /** @private */
     public static function get context():ExtensionContext {
         return _context;

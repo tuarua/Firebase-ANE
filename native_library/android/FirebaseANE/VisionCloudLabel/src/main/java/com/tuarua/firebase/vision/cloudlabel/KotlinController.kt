@@ -19,7 +19,6 @@ package com.tuarua.firebase.vision.cloudlabel
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.FirebaseVision
-import com.google.firebase.ml.vision.cloud.FirebaseVisionCloudDetectorOptions
 import com.google.firebase.ml.vision.cloud.label.*
 import com.google.gson.Gson
 import com.tuarua.firebase.vision.cloudlabel.events.CloudLabelEvent
@@ -36,14 +35,19 @@ import java.util.*
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
     private val TRACE = "TRACE"
-    private var options: FirebaseVisionCloudDetectorOptions? = null
     private var results: MutableMap<String, MutableList<FirebaseVisionCloudLabel>> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = CommonPool
+    private lateinit var detector: FirebaseVisionCloudLabelDetector
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
-        options = FirebaseVisionCloudDetectorOptions(argv[0])
+        val options = FirebaseVisionCloudDetectorOptions(argv[0])
+        detector = if (options != null) {
+            FirebaseVision.getInstance().getVisionCloudLabelDetector(options)
+        } else {
+            FirebaseVision.getInstance().visionCloudLabelDetector
+        }
         return true.toFREObject()
     }
 
@@ -55,15 +59,7 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
-        val options = this.options
-
         launch(bgContext) {
-            val detector: FirebaseVisionCloudLabelDetector = if (options != null) {
-                FirebaseVision.getInstance().getVisionCloudLabelDetector(options)
-            } else {
-                FirebaseVision.getInstance().visionCloudLabelDetector
-            }
-
             detector.detectInImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     results[eventId] = task.result
@@ -89,7 +85,14 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
         val eventId = String(argv[0]) ?: return null
         val result = results[eventId] ?: return null
-        return result.toFREArray()
+        val ret = result.toFREArray()
+        results.remove(eventId)
+        return ret
+    }
+
+    fun close(ctx: FREContext, argv: FREArgv): FREObject? {
+        detector.close()
+        return null
     }
 
     override val TAG: String

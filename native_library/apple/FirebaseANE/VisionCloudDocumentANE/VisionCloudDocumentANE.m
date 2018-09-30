@@ -40,6 +40,7 @@ CONTEXT_INIT(TRFBVCDC) {
         ,MAP_FUNCTION(TRFBVCDC, getWords)
         ,MAP_FUNCTION(TRFBVCDC, getSymbols)
         ,MAP_FUNCTION(TRFBVCDC, disposeResult)
+        ,MAP_FUNCTION(TRFBVCDC, close)
     };
     SET_FUNCTIONS
     
