@@ -24,6 +24,7 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)createGUID"] = createGUID
         functionsToSet["\(prefix)detect"] = detect
         functionsToSet["\(prefix)getResults"] = getResults
+        functionsToSet["\(prefix)close"] = close
         
         var arr: [String] = []
         for key in functionsToSet.keys {

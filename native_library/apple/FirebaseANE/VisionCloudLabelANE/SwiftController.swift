@@ -26,7 +26,7 @@ public class SwiftController: NSObject {
     lazy var vision = Vision.vision()
     private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.clbl.uiq", qos: .userInitiated)
     private var results: [String: [VisionCloudLabel?]] = [:]
-    private var options: VisionCloudDetectorOptions?
+    private var detector: VisionCloudLabelDetector?
     
     func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return UUID().uuidString.toFREObject()
@@ -38,22 +38,19 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "initController").getError(#file, #line, #column)
         }
-        
-        self.options = options
+        detector = self.vision.cloudLabelDetector(options: options)
         return true.toFREObject()
     }
     
     func detect(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let image = VisionImage(argv[0]),
-            let eventId = String(argv[1]),
-            let options = self.options
+            let eventId = String(argv[1])
             else {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         userInitiatedQueue.async {
-            let detector = self.vision.cloudLabelDetector(options: options)
-            detector.detect(in: image) { (result, error) in
+            self.detector?.detect(in: image) { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: CloudLabelEvent.RECOGNIZED,
                                        value: CloudLabelEvent(eventId: eventId,
@@ -76,10 +73,12 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "getResults").getError(#file, #line, #column)
         }
-        if let result = results[eventId] {
-            return result.toFREObject()
-        }
-        
+        let ret = results[eventId]?.toFREObject()
+        results[eventId] = nil
+        return ret
+    }
+    
+    func close(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return nil
     }
     

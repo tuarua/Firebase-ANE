@@ -21,7 +21,6 @@ import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.label.FirebaseVisionLabel
 import com.google.firebase.ml.vision.label.FirebaseVisionLabelDetector
-import com.google.firebase.ml.vision.label.FirebaseVisionLabelDetectorOptions
 import com.google.gson.Gson
 import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
 import com.tuarua.firebase.vision.label.events.LabelEvent
@@ -36,14 +35,19 @@ import kotlin.coroutines.experimental.CoroutineContext
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
     private val TRACE = "TRACE"
-    private var options: FirebaseVisionLabelDetectorOptions? = null
     private var results: MutableMap<String, MutableList<FirebaseVisionLabel>> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = CommonPool
+    private lateinit var detector: FirebaseVisionLabelDetector
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
-        options = FirebaseVisionLabelDetectorOptions(argv[0])
+        val options = FirebaseVisionLabelDetectorOptions(argv[0])
+        detector = if (options != null) {
+            FirebaseVision.getInstance().getVisionLabelDetector(options)
+        } else {
+            FirebaseVision.getInstance().visionLabelDetector
+        }
         return true.toFREObject()
     }
 
@@ -55,15 +59,7 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
-        val options = this.options
-
         launch(bgContext) {
-            val detector: FirebaseVisionLabelDetector = if (options != null) {
-                FirebaseVision.getInstance().getVisionLabelDetector(options)
-            } else {
-                FirebaseVision.getInstance().visionLabelDetector
-            }
-
             detector.detectInImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     results[eventId] = task.result
@@ -89,7 +85,9 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
         val eventId = String(argv[0]) ?: return null
         val result = results[eventId] ?: return null
-        return result.toFREArray()
+        val ret = result.toFREArray()
+        results.remove(eventId)
+        return ret
     }
 
     override val TAG: String

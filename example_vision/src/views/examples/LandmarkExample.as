@@ -2,7 +2,9 @@ package views.examples {
 import com.tuarua.firebase.CloudLandmarkDetector;
 import com.tuarua.firebase.LandmarkError;
 import com.tuarua.firebase.VisionANE;
+import com.tuarua.firebase.vision.CloudDetectorOptions;
 import com.tuarua.firebase.vision.CloudLandmark;
+import com.tuarua.firebase.vision.CloudModelType;
 import com.tuarua.firebase.vision.VisionImage;
 
 import flash.display.Bitmap;
@@ -72,7 +74,11 @@ public class LandmarkExample extends Sprite implements IExample {
 
     public function initANE():void {
         if (isInited) return;
-        cloudLandmarkDetector = vision.cloudLandmarkDetector();
+        var options:CloudDetectorOptions = new CloudDetectorOptions();
+        options.modelType = CloudModelType.latest;
+        options.maxResults = 20;
+
+        cloudLandmarkDetector = vision.cloudLandmarkDetector(options);
 
         isInited = true;
     }

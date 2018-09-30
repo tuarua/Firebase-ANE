@@ -27,6 +27,7 @@ public class VisionLandmarkANE  implements FREExtension {
             ,"createGUID"
             ,"detect"
             ,"getResults"
+            ,"close"
     };
     private static VisionLandmarkANEContext extensionContext;
 

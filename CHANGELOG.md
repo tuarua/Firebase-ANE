@@ -1,3 +1,6 @@
+### 0.0.7
+- iOS/AND: Vision Add `close()` method
+
 ### 0.0.6
 - iOS: Update to Firebase 5.8.0
 - AND: Updated to Storage 16.0.2

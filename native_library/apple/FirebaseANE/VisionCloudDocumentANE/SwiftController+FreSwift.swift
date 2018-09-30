@@ -29,7 +29,7 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)getWords"] = getWords
         functionsToSet["\(prefix)getSymbols"] = getSymbols
         functionsToSet["\(prefix)disposeResult"] = disposeResult
-
+        functionsToSet["\(prefix)close"] = close
         var arr: [String] = []
         for key in functionsToSet.keys {
             arr.append(key)

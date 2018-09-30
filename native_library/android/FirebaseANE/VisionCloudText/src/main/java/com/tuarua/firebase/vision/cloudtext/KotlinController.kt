@@ -37,14 +37,19 @@ import kotlinx.coroutines.experimental.CommonPool
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
     private val TRACE = "TRACE"
-    private var options: FirebaseVisionCloudTextRecognizerOptions? = null
     private var results: MutableMap<String, FirebaseVisionText> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = CommonPool
+    private lateinit var recognizer: FirebaseVisionTextRecognizer
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
-        options = FirebaseVisionCloudTextRecognizerOptions(argv[0])
+        val options = FirebaseVisionCloudTextRecognizerOptions(argv[0])
+        recognizer = if (options != null) {
+            FirebaseVision.getInstance().getCloudTextRecognizer(options)
+        } else {
+            FirebaseVision.getInstance().cloudTextRecognizer
+        }
         return true.toFREObject()
     }
 
@@ -56,15 +61,8 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
-        val options = this.options
 
         launch(bgContext) {
-            val recognizer: FirebaseVisionTextRecognizer = if (options != null) {
-                FirebaseVision.getInstance().getCloudTextRecognizer(options)
-            } else {
-                FirebaseVision.getInstance().cloudTextRecognizer
-            }
-
             recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     results[eventId] = task.result
@@ -89,7 +87,14 @@ class KotlinController : FreKotlinMainController {
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
         val eventId = String(argv[0]) ?: return null
-        return results[eventId]?.toFREObject()
+        val ret = results[eventId]?.toFREObject()
+        results.remove(eventId)
+        return ret
+    }
+
+    fun close(ctx: FREContext, argv: FREArgv): FREObject? {
+        recognizer.close()
+        return null
     }
 
     override val TAG: String

@@ -22,7 +22,6 @@ import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
-import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetectorOptions
 import com.tuarua.firebase.vision.barcode.extensions.*
 import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
 import com.tuarua.frekotlin.*
@@ -44,19 +43,23 @@ import org.greenrobot.eventbus.ThreadMode
 class KotlinController : FreKotlinMainController {
     private lateinit var airView: ViewGroup
     private val TRACE = "TRACE"
-    private var options: FirebaseVisionBarcodeDetectorOptions? = null
     private var optionsAsIntArray: IntArray? = null
     private var results: MutableMap<String, MutableList<FirebaseVisionBarcode>> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = CommonPool
     private val scanningBarcodeRequestCode = 1002
     private var isCameraSupportedOnDevice: Boolean = Build.VERSION.SDK_INT >= 21
+    private lateinit var detector: FirebaseVisionBarcodeDetector
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
-        options = FirebaseVisionBarcodeDetectorOptions(argv[0])
+        val options = FirebaseVisionBarcodeDetectorOptions(argv[0])
         optionsAsIntArray = IntArray(argv[0]["formats"])
-
+        detector = if (options != null) {
+            FirebaseVision.getInstance().getVisionBarcodeDetector(options)
+        } else {
+            FirebaseVision.getInstance().visionBarcodeDetector
+        }
         val appActivity = ctx.activity
         if (appActivity != null) {
             airView = appActivity.findViewById(android.R.id.content) as ViewGroup
@@ -74,14 +77,9 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
-        val options = this.options
 
         launch(bgContext) {
-            val detector: FirebaseVisionBarcodeDetector = if (options != null) {
-                FirebaseVision.getInstance().getVisionBarcodeDetector(options)
-            } else {
-                FirebaseVision.getInstance().visionBarcodeDetector
-            }
+
 
             detector.detectInImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -110,7 +108,9 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
         val eventId = String(argv[0]) ?: return null
         val result = results[eventId] ?: return null
-        return result.toFREArray()
+        val ret = result.toFREArray()
+        results.remove(eventId)
+        return ret
     }
 
     fun isCameraSupported(ctx: FREContext, argv: FREArgv): FREObject? {
@@ -144,6 +144,11 @@ class KotlinController : FreKotlinMainController {
         results[event.eventId] = event.result
         dispatchEvent(BarcodeEvent.DETECTED,
                 gson.toJson(BarcodeEvent(event.eventId, null)))
+    }
+
+    fun close(ctx: FREContext, argv: FREArgv): FREObject? {
+        detector.close()
+        return null
     }
 
     override val TAG: String

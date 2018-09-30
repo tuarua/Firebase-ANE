@@ -174,6 +174,7 @@ public class TextExample extends Sprite implements IExample {
                 }
             }
         }
+        textRecognizer.close();
     }
 
     private function onDocumentProcessed(document:DocumentText, error:TextError):void {

@@ -27,6 +27,7 @@ public class VisionLabelANE  implements FREExtension {
             ,"createGUID"
             ,"detect"
             ,"getResults"
+            ,"close"
     };
     private static VisionLabelANEContext extensionContext;
 

@@ -101,6 +101,12 @@ public class CloudLandmarkDetector {
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
+    /** Closes the landmark detector and release its model resources. */
+    public function close():void {
+        if (!_context) return;
+        _context.call("close");
+    }
+
     /** @private */
     public static function get context():ExtensionContext {
         return _context;

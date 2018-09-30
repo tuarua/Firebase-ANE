@@ -31,6 +31,7 @@ public class VisionCloudDocumentANE implements FREExtension {
             ,"getWords"
             ,"getSymbols"
             ,"disposeResult"
+            ,"close"
     };
 
     private static VisionCloudDocumentANEContext extensionContext;

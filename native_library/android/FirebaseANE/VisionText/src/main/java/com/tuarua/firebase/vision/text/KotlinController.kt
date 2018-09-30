@@ -4,6 +4,7 @@ import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.text.FirebaseVisionText
+import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer
 import com.google.gson.Gson
 import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
 import com.tuarua.firebase.vision.text.events.TextEvent
@@ -20,8 +21,10 @@ class KotlinController : FreKotlinMainController {
     private var results: MutableMap<String, FirebaseVisionText> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = CommonPool
+    private lateinit var recognizer: FirebaseVisionTextRecognizer
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
+        recognizer = FirebaseVision.getInstance().onDeviceTextRecognizer
         return true.toFREObject()
     }
 
@@ -34,7 +37,6 @@ class KotlinController : FreKotlinMainController {
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
         launch(bgContext) {
-            val recognizer = FirebaseVision.getInstance().onDeviceTextRecognizer
             recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     results[eventId] = task.result
@@ -59,7 +61,14 @@ class KotlinController : FreKotlinMainController {
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
         val eventId = String(argv[0]) ?: return null
-        return results[eventId]?.toFREObject()
+        val ret = results[eventId]?.toFREObject()
+        results.remove(eventId)
+        return ret
+    }
+
+    fun close(ctx: FREContext, argv: FREArgv): FREObject? {
+        recognizer.close()
+        return null
     }
 
     override val TAG: String

@@ -23,10 +23,9 @@ public class SwiftController: NSObject {
     public var TAG: String? = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
-    lazy var vision = Vision.vision()
     private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.cdc.uiq", qos: .userInitiated)
     private var results: [String: VisionDocumentText] = [:]
-    private var options: VisionCloudDocumentTextRecognizerOptions?
+    private var recognizer: VisionDocumentTextRecognizer?
     
     func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return UUID().uuidString.toFREObject()
@@ -38,21 +37,19 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "initController").getError(#file, #line, #column)
         }
-        self.options = options
+        recognizer = Vision.vision().cloudDocumentTextRecognizer(options: options)
         return true.toFREObject()
     }
     
     func detect(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let image = VisionImage(argv[0]),
-            let eventId = String(argv[1]),
-            let options = self.options
+            let eventId = String(argv[1])
             else {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         userInitiatedQueue.async {
-            let recognizer = self.vision.cloudDocumentTextRecognizer(options: options)
-            recognizer.process(image, completion: { (result, error) in
+            self.recognizer?.process(image, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: CloudDocumentEvent.RECOGNIZED,
                                        value: CloudDocumentEvent(eventId: eventId,
@@ -154,6 +151,10 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "disposeResult").getError(#file, #line, #column)
         }
         results[id] = nil
+        return nil
+    }
+    
+    func close(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return nil
     }
     
