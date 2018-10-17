@@ -14,7 +14,7 @@ wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/$FreSwiftVersion/
 unzip -u -o AIRSDK_additions.zip
 rm AIRSDK_additions.zip
 
-wget https://github.com/tuarua/FirebaseANE/releases/download/$AneVersion/ios_dependencies.zip
+wget https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/ios_dependencies.zip
 unzip -u -o ios_dependencies.zip
 rm ios_dependencies.zip
 
