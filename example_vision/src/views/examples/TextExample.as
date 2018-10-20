@@ -159,6 +159,7 @@ public class TextExample extends Sprite implements IExample {
     }
 
     private function onProcessed(text:Text, error:TextError):void {
+        textRecognizer.close();
         if (error) {
             statusLabel.text = "Text error: " + error.errorID + " : " + error.message;
             return;
@@ -174,10 +175,10 @@ public class TextExample extends Sprite implements IExample {
                 }
             }
         }
-        textRecognizer.close();
     }
 
     private function onDocumentProcessed(document:DocumentText, error:TextError):void {
+        cloudDocumentRecognizer.close();
         if (error) {
             statusLabel.text = "Text error: " + error.errorID + " : " + error.message;
             return;

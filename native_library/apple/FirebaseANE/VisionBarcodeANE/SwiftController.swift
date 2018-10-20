@@ -99,10 +99,6 @@ public class SwiftController: NSObject {
     
     // MARK: - Camera Input
     
-    func isCameraSupported(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        return true.toFREObject()
-    }
-    
     func inputFromCamera(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
             let eventId = String(argv[0]),
@@ -112,15 +108,6 @@ public class SwiftController: NSObject {
         }
         cameraEventId = eventId
         inputFromCamera(rootViewController: rvc, eventId: eventId)
-        return nil
-    }
-    
-    func closeCamera(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-//        guard let rvc = UIApplication.shared.keyWindow?.rootViewController
-//            else {
-//                return FreArgError(message: "closeCamera").getError(#file, #line, #column)
-//        }
-//        closeCamera(rootViewController: rvc)
         return nil
     }
     

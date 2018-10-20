@@ -24,6 +24,7 @@ public class VisionANE implements FREExtension {
     private static final String[] FUNCTIONS = {
              "init"
             ,"requestPermissions"
+            ,"isCameraSupported"
     };
     private static VisionANEContext extensionContext;
 

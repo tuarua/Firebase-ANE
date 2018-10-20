@@ -127,7 +127,12 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 for input in currentInputs {
                     self.captureSession.removeInput(input)
                 }
-                
+                if device.isFocusModeSupported(.continuousAutoFocus) {
+                    try device.lockForConfiguration()
+                    device.focusMode = .continuousAutoFocus
+                    device.isSmoothAutoFocusEnabled = true
+                    device.unlockForConfiguration()
+                }
                 let input = try AVCaptureDeviceInput(device: device)
                 guard self.captureSession.canAddInput(input) else { return }
                 self.captureSession.addInput(input)

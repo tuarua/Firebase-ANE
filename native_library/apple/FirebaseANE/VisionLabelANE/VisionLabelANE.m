@@ -31,10 +31,11 @@ CONTEXT_INIT(TRFBVLB) {
     SWIFT_INITS(TRFBVLB)
     static FRENamedFunction extensionFunctions[] =
     {
-        MAP_FUNCTION(TRFBVLB, init)
+         MAP_FUNCTION(TRFBVLB, init)
         ,MAP_FUNCTION(TRFBVLB, createGUID)
         ,MAP_FUNCTION(TRFBVLB, detect)
         ,MAP_FUNCTION(TRFBVLB, getResults)
+        ,MAP_FUNCTION(TRFBVLB, close)
     };
     SET_FUNCTIONS
     

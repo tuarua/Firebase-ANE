@@ -90,6 +90,7 @@ public class LandmarkExample extends Sprite implements IExample {
             textContainer.visible = true;
             textImageDisplay.visible = true;
             cloudLandmarkDetector.detect(visionImage, function (landmarks:Vector.<CloudLandmark>, error:LandmarkError):void {
+                cloudLandmarkDetector.close();
                 if (error) {
                     statusLabel.text = "Landmark error: " + error.errorID + " : " + error.message;
                     return;

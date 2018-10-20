@@ -105,6 +105,10 @@ class KotlinController : FreKotlinMainController {
         return permissionsToCheck
     }
 
+    fun isCameraSupported(ctx: FREContext, argv: FREArgv): FREObject? {
+        return (Build.VERSION.SDK_INT >= 21).toFREObject()
+    }
+
     override val TAG: String
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null

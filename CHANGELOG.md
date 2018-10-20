@@ -1,3 +1,11 @@
+### 0.0.8
+- iOS/AND: Vision: Fix missing `close()` method Issue #12
+- iOS/AND: Vision: Remove obsolete options setters Issue #10
+- iOS/AND: Vision: `barcodeDetector.isCameraSupported` is now `vision.isCameraSupported`
+- iOS/AND: Vision: Fix BarcodeValueType properties scope
+- iOS: Vision: `device.isSmoothAutoFocusEnabled = true`
+- iOS: Vision: `device.focusMode = .continuousAutoFocus`
+
 ### 0.0.7
 - iOS/AND: Vision Add `close()` method
 

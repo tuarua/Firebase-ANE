@@ -30,17 +30,15 @@ import flash.utils.Dictionary;
 public class CloudDocumentRecognizer {
     internal static const NAME:String = "VisionCloudDocumentANE";
     private static var _context:ExtensionContext;
-    private var _options:CloudDocumentRecognizerOptions = new CloudDocumentRecognizerOptions();
     /** @private */
     public static var closures:Dictionary = new Dictionary();
     private static const RECOGNIZED:String = "CloudDocumentEvent.Recognized";
     /** @private */
     public function CloudDocumentRecognizer(options:CloudDocumentRecognizerOptions) {
         try {
-            if (options) _options = options;
             _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
             _context.addEventListener(StatusEvent.STATUS, gotEvent);
-            _context.call("init", _options);
+            _context.call("init", options ? options : new CloudDocumentRecognizerOptions());
         } catch (e:Error) {
             trace(e.name);
             trace(e.message);
@@ -130,8 +128,9 @@ public class CloudDocumentRecognizer {
         _context = null;
     }
 
-    public function set options(options:CloudDocumentRecognizerOptions):void {
-        _options = options ? options : new CloudDocumentRecognizerOptions();
+    /** @private */
+    internal function reinit(options:CloudDocumentRecognizerOptions):void {
+        _context.call("init", options ? options : new CloudDocumentRecognizerOptions());
     }
 
 }

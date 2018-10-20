@@ -97,6 +97,7 @@ public class FaceExample extends Sprite implements IExample {
             var visionImage:VisionImage = new VisionImage(bmpFace.bitmapData);
             faceDetector.detect(visionImage,
                     function (features:Vector.<Face>, error:FaceError):void {
+                        faceDetector.close();
                         statusLabel.text = "";
                         if (error) {
                             statusLabel.text = "Face error: " + error.errorID + " : " + error.message;

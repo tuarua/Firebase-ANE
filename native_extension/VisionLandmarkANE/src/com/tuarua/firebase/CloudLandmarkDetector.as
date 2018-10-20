@@ -28,19 +28,15 @@ import flash.utils.Dictionary;
 public class CloudLandmarkDetector {
     internal static const NAME:String = "VisionLandmarkANE";
     private static var _context:ExtensionContext;
-    private var _options:CloudDetectorOptions = new CloudDetectorOptions();
     /** @private */
     public static var closures:Dictionary = new Dictionary();
     private static const RECOGNIZED:String = "LandmarkEvent.Recognized";
     /** @private */
     public function CloudLandmarkDetector(options:CloudDetectorOptions) {
         try {
-            if (options) {
-                _options = options;
-            }
             _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
             _context.addEventListener(StatusEvent.STATUS, gotEvent);
-            _context.call("init", _options);
+            _context.call("init", options ? options: new CloudDetectorOptions());
         } catch (e:Error) {
             trace(e.name);
             trace(e.message);
@@ -129,8 +125,9 @@ public class CloudLandmarkDetector {
         _context = null;
     }
 
-    public function set options(options:CloudDetectorOptions):void {
-        _options = options ? options : new CloudDetectorOptions();
+    /** @private */
+    internal function reinit(options:CloudDetectorOptions):void {
+        _context.call("init", options ? options : new CloudDetectorOptions());
     }
 }
 }

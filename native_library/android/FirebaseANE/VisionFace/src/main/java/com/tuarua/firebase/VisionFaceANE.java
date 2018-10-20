@@ -26,6 +26,7 @@ public class VisionFaceANE implements FREExtension {
             ,"createGUID"
             ,"detect"
             ,"getResults"
+            ,"close"
     };
     private static VisionFaceANEContext extensionContext;
 

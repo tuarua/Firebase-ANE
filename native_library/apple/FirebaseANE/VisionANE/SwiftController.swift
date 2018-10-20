@@ -28,6 +28,10 @@ public class SwiftController: NSObject {
         return nil
     }
     
+    func isCameraSupported(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        return true.toFREObject()
+    }
+    
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return true.toFREObject()
     }

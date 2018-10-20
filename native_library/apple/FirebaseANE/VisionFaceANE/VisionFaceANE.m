@@ -35,6 +35,7 @@ CONTEXT_INIT(TRFBVFC) {
         ,MAP_FUNCTION(TRFBVFC, createGUID)
         ,MAP_FUNCTION(TRFBVFC, detect)
         ,MAP_FUNCTION(TRFBVFC, getResults)
+        ,MAP_FUNCTION(TRFBVFC, close)
     };
     SET_FUNCTIONS
     

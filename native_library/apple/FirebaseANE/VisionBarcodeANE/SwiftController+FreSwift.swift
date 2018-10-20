@@ -24,9 +24,8 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)createGUID"] = createGUID
         functionsToSet["\(prefix)detect"] = detect
         functionsToSet["\(prefix)getResults"] = getResults
-        functionsToSet["\(prefix)isCameraSupported"] = isCameraSupported
         functionsToSet["\(prefix)inputFromCamera"] = inputFromCamera
-        functionsToSet["\(prefix)closeCamera"] = closeCamera
+        functionsToSet["\(prefix)close"] = close
         
         var arr: [String] = []
         for key in functionsToSet.keys {
