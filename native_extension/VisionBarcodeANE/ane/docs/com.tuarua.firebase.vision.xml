@@ -1,4 +1,156 @@
-<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.tuarua.firebase.vision"><apiName>com.tuarua.firebase.vision</apiName><apiDetail/><apiClassifier id="com.tuarua.firebase.vision:BarcodeContactInfo"><apiName>BarcodeContactInfo</apiName><shortdesc>
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.tuarua.firebase.vision"><apiName>com.tuarua.firebase.vision</apiName><apiDetail/><apiClassifier id="com.tuarua.firebase.vision:CloudModelType"><apiName>CloudModelType</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:CloudModelType:latest"><apiName>latest</apiName><shortdesc> Latest model.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc> Latest model. </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudModelType:stable"><apiName>stable</apiName><shortdesc> Stable model.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="uint"/></apiValueDef><apiDesc> Stable model. </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeDetectorOptions"><apiName>BarcodeDetectorOptions</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:BarcodeDetectorOptions:BarcodeDetectorOptions"><apiName>BarcodeDetectorOptions</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:BarcodeDetectorOptions:formats"><apiName>formats</apiName><shortdesc>
+     The barcode formats detected in an image.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$int"/></apiValueDef><apiDesc>
+     The barcode formats detected in an image. Note that the detection time will increase for each
+     additional format that is specified.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodePhone"><apiName>BarcodePhone</apiName><shortdesc>
+ A phone number from a 'TEL:' or similar QR Code type.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ A phone number from a 'TEL:' or similar QR Code type.
+ </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:BarcodePhone:number:get"><apiName>number</apiName><shortdesc>
+     Phone number.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+     Phone number.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodePhone:type:get"><apiName>type</apiName><shortdesc>
+     Phone number type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc>
+     Phone number type.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:TextError"><apiName>TextError</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Error</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:TextError:TextError"><apiName>TextError</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>message</apiItemName><apiType value="any"/><apiData/></apiParam><apiParam><apiItemName>id</apiItemName><apiType value="any"/><apiData>0</apiData></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:TextElement"><apiName>TextElement</apiName><shortdesc>
+ A text element recognized in an image.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ A text element recognized in an image. A text element is roughly equivalent to a space-separated
+ word in most Latin-script languages.
+ </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:TextElement:confidence"><apiName>confidence</apiName><shortdesc>
+     The confidence of the recognized text element.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
+     The confidence of the recognized text element. The value is 0 for all text recognizers except
+     for cloud text recognizers with model type `VisionCloudTextModelType.dense`.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextElement:cornerPoints"><apiName>cornerPoints</apiName><shortdesc>
+     The four corner points of the text element in clockwise order starting with the top left point
+     relative to the image in the default coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$flash.geom:Point"/></apiValueDef><apiDesc>
+     The four corner points of the text element in clockwise order starting with the top left point
+     relative to the image in the default coordinate space. The `NSValue` objects are `CGPoint`s.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextElement:frame"><apiName>frame</apiName><shortdesc>
+     The rectangle that contains the text element relative to the image in the default coordinate
+     space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="flash.geom:Rectangle"/></apiValueDef><apiDesc>
+     The rectangle that contains the text element relative to the image in the default coordinate
+     space.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextElement:lines"><apiName>lines</apiName><shortdesc>
+     An array of text lines that make up the block.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextLine"/></apiValueDef><apiDesc>
+     An array of text lines that make up the block.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextElement:recognizedLanguages"><apiName>recognizedLanguages</apiName><shortdesc>
+     An array of recognized languages in the text element.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextRecognizedLanguage"/></apiValueDef><apiDesc>
+     An array of recognized languages in the text element. On-device text recognizers only detect
+     Latin-based languages, while cloud text recognizers can detect multiple languages. If no
+     languages are recognized, the array is empty.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextElement:text"><apiName>text</apiName><shortdesc>
+     String representation of the text element that was recognized.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     String representation of the text element that was recognized.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:LatitudeLongitude"><apiName>LatitudeLongitude</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:LatitudeLongitude:LatitudeLongitude"><apiName>LatitudeLongitude</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:LatitudeLongitude:latitude"><apiName>latitude</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:LatitudeLongitude:longitude"><apiName>longitude</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeEmail"><apiName>BarcodeEmail</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:BarcodeEmail:address"><apiName>address</apiName><shortdesc>
+     Email message address.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     Email message address.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeEmail:body"><apiName>body</apiName><shortdesc>
+     Email message body.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     Email message body.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeEmail:subject"><apiName>subject</apiName><shortdesc>
+     Email message subject.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     Email message subject.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeEmail:type"><apiName>type</apiName><shortdesc>
+     Email message type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="int"/></apiValueDef><apiDesc>
+     Email message type.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeValueType"><apiName>BarcodeValueType</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiOperation id="com.tuarua.firebase.vision:BarcodeValueType:toString"><apiName>toString</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiType value="String"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="int"/></apiParam></apiOperationDef></apiOperationDetail></apiOperation><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:ISBN"><apiName>ISBN</apiName><shortdesc>
+     Barcode value type for ISBNs.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>3</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for ISBNs.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:SMS"><apiName>SMS</apiName><shortdesc>
+     Barcode value type for SMS details.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>6</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for SMS details.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:calendarEvent"><apiName>calendarEvent</apiName><shortdesc>
+     Barcode value type for calendar events.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>11</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for calendar events.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:contactInfo"><apiName>contactInfo</apiName><shortdesc>
+     Barcode value type for contact info.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for contact info.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:driversLicense"><apiName>driversLicense</apiName><shortdesc>
+     Barcode value type for driver's license data.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>12</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for driver's license data.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:email"><apiName>email</apiName><shortdesc>
+     Barcode value type for email addresses.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for email addresses.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:geographicCoordinates"><apiName>geographicCoordinates</apiName><shortdesc>
+     Barcode value type for geographic coordinates.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>10</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for geographic coordinates.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:phone"><apiName>phone</apiName><shortdesc>
+     Barcode value type for phone numbers.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>4</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for phone numbers.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:product"><apiName>product</apiName><shortdesc>
+     Barcode value type for product codes.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>5</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for product codes.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:text"><apiName>text</apiName><shortdesc>
+     Barcode value type for plain text.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>7</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for plain text.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:unknown"><apiName>unknown</apiName><shortdesc>
+     Unknown Barcode value types.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Unknown Barcode value types.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:url"><apiName>url</apiName><shortdesc>
+     Barcode value type for URLs/bookmarks.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>8</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for URLs/bookmarks.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:wifi"><apiName>wifi</apiName><shortdesc>
+     Barcode value type for Wi-Fi access point details.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>9</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for Wi-Fi access point details.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeDriverLicense"><apiName>BarcodeDriverLicense</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:expiryDate"><apiName>expiryDate</apiName><shortdesc>
+     Driver license expiration date.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     Driver license expiration date. The date format depends on the issuing country.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:firstName"><apiName>firstName</apiName><shortdesc>
+     Holder's first name.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     Holder's first name.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:gender"><apiName>gender</apiName><shortdesc>
+     Holder's gender.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     Holder's gender. 1 is male and 2 is female.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:issuingCountry"><apiName>issuingCountry</apiName><shortdesc>
+     A country in which DL/ID was issued.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     A country in which DL/ID was issued.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:issuingDate"><apiName>issuingDate</apiName><shortdesc>
+     The date format depends on the issuing country.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     The date format depends on the issuing country.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:lastName"><apiName>lastName</apiName><shortdesc>
+     Holder's last name.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     Holder's last name.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:licenseNumber"><apiName>licenseNumber</apiName><shortdesc>
+     Driver license ID number.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     Driver license ID number.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:middleName"><apiName>middleName</apiName><shortdesc>
+     Holder's middle name.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     Holder's middle name.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeWifi"><apiName>BarcodeWifi</apiName><shortdesc>
+ Wi-Fi network parameters from a 'WIFI:' or similar QR Code type.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ Wi-Fi network parameters from a 'WIFI:' or similar QR Code type.
+ </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:BarcodeWifi:password:get"><apiName>password</apiName><shortdesc>
+     A Wi-Fi access point password.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+     A Wi-Fi access point password.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeWifi:ssid:get"><apiName>ssid</apiName><shortdesc>
+     A Wi-Fi access point SSID.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+     A Wi-Fi access point SSID.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeWifi:type:get"><apiName>type</apiName><shortdesc>
+     A Wi-Fi access point encryption type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc>
+     A Wi-Fi access point encryption type.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeSMS"><apiName>BarcodeSMS</apiName><shortdesc>
+ An SMS message from an 'SMS:' or similar QR Code type.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ An SMS message from an 'SMS:' or similar QR Code type.
+ </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:BarcodeSMS:message:get"><apiName>message</apiName><shortdesc>
+     An SMS message body.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+     An SMS message body.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeSMS:phoneNumber:get"><apiName>phoneNumber</apiName><shortdesc>
+     An SMS message phone number.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
+     An SMS message phone number.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:CloudDetectorOptions"><apiName>CloudDetectorOptions</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:CloudDetectorOptions:CloudDetectorOptions"><apiName>CloudDetectorOptions</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:CloudDetectorOptions:maxResults"><apiName>maxResults</apiName><shortdesc>
+     Maximum number of results to return.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>10</apiData><apiType value="uint"/></apiValueDef><apiDesc>
+     Maximum number of results to return.  Defaults to 10.  Does not apply to
+     `VisionCloudTextDetector` and `VisionCloudDocumentTextDetector`.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudDetectorOptions:modelType"><apiName>modelType</apiName><shortdesc>
+     Type of model to use in vision cloud detection API.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>0</apiData><apiType value="uint"/></apiValueDef><apiDesc>
+     Type of model to use in vision cloud detection API.  Defaults to `.stable`.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:TextRecognizedLanguage"><apiName>TextRecognizedLanguage</apiName><shortdesc>
+ Detected language from text recognition.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ Detected language from text recognition.
+ </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:TextRecognizedLanguage:languageCode"><apiName>languageCode</apiName><shortdesc>
+      The BCP-47 language code, such as, "en-US" or "sr-Latn".</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+      The BCP-47 language code, such as, "en-US" or "sr-Latn". For more information, see
+      http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeContactInfo"><apiName>BarcodeContactInfo</apiName><shortdesc>
  A person's or organization's business card.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
  A person's or organization's business card. For example, a vCard.
  </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:BarcodeContactInfo:addresses"><apiName>addresses</apiName><shortdesc>
@@ -31,6 +183,32 @@
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeURLBookmark:url:get"><apiName>url</apiName><shortdesc>
      A URL bookmark url.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
      A URL bookmark url.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:TextLine"><apiName>TextLine</apiName><shortdesc>
+ A text line recognized in an image that consists of an array of elements.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ A text line recognized in an image that consists of an array of elements.
+ </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:TextLine:confidence"><apiName>confidence</apiName><shortdesc>
+     The confidence of the recognized text line.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
+     The confidence of the recognized text line. The value is `nil` for all text recognizers except
+     for cloud text recognizers with model type `VisionCloudTextModelType.dense`.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextLine:cornerPoints"><apiName>cornerPoints</apiName><shortdesc>
+     The four corner points of the text line in clockwise order starting with the top left point
+     relative to the image in the default coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$flash.geom:Point"/></apiValueDef><apiDesc>
+     The four corner points of the text line in clockwise order starting with the top left point
+     relative to the image in the default coordinate space. The `NSValue` objects are `CGPoint`s.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextLine:elements"><apiName>elements</apiName><shortdesc>
+     An array of text elements that make up the line.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextElement"/></apiValueDef><apiDesc>
+     An array of text elements that make up the line.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextLine:frame"><apiName>frame</apiName><shortdesc>
+     The rectangle that contains the text line relative to the image in the default coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="flash.geom:Rectangle"/></apiValueDef><apiDesc>
+     The rectangle that contains the text line relative to the image in the default coordinate space.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextLine:recognizedLanguages"><apiName>recognizedLanguages</apiName><shortdesc>
+     An array of recognized languages in the text line.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextRecognizedLanguage"/></apiValueDef><apiDesc>
+     An array of recognized languages in the text line. On-device text recognizers only detect
+     Latin-based languages, while cloud text recognizers can detect multiple languages. If no
+     languages are recognized, the array is empty.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextLine:text"><apiName>text</apiName><shortdesc>
+     String representation of the text line that was recognized.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     String representation of the text line that was recognized.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeFormat"><apiName>BarcodeFormat</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiOperation id="com.tuarua.firebase.vision:BarcodeFormat:toString"><apiName>toString</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiType value="String"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="int"/></apiParam></apiOperationDef></apiOperationDetail></apiOperation><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:EAN13"><apiName>EAN13</apiName><shortdesc> EAN-13 detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0x0020</apiData><apiType value="int"/></apiValueDef><apiDesc> EAN-13 detection.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:EAN8"><apiName>EAN8</apiName><shortdesc> EAN-8 detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0x0040</apiData><apiType value="int"/></apiValueDef><apiDesc> EAN-8 detection.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:ITF"><apiName>ITF</apiName><shortdesc> ITF detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0x0080</apiData><apiType value="int"/></apiValueDef><apiDesc> ITF detection.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:PDF417"><apiName>PDF417</apiName><shortdesc> PDF-417 detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0x0800</apiData><apiType value="int"/></apiValueDef><apiDesc> PDF-417 detection.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:UPCA"><apiName>UPCA</apiName><shortdesc> UPC-A detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0x0200</apiData><apiType value="int"/></apiValueDef><apiDesc> UPC-A detection.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:UPCE"><apiName>UPCE</apiName><shortdesc> UPC-E detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0x0400</apiData><apiType value="int"/></apiValueDef><apiDesc> UPC-E detection.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:all"><apiName>all</apiName><shortdesc> All format.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0xFFFF</apiData><apiType value="int"/></apiValueDef><apiDesc> All format.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:aztec"><apiName>aztec</apiName><shortdesc> Aztec code detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0x1000</apiData><apiType value="int"/></apiValueDef><apiDesc> Aztec code detection.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:codaBar"><apiName>codaBar</apiName><shortdesc> Codabar detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0x0008</apiData><apiType value="int"/></apiValueDef><apiDesc> Codabar detection.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:code128"><apiName>code128</apiName><shortdesc> Code-128 detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0x0001</apiData><apiType value="int"/></apiValueDef><apiDesc> Code-128 detection.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:code39"><apiName>code39</apiName><shortdesc> Code-39 detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0x0002</apiData><apiType value="int"/></apiValueDef><apiDesc> Code-39 detection.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:code93"><apiName>code93</apiName><shortdesc> Code-93 detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0x0004</apiData><apiType value="int"/></apiValueDef><apiDesc> Code-93 detection.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:dataMatrix"><apiName>dataMatrix</apiName><shortdesc> Data Matrix detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0x0010</apiData><apiType value="int"/></apiValueDef><apiDesc> Data Matrix detection.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:qrCode"><apiName>qrCode</apiName><shortdesc> QR Code detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0x0100</apiData><apiType value="int"/></apiValueDef><apiDesc> QR Code detection.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeFormat:unknown"><apiName>unknown</apiName><shortdesc> Unknown format.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="int"/></apiValueDef><apiDesc> Unknown format. </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeCalendarEvent"><apiName>BarcodeCalendarEvent</apiName><shortdesc>
  A calendar event extracted from a QR code.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
  A calendar event extracted from a QR code.
@@ -64,19 +242,15 @@
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeWiFiEncryptionType:open"><apiName>open</apiName><shortdesc>
      Barcode open Wi-Fi encryption type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="int"/></apiValueDef><apiDesc>
      Barcode open Wi-Fi encryption type.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeWiFiEncryptionType:unknown"><apiName>unknown</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="int"/></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeDetectorOptions"><apiName>BarcodeDetectorOptions</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:BarcodeDetectorOptions:BarcodeDetectorOptions"><apiName>BarcodeDetectorOptions</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:BarcodeDetectorOptions:formats"><apiName>formats</apiName><shortdesc>
-     The barcode formats detected in an image.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$int"/></apiValueDef><apiDesc>
-     The barcode formats detected in an image. Note that the detection time will increase for each
-     additional format that is specified.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodePhone"><apiName>BarcodePhone</apiName><shortdesc>
- A phone number from a 'TEL:' or similar QR Code type.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
- A phone number from a 'TEL:' or similar QR Code type.
- </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:BarcodePhone:number:get"><apiName>number</apiName><shortdesc>
-     Phone number.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
-     Phone number.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodePhone:type:get"><apiName>type</apiName><shortdesc>
-     Phone number type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc>
-     Phone number type.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeWiFiEncryptionType:unknown"><apiName>unknown</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="int"/></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:Text"><apiName>Text</apiName><shortdesc>
+ Recognized text in an image.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ Recognized text in an image.
+ </apiDesc></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:Text:Text"><apiName>Text</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:Text:blocks"><apiName>blocks</apiName><shortdesc>
+     An array of blocks recognized in the text.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextBlock"/></apiValueDef><apiDesc>
+     An array of blocks recognized in the text.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:Text:text"><apiName>text</apiName><shortdesc>
+     String representation of the recognized text.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     String representation of the recognized text.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:DetectorImageOrientation"><apiName>DetectorImageOrientation</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:DetectorImageOrientation:bottomLeft"><apiName>bottomLeft</apiName><shortdesc> Orientation code indicating the 0th row is the bottom and the 0th column is the left side.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>4</apiData><apiType value="uint"/></apiValueDef><apiDesc> Orientation code indicating the 0th row is the bottom and the 0th column is the left side.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DetectorImageOrientation:bottomRight"><apiName>bottomRight</apiName><shortdesc> Orientation code indicating the 0th row is the bottom and the 0th column is the right side.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>3</apiData><apiType value="uint"/></apiValueDef><apiDesc> Orientation code indicating the 0th row is the bottom and the 0th column is the right side.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DetectorImageOrientation:leftBottom"><apiName>leftBottom</apiName><shortdesc> Orientation code indicating the 0th row is the left side and the 0th column is the bottom.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>8</apiData><apiType value="uint"/></apiValueDef><apiDesc> Orientation code indicating the 0th row is the left side and the 0th column is the bottom. </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DetectorImageOrientation:leftTop"><apiName>leftTop</apiName><shortdesc> Orientation code indicating the 0th row is the left side and the 0th column is the top.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>5</apiData><apiType value="uint"/></apiValueDef><apiDesc> Orientation code indicating the 0th row is the left side and the 0th column is the top.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DetectorImageOrientation:rightBottom"><apiName>rightBottom</apiName><shortdesc> Orientation code indicating the 0th row is the right side and the 0th column is the bottom.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>7</apiData><apiType value="uint"/></apiValueDef><apiDesc> Orientation code indicating the 0th row is the right side and the 0th column is the bottom.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DetectorImageOrientation:rightTop"><apiName>rightTop</apiName><shortdesc> Orientation code indicating the 0th row is the right side and the 0th column is the top.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>6</apiData><apiType value="uint"/></apiValueDef><apiDesc> Orientation code indicating the 0th row is the right side and the 0th column is the top.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DetectorImageOrientation:topLeft"><apiName>topLeft</apiName><shortdesc> Orientation code indicating the 0th row is the top and the 0th column is the left side.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc> Orientation code indicating the 0th row is the top and the 0th column is the left side.</apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DetectorImageOrientation:topRight"><apiName>topRight</apiName><shortdesc> Orientation code indicating the 0th row is the top and the 0th column is the right side.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="uint"/></apiValueDef><apiDesc> Orientation code indicating the 0th row is the top and the 0th column is the right side. </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeAddress"><apiName>BarcodeAddress</apiName><shortdesc>
  An address.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
  An address.
@@ -95,18 +269,6 @@
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeGeoPoint:longitude:get"><apiName>longitude</apiName><shortdesc>
      A location longitude.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Number"/></apiValueDef><apiDesc>
      A location longitude.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeEmail"><apiName>BarcodeEmail</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:BarcodeEmail:address"><apiName>address</apiName><shortdesc>
-     Email message address.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     Email message address.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeEmail:body"><apiName>body</apiName><shortdesc>
-     Email message body.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     Email message body.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeEmail:subject"><apiName>subject</apiName><shortdesc>
-     Email message subject.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     Email message subject.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeEmail:type"><apiName>type</apiName><shortdesc>
-     Email message type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="int"/></apiValueDef><apiDesc>
-     Email message type.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:Barcode"><apiName>Barcode</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:Barcode:Barcode"><apiName>Barcode</apiName><shortdesc> private </shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef><apiDesc> private </apiDesc></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:Barcode:calendarEvent"><apiName>calendarEvent</apiName><shortdesc>
      A calendar event extracted from a QR Code.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueClassifier>com.tuarua.firebase.vision:BarcodeCalendarEvent</apiValueClassifier></apiValueDef><apiDesc>
      <p>A calendar event extracted from a QR Code. This property is only set if valueType is
@@ -167,42 +329,32 @@
      Wi-Fi network parameters from a 'WIFI:' or similar QR Code type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueClassifier>com.tuarua.firebase.vision:BarcodeWifi</apiValueClassifier></apiValueDef><apiDesc>
      <p>Wi-Fi network parameters from a 'WIFI:' or similar QR Code type. This property is only set
      if valueType is .wifi.</p>
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeValueType"><apiName>BarcodeValueType</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiOperation id="com.tuarua.firebase.vision:BarcodeValueType:toString"><apiName>toString</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiType value="String"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="int"/></apiParam></apiOperationDef></apiOperationDetail></apiOperation></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeDriverLicense"><apiName>BarcodeDriverLicense</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:expiryDate"><apiName>expiryDate</apiName><shortdesc>
-     Driver license expiration date.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     Driver license expiration date. The date format depends on the issuing country.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:firstName"><apiName>firstName</apiName><shortdesc>
-     Holder's first name.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     Holder's first name.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:gender"><apiName>gender</apiName><shortdesc>
-     Holder's gender.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     Holder's gender. 1 is male and 2 is female.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:issuingCountry"><apiName>issuingCountry</apiName><shortdesc>
-     A country in which DL/ID was issued.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     A country in which DL/ID was issued.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:issuingDate"><apiName>issuingDate</apiName><shortdesc>
-     The date format depends on the issuing country.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     The date format depends on the issuing country.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:lastName"><apiName>lastName</apiName><shortdesc>
-     Holder's last name.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     Holder's last name.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:licenseNumber"><apiName>licenseNumber</apiName><shortdesc>
-     Driver license ID number.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     Driver license ID number.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:middleName"><apiName>middleName</apiName><shortdesc>
-     Holder's middle name.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     Holder's middle name.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeWifi"><apiName>BarcodeWifi</apiName><shortdesc>
- Wi-Fi network parameters from a 'WIFI:' or similar QR Code type.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
- Wi-Fi network parameters from a 'WIFI:' or similar QR Code type.
- </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:BarcodeWifi:password:get"><apiName>password</apiName><shortdesc>
-     A Wi-Fi access point password.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
-     A Wi-Fi access point password.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeWifi:ssid:get"><apiName>ssid</apiName><shortdesc>
-     A Wi-Fi access point SSID.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
-     A Wi-Fi access point SSID.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeWifi:type:get"><apiName>type</apiName><shortdesc>
-     A Wi-Fi access point encryption type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="int"/></apiValueDef><apiDesc>
-     A Wi-Fi access point encryption type.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:TextBlock"><apiName>TextBlock</apiName><shortdesc>
+ A text block recognized in an image that consists of an array of text lines.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ A text block recognized in an image that consists of an array of text lines.
+ </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:TextBlock:confidence"><apiName>confidence</apiName><shortdesc>
+     The confidence of the recognized text block.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
+     The confidence of the recognized text block. The value is 0 for all text recognizers except
+     for cloud text recognizers with model type `CloudTextModelType.dense`.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextBlock:cornerPoints"><apiName>cornerPoints</apiName><shortdesc>
+     The four corner points of the text block in clockwise order starting with the top left point
+     relative to the image in the default coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$flash.geom:Point"/></apiValueDef><apiDesc>
+     The four corner points of the text block in clockwise order starting with the top left point
+     relative to the image in the default coordinate space.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextBlock:frame"><apiName>frame</apiName><shortdesc>
+     The rectangle that contains the text block relative to the image in the default coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="flash.geom:Rectangle"/></apiValueDef><apiDesc>
+     The rectangle that contains the text block relative to the image in the default coordinate space.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextBlock:lines"><apiName>lines</apiName><shortdesc>
+     An array of text lines that make up the block.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextLine"/></apiValueDef><apiDesc>
+     An array of text lines that make up the block.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextBlock:recognizedLanguages"><apiName>recognizedLanguages</apiName><shortdesc>
+     An array of recognized languages in the text block.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextRecognizedLanguage"/></apiValueDef><apiDesc>
+     An array of recognized languages in the text block. On-device text recognizers only detect
+     Latin-based languages, while cloud text recognizers can detect multiple languages. If no
+     languages are recognized, the array is empty.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextBlock:text"><apiName>text</apiName><shortdesc>
+     String representation of the text block that was recognized.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     String representation of the text block that was recognized.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:VisionImage"><apiName>VisionImage</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:VisionImage:VisionImage"><apiName>VisionImage</apiName><shortdesc>
      Initializes a VisionImage object with the given image.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>bitmapdata</apiItemName><apiType value="flash.display:BitmapData"/><apiData>null</apiData><apiDesc>BitmapData to use in vision detection. The given image should be rotated, so its
      orientation up. Set to null if using the path param.
@@ -210,13 +362,4 @@
      </apiDesc></apiParam><apiParam><apiItemName>metadata</apiItemName><apiOperationClassifier>com.tuarua.firebase.vision:VisionImageMetadata</apiOperationClassifier><apiData>null</apiData><apiDesc>    </apiDesc></apiParam></apiConstructorDef><apiDesc>
      Initializes a VisionImage object with the given image.
      
-     </apiDesc></apiConstructorDetail></apiConstructor></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeSMS"><apiName>BarcodeSMS</apiName><shortdesc>
- An SMS message from an 'SMS:' or similar QR Code type.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
- An SMS message from an 'SMS:' or similar QR Code type.
- </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:BarcodeSMS:message:get"><apiName>message</apiName><shortdesc>
-     An SMS message body.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
-     An SMS message body.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeSMS:phoneNumber:get"><apiName>phoneNumber</apiName><shortdesc>
-     An SMS message phone number.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef><apiDesc>
-     An SMS message phone number.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>
+     </apiDesc></apiConstructorDetail></apiConstructor></apiClassifier></apiPackage>

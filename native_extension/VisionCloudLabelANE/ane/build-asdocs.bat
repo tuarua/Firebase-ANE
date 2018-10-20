@@ -5,15 +5,6 @@ SET pathtome=%~dp0
 echo %pathtome%
 
 echo build asdocs
-call D:\dev\sdks\AIR\AIRSDK_28\bin\asdoc ^
--doc-sources %pathtome%..\src ^
--source-path %pathtome%..\src ^
--window-title "Tua Rua Firebase VisionANE by Tua Rua Ltd." ^
--main-title "Firebase VisionANE Documentation" ^
--footer "Copyright Tua Rua Ltd. 2018" ^
--output %pathtome%..\docs\asdocs ^
--lenient ^
--library-path+=D:\dev\sdks\AIR\AIRSDK_28\frameworks\libs\air\airglobal.swc
 
 
 call D:\dev\sdks\AIR\AIRSDK_28\bin\asdoc ^

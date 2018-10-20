@@ -9,6 +9,13 @@
      An array of hinted language codes for cloud document text recognition.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$String"/></apiValueDef><apiDesc>
      An array of hinted language codes for cloud document text recognition. The default is `nil`. See
      https://cloud.google.com/vision/docs/languages for supported language codes.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:CloudDetectorOptions"><apiName>CloudDetectorOptions</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:CloudDetectorOptions:CloudDetectorOptions"><apiName>CloudDetectorOptions</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:CloudDetectorOptions:maxResults"><apiName>maxResults</apiName><shortdesc>
+     Maximum number of results to return.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>10</apiData><apiType value="uint"/></apiValueDef><apiDesc>
+     Maximum number of results to return.  Defaults to 10.  Does not apply to
+     `VisionCloudTextDetector` and `VisionCloudDocumentTextDetector`.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudDetectorOptions:modelType"><apiName>modelType</apiName><shortdesc>
+     Type of model to use in vision cloud detection API.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>0</apiData><apiType value="uint"/></apiValueDef><apiDesc>
+     Type of model to use in vision cloud detection API.  Defaults to `.stable`.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:TextRecognizedLanguage"><apiName>TextRecognizedLanguage</apiName><shortdesc>
  Detected language from text recognition.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
  Detected language from text recognition.
@@ -16,7 +23,33 @@
       The BCP-47 language code, such as, "en-US" or "sr-Latn".</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
       The BCP-47 language code, such as, "en-US" or "sr-Latn". For more information, see
       http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:VisionImageMetadata"><apiName>VisionImageMetadata</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:VisionImageMetadata:VisionImageMetadata"><apiName>VisionImageMetadata</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>orientation</apiItemName><apiType value="uint"/><apiData>unknown</apiData></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:VisionImageMetadata:orientation:get"><apiName>orientation</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="uint"/></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:DocumentTextSymbol"><apiName>DocumentTextSymbol</apiName><shortdesc>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:VisionImageMetadata"><apiName>VisionImageMetadata</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:VisionImageMetadata:VisionImageMetadata"><apiName>VisionImageMetadata</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>orientation</apiItemName><apiType value="uint"/><apiData>unknown</apiData></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:VisionImageMetadata:orientation:get"><apiName>orientation</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="uint"/></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:TextLine"><apiName>TextLine</apiName><shortdesc>
+ A text line recognized in an image that consists of an array of elements.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ A text line recognized in an image that consists of an array of elements.
+ </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:TextLine:confidence"><apiName>confidence</apiName><shortdesc>
+     The confidence of the recognized text line.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
+     The confidence of the recognized text line. The value is `nil` for all text recognizers except
+     for cloud text recognizers with model type `VisionCloudTextModelType.dense`.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextLine:cornerPoints"><apiName>cornerPoints</apiName><shortdesc>
+     The four corner points of the text line in clockwise order starting with the top left point
+     relative to the image in the default coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$flash.geom:Point"/></apiValueDef><apiDesc>
+     The four corner points of the text line in clockwise order starting with the top left point
+     relative to the image in the default coordinate space. The `NSValue` objects are `CGPoint`s.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextLine:elements"><apiName>elements</apiName><shortdesc>
+     An array of text elements that make up the line.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextElement"/></apiValueDef><apiDesc>
+     An array of text elements that make up the line.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextLine:frame"><apiName>frame</apiName><shortdesc>
+     The rectangle that contains the text line relative to the image in the default coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="flash.geom:Rectangle"/></apiValueDef><apiDesc>
+     The rectangle that contains the text line relative to the image in the default coordinate space.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextLine:recognizedLanguages"><apiName>recognizedLanguages</apiName><shortdesc>
+     An array of recognized languages in the text line.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextRecognizedLanguage"/></apiValueDef><apiDesc>
+     An array of recognized languages in the text line. On-device text recognizers only detect
+     Latin-based languages, while cloud text recognizers can detect multiple languages. If no
+     languages are recognized, the array is empty.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextLine:text"><apiName>text</apiName><shortdesc>
+     String representation of the text line that was recognized.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     String representation of the text line that was recognized.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:DocumentTextSymbol"><apiName>DocumentTextSymbol</apiName><shortdesc>
  A document text symbol recognized in an image.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
  A document text symbol recognized in an image.
  </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:DocumentTextSymbol:confidence"><apiName>confidence</apiName><shortdesc>
@@ -37,6 +70,15 @@
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentTextSymbol:text"><apiName>text</apiName><shortdesc>
      String representation of the document text symbol that was recognized.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
      String representation of the document text symbol that was recognized.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:CloudModelType"><apiName>CloudModelType</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:CloudModelType:latest"><apiName>latest</apiName><shortdesc> Latest model.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc> Latest model. </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudModelType:stable"><apiName>stable</apiName><shortdesc> Stable model.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="uint"/></apiValueDef><apiDesc> Stable model. </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:Text"><apiName>Text</apiName><shortdesc>
+ Recognized text in an image.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ Recognized text in an image.
+ </apiDesc></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:Text:Text"><apiName>Text</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:Text:blocks"><apiName>blocks</apiName><shortdesc>
+     An array of blocks recognized in the text.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextBlock"/></apiValueDef><apiDesc>
+     An array of blocks recognized in the text.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:Text:text"><apiName>text</apiName><shortdesc>
+     String representation of the recognized text.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     String representation of the recognized text.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:TextRecognizedBreakType"><apiName>TextRecognizedBreakType</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:TextRecognizedBreakType:hyphen"><apiName>hyphen</apiName><shortdesc>
      Hyphen break type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="uint"/></apiValueDef><apiDesc>
      Hyphen break type.
@@ -65,30 +107,35 @@
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextRecognizedBreak:type"><apiName>type</apiName><shortdesc>
       The recognized text break type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="uint"/></apiValueDef><apiDesc>
       The recognized text break type.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:DocumentTextWord"><apiName>DocumentTextWord</apiName><shortdesc>
- A document text word recognized in an image that consists of an array of symbols.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
- A document text word recognized in an image that consists of an array of symbols.
- </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:DocumentTextWord:confidence"><apiName>confidence</apiName><shortdesc>
-     The confidence of the recognized document text word.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
-     The confidence of the recognized document text word.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentTextWord:frame"><apiName>frame</apiName><shortdesc>
-     The rectangle that contains the document text word relative to the image in the default
-     coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="flash.geom:Rectangle"/></apiValueDef><apiDesc>
-     The rectangle that contains the document text word relative to the image in the default
-     coordinate space.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentTextWord:recognizedBreak"><apiName>recognizedBreak</apiName><shortdesc>
-     The recognized start or end of the document text word.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueClassifier>com.tuarua.firebase.vision:TextRecognizedBreak</apiValueClassifier></apiValueDef><apiDesc>
-     The recognized start or end of the document text word.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentTextWord:recognizedLanguages"><apiName>recognizedLanguages</apiName><shortdesc>
-     An array of recognized languages in the document text word.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextRecognizedLanguage"/></apiValueDef><apiDesc>
-     An array of recognized languages in the document text word. If no languages are recognized, the
-     array is empty.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentTextWord:text"><apiName>text</apiName><shortdesc>
-     String representation of the document text word that was recognized.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     String representation of the document text word that was recognized.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentTextWord:symbols:get"><apiName>symbols</apiName><shortdesc>
-     An array of symbols in the document text word.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Vector$com.tuarua.firebase.vision:DocumentTextSymbol"/></apiValueDef><apiDesc>
-     An array of symbols in the document text word.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:TextElement"><apiName>TextElement</apiName><shortdesc>
+ A text element recognized in an image.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ A text element recognized in an image. A text element is roughly equivalent to a space-separated
+ word in most Latin-script languages.
+ </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:TextElement:confidence"><apiName>confidence</apiName><shortdesc>
+     The confidence of the recognized text element.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
+     The confidence of the recognized text element. The value is 0 for all text recognizers except
+     for cloud text recognizers with model type `VisionCloudTextModelType.dense`.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextElement:cornerPoints"><apiName>cornerPoints</apiName><shortdesc>
+     The four corner points of the text element in clockwise order starting with the top left point
+     relative to the image in the default coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$flash.geom:Point"/></apiValueDef><apiDesc>
+     The four corner points of the text element in clockwise order starting with the top left point
+     relative to the image in the default coordinate space. The `NSValue` objects are `CGPoint`s.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextElement:frame"><apiName>frame</apiName><shortdesc>
+     The rectangle that contains the text element relative to the image in the default coordinate
+     space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="flash.geom:Rectangle"/></apiValueDef><apiDesc>
+     The rectangle that contains the text element relative to the image in the default coordinate
+     space.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextElement:lines"><apiName>lines</apiName><shortdesc>
+     An array of text lines that make up the block.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextLine"/></apiValueDef><apiDesc>
+     An array of text lines that make up the block.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextElement:recognizedLanguages"><apiName>recognizedLanguages</apiName><shortdesc>
+     An array of recognized languages in the text element.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextRecognizedLanguage"/></apiValueDef><apiDesc>
+     An array of recognized languages in the text element. On-device text recognizers only detect
+     Latin-based languages, while cloud text recognizers can detect multiple languages. If no
+     languages are recognized, the array is empty.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextElement:text"><apiName>text</apiName><shortdesc>
+     String representation of the text element that was recognized.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     String representation of the text element that was recognized.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:DocumentText"><apiName>DocumentText</apiName><shortdesc>
  Recognized document text in an image.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
  Recognized document text in an image.
@@ -125,7 +172,31 @@
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentTextParagraph:words:get"><apiName>words</apiName><shortdesc>
      An array of words in the document text paragraph.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Vector$com.tuarua.firebase.vision:DocumentTextWord"/></apiValueDef><apiDesc>
      An array of words in the document text paragraph.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:DocumentBlockType"><apiName>DocumentBlockType</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:DocumentBlockType:barcode"><apiName>barcode</apiName><shortdesc>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:DocumentTextWord"><apiName>DocumentTextWord</apiName><shortdesc>
+ A document text word recognized in an image that consists of an array of symbols.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ A document text word recognized in an image that consists of an array of symbols.
+ </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:DocumentTextWord:confidence"><apiName>confidence</apiName><shortdesc>
+     The confidence of the recognized document text word.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
+     The confidence of the recognized document text word.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentTextWord:frame"><apiName>frame</apiName><shortdesc>
+     The rectangle that contains the document text word relative to the image in the default
+     coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="flash.geom:Rectangle"/></apiValueDef><apiDesc>
+     The rectangle that contains the document text word relative to the image in the default
+     coordinate space.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentTextWord:recognizedBreak"><apiName>recognizedBreak</apiName><shortdesc>
+     The recognized start or end of the document text word.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueClassifier>com.tuarua.firebase.vision:TextRecognizedBreak</apiValueClassifier></apiValueDef><apiDesc>
+     The recognized start or end of the document text word.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentTextWord:recognizedLanguages"><apiName>recognizedLanguages</apiName><shortdesc>
+     An array of recognized languages in the document text word.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextRecognizedLanguage"/></apiValueDef><apiDesc>
+     An array of recognized languages in the document text word. If no languages are recognized, the
+     array is empty.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentTextWord:text"><apiName>text</apiName><shortdesc>
+     String representation of the document text word that was recognized.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     String representation of the document text word that was recognized.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentTextWord:symbols:get"><apiName>symbols</apiName><shortdesc>
+     An array of symbols in the document text word.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Vector$com.tuarua.firebase.vision:DocumentTextSymbol"/></apiValueDef><apiDesc>
+     An array of symbols in the document text word.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:LatitudeLongitude"><apiName>LatitudeLongitude</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:LatitudeLongitude:LatitudeLongitude"><apiName>LatitudeLongitude</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:LatitudeLongitude:latitude"><apiName>latitude</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:LatitudeLongitude:longitude"><apiName>longitude</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:DocumentBlockType"><apiName>DocumentBlockType</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:DocumentBlockType:barcode"><apiName>barcode</apiName><shortdesc>
      Barcode document text block type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc>
      Barcode document text block type.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentBlockType:picture"><apiName>picture</apiName><shortdesc>
@@ -168,6 +239,32 @@
      An array of paragraphs in the block if the type is `DocumentBlockType.text`.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Vector$com.tuarua.firebase.vision:DocumentTextParagraph"/></apiValueDef><apiDesc>
      An array of paragraphs in the block if the type is `DocumentBlockType.text`. Otherwise,
      the array is empty.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:TextBlock"><apiName>TextBlock</apiName><shortdesc>
+ A text block recognized in an image that consists of an array of text lines.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ A text block recognized in an image that consists of an array of text lines.
+ </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:TextBlock:confidence"><apiName>confidence</apiName><shortdesc>
+     The confidence of the recognized text block.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
+     The confidence of the recognized text block. The value is 0 for all text recognizers except
+     for cloud text recognizers with model type `CloudTextModelType.dense`.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextBlock:cornerPoints"><apiName>cornerPoints</apiName><shortdesc>
+     The four corner points of the text block in clockwise order starting with the top left point
+     relative to the image in the default coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$flash.geom:Point"/></apiValueDef><apiDesc>
+     The four corner points of the text block in clockwise order starting with the top left point
+     relative to the image in the default coordinate space.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextBlock:frame"><apiName>frame</apiName><shortdesc>
+     The rectangle that contains the text block relative to the image in the default coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="flash.geom:Rectangle"/></apiValueDef><apiDesc>
+     The rectangle that contains the text block relative to the image in the default coordinate space.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextBlock:lines"><apiName>lines</apiName><shortdesc>
+     An array of text lines that make up the block.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextLine"/></apiValueDef><apiDesc>
+     An array of text lines that make up the block.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextBlock:recognizedLanguages"><apiName>recognizedLanguages</apiName><shortdesc>
+     An array of recognized languages in the text block.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextRecognizedLanguage"/></apiValueDef><apiDesc>
+     An array of recognized languages in the text block. On-device text recognizers only detect
+     Latin-based languages, while cloud text recognizers can detect multiple languages. If no
+     languages are recognized, the array is empty.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextBlock:text"><apiName>text</apiName><shortdesc>
+     String representation of the text block that was recognized.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     String representation of the text block that was recognized.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:VisionImage"><apiName>VisionImage</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:VisionImage:VisionImage"><apiName>VisionImage</apiName><shortdesc>
      Initializes a VisionImage object with the given image.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>bitmapdata</apiItemName><apiType value="flash.display:BitmapData"/><apiData>null</apiData><apiDesc>BitmapData to use in vision detection. The given image should be rotated, so its
      orientation up. Set to null if using the path param.
