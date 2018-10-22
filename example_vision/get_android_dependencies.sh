@@ -5,7 +5,7 @@ PlayerServicesVersion="15.0.1"
 SupportV4Version="27.1.0"
 FirebaseVersion="16.0.0"
 VisionVersion="17.0.0"
-KotlinxCoroutinesVersion="0.0.24"
+KotlinxCoroutinesVersion="0.24.0"
 EventBusVersion="3.0.0"
 GsonVersion="2.8.4"
 
@@ -34,7 +34,7 @@ wget -O android_dependencies/com.google.android.gms.play-services-base-$PlayerSe
 
 wget -O android_dependencies/com.google.firebase.firebase-analytics-$FirebaseVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-analytics-$FirebaseVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-iid-$FirebaseVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-iid-$FirebaseVersion.ane?raw=true
-wget -O android_dependencies/com.google.firebase.firebase-ml-vision-VisionVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-ml-vision-VisionVersion.ane?raw=true
+wget -O android_dependencies/com.google.firebase.firebase-ml-vision-$VisionVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-ml-vision-$VisionVersion.ane?raw=true
 wget -O android_dependencies/com.google.android.gms.play-services-vision-image-label-15.0.0.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.android.gms.play-services-vision-image-label-15.0.0.ane?raw=true
 
 
