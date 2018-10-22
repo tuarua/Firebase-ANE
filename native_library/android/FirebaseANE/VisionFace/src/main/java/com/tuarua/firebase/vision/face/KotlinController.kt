@@ -35,14 +35,18 @@ import java.util.*
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
     private val TRACE = "TRACE"
-    private var options: FirebaseVisionFaceDetectorOptions? = null
     private var results: MutableMap<String, MutableList<FirebaseVisionFace>> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = CommonPool
-
+    private lateinit var detector: FirebaseVisionFaceDetector
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
-        options = FirebaseVisionFaceDetectorOptions(argv[0])
+        val options = FirebaseVisionFaceDetectorOptions(argv[0])
+        detector = if (options != null) {
+            FirebaseVision.getInstance().getVisionFaceDetector(options)
+        } else {
+            FirebaseVision.getInstance().visionFaceDetector
+        }
         return true.toFREObject()
     }
 
@@ -54,15 +58,8 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
-        val options = this.options
 
         launch(bgContext) {
-            val detector: FirebaseVisionFaceDetector = if (options != null) {
-                FirebaseVision.getInstance().getVisionFaceDetector(options)
-            } else {
-                FirebaseVision.getInstance().visionFaceDetector
-            }
-
             detector.detectInImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     if (!task.result.isEmpty()) {
@@ -92,6 +89,11 @@ class KotlinController : FreKotlinMainController {
         val ret = result.toFREArray()
         results.remove(eventId)
         return ret
+    }
+
+    fun close(ctx: FREContext, argv: FREArgv): FREObject? {
+        detector.close()
+        return null
     }
 
     override val TAG: String

@@ -53,7 +53,7 @@ public class VisionANE extends EventDispatcher {
      */
     public function barcodeDetector(options:BarcodeDetectorOptions = null):BarcodeDetector {
         if (_barcodeDetector != null) {
-            _barcodeDetector.options = options;
+            _barcodeDetector.reinit(options);
         } else {
             _barcodeDetector = new BarcodeDetector(options);
         }
@@ -68,7 +68,7 @@ public class VisionANE extends EventDispatcher {
      */
     public function faceDetector(options:FaceDetectorOptions = null):FaceDetector {
         if (_faceDetector != null) {
-            _faceDetector.options = options;
+            _faceDetector.reinit(options);
         } else {
             _faceDetector = new FaceDetector(options);
         }
@@ -95,7 +95,7 @@ public class VisionANE extends EventDispatcher {
      */
     public function cloudTextRecognizer(options:CloudTextRecognizerOptions = null):CloudTextRecognizer {
         if (_cloudTextRecognizer != null) {
-            _cloudTextRecognizer.options = options;
+            _cloudTextRecognizer.reinit(options);
         } else {
             _cloudTextRecognizer = new CloudTextRecognizer(options);
         }
@@ -110,7 +110,7 @@ public class VisionANE extends EventDispatcher {
      */
     public function cloudDocumentTextRecognizer(options:CloudDocumentRecognizerOptions = null):CloudDocumentRecognizer {
         if (_cloudDocumentTextRecognizer != null) {
-            _cloudDocumentTextRecognizer.options = options;
+            _cloudDocumentTextRecognizer.reinit(options);
         } else {
             _cloudDocumentTextRecognizer = new CloudDocumentRecognizer(options);
         }
@@ -125,7 +125,7 @@ public class VisionANE extends EventDispatcher {
      */
     public function labelDetector(options:LabelDetectorOptions = null):LabelDetector {
         if (_labelDetector != null) {
-            _labelDetector.options = options;
+            _labelDetector.reinit(options);
         } else {
             _labelDetector = new LabelDetector(options);
         }
@@ -140,7 +140,7 @@ public class VisionANE extends EventDispatcher {
      */
     public function cloudLabelDetector(options:CloudDetectorOptions = null):CloudLabelDetector {
         if (_cloudLabelDetector != null) {
-            _cloudLabelDetector.options = options;
+            _cloudLabelDetector.reinit(options);
         } else {
             _cloudLabelDetector = new CloudLabelDetector(options);
         }
@@ -155,7 +155,7 @@ public class VisionANE extends EventDispatcher {
      */
     public function cloudLandmarkDetector(options:CloudDetectorOptions = null):CloudLandmarkDetector {
         if (_cloudLandmarkDetector != null) {
-            _cloudLandmarkDetector.options = options;
+            _cloudLandmarkDetector.reinit(options);
         } else {
             _cloudLandmarkDetector = new CloudLandmarkDetector(options);
         }
@@ -175,6 +175,14 @@ public class VisionANE extends EventDispatcher {
         if (VisionANEContext.context) {
             VisionANEContext.context.call("requestPermissions");
         }
+    }
+
+    /** Whether the camera is supported on users version of Android (21 or >). */
+    public function get isCameraSupported():Boolean {
+        if (VisionANEContext.context) {
+            return VisionANEContext.context.call("isCameraSupported") as Boolean;
+        }
+        return false;
     }
 
     /** Disposes the ANE and any Detector ANEs. */

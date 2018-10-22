@@ -94,7 +94,46 @@
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentBlockType:unknown"><apiName>unknown</apiName><shortdesc>
      Unknown document text block type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="uint"/></apiValueDef><apiDesc>
      Unknown document text block type.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeValueType"><apiName>BarcodeValueType</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiOperation id="com.tuarua.firebase.vision:BarcodeValueType:toString"><apiName>toString</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiType value="String"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="int"/></apiParam></apiOperationDef></apiOperationDetail></apiOperation></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:DocumentTextBlock"><apiName>DocumentTextBlock</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:DocumentTextBlock:confidence"><apiName>confidence</apiName><shortdesc>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeValueType"><apiName>BarcodeValueType</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiOperation id="com.tuarua.firebase.vision:BarcodeValueType:toString"><apiName>toString</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiType value="String"/></apiReturn><apiParam><apiItemName>value</apiItemName><apiType value="int"/></apiParam></apiOperationDef></apiOperationDetail></apiOperation><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:ISBN"><apiName>ISBN</apiName><shortdesc>
+     Barcode value type for ISBNs.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>3</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for ISBNs.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:SMS"><apiName>SMS</apiName><shortdesc>
+     Barcode value type for SMS details.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>6</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for SMS details.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:calendarEvent"><apiName>calendarEvent</apiName><shortdesc>
+     Barcode value type for calendar events.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>11</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for calendar events.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:contactInfo"><apiName>contactInfo</apiName><shortdesc>
+     Barcode value type for contact info.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for contact info.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:driversLicense"><apiName>driversLicense</apiName><shortdesc>
+     Barcode value type for driver's license data.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>12</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for driver's license data.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:email"><apiName>email</apiName><shortdesc>
+     Barcode value type for email addresses.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for email addresses.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:geographicCoordinates"><apiName>geographicCoordinates</apiName><shortdesc>
+     Barcode value type for geographic coordinates.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>10</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for geographic coordinates.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:phone"><apiName>phone</apiName><shortdesc>
+     Barcode value type for phone numbers.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>4</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for phone numbers.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:product"><apiName>product</apiName><shortdesc>
+     Barcode value type for product codes.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>5</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for product codes.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:text"><apiName>text</apiName><shortdesc>
+     Barcode value type for plain text.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>7</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for plain text.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:unknown"><apiName>unknown</apiName><shortdesc>
+     Unknown Barcode value types.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Unknown Barcode value types.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:url"><apiName>url</apiName><shortdesc>
+     Barcode value type for URLs/bookmarks.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>8</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for URLs/bookmarks.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeValueType:wifi"><apiName>wifi</apiName><shortdesc>
+     Barcode value type for Wi-Fi access point details.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>9</apiData><apiType value="int"/></apiValueDef><apiDesc>
+     Barcode value type for Wi-Fi access point details.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:DocumentTextBlock"><apiName>DocumentTextBlock</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:DocumentTextBlock:confidence"><apiName>confidence</apiName><shortdesc>
      The confidence of the recognized document text block.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
      The confidence of the recognized document text block.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentTextBlock:frame"><apiName>frame</apiName><shortdesc>

@@ -30,17 +30,15 @@ import flash.utils.Dictionary;
 public class BarcodeDetector extends EventDispatcher {
     internal static const NAME:String = "VisionBarcodeANE";
     private static var _context:ExtensionContext;
-    private var _options:BarcodeDetectorOptions = new BarcodeDetectorOptions();
     /** @private */
     public static var closures:Dictionary = new Dictionary();
     private static const DETECTED:String = "BarcodeEvent.Detected";
     /** @private */
     public function BarcodeDetector(options:BarcodeDetectorOptions) {
         try {
-            if (options) _options = options;
             _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
             _context.addEventListener(StatusEvent.STATUS, gotEvent);
-            _context.call("init", _options);
+            _context.call("init", options ? options : new BarcodeDetectorOptions());
         } catch (e:Error) {
             trace(e.name);
             trace(e.message);
@@ -70,11 +68,6 @@ public class BarcodeDetector extends EventDispatcher {
         if (theRet is ANEError) throw theRet as ANEError;
     }
 
-    /** Whether the camera is supported on users version of Android. */
-    public function get isCameraSupported():Boolean {
-        return _context.call("isCameraSupported") as Boolean;
-    }
-
     /**
      * Opens the Camera, scans for and detects a barcode.
      *
@@ -84,11 +77,6 @@ public class BarcodeDetector extends EventDispatcher {
         var theRet:* = _context.call("inputFromCamera", createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
-
-//    public function closeCamera():void {
-//        var theRet:* = _context.call("closeCamera");
-//        if (theRet is ANEError) throw theRet as ANEError;
-//    }
 
     /** @private */
     public static function gotEvent(event:StatusEvent):void {
@@ -127,9 +115,9 @@ public class BarcodeDetector extends EventDispatcher {
         _context.call("close");
     }
 
-    /** Options containing barcode detector configuration. */
-    public function set options(options:BarcodeDetectorOptions):void {
-        _options = options ? options : new BarcodeDetectorOptions();
+    /** @private */
+    internal function reinit(options:BarcodeDetectorOptions):void {
+        _context.call("init", options ? options : new BarcodeDetectorOptions());
     }
 
     /** @private */

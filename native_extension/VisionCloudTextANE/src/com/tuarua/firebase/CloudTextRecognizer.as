@@ -11,7 +11,6 @@ import flash.utils.Dictionary;
 public class CloudTextRecognizer {
     internal static const NAME:String = "VisionCloudTextANE";
     private static var _context:ExtensionContext;
-    private var _options:CloudTextRecognizerOptions = new CloudTextRecognizerOptions();
     /** @private */
     public static var closures:Dictionary = new Dictionary();
     private static const RECOGNIZED:String = "CloudTextEvent.Recognized";
@@ -19,12 +18,11 @@ public class CloudTextRecognizer {
     /** @private */
     public function CloudTextRecognizer(options:CloudTextRecognizerOptions) {
         try {
-            if (options) _options = options;
             if (_context == null) {
                 _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
                 _context.addEventListener(StatusEvent.STATUS, gotEvent);
             }
-            _context.call("init", _options);
+            _context.call("init", options ? options : new CloudTextRecognizerOptions());
         } catch (e:Error) {
             trace(e.name);
             trace(e.message);
@@ -113,8 +111,9 @@ public class CloudTextRecognizer {
         _context = null;
     }
 
-    public function set options(options:CloudTextRecognizerOptions):void {
-        _options = options ? options : new CloudTextRecognizerOptions();
+    /** @private */
+    internal function reinit(options:CloudTextRecognizerOptions):void {
+        _context.call("init", options ? options : new CloudTextRecognizerOptions());
     }
 
 }

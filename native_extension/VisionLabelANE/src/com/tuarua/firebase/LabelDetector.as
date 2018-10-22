@@ -28,15 +28,11 @@ public class LabelDetector {
     private static var _context:ExtensionContext;
     public static var closures:Dictionary = new Dictionary();
     private static const RECOGNIZED:String = "LabelEvent.Recognized";
-    private var _options:LabelDetectorOptions = new LabelDetectorOptions();
     public function LabelDetector(options:LabelDetectorOptions) {
         try {
-            if (options) {
-                _options = options;
-            }
             _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
             _context.addEventListener(StatusEvent.STATUS, gotEvent);
-            _context.call("init", _options);
+            _context.call("init", options ? options : new LabelDetectorOptions());
         } catch (e:Error) {
             trace(e.name);
             trace(e.message);
@@ -125,8 +121,9 @@ public class LabelDetector {
         _context = null;
     }
 
-    public function set options(options:LabelDetectorOptions):void {
-        _options = options ? options : new LabelDetectorOptions();
+    /** @private */
+    internal function reinit(options:LabelDetectorOptions):void {
+        _context.call("init", options ? options : new LabelDetectorOptions());
     }
 
 }

@@ -95,6 +95,7 @@ public class LabelExample extends Sprite implements IExample {
             var visionImage:VisionImage = new VisionImage(bmpLabelImage.bitmapData);
 
             labelDetector.detect(visionImage, function (labels:Vector.<Label>, error:LabelError):void {
+                labelDetector.close();
                 if (error) {
                     statusLabel.text = "Label error: " + error.errorID + " : " + error.message;
                     return;
@@ -117,6 +118,7 @@ public class LabelExample extends Sprite implements IExample {
             textImageDisplay.visible = true;
             var visionImage:VisionImage = new VisionImage(bmpLabelImage.bitmapData);
             cloudLabelDetector.detect(visionImage, function (labels:Vector.<CloudLabel>, error:CloudLabelError):void {
+                cloudLabelDetector.close();
                 if (error) {
                     statusLabel.text = "Cloud Label error: " + error.errorID + " : " + error.message;
                     return;

@@ -60,9 +60,7 @@ public class BarcodeExample extends Sprite implements IExample {
 
     public function initANE():void {
         if (isInited) return;
-
-        barcodeDetector = vision.barcodeDetector();
-        if (barcodeDetector.isCameraSupported) {
+        if (vision.isCameraSupported) {
             addChild(btnCamera);
         }
         isInited = true;
@@ -116,9 +114,10 @@ public class BarcodeExample extends Sprite implements IExample {
 
             var options:BarcodeDetectorOptions = new BarcodeDetectorOptions();
             options.formats = new <int>[BarcodeFormat.qrCode];
-            barcodeDetector.options = options;
+            barcodeDetector = vision.barcodeDetector(options);
             barcodeDetector.detect(visionImage,
                     function (features:Vector.<Barcode>, error:BarcodeError):void {
+                        barcodeDetector.close();
                         statusLabel.text = "";
                         if (error) {
                             statusLabel.text = "Barcode error: " + error.errorID + " : " + error.message;
@@ -140,9 +139,10 @@ public class BarcodeExample extends Sprite implements IExample {
             var visionImage:VisionImage = new VisionImage(bmpBarcode.bitmapData);
             var options:BarcodeDetectorOptions = new BarcodeDetectorOptions();
             options.formats = new <int>[BarcodeFormat.code128];
-            barcodeDetector.options = options;
+            barcodeDetector = vision.barcodeDetector(options);
             barcodeDetector.detect(visionImage,
                     function (features:Vector.<Barcode>, error:BarcodeError):void {
+                        barcodeDetector.close();
                         statusLabel.text = "";
                         if (error) {
                             statusLabel.text = "Barcode error: " + error.errorID + " : " + error.message;
@@ -165,13 +165,15 @@ public class BarcodeExample extends Sprite implements IExample {
             infoBox.visible = true;
             statusLabel.text = "Find a book to scan";
 
-
             var options:BarcodeDetectorOptions = new BarcodeDetectorOptions();
             options.formats = new <int>[BarcodeFormat.EAN13]; //ISBN barcode from a book
-            barcodeDetector.options = options;
+            barcodeDetector = vision.barcodeDetector(options);
             barcodeDetector.inputFromCamera(function (features:Vector.<Barcode>, error:BarcodeError):void {
+                barcodeDetector.close();
+                btnCamera.visible = btnBarcode128.visible = btnQrCode.visible = true;
+
                 if (error) {
-                    // statusLabel.text = "Barcode error: " + error.errorID + " : " + error.message;
+                    trace("Barcode error: " + error.errorID + " : " + error.message);
                     return;
                 }
                 for each (var barcode:Barcode in features) {

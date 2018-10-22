@@ -127,8 +127,9 @@ public class CloudLabelDetector {
         _context = null;
     }
 
-    public function set options(options:CloudDetectorOptions):void {
-        _options = options ? options : new CloudDetectorOptions();
+    /** @private */
+    internal function reinit(options:CloudDetectorOptions):void {
+        _context.call("init", options ? options : new CloudDetectorOptions());
     }
 
 }

@@ -1,9 +1,9 @@
-$AneVersion = "0.0.7"
+$AneVersion = "0.0.8"
 $PlayerServicesVersion = "15.0.1"
 $SupportV4Version = "27.1.0"
 $FirebaseVersion = "16.0.0"
 $VisionVersion = "17.0.0"
-$KotlinxCoroutinesVersion = "0.0.24"
+$KotlinxCoroutinesVersion = "0.24.0"
 $EventBusVersion = "3.0.0"
 $GsonVersion = "2.8.4"
 

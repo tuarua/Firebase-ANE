@@ -22,6 +22,7 @@ extension SwiftController: FreSwiftMainController {
         
         functionsToSet["\(prefix)init"] = initController
         functionsToSet["\(prefix)requestPermissions"] = requestPermissions
+        functionsToSet["\(prefix)isCameraSupported"] = isCameraSupported
         
         var arr: [String] = []
         for key in functionsToSet.keys {

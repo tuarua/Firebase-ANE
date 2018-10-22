@@ -48,7 +48,6 @@ class KotlinController : FreKotlinMainController {
     private val gson = Gson()
     private val bgContext: CoroutineContext = CommonPool
     private val scanningBarcodeRequestCode = 1002
-    private var isCameraSupportedOnDevice: Boolean = Build.VERSION.SDK_INT >= 21
     private lateinit var detector: FirebaseVisionBarcodeDetector
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
@@ -65,7 +64,9 @@ class KotlinController : FreKotlinMainController {
             airView = appActivity.findViewById(android.R.id.content) as ViewGroup
             airView = airView.getChildAt(0) as ViewGroup
         }
-        EventBus.getDefault().register(this)
+        if(!EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().register(this)
+        }
         return true.toFREObject()
     }
 
@@ -79,8 +80,6 @@ class KotlinController : FreKotlinMainController {
         val eventId = String(argv[1]) ?: return null
 
         launch(bgContext) {
-
-
             detector.detectInImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     if (!task.result.isEmpty()) {
@@ -113,12 +112,8 @@ class KotlinController : FreKotlinMainController {
         return ret
     }
 
-    fun isCameraSupported(ctx: FREContext, argv: FREArgv): FREObject? {
-        return isCameraSupportedOnDevice.toFREObject()
-    }
-
     fun inputFromCamera(ctx: FREContext, argv: FREArgv): FREObject? {
-        if (!isCameraSupportedOnDevice) {
+        if (Build.VERSION.SDK_INT < 21) {
             warning("Camera needs Android 21 or higher")
             return null
         }
@@ -132,10 +127,6 @@ class KotlinController : FreKotlinMainController {
             intent.putExtra("formats", optionsAsIntArray)
             appActivity.startActivityForResult(intent, scanningBarcodeRequestCode)
         }
-        return null
-    }
-
-    fun closeCamera(ctx: FREContext, argv: FREArgv): FREObject? {
         return null
     }
 
