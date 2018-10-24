@@ -9,7 +9,7 @@ KotlinxCoroutinesVersion="0.24.0"
 EventBusVersion="3.0.0"
 GsonVersion="2.8.4"
 
-wget https://github.com/tuarua/FirebaseANE/releases/download/$AneVersion/assets.zip
+wget https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/assets.zip
 unzip -u -o assets.zip
 rm assets.zip
 
