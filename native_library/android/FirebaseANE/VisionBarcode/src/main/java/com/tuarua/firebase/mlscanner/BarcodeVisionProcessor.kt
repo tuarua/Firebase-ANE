@@ -54,6 +54,5 @@ class BarcodeVisionProcessor(formats: IntArray) : BaseVisionProcessor<List<Fireb
     }
 
     override fun onDetectionFailed(exception: Exception) {
-        // Log.e("EOIN VisionProcessor", Log.getStackTraceString(exception))
     }
 }

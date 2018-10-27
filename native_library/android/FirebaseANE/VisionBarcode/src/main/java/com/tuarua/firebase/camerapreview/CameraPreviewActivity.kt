@@ -16,12 +16,11 @@
 
 package com.tuarua.firebase.camerapreview
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.graphics.Point
+import android.graphics.Rect
 import android.os.Bundle
 import android.support.annotation.IdRes
-import android.util.Log
 import android.util.Size
 import android.view.View
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
@@ -70,7 +69,6 @@ class CameraPreviewActivity : Activity(), CameraPreviewManager.OnCameraPreviewCa
     }
 
     override fun onError(message: String) {
-        Log.e("CameraPreviewActivity", "onError $message")
         cameraView.visibility = View.GONE
     }
 
@@ -84,8 +82,9 @@ class CameraPreviewActivity : Activity(), CameraPreviewManager.OnCameraPreviewCa
         }
     }
 
-    @SuppressLint("NewApi")
     override fun getCameraPreviewSize(): Size = cameraPreviewManager.previewSize ?: Size(1280, 720)
+
+    override fun getPreviewCroppedRect(): Rect = cameraPreviewManager.cropRect ?: Rect(0,0,1280, 720)
 
     override fun getCameraOrientation(): Int = cameraPreviewManager.rotationConstraintDigit
 

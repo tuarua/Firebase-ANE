@@ -36,6 +36,7 @@ import java.util.concurrent.Semaphore
 import java.util.concurrent.TimeUnit
 import kotlin.math.sign
 
+
 /**
  * Camera initializing processing is
  *  - Init surfaceView / TextureView. should make sure [SurfaceView] or [TextureView] is initialized.
@@ -50,7 +51,7 @@ import kotlin.math.sign
  *    - needs to get orientation of the device and the camera sensor
  *    - check [setupCameraParams(cameraManager: CameraManager)] and [configureTransform()] methods for more infos.
  */
-@SuppressLint("MissingPermission", "NewApi")
+@SuppressLint("MissingPermission")
 class CameraPreviewManager(private val context: Context, private val textureView: AutoFitTextureView,
                            private val cameraCallback: OnCameraPreviewCallback,
                            private val displaySizeRequireHandler: OnDisplaySizeRequireHandler) {
@@ -83,6 +84,12 @@ class CameraPreviewManager(private val context: Context, private val textureView
     private val cameraOpenCloseLock: Semaphore = Semaphore(1)
     var cameraState = CameraState.CLOSED
     var previewSize: Size? = null
+        get() {
+            synchronized(cameraStateLock) {
+                return field
+            }
+        }
+    var cropRect: Rect? = null
         get() {
             synchronized(cameraStateLock) {
                 return field
@@ -141,6 +148,8 @@ class CameraPreviewManager(private val context: Context, private val textureView
             cameraId = this.cameraId
             backgroundHandler = this.backgroundHandler
         }
+        // https://medium.com/@ssaurel/create-a-torch-flashlight-application-for-android-c0b6951855c
+        // cameraManager.setTorchMode()
         cameraManager.openCamera(cameraId, cameraDeviceCallback(), backgroundHandler)
     }
 
@@ -210,6 +219,13 @@ class CameraPreviewManager(private val context: Context, private val textureView
                             it)
                 }
 
+                val w = previewSize?.width ?: 1280
+                val h = previewSize?.height ?: 720
+                val shortest = if (w < h) w else h
+                val scaled: Int = (shortest * 0.75).toInt()
+                val cropRect = Rect(0, 0,w, h)
+                cropRect.inset((w - scaled) / 2, (h - scaled) / 2)
+
                 previewSize?.run {
 
                     if (swappedDimension) {
@@ -241,6 +257,7 @@ class CameraPreviewManager(private val context: Context, private val textureView
 
                     if (this@CameraPreviewManager.previewSize == null || !checkAspectsEqual(previewSize, this@CameraPreviewManager.previewSize!!)) {
                         this@CameraPreviewManager.previewSize = previewSize
+                        this@CameraPreviewManager.cropRect = cropRect
                         if (cameraState != CameraState.CLOSED) {
                             if (imageReader == null) {
                                 setupImageReader()
@@ -265,13 +282,17 @@ class CameraPreviewManager(private val context: Context, private val textureView
             imageReader?.setOnImageAvailableListener({ reader ->
                 backgroundHandler?.post {
                     if (cameraState != CameraState.CLOSED) {
-                        val image = reader?.acquireLatestImage()
+                        val image = reader?.acquireLatestImage() ?: return@post
                         // IMPORTANT::new Camera2 Api which sends YUV_420_888 yuv format
                         // instead of NV21 (YUV_420_SP) format. And MLKit needs NV21 format
                         // so it needs to convert
-                        val bytes = image?.convertYUV420888ToNV21()
+                        if (cropRect != null) {
+                            image.cropRect = cropRect
+                        }
+                        val bytes = image.convertYUV420888ToNV21()
+
                         cameraCallback.onByteArrayGenerated(bytes)
-                        image?.close()
+                        image.close()
                     }
                 }
             }, backgroundHandler)
@@ -434,21 +455,59 @@ class CameraPreviewManager(private val context: Context, private val textureView
         }
     }
 
+    // Credit
+    // https://www.polarxiong.com/archives/Android-YUV_420_888编码Image转换为I420和NV21格式byte数组.html
     private fun Image.convertYUV420888ToNV21(): ByteArray {
-        val byteArray: ByteArray?
-        val bufferY = planes[0].buffer
-        val bufferU = planes[1].buffer
-        val bufferV = planes[2].buffer
-        val bufferYSize = bufferY.remaining()
-        val bufferUSize = bufferU.remaining()
-        val bufferVSize = bufferV.remaining()
-        byteArray = ByteArray(bufferYSize + bufferUSize + bufferVSize)
-
-        // Y and V are swapped
-        bufferY.get(byteArray, 0, bufferYSize)
-        bufferV.get(byteArray, bufferYSize, bufferVSize)
-        bufferU.get(byteArray, bufferYSize + bufferVSize, bufferUSize)
-        return byteArray
+        val crop = this.cropRect
+        val width = crop.width()
+        val height = crop.height()
+        val planes = this.planes
+        val data = ByteArray(width * height * ImageFormat.getBitsPerPixel(this.format) / 8)
+        val rowData = ByteArray(planes[0].rowStride)
+        var channelOffset = 0
+        var outputStride = 1
+        for (i in planes.indices) {
+            when (i) {
+                0 -> {
+                    channelOffset = 0
+                    outputStride = 1
+                }
+                1 -> {
+                    channelOffset = width * height + 1
+                    outputStride = 2
+                }
+                2 -> {
+                    channelOffset = width * height
+                    outputStride = 2
+                }
+            }
+            val buffer = planes[i].buffer
+            val rowStride = planes[i].rowStride
+            val pixelStride = planes[i].pixelStride
+            val shift = if (i == 0) 0 else 1
+            val w = width shr shift
+            val h = height shr shift
+            buffer.position(rowStride * (crop.top shr shift) + pixelStride * (crop.left shr shift))
+            for (row in 0 until h) {
+                val length: Int
+                if (pixelStride == 1 && outputStride == 1) {
+                    length = w
+                    buffer.get(data, channelOffset, length)
+                    channelOffset += length
+                } else {
+                    length = (w - 1) * pixelStride + 1
+                    buffer.get(rowData, 0, length)
+                    for (col in 0 until w) {
+                        data[channelOffset] = rowData[col * pixelStride]
+                        channelOffset += outputStride
+                    }
+                }
+                if (row < h - 1) {
+                    buffer.position(buffer.position() + rowStride - length)
+                }
+            }
+        }
+        return data
     }
 
     fun start() {
@@ -472,6 +531,7 @@ class CameraPreviewManager(private val context: Context, private val textureView
         override fun onSurfaceTextureDestroyed(p0: SurfaceTexture?): Boolean {
             synchronized(cameraStateLock) {
                 previewSize = null
+                cropRect = null
             }
             return true
         }

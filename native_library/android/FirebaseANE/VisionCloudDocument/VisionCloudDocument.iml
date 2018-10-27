@@ -32,17 +32,17 @@
           <option name="moduleName" value="VisionCloudDocument_release" />
           <option name="addCompilerBuiltIns" value="true" />
           <option name="loadBuiltInsFromDependencies" value="true" />
+          <option name="languageVersion" value="1.2" />
+          <option name="apiVersion" value="1.2" />
           <option name="pluginOptions">
             <array>
               <option value="plugin:org.jetbrains.kotlin.android:experimental=false" />
               <option value="plugin:org.jetbrains.kotlin.android:enabled=true" />
               <option value="plugin:org.jetbrains.kotlin.android:defaultCacheImplementation=hashMap" />
-              <option value="plugin:org.jetbrains.kotlin.android:configuration=rO0ABXfNAAAAAwAIZmVhdHVyZXMAAAABAAV2aWV3cwAHcGFja2FnZQAAAAEAKmNvbS50dWFydWEuZmlyZWJhc2UudmlzaW9uY2xvdWRkb2N1bWVudGFuZQAHdmFyaWFudAAAAAEAbG1haW47L1VzZXJzL2VvaW5sYW5keS9mbGFzaC9GaXJlYmFzZS1BTkUvbmF0aXZlX2xpYnJhcnkvYW5kcm9pZC9GaXJlYmFzZUFORS9WaXNpb25DbG91ZERvY3VtZW50L3NyYy9tYWluL3Jlcw==" />
             </array>
           </option>
           <option name="pluginClasspaths">
             <array>
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.2.61/564710f8171991001cba1c828c3331d833d9d28b/kotlin-android-extensions-1.2.61.jar" />
               <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.2.61/564710f8171991001cba1c828c3331d833d9d28b/kotlin-android-extensions-1.2.61.jar" />
             </array>
           </option>

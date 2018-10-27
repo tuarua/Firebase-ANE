@@ -16,6 +16,7 @@
 package com.tuarua.firebase.vision.barcode
 
 import android.content.Intent
+import android.graphics.Rect
 import android.os.Build
 import android.view.ViewGroup
 import com.adobe.fre.FREContext
@@ -64,9 +65,10 @@ class KotlinController : FreKotlinMainController {
             airView = appActivity.findViewById(android.R.id.content) as ViewGroup
             airView = airView.getChildAt(0) as ViewGroup
         }
-        if(!EventBus.getDefault().isRegistered(this)){
+        if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this)
         }
+
         return true.toFREObject()
     }
 

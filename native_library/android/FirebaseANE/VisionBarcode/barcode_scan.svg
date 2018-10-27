@@ -1,0 +1,80 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="720px" height="720px" viewBox="0 0 720 720">
+<defs>
+<g id="edge_0_Layer0_0_FILL">
+<path fill="#009900" fill-opacity="0.4980392156862745" stroke="none" d="
+M 30 10
+L 30 0 0 0 0 30 10 30 10 10 30 10 Z"/>
+</g>
+
+<g id="line_0_Layer0_0_FILL">
+<path fill="#000000" fill-opacity="0.24705882352941178" stroke="none" d="
+M 2 0
+L 0 0 0 516 2 516 2 0 Z"/>
+</g>
+
+<g id="Layer0_0_FILL">
+<path fill="#009900" fill-opacity="0.4980392156862745" stroke="none" d="
+M 618 361
+L 618 359 102 359 102 361 618 361 Z"/>
+</g>
+</defs>
+
+<g id="Layer_1">
+<g transform="matrix( 1, 0, 0, 1, 72,72) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#edge_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 1, 0, 0, -1, 72,648) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#edge_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( -1, 0, 0, 1, 648,72) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#edge_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( -1, 0, 0, -1, 648,648) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#edge_0_Layer0_0_FILL"/>
+</g>
+</g>
+</g>
+
+<g id="Layer_3">
+<g transform="matrix( 1, 0, 0, 1, 80,102) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#line_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 638,102) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#line_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0, 1, -1, 0, 618,80) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#line_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0, 1, -1, 0, 618,638) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#line_0_Layer0_0_FILL"/>
+</g>
+</g>
+</g>
+
+<g id="Layer_4">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Layer0_0_FILL"/>
+</g>
+</g>
+</svg>

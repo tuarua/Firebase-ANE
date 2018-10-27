@@ -29,11 +29,6 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         guard let eventId = cameraEventId,
             let options = self.options else { return }
         
-        // let pixelBuffer: CVPixelBuffer? = CMSampleBufferGetImageBuffer(sampleBuffer)
-        
-        // let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
-        // https://gist.github.com/levantAJ/4e3e40ba2fa190fd88e329ede8f27f3f
-        
         let visionImage = VisionImage(buffer: sampleBuffer)
         let metadata = VisionImageMetadata()
         let orientation = UIUtilities.imageOrientation(
@@ -59,59 +54,6 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 }
             }
         }
-    }
-    
-    /**
-     First crops the pixel buffer, then resizes it.
-     */
-    private func resizePixelBuffer(_ srcPixelBuffer: CVPixelBuffer,
-                                   cropX: Int, cropY: Int, cropWidth: Int, cropHeight: Int,
-                                   scaleWidth: Int, scaleHeight: Int) -> CVPixelBuffer? {
-        
-        CVPixelBufferLockBaseAddress(srcPixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
-        guard let srcData = CVPixelBufferGetBaseAddress(srcPixelBuffer) else {
-            return nil
-        }
-        let srcBytesPerRow = CVPixelBufferGetBytesPerRow(srcPixelBuffer)
-        let offset = cropY*srcBytesPerRow + cropX*4
-        var srcBuffer = vImage_Buffer(data: srcData.advanced(by: offset),
-                                      height: vImagePixelCount(cropHeight),
-                                      width: vImagePixelCount(cropWidth),
-                                      rowBytes: srcBytesPerRow)
-        
-        let destBytesPerRow = scaleWidth*4
-        guard let destData = malloc(scaleHeight*destBytesPerRow) else {
-            return nil
-        }
-        var destBuffer = vImage_Buffer(data: destData,
-                                       height: vImagePixelCount(scaleHeight),
-                                       width: vImagePixelCount(scaleWidth),
-                                       rowBytes: destBytesPerRow)
-        
-        let error = vImageScale_ARGB8888(&srcBuffer, &destBuffer, nil, vImage_Flags(0))
-        CVPixelBufferUnlockBaseAddress(srcPixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
-        if error != kvImageNoError {
-            free(destData)
-            return nil
-        }
-        
-        let releaseCallback: CVPixelBufferReleaseBytesCallback = { _, ptr in
-            if let ptr = ptr {
-                free(UnsafeMutableRawPointer(mutating: ptr))
-            }
-        }
-        
-        let pixelFormat = CVPixelBufferGetPixelFormatType(srcPixelBuffer)
-        var dstPixelBuffer: CVPixelBuffer?
-        let status = CVPixelBufferCreateWithBytes(nil, scaleWidth, scaleHeight,
-                                                  pixelFormat, destData,
-                                                  destBytesPerRow, releaseCallback,
-                                                  nil, nil, &dstPixelBuffer)
-        if status != kCVReturnSuccess {
-            free(destData)
-            return nil
-        }
-        return dstPixelBuffer
     }
     
     private func captureDevice(forPosition position: AVCaptureDevice.Position) -> AVCaptureDevice? {
@@ -148,7 +90,7 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         var props: [String: Any] = Dictionary()
         sessionQueue.async {
             self.captureSession.beginConfiguration()
-            self.captureSession.sessionPreset = AVCaptureSession.Preset.high
+            self.captureSession.sessionPreset = AVCaptureSession.Preset.medium
             
             let output = AVCaptureVideoDataOutput()
             output.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as String): kCVPixelFormatType_32BGRA]
@@ -190,6 +132,27 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         setUpCaptureSessionInput()
         setUpPreviewLayer(rootViewController: rootViewController)
         setUpCaptureSessionOutput()
+    }
+    
+    func toggleTorch(on: Bool) {
+        guard let device = captureDevice(forPosition: .back) else { return }
+        if device.hasTorch {
+            do {
+                try device.lockForConfiguration()
+                
+                if on == true {
+                    device.torchMode = .on
+                } else {
+                    device.torchMode = .off
+                }
+                
+                device.unlockForConfiguration()
+            } catch {
+                trace("Torch could not be used")
+            }
+        } else {
+            trace("Torch is not available")
+        }
     }
     
     func closeCamera() {
