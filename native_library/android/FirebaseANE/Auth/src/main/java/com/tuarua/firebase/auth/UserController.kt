@@ -170,7 +170,6 @@ class UserController(override var context: FREContext?) : FreKotlinController {
 
     fun link(value: AuthCredential, eventId: String?) {
         currentUser?.linkWithCredential(value)?.addOnCompleteListener { task ->
-            trace("task.isSuccessful", task.isSuccessful)
             if (eventId == null) return@addOnCompleteListener
             when {
                 task.isSuccessful -> {

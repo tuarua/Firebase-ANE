@@ -23,8 +23,12 @@ import com.tuarua.firebase.vision.KotlinController;
 public class VisionANE implements FREExtension {
     private static final String[] FUNCTIONS = {
              "init"
+            ,"createGUID"
             ,"requestPermissions"
             ,"isCameraSupported"
+            ,"addNativeChild"
+            ,"updateNativeChild"
+            ,"removeNativeChild"
     };
     private static VisionANEContext extensionContext;
 

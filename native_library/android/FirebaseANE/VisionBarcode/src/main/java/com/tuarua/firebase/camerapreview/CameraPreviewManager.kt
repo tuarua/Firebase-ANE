@@ -22,10 +22,7 @@ import android.graphics.*
 import android.hardware.camera2.*
 import android.media.Image
 import android.media.ImageReader
-import android.os.Handler
-import android.os.HandlerThread
-import android.os.Looper
-import android.os.Message
+import android.os.*
 import android.util.Log
 import android.util.Size
 import android.view.Surface
@@ -70,9 +67,9 @@ class CameraPreviewManager(private val context: Context, private val textureView
             return field / 90
         }
 
-    private var uiHandler: UIHandler? = null
+    private var uiHandler: UIHandler? = null // DELETE
     private var backgroundThread: HandlerThread? = null
-
+    private var cameraManager: CameraManager? = null
     private val cameraStateLock = Object()
     // needs to be protected
     private var backgroundHandler: Handler? = null
@@ -132,7 +129,8 @@ class CameraPreviewManager(private val context: Context, private val textureView
     }
 
     private fun initCamera() {
-        val cameraManager = context.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+        cameraManager = context.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+        val cameraManager = this.cameraManager ?: return
         if (!setupCameraParams(cameraManager)) {
             cameraCallback.onError("Opening Camera is failed. Please try again.")
             return
@@ -148,8 +146,6 @@ class CameraPreviewManager(private val context: Context, private val textureView
             cameraId = this.cameraId
             backgroundHandler = this.backgroundHandler
         }
-        // https://medium.com/@ssaurel/create-a-torch-flashlight-application-for-android-c0b6951855c
-        // cameraManager.setTorchMode()
         cameraManager.openCamera(cameraId, cameraDeviceCallback(), backgroundHandler)
     }
 
@@ -419,11 +415,11 @@ class CameraPreviewManager(private val context: Context, private val textureView
                         return
                     }
                     this@CameraPreviewManager.cameraCaptureSession = cameraCaptureSession
-
                     captureRequestBuilder?.set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE)
+                    // captureRequestBuilder?.set(CaptureRequest.CONTROL_AE_MODE, CameraMetadata.CONTROL_AE_MODE_ON_ALWAYS_FLASH);
+
                     val previewRequest = captureRequestBuilder?.build()
                     cameraCaptureSession?.setRepeatingRequest(previewRequest, null, backgroundHandler)
-
                     cameraState = CameraState.PREVIEW
                 }
             }
@@ -519,6 +515,10 @@ class CameraPreviewManager(private val context: Context, private val textureView
             textureView.surfaceTextureListener = SurfaceTextureCallback()
         }
     }
+
+//    fun toggleFlashlight(enabled: Boolean) {
+//
+//    }
 
     inner class SurfaceTextureCallback : TextureView.SurfaceTextureListener {
         override fun onSurfaceTextureUpdated(p0: SurfaceTexture?) {

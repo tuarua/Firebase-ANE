@@ -70,6 +70,7 @@ public class StarlingRoot extends Sprite {
             }
 
             vision = VisionANE.vision;
+            vision.cameraOverlay.contentScaleFactor = Starling.contentScaleFactor;
             vision.addEventListener(PermissionEvent.STATUS_CHANGED, onPermissionsStatus);
             vision.requestPermissions();
         } catch (e:ANEError) {

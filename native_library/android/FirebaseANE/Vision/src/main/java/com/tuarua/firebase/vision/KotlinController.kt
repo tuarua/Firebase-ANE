@@ -21,14 +21,21 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Build
 import android.support.v4.content.ContextCompat
+import android.view.View
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.gson.Gson
 import com.tuarua.firebase.vision.events.PermissionEvent
 import com.tuarua.frekotlin.*
+import com.tuarua.frenative.FreNativeButton
+import com.tuarua.frenative.FreNativeImage
+import com.tuarua.frenative.FreNativeType
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
+import java.util.*
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
@@ -40,9 +47,25 @@ class KotlinController : FreKotlinMainController {
     private var packageInfo: PackageInfo? = null
     private var permissionsGranted = false
 
+
+    private var userChildren: MutableMap<String, Any> = mutableMapOf()
+    private lateinit var cameraOverlayContainer: CameraOverlayContainer
+    private lateinit var airView: ViewGroup
+    private var cameraOverlayContainerAdded: Boolean = false
+
+    fun createGUID(ctx: FREContext, argv: FREArgv): FREObject? {
+        return UUID.randomUUID().toString().toFREObject()
+    }
+
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         val appActivity = ctx.activity
         if (appActivity != null) {
+            airView = appActivity.findViewById(android.R.id.content) as ViewGroup
+            airView = airView.getChildAt(0) as ViewGroup
+            cameraOverlayContainer = CameraOverlayContainer(ctx.activity)
+            cameraOverlayContainer.layoutParams = FrameLayout.LayoutParams(airView.width, airView.height)
+            cameraOverlayContainer.visibility = View.INVISIBLE
+
             packageManager = appActivity.packageManager
             val pm = packageManager ?: return false.toFREObject()
             packageInfo = pm.getPackageInfo(appActivity.packageName, PackageManager.GET_PERMISSIONS)
@@ -56,7 +79,7 @@ class KotlinController : FreKotlinMainController {
         val pi = packageInfo ?: return false
         permissionsNeeded.forEach { p ->
             if (p !in pi.requestedPermissions) {
-                trace("Please add $p to uses-permission list in your AIR manifest")
+                warning("Please add $p to uses-permission list in your AIR manifest")
                 return false
             }
         }
@@ -107,6 +130,71 @@ class KotlinController : FreKotlinMainController {
 
     fun isCameraSupported(ctx: FREContext, argv: FREArgv): FREObject? {
         return (Build.VERSION.SDK_INT >= 21).toFREObject()
+    }
+
+    fun addNativeChild(ctx: FREContext, argv: FREArgv): FREObject? {
+        argv.takeIf { argv.size > 1 } ?: return null
+        val child = argv[0]
+        val id = String(child["id"]) ?: return null
+        val type = Int(child["type"]) ?: return null
+        val scaleFactor = Float(argv[1]) ?: return null
+        if (!cameraOverlayContainerAdded) {
+            airView.addView(cameraOverlayContainer)
+            cameraOverlayContainerAdded = true
+        }
+
+        when (FreNativeType.fromInt(type)) {
+            FreNativeType.IMAGE -> {
+                if (userChildren.containsKey(id)) {
+                    cameraOverlayContainer.addView(userChildren[id] as FreNativeImage)
+                } else {
+                    val nativeImage = FreNativeImage(ctx.activity.applicationContext, child, scaleFactor)
+                    cameraOverlayContainer.addView(nativeImage)
+                    userChildren[id] = nativeImage
+                }
+            }
+            FreNativeType.BUTTON -> {
+                if (userChildren.containsKey(id)) {
+                    cameraOverlayContainer.addView(userChildren[id] as FreNativeButton)
+                } else {
+                    val nativeButton = FreNativeButton(ctx.activity.applicationContext, ctx, child, id, scaleFactor)
+                    cameraOverlayContainer.addView(nativeButton)
+                    userChildren[id] = nativeButton
+                }
+            }
+        }
+        return null
+    }
+
+    fun updateNativeChild(ctx: FREContext, argv: FREArgv): FREObject? {
+        argv.takeIf {
+            argv.size > 2 && userChildren.isNotEmpty()
+        } ?: return null
+        val id = String(argv[0]) ?: return null
+        val propName = argv[1]
+        val propVal = argv[2]
+
+        userChildren[id]?.let {
+            if (it is FreNativeImage) {
+                it.update(propName, propVal)
+            } else if (it is FreNativeButton) {
+                it.update(propName, propVal)
+            }
+        }
+        return null
+    }
+
+    fun removeNativeChild(ctx: FREContext, argv: FREArgv): FREObject? {
+        argv.takeIf { argv.size > 0 } ?: return null
+        val id = String(argv[0]) ?: return null
+        userChildren[id]?.let {
+            if (it is FreNativeImage) {
+                cameraOverlayContainer.removeView(it)
+            } else if (it is FreNativeButton) {
+                cameraOverlayContainer.removeView(it)
+            }
+        }
+        return null
     }
 
     override val TAG: String

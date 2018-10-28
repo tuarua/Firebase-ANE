@@ -20,7 +20,7 @@ android {
     }
 
     lintOptions {
-        disable 'GradleDependency','UnusedResources'
+        disable 'GradleDependency', 'UnusedResources'
     }
 }
 

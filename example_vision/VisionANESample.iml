@@ -38,6 +38,9 @@
             <entry library-name="VisionCloudDocumentANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="barcodeAssets" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_31" />
         </dependencies>
@@ -92,6 +95,9 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="VisionCloudDocumentANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="barcodeAssets" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -183,6 +189,9 @@
             <entry library-name="VisionCloudDocumentANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="barcodeAssets" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_31" />
         </dependencies>
@@ -235,5 +244,6 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-ml-vision-17.0.0" level="project" />
     <orderEntry type="library" exported="" name="CrashlyticsANE" level="project" />
     <orderEntry type="library" exported="" name="VisionCloudDocumentANE" level="project" />
+    <orderEntry type="library" exported="" name="barcodeAssets" level="project" />
   </component>
 </module>
