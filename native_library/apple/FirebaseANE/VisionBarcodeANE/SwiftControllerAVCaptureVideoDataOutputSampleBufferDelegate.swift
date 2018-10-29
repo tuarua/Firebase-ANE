@@ -132,6 +132,14 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         setUpCaptureSessionInput()
         setUpPreviewLayer(rootViewController: rootViewController)
         setUpCaptureSessionOutput()
+        
+        for sv in rootViewController.view.subviews {
+            if sv.debugDescription.starts(with: "<VisionANE_LIB.FreNativeContainer") {
+                sv.isHidden = false
+                rootViewController.view.bringSubview(toFront: sv)
+                break
+            }
+        }
     }
     
     func toggleTorch(on: Bool) {
@@ -139,13 +147,7 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         if device.hasTorch {
             do {
                 try device.lockForConfiguration()
-                
-                if on == true {
-                    device.torchMode = .on
-                } else {
-                    device.torchMode = .off
-                }
-                
+                device.torchMode = on ? .on : .off
                 device.unlockForConfiguration()
             } catch {
                 trace("Torch could not be used")
@@ -171,6 +173,14 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         
         videoPreviewLayer = nil
         cameraView = nil
+        
+        for sv in UIApplication.shared.keyWindow?.rootViewController?.view.subviews ?? [] {
+            if sv.debugDescription.starts(with: "<VisionANE_LIB.FreNativeContainer") {
+                sv.isHidden = true
+                break
+            }
+        }
+        
     }
     
 }
