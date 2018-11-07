@@ -4,7 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-iOS-Android</name>
-    <versionNumber>0.0.8</versionNumber>
+    <versionNumber>0.0.9</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -53,10 +53,6 @@
                         android:value="@integer/google_play_services_version" />
 
                     <!-- Vision -->
-                    <activity
-                        android:name="com.tuarua.firebase.camerapreview.CameraPreviewActivity"
-                        android:hardwareAccelerated="true"
-                        android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
 
                     <meta-data
                         android:name="com.google.firebase.ml.vision.DEPENDENCIES"
@@ -125,12 +121,9 @@
                         </intent-filter>
                     </service>
 
+                    <!-- Camera -->
                     <activity android:name="com.tuarua.firebase.vision.PermissionActivity"
                         android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-
-                    <activity android:name="com.tuarua.firebase.vision.LivePreviewActivity"
-                        android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-
 
                     <activity android:excludeFromRecents="false" android:hardwareAccelerated="true">
                         <intent-filter>

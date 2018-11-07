@@ -21,6 +21,7 @@ import com.tuarua.firebase.vision.CloudDocumentRecognizerOptions;
 import com.tuarua.firebase.vision.CloudTextRecognizerOptions;
 import com.tuarua.firebase.vision.FaceDetectorOptions;
 import com.tuarua.firebase.vision.LabelDetectorOptions;
+import com.tuarua.firebase.vision.display.CameraOverlay;
 import com.tuarua.fre.ANEError;
 
 import flash.events.EventDispatcher;
@@ -35,6 +36,7 @@ public class VisionANE extends EventDispatcher {
     private var _cloudLandmarkDetector:CloudLandmarkDetector;
     private var _cloudDocumentTextRecognizer:CloudDocumentRecognizer;
     private static var _vision:VisionANE;
+    private var _cameraOverlay:CameraOverlay = new CameraOverlay();
 
     /** @private */
     public function VisionANE() {
@@ -183,6 +185,10 @@ public class VisionANE extends EventDispatcher {
             return VisionANEContext.context.call("isCameraSupported") as Boolean;
         }
         return false;
+    }
+
+    public function get cameraOverlay():CameraOverlay {
+        return _cameraOverlay;
     }
 
     /** Disposes the ANE and any Detector ANEs. */

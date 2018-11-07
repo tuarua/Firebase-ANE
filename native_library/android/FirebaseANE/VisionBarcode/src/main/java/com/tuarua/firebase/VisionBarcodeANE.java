@@ -28,6 +28,9 @@ public class VisionBarcodeANE implements FREExtension {
             ,"getResults"
             ,"isCameraSupported"
             ,"inputFromCamera"
+            ,"closeCamera"
+//            ,"hasFlashlight"
+//            ,"toggleFlashlight"
             ,"close"
     };
     private static VisionBarcodeANEContext extensionContext;

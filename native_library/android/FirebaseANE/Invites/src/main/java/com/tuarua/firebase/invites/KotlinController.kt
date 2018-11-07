@@ -88,7 +88,6 @@ class KotlinController : FreKotlinMainController {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: InvitesEvent) {
         if (_context != null) {
-            trace("message Event", event.eventId)
             dispatchEvent(event.eventId, Gson().toJson(InvitesEvent(event.eventId, event.data, event.error)))
         }
     }

@@ -1,3 +1,9 @@
+### 0.0.9
+- iOS/AND: Vision: Add `BarcodeDetector.closeCamera()` method
+- iOS/AND: Vision: Add `vision.cameraOverlay` to allow buttons and images to be added over the camera view
+- iOS: Vision: use `AVCaptureSession.Preset.medium`
+- AND: Vision: Convert CameraActivity into Fragment
+
 ### 0.0.8
 - AND: Vision: Fix dependency script Issue #13
 - iOS/AND: Vision: Fix missing `close()` method Issue #12

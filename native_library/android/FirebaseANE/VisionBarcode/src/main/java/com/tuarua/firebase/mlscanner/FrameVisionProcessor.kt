@@ -17,6 +17,7 @@
 package com.tuarua.firebase.mlscanner
 
 import android.annotation.SuppressLint
+import android.graphics.Rect
 import android.util.Log
 import android.util.Size
 
@@ -72,7 +73,6 @@ class FrameVisionProcessor(private val visionImageProcessor: VisionImageProcesso
                 }
             }
 
-        @SuppressLint("NewApi")
         override fun run() {
             var bytes: ByteArray? = null
             while (true) {
@@ -96,8 +96,8 @@ class FrameVisionProcessor(private val visionImageProcessor: VisionImageProcesso
                 synchronized(processorLock) {
                     bytes?.run {
                         val frameMetaData = FrameMetadata(
-                                cameraInformationCollector.getCameraPreviewSize().width,
-                                cameraInformationCollector.getCameraPreviewSize().height,
+                                cameraInformationCollector.getPreviewCroppedRect().width(),
+                                cameraInformationCollector.getPreviewCroppedRect().height(),
                                 cameraInformationCollector.getCameraOrientation(),
                                 cameraInformationCollector.getCameraFacingDirection()
                         )
@@ -110,6 +110,7 @@ class FrameVisionProcessor(private val visionImageProcessor: VisionImageProcesso
 
     interface CameraInformationCollector {
         fun getCameraPreviewSize(): Size
+        fun getPreviewCroppedRect(): Rect
         fun getCameraOrientation(): Int
         fun getCameraFacingDirection(): Int
     }

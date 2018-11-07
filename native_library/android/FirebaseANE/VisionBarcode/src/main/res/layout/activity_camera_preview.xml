@@ -14,4 +14,5 @@
         android:layout_gravity="start|center_vertical|end"
         tools:background="#000000"
         tools:visibility="visible" />
+
 </FrameLayout>

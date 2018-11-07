@@ -115,4 +115,9 @@ public class SwiftController: NSObject {
         return nil
     }
     
+    func closeCamera(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        closeCamera()
+        return nil
+    }
+    
 }

@@ -19,8 +19,6 @@ import com.tuarua.firebase.vision.BarcodeDetectorOptions;
 import com.tuarua.firebase.vision.VisionImage;
 import com.tuarua.fre.ANEError;
 
-import flash.display.BitmapData;
-
 import flash.events.EventDispatcher;
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
@@ -33,6 +31,7 @@ public class BarcodeDetector extends EventDispatcher {
     /** @private */
     public static var closures:Dictionary = new Dictionary();
     private static const DETECTED:String = "BarcodeEvent.Detected";
+
     /** @private */
     public function BarcodeDetector(options:BarcodeDetectorOptions) {
         try {
@@ -49,9 +48,10 @@ public class BarcodeDetector extends EventDispatcher {
     }
 
     private function createEventId(listener:Function):String {
+        if (!_context) return null;
         var eventId:String;
         if (listener != null) {
-            eventId = context.call("createGUID") as String;
+            eventId = _context.call("createGUID") as String;
             closures[eventId] = listener;
         }
         return eventId;
@@ -64,6 +64,7 @@ public class BarcodeDetector extends EventDispatcher {
      * @param listener Closure to call back on the main queue with barcodes detected or error.
      */
     public function detect(image:VisionImage, listener:Function):void {
+        if (!_context) return;
         var theRet:* = _context.call("detect", image, createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
@@ -74,9 +75,30 @@ public class BarcodeDetector extends EventDispatcher {
      * @param listener Closure to call back on the main queue with barcodes detected.
      */
     public function inputFromCamera(listener:Function):void {
+        if (!_context) return;
         var theRet:* = _context.call("inputFromCamera", createEventId(listener));
         if (theRet is ANEError) throw theRet as ANEError;
     }
+
+    /**
+     * Closes the Camera.
+     *
+     */
+    public function closeCamera():void {
+        if (!_context) return;
+        var theRet:* = _context.call("closeCamera");
+        if (theRet is ANEError) throw theRet as ANEError;
+    }
+
+//    public function get hasFlashlight():Boolean {
+//        if (!_context) return false;
+//        return _context.call("hasFlashlight") as Boolean;
+//    }
+//
+//    public function set isFlashLightEnabled(value:Boolean):void {
+//        if (!_context) return;
+//        _context.call("toggleFlashlight", value);
+//    }
 
     /** @private */
     public static function gotEvent(event:StatusEvent):void {
@@ -117,6 +139,7 @@ public class BarcodeDetector extends EventDispatcher {
 
     /** @private */
     internal function reinit(options:BarcodeDetectorOptions):void {
+        if (!_context) return;
         _context.call("init", options ? options : new BarcodeDetectorOptions());
     }
 

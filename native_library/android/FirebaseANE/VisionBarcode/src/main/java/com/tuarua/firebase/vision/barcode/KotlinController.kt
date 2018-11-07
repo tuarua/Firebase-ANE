@@ -15,9 +15,14 @@
  */
 package com.tuarua.firebase.vision.barcode
 
-import android.content.Intent
+import android.app.FragmentTransaction
+import android.content.Context
+import android.content.pm.PackageManager
+import android.hardware.camera2.CameraManager
 import android.os.Build
+import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.FirebaseVision
@@ -28,19 +33,15 @@ import com.tuarua.frekotlin.*
 import java.util.*
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetector
 import com.google.gson.Gson
-import com.tuarua.firebase.camerapreview.CameraPreviewActivity
+import com.tuarua.firebase.camerapreview.CameraPreviewFragment
 import com.tuarua.firebase.vision.barcode.events.BarcodeEvent
-import com.tuarua.firebase.vision.barcode.events.RealtimeBarcodeEvent
 
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext
-import org.greenrobot.eventbus.EventBus
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
-class KotlinController : FreKotlinMainController {
+class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeProcessSucceedListener {
     private lateinit var airView: ViewGroup
     private val TRACE = "TRACE"
     private var optionsAsIntArray: IntArray? = null
@@ -49,6 +50,8 @@ class KotlinController : FreKotlinMainController {
     private val bgContext: CoroutineContext = CommonPool
     private val scanningBarcodeRequestCode = 1002
     private lateinit var detector: FirebaseVisionBarcodeDetector
+    private lateinit var cameraFragment: CameraPreviewFragment
+    private var cameraPreviewContainer: FrameLayout? = null
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
@@ -64,9 +67,7 @@ class KotlinController : FreKotlinMainController {
             airView = appActivity.findViewById(android.R.id.content) as ViewGroup
             airView = airView.getChildAt(0) as ViewGroup
         }
-        if(!EventBus.getDefault().isRegistered(this)){
-            EventBus.getDefault().register(this)
-        }
+
         return true.toFREObject()
     }
 
@@ -112,29 +113,79 @@ class KotlinController : FreKotlinMainController {
         return ret
     }
 
+    override fun onVisionProcessSucceed(eventId: String, result: MutableList<FirebaseVisionBarcode>) {
+        results[eventId] = result
+        hideCameraOverlay()
+        dispatchEvent(BarcodeEvent.DETECTED, gson.toJson(BarcodeEvent(eventId, null)))
+    }
+
     fun inputFromCamera(ctx: FREContext, argv: FREArgv): FREObject? {
-        if (Build.VERSION.SDK_INT < 21) {
-            warning("Camera needs Android 21 or higher")
-            return null
-        }
         argv.takeIf { argv.size > 0 } ?: return FreArgException("inputFromCamera")
         val eventId = String(argv[0]) ?: return null
-        val appActivity = ctx.activity
-        if (appActivity != null) {
-            val optionsAsIntArray = this.optionsAsIntArray
-            val intent = Intent(appActivity, CameraPreviewActivity::class.java)
-            intent.putExtra("eventId", eventId)
-            intent.putExtra("formats", optionsAsIntArray)
-            appActivity.startActivityForResult(intent, scanningBarcodeRequestCode)
-        }
+        val appActivity = ctx.activity ?: return null
+
+        cameraPreviewContainer = FrameLayout(appActivity)
+        val frame = cameraPreviewContainer ?: return null
+        frame.layoutParams = FrameLayout.LayoutParams(airView.width, airView.height)
+
+        val newId = View.generateViewId()
+        frame.id = newId
+        airView.addView(frame)
+
+        val optionsAsIntArray = this.optionsAsIntArray
+        cameraFragment = CameraPreviewFragment.newInstance(eventId, optionsAsIntArray)
+        val fragmentTransaction: FragmentTransaction = ctx.activity.fragmentManager.beginTransaction()
+        fragmentTransaction.add(newId, cameraFragment)
+        fragmentTransaction.commit()
+        cameraFragment.setListener(this)
+
+        showCameraOverlay()
+
         return null
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onMessageEvent(event: RealtimeBarcodeEvent) {
-        results[event.eventId] = event.result
-        dispatchEvent(BarcodeEvent.DETECTED,
-                gson.toJson(BarcodeEvent(event.eventId, null)))
+    fun closeCamera(ctx: FREContext, argv: FREArgv): FREObject? {
+        detector.close()
+        cameraFragment.close()
+        hideCameraOverlay()
+        val frame = cameraPreviewContainer ?: return null
+        airView.removeView(frame)
+        return null
+    }
+
+//    fun hasFlashlight(ctx: FREContext, argv: FREArgv): FREObject? {
+//        return (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+//                && ctx.activity.applicationContext.packageManager
+//                .hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)).toFREObject()
+//    }
+//
+//    fun toggleFlashlight(ctx: FREContext, argv: FREArgv): FREObject? {
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return null
+//        argv.takeIf { argv.size > 0 } ?: return FreArgException("toggleFlashlight")
+//        val enabled = Boolean(argv[0]) ?: return null
+//        cameraFragment.toggleFlashlight(enabled)
+//        return null
+//    }
+
+    private fun hideCameraOverlay() {
+        val childCount = airView.childCount;
+        for (i in 0 until childCount) {
+            val child = airView.getChildAt(i)
+            if (child.javaClass.simpleName != "CameraOverlayContainer") continue
+            child.visibility = View.INVISIBLE
+            return
+        }
+    }
+
+    private fun showCameraOverlay() {
+        val childCount = airView.childCount;
+        for (i in 0 until childCount) {
+            val child = airView.getChildAt(i)
+            if (child.javaClass.simpleName != "CameraOverlayContainer") continue
+            child.visibility = View.VISIBLE
+            child.bringToFront()
+            return
+        }
     }
 
     fun close(ctx: FREContext, argv: FREArgv): FREObject? {

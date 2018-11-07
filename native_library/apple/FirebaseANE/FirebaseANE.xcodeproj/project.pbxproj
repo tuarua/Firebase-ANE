@@ -189,6 +189,10 @@
 		90BABA7620FBE98300C012F8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		90CDBBA0215673090056DD92 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDBB9F215673090056DD92 /* SwiftController+FreSwift.swift */; };
 		90CDBBA221567F910056DD92 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CDBBA121567F910056DD92 /* Fabric.framework */; };
+		90CE411F21864C43002FBD4F /* FreNativeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE411E21864C43002FBD4F /* FreNativeType.swift */; };
+		90CE412121865034002FBD4F /* FreNativeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE412021865034002FBD4F /* FreNativeImage.swift */; };
+		90CE4123218650E7002FBD4F /* FreNativeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE4122218650E7002FBD4F /* FreNativeButton.swift */; };
+		90CE4127218658BD002FBD4F /* FreNativeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE4126218658BD002FBD4F /* FreNativeContainer.swift */; };
 		90D35EA2217AA2990072B9DD /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
 		90D35EA3217AA2CC0072B9DD /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
 		90D35EA4217AA2E30072B9DD /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
@@ -563,6 +567,10 @@
 		90BABA7420FBE93D00C012F8 /* PermissionEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionEvent.swift; sourceTree = "<group>"; };
 		90CDBB9F215673090056DD92 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
 		90CDBBA121567F910056DD92 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = Carthage/Build/iOS/Fabric.framework; sourceTree = "<group>"; };
+		90CE411E21864C43002FBD4F /* FreNativeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreNativeType.swift; sourceTree = "<group>"; };
+		90CE412021865034002FBD4F /* FreNativeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreNativeImage.swift; sourceTree = "<group>"; };
+		90CE4122218650E7002FBD4F /* FreNativeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreNativeButton.swift; sourceTree = "<group>"; };
+		90CE4126218658BD002FBD4F /* FreNativeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreNativeContainer.swift; sourceTree = "<group>"; };
 		90EF02F42154205800C91063 /* VisionCloudDocumentANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisionCloudDocumentANE_oc.h; sourceTree = "<group>"; };
 		90EF02F52154205800C91063 /* VisionCloudDocumentANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionCloudDocumentANE.m; sourceTree = "<group>"; };
 		90EF02F6215420E500C91063 /* VisionCloudDocumentANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionCloudDocumentANE-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1412,6 +1420,18 @@
 			path = Events;
 			sourceTree = "<group>";
 		};
+		90CE411421864B0E002FBD4F /* FreNative */ = {
+			isa = PBXGroup;
+			children = (
+				90CE411E21864C43002FBD4F /* FreNativeType.swift */,
+				90CE412021865034002FBD4F /* FreNativeImage.swift */,
+				90CE4122218650E7002FBD4F /* FreNativeButton.swift */,
+				90CE4126218658BD002FBD4F /* FreNativeContainer.swift */,
+			);
+			name = FreNative;
+			path = ../VisionANE/FreNative;
+			sourceTree = "<group>";
+		};
 		90EF02F021541FF300C91063 /* VisionCloudDocumentANE */ = {
 			isa = PBXGroup;
 			children = (
@@ -1679,6 +1699,7 @@
 		CE6E039A20EED9FA008D6CE8 /* VisionCommon */ = {
 			isa = PBXGroup;
 			children = (
+				90CE411421864B0E002FBD4F /* FreNative */,
 				90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */,
 				CE2C3F9F20F3FB8A00B9E210 /* Events */,
 				CE6E039B20EEDA0A008D6CE8 /* Extensions */,
@@ -3146,14 +3167,14 @@
 		};
 		CE6E037320EEC828008D6CE8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = ../../../native_extension/VisionBarcodeANE/ane/build_multi.sh;
 		};
@@ -3588,9 +3609,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90CE4123218650E7002FBD4F /* FreNativeButton.swift in Sources */,
+				90CE411F21864C43002FBD4F /* FreNativeType.swift in Sources */,
 				CE5E6B2820F178CF001398C5 /* SwiftController.swift in Sources */,
+				90CE412121865034002FBD4F /* FreNativeImage.swift in Sources */,
 				90BABA7520FBE93D00C012F8 /* PermissionEvent.swift in Sources */,
 				CE5E6B2A20F178E6001398C5 /* SwiftController+FreSwift.swift in Sources */,
+				90CE4127218658BD002FBD4F /* FreNativeContainer.swift in Sources */,
 				90BABA7220FBE90800C012F8 /* PermissionController.swift in Sources */,
 				CE5E6B2E20F178FB001398C5 /* VisionANE.m in Sources */,
 			);

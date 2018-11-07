@@ -21,8 +21,12 @@ extension SwiftController: FreSwiftMainController {
     @objc public func getFunctions(prefix: String) -> [String] {
         
         functionsToSet["\(prefix)init"] = initController
+        functionsToSet["\(prefix)createGUID"] = createGUID
         functionsToSet["\(prefix)requestPermissions"] = requestPermissions
         functionsToSet["\(prefix)isCameraSupported"] = isCameraSupported
+        functionsToSet["\(prefix)addNativeChild"] = addNativeChild
+        functionsToSet["\(prefix)updateNativeChild"] = updateNativeChild
+        functionsToSet["\(prefix)removeNativeChild"] = removeNativeChild
         
         var arr: [String] = []
         for key in functionsToSet.keys {

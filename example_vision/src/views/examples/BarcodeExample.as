@@ -7,11 +7,18 @@ import com.tuarua.firebase.vision.Barcode;
 import com.tuarua.firebase.vision.BarcodeDetectorOptions;
 import com.tuarua.firebase.vision.BarcodeFormat;
 import com.tuarua.firebase.vision.VisionImage;
+import com.tuarua.firebase.vision.display.NativeButton;
+import com.tuarua.firebase.vision.display.NativeImage;
 
 import flash.display.Bitmap;
+import flash.display.BitmapData;
+import flash.display.MovieClip;
+import flash.events.MouseEvent;
+import flash.geom.Matrix;
 
 import roipeker.display.MeshRoundRect;
 
+import starling.core.Starling;
 import starling.display.Image;
 import starling.display.Sprite;
 import starling.events.Touch;
@@ -32,8 +39,17 @@ public class BarcodeExample extends Sprite implements IExample {
     [Embed(source="../../../assets/barcode_128.png")]
     public static const BarcodeBitmap:Class;
 
+    [Embed(source="../../../assets/flashLightOff.png")]
+    public static const ButtonBitmap:Class;
+
     private var bmpQr:Bitmap = new QrBitmap() as Bitmap;
     private var bmpBarcode:Bitmap = new BarcodeBitmap() as Bitmap;
+
+    private var closeCameraMC:MovieClip = new CloseCamera() as MovieClip;
+    private var closeCameraBmd:BitmapData = movieClipToBitmapData(closeCameraMC, Starling.current.contentScaleFactor);
+
+    private var barcodeScanMC:MovieClip = new BarcodeScan() as MovieClip;
+    private var barcodeScanBmd:BitmapData;
 
     private var qrDisplay:Image = new Image(Texture.fromBitmap(bmpQr));
     private var barcodeDisplay:Image = new Image(Texture.fromBitmap(bmpBarcode));
@@ -62,8 +78,27 @@ public class BarcodeExample extends Sprite implements IExample {
         if (isInited) return;
         if (vision.isCameraSupported) {
             addChild(btnCamera);
+
+            var closeCameraButton:NativeButton = new NativeButton(closeCameraBmd);
+            closeCameraButton.x = 50;
+            closeCameraButton.y = this.stageHeight - 100;
+            closeCameraButton.addEventListener(MouseEvent.CLICK, onCloseCameraClick);
+            vision.cameraOverlay.addChild(closeCameraButton);
+
+            barcodeScanBmd = movieClipToBitmapData(barcodeScanMC, Starling.current.contentScaleFactor * (this.stageWidth / barcodeScanMC.width));
+            var scanCodeY:Number = (this.stageHeight * Starling.current.contentScaleFactor - barcodeScanMC.height) / Starling.current.contentScaleFactor * 0.5;
+            var barcodeScanImage:NativeImage = new NativeImage(barcodeScanBmd);
+            barcodeScanImage.y = scanCodeY;
+            vision.cameraOverlay.addChild(barcodeScanImage);
+
         }
         isInited = true;
+    }
+
+
+    private function onCloseCameraClick(event:MouseEvent):void {
+        btnCamera.visible = btnBarcode128.visible = btnQrCode.visible = true;
+        barcodeDetector.closeCamera();
     }
 
     private function initMenu():void {
@@ -78,7 +113,6 @@ public class BarcodeExample extends Sprite implements IExample {
 
         btnCamera.y = btnBarcode128.y + StarlingRoot.GAP;
         btnCamera.addEventListener(TouchEvent.TOUCH, onCameraClick);
-
 
         infoBox = new MeshRoundRect();
         infoBox.setup(300, 40, 10);
@@ -162,8 +196,8 @@ public class BarcodeExample extends Sprite implements IExample {
             barcodeDisplay.visible = false;
             btnCamera.visible = btnBarcode128.visible = btnQrCode.visible = false;
 
-            infoBox.visible = true;
-            statusLabel.text = "Find a book to scan";
+            infoBox.visible = false;
+            statusLabel.text = "";
 
             var options:BarcodeDetectorOptions = new BarcodeDetectorOptions();
             options.formats = new <int>[BarcodeFormat.EAN13]; //ISBN barcode from a book
@@ -182,6 +216,16 @@ public class BarcodeExample extends Sprite implements IExample {
             });
 
         }
+    }
+
+    private static function movieClipToBitmapData(mc:MovieClip, scaleFactor:Number):BitmapData {
+        var spriteBmd:BitmapData = new BitmapData(mc.width * scaleFactor, mc.height * scaleFactor, true, 0x00FFFFFF);
+        mc.scaleX = mc.scaleY = scaleFactor;
+        mc.cacheAsBitmap = true;
+        var matrix:Matrix = new Matrix();
+        matrix.scale(scaleFactor, scaleFactor);
+        spriteBmd.draw(mc, matrix);
+        return spriteBmd;
     }
 
 }
