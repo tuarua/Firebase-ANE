@@ -20,26 +20,22 @@ import FirebaseMLVision
 
 public extension VisionDocumentTextSymbol {
     func toFREObject() -> FREObject? {
-        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.DocumentTextSymbol"),
-            var ret = fre
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.DocumentTextSymbol")
             else { return nil }
-        ret["frame"] = self.frame.toFREObject()
-        ret["text"] = self.text.toFREObject()
-        ret["confidence"] = self.confidence.toFREObject()
-        ret["recognizedBreak"] = self.recognizedBreak?.toFREObject()
-        ret["recognizedLanguages"] = self.recognizedLanguages.toFREObject()
-        return ret
+        ret.frame = frame
+        ret.text = text
+        ret.confidence = confidence
+        ret.recognizedBreak = recognizedBreak?.toFREObject()
+        ret.recognizedLanguages = recognizedLanguages.toFREObject()
+        return ret.rawValue
     }
 }
 
 public extension Array where Element == VisionDocumentTextSymbol {
     func toFREObject() -> FREObject? {
-        guard let ret = try? FREArray(className: "com.tuarua.firebase.vision.DocumentTextSymbol",
-                                      length: self.count, fixed: true) else { return nil }
-        var cnt: UInt = 0
+        guard let ret = FREArray(className: "com.tuarua.firebase.vision.DocumentTextSymbol") else { return nil }
         for element in self {
-            ret[cnt] = element.toFREObject()
-            cnt+=1
+            ret.push(element.toFREObject())
         }
         return ret.rawValue
     }

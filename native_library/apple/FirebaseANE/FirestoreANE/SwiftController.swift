@@ -20,7 +20,7 @@ import Firebase
 import FirebaseFirestore
 
 public class SwiftController: NSObject {
-    public var TAG: String? = "SwiftController"
+    public static var TAG = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     private var firestoreController: FirestoreController?
@@ -73,7 +73,7 @@ public class SwiftController: NSObject {
                 let fieldPath = String(fre["fieldPath"]),
                 let oprtr = String(fre["operator"]),
                 let val = fre["value"],
-                let freK = FreObjectSwift(freObject: val).value {
+                let freK = FreObjectSwift(val).value {
                     let w = Where(fieldPath: fieldPath, operatr: oprtr, value: freK)
                     whereList.append(w)
             }
@@ -88,6 +88,8 @@ public class SwiftController: NSObject {
                     orderList.append(o)
             }
         }
+        
+        trace("getDocuments", path, asId, limitTo)
         
         firestoreController?.getDocuments(path: path, eventId: asId, whereList: whereList,
                                           orderList: orderList, startAtList: startAtList,
@@ -234,12 +236,15 @@ public class SwiftController: NSObject {
     func setBatch(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 2,
             let path = String(argv[0]),
-            let documentData = [String: Any](argv[1]),
+            let documentData = [String: Any].init(argv[1]), //not working static
             let merge = Bool(argv[2])
             else {
                 return FreArgError(message: "setBatch").getError(#file, #line, #column)
         }
-        firestoreController?.setBatch(path: path, documentData: documentData, merge: merge)
+        
+        info(documentData.debugDescription)
+        
+        // firestoreController?.setBatch(path: path, documentData: documentData, merge: merge)
         return nil
     }
     

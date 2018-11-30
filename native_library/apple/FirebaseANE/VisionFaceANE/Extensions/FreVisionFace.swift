@@ -20,26 +20,22 @@ import FirebaseMLVision
 
 public extension VisionFace {
     func toFREObject() -> FREObject? {
-        guard let freFace = try? FREObject(className: "com.tuarua.firebase.vision.Face"),
-        var ret = freFace
-            else { return nil }
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.Face"),
+        let freLandMarks = FREArray(className: "com.tuarua.firebase.vision.FaceLandmark") else { return nil }
         
-        guard let freLandMarks = try? FREArray(className: "com.tuarua.firebase.vision.FaceLandmark",
-                                               length: 0) else { return nil }
-        
-        ret["frame"] = self.frame.toFREObject()
-        ret["hasTrackingId"] = self.hasTrackingID.toFREObject()
-        ret["trackingId"] = self.trackingID.toFREObject()
-        ret["hasHeadEulerAngleY"] = self.hasHeadEulerAngleY.toFREObject()
-        ret["headEulerAngleY"] = self.headEulerAngleY.toFREObject()
-        ret["hasHeadEulerAngleZ"] = self.hasHeadEulerAngleZ.toFREObject()
-        ret["headEulerAngleZ"] = self.headEulerAngleZ.toFREObject()
-        ret["hasSmilingProbability"] = self.hasSmilingProbability.toFREObject()
-        ret["smilingProbability"] = self.smilingProbability.toFREObject()
-        ret["hasLeftEyeOpenProbability"] = self.hasLeftEyeOpenProbability.toFREObject()
-        ret["leftEyeOpenProbability"] = self.leftEyeOpenProbability.toFREObject()
-        ret["hasRightEyeOpenProbability"] = self.hasRightEyeOpenProbability.toFREObject()
-        ret["rightEyeOpenProbability"] = self.rightEyeOpenProbability.toFREObject()
+        ret.frame = frame
+        ret.hasTrackingId = hasTrackingID
+        ret.trackingId = trackingID
+        ret.hasHeadEulerAngleY = hasHeadEulerAngleY
+        ret.headEulerAngleY = headEulerAngleY
+        ret.hasHeadEulerAngleZ = hasHeadEulerAngleZ
+        ret.headEulerAngleZ = headEulerAngleZ
+        ret.hasSmilingProbability = hasSmilingProbability
+        ret.smilingProbability = smilingProbability
+        ret.hasLeftEyeOpenProbability = hasLeftEyeOpenProbability
+        ret.leftEyeOpenProbability = leftEyeOpenProbability
+        ret.hasRightEyeOpenProbability = hasRightEyeOpenProbability
+        ret.rightEyeOpenProbability = rightEyeOpenProbability
 
         let types: [FaceLandmarkType] = [.leftEye, .rightEye,
                                          .mouthBottom, .mouthRight, .mouthLeft,
@@ -47,15 +43,11 @@ public extension VisionFace {
                                          .leftCheek, .rightCheek,
                                          .noseBase]
         
-        var cnt: UInt = 0
         for type in types {
-            if let lm = self.landmark(ofType: type)?.toFREObject() {
-                freLandMarks[cnt] = lm
-                cnt+=1
-            }
+            freLandMarks.push(landmark(ofType: type)?.toFREObject())
         }
         
-        ret["landmarks"] = freLandMarks.rawValue
-        return ret
+        ret.landmarks = freLandMarks
+        return ret.rawValue
     }
 }

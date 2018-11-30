@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/31.0">
+<application xmlns="http://ns.adobe.com/air/application/32.0">
 
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-iOS-Device</name>
-    <versionNumber>0.0.6</versionNumber>
+    <versionNumber>0.1.0</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -71,6 +71,7 @@
             ]]>
         </InfoAdditions>
         <requestedDisplayResolution>high</requestedDisplayResolution>
+
         <Entitlements>
             <![CDATA[
             <key>com.apple.developer.associated-domains</key>
@@ -101,10 +102,10 @@
         <extensionID>com.tuarua.firebase.RemoteConfigANE</extensionID>
         <extensionID>com.tuarua.firebase.AuthANE</extensionID>
         <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
-        <extensionID>com.tuarua.firebase.MessagingANE</extensionID>
-        <extensionID>com.tuarua.firebase.DynamicLinksANE</extensionID>
-        <extensionID>com.tuarua.firebase.InvitesANE</extensionID>
-        <extensionID>com.tuarua.google.GoogleSignInANE</extensionID>
+        <!--<extensionID>com.tuarua.firebase.MessagingANE</extensionID>-->
+        <!--<extensionID>com.tuarua.firebase.DynamicLinksANE</extensionID>-->
+        <!--<extensionID>com.tuarua.firebase.InvitesANE</extensionID>-->
+        <!--<extensionID>com.tuarua.google.GoogleSignInANE</extensionID>-->
         <extensionID>com.tuarua.firebase.CrashlyticsANE</extensionID>
     </extensions>
 </application>

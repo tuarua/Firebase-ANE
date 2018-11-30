@@ -20,7 +20,7 @@ import AVFoundation
 import SwiftyJSON
 
 class PermissionController: FreSwiftController {
-    var TAG: String? = "PermissionController"
+    static var TAG = "PermissionController"
     var context: FreContextSwift!
     private let requiredKey = ["NSCameraUsageDescription"]
     

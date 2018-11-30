@@ -20,14 +20,12 @@ import FirebaseRemoteConfig
 
 public extension RemoteConfig {
     func toFREObject() -> FREObject? {
-        do {
-            let ret = try FREObject(className: "com.tuarua.firebase.remoteconfig.RemoteConfigInfo")
-            try ret?.setProp(name: "fetchTime", value: self.lastFetchTime?.timeIntervalSince1970)
-            try ret?.setProp(name: "lastFetchStatus", value: self.lastFetchStatus.rawValue)
-            try ret?.setProp(name: "configSettings", value: self.configSettings.toFREObject())
-            return ret
-        } catch {
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.remoteconfig.RemoteConfigInfo") else {
+            return nil
         }
-        return nil
+        ret.fetchTime = lastFetchTime?.timeIntervalSince1970
+        ret.lastFetchStatus = lastFetchStatus.rawValue
+        ret.configSettings = configSettings.toFREObject()
+        return ret.rawValue
     }
 }

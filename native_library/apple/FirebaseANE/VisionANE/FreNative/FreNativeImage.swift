@@ -73,20 +73,12 @@ class FreNativeImage: UIImageView {
         
         let _alpha = CGFloat(freObject["alpha"]) ?? 1.0
         
-        let asBitmapData = FreBitmapDataSwift(freObject: bmd)
-        defer {
-            asBitmapData.releaseData()
-        }
-        do {
-            if let cgimg = try asBitmapData.asCGImage() {
-                img = UIImage(cgImage: cgimg, scale: UIScreen.main.scale, orientation: .up)
-                if let img = img {
-                    width = img.size.width
-                    height = img.size.height
-                }
+        if let cgimg = FreBitmapDataSwift(freObject: bmd).asCGImage() {
+            img = UIImage(cgImage: cgimg, scale: UIScreen.main.scale, orientation: .up)
+            if let img = img {
+                width = img.size.width
+                height = img.size.height
             }
-        } catch {
-            return nil
         }
         super.init(image: img)
         self.frame = CGRect(x: _x, y: _y, width: width, height: height)

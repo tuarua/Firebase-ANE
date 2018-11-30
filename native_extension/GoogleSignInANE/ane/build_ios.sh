@@ -8,7 +8,7 @@ pathtome="${pathtome%/*}"
 PROJECTNAME=GoogleSignInANE
 libSuffix="_LIB"
 
-AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_30"
+AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_32"
 
 if [ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/" ]; then
 echo "No Simulator build. Build using Xcode"

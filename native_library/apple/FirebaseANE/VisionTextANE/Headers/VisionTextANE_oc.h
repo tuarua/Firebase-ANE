@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <VisionTextANE/VisionTextANE-Swift.h>
+#import <VisionTextANE-Swift.h>
 @interface VisionTextANE_LIB : NSObject
 
 @end

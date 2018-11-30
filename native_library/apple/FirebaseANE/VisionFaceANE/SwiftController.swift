@@ -20,7 +20,7 @@ import Firebase
 import FirebaseMLVision
 
 public class SwiftController: NSObject {
-    public var TAG: String? = "SwiftController"
+    public static var TAG = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     lazy var vision = Vision.vision()
@@ -50,7 +50,7 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         userInitiatedQueue.async {
-            self.detector?.detect(in: image) { (features, error) in
+            self.detector?.process(image) { (features, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: FaceEvent.DETECTED,
                                    value: FaceEvent(eventId: eventId,
@@ -73,21 +73,14 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "getResult").getError(#file, #line, #column)
         }
-        do {
-            if let result = results[eventId] {
-                let freArray = try FREArray(className: "com.tuarua.firebase.vision.Face",
-                                                 length: result.count, fixed: true)
-                var cnt: UInt = 0
-                for face in result {
-                    if let freFace = face?.toFREObject() {
-                        try freArray.set(index: cnt, value: freFace)
-                        cnt += 1
-                    }
-                }
-                results[eventId] = nil
-                return freArray.rawValue
+        if let result = results[eventId] {
+            let freArray = FREArray(className: "com.tuarua.firebase.vision.Face")
+            for face in result {
+                freArray?.push(face?.toFREObject())
             }
-        } catch {}
+            results[eventId] = nil
+            return freArray?.rawValue
+        }
         return nil
     }
     

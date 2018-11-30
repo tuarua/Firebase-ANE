@@ -20,7 +20,7 @@ import Firebase
 import FirebaseMLVision
 
 public class SwiftController: NSObject {
-    public var TAG: String? = "SwiftController"
+    public static var TAG = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     lazy var vision = Vision.vision()

@@ -19,10 +19,10 @@ import FreSwift
 import FirebaseInvites
 
 public class SwiftController: NSObject {
-    public var TAG: String? = "SwiftController"
+    public static var TAG = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
-    private var appDidFinishLaunchingNotif: Notification?
+    public var appDidFinishLaunchingNotif: Notification?
     
     // MARK: - Init
     
@@ -77,7 +77,7 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "getDynamicLink").getError(#file, #line, #column)
         }
         if let userInfo = appDidFinishLaunchingNotif?.userInfo,
-            let userActivityDict = userInfo[UIApplicationLaunchOptionsKey.userActivityDictionary] as? NSDictionary,
+            let userActivityDict = userInfo[UIApplication.LaunchOptionsKey.userActivityDictionary] as? NSDictionary,
             let userActivity = userActivityDict["UIApplicationLaunchOptionsUserActivityKey"] as? NSUserActivity,
             let webpageURL = userActivity.webpageURL {
             Invites.handleUniversalLink(webpageURL) { (invite, error) in
@@ -89,11 +89,11 @@ public class SwiftController: NSObject {
                     return
                 }
                 var sourceApplication = ""
-                if let source = userInfo[UIApplicationLaunchOptionsKey.sourceApplication] as? String {
+                if let source = userInfo[UIApplication.LaunchOptionsKey.sourceApplication] as? String {
                     sourceApplication = source
                 }
                 var sourceUrl = ""
-                if let url = (userInfo[UIApplicationLaunchOptionsKey.url] as? NSURL)?.absoluteString {
+                if let url = (userInfo[UIApplication.LaunchOptionsKey.url] as? NSURL)?.absoluteString {
                     sourceUrl = url
                 }
                 
@@ -113,10 +113,6 @@ public class SwiftController: NSObject {
         }
         
         return nil
-    }
-    
-    @objc func applicationDidFinishLaunching(_ notification: Notification) {
-        appDidFinishLaunchingNotif = notification
     }
     
 }

@@ -20,22 +20,17 @@ import FirebaseMLVision
 
 public extension VisionTextRecognizedLanguage {
     func toFREObject() -> FREObject? {
-        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.TextRecognizedLanguage"),
-            var ret = fre
-            else { return nil }
-        ret["languageCode"] = self.languageCode?.toFREObject()
-        return ret
+        let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.TextRecognizedLanguage")
+        ret?.languageCode = self.languageCode
+        return ret?.rawValue
     }
 }
 
 public extension Array where Element == VisionTextRecognizedLanguage {
     func toFREObject() -> FREObject? {
-        guard let ret = try? FREArray(className: "com.tuarua.firebase.vision.TextRecognizedLanguage",
-                                      length: self.count, fixed: true) else { return nil }
-        var cnt: UInt = 0
+        guard let ret = FREArray(className: "com.tuarua.firebase.vision.TextRecognizedLanguage") else { return nil }
         for element in self {
-            ret[cnt] = element.toFREObject()
-            cnt+=1
+            ret.push(element.toFREObject())
         }
         return ret.rawValue
     }

@@ -20,23 +20,21 @@ import FirebaseMLVision
 
 public extension VisionDocumentTextWord {
     func toFREObject(resultId: String, blockIndex: Int, paragraphIndex: Int, index: UInt) -> FREObject? {
-        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.DocumentTextWord",
-                                       args: resultId, blockIndex, paragraphIndex, index),
-            var ret = fre
-            else { return nil }
-        ret["frame"] = self.frame.toFREObject()
-        ret["text"] = self.text.toFREObject()
-        ret["confidence"] = self.confidence.toFREObject()
-        ret["recognizedBreak"] = self.recognizedBreak?.toFREObject()
-        ret["recognizedLanguages"] = self.recognizedLanguages.toFREObject()
-        return ret
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.DocumentTextWord",
+                                       args: resultId, blockIndex, paragraphIndex, index) else { return nil }
+        
+        ret.frame = frame
+        ret.text = text
+        ret.confidence = confidence
+        ret.recognizedBreak = recognizedBreak?.toFREObject()
+        ret.recognizedLanguages = recognizedLanguages.toFREObject()
+        return ret.rawValue
     }
 }
 
 public extension Array where Element == VisionDocumentTextWord {
     func toFREObject(resultId: String, blockIndex: Int, paragraphIndex: Int) -> FREObject? {
-        guard let ret = try? FREArray(className: "com.tuarua.firebase.vision.DocumentTextWord",
-                                      length: self.count, fixed: true) else { return nil }
+        guard let ret = FREArray(className: "com.tuarua.firebase.vision.DocumentTextWord") else { return nil }
         var index: UInt = 0
         for element in self {
             ret[index] = element.toFREObject(resultId: resultId, blockIndex: blockIndex,

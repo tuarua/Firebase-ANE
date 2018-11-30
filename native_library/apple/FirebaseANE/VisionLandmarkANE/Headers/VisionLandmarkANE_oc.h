@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <VisionLandmarkANE/VisionLandmarkANE-Swift.h>
+#import <VisionLandmarkANE-Swift.h>
 @interface VisionLandmarkANE_LIB : NSObject
 
 @end

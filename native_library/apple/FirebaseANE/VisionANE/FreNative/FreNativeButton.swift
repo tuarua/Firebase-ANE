@@ -77,24 +77,17 @@ class FreNativeButton: UIButton {
         let _alpha = CGFloat(freObject["alpha"]) ?? 1.0
         
         let asBitmapData = FreBitmapDataSwift(freObject: bmd)
-        defer {
-            asBitmapData.releaseData()
-        }
-        do {
-            if let cgimg = try asBitmapData.asCGImage() {
-                img = UIImage(cgImage: cgimg, scale: UIScreen.main.scale, orientation: .up)
-                if let img = img {
-                    width = img.size.width
-                    height = img.size.width
-                }
+        if let cgimg = asBitmapData.asCGImage() {
+            img = UIImage(cgImage: cgimg, scale: UIScreen.main.scale, orientation: .up)
+            if let img = img {
+                width = img.size.width
+                height = img.size.width
             }
-        } catch {
-            return nil
         }
         super.init(frame: CGRect.init(x: _x, y: _y, width: width, height: height))
         context = ctx
         self.setBackgroundImage(img, for: .normal)
-        self.addTarget(self, action: #selector(onTouchUp), for: UIControlEvents.touchUpInside)
+        self.addTarget(self, action: #selector(onTouchUp), for: UIControl.Event.touchUpInside)
         x = _x
         y = _y
         alpha = _alpha
@@ -103,10 +96,7 @@ class FreNativeButton: UIButton {
     
     @objc func onTouchUp() {
         let sf = "{\"id\": \"\(_id)\", \"event\": \"click\"}"
-        do {
-            try context.dispatchStatusEventAsync(code: sf, level: NATIVE_BUTTON_EVENT)
-        } catch {
-        }
+        context.dispatchStatusEventAsync(code: sf, level: NATIVE_BUTTON_EVENT)
     }
     
     required init?(coder: NSCoder) {

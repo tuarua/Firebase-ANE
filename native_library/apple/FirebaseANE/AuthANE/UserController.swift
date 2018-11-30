@@ -20,7 +20,7 @@ import Firebase
 import FirebaseAuth
 
 class UserController: FreSwiftController {
-    var TAG: String? = "FirestoreController"
+    static var TAG = "FirestoreController"
     internal var context: FreContextSwift!
     private var auth: Auth?
     

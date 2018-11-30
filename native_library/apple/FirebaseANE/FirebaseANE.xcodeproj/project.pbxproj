@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -95,6 +95,8 @@
 		90207A592151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90207A572151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift */; };
 		9033688B20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033688A20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift */; };
 		9033689420FCBFE5001A3B24 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033689320FCBFE5001A3B24 /* UIUtilities.swift */; };
+		9038AF1121B1D2C5000C7AE6 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9038AF0F21B1D2C5000C7AE6 /* SwiftyJSON.h */; };
+		9038AF1221B1D2C5000C7AE6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9038AF1021B1D2C5000C7AE6 /* SwiftyJSON.swift */; };
 		9062053F20F800B400AFCE48 /* RemoteConfigErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062053E20F800B400AFCE48 /* RemoteConfigErrorEvent.swift */; };
 		9062054120F801A300AFCE48 /* RemoteConfigEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062054020F801A300AFCE48 /* RemoteConfigEvent.swift */; };
 		90658A7621162EF9003197A5 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
@@ -187,6 +189,7 @@
 		90BABA7220FBE90800C012F8 /* PermissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BABA7020FBE8C500C012F8 /* PermissionController.swift */; };
 		90BABA7520FBE93D00C012F8 /* PermissionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BABA7420FBE93D00C012F8 /* PermissionEvent.swift */; };
 		90BABA7620FBE98300C012F8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
+		90BBBDD721AC93A50066541D /* FirebaseANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87F4781FB259DB005CF7DF /* FirebaseANE.m */; };
 		90CDBBA0215673090056DD92 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDBB9F215673090056DD92 /* SwiftController+FreSwift.swift */; };
 		90CDBBA221567F910056DD92 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CDBBA121567F910056DD92 /* Fabric.framework */; };
 		90CE411F21864C43002FBD4F /* FreNativeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE411E21864C43002FBD4F /* FreNativeType.swift */; };
@@ -224,8 +227,29 @@
 		90EF03342154262000C91063 /* FreVisionTextRecognizedBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03332154262000C91063 /* FreVisionTextRecognizedBreak.swift */; };
 		90EF0336215445E700C91063 /* FreVisionDocumentTextWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF0335215445E700C91063 /* FreVisionDocumentTextWord.swift */; };
 		90EF03382154478D00C91063 /* FreVisionDocumentTextSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03372154478D00C91063 /* FreVisionDocumentTextSymbol.swift */; };
+		90F447F121B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F447F221B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F447F321B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F447F421B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F447F521B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F447F621B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F447F721B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F447F821B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F447F921B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F447FA21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F447FB21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F447FC21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F447FD21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F447FE21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F447FF21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F4480021B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F4480121B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F4480221B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F4480321B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F4480421B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F4480521B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
+		90F4480621B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
 		CE0038CB2094E9B7002A657A /* FreStorageMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0038CA2094E9B7002A657A /* FreStorageMetadata.swift */; };
-		CE00E76320BC08D4002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		CE00E76420BC09A6002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		CE00E76520BC09AE002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		CE00E76620BC09E7002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
@@ -349,7 +373,6 @@
 		CE83B04320A7536B0095C4F9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE83B04220A7536B0095C4F9 /* SystemConfiguration.framework */; };
 		CE83B04420A755400095C4F9 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED748E120925586000327CD /* AddressBook.framework */; };
 		CE83B04620A7793A0095C4F9 /* SwiftController+UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDB4A20A6270C00C89A7C /* SwiftController+UNUserNotificationCenter.swift */; };
-		CE87F4791FB259DB005CF7DF /* FirebaseANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87F4781FB259DB005CF7DF /* FirebaseANE.m */; };
 		CE8BC4AA20B1C890009164ED /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CE8BC4B220B1C890009164ED /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
 		CE8BC4BA20B1C8F6009164ED /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
@@ -520,6 +543,8 @@
 		90207A572151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionTextRecognizedLanguage.swift; sourceTree = "<group>"; };
 		9033688A20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift; sourceTree = "<group>"; };
 		9033689320FCBFE5001A3B24 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
+		9038AF0F21B1D2C5000C7AE6 /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
+		9038AF1021B1D2C5000C7AE6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9062053E20F800B400AFCE48 /* RemoteConfigErrorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigErrorEvent.swift; sourceTree = "<group>"; };
 		9062054020F801A300AFCE48 /* RemoteConfigEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigEvent.swift; sourceTree = "<group>"; };
 		90658A8921162EF9003197A5 /* libModelInterpreterANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libModelInterpreterANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -584,6 +609,7 @@
 		90EF03332154262000C91063 /* FreVisionTextRecognizedBreak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionTextRecognizedBreak.swift; sourceTree = "<group>"; };
 		90EF0335215445E700C91063 /* FreVisionDocumentTextWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionDocumentTextWord.swift; sourceTree = "<group>"; };
 		90EF03372154478D00C91063 /* FreVisionDocumentTextSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionDocumentTextSymbol.swift; sourceTree = "<group>"; };
+		90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FreSwift+Static-Shims.swift"; sourceTree = "<group>"; };
 		CE0038CA2094E9B7002A657A /* FreStorageMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreStorageMetadata.swift; sourceTree = "<group>"; };
 		CE00E76220BC08D4002B569A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		CE05603E1FB25CE200D06976 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/iOS/FreSwift.framework; sourceTree = "<group>"; };
@@ -1046,7 +1072,6 @@
 				CE743201208D48E000E388D3 /* FirebaseFirestore.framework in Frameworks */,
 				CE265754208E5BC100C561E8 /* BoringSSL.framework in Frameworks */,
 				CE743202208D490600E388D3 /* FirebaseCore.framework in Frameworks */,
-				CE00E76320BC08D4002B569A /* SwiftyJSON.framework in Frameworks */,
 				CE265755208E5BC100C561E8 /* Protobuf.framework in Frameworks */,
 				CE265757208E5BC100C561E8 /* leveldb-library.framework in Frameworks */,
 			);
@@ -1802,11 +1827,14 @@
 		CE87F4761FB259DB005CF7DF /* FirebaseANE */ = {
 			isa = PBXGroup;
 			children = (
+				9038AF0F21B1D2C5000C7AE6 /* SwiftyJSON.h */,
+				9038AF1021B1D2C5000C7AE6 /* SwiftyJSON.swift */,
 				CE94517220951E6600FE2BD7 /* Extensions */,
 				CEE80D46208CE15A00C96EC6 /* Headers */,
 				CE87F4781FB259DB005CF7DF /* FirebaseANE.m */,
 				CEA9AC20201E5F4500BFB223 /* SwiftController.swift */,
 				CEE80D4F208CE55700C96EC6 /* SwiftController+FreSwift.swift */,
+				90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */,
 			);
 			path = FirebaseANE;
 			sourceTree = "<group>";
@@ -2326,6 +2354,7 @@
 			files = (
 				CEB572B2208CF92400CF6B1B /* FirestoreANE_oc.h in Headers */,
 				CED749152092975C000327CD /* FreMacros.h in Headers */,
+				9038AF1121B1D2C5000C7AE6 /* SwiftyJSON.h in Headers */,
 				CEB572B1208CF92400CF6B1B /* FirestoreANE-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2828,7 +2857,7 @@
 				};
 			};
 			buildConfigurationList = CE87F4601FB259C9005CF7DF /* Build configuration list for PBXProject "FirebaseANE" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -3254,7 +3283,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/FirestoreANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/FirestoreANE/ane/build_multi.sh\n";
 		};
 		CEB572B4208D0FC700CF6B1B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3293,20 +3322,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		CEB947F920D5CED000F707C1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/InvitesANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/InvitesANE/ane/build_multi.sh\n";
 		};
 		CEBCF7B12095F9160028601B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3371,7 +3400,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/ane/build_multi.sh;
+			shellScript = "../../../native_extension/ane/build_multi.sh\n";
 		};
 		CEE3AE6E20A0691700D3AAF6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3436,7 +3465,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/AnalyticsANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/AnalyticsANE/ane/build_multi.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3445,6 +3474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F4480121B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90160D9A2115C60B0009A815 /* FreVisionImage.swift in Sources */,
 				90160DCA2115C88D0009A815 /* LabelEvent.swift in Sources */,
 				90160DC42115C7290009A815 /* SwiftController.swift in Sources */,
@@ -3461,6 +3491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F4480221B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90160E0E2115D0FF0009A815 /* FreVisionCloudLabel.swift in Sources */,
 				90160E0C2115D0970009A815 /* CloudLabelEvent.swift in Sources */,
 				90160E092115CF950009A815 /* FreVisionCloudDetectorOptions.swift in Sources */,
@@ -3482,6 +3513,7 @@
 				90160E172115D3E60009A815 /* FreVisionCloudDetectorOptions.swift in Sources */,
 				90160E3A2115D4820009A815 /* SwiftController.swift in Sources */,
 				90160E182115D3E60009A815 /* FreVisionPoint.swift in Sources */,
+				90F4480321B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90160E192115D3E60009A815 /* FreVisionImageMetadata.swift in Sources */,
 				90160E402115D6440009A815 /* LandmarkEvent.swift in Sources */,
 				90160E422115D6A40009A815 /* FreVisionCloudLandmark.swift in Sources */,
@@ -3498,6 +3530,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F4480421B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90658A952116314B003197A5 /* FreModelDownloadConditions.swift in Sources */,
 				90658AA121164476003197A5 /* ModelInterpreterEvent.swift in Sources */,
 				90658A8D21162F98003197A5 /* ModelInterpreterANE.m in Sources */,
@@ -3520,6 +3553,7 @@
 				906A682A2114F5C200848218 /* TextEvent.swift in Sources */,
 				906A68282114F42300848218 /* FreVisionImageMetadata.swift in Sources */,
 				90207A582151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift in Sources */,
+				90F447FF21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				906A682C2114F68E00848218 /* FreVisionTextBlock.swift in Sources */,
 				90D35EA3217AA2CC0072B9DD /* SwiftController+FreSwift.swift in Sources */,
 				909587B12115A55E00AD59D5 /* FreVisionTextElement.swift in Sources */,
@@ -3546,6 +3580,7 @@
 				90207A542151C07F0022B2C7 /* FreVisionTextLine.swift in Sources */,
 				90207A532151C07B0022B2C7 /* FreVisionTextBlock.swift in Sources */,
 				90207A562151C0850022B2C7 /* FreVisionText.swift in Sources */,
+				90F4480021B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90207A552151C0810022B2C7 /* FreVisionTextElement.swift in Sources */,
 				90160D8B2115A7BD0009A815 /* VisionCloudTextANE.m in Sources */,
 				908B92EC21507223004C98C1 /* FreNSError.swift in Sources */,
@@ -3559,6 +3594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F4480521B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				909ED0E3214EE79C0059EB62 /* CrashlyticsANE.m in Sources */,
 				909ED0E7214EE7F90059EB62 /* SwiftController.swift in Sources */,
 				909ED0E9214EE8210059EB62 /* SwiftController+FreSwift.swift in Sources */,
@@ -3573,6 +3609,7 @@
 				90EF0328215423C700C91063 /* FreVisionImageMetadata.swift in Sources */,
 				90EF0329215423CF00C91063 /* FreNSError.swift in Sources */,
 				90EF03262154230100C91063 /* FreVisionCloudDocumentTextRecognizerOptions.swift in Sources */,
+				90F4480621B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90EF0322215421E300C91063 /* VisionCloudDocumentANE.m in Sources */,
 				90EF0323215421E600C91063 /* SwiftController.swift in Sources */,
 				90EF0330215425AE00C91063 /* FreVisionTextRecognizedLanguage.swift in Sources */,
@@ -3591,6 +3628,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F447FE21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CE2C3F9B20F3F76900B9E210 /* FreVisionImage.swift in Sources */,
 				CE2C3FA620F403FA00B9E210 /* FreVisionFaceLandmark.swift in Sources */,
 				CE2C3F9C20F3F76900B9E210 /* FreVisionImageMetadata.swift in Sources */,
@@ -3609,6 +3647,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F447FD21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90CE4123218650E7002FBD4F /* FreNativeButton.swift in Sources */,
 				90CE411F21864C43002FBD4F /* FreNativeType.swift in Sources */,
 				CE5E6B2820F178CF001398C5 /* SwiftController.swift in Sources */,
@@ -3629,6 +3668,7 @@
 				CE62B37E20D06D5D002837B7 /* SwiftController+GIDSignInDelegate.swift in Sources */,
 				CE62B36B20D06361002837B7 /* GoogleSignInANE.m in Sources */,
 				CE62B38320D086DE002837B7 /* SwiftController+GIDSignInUIDelegate.swift in Sources */,
+				90F447FA21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CE62B36D20D063CD002837B7 /* SwiftController.swift in Sources */,
 				CE62B38520D09223002837B7 /* GoogleSignInEvent.swift in Sources */,
 			);
@@ -3650,6 +3690,7 @@
 				9033688B20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift in Sources */,
 				CE6E03A520EEEB68008D6CE8 /* FreVisionBarcodeSMS.swift in Sources */,
 				CE6E03AF20EEEDE2008D6CE8 /* FreVisionBarcodeCalendarEvent.swift in Sources */,
+				90F447FC21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CE6E038C20EECBE7008D6CE8 /* SwiftController.swift in Sources */,
 				CE90A9CD20F42D850003C34F /* BarcodeEvent.swift in Sources */,
 				CE6E03AD20EEED09008D6CE8 /* FreVisionBarcodeDriverLicense.swift in Sources */,
@@ -3668,7 +3709,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE87F4791FB259DB005CF7DF /* FirebaseANE.m in Sources */,
+				90F447F121B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
+				90BBBDD721AC93A50066541D /* FirebaseANE.m in Sources */,
 				CE94517420951E8B00FE2BD7 /* FreFirebaseOptions.swift in Sources */,
 				CEA9AC21201E5F4500BFB223 /* SwiftController.swift in Sources */,
 				CEE80D50208CE55700C96EC6 /* SwiftController+FreSwift.swift in Sources */,
@@ -3682,6 +3724,7 @@
 				CE8BC51420B22242009164ED /* FreDynamicLinkSocialMetaTagParameters.swift in Sources */,
 				CE8BC51320B22240009164ED /* FreDynamicLinkGoogleAnalyticsParameters.swift in Sources */,
 				CE8BC51620B22248009164ED /* FreDynamicLinkNavigationInfoParameters.swift in Sources */,
+				90F447F921B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CE8BC51120B2223A009164ED /* FreDynamicLinkIOSParameters.swift in Sources */,
 				CE8BC51520B22245009164ED /* FreDynamicLinkAndroidParameters.swift in Sources */,
 				CE8BC4CE20B1CB62009164ED /* SwiftController.swift in Sources */,
@@ -3700,6 +3743,7 @@
 				CE9451B0209536B300FE2BD7 /* FreRemoteConfigSettings.swift in Sources */,
 				CE94519D209521BE00FE2BD7 /* SwiftController.swift in Sources */,
 				CE94519F209521EE00FE2BD7 /* SwiftController+FreSwift.swift in Sources */,
+				90F447F521B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				9062053F20F800B400AFCE48 /* RemoteConfigErrorEvent.swift in Sources */,
 				9062054120F801A300AFCE48 /* RemoteConfigEvent.swift in Sources */,
 				CE9451AE2095355600FE2BD7 /* FreRemoteConfig.swift in Sources */,
@@ -3710,6 +3754,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F447F321B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CE265762208E7AB600C561E8 /* FreDocumentChange.swift in Sources */,
 				CE265760208E767400C561E8 /* FreFirestoreSettings.swift in Sources */,
 				CEB572AB208CF8F400CF6B1B /* SwiftController.swift in Sources */,
@@ -3720,6 +3765,7 @@
 				CE743208208D49AC00E388D3 /* FirestoreController.swift in Sources */,
 				CE26575C208E6FD500C561E8 /* FreDocumentSnaphot.swift in Sources */,
 				CEB572AE208CF8F400CF6B1B /* FirestoreANE.m in Sources */,
+				9038AF1221B1D2C5000C7AE6 /* SwiftyJSON.swift in Sources */,
 				CE743206208D493800E388D3 /* Where.swift in Sources */,
 				CE26575E208E744D00C561E8 /* FreQueryDocumentSnapshot.swift in Sources */,
 				CE69C8DE208FF9E9004A1A5A /* NetworkEvent.swift in Sources */,
@@ -3731,6 +3777,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F447FB21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CEB9480220D5CFEB00F707C1 /* InvitesANE.m in Sources */,
 				CEB9481320D5D64B00F707C1 /* SwiftController+InviteDelegate.swift in Sources */,
 				CEB9480820D5D04300F707C1 /* SwiftController.swift in Sources */,
@@ -3743,6 +3790,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F447F621B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CEBCF7D32096586A0028601B /* FreUser.swift in Sources */,
 				CEBCF7C62095FC250028601B /* UserController.swift in Sources */,
 				CEBCF7B82095F9820028601B /* AuthANE.m in Sources */,
@@ -3758,6 +3806,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F447F421B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CE0038CB2094E9B7002A657A /* FreStorageMetadata.swift in Sources */,
 				CED7491220929657000327CD /* StorageANE.m in Sources */,
 				CED7492820929D54000327CD /* StorageEvent.swift in Sources */,
@@ -3774,6 +3823,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F447F721B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CEE3AE9F20A074C200D3AAF6 /* PerformanceANE.m in Sources */,
 				CEE3AE9720A073E000D3AAF6 /* SwiftController.swift in Sources */,
 				CEE3AE9920A073FF00D3AAF6 /* SwiftController+FreSwift.swift in Sources */,
@@ -3788,6 +3838,7 @@
 				CEE3AE9120A06FB100D3AAF6 /* SwiftController.swift in Sources */,
 				CE2BDB4720A6222900C89A7C /* SwiftController+Messaging.swift in Sources */,
 				CEE3AE8D20A06F6500D3AAF6 /* MessagingANE.m in Sources */,
+				90F447F821B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CE2BDB4920A6243800C89A7C /* MessageEvent.swift in Sources */,
 				CEE3AE9320A06FC400D3AAF6 /* SwiftController+FreSwift.swift in Sources */,
 			);
@@ -3797,6 +3848,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F447F221B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CEE80D70208CF46800C96EC6 /* AnalyticsANE.m in Sources */,
 				CEE80D74208CF50E00C96EC6 /* SwiftController.swift in Sources */,
 				CEE80D76208CF51F00C96EC6 /* SwiftController+FreSwift.swift in Sources */,
@@ -3819,14 +3871,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionLabelANE/Headers/VisionLabelANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionLabelANE/VisionLabelANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -3843,13 +3899,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionLabelANE/Headers/VisionLabelANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionLabelANE/VisionLabelANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -3866,14 +3926,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionCloudLabelANE/Headers/VisionCloudLabelANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionCloudLabelANE/VisionCloudLabelANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -3890,13 +3954,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionCloudLabelANE/Headers/VisionCloudLabelANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionCloudLabelANE/VisionCloudLabelANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -3913,14 +3981,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionLandmarkANE/Headers/VisionLandmarkANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionLandmarkANE/VisionLandmarkANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -3937,13 +4009,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionLandmarkANE/Headers/VisionLandmarkANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionLandmarkANE/VisionLandmarkANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -3960,14 +4036,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ModelInterpreterANE/Headers/ModelInterpreterANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ModelInterpreterANE/ModelInterpreterANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -3984,13 +4064,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ModelInterpreterANE/Headers/ModelInterpreterANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "ModelInterpreterANE/ModelInterpreterANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4007,14 +4091,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionTextANE/Headers/VisionTextANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionTextANE/VisionTextANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4031,13 +4119,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionTextANE/Headers/VisionTextANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionTextANE/VisionTextANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4054,14 +4146,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionCloudTextANE/Headers/VisionCloudTextANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionCloudTextANE/VisionCloudTextANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4078,13 +4174,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionCloudTextANE/Headers/VisionCloudTextANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionCloudTextANE/VisionCloudTextANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4101,14 +4201,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "CrashlyticsANE/Headers/CrashlyticsANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "CrashlyticsANE/CrashlyticsANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4125,13 +4229,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "CrashlyticsANE/Headers/CrashlyticsANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "CrashlyticsANE/CrashlyticsANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4139,6 +4247,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEVELOPMENT_TEAM = "";
@@ -4147,15 +4257,20 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionCloudDocumentANE/Headers/VisionCloudDocumentANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionCloudDocumentANE/VisionCloudDocumentANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4163,6 +4278,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEVELOPMENT_TEAM = "";
@@ -4171,14 +4288,19 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionCloudDocumentANE/Headers/VisionCloudDocumentANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionCloudDocumentANE/VisionCloudDocumentANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4195,14 +4317,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionFaceANE/Headers/VisionFaceANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionFaceANE/VisionFaceANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4219,13 +4345,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionFaceANE/Headers/VisionFaceANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionFaceANE/VisionFaceANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4242,14 +4372,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionANE/Headers/VisionANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionANE/VisionANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4266,13 +4400,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionANE/Headers/VisionANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionANE/VisionANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4289,14 +4427,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "GoogleSignInANE/Headers/GoogleSignInANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "GoogleSignInANE/GoogleSignInANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4313,13 +4455,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "GoogleSignInANE/Headers/GoogleSignInANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "GoogleSignInANE/GoogleSignInANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4336,14 +4482,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionBarcodeANE/Headers/VisionBarcodeANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionBarcodeANE/VisionBarcodeANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4360,13 +4510,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionBarcodeANE/Headers/VisionBarcodeANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionBarcodeANE/VisionBarcodeANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4376,8 +4530,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -4406,7 +4560,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -4425,6 +4579,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4434,8 +4589,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -4464,7 +4619,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -4476,7 +4631,9 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -4494,14 +4651,19 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "FirebaseANE/Headers/FirebaseANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "FirebaseANE/FirebaseANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4518,13 +4680,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "FirebaseANE/Headers/FirebaseANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "FirebaseANE/FirebaseANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4541,14 +4708,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "DynamicLinksANE/Headers/DynamicLinksANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "DynamicLinksANE/DynamicLinksANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4565,13 +4736,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "DynamicLinksANE/Headers/DynamicLinksANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "DynamicLinksANE/DynamicLinksANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4588,14 +4763,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "RemoteConfigANE/Headers/RemoteConfigANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "RemoteConfigANE/RemoteConfigANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4612,13 +4791,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "RemoteConfigANE/Headers/RemoteConfigANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "RemoteConfigANE/RemoteConfigANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4635,7 +4818,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -4643,7 +4830,7 @@
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "FirestoreANE/FirestoreANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4660,14 +4847,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "FirestoreANE/Headers/FirestoreANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "FirestoreANE/FirestoreANE-Swift.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4684,14 +4875,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "InvitesANE/Headers/InvitesANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "InvitesANE/InvitesANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4708,13 +4903,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "InvitesANE/Headers/InvitesANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "InvitesANE/InvitesANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4731,14 +4930,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "AuthANE/Headers/AuthANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "AuthANE/AuthANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4755,13 +4958,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "AuthANE/Headers/AuthANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "AuthANE/AuthANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4778,14 +4985,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "StorageANE/Headers/StorageANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "StorageANE/StorageANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4802,13 +5013,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "StorageANE/Headers/StorageANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "StorageANE/StorageANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4825,14 +5040,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "PerformanceANE/Headers/PerformanceANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "PerformanceANE/PerformanceANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4849,13 +5068,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "PerformanceANE/Headers/PerformanceANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "PerformanceANE/PerformanceANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4872,14 +5095,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MessagingANE/Headers/MessagingANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "MessagingANE/MessagingANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4896,13 +5123,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MessagingANE/Headers/MessagingANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "MessagingANE/MessagingANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -4919,14 +5150,18 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "AnalyticsANE/Headers/AnalyticsANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "AnalyticsANE/AnalyticsANE-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -4943,13 +5178,17 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "AnalyticsANE/Headers/AnalyticsANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "AnalyticsANE/AnalyticsANE-Swift.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

@@ -1,10 +1,10 @@
 package views.examples {
-import com.tuarua.firebase.DynamicLinksANE;
-import com.tuarua.firebase.dynamiclinks.DynamicLink;
-import com.tuarua.firebase.dynamiclinks.DynamicLinkError;
-import com.tuarua.firebase.dynamiclinks.DynamicLinkResult;
-import com.tuarua.firebase.dynamiclinks.IosParameters;
-import com.tuarua.firebase.dynamiclinks.ShortDynamicLinkSuffix;
+//import com.tuarua.firebase.DynamicLinksANE;
+//import com.tuarua.firebase.dynamiclinks.DynamicLink;
+//import com.tuarua.firebase.dynamiclinks.DynamicLinkError;
+//import com.tuarua.firebase.dynamiclinks.DynamicLinkResult;
+//import com.tuarua.firebase.dynamiclinks.IosParameters;
+//import com.tuarua.firebase.dynamiclinks.ShortDynamicLinkSuffix;
 
 import starling.display.Sprite;
 import starling.events.Touch;
@@ -18,7 +18,7 @@ import views.SimpleButton;
 public class DynamicLinksExample extends Sprite implements IExample {
     private var stageWidth:Number;
     private var isInited:Boolean;
-    private var dynamicLinks:DynamicLinksANE;
+    //private var dynamicLinks:DynamicLinksANE;
     private var btnCreateDynamicLink:SimpleButton = new SimpleButton("Create Dynamic Link");
     private var btnCreateShortLink:SimpleButton = new SimpleButton("Create Short Link");
     private var btnGetDynamicLink:SimpleButton = new SimpleButton("Get Dynamic Link");
@@ -32,7 +32,7 @@ public class DynamicLinksExample extends Sprite implements IExample {
 
     public function initANE():void {
         if (isInited) return;
-        dynamicLinks = DynamicLinksANE.dynamicLinks;
+        //dynamicLinks = DynamicLinksANE.dynamicLinks;
         isInited = true;
 
     }
@@ -40,15 +40,15 @@ public class DynamicLinksExample extends Sprite implements IExample {
     private function initMenu():void {
         btnGetDynamicLink.x = btnCreateDynamicLink.x = btnCreateShortLink.x = (stageWidth - 200) * 0.5;
         btnCreateDynamicLink.y = StarlingRoot.GAP;
-        btnCreateDynamicLink.addEventListener(TouchEvent.TOUCH, onCreateDynamicLinkClick);
+        //btnCreateDynamicLink.addEventListener(TouchEvent.TOUCH, onCreateDynamicLinkClick);
         addChild(btnCreateDynamicLink);
 
         btnCreateShortLink.y = btnCreateDynamicLink.y + StarlingRoot.GAP;
-        btnCreateShortLink.addEventListener(TouchEvent.TOUCH, onCreateShortLinkClick);
+        //btnCreateShortLink.addEventListener(TouchEvent.TOUCH, onCreateShortLinkClick);
         addChild(btnCreateShortLink);
 
         btnGetDynamicLink.y = btnCreateShortLink.y + StarlingRoot.GAP;
-        btnGetDynamicLink.addEventListener(TouchEvent.TOUCH, onGetDynamicLinkClick);
+        //btnGetDynamicLink.addEventListener(TouchEvent.TOUCH, onGetDynamicLinkClick);
         addChild(btnGetDynamicLink);
 
         statusLabel = new TextField(stageWidth, 1400, "");
@@ -58,52 +58,52 @@ public class DynamicLinksExample extends Sprite implements IExample {
         addChild(statusLabel);
     }
 
-    private function onCreateDynamicLinkClick(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(btnCreateDynamicLink);
-        if (touch != null && touch.phase == TouchPhase.ENDED) {
-            var dynamicLink:DynamicLink = new DynamicLink("http://www.tuarua.com", "fq7yh.app.goo.gl");
-            dynamicLink.iosParameters = new IosParameters("com.tuarua.firebaseane.example");
-            dynamicLinks.buildDynamicLink(dynamicLink, onDynamicLinkCreated, true);
-        }
-    }
-
-    private function onDynamicLinkCreated(dynamicLinkResult:DynamicLinkResult, error:DynamicLinkError):void {
-        if (error) {
-            statusLabel.text = "Dynamic Link error: " + error.errorID + " : " + error.message;
-            return;
-        }
-        if (dynamicLinkResult.url) {
-            statusLabel.text = dynamicLinkResult.url;
-        } else {
-            statusLabel.text = "Preview link: " + dynamicLinkResult.previewLink + "\n" +
-                    "Short link: " + dynamicLinkResult.shortLink + "\n" +
-                    "Warnings: " + dynamicLinkResult.warnings.toString();
-        }
-
-    }
-
-    private function onCreateShortLinkClick(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(btnCreateShortLink);
-        if (touch != null && touch.phase == TouchPhase.ENDED) {
-            var shortLink:DynamicLink = new DynamicLink("http://www.github.com", "fq7yh.app.goo.gl");
-            dynamicLinks.buildDynamicLink(shortLink, onDynamicLinkCreated, false, true, ShortDynamicLinkSuffix.SHORT);
-        }
-    }
-
-    private function onGetDynamicLinkClick(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(btnGetDynamicLink);
-        if (touch != null && touch.phase == TouchPhase.ENDED) {
-            dynamicLinks.getDynamicLink(onGetDynamicLink);
-        }
-    }
-
-    private function onGetDynamicLink(dynamicLinkResult:DynamicLinkResult, error:DynamicLinkError):void {
-        if (error) {
-            statusLabel.text = "Dynamic Link error: " + error.errorID + " : " + error.message;
-            return;
-        }
-        statusLabel.text = "Dynamic Link: " + dynamicLinkResult.url;
-    }
+//    private function onCreateDynamicLinkClick(event:TouchEvent):void {
+//        var touch:Touch = event.getTouch(btnCreateDynamicLink);
+//        if (touch != null && touch.phase == TouchPhase.ENDED) {
+//            var dynamicLink:DynamicLink = new DynamicLink("http://www.tuarua.com", "fq7yh.app.goo.gl");
+//            dynamicLink.iosParameters = new IosParameters("com.tuarua.firebaseane.example");
+//            dynamicLinks.buildDynamicLink(dynamicLink, onDynamicLinkCreated, true);
+//        }
+//    }
+//
+//    private function onDynamicLinkCreated(dynamicLinkResult:DynamicLinkResult, error:DynamicLinkError):void {
+//        if (error) {
+//            statusLabel.text = "Dynamic Link error: " + error.errorID + " : " + error.message;
+//            return;
+//        }
+//        if (dynamicLinkResult.url) {
+//            statusLabel.text = dynamicLinkResult.url;
+//        } else {
+//            statusLabel.text = "Preview link: " + dynamicLinkResult.previewLink + "\n" +
+//                    "Short link: " + dynamicLinkResult.shortLink + "\n" +
+//                    "Warnings: " + dynamicLinkResult.warnings.toString();
+//        }
+//
+//    }
+//
+//    private function onCreateShortLinkClick(event:TouchEvent):void {
+//        var touch:Touch = event.getTouch(btnCreateShortLink);
+//        if (touch != null && touch.phase == TouchPhase.ENDED) {
+//            var shortLink:DynamicLink = new DynamicLink("http://www.github.com", "fq7yh.app.goo.gl");
+//            dynamicLinks.buildDynamicLink(shortLink, onDynamicLinkCreated, false, true, ShortDynamicLinkSuffix.SHORT);
+//        }
+//    }
+//
+//    private function onGetDynamicLinkClick(event:TouchEvent):void {
+//        var touch:Touch = event.getTouch(btnGetDynamicLink);
+//        if (touch != null && touch.phase == TouchPhase.ENDED) {
+//            dynamicLinks.getDynamicLink(onGetDynamicLink);
+//        }
+//    }
+//
+//    private function onGetDynamicLink(dynamicLinkResult:DynamicLinkResult, error:DynamicLinkError):void {
+//        if (error) {
+//            statusLabel.text = "Dynamic Link error: " + error.errorID + " : " + error.message;
+//            return;
+//        }
+//        statusLabel.text = "Dynamic Link: " + dynamicLinkResult.url;
+//    }
 
 }
 }

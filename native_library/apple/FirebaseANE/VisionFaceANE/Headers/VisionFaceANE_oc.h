@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <VisionFaceANE/VisionFaceANE-Swift.h>
+#import <VisionFaceANE-Swift.h>
 @interface VisionFaceANE_LIB : NSObject
     
 @end

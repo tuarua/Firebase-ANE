@@ -27,12 +27,8 @@ public extension RemoteConfigSettings {
     }
     
     func toFREObject() -> FREObject? {
-        do {
-            let ret = try FREObject(className: "com.tuarua.firebase.remoteconfig.RemoteConfigSettings",
-                                    args: self.isDeveloperModeEnabled)
-            return ret
-        } catch {
-        }
-        return nil
+        let ret = FREObject(className: "com.tuarua.firebase.remoteconfig.RemoteConfigSettings",
+                                args: self.isDeveloperModeEnabled)
+        return ret
     }
 }

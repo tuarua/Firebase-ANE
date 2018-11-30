@@ -20,27 +20,22 @@ import FirebaseMLVision
 
 public extension VisionTextLine {
     func toFREObject() -> FREObject? {
-        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.TextLine"),
-            var ret = fre
-            else { return nil }
-        ret["frame"] = self.frame.toFREObject()
-        ret["text"] = self.text.toFREObject()
-        ret["cornerPoints"] = self.cornerPoints.toFREObject()
-        ret["elements"] = self.elements.toFREObject()
-        ret["confidence"] = self.confidence?.toFREObject()
-        ret["recognizedLanguages"] = self.recognizedLanguages.toFREObject()
-        return ret
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.TextLine") else { return nil }
+        ret.frame = frame
+        ret.text = text
+        ret.cornerPoints = cornerPoints?.toFREObject()
+        ret.elements = elements.toFREObject()
+        ret.confidence = confidence
+        ret.recognizedLanguages = recognizedLanguages.toFREObject()
+        return ret.rawValue
     }
 }
 
 public extension Array where Element == VisionTextLine {
     func toFREObject() -> FREObject? {
-        guard let ret = try? FREArray(className: "com.tuarua.firebase.vision.TextLine",
-                                           length: self.count, fixed: true) else { return nil }
-        var cnt: UInt = 0
+        guard let ret = FREArray(className: "com.tuarua.firebase.vision.TextLine") else { return nil }
         for element in self {
-            ret[cnt] = element.toFREObject()
-            cnt+=1
+            ret.push(element.toFREObject())
         }
         return ret.rawValue
     }

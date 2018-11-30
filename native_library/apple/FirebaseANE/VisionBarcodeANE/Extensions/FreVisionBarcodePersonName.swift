@@ -20,16 +20,14 @@ import FirebaseMLVision
 
 public extension VisionBarcodePersonName {
     func toFREObject() -> FREObject? {
-        guard let freObject = try? FREObject(className: "com.tuarua.firebase.vision.BarcodePersonName"),
-            var ret = freObject
-            else { return nil }
-        ret["formattedName"] = self.formattedName?.toFREObject()
-        ret["first"] = self.first?.toFREObject()
-        ret["last"] = self.last?.toFREObject()
-        ret["middle"] = self.middle?.toFREObject()
-        ret["prefix"] = self.prefix?.toFREObject()
-        ret["pronounciation"] = self.pronounciation?.toFREObject()
-        ret["suffix"] = self.suffix?.toFREObject()
-        return ret
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.BarcodePersonName") else { return nil }
+        ret.formattedName = formattedName
+        ret.first = first
+        ret.last = last
+        ret.middle = middle
+        ret.prefix = prefix
+        ret.pronounciation = pronounciation
+        ret.suffix = suffix
+        return ret.rawValue
     }
 }

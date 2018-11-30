@@ -20,7 +20,7 @@ import FirebaseMLVision
 import AVFoundation
 
 public class SwiftController: NSObject {
-    public var TAG: String? = "SwiftController"
+    public static var TAG = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     internal var results: [String: [VisionBarcode?]] = [:]
@@ -79,21 +79,19 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "getResult").getError(#file, #line, #column)
         }
-        do {
-            if let result = results[eventId] {
-                let freArray = try FREArray.init(className: "com.tuarua.firebase.vision.Barcode",
-                                                 length: result.count, fixed: true)
-                var cnt: UInt = 0
-                for barcode in result {
-                    if let freBarcode = barcode?.toFREObject() {
-                        try freArray.set(index: cnt, value: freBarcode)
-                        cnt += 1
-                    } 
-                }
-                results[eventId] = nil
-                return freArray.rawValue
+        if let result = results[eventId] {
+            guard let freArray = FREArray(className: "com.tuarua.firebase.vision.Barcode",
+                                          length: result.count, fixed: true) else { return nil }
+            var cnt: UInt = 0
+            for barcode in result {
+                if let freBarcode = barcode?.toFREObject() {
+                    freArray[cnt] = freBarcode
+                    cnt += 1
+                } 
             }
-        } catch {}
+            results[eventId] = nil
+            return freArray.rawValue
+        }
         return nil
     }
     

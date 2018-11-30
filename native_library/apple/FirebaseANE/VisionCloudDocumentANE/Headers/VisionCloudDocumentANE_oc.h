@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <VisionCloudDocumentANE/VisionCloudDocumentANE-Swift.h>
+#import <VisionCloudDocumentANE-Swift.h>
 @interface VisionCloudDocumentANE_LIB : NSObject
 
 @end

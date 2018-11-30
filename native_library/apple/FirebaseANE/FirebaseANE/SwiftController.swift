@@ -19,7 +19,7 @@ import FreSwift
 import Firebase
 
 public class SwiftController: NSObject {
-    public var TAG: String? = "SwiftController"
+    public static var TAG = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     private var appDidFinishLaunchingNotif: Notification?

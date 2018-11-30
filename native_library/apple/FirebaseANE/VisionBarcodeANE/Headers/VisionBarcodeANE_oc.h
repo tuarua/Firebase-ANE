@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <VisionBarcodeANE/VisionBarcodeANE-Swift.h>
+#import <VisionBarcodeANE-Swift.h>
 @interface VisionBarcodeANE_LIB : NSObject
 
 @end

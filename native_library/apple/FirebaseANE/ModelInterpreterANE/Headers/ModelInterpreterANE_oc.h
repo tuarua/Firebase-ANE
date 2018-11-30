@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <ModelInterpreterANE/ModelInterpreterANE-Swift.h>
+#import <ModelInterpreterANE-Swift.h>
 @interface ModelInterpreterANE_LIB : NSObject
 
 @end

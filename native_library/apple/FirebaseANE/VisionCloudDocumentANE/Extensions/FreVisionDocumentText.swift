@@ -22,10 +22,9 @@ import FirebaseMLVision
 
 public extension VisionDocumentText {
     func toFREObject(id: String) -> FREObject? {
-        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.DocumentText", args: id),
-            var ret = fre
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.DocumentText", args: id)
             else { return nil }
         ret["text"] = self.text.toFREObject()
-        return ret
+        return ret.rawValue
     }
 }

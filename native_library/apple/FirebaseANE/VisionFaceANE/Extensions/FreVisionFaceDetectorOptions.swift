@@ -21,16 +21,17 @@ import FirebaseMLVision
 public extension VisionFaceDetectorOptions {
     convenience init?(_ freObject: FREObject?) {
         guard let rv = freObject,
-            let classificationType = VisionFaceDetectorClassification(rawValue: UInt(rv["classificationType"]) ?? 1),
-            let modeType = VisionFaceDetectorMode(rawValue: UInt(rv["modeType"]) ?? 1),
-            let landmarkType = VisionFaceDetectorLandmark(rawValue: UInt(rv["landmarkType"]) ?? 1),
+            let classificationType = VisionFaceDetectorClassificationMode(rawValue: UInt(rv["classificationType"])
+                ?? 1),
+            let modeType = VisionFaceDetectorPerformanceMode(rawValue: UInt(rv["modeType"]) ?? 1),
+            let landmarkType = VisionFaceDetectorLandmarkMode(rawValue: UInt(rv["landmarkType"]) ?? 1),
             let isTrackingEnabled = Bool(rv["isTrackingEnabled"]),
             let minFaceSize = CGFloat(rv["minFaceSize"])
             else { return nil }
         self.init()
-        self.modeType = modeType
-        self.classificationType = classificationType
-        self.landmarkType = landmarkType
+        self.performanceMode = modeType
+        self.classificationMode = classificationType
+        self.landmarkMode = landmarkType
         self.isTrackingEnabled = isTrackingEnabled
         self.minFaceSize = minFaceSize
     }

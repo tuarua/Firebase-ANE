@@ -33,6 +33,10 @@ extension SwiftController: FreSwiftMainController {
         return arr
     }
     
+    @objc func applicationDidFinishLaunching(_ notification: Notification) {
+        appDidFinishLaunchingNotif = notification
+    }
+    
     @objc public func dispose() {
         NotificationCenter.default.removeObserver(self)
     }
@@ -51,6 +55,6 @@ extension SwiftController: FreSwiftMainController {
     
     @objc public func onLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidFinishLaunching),
-                                               name: NSNotification.Name.UIApplicationDidFinishLaunching, object: nil)
+                                               name: UIApplication.didFinishLaunchingNotification, object: nil)
     }
 }

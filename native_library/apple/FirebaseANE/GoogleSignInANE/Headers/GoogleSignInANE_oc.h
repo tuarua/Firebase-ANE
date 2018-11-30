@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <GoogleSignInANE/GoogleSignInANE-Swift.h>
+#import <GoogleSignInANE-Swift.h>
 @interface GoogleSignInANE_LIB : NSObject
 
 @end

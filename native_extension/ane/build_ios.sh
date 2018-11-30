@@ -11,7 +11,7 @@ echo $pathtome
 PROJECTNAME=FirebaseANE
 libSuffix="_LIB"
 
-AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_31"
+AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_32"
 if [ ! -d "$pathtome/../../native_library/apple/$PROJECTNAME/Build/Products/Release-iphonesimulator/" ]; then
 echo "No Simulator build. Build using Xcode"
 exit
@@ -100,6 +100,9 @@ cp -R -L "$pathtome/../../firebase_frameworks/device/GoogleToolboxForMac.framewo
 
 cp -R -L "$pathtome/../../firebase_frameworks/simulator/GoogleUtilities.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../firebase_frameworks/device/GoogleUtilities.framework" "$pathtome/platforms/ios/device/Frameworks"
+
+cp -R -L "$pathtome/../../firebase_frameworks/simulator/FIRAnalyticsConnector.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../firebase_frameworks/device/FIRAnalyticsConnector.framework" "$pathtome/platforms/ios/device/Frameworks"
 
 #Run the build command.
 echo "Building ANE."

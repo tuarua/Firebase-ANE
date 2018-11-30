@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <VisionCloudLabelANE/VisionCloudLabelANE-Swift.h>
+#import <VisionCloudLabelANE-Swift.h>
 @interface VisionCloudLabelANE_LIB : NSObject
 
 @end

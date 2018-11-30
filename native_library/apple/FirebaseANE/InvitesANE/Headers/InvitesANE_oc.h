@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <InvitesANE/InvitesANE-Swift.h>
+#import <InvitesANE-Swift.h>
 @interface InvitesANE_LIB : NSObject
 
 @end

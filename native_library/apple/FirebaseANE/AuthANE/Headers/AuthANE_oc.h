@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <AuthANE/AuthANE-Swift.h>
+#import <AuthANE-Swift.h>
 @interface AuthANE_LIB : NSObject
 
 @end

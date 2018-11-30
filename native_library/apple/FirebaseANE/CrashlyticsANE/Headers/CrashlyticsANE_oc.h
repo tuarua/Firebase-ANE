@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <CrashlyticsANE/CrashlyticsANE-Swift.h>
+#import <CrashlyticsANE-Swift.h>
 @interface CrashlyticsANE_LIB : NSObject
 
 @end
