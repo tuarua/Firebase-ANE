@@ -1,6 +1,6 @@
 #!/bin/sh
 
-AneVersion="0.0.9"
+AneVersion="0.1.0"
 PlayerServicesVersion="15.0.1"
 SupportV4Version="27.1.0"
 FirebaseVersion="16.0.0"

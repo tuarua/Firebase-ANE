@@ -1,3 +1,6 @@
+### 0.1.0
+- iOS: Support AIR 32
+
 ### 0.0.9
 - iOS/AND: Vision: Add `BarcodeDetector.closeCamera()` method
 - iOS/AND: Vision: Add `vision.cameraOverlay` to allow buttons and images to be added over the camera view
