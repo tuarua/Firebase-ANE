@@ -3,7 +3,6 @@
     <sdkVersion>12.1</sdkVersion>
     <linkerOptions>
         <option>-ios_version_min 9.0</option>
-        <option>-lc++</option>
         <option>-lsqlite3</option>
         <option>-lz</option>
         <option>-w</option>

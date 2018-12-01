@@ -90,4 +90,5 @@ Carthage_bak12/
 docs/
 
 create_docs.sh
+build_all.sh
 Cartfile.resolved
