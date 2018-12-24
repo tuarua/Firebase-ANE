@@ -20,7 +20,7 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.vision.cloudlabel.KotlinController;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class VisionCloudLabelANE implements FREExtension {
     private static final String[] FUNCTIONS = {
              "init"

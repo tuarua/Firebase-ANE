@@ -4,8 +4,8 @@ import com.tuarua.firebase.auth.AuthError;
 import com.tuarua.firebase.auth.EmailAuthCredential;
 import com.tuarua.firebase.auth.FirebaseUser;
 import com.tuarua.firebase.auth.GoogleAuthCredential;
-//import com.tuarua.google.GoogleSignInANE;
-//import com.tuarua.google.signin.events.GoogleSignInEvent;
+import com.tuarua.google.GoogleSignInANE;
+import com.tuarua.google.signin.events.GoogleSignInEvent;
 
 import starling.display.Sprite;
 import starling.events.Touch;
@@ -20,7 +20,7 @@ public class AuthExample extends Sprite implements IExample {
     private var stageWidth:Number;
     private var isInited:Boolean;
     private var auth:AuthANE;
-    //private var googleSignIn:GoogleSignInANE;
+    private var googleSignIn:GoogleSignInANE;
     private var btnSignInAnon:SimpleButton = new SimpleButton("Login Anonymously");
     private var btnSignInEmailPassword:SimpleButton = new SimpleButton("Sign in w/ Email + Password");
     private var btnSignOut:SimpleButton = new SimpleButton("Sign out");
@@ -39,9 +39,9 @@ public class AuthExample extends Sprite implements IExample {
     public function initANE():void {
         if (isInited) return;
         auth = AuthANE.auth;
-//        googleSignIn = GoogleSignInANE.googleSignIn;
-//        googleSignIn.addEventListener(GoogleSignInEvent.SIGN_IN, onGoogleSignIn);
-//        googleSignIn.addEventListener(GoogleSignInEvent.ERROR, onGoogleSignIn);
+        googleSignIn = GoogleSignInANE.googleSignIn;
+        googleSignIn.addEventListener(GoogleSignInEvent.SIGN_IN, onGoogleSignIn);
+        googleSignIn.addEventListener(GoogleSignInEvent.ERROR, onGoogleSignIn);
         isInited = true;
     }
 
@@ -117,17 +117,17 @@ public class AuthExample extends Sprite implements IExample {
     private function onSignInWithGoogleClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnSignInWithGoogle);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-           // googleSignIn.signIn();
+           googleSignIn.signIn();
         }
     }
 
-//    private function onGoogleSignIn(event:GoogleSignInEvent):void {
-//        if (event.error) {
-//            statusLabel.text = "Google Sign In error: " + event.error.errorID + " : " + event.error.message;
-//            return;
-//        }
-//        auth.signIn(event.credential, onSignedIn);
-//    }
+    private function onGoogleSignIn(event:GoogleSignInEvent):void {
+        if (event.error) {
+            statusLabel.text = "Google Sign In error: " + event.error.errorID + " : " + event.error.message;
+            return;
+        }
+        auth.signIn(event.credential, onSignedIn);
+    }
 
     private function onLinkWithGoogleClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnLinkWithGoogle);

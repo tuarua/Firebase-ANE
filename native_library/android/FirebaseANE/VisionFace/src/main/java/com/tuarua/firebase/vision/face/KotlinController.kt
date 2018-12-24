@@ -20,15 +20,15 @@ import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.face.FirebaseVisionFace
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetector
-import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions
 import com.google.gson.Gson
 import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
 import com.tuarua.firebase.vision.face.events.FaceEvent
 import com.tuarua.firebase.vision.face.extensions.*
 import com.tuarua.frekotlin.*
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.launch
-import kotlin.coroutines.experimental.CoroutineContext
+import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.util.*
 
 
@@ -37,7 +37,7 @@ class KotlinController : FreKotlinMainController {
     private val TRACE = "TRACE"
     private var results: MutableMap<String, MutableList<FirebaseVisionFace>> = mutableMapOf()
     private val gson = Gson()
-    private val bgContext: CoroutineContext = CommonPool
+    private val bgContext: CoroutineContext = Dispatchers.Default
     private lateinit var detector: FirebaseVisionFaceDetector
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
@@ -59,7 +59,7 @@ class KotlinController : FreKotlinMainController {
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
 
-        launch(bgContext) {
+        GlobalScope.launch(bgContext) {
             detector.detectInImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     if (!task.result.isEmpty()) {

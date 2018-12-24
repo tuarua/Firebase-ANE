@@ -12,6 +12,7 @@
     
     <packagedDependencies>
         <packagedDependency>Frameworks/FirebaseAnalytics.framework</packagedDependency>
+        <packagedDependency>Frameworks/FIRAnalyticsConnector.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

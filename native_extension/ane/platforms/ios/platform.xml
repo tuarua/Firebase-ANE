@@ -15,14 +15,12 @@
     
     <packagedDependencies>
         <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
-        <packagedDependency>Frameworks/SwiftyJSON.framework</packagedDependency>
         <packagedDependency>Frameworks/Firebase.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseCore.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseCoreDiagnostics.framework</packagedDependency>
         <packagedDependency>Frameworks/nanopb.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseCore.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseInstanceID.framework</packagedDependency>
-        <packagedDependency>Frameworks/FIRAnalyticsConnector.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleAppMeasurement.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleToolboxForMac.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleUtilities.framework</packagedDependency>

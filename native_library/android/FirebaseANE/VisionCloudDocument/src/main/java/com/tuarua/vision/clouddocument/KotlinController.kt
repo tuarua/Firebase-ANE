@@ -19,7 +19,6 @@ package com.tuarua.vision.clouddocument
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.FirebaseVision
-import com.google.firebase.ml.vision.document.FirebaseVisionCloudDocumentRecognizerOptions
 import com.google.firebase.ml.vision.document.FirebaseVisionDocumentText
 import com.google.firebase.ml.vision.document.FirebaseVisionDocumentTextRecognizer
 import com.google.gson.Gson
@@ -28,17 +27,18 @@ import com.tuarua.frekotlin.*
 import com.tuarua.vision.clouddocument.events.CloudDocumentEvent
 import com.tuarua.vision.clouddocument.extensions.FirebaseVisionCloudDocumentRecognizerOptions
 import com.tuarua.vision.clouddocument.extensions.toFREObject
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.launch
+import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.util.*
-import kotlin.coroutines.experimental.CoroutineContext
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
     private val TRACE = "TRACE"
     private var results: MutableMap<String, FirebaseVisionDocumentText> = mutableMapOf()
     private val gson = Gson()
-    private val bgContext: CoroutineContext = CommonPool
+    private val bgContext: CoroutineContext = Dispatchers.Default
     private lateinit var recognizer: FirebaseVisionDocumentTextRecognizer
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
@@ -60,7 +60,7 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
-        launch(bgContext) {
+        GlobalScope.launch(bgContext) {
             recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     results[eventId] = task.result

@@ -17,7 +17,6 @@
     
     <packagedDependencies>
         <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
-        <packagedDependency>Frameworks/SwiftyJSON.framework</packagedDependency>
         <packagedDependency>Frameworks/GTMSessionFetcher.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleAPIClientForREST.framework</packagedDependency>
         <packagedDependency>Frameworks/Protobuf.framework</packagedDependency>

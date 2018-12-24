@@ -21,9 +21,9 @@ import com.tuarua.frekotlin.FreKotlinContext;
 import com.tuarua.frekotlin.FreKotlinMainController;
 import java.util.Objects;
 
-public class InvitesANEContext extends FreKotlinContext {
+class InvitesANEContext extends FreKotlinContext {
     private AndroidActivityWrapper aaw;
-    private ResultListener resultListener;
+    private final ResultListener resultListener;
 
     InvitesANEContext(String name, FreKotlinMainController controller, String[] functions) {
         super(name, controller, functions);

@@ -132,7 +132,7 @@ public class FirestoreExample extends Sprite implements IExample {
             statusLabel.text = "Creating Database";
 
             var batch:WriteBatch = db.batch();
-            var citiesRef:CollectionReference = db.collection("citiesNew");
+            var citiesRef:CollectionReference = db.collection("cities");
 
             batch.setData({
                 "name": "San Francisco",

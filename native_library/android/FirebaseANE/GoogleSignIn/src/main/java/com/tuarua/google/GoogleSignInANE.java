@@ -17,7 +17,8 @@ package com.tuarua.google;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.google.googlesignin.KotlinController;
-@SuppressWarnings("unused")
+
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class GoogleSignInANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"

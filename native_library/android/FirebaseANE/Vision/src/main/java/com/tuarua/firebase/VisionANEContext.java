@@ -18,14 +18,9 @@ package com.tuarua.firebase;
 import com.tuarua.frekotlin.FreKotlinContext;
 import com.tuarua.frekotlin.FreKotlinMainController;
 
-public class VisionANEContext  extends FreKotlinContext {
+class VisionANEContext extends FreKotlinContext {
 
     VisionANEContext(String name, FreKotlinMainController controller, String[] functions) {
         super(name, controller, functions);
-    }
-
-    @Override
-    public void dispose() {
-        super.dispose();
     }
 }

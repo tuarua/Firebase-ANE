@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class StorageEvent: NSObject {
     public static let GET_DOWNLOAD_URL = "StorageEvent.GetDownloadUrl"

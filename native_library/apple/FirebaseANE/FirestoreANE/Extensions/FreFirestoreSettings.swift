@@ -20,10 +20,11 @@ import FreSwift
 
 public extension FirestoreSettings {
     convenience init?(_ freObject: FREObject?) {
-        let fre = FreObjectSwift(freObject)
+        guard let rv = freObject else { return nil }
+        let fre = FreObjectSwift(rv)
         self.init()
         self.areTimestampsInSnapshotsEnabled = fre.areTimestampsInSnapshotsEnabled
-        self.isSSLEnabled = fre.isSSLEnabled
+        self.isSSLEnabled = fre.isSslEnabled
         self.isPersistenceEnabled = fre.isPersistenceEnabled
     }
     

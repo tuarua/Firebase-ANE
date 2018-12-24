@@ -89,8 +89,6 @@ public class SwiftController: NSObject {
             }
         }
         
-        trace("getDocuments", path, asId, limitTo)
-        
         firestoreController?.getDocuments(path: path, eventId: asId, whereList: whereList,
                                           orderList: orderList, startAtList: startAtList,
                                           startAfterList: startAfterList,
@@ -242,9 +240,7 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "setBatch").getError(#file, #line, #column)
         }
         
-        info(documentData.debugDescription)
-        
-        // firestoreController?.setBatch(path: path, documentData: documentData, merge: merge)
+        firestoreController?.setBatch(path: path, documentData: documentData, merge: merge)
         return nil
     }
     

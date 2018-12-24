@@ -45,12 +45,12 @@ class KotlinController : FreKotlinMainController {
                     .requestEmail()
                     .build()
 
-            googleSignInClient = GoogleSignIn.getClient(act, gso);
+            googleSignInClient = GoogleSignIn.getClient(act, gso)
 
         } catch (e: Resources.NotFoundException) {
             return FreException(
                     "Cannot find required default_web_client_id. Ensure Firebase resources file added to FirebaseANE"
-            ).getError(Thread.currentThread().stackTrace)
+            ).getError()
         }
         return true.toFREObject()
     }

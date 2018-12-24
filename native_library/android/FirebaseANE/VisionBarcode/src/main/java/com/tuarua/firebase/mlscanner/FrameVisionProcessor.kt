@@ -16,9 +16,7 @@
 
 package com.tuarua.firebase.mlscanner
 
-import android.annotation.SuppressLint
 import android.graphics.Rect
-import android.util.Log
 import android.util.Size
 
 class FrameVisionProcessor(private val visionImageProcessor: VisionImageProcessor,

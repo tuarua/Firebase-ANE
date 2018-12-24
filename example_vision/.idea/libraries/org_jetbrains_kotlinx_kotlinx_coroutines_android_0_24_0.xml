@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="org.jetbrains.kotlinx.kotlinx-coroutines-android-0.24.0" type="flex">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/android_dependencies/org.jetbrains.kotlinx.kotlinx-coroutines-android-0.24.0.ane!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

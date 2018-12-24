@@ -17,7 +17,8 @@ package com.tuarua.firebase;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
-@SuppressWarnings("unused")
+
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class FirebaseANE implements FREExtension {
     private static final String[] FUNCTIONS = {
              "init"

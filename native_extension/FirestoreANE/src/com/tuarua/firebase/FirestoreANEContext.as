@@ -80,7 +80,6 @@ public class FirestoreANEContext {
         var path:String;
         var closure:Function;
         var closureObject:*;
-        trace(event.code);
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);

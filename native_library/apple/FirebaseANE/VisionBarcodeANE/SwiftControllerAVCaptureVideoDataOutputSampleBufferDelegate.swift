@@ -18,7 +18,6 @@ import Foundation
 import FirebaseMLVision
 import FreSwift
 import AVFoundation
-import SwiftyJSON
 import Accelerate
 
 extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {

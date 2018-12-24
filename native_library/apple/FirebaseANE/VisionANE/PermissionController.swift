@@ -17,7 +17,6 @@
 import UIKit
 import FreSwift
 import AVFoundation
-import SwiftyJSON
 
 class PermissionController: FreSwiftController {
     static var TAG = "PermissionController"

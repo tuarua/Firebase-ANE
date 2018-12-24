@@ -24,12 +24,12 @@ class KotlinController : FreKotlinMainController {
             if (apiKey == "xxx_xxx") {
                 return FreException(
                         "Cannot find required google_app_id. Ensure Firebase resources file added to FirebaseANE"
-                ).getError(Thread.currentThread().stackTrace)
+                ).getError()
             }
         } catch (e: Resources.NotFoundException) {
             return FreException(
                     "Cannot find required google_app_id. Ensure Firebase resources file added to FirebaseANE"
-            ).getError(Thread.currentThread().stackTrace)
+            ).getError()
         }
 
         FirebaseApp.initializeApp(ac)

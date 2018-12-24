@@ -19,7 +19,6 @@ package com.tuarua.firebase.view.widget
 import android.content.Context
 import android.support.annotation.IntRange
 import android.util.AttributeSet
-import android.util.Log
 import android.view.TextureView
 
 class AutoFitTextureView(context: Context, attrs: AttributeSet) : TextureView(context, attrs) {

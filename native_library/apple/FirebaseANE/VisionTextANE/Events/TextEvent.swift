@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class TextEvent: NSObject {
     public static let RECOGNIZED = "TextEvent.Recognized"

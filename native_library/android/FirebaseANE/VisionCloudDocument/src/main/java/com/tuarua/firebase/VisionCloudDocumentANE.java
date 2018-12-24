@@ -20,6 +20,7 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.vision.clouddocument.KotlinController;
 
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class VisionCloudDocumentANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"

@@ -18,7 +18,7 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.crashlytics.KotlinController;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class CrashlyticsANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"

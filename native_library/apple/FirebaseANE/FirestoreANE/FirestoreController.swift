@@ -39,13 +39,11 @@ class FirestoreController: FreSwiftController {
         }
         firestore = Firestore.firestore(app: app)
         if let settings = settings {
-            trace("setting settings", settings.isSSLEnabled)
             firestore?.settings = settings
         }
     }
     
     func getFirestoreSettings() -> FREObject? {
-        trace("firestore?.settings", firestore?.settings.isSSLEnabled)
         return firestore?.settings.toFREObject()
     }
     
@@ -58,41 +56,41 @@ class FirestoreController: FreSwiftController {
             return
         }
         var q: Query = fs.collection(path)
-//        for w in whereList {
-//            switch w.operatr {
-//            case "==":
-//                q = q.whereField(w.fieldPath, isEqualTo: w.value)
-//            case "<":
-//                q = q.whereField(w.fieldPath, isLessThan: w.value)
-//            case ">":
-//                q = q.whereField(w.fieldPath, isGreaterThan: w.value)
-//            case ">=":
-//                q = q.whereField(w.fieldPath, isGreaterThanOrEqualTo: w.value)
-//            case "<=":
-//                q = q.whereField(w.fieldPath, isLessThanOrEqualTo: w.value)
-//            default:
-//                break
-//            }
-//        }
-//
-//        for o in orderList {
-//            q = q.order(by: o.by, descending: o.descending)
-//        }
-//
-//        if !startAtList.isEmpty {
-//            q = q.start(at: startAtList)
-//        }
-//        if !startAfterList.isEmpty {
-//            q = q.start(after: startAfterList)
-//        }
-//        if !endAtList.isEmpty {
-//            q = q.end(at: endAtList)
-//        }
-//        if !endBeforeList.isEmpty {
-//            q = q.end(before: endBeforeList)
-//        }
+        for w in whereList {
+            switch w.operatr {
+            case "==":
+                q = q.whereField(w.fieldPath, isEqualTo: w.value)
+            case "<":
+                q = q.whereField(w.fieldPath, isLessThan: w.value)
+            case ">":
+                q = q.whereField(w.fieldPath, isGreaterThan: w.value)
+            case ">=":
+                q = q.whereField(w.fieldPath, isGreaterThanOrEqualTo: w.value)
+            case "<=":
+                q = q.whereField(w.fieldPath, isLessThanOrEqualTo: w.value)
+            default:
+                break
+            }
+        }
+
+        for o in orderList {
+            q = q.order(by: o.by, descending: o.descending)
+        }
+
+        if !startAtList.isEmpty {
+            q = q.start(at: startAtList)
+        }
+        if !startAfterList.isEmpty {
+            q = q.start(after: startAfterList)
+        }
+        if !endAtList.isEmpty {
+            q = q.end(at: endAtList)
+        }
+        if !endBeforeList.isEmpty {
+            q = q.end(before: endBeforeList)
+        }
         
-        // q = q.limit(to: limitTo)
+        q = q.limit(to: limitTo)
         
         q.getDocuments { querySnapshot, error in
             if let err = error as NSError? {
@@ -105,8 +103,6 @@ class FirestoreController: FreSwiftController {
                 
             } else {
                 if let qSnapshot: QuerySnapshot = querySnapshot {
-                    self.info("qSnapshot.count", qSnapshot.count)
-                    self.info(qSnapshot.toDictionary().debugDescription)
                     self.dispatchEvent(name: DocumentEvent.QUERY_SNAPSHOT,
                                    value: DocumentEvent(
                                     eventId: eventId,

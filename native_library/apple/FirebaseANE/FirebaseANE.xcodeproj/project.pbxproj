@@ -19,7 +19,6 @@
 		90160D9C2115C60B0009A815 /* FreVisionImageMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039420EED2A8008D6CE8 /* FreVisionImageMetadata.swift */; };
 		90160DA52115C60B0009A815 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
 		90160DA62115C60B0009A815 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
-		90160DA72115C60B0009A815 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		90160DA82115C60B0009A815 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		90160DA92115C60B0009A815 /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */; };
 		90160DAA2115C60B0009A815 /* FirebaseMLVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */; };
@@ -41,7 +40,6 @@
 		90160DD92115CCA30009A815 /* FreVisionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039220EED12C008D6CE8 /* FreVisionImage.swift */; };
 		90160DE22115CCA30009A815 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
 		90160DE32115CCA30009A815 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
-		90160DE42115CCA30009A815 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		90160DE52115CCA30009A815 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		90160DE62115CCA30009A815 /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */; };
 		90160DE72115CCA30009A815 /* FirebaseMLVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */; };
@@ -69,7 +67,6 @@
 		90160E1B2115D3E60009A815 /* FreVisionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039220EED12C008D6CE8 /* FreVisionImage.swift */; };
 		90160E202115D3E60009A815 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
 		90160E212115D3E60009A815 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
-		90160E222115D3E60009A815 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		90160E232115D3E60009A815 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		90160E242115D3E60009A815 /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */; };
 		90160E252115D3E60009A815 /* FirebaseMLVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */; };
@@ -95,12 +92,9 @@
 		90207A592151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90207A572151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift */; };
 		9033688B20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033688A20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift */; };
 		9033689420FCBFE5001A3B24 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033689320FCBFE5001A3B24 /* UIUtilities.swift */; };
-		9038AF1121B1D2C5000C7AE6 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 9038AF0F21B1D2C5000C7AE6 /* SwiftyJSON.h */; };
-		9038AF1221B1D2C5000C7AE6 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9038AF1021B1D2C5000C7AE6 /* SwiftyJSON.swift */; };
 		9062053F20F800B400AFCE48 /* RemoteConfigErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062053E20F800B400AFCE48 /* RemoteConfigErrorEvent.swift */; };
 		9062054120F801A300AFCE48 /* RemoteConfigEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062054020F801A300AFCE48 /* RemoteConfigEvent.swift */; };
 		90658A7621162EF9003197A5 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
-		90658A7721162EF9003197A5 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		90658A7821162EF9003197A5 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		90658A8121162EF9003197A5 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
 		90658A8C21162F98003197A5 /* ModelInterpreterANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = 90658A8A21162F98003197A5 /* ModelInterpreterANE_oc.h */; };
@@ -121,7 +115,6 @@
 		90658AAA2116493E003197A5 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
 		90658AAB2116493E003197A5 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
 		906A67F82114EFB000848218 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
-		906A67F92114EFB000848218 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		906A67FA2114EFB000848218 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		906A67FB2114EFB000848218 /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */; };
 		906A67FC2114EFB000848218 /* FirebaseMLVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */; };
@@ -154,6 +147,45 @@
 		90741DB62150514A003366E3 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90741DB121504FC2003366E3 /* GoogleUtilities.framework */; };
 		90741DB721505154003366E3 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB572BC208D21C300CF6B1B /* GoogleToolboxForMac.framework */; };
 		90741DB82150522F003366E3 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB572BC208D21C300CF6B1B /* GoogleToolboxForMac.framework */; };
+		90768F9F21CEBD67004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FA021CEBD6B004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FA121CEBD80004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FA221CEBD80004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FA321CEBD8D004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FA421CEBDAB004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FA521CEBDBD004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FA621CEBDBE004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FA721CEBDF4004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FA821CEBDFF004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FA921CEBE13004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FAA21CEBE13004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FAB21CEBE27004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FAC21CEBE27004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FAD21CEBE3C004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FAE21CEBE3C004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FAF21CEBE6C004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FB021CEBE6C004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FB121CEBE8B004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FB221CEBE8B004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FB321CEBE8D004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FB421CEBE8D004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FB521CEBEA5004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FB621CEBEA5004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FB721CEBEB6004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FB821CEBEB6004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FB921CEBEC6004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FBA21CEBEC6004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FBB21CEBEE2004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FBC21CEBEE2004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FBD21CEBEFC004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FBE21CEBEFC004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90768FBF21CEBF0E004F0D35 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90768FC021CEBF0E004F0D35 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		9076901A21CEF477004F0D35 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
+		9076901B21CEF4B2004F0D35 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8BC50920B205F9009164ED /* SafariServices.framework */; };
+		9076901C21CEF4C1004F0D35 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8BC50B20B20601009164ED /* Security.framework */; };
+		9076901D21CEF4C7004F0D35 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED748E32092558C000327CD /* StoreKit.framework */; };
+		9076901E21CEF4D8004F0D35 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE83B04220A7536B0095C4F9 /* SystemConfiguration.framework */; };
 		908B92E921506EE8004C98C1 /* FreVisionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92E821506EE8004C98C1 /* FreVisionText.swift */; };
 		908B92EB2150705D004C98C1 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
 		908B92EC21507223004C98C1 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
@@ -167,7 +199,6 @@
 		909587B42115A65300AD59D5 /* FreVisionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039220EED12C008D6CE8 /* FreVisionImage.swift */; };
 		909587C92115A65300AD59D5 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
 		909587CA2115A65300AD59D5 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
-		909587CB2115A65300AD59D5 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		909587CC2115A65300AD59D5 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		909587CD2115A65300AD59D5 /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */; };
 		909587CE2115A65300AD59D5 /* FirebaseMLVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */; };
@@ -177,7 +208,6 @@
 		909587D22115A65300AD59D5 /* GoogleAPIClientForREST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */; };
 		909587D32115A65300AD59D5 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; };
 		909587D72115A65300AD59D5 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
-		909ED0CC214EE7070059EB62 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		909ED0CD214EE7070059EB62 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		909ED0D9214EE7070059EB62 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
 		909ED0E2214EE79C0059EB62 /* CrashlyticsANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = 909ED0E0214EE79C0059EB62 /* CrashlyticsANE_oc.h */; };
@@ -188,7 +218,6 @@
 		909ED0ED214EED170059EB62 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909ED0EC214EED170059EB62 /* Crashlytics.framework */; };
 		90BABA7220FBE90800C012F8 /* PermissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BABA7020FBE8C500C012F8 /* PermissionController.swift */; };
 		90BABA7520FBE93D00C012F8 /* PermissionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BABA7420FBE93D00C012F8 /* PermissionEvent.swift */; };
-		90BABA7620FBE98300C012F8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		90BBBDD721AC93A50066541D /* FirebaseANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87F4781FB259DB005CF7DF /* FirebaseANE.m */; };
 		90CDBBA0215673090056DD92 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDBB9F215673090056DD92 /* SwiftController+FreSwift.swift */; };
 		90CDBBA221567F910056DD92 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CDBBA121567F910056DD92 /* Fabric.framework */; };
@@ -201,7 +230,6 @@
 		90D35EA4217AA2E30072B9DD /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
 		90EF030B2154216000C91063 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
 		90EF030C2154216000C91063 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
-		90EF030D2154216000C91063 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		90EF030E2154216000C91063 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		90EF030F2154216000C91063 /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */; };
 		90EF03102154216000C91063 /* FirebaseMLVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */; };
@@ -227,34 +255,7 @@
 		90EF03342154262000C91063 /* FreVisionTextRecognizedBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03332154262000C91063 /* FreVisionTextRecognizedBreak.swift */; };
 		90EF0336215445E700C91063 /* FreVisionDocumentTextWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF0335215445E700C91063 /* FreVisionDocumentTextWord.swift */; };
 		90EF03382154478D00C91063 /* FreVisionDocumentTextSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03372154478D00C91063 /* FreVisionDocumentTextSymbol.swift */; };
-		90F447F121B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F447F221B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F447F321B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F447F421B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F447F521B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F447F621B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F447F721B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F447F821B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F447F921B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F447FA21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F447FB21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F447FC21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F447FD21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F447FE21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F447FF21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F4480021B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F4480121B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F4480221B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F4480321B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F4480421B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F4480521B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
-		90F4480621B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */; };
 		CE0038CB2094E9B7002A657A /* FreStorageMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0038CA2094E9B7002A657A /* FreStorageMetadata.swift */; };
-		CE00E76420BC09A6002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
-		CE00E76520BC09AE002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
-		CE00E76620BC09E7002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
-		CE00E76720BC0A43002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
-		CE00E76820BC0A73002B569A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CE05604A1FB25DF600D06976 /* FirebaseANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE87F4771FB259DB005CF7DF /* FirebaseANE_oc.h */; };
 		CE05604E1FB25E8E00D06976 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
@@ -273,7 +274,6 @@
 		CE2BDB4720A6222900C89A7C /* SwiftController+Messaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDB4620A6222900C89A7C /* SwiftController+Messaging.swift */; };
 		CE2BDB4920A6243800C89A7C /* MessageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2BDB4820A6243800C89A7C /* MessageEvent.swift */; };
 		CE2C3F5420F3F27200B9E210 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
-		CE2C3F5520F3F27200B9E210 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		CE2C3F5620F3F27200B9E210 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		CE2C3F5720F3F27200B9E210 /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */; };
 		CE2C3F5820F3F27200B9E210 /* FirebaseMLVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */; };
@@ -320,7 +320,6 @@
 		CE62B37920D06AF9002837B7 /* GTMOAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37820D06AF9002837B7 /* GTMOAuth2.framework */; };
 		CE62B37A20D06B1E002837B7 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED7492220929C1F000327CD /* GTMSessionFetcher.framework */; };
 		CE62B37B20D06CF4002837B7 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
-		CE62B37C20D06D0A002837B7 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		CE62B37E20D06D5D002837B7 /* SwiftController+GIDSignInDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62B37D20D06D5D002837B7 /* SwiftController+GIDSignInDelegate.swift */; };
 		CE62B37F20D06F1D002837B7 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8BC50920B205F9009164ED /* SafariServices.framework */; };
 		CE62B38020D06F23002837B7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED748E32092558C000327CD /* StoreKit.framework */; };
@@ -329,7 +328,6 @@
 		CE62B38520D09223002837B7 /* GoogleSignInEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62B38420D09223002837B7 /* GoogleSignInEvent.swift */; };
 		CE69C8DB208FEE1E004A1A5A /* BatchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C8D9208FEE1A004A1A5A /* BatchEvent.swift */; };
 		CE69C8DE208FF9E9004A1A5A /* NetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C8DC208FF963004A1A5A /* NetworkEvent.swift */; };
-		CE6E036420EEC828008D6CE8 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		CE6E036520EEC828008D6CE8 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CE6E036D20EEC828008D6CE8 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		CE6E037120EEC828008D6CE8 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
@@ -417,7 +415,6 @@
 		CEB572C3208D221100CF6B1B /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
 		CEB572C4208D221600CF6B1B /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		CEB572C5208D221900CF6B1B /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D49208CE3FF00C96EC6 /* FirebaseInstanceID.framework */; };
-		CEB947F020D5CED000F707C1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE00E76220BC08D4002B569A /* SwiftyJSON.framework */; };
 		CEB947F120D5CED000F707C1 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CEB947F220D5CED000F707C1 /* FirebaseDynamicLinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8BC4C320B1C9BE009164ED /* FirebaseDynamicLinks.framework */; };
 		CEB947F320D5CED000F707C1 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
@@ -543,8 +540,6 @@
 		90207A572151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionTextRecognizedLanguage.swift; sourceTree = "<group>"; };
 		9033688A20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift; sourceTree = "<group>"; };
 		9033689320FCBFE5001A3B24 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
-		9038AF0F21B1D2C5000C7AE6 /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
-		9038AF1021B1D2C5000C7AE6 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9062053E20F800B400AFCE48 /* RemoteConfigErrorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigErrorEvent.swift; sourceTree = "<group>"; };
 		9062054020F801A300AFCE48 /* RemoteConfigEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigEvent.swift; sourceTree = "<group>"; };
 		90658A8921162EF9003197A5 /* libModelInterpreterANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libModelInterpreterANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -577,6 +572,8 @@
 		90741DAD21504F88003366E3 /* gRPC-C++.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "gRPC-C++.framework"; path = "Carthage/Build/iOS/gRPC-C++.framework"; sourceTree = "<group>"; };
 		90741DAF21504FBA003366E3 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppMeasurement.framework; path = Carthage/Build/iOS/GoogleAppMeasurement.framework; sourceTree = "<group>"; };
 		90741DB121504FC2003366E3 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Carthage/Build/iOS/GoogleUtilities.framework; sourceTree = "<group>"; };
+		90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
 		908B92E821506EE8004C98C1 /* FreVisionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionText.swift; sourceTree = "<group>"; };
 		908B92EA2150705D004C98C1 /* FreNSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreNSError.swift; sourceTree = "<group>"; };
 		909587B02115A55E00AD59D5 /* FreVisionTextElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionTextElement.swift; sourceTree = "<group>"; };
@@ -609,9 +606,7 @@
 		90EF03332154262000C91063 /* FreVisionTextRecognizedBreak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionTextRecognizedBreak.swift; sourceTree = "<group>"; };
 		90EF0335215445E700C91063 /* FreVisionDocumentTextWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionDocumentTextWord.swift; sourceTree = "<group>"; };
 		90EF03372154478D00C91063 /* FreVisionDocumentTextSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionDocumentTextSymbol.swift; sourceTree = "<group>"; };
-		90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FreSwift+Static-Shims.swift"; sourceTree = "<group>"; };
 		CE0038CA2094E9B7002A657A /* FreStorageMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreStorageMetadata.swift; sourceTree = "<group>"; };
-		CE00E76220BC08D4002B569A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		CE05603E1FB25CE200D06976 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/iOS/FreSwift.framework; sourceTree = "<group>"; };
 		CE05604D1FB25E8E00D06976 /* FreMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreMacros.h; sourceTree = "<group>"; };
 		CE265749208E5BBF00C561E8 /* gRPC-ProtoRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "gRPC-ProtoRPC.framework"; path = "Carthage/Build/iOS/gRPC-ProtoRPC.framework"; sourceTree = "<group>"; };
@@ -817,7 +812,6 @@
 			files = (
 				90160DA52115C60B0009A815 /* nanopb.framework in Frameworks */,
 				90160DA62115C60B0009A815 /* FreSwift.framework in Frameworks */,
-				90160DA72115C60B0009A815 /* SwiftyJSON.framework in Frameworks */,
 				90160DA82115C60B0009A815 /* FirebaseCore.framework in Frameworks */,
 				90160DA92115C60B0009A815 /* FirebaseMLCommon.framework in Frameworks */,
 				90160DAA2115C60B0009A815 /* FirebaseMLVision.framework in Frameworks */,
@@ -837,7 +831,6 @@
 			files = (
 				90160DE22115CCA30009A815 /* nanopb.framework in Frameworks */,
 				90160DE32115CCA30009A815 /* FreSwift.framework in Frameworks */,
-				90160DE42115CCA30009A815 /* SwiftyJSON.framework in Frameworks */,
 				90160DE52115CCA30009A815 /* FirebaseCore.framework in Frameworks */,
 				90160DE62115CCA30009A815 /* FirebaseMLCommon.framework in Frameworks */,
 				90160DE72115CCA30009A815 /* FirebaseMLVision.framework in Frameworks */,
@@ -855,7 +848,6 @@
 			files = (
 				90160E202115D3E60009A815 /* nanopb.framework in Frameworks */,
 				90160E212115D3E60009A815 /* FreSwift.framework in Frameworks */,
-				90160E222115D3E60009A815 /* SwiftyJSON.framework in Frameworks */,
 				90160E232115D3E60009A815 /* FirebaseCore.framework in Frameworks */,
 				90160E242115D3E60009A815 /* FirebaseMLCommon.framework in Frameworks */,
 				90160E252115D3E60009A815 /* FirebaseMLVision.framework in Frameworks */,
@@ -872,7 +864,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				90658A7621162EF9003197A5 /* FreSwift.framework in Frameworks */,
-				90658A7721162EF9003197A5 /* SwiftyJSON.framework in Frameworks */,
 				90658A7821162EF9003197A5 /* FirebaseCore.framework in Frameworks */,
 				90658AA52116481E003197A5 /* FirebaseMLModelInterpreter.framework in Frameworks */,
 				90658AA32116481A003197A5 /* tensorflow_lite.framework in Frameworks */,
@@ -885,7 +876,6 @@
 			files = (
 				906A68222114F33300848218 /* nanopb.framework in Frameworks */,
 				906A67F82114EFB000848218 /* FreSwift.framework in Frameworks */,
-				906A67F92114EFB000848218 /* SwiftyJSON.framework in Frameworks */,
 				906A67FA2114EFB000848218 /* FirebaseCore.framework in Frameworks */,
 				906A67FB2114EFB000848218 /* FirebaseMLCommon.framework in Frameworks */,
 				906A67FC2114EFB000848218 /* FirebaseMLVision.framework in Frameworks */,
@@ -905,7 +895,6 @@
 			files = (
 				909587C92115A65300AD59D5 /* nanopb.framework in Frameworks */,
 				909587CA2115A65300AD59D5 /* FreSwift.framework in Frameworks */,
-				909587CB2115A65300AD59D5 /* SwiftyJSON.framework in Frameworks */,
 				909587CC2115A65300AD59D5 /* FirebaseCore.framework in Frameworks */,
 				909587CD2115A65300AD59D5 /* FirebaseMLCommon.framework in Frameworks */,
 				909587CE2115A65300AD59D5 /* FirebaseMLVision.framework in Frameworks */,
@@ -921,7 +910,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				909ED0CC214EE7070059EB62 /* SwiftyJSON.framework in Frameworks */,
 				909ED0CD214EE7070059EB62 /* FreSwift.framework in Frameworks */,
 				909ED0ED214EED170059EB62 /* Crashlytics.framework in Frameworks */,
 				90CDBBA221567F910056DD92 /* Fabric.framework in Frameworks */,
@@ -934,7 +922,6 @@
 			files = (
 				90EF030B2154216000C91063 /* nanopb.framework in Frameworks */,
 				90EF030C2154216000C91063 /* FreSwift.framework in Frameworks */,
-				90EF030D2154216000C91063 /* SwiftyJSON.framework in Frameworks */,
 				90EF030E2154216000C91063 /* FirebaseCore.framework in Frameworks */,
 				90EF030F2154216000C91063 /* FirebaseMLCommon.framework in Frameworks */,
 				90EF03102154216000C91063 /* FirebaseMLVision.framework in Frameworks */,
@@ -951,7 +938,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2C3F5420F3F27200B9E210 /* FreSwift.framework in Frameworks */,
-				CE2C3F5520F3F27200B9E210 /* SwiftyJSON.framework in Frameworks */,
 				CE2C3F5620F3F27200B9E210 /* FirebaseCore.framework in Frameworks */,
 				CE2C3F5720F3F27200B9E210 /* FirebaseMLCommon.framework in Frameworks */,
 				CE2C3F5820F3F27200B9E210 /* FirebaseMLVision.framework in Frameworks */,
@@ -977,7 +963,6 @@
 				CEF921D720F23FD5005DE361 /* AVFoundation.framework in Frameworks */,
 				CEF921D520F23FC6005DE361 /* Accelerate.framework in Frameworks */,
 				CE5E6B1220F1787D001398C5 /* FreSwift.framework in Frameworks */,
-				90BABA7620FBE98300C012F8 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -988,7 +973,6 @@
 				CE62B38120D06F2A002837B7 /* SystemConfiguration.framework in Frameworks */,
 				CE62B38020D06F23002837B7 /* StoreKit.framework in Frameworks */,
 				CE62B37F20D06F1D002837B7 /* SafariServices.framework in Frameworks */,
-				CE62B37C20D06D0A002837B7 /* SwiftyJSON.framework in Frameworks */,
 				CE62B35920D0618E002837B7 /* FreSwift.framework in Frameworks */,
 				CE62B37B20D06CF4002837B7 /* FirebaseCore.framework in Frameworks */,
 				CE62B37A20D06B1E002837B7 /* GTMSessionFetcher.framework in Frameworks */,
@@ -1004,7 +988,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6E036520EEC828008D6CE8 /* FreSwift.framework in Frameworks */,
-				CE6E036420EEC828008D6CE8 /* SwiftyJSON.framework in Frameworks */,
 				CE6E036D20EEC828008D6CE8 /* FirebaseCore.framework in Frameworks */,
 				CE6E037D20EECA9F008D6CE8 /* FirebaseMLCommon.framework in Frameworks */,
 				CE6E037F20EECAA8008D6CE8 /* FirebaseMLVision.framework in Frameworks */,
@@ -1039,7 +1022,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE00E76820BC0A73002B569A /* SwiftyJSON.framework in Frameworks */,
 				CE8BC4AA20B1C890009164ED /* FreSwift.framework in Frameworks */,
 				CE8BC4C420B1C9BE009164ED /* FirebaseDynamicLinks.framework in Frameworks */,
 				CE8BC4BA20B1C8F6009164ED /* FirebaseCore.framework in Frameworks */,
@@ -1055,7 +1037,6 @@
 				CE94518520951FCF00FE2BD7 /* FirebaseCore.framework in Frameworks */,
 				CE9451A42095323C00FE2BD7 /* FirebaseABTesting.framework in Frameworks */,
 				CE9451A62095324600FE2BD7 /* Protobuf.framework in Frameworks */,
-				CE00E76520BC09AE002B569A /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1063,6 +1044,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9076901E21CEF4D8004F0D35 /* SystemConfiguration.framework in Frameworks */,
+				9076901D21CEF4C7004F0D35 /* StoreKit.framework in Frameworks */,
+				9076901C21CEF4C1004F0D35 /* Security.framework in Frameworks */,
+				9076901B21CEF4B2004F0D35 /* SafariServices.framework in Frameworks */,
 				CE265758208E5BC100C561E8 /* gRPC-Core.framework in Frameworks */,
 				CE265751208E5BC100C561E8 /* gRPC-ProtoRPC.framework in Frameworks */,
 				CE265752208E5BC100C561E8 /* gRPC.framework in Frameworks */,
@@ -1074,6 +1059,7 @@
 				CE743202208D490600E388D3 /* FirebaseCore.framework in Frameworks */,
 				CE265755208E5BC100C561E8 /* Protobuf.framework in Frameworks */,
 				CE265757208E5BC100C561E8 /* leveldb-library.framework in Frameworks */,
+				9076901A21CEF477004F0D35 /* nanopb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1081,7 +1067,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEB947F020D5CED000F707C1 /* SwiftyJSON.framework in Frameworks */,
 				CEB947F120D5CED000F707C1 /* FreSwift.framework in Frameworks */,
 				CEB9480B20D5D5AD00F707C1 /* Protobuf.framework in Frameworks */,
 				CEB9481120D5D60100F707C1 /* FirebaseInvites.framework in Frameworks */,
@@ -1103,7 +1088,6 @@
 				CEBCF7CD209611B00028601B /* GTMSessionFetcher.framework in Frameworks */,
 				CEBCF7A82095F9160028601B /* FreSwift.framework in Frameworks */,
 				CEBCF7A92095F9160028601B /* FirebaseCore.framework in Frameworks */,
-				CE00E76620BC09E7002B569A /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1115,7 +1099,6 @@
 				CED748FA20929586000327CD /* FreSwift.framework in Frameworks */,
 				CED748FF20929586000327CD /* FirebaseCore.framework in Frameworks */,
 				CED7492320929C1F000327CD /* FirebaseStorage.framework in Frameworks */,
-				CE00E76420BC09A6002B569A /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1137,7 +1120,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE00E76720BC0A43002B569A /* SwiftyJSON.framework in Frameworks */,
 				CE83B04420A755400095C4F9 /* AddressBook.framework in Frameworks */,
 				CE83B01820A74F6F0095C4F9 /* GoogleToolboxForMac.framework in Frameworks */,
 				CE83B01720A74F690095C4F9 /* nanopb.framework in Frameworks */,
@@ -1364,6 +1346,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		90768F9C21CEBD41004F0D35 /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */,
+				90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
 		909587AC2115A00D00AD59D5 /* VisionCloudTextANE */ = {
 			isa = PBXGroup;
 			children = (
@@ -1533,7 +1524,6 @@
 				CE62B37820D06AF9002837B7 /* GTMOAuth2.framework */,
 				CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */,
 				CE62B37220D06A86002837B7 /* GoogleSignIn.framework */,
-				CE00E76220BC08D4002B569A /* SwiftyJSON.framework */,
 				CE8BC50F20B2061E009164ED /* WebKit.framework */,
 				CE8BC50B20B20601009164ED /* Security.framework */,
 				CE8BC50920B205F9009164ED /* SafariServices.framework */,
@@ -1766,6 +1756,7 @@
 		CE87F45C1FB259C9005CF7DF = {
 			isa = PBXGroup;
 			children = (
+				90768F9C21CEBD41004F0D35 /* SwiftyJSON */,
 				90EF02F021541FF300C91063 /* VisionCloudDocumentANE */,
 				90658A6321162ECF003197A5 /* ModelInterpreterANE */,
 				90160E0F2115D36D0009A815 /* VisionLandmarkANE */,
@@ -1827,14 +1818,11 @@
 		CE87F4761FB259DB005CF7DF /* FirebaseANE */ = {
 			isa = PBXGroup;
 			children = (
-				9038AF0F21B1D2C5000C7AE6 /* SwiftyJSON.h */,
-				9038AF1021B1D2C5000C7AE6 /* SwiftyJSON.swift */,
 				CE94517220951E6600FE2BD7 /* Extensions */,
 				CEE80D46208CE15A00C96EC6 /* Headers */,
 				CE87F4781FB259DB005CF7DF /* FirebaseANE.m */,
 				CEA9AC20201E5F4500BFB223 /* SwiftController.swift */,
 				CEE80D4F208CE55700C96EC6 /* SwiftController+FreSwift.swift */,
-				90F447F021B0797800895FF6 /* FreSwift+Static-Shims.swift */,
 			);
 			path = FirebaseANE;
 			sourceTree = "<group>";
@@ -2204,6 +2192,7 @@
 			files = (
 				90160DC82115C75A0009A815 /* VisionLabelANE-Bridging-Header.h in Headers */,
 				90160DC12115C7050009A815 /* VisionLabelANE_oc.h in Headers */,
+				90768FA421CEBDAB004F0D35 /* SwiftyJSON.h in Headers */,
 				90160DB32115C60B0009A815 /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2214,6 +2203,7 @@
 			files = (
 				90160DFB2115CD660009A815 /* VisionCloudLabelANE_oc.h in Headers */,
 				90160E022115CDB60009A815 /* VisionCloudLabelANE-Bridging-Header.h in Headers */,
+				90768FA721CEBDF4004F0D35 /* SwiftyJSON.h in Headers */,
 				90160DF22115CCA30009A815 /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2224,6 +2214,7 @@
 			files = (
 				90160E2E2115D3E60009A815 /* FreMacros.h in Headers */,
 				90160E372115D4630009A815 /* VisionLandmarkANE_oc.h in Headers */,
+				90768FA921CEBE13004F0D35 /* SwiftyJSON.h in Headers */,
 				90160E3E2115D4B30009A815 /* VisionLandmarkANE-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2244,6 +2235,7 @@
 			files = (
 				906A68052114EFB000848218 /* FreMacros.h in Headers */,
 				906A68152114F05000848218 /* VisionTextANE_oc.h in Headers */,
+				90768FA121CEBD80004F0D35 /* SwiftyJSON.h in Headers */,
 				906A68182114F10A00848218 /* VisionTextANE-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2254,6 +2246,7 @@
 			files = (
 				90160D912115A8DB0009A815 /* VisionCloudTextANE-Bridging-Header.h in Headers */,
 				90160D8A2115A7BD0009A815 /* VisionCloudTextANE_oc.h in Headers */,
+				90768FA521CEBDBD004F0D35 /* SwiftyJSON.h in Headers */,
 				909587D72115A65300AD59D5 /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2274,6 +2267,7 @@
 			files = (
 				90EF0320215421DB00C91063 /* VisionCloudDocumentANE_oc.h in Headers */,
 				90EF0321215421E000C91063 /* VisionCloudDocumentANE-Bridging-Header.h in Headers */,
+				90768FAB21CEBE27004F0D35 /* SwiftyJSON.h in Headers */,
 				90EF03192154216000C91063 /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2294,6 +2288,7 @@
 			files = (
 				CE2C3F6220F3F27200B9E210 /* FreMacros.h in Headers */,
 				CE2C3F9220F3F58300B9E210 /* VisionFaceANE-Bridging-Header.h in Headers */,
+				90768FBF21CEBF0E004F0D35 /* SwiftyJSON.h in Headers */,
 				CE2C3F9520F3F5D800B9E210 /* VisionFaceANE_oc.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2304,6 +2299,7 @@
 			files = (
 				CE5E6B2020F1787D001398C5 /* FreMacros.h in Headers */,
 				CE5E6B2D20F178FB001398C5 /* VisionANE_oc.h in Headers */,
+				90768F9F21CEBD67004F0D35 /* SwiftyJSON.h in Headers */,
 				CE5E6B3020F17A17001398C5 /* VisionANE-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2314,6 +2310,7 @@
 			files = (
 				CE62B36920D062E7002837B7 /* GoogleSignInANE_oc.h in Headers */,
 				CE62B35D20D0618E002837B7 /* FreMacros.h in Headers */,
+				90768FB321CEBE8D004F0D35 /* SwiftyJSON.h in Headers */,
 				CE62B37120D0646A002837B7 /* GoogleSignInANE-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2324,6 +2321,7 @@
 			files = (
 				CE6E039120EECD5C008D6CE8 /* VisionBarcodeANE-Bridging-Header.h in Headers */,
 				CE6E038920EECB6B008D6CE8 /* VisionBarcodeANE_oc.h in Headers */,
+				90768FBD21CEBEFC004F0D35 /* SwiftyJSON.h in Headers */,
 				CE6E037120EEC828008D6CE8 /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2334,6 +2332,7 @@
 			files = (
 				CE8BC4CA20B1CABE009164ED /* DynamicLinksANE-Bridging-Header.h in Headers */,
 				CE8BC4C820B1CA71009164ED /* DynamicLinksANE_oc.h in Headers */,
+				90768FB921CEBEC6004F0D35 /* SwiftyJSON.h in Headers */,
 				CE8BC4B220B1C890009164ED /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2344,6 +2343,7 @@
 			files = (
 				CE94518C20951FCF00FE2BD7 /* FreMacros.h in Headers */,
 				CE945199209520EF00FE2BD7 /* RemoteConfigANE-Bridging-Header.h in Headers */,
+				90768FB121CEBE8B004F0D35 /* SwiftyJSON.h in Headers */,
 				CE945197209520AA00FE2BD7 /* RemoteConfigANE_oc.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2354,7 +2354,7 @@
 			files = (
 				CEB572B2208CF92400CF6B1B /* FirestoreANE_oc.h in Headers */,
 				CED749152092975C000327CD /* FreMacros.h in Headers */,
-				9038AF1121B1D2C5000C7AE6 /* SwiftyJSON.h in Headers */,
+				90768FAD21CEBE3C004F0D35 /* SwiftyJSON.h in Headers */,
 				CEB572B1208CF92400CF6B1B /* FirestoreANE-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2365,6 +2365,7 @@
 			files = (
 				CEB9480420D5D00500F707C1 /* InvitesANE_oc.h in Headers */,
 				CEB9480620D5D02A00F707C1 /* InvitesANE-Bridging-Header.h in Headers */,
+				90768FBB21CEBEE2004F0D35 /* SwiftyJSON.h in Headers */,
 				CEB947F720D5CED000F707C1 /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2375,6 +2376,7 @@
 			files = (
 				CEBCF7C22095FA0F0028601B /* AuthANE-Bridging-Header.h in Headers */,
 				CEBCF7BA2095F99B0028601B /* AuthANE_oc.h in Headers */,
+				90768FB521CEBEA5004F0D35 /* SwiftyJSON.h in Headers */,
 				CEBCF7B02095F9160028601B /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2385,6 +2387,7 @@
 			files = (
 				CED7491A20929803000327CD /* StorageANE-Bridging-Header.h in Headers */,
 				CED7491420929670000327CD /* StorageANE_oc.h in Headers */,
+				90768FAF21CEBE6C004F0D35 /* SwiftyJSON.h in Headers */,
 				CED749162092975D000327CD /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2405,6 +2408,7 @@
 			files = (
 				CEE3AE8920A06F2D00D3AAF6 /* MessagingANE_oc.h in Headers */,
 				CEE3AE7D20A06D2600D3AAF6 /* FreMacros.h in Headers */,
+				90768FB721CEBEB6004F0D35 /* SwiftyJSON.h in Headers */,
 				CEE3AE8B20A06F5000D3AAF6 /* MessagingANE-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2919,7 +2923,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/VisionLabelANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/VisionLabelANE/ane/build_multi.sh\n";
 		};
 		90160DF32115CCA30009A815 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2945,7 +2949,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/VisionCloudLabelANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/VisionCloudLabelANE/ane/build_multi.sh\n";
 		};
 		90160E2F2115D3E60009A815 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2971,7 +2975,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/VisionLandmarkANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/VisionLandmarkANE/ane/build_multi.sh\n";
 		};
 		90658A8421162EF9003197A5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3023,7 +3027,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/VisionTextANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/VisionTextANE/ane/build_multi.sh\n";
 		};
 		909587DA2115A65300AD59D5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3049,7 +3053,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/VisionCloudTextANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/VisionCloudTextANE/ane/build_multi.sh\n";
 		};
 		909ED0DA214EE7070059EB62 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3075,7 +3079,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/CrashlyticsANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/CrashlyticsANE/ane/build_multi.sh\n";
 		};
 		90EF031A2154216000C91063 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3101,7 +3105,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/VisionCloudDocumentANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/VisionCloudDocumentANE/ane/build_multi.sh\n";
 		};
 		CE2C3F6320F3F27200B9E210 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3127,7 +3131,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/VisionFaceANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/VisionFaceANE/ane/build_multi.sh\n";
 		};
 		CE5E6B2120F1787D001398C5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3153,7 +3157,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/VisionANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/VisionANE/ane/build_multi.sh\n";
 		};
 		CE62B35E20D0618E002837B7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3179,7 +3183,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/GoogleSignInANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/GoogleSignInANE/ane/build_multi.sh\n";
 		};
 		CE6E037220EEC828008D6CE8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3205,7 +3209,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/VisionBarcodeANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/VisionBarcodeANE/ane/build_multi.sh\n";
 		};
 		CE7431FF208D488000E388D3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3218,7 +3222,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		CE8BC4B420B1C890009164ED /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3244,7 +3248,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/DynamicLinksANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/DynamicLinksANE/ane/build_multi.sh\n";
 		};
 		CE94518D20951FCF00FE2BD7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3270,18 +3274,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/RemoteConfigANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/RemoteConfigANE/ane/build_multi.sh\n";
 		};
 		CEB57295208CF73F00CF6B1B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "../../../native_extension/FirestoreANE/ane/build_multi.sh\n";
 		};
@@ -3326,14 +3330,14 @@
 		};
 		CEB947F920D5CED000F707C1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "../../../native_extension/InvitesANE/ane/build_multi.sh\n";
 		};
@@ -3361,7 +3365,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/AuthANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/AuthANE/ane/build_multi.sh\n";
 		};
 		CED7490920929586000327CD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3387,7 +3391,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/StorageANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/StorageANE/ane/build_multi.sh\n";
 		};
 		CEDDADE01FBFB84900D6EB5F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3426,7 +3430,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/PerformanceANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/PerformanceANE/ane/build_multi.sh\n";
 		};
 		CEE3AE7E20A06D2600D3AAF6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3452,7 +3456,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = ../../../native_extension/MessagingANE/ane/build_multi.sh;
+			shellScript = "../../../native_extension/MessagingANE/ane/build_multi.sh\n";
 		};
 		CEE80D67208CF3E200C96EC6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3474,10 +3478,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F4480121B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90160D9A2115C60B0009A815 /* FreVisionImage.swift in Sources */,
 				90160DCA2115C88D0009A815 /* LabelEvent.swift in Sources */,
 				90160DC42115C7290009A815 /* SwiftController.swift in Sources */,
+				90768FA621CEBDBE004F0D35 /* SwiftyJSON.swift in Sources */,
 				90160D9C2115C60B0009A815 /* FreVisionImageMetadata.swift in Sources */,
 				90160DCE2115CA3F0009A815 /* FreVisionLabel.swift in Sources */,
 				90160DC22115C7050009A815 /* VisionLabelANE.m in Sources */,
@@ -3491,10 +3495,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F4480221B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90160E0E2115D0FF0009A815 /* FreVisionCloudLabel.swift in Sources */,
 				90160E0C2115D0970009A815 /* CloudLabelEvent.swift in Sources */,
 				90160E092115CF950009A815 /* FreVisionCloudDetectorOptions.swift in Sources */,
+				90768FA821CEBDFF004F0D35 /* SwiftyJSON.swift in Sources */,
 				90160E052115CF010009A815 /* FreVisionPoint.swift in Sources */,
 				90160E062115CF010009A815 /* FreVisionImageMetadata.swift in Sources */,
 				90160E072115CF010009A815 /* FreCornerPoint.swift in Sources */,
@@ -3513,7 +3517,6 @@
 				90160E172115D3E60009A815 /* FreVisionCloudDetectorOptions.swift in Sources */,
 				90160E3A2115D4820009A815 /* SwiftController.swift in Sources */,
 				90160E182115D3E60009A815 /* FreVisionPoint.swift in Sources */,
-				90F4480321B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90160E192115D3E60009A815 /* FreVisionImageMetadata.swift in Sources */,
 				90160E402115D6440009A815 /* LandmarkEvent.swift in Sources */,
 				90160E422115D6A40009A815 /* FreVisionCloudLandmark.swift in Sources */,
@@ -3522,6 +3525,7 @@
 				90658AAB2116493E003197A5 /* SwiftController+FreSwift.swift in Sources */,
 				90160E382115D4630009A815 /* VisionLandmarkANE.m in Sources */,
 				90160E1B2115D3E60009A815 /* FreVisionImage.swift in Sources */,
+				90768FAA21CEBE13004F0D35 /* SwiftyJSON.swift in Sources */,
 				908B92EF21507224004C98C1 /* FreNSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3530,7 +3534,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F4480421B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90658A952116314B003197A5 /* FreModelDownloadConditions.swift in Sources */,
 				90658AA121164476003197A5 /* ModelInterpreterEvent.swift in Sources */,
 				90658A8D21162F98003197A5 /* ModelInterpreterANE.m in Sources */,
@@ -3553,8 +3556,8 @@
 				906A682A2114F5C200848218 /* TextEvent.swift in Sources */,
 				906A68282114F42300848218 /* FreVisionImageMetadata.swift in Sources */,
 				90207A582151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift in Sources */,
-				90F447FF21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				906A682C2114F68E00848218 /* FreVisionTextBlock.swift in Sources */,
+				90768FA221CEBD80004F0D35 /* SwiftyJSON.swift in Sources */,
 				90D35EA3217AA2CC0072B9DD /* SwiftController+FreSwift.swift in Sources */,
 				909587B12115A55E00AD59D5 /* FreVisionTextElement.swift in Sources */,
 				908B92E921506EE8004C98C1 /* FreVisionText.swift in Sources */,
@@ -3580,11 +3583,11 @@
 				90207A542151C07F0022B2C7 /* FreVisionTextLine.swift in Sources */,
 				90207A532151C07B0022B2C7 /* FreVisionTextBlock.swift in Sources */,
 				90207A562151C0850022B2C7 /* FreVisionText.swift in Sources */,
-				90F4480021B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90207A552151C0810022B2C7 /* FreVisionTextElement.swift in Sources */,
 				90160D8B2115A7BD0009A815 /* VisionCloudTextANE.m in Sources */,
 				908B92EC21507223004C98C1 /* FreNSError.swift in Sources */,
 				90160D8D2115A8640009A815 /* SwiftController.swift in Sources */,
+				90768FA321CEBD8D004F0D35 /* SwiftyJSON.swift in Sources */,
 				909587B42115A65300AD59D5 /* FreVisionImage.swift in Sources */,
 				90D35EA4217AA2E30072B9DD /* SwiftController+FreSwift.swift in Sources */,
 			);
@@ -3594,7 +3597,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F4480521B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				909ED0E3214EE79C0059EB62 /* CrashlyticsANE.m in Sources */,
 				909ED0E7214EE7F90059EB62 /* SwiftController.swift in Sources */,
 				909ED0E9214EE8210059EB62 /* SwiftController+FreSwift.swift in Sources */,
@@ -3609,7 +3611,6 @@
 				90EF0328215423C700C91063 /* FreVisionImageMetadata.swift in Sources */,
 				90EF0329215423CF00C91063 /* FreNSError.swift in Sources */,
 				90EF03262154230100C91063 /* FreVisionCloudDocumentTextRecognizerOptions.swift in Sources */,
-				90F4480621B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90EF0322215421E300C91063 /* VisionCloudDocumentANE.m in Sources */,
 				90EF0323215421E600C91063 /* SwiftController.swift in Sources */,
 				90EF0330215425AE00C91063 /* FreVisionTextRecognizedLanguage.swift in Sources */,
@@ -3617,6 +3618,7 @@
 				90EF03342154262000C91063 /* FreVisionTextRecognizedBreak.swift in Sources */,
 				90EF0327215423C300C91063 /* FreVisionImage.swift in Sources */,
 				90EF03322154260B00C91063 /* FreVisionDocumentTextParagraph.swift in Sources */,
+				90768FAC21CEBE27004F0D35 /* SwiftyJSON.swift in Sources */,
 				90EF032B2154247500C91063 /* FreVisionDocumentText.swift in Sources */,
 				90EF03382154478D00C91063 /* FreVisionDocumentTextSymbol.swift in Sources */,
 				90EF0336215445E700C91063 /* FreVisionDocumentTextWord.swift in Sources */,
@@ -3628,10 +3630,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F447FE21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CE2C3F9B20F3F76900B9E210 /* FreVisionImage.swift in Sources */,
 				CE2C3FA620F403FA00B9E210 /* FreVisionFaceLandmark.swift in Sources */,
 				CE2C3F9C20F3F76900B9E210 /* FreVisionImageMetadata.swift in Sources */,
+				90768FC021CEBF0E004F0D35 /* SwiftyJSON.swift in Sources */,
 				CE2C3FA420F3FCB400B9E210 /* FreVisionFace.swift in Sources */,
 				CE2C3F9620F3F5D800B9E210 /* VisionFaceANE.m in Sources */,
 				CE2C3FAD20F40A3300B9E210 /* FaceEvent.swift in Sources */,
@@ -3647,10 +3649,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F447FD21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90CE4123218650E7002FBD4F /* FreNativeButton.swift in Sources */,
 				90CE411F21864C43002FBD4F /* FreNativeType.swift in Sources */,
 				CE5E6B2820F178CF001398C5 /* SwiftController.swift in Sources */,
+				90768FA021CEBD6B004F0D35 /* SwiftyJSON.swift in Sources */,
 				90CE412121865034002FBD4F /* FreNativeImage.swift in Sources */,
 				90BABA7520FBE93D00C012F8 /* PermissionEvent.swift in Sources */,
 				CE5E6B2A20F178E6001398C5 /* SwiftController+FreSwift.swift in Sources */,
@@ -3668,8 +3670,8 @@
 				CE62B37E20D06D5D002837B7 /* SwiftController+GIDSignInDelegate.swift in Sources */,
 				CE62B36B20D06361002837B7 /* GoogleSignInANE.m in Sources */,
 				CE62B38320D086DE002837B7 /* SwiftController+GIDSignInUIDelegate.swift in Sources */,
-				90F447FA21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CE62B36D20D063CD002837B7 /* SwiftController.swift in Sources */,
+				90768FB421CEBE8D004F0D35 /* SwiftyJSON.swift in Sources */,
 				CE62B38520D09223002837B7 /* GoogleSignInEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3681,6 +3683,7 @@
 				CE420A0D20F0E26B0095967F /* FreVisionBarcodeAddress.swift in Sources */,
 				CE6E038A20EECB6B008D6CE8 /* VisionBarcodeANE.m in Sources */,
 				CE6E03AB20EEEC61008D6CE8 /* FreVisionBarcodeGeoPoint.swift in Sources */,
+				90768FBE21CEBEFC004F0D35 /* SwiftyJSON.swift in Sources */,
 				CE6E03A920EEEBF1008D6CE8 /* FreVisionBarcodeWifi.swift in Sources */,
 				CE6E03A120EEEA25008D6CE8 /* FreVisionBarcodeEmail.swift in Sources */,
 				CE6E039720EED577008D6CE8 /* FreVisionBarcodeDetectorOptions.swift in Sources */,
@@ -3690,7 +3693,6 @@
 				9033688B20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift in Sources */,
 				CE6E03A520EEEB68008D6CE8 /* FreVisionBarcodeSMS.swift in Sources */,
 				CE6E03AF20EEEDE2008D6CE8 /* FreVisionBarcodeCalendarEvent.swift in Sources */,
-				90F447FC21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CE6E038C20EECBE7008D6CE8 /* SwiftController.swift in Sources */,
 				CE90A9CD20F42D850003C34F /* BarcodeEvent.swift in Sources */,
 				CE6E03AD20EEED09008D6CE8 /* FreVisionBarcodeDriverLicense.swift in Sources */,
@@ -3709,7 +3711,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F447F121B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				90BBBDD721AC93A50066541D /* FirebaseANE.m in Sources */,
 				CE94517420951E8B00FE2BD7 /* FreFirebaseOptions.swift in Sources */,
 				CEA9AC21201E5F4500BFB223 /* SwiftController.swift in Sources */,
@@ -3724,7 +3725,7 @@
 				CE8BC51420B22242009164ED /* FreDynamicLinkSocialMetaTagParameters.swift in Sources */,
 				CE8BC51320B22240009164ED /* FreDynamicLinkGoogleAnalyticsParameters.swift in Sources */,
 				CE8BC51620B22248009164ED /* FreDynamicLinkNavigationInfoParameters.swift in Sources */,
-				90F447F921B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
+				90768FBA21CEBEC6004F0D35 /* SwiftyJSON.swift in Sources */,
 				CE8BC51120B2223A009164ED /* FreDynamicLinkIOSParameters.swift in Sources */,
 				CE8BC51520B22245009164ED /* FreDynamicLinkAndroidParameters.swift in Sources */,
 				CE8BC4CE20B1CB62009164ED /* SwiftController.swift in Sources */,
@@ -3742,8 +3743,8 @@
 				CE94519B2095212F00FE2BD7 /* RemoteConfigANE.m in Sources */,
 				CE9451B0209536B300FE2BD7 /* FreRemoteConfigSettings.swift in Sources */,
 				CE94519D209521BE00FE2BD7 /* SwiftController.swift in Sources */,
+				90768FB221CEBE8B004F0D35 /* SwiftyJSON.swift in Sources */,
 				CE94519F209521EE00FE2BD7 /* SwiftController+FreSwift.swift in Sources */,
-				90F447F521B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				9062053F20F800B400AFCE48 /* RemoteConfigErrorEvent.swift in Sources */,
 				9062054120F801A300AFCE48 /* RemoteConfigEvent.swift in Sources */,
 				CE9451AE2095355600FE2BD7 /* FreRemoteConfig.swift in Sources */,
@@ -3754,10 +3755,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F447F321B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CE265762208E7AB600C561E8 /* FreDocumentChange.swift in Sources */,
 				CE265760208E767400C561E8 /* FreFirestoreSettings.swift in Sources */,
 				CEB572AB208CF8F400CF6B1B /* SwiftController.swift in Sources */,
+				90768FAE21CEBE3C004F0D35 /* SwiftyJSON.swift in Sources */,
 				CE265764208E7B7700C561E8 /* FreQuerySnapshot.swift in Sources */,
 				CEB572AD208CF8F400CF6B1B /* SwiftController+FreSwift.swift in Sources */,
 				CE743205208D493800E388D3 /* Order.swift in Sources */,
@@ -3765,7 +3766,6 @@
 				CE743208208D49AC00E388D3 /* FirestoreController.swift in Sources */,
 				CE26575C208E6FD500C561E8 /* FreDocumentSnaphot.swift in Sources */,
 				CEB572AE208CF8F400CF6B1B /* FirestoreANE.m in Sources */,
-				9038AF1221B1D2C5000C7AE6 /* SwiftyJSON.swift in Sources */,
 				CE743206208D493800E388D3 /* Where.swift in Sources */,
 				CE26575E208E744D00C561E8 /* FreQueryDocumentSnapshot.swift in Sources */,
 				CE69C8DE208FF9E9004A1A5A /* NetworkEvent.swift in Sources */,
@@ -3777,10 +3777,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F447FB21B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CEB9480220D5CFEB00F707C1 /* InvitesANE.m in Sources */,
 				CEB9481320D5D64B00F707C1 /* SwiftController+InviteDelegate.swift in Sources */,
 				CEB9480820D5D04300F707C1 /* SwiftController.swift in Sources */,
+				90768FBC21CEBEE2004F0D35 /* SwiftyJSON.swift in Sources */,
 				CEB9480A20D5D05700F707C1 /* SwiftController+FreSwift.swift in Sources */,
 				CEB9481720D5DB5700F707C1 /* InvitesEvent.swift in Sources */,
 			);
@@ -3790,13 +3790,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F447F621B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CEBCF7D32096586A0028601B /* FreUser.swift in Sources */,
 				CEBCF7C62095FC250028601B /* UserController.swift in Sources */,
 				CEBCF7B82095F9820028601B /* AuthANE.m in Sources */,
 				CEBCF7BE2095F9C80028601B /* SwiftController.swift in Sources */,
 				CEBCF7C42095FC190028601B /* AuthController.swift in Sources */,
 				CEBCF7D1209612060028601B /* AuthEvent.swift in Sources */,
+				90768FB621CEBEA5004F0D35 /* SwiftyJSON.swift in Sources */,
 				CE62952B20A8DD2600EEF76E /* FreAuthCredential.swift in Sources */,
 				CEBCF7C02095F9D90028601B /* SwiftController+FreSwift.swift in Sources */,
 			);
@@ -3806,10 +3806,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F447F421B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CE0038CB2094E9B7002A657A /* FreStorageMetadata.swift in Sources */,
 				CED7491220929657000327CD /* StorageANE.m in Sources */,
 				CED7492820929D54000327CD /* StorageEvent.swift in Sources */,
+				90768FB021CEBE6C004F0D35 /* SwiftyJSON.swift in Sources */,
 				CED7491C2092989B000327CD /* SwiftController.swift in Sources */,
 				CED7492F20929F0E000327CD /* FreStorageReference.swift in Sources */,
 				CED7492920929D54000327CD /* StorageErrorEvent.swift in Sources */,
@@ -3823,7 +3823,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F447F721B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CEE3AE9F20A074C200D3AAF6 /* PerformanceANE.m in Sources */,
 				CEE3AE9720A073E000D3AAF6 /* SwiftController.swift in Sources */,
 				CEE3AE9920A073FF00D3AAF6 /* SwiftController+FreSwift.swift in Sources */,
@@ -3838,8 +3837,8 @@
 				CEE3AE9120A06FB100D3AAF6 /* SwiftController.swift in Sources */,
 				CE2BDB4720A6222900C89A7C /* SwiftController+Messaging.swift in Sources */,
 				CEE3AE8D20A06F6500D3AAF6 /* MessagingANE.m in Sources */,
-				90F447F821B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CE2BDB4920A6243800C89A7C /* MessageEvent.swift in Sources */,
+				90768FB821CEBEB6004F0D35 /* SwiftyJSON.swift in Sources */,
 				CEE3AE9320A06FC400D3AAF6 /* SwiftController+FreSwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3848,7 +3847,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F447F221B0797800895FF6 /* FreSwift+Static-Shims.swift in Sources */,
 				CEE80D70208CF46800C96EC6 /* AnalyticsANE.m in Sources */,
 				CEE80D74208CF50E00C96EC6 /* SwiftController.swift in Sources */,
 				CEE80D76208CF51F00C96EC6 /* SwiftController+FreSwift.swift in Sources */,

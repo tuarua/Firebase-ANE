@@ -18,13 +18,8 @@ package com.tuarua.firebase;
 import com.tuarua.frekotlin.FreKotlinContext;
 import com.tuarua.frekotlin.FreKotlinMainController;
 
-public class CrashlyticsANEContext extends FreKotlinContext {
+class CrashlyticsANEContext extends FreKotlinContext {
     CrashlyticsANEContext(String name, FreKotlinMainController controller, String[] functions) {
         super(name, controller, functions);
-    }
-
-    @Override
-    public void dispose() {
-        super.dispose();
     }
 }

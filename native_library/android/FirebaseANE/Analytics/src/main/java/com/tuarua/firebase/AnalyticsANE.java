@@ -19,7 +19,7 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.analytics.KotlinController;
 
-@SuppressWarnings("unused")
+@SuppressWarnings("ALL")
 public class AnalyticsANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"

@@ -16,10 +16,6 @@
 package com.tuarua.firebase.vision.barcode
 
 import android.app.FragmentTransaction
-import android.content.Context
-import android.content.pm.PackageManager
-import android.hardware.camera2.CameraManager
-import android.os.Build
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -36,9 +32,10 @@ import com.google.gson.Gson
 import com.tuarua.firebase.camerapreview.CameraPreviewFragment
 import com.tuarua.firebase.vision.barcode.events.BarcodeEvent
 
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.launch
-import kotlin.coroutines.experimental.CoroutineContext
+import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeProcessSucceedListener {
@@ -47,7 +44,7 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
     private var optionsAsIntArray: IntArray? = null
     private var results: MutableMap<String, MutableList<FirebaseVisionBarcode>> = mutableMapOf()
     private val gson = Gson()
-    private val bgContext: CoroutineContext = CommonPool
+    private val bgContext: CoroutineContext = Dispatchers.Default
     private val scanningBarcodeRequestCode = 1002
     private lateinit var detector: FirebaseVisionBarcodeDetector
     private lateinit var cameraFragment: CameraPreviewFragment
@@ -80,7 +77,7 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
 
-        launch(bgContext) {
+        GlobalScope.launch(bgContext) {
             detector.detectInImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     if (!task.result.isEmpty()) {
@@ -168,7 +165,7 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
 //    }
 
     private fun hideCameraOverlay() {
-        val childCount = airView.childCount;
+        val childCount = airView.childCount
         for (i in 0 until childCount) {
             val child = airView.getChildAt(i)
             if (child.javaClass.simpleName != "CameraOverlayContainer") continue
@@ -178,7 +175,7 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
     }
 
     private fun showCameraOverlay() {
-        val childCount = airView.childCount;
+        val childCount = airView.childCount
         for (i in 0 until childCount) {
             val child = airView.getChildAt(i)
             if (child.javaClass.simpleName != "CameraOverlayContainer") continue

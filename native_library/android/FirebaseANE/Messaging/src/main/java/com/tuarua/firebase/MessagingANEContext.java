@@ -15,18 +15,16 @@
  */
 package com.tuarua.firebase;
 
-import android.content.Intent;
-
 import com.adobe.air.AndroidActivityWrapper;
 import com.adobe.air.TRActivityResultCallback;
 import com.adobe.air.TRStateChangeCallback;
 import com.tuarua.frekotlin.FreKotlinContext;
 import com.tuarua.frekotlin.FreKotlinMainController;
 
-public class MessagingANEContext extends FreKotlinContext implements TRActivityResultCallback, TRStateChangeCallback {
+class MessagingANEContext extends FreKotlinContext implements TRActivityResultCallback, TRStateChangeCallback {
 
     private AndroidActivityWrapper aaw;
-    private FreKotlinMainController controller;
+    private final FreKotlinMainController controller;
 
     MessagingANEContext(String name, FreKotlinMainController controller, String[] functions) {
         super(name, controller, functions);
@@ -34,11 +32,6 @@ public class MessagingANEContext extends FreKotlinContext implements TRActivityR
         aaw = AndroidActivityWrapper.GetAndroidActivityWrapper();
         aaw.addActivityResultListener(this);
         aaw.addActivityStateChangeListner(this);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        super.onActivityResult(requestCode, resultCode, intent);
     }
 
     @Override

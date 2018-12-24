@@ -7,10 +7,4 @@ class AnalyticsANEContext extends FreKotlinContext {
     AnalyticsANEContext(String name, FreKotlinMainController controller, String[] functions) {
         super(name, controller, functions);
     }
-
-    @Override
-    public void dispose() {
-        super.dispose();
-    }
-
 }

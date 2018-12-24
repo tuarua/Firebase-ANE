@@ -15,17 +15,12 @@
  */
 
 package com.tuarua.firebase;
+
 import com.tuarua.frekotlin.FreKotlinContext;
 import com.tuarua.frekotlin.FreKotlinMainController;
 
-public class StorageANEContext extends FreKotlinContext {
-
+class StorageANEContext extends FreKotlinContext {
     StorageANEContext(String name, FreKotlinMainController controller, String[] functions) {
         super(name, controller, functions);
-    }
-
-    @Override
-    public void dispose() {
-        super.dispose();
     }
 }

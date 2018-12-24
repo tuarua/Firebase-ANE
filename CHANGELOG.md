@@ -1,3 +1,9 @@
+### 0.2.0
+- iOS: Updated to FreSwift 3.0.0
+- AND: Updated to FreKotlin 1.6.0
+- Updated to AIR 32
+- iOS: Update to Firebase 5.12.0
+
 ### 0.1.0
 - iOS: Support AIR 32
 

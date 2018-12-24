@@ -121,9 +121,9 @@ class KotlinController : FreKotlinMainController {
             firestoreController.getDocuments(path, asId, whereList, orderList,
                     startAtList, startAfterList, endAtList, endBeforeList, limitTo)
         } catch (e: FreException) {
-            return e.getError(Thread.currentThread().stackTrace)
+            return e.getError()
         } catch (e: Exception) {
-            return FreException(e).getError(Thread.currentThread().stackTrace)
+            return FreException(e).getError()
         }
         return null
     }

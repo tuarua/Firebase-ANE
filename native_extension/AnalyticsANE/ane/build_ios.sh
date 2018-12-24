@@ -68,6 +68,9 @@ cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Rel
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/FirebaseAnalytics.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseAnalytics.framework" "$pathtome/platforms/ios/device/Frameworks"
 
+cp -R -L "$pathtome/../../../firebase_frameworks/simulator/FIRAnalyticsConnector.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../../firebase_frameworks/device/FIRAnalyticsConnector.framework" "$pathtome/platforms/ios/device/Frameworks"
+
 #Run the build command.
 echo "Building ANE."
 "$AIR_SDK"/bin/adt -package \

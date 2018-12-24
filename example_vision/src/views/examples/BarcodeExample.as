@@ -39,9 +39,6 @@ public class BarcodeExample extends Sprite implements IExample {
     [Embed(source="../../../assets/barcode_128.png")]
     public static const BarcodeBitmap:Class;
 
-    [Embed(source="../../../assets/flashLightOff.png")]
-    public static const ButtonBitmap:Class;
-
     private var bmpQr:Bitmap = new QrBitmap() as Bitmap;
     private var bmpBarcode:Bitmap = new BarcodeBitmap() as Bitmap;
 
