@@ -20,11 +20,10 @@ import FirebaseMLVision
 
 public extension VisionTextRecognizedBreak {
     func toFREObject() -> FREObject? {
-        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.TextRecognizedBreak"),
-            var ret = fre
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.TextRecognizedBreak")
             else { return nil }
         ret["type"] = self.type.rawValue.toFREObject()
         ret["isPrefix"] = self.isPrefix.toFREObject()
-        return ret
+        return ret.rawValue
     }
 }

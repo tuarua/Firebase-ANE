@@ -18,7 +18,6 @@ import Foundation
 import FirebaseMLVision
 import FreSwift
 import AVFoundation
-import SwiftyJSON
 import Accelerate
 
 extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -136,7 +135,7 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         for sv in rootViewController.view.subviews {
             if sv.debugDescription.starts(with: "<VisionANE_LIB.FreNativeContainer") {
                 sv.isHidden = false
-                rootViewController.view.bringSubview(toFront: sv)
+                rootViewController.view.bringSubviewToFront(sv)
                 break
             }
         }

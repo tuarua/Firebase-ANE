@@ -18,13 +18,8 @@ package com.tuarua.firebase;
 import com.tuarua.frekotlin.FreKotlinContext;
 import com.tuarua.frekotlin.FreKotlinMainController;
 
-public class AuthANEContext extends FreKotlinContext {
+class AuthANEContext extends FreKotlinContext {
     AuthANEContext(String name, FreKotlinMainController controller, String[] functions) {
         super(name, controller, functions);
-    }
-
-    @Override
-    public void dispose() {
-        super.dispose();
     }
 }

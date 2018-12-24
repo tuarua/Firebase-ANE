@@ -20,25 +20,20 @@ import FirebaseMLVision
 
 public extension VisionLabel {
     func toFREObject() -> FREObject? {
-        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.Label"),
-            var ret = fre
-            else { return nil }
-        ret["frame"] = self.frame.toFREObject()
-        ret["confidence"] = self.confidence.toFREObject()
-        ret["entityId"] = self.entityID.toFREObject()
-        ret["label"] = self.label.toFREObject()
-        return ret
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.Label") else { return nil }
+        ret.frame = frame
+        ret.confidence = confidence
+        ret.entityId = entityID
+        ret.label = label
+        return ret.rawValue
     }
 }
 
 public extension Array where Element == VisionLabel? {
     func toFREObject() -> FREObject? {
-        guard let ret = try? FREArray(className: "com.tuarua.firebase.vision.Label",
-                                      length: self.count, fixed: true) else { return nil }
-        var cnt: UInt = 0
+        guard let ret = FREArray(className: "com.tuarua.firebase.vision.Label") else { return nil }
         for element in self {
-            ret[cnt] = element?.toFREObject()
-            cnt+=1
+            ret.push(element?.toFREObject())
         }
         return ret.rawValue
     }

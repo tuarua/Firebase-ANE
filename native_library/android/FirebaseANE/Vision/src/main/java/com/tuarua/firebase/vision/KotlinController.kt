@@ -102,7 +102,7 @@ class KotlinController : FreKotlinMainController {
             permissionIntent.putExtra("ptc", permissionsToCheck.toTypedArray())
             ctx.activity.startActivity(permissionIntent)
         } catch (e: Exception) {
-            return FreException(e).getError(Thread.currentThread().stackTrace)
+            return FreException(e).getError()
         }
         return null
     }

@@ -15,15 +15,14 @@
  */
 package com.tuarua.google;
 import com.adobe.air.AndroidActivityWrapper;
-import com.adobe.air.TRStateChangeCallback;
 import com.tuarua.frekotlin.FreKotlinContext;
 import com.tuarua.frekotlin.FreKotlinMainController;
 import com.tuarua.google.googlesignin.ResultListener;
 
 import java.util.Objects;
-public class GoogleSignInANEContext extends FreKotlinContext {
+class GoogleSignInANEContext extends FreKotlinContext {
     private AndroidActivityWrapper aaw;
-    private ResultListener resultListener;
+    private final ResultListener resultListener;
     GoogleSignInANEContext(String name, FreKotlinMainController controller, String[] functions) {
         super(name, controller, functions);
         aaw = AndroidActivityWrapper.GetAndroidActivityWrapper();

@@ -20,7 +20,7 @@ import Firebase
 import GoogleSignIn
 
 public class SwiftController: NSObject {
-    public var TAG: String? = "SwiftController"
+    public static var TAG = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     public var hasFirebaseApp: Bool = false

@@ -20,25 +20,19 @@ import FirebaseMLVision
 
 public extension VisionLatitudeLongitude {
     func toFREObject() -> FREObject? {
-        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.LatitudeLongitude"),
-            var ret = fre
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.LatitudeLongitude")
             else { return nil }
-        let lat = self.latitude ?? 0.0
-        let lng = self.longitude ?? 0.0
-        ret["latitude"] = lat.toFREObject()
-        ret["longitude"] = lng.toFREObject()
-        return ret
+        ret.latitude = latitude ?? 0.0
+        ret.longitude = longitude ?? 0.0
+        return ret.rawValue
     }
 }
 
 public extension Array where Element == VisionLatitudeLongitude {
     func toFREObject() -> FREObject? {
-        guard let ret = try? FREArray(className: "com.tuarua.firebase.vision.LatitudeLongitude",
-                                      length: self.count, fixed: true) else { return nil }
-        var cnt: UInt = 0
+        guard let ret = FREArray(className: "com.tuarua.firebase.vision.LatitudeLongitude") else { return nil }
         for element in self {
-            ret[cnt] = element.toFREObject()
-            cnt+=1
+            ret.push(element.toFREObject())
         }
         return ret.rawValue
     }

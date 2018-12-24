@@ -26,7 +26,7 @@ import flash.events.EventDispatcher;
 public final class FirestoreANE extends EventDispatcher {
     private static var _firestore:FirestoreANE;
     private static var _loggingEnabled:Boolean = false;
-    private static var _settings:FirestoreSettings = null;
+    private static var _settings:FirestoreSettings = new FirestoreSettings();
 
     /** @private */
     public function FirestoreANE() {

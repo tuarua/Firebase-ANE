@@ -15,18 +15,9 @@
  */
 package com.tuarua.firebase.vision.barcode.events
 
-import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
-
 data class BarcodeEvent(val eventId: String,
                         val error: Map<String, Any>? = null,
                         val continuous: Boolean = false) {
-    companion object {
-        const val DETECTED = "BarcodeEvent.Detected"
-    }
-}
-
-data class RealtimeBarcodeEvent(val eventId: String,
-                                val result: MutableList<FirebaseVisionBarcode>) {
     companion object {
         const val DETECTED = "BarcodeEvent.Detected"
     }

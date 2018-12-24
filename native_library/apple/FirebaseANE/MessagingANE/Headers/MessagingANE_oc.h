@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <MessagingANE/MessagingANE-Swift.h>
+#import <MessagingANE-Swift.h>
 @interface MessagingANE_LIB : NSObject
 
 @end

@@ -19,7 +19,7 @@ import FreSwift
 import FirebaseDynamicLinks
 
 public class SwiftController: NSObject {
-    public var TAG: String? = "SwiftController"
+    public static var TAG = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     private var appDidFinishLaunchingNotif: Notification?
@@ -107,7 +107,7 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "getDynamicLink").getError(#file, #line, #column)
         }
         if let userInfo = appDidFinishLaunchingNotif?.userInfo,
-            let userActivityDict = userInfo[UIApplicationLaunchOptionsKey.userActivityDictionary] as? NSDictionary,
+            let userActivityDict = userInfo[UIApplication.LaunchOptionsKey.userActivityDictionary] as? NSDictionary,
             let userActivity = userActivityDict["UIApplicationLaunchOptionsUserActivityKey"] as? NSUserActivity,
             let webpageURL = userActivity.webpageURL {
     

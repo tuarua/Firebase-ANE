@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class InvitesEvent: NSObject {
     public static let SUCCESS = "FirebaseInvites.Success"

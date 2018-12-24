@@ -20,7 +20,7 @@ import FirebaseMLVision
 
 public extension Array where Element == NSValue {
     func toFREObject() -> FREObject? {
-        guard let ret = try? FREArray(className: "flash.geom.Point",
+        guard let ret = FREArray(className: "flash.geom.Point",
                                       length: self.count,
                                       fixed: true) else { return nil }
         var cnt: UInt = 0

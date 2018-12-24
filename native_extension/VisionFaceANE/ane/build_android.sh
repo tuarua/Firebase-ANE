@@ -10,7 +10,7 @@ echo $pathtome
 
 PROJECTNAME=VisionFaceANE
 
-AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_30"
+AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_32"
 
 #Copy SWC into place.
 echo "Copying SWC into place."

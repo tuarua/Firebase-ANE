@@ -3,11 +3,11 @@ import com.tuarua.FirebaseANE;
 import com.tuarua.firebase.AnalyticsANE;
 import com.tuarua.firebase.AuthANE;
 import com.tuarua.firebase.CrashlyticsANE;
-import com.tuarua.firebase.DynamicLinksANE;
+//import com.tuarua.firebase.DynamicLinksANE;
 import com.tuarua.firebase.FirebaseOptions;
 import com.tuarua.firebase.FirestoreANE;
-import com.tuarua.firebase.InvitesANE;
-import com.tuarua.firebase.MessagingANE;
+//import com.tuarua.firebase.InvitesANE;
+//import com.tuarua.firebase.MessagingANE;
 import com.tuarua.firebase.PerformanceANE;
 import com.tuarua.firebase.RemoteConfigANE;
 import com.tuarua.firebase.StorageANE;
@@ -311,9 +311,9 @@ public class StarlingRoot extends Sprite {
         RemoteConfigANE.dispose();
         AuthANE.dispose();
         PerformanceANE.dispose();
-        MessagingANE.dispose();
-        DynamicLinksANE.dispose();
-        InvitesANE.dispose();
+        // MessagingANE.dispose();
+        //DynamicLinksANE.dispose();
+        // InvitesANE.dispose();
         CrashlyticsANE.dispose();
     }
 

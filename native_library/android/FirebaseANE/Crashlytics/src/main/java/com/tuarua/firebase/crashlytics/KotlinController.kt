@@ -19,7 +19,7 @@ import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.tuarua.frekotlin.*
 import java.util.*
-import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.Crashlytics
 import io.fabric.sdk.android.Fabric
 import io.fabric.sdk.android.Fabric.Builder
 import android.content.Intent
@@ -91,7 +91,7 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("setString")
         val key = String(argv[0]) ?: return null
         val value = String(argv[1]) ?: return null
-        Crashlytics.setString(key, value);
+        Crashlytics.setString(key, value)
         return null
     }
 

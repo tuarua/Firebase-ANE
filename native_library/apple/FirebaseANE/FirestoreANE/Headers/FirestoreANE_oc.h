@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import <FirestoreANE/FirestoreANE-Swift.h>
+#import <FirestoreANE-Swift.h>
 @interface FirestoreANE_LIB : NSObject
 
 @end

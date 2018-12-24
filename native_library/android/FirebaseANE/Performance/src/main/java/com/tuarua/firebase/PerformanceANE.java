@@ -19,7 +19,7 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.performance.KotlinController;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class PerformanceANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"

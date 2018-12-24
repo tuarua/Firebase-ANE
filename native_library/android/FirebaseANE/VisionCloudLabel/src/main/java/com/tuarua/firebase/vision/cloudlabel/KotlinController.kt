@@ -26,9 +26,10 @@ import com.tuarua.firebase.vision.cloudlabel.extensions.toFREArray
 import com.tuarua.firebase.vision.extensions.FirebaseVisionCloudDetectorOptions
 import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
 import com.tuarua.frekotlin.*
-import kotlinx.coroutines.experimental.CommonPool
-import kotlin.coroutines.experimental.CoroutineContext
-import kotlinx.coroutines.experimental.launch
+import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.util.*
 
 
@@ -37,7 +38,7 @@ class KotlinController : FreKotlinMainController {
     private val TRACE = "TRACE"
     private var results: MutableMap<String, MutableList<FirebaseVisionCloudLabel>> = mutableMapOf()
     private val gson = Gson()
-    private val bgContext: CoroutineContext = CommonPool
+    private val bgContext: CoroutineContext = Dispatchers.Default
     private lateinit var detector: FirebaseVisionCloudLabelDetector
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
@@ -59,7 +60,7 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
-        launch(bgContext) {
+        GlobalScope.launch(bgContext) {
             detector.detectInImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     results[eventId] = task.result

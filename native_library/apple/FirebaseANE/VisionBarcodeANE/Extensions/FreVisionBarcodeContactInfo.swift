@@ -20,16 +20,14 @@ import FirebaseMLVision
 
 public extension VisionBarcodeContactInfo {
     func toFREObject() -> FREObject? {
-        guard let freObject = try? FREObject(className: "com.tuarua.firebase.vision.BarcodeContactInfo"),
-            var ret = freObject
-            else { return nil }
-        ret["jobTitle"] = self.jobTitle?.toFREObject()
-        ret["name"] = self.name?.toFREObject()
-        ret["organization"] = self.organization?.toFREObject()
-        ret["addresses"] = self.addresses?.toFREObject()
-        ret["emails"] = self.emails?.toFREObject()
-        ret["phones"] = self.phones?.toFREObject()
-        ret["urls"] = self.urls?.toFREObject()
-        return ret
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.BarcodeContactInfo") else { return nil }
+        ret.jobTitle = jobTitle
+        ret.name = name?.toFREObject()
+        ret.organization = organization
+        ret.addresses = addresses?.toFREObject()
+        ret.emails = emails?.toFREObject()
+        ret.phones = phones?.toFREObject()
+        ret.urls = urls?.toFREObject()
+        return ret.rawValue
     }
 }

@@ -19,7 +19,7 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.invites.KotlinController;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class InvitesANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"

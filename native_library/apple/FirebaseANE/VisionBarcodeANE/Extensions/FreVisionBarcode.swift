@@ -20,24 +20,22 @@ import FirebaseMLVision
 
 public extension VisionBarcode {
     func toFREObject() -> FREObject? {
-        guard let freObject = try? FREObject(className: "com.tuarua.firebase.vision.Barcode"),
-            var ret = freObject else { return nil }
-        
-        ret["frame"] = self.frame.toFREObject()
-        ret["rawValue"] = self.rawValue?.toFREObject()
-        ret["displayValue"] = self.displayValue?.toFREObject()
-        ret["format"] = self.format.rawValue.toFREObject()
-        ret["cornerPoints"] = self.cornerPoints?.toFREObject()
-        ret["valueType"] = self.valueType.rawValue.toFREObject()
-        ret["email"] = self.email?.toFREObject()
-        ret["phone"] = self.phone?.toFREObject()
-        ret["sms"] = self.sms?.toFREObject()
-        ret["url"] = self.url?.toFREObject()
-        ret["wifi"] = self.wifi?.toFREObject()
-        ret["geoPoint"] = self.geoPoint?.toFREObject()
-        ret["contactInfo"] = self.contactInfo?.toFREObject()
-        ret["driverLicense"] = self.driverLicense?.toFREObject()
-        ret["calendarEvent"] = self.calendarEvent?.toFREObject()
-        return ret
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.Barcode") else { return nil }
+        ret.frame = frame
+        ret["rawValue"] = rawValue?.toFREObject()
+        ret.displayValue = displayValue
+        ret.format = format.rawValue
+        ret.cornerPoints = cornerPoints?.toFREObject()
+        ret.valueType = valueType.rawValue
+        ret.email = email?.toFREObject()
+        ret.phone = phone?.toFREObject()
+        ret.sms = sms?.toFREObject()
+        ret.url = url?.toFREObject()
+        ret.wifi = wifi?.toFREObject()
+        ret.geoPoint = geoPoint?.toFREObject()
+        ret.contactInfo = contactInfo?.toFREObject()
+        ret.driverLicense = driverLicense?.toFREObject()
+        ret.calendarEvent = calendarEvent?.toFREObject()
+        return ret.rawValue
     }
 }

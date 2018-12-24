@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <PerformanceANE/PerformanceANE-Swift.h>
+#import <PerformanceANE-Swift.h>
 @interface PerformanceANE_LIB : NSObject
 
 @end

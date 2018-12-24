@@ -117,7 +117,7 @@ public class AuthExample extends Sprite implements IExample {
     private function onSignInWithGoogleClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnSignInWithGoogle);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            googleSignIn.signIn();
+           googleSignIn.signIn();
         }
     }
 

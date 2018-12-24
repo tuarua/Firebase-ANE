@@ -20,26 +20,19 @@ import FreSwift
 
 public extension FirestoreSettings {
     convenience init?(_ freObject: FREObject?) {
-        guard let rv = freObject,
-            let areTimestampsInSnapshotsEnabled = Bool(rv["areTimestampsInSnapshotsEnabled"]),
-            let isSSLEnabled = Bool(rv["isSSLEnabled"]),
-            let isPersistenceEnabled = Bool(rv["isPersistenceEnabled"])
-            else { return nil }
+        guard let rv = freObject else { return nil }
+        let fre = FreObjectSwift(rv)
         self.init()
-        self.areTimestampsInSnapshotsEnabled = areTimestampsInSnapshotsEnabled
-        self.isSSLEnabled = isSSLEnabled
-        self.isPersistenceEnabled = isPersistenceEnabled
+        self.areTimestampsInSnapshotsEnabled = fre.areTimestampsInSnapshotsEnabled
+        self.isSSLEnabled = fre.isSslEnabled
+        self.isPersistenceEnabled = fre.isPersistenceEnabled
     }
     
     func toFREObject() -> FREObject? {
-        do {
-            let ret = try FREObject(className: "com.tuarua.firebase.firestore.FirestoreSettings")
-            try ret?.setProp(name: "host", value: self.host)
-            try ret?.setProp(name: "isPersistenceEnabled", value: self.isPersistenceEnabled)
-            try ret?.setProp(name: "isSslEnabled", value: self.isSSLEnabled)
-            return ret
-        } catch {
-        }
-        return nil
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.firestore.FirestoreSettings") else { return nil }
+        ret.host = host
+        ret.isPersistenceEnabled = isPersistenceEnabled
+        ret.isSslEnabled = isSSLEnabled
+        return ret.rawValue
     }
 }

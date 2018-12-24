@@ -20,12 +20,6 @@ import FirebaseMLVision
 
 public extension VisionBarcodeURLBookmark {
     func toFREObject() -> FREObject? {
-        do {
-            let ret = try FREObject(className: "com.tuarua.firebase.vision.BarcodeURLBookmark",
-                                    args: self.title, self.url)
-            return ret
-        } catch {
-        }
-        return nil
+        return FREObject(className: "com.tuarua.firebase.vision.BarcodeURLBookmark", args: title, url)
     }
 }

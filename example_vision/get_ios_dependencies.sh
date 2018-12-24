@@ -3,8 +3,8 @@
 rm -r ios_dependencies/device
 rm -r ios_dependencies/simulator
 
-AneVersion="0.1.0"
-FreSwiftVersion="2.5.0"
+AneVersion="0.2.0"
+FreSwiftVersion="3.0.0"
 
 wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/$FreSwiftVersion/ios_dependencies.zip
 unzip -u -o ios_dependencies.zip
@@ -13,10 +13,6 @@ rm ios_dependencies.zip
 wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/$FreSwiftVersion/AIRSDK_additions.zip
 unzip -u -o AIRSDK_additions.zip
 rm AIRSDK_additions.zip
-
-wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/$FreSwiftVersion/AIRSDK_32_additions.zip
-unzip -u -o AIRSDK_32_additions.zip
-rm AIRSDK_32_additions.zip
 
 wget https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/assets.zip
 unzip -u -o assets.zip

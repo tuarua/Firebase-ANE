@@ -20,16 +20,14 @@ import FirebaseMLVision
 
 public extension VisionBarcodeCalendarEvent {
     func toFREObject() -> FREObject? {
-        guard let freObject = try? FREObject(className: "com.tuarua.firebase.vision.BarcodeCalendarEvent"),
-            var ret = freObject
-            else { return nil }
-        ret["end"] = self.end?.toFREObject()
-        ret["eventDescription"] = self.eventDescription?.toFREObject()
-        ret["location"] = self.location?.toFREObject()
-        ret["organizer"] = self.organizer?.toFREObject()
-        ret["start"] = self.start?.toFREObject()
-        ret["status"] = self.status?.toFREObject()
-        ret["summary"] = self.summary?.toFREObject()
-        return ret
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.BarcodeCalendarEvent") else { return nil }
+        ret.end = end
+        ret.eventDescription = eventDescription
+        ret.location = location
+        ret.organizer = organizer
+        ret.start = start
+        ret.status = status
+        ret.summary = summary
+        return ret.rawValue
     }
 }

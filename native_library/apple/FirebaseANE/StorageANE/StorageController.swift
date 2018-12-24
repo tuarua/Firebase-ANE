@@ -20,7 +20,7 @@ import Firebase
 import FirebaseStorage
 
 class StorageController: FreSwiftController {
-    var TAG: String? = "StorageController"
+    static var TAG = "StorageController"
     internal var context: FreContextSwift!
     private var storage: Storage?
     private var uploadTasks: [String: StorageUploadTask] = [:]

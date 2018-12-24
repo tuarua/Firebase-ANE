@@ -104,9 +104,9 @@ class KotlinController : FreKotlinMainController {
                 return null
             }
         } catch (e: FreException) {
-            return e.getError(Thread.currentThread().stackTrace)
+            return e.getError()
         } catch (e: Exception) {
-            return FreException(e).getError(Thread.currentThread().stackTrace)
+            return FreException(e).getError()
         }
         return null
     }

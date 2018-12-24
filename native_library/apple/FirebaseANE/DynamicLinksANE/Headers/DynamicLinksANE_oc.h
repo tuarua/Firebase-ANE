@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <DynamicLinksANE/DynamicLinksANE-Swift.h>
+#import <DynamicLinksANE-Swift.h>
 @interface DynamicLinksANE_LIB : NSObject
 
 @end

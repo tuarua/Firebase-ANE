@@ -19,17 +19,13 @@ import FirebaseAuth
 
 public extension User {
     func toFREObject() -> FREObject? {
-        do {
-            return try FREObject.init(className: "com.tuarua.firebase.auth.FirebaseUser",
-                                      args: self.uid,
-                                      self.displayName,
-                                      self.email,
-                                      self.isAnonymous,
-                                      self.isEmailVerified,
-                                      self.photoURL?.absoluteString,
-                                      self.phoneNumber)
-        } catch {
-        }
-        return nil
+        return FREObject.init(className: "com.tuarua.firebase.auth.FirebaseUser",
+                                  args: self.uid,
+                                  self.displayName,
+                                  self.email,
+                                  self.isAnonymous,
+                                  self.isEmailVerified,
+                                  self.photoURL?.absoluteString,
+                                  self.phoneNumber)
     }
 }

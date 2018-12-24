@@ -19,7 +19,7 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.vision.barcode.KotlinController;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class VisionBarcodeANE implements FREExtension {
     private static final String[] FUNCTIONS = {
              "init"

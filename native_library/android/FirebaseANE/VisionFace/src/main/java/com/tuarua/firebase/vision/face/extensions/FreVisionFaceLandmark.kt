@@ -15,11 +15,9 @@
  */
 package com.tuarua.firebase.vision.face.extensions
 
-import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark
 import com.tuarua.firebase.vision.extensions.toFREObject
 import com.tuarua.frekotlin.FREObject
-import com.tuarua.frekotlin.FreException
 import com.tuarua.frekotlin.toFREObject
 
 fun FirebaseVisionFaceLandmark.toFREObject() =

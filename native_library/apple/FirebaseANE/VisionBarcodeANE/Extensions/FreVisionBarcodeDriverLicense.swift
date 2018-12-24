@@ -20,23 +20,21 @@ import FirebaseMLVision
 
 public extension VisionBarcodeDriverLicense {
     func toFREObject() -> FREObject? {
-        guard let freObject = try? FREObject(className: "com.tuarua.firebase.vision.BarcodeDriverLicense"),
-            var ret = freObject
-            else { return nil }
-        ret["addressCity"] = self.addressCity?.toFREObject()
-        ret["addressState"] = self.addressState?.toFREObject()
-        ret["addressStreet"] = self.addressStreet?.toFREObject()
-        ret["addressZip"] = self.addressZip?.toFREObject()
-        ret["birthDate"] = self.birthDate?.toFREObject()
-        ret["documentType"] = self.documentType?.toFREObject()
-        ret["expiryDate"] = self.expiryDate?.toFREObject()
-        ret["firstName"] = self.firstName?.toFREObject()
-        ret["gender"] = self.gender?.toFREObject()
-        ret["issuingCountry"] = self.issuingCountry?.toFREObject()
-        ret["issuingDate"] = self.issuingDate?.toFREObject()
-        ret["lastName"] = self.lastName?.toFREObject()
-        ret["licenseNumber"] = self.licenseNumber?.toFREObject()
-        ret["middleName"] = self.middleName?.toFREObject()
-        return ret
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.BarcodeDriverLicense") else { return nil }
+        ret.addressCity = addressCity
+        ret.addressState = addressState
+        ret.addressStreet = addressStreet
+        ret.addressZip = addressZip
+        ret.birthDate = birthDate
+        ret.documentType = documentType
+        ret.expiryDate = expiryDate
+        ret.firstName = firstName
+        ret.gender = gender
+        ret.issuingCountry = issuingCountry
+        ret.issuingDate = issuingDate
+        ret.lastName = lastName
+        ret.licenseNumber = licenseNumber
+        ret.middleName = middleName
+        return ret.rawValue
     }
 }

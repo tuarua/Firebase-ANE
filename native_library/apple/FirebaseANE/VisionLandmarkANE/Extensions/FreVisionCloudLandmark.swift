@@ -20,26 +20,21 @@ import FirebaseMLVision
 
 public extension VisionCloudLandmark {
     func toFREObject() -> FREObject? {
-        guard let fre = try? FREObject(className: "com.tuarua.firebase.vision.CloudLandmark"),
-            var ret = fre
-            else { return nil }
-        ret["confidence"] = self.confidence?.toFREObject()
-        ret["frame"] = self.frame.toFREObject()
-        ret["entityId"] = self.entityId?.toFREObject()
-        ret["landmark"] = self.landmark?.toFREObject()
-        ret["locations"] = self.locations?.toFREObject()
-        return ret
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.CloudLandmark") else { return nil }
+        ret.frame = frame
+        ret.confidence = confidence
+        ret.entityId = entityId
+        ret.landmark = landmark
+        ret.locations = locations?.toFREObject()
+        return ret.rawValue
     }
 }
 
 public extension Array where Element == VisionCloudLandmark? {
     func toFREObject() -> FREObject? {
-        guard let ret = try? FREArray(className: "com.tuarua.firebase.vision.CloudLandmark",
-                                      length: self.count, fixed: true) else { return nil }
-        var cnt: UInt = 0
+        guard let ret = FREArray(className: "com.tuarua.firebase.vision.CloudLandmark") else { return nil }
         for element in self {
-            ret[cnt] = element?.toFREObject()
-            cnt+=1
+            ret.push(element?.toFREObject())
         }
         return ret.rawValue
     }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/31.0">
+<application xmlns="http://ns.adobe.com/air/application/32.0">
 
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-iOS-Device</name>
-    <versionNumber>0.0.6</versionNumber>
+    <versionNumber>0.2.0</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -71,6 +71,7 @@
             ]]>
         </InfoAdditions>
         <requestedDisplayResolution>high</requestedDisplayResolution>
+
         <Entitlements>
             <![CDATA[
             <key>com.apple.developer.associated-domains</key>

@@ -19,7 +19,6 @@ package com.tuarua.firebase.vision.cloudtext
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.FirebaseVision
-import com.google.firebase.ml.vision.text.FirebaseVisionCloudTextRecognizerOptions
 import com.google.firebase.ml.vision.text.FirebaseVisionText
 import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer
 import com.google.gson.Gson
@@ -30,16 +29,17 @@ import com.tuarua.firebase.vision.extensions.toFREObject
 import com.tuarua.frekotlin.*
 
 import java.util.*
-import kotlin.coroutines.experimental.CoroutineContext
-import kotlinx.coroutines.experimental.launch
-import kotlinx.coroutines.experimental.CommonPool
+import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
     private val TRACE = "TRACE"
     private var results: MutableMap<String, FirebaseVisionText> = mutableMapOf()
     private val gson = Gson()
-    private val bgContext: CoroutineContext = CommonPool
+    private val bgContext: CoroutineContext = Dispatchers.Default
     private lateinit var recognizer: FirebaseVisionTextRecognizer
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
@@ -62,7 +62,7 @@ class KotlinController : FreKotlinMainController {
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
 
-        launch(bgContext) {
+        GlobalScope.launch(bgContext) {
             recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     results[eventId] = task.result

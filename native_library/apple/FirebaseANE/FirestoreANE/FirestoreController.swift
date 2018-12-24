@@ -20,7 +20,7 @@ import Firebase
 import FirebaseFirestore
 
 class FirestoreController: FreSwiftController {
-    var TAG: String? = "FirestoreController"
+    static var TAG = "FirestoreController"
     internal var context: FreContextSwift!
 
     private var firestore: Firestore?
@@ -72,11 +72,11 @@ class FirestoreController: FreSwiftController {
                 break
             }
         }
-        
+
         for o in orderList {
             q = q.order(by: o.by, descending: o.descending)
         }
-        
+
         if !startAtList.isEmpty {
             q = q.start(at: startAtList)
         }
