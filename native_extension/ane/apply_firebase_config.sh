@@ -8,8 +8,24 @@ echo "Setting path to current directory to:"
 pathtome=$0
 pathtome="${pathtome%/*}"
 
-echo "Packaging Google Services values into ANE."
-zip "$pathtome/FirebaseANE.ane" META-INF/ANE/Android-ARM/com.tuarua.firebase.FirebaseANE-res/values/values.xml
-zip "$pathtome/FirebaseANE.ane" META-INF/ANE/Android-x86/com.tuarua.firebase.FirebaseANE-res/values/values.xml
+echo "Packaging resources into ANE."
+
+pathLen=${#pathtome}
+
+function pack {
+    find "$pathtome/META-INF" -iname "*.$1" -type f -print0 | while IFS= read -r -d '' file; do
+    filePathLen=${#file}
+    subLen=filePathLen-pathLen-1
+    subStr=${file:pathLen+1:subLen}
+    zip "$pathtome/FirebaseANE.ane" "$subStr"
+    done
+}
+
+pack 'xml'
+pack 'png'
+pack 'gif'
+pack 'jpg'
+pack 'mp3'
+pack 'mp4'
 
 echo $grn"Finished" $white
