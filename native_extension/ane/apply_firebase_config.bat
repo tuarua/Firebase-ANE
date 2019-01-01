@@ -8,5 +8,6 @@ call %SZIP% u %pathtome%FirebaseANE.zip -ir!META-INF\*.png
 call %SZIP% u %pathtome%FirebaseANE.zip -ir!META-INF\*.gif
 call %SZIP% u %pathtome%FirebaseANE.zip -ir!META-INF\*.jpg
 call %SZIP% u %pathtome%FirebaseANE.zip -ir!META-INF\*.mp3
+call %SZIP% u %pathtome%FirebaseANE.zip -ir!META-INF\*.wav
 call %SZIP% u %pathtome%FirebaseANE.zip -ir!META-INF\*.mp4
 ren %pathtome%FirebaseANE.zip FirebaseANE.ane

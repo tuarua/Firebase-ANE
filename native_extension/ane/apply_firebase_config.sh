@@ -26,6 +26,7 @@ pack 'png'
 pack 'gif'
 pack 'jpg'
 pack 'mp3'
+pack 'wav'
 pack 'mp4'
 
 echo $grn"Finished" $white

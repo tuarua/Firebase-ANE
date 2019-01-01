@@ -102,7 +102,7 @@
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="AIRSDK_31" />
+          <sdk name="AIRSDK_32" />
         </dependencies>
         <compiler-options>
           <map>
