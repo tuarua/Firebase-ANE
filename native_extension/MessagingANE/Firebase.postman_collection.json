@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "fd75ff17-831c-4898-8bbd-fec9f17b3a58",
+		"name": "Firebase",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Firebase Message",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "key=PASTE_FCM_SERVER_KEY_HERE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"notification\": \n  {\n    \"title\": \"Title\",\n    \"text\": \"Text\",\n    \"body\": \"Body\",\n    \"sound\": \"default\",\n    \"badge\": \"8\",\n    \"color\": \"#FF9900\"\n  },\n  \"data\": \n  {\n    \"obj\": \n    {\n      \"Variable1\":\"value1\",\n      \"Variable2\":\"value2\"\n    }\n  },\n  \"priority\" : \"high\",\n  \"to\" : \"PASTE_FCM_TOKEN_HERE\"\n}"
+				},
+				"url": {
+					"raw": "https://fcm.googleapis.com/fcm/send",
+					"protocol": "https",
+					"host": [
+						"fcm",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"fcm",
+						"send"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
