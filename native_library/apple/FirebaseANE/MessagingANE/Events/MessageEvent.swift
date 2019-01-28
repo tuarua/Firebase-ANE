@@ -21,9 +21,9 @@ class MessageEvent: NSObject {
     public static let ON_TOKEN_REFRESHED = "FirebaseMessaging.OnTokenRefreshed"
     
     var data: [String: Any]?
-    var error: [String: Any]?
+    var error: NSError?
     
-    convenience init(data: [String: Any]? = nil, error: [String: Any]? = nil) {
+    convenience init(data: [String: Any]? = nil, error: NSError? = nil) {
         self.init()
         self.data = data
         self.error = error
@@ -32,7 +32,7 @@ class MessageEvent: NSObject {
     public func toJSONString() -> String {
         var props = [String: Any]()
         props["data"] = data
-        props["error"] = error
+        props["error"] = error?.toDictionary()
         return JSON(props).description
     }
 }

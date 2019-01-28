@@ -189,7 +189,6 @@ public class FirestoreExample extends Sprite implements IExample {
     private function onGetDocumentClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnGetDocument);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            var dE:DocumentReference = new DocumentReference("cities/SF");
             if (sanFran) {
                 sanFran.map(City);
                 sanFran.addSnapshotListener(onDocSnapshot); // This is for realtime updates

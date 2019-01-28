@@ -54,7 +54,7 @@ public class SwiftController: NSObject {
                 if let err = error as NSError? {
                     self.dispatchEvent(name: CloudLabelEvent.RECOGNIZED,
                                        value: CloudLabelEvent(eventId: eventId,
-                                                              error: err.toDictionary()).toJSONString())
+                                                              error: err).toJSONString())
                 } else {
                     if let result = result, !result.isEmpty {
                         self.results[eventId] = result

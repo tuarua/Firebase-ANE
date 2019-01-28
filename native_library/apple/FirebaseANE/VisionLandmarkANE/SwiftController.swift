@@ -52,7 +52,7 @@ public class SwiftController: NSObject {
             self.detector?.detect(in: image) { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: LandmarkEvent.RECOGNIZED,
-                                       value: LandmarkEvent(eventId: eventId, error: err.toDictionary()).toJSONString()
+                                       value: LandmarkEvent(eventId: eventId, error: err).toJSONString()
                     )
                 } else {
                     if let result = result, !result.isEmpty {

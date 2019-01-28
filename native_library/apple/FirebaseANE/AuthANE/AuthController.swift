@@ -38,9 +38,7 @@ class AuthController: FreSwiftController {
             if eventId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.USER_CREATED,
-                               value: AuthEvent(eventId: eventId, data: nil,
-                                                    error: ["text": err.localizedDescription,
-                                                            "id": err.code]).toJSONString())
+                               value: AuthEvent(eventId: eventId, data: nil, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.USER_CREATED,
                                value: AuthEvent(eventId: eventId).toJSONString())
@@ -53,9 +51,7 @@ class AuthController: FreSwiftController {
             if eventId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
-                               value: AuthEvent(eventId: eventId, data: nil,
-                                                error: ["text": err.localizedDescription,
-                                                        "id": err.code]).toJSONString())
+                               value: AuthEvent(eventId: eventId, data: nil, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
                                value: AuthEvent(eventId: eventId).toJSONString())
@@ -69,8 +65,7 @@ class AuthController: FreSwiftController {
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
                                value: AuthEvent(eventId: eventId, data: nil,
-                                                error: ["text": err.localizedDescription,
-                                                        "id": err.code]).toJSONString())
+                                                error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
                                value: AuthEvent(eventId: eventId).toJSONString())
@@ -84,8 +79,7 @@ class AuthController: FreSwiftController {
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
                                value: AuthEvent(eventId: eventId, data: nil,
-                                                error: ["text": err.localizedDescription,
-                                                        "id": err.code]).toJSONString())
+                                                error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
                                value: AuthEvent(eventId: eventId).toJSONString())
@@ -107,8 +101,7 @@ class AuthController: FreSwiftController {
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.PASSWORD_RESET_EMAIL_SENT,
                                value: AuthEvent(eventId: eventId, data: nil,
-                                                error: ["text": err.localizedDescription,
-                                                        "id": err.code]).toJSONString())
+                                                error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.PASSWORD_RESET_EMAIL_SENT,
                                value: AuthEvent(eventId: eventId).toJSONString())
@@ -124,8 +117,7 @@ class AuthController: FreSwiftController {
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.USER_REAUTHENTICATED,
                                value: AuthEvent(eventId: eventId, data: nil,
-                                                error: ["text": err.localizedDescription,
-                                                        "id": err.code]).toJSONString())
+                                                error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.USER_REAUTHENTICATED,
                                value: AuthEvent(eventId: eventId).toJSONString())
@@ -139,8 +131,7 @@ class AuthController: FreSwiftController {
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.PHONE_CODE_SENT,
                                value: AuthEvent(eventId: eventId, data: nil,
-                                                error: ["text": err.localizedDescription,
-                                                        "id": err.code]).toJSONString())
+                                                error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.PHONE_CODE_SENT,
                                value: AuthEvent(eventId: eventId,

@@ -228,6 +228,8 @@
 		90D35EA2217AA2990072B9DD /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
 		90D35EA3217AA2CC0072B9DD /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
 		90D35EA4217AA2E30072B9DD /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
+		90D5BC9921FFB4E700592A94 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90D5BC9A21FFB6A800592A94 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
 		90EF030B2154216000C91063 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
 		90EF030C2154216000C91063 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		90EF030E2154216000C91063 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
@@ -3278,14 +3280,14 @@
 		};
 		CEB57295208CF73F00CF6B1B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "../../../native_extension/FirestoreANE/ane/build_multi.sh\n";
 		};
@@ -3352,7 +3354,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		CEBCF7B22095F9160028601B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3758,6 +3760,7 @@
 				CE265762208E7AB600C561E8 /* FreDocumentChange.swift in Sources */,
 				CE265760208E767400C561E8 /* FreFirestoreSettings.swift in Sources */,
 				CEB572AB208CF8F400CF6B1B /* SwiftController.swift in Sources */,
+				90D5BC9A21FFB6A800592A94 /* FreNSError.swift in Sources */,
 				90768FAE21CEBE3C004F0D35 /* SwiftyJSON.swift in Sources */,
 				CE265764208E7B7700C561E8 /* FreQuerySnapshot.swift in Sources */,
 				CEB572AD208CF8F400CF6B1B /* SwiftController+FreSwift.swift in Sources */,
@@ -3795,6 +3798,7 @@
 				CEBCF7B82095F9820028601B /* AuthANE.m in Sources */,
 				CEBCF7BE2095F9C80028601B /* SwiftController.swift in Sources */,
 				CEBCF7C42095FC190028601B /* AuthController.swift in Sources */,
+				90D5BC9921FFB4E700592A94 /* FreNSError.swift in Sources */,
 				CEBCF7D1209612060028601B /* AuthEvent.swift in Sources */,
 				90768FB621CEBEA5004F0D35 /* SwiftyJSON.swift in Sources */,
 				CE62952B20A8DD2600EEF76E /* FreAuthCredential.swift in Sources */,

@@ -23,9 +23,9 @@ class InvitesEvent: NSObject {
     
     var eventId: String?
     var data: [String: Any]?
-    var error: [String: Any]?
+    var error: NSError?
     
-    convenience init(eventId: String?, data: [String: Any]? = nil, error: [String: Any]? = nil) {
+    convenience init(eventId: String?, data: [String: Any]? = nil, error: NSError? = nil) {
         self.init()
         self.eventId = eventId
         self.data = data
@@ -36,7 +36,7 @@ class InvitesEvent: NSObject {
         var props = [String: Any]()
         props["eventId"] = eventId
         props["data"] = data
-        props["error"] = error
+        props["error"] = error?.toDictionary()
         return JSON(props).description
     }
 }
