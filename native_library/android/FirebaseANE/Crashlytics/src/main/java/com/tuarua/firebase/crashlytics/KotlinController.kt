@@ -27,8 +27,6 @@ import android.content.Intent
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private val TRACE = "TRACE"
-
     fun createGUID(ctx: FREContext, argv: FREArgv): FREObject? {
         return UUID.randomUUID().toString().toFREObject()
     }

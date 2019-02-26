@@ -28,7 +28,6 @@ import com.google.firebase.perf.metrics.Trace
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private val TRACE = "TRACE"
     private var traces: MutableMap<String, Trace> = HashMap()
     private var packageManager: PackageManager? = null
     private var packageInfo: PackageInfo? = null
@@ -65,7 +64,7 @@ class KotlinController : FreKotlinMainController {
 
     fun startTrace(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("startTrace")
-        val name = String(argv[0]) ?: return FreConversionException("name")
+        val name = String(argv[0]) ?: return null
         if (traces[name] == null) {
             traces[name] = FirebasePerformance.getInstance().newTrace(name)
         }
@@ -75,16 +74,16 @@ class KotlinController : FreKotlinMainController {
 
     fun stopTrace(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("stopTrace")
-        val name = String(argv[0]) ?: return FreConversionException("name")
+        val name = String(argv[0]) ?: return null
         traces[name]?.stop()
         return null
     }
 
     fun incrementCounter(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 2 } ?: return FreArgException("incrementCounter")
-        val name = String(argv[0]) ?: return FreConversionException("name")
-        val counterName = String(argv[1]) ?: return FreConversionException("counterName")
-        val by = Long(argv[2]) ?: return FreConversionException("by")
+        val name = String(argv[0]) ?: return null
+        val counterName = String(argv[1]) ?: return null
+        val by = Long(argv[2]) ?: return null
         traces[name]?.incrementCounter(counterName, by)
         // traces[name]?.incrementMetric(counterName, by)
         return null
@@ -92,7 +91,7 @@ class KotlinController : FreKotlinMainController {
 
     fun setIsDataCollectionEnabled(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setIsDataCollectionEnabled")
-        val value = Boolean(argv[0]) ?: return FreConversionException("value")
+        val value = Boolean(argv[0]) ?: return null
         FirebasePerformance.getInstance().isPerformanceCollectionEnabled = value
         return null
     }

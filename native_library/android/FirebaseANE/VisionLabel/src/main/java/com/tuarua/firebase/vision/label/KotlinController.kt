@@ -35,7 +35,6 @@ import kotlinx.coroutines.launch
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private val TRACE = "TRACE"
     private var results: MutableMap<String, MutableList<FirebaseVisionLabel>> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = Dispatchers.Default

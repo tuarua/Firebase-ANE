@@ -32,7 +32,6 @@ import com.tuarua.frekotlin.*
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private val TRACE = "TRACE"
     private lateinit var remoteConfig: FirebaseRemoteConfig
     private var cacheExpiration: Long = 86400
     private val gson = Gson()
@@ -60,21 +59,21 @@ class KotlinController : FreKotlinMainController {
 
     fun setConfigSettings(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setConfigSettings")
-        val settings = FirebaseRemoteConfigSettings(argv[0]) ?: return FreConversionException("settings")
+        val settings = FirebaseRemoteConfigSettings(argv[0]) ?: return null
         remoteConfig.setConfigSettings(settings)
         return null
     }
 
     fun setDefaults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setDefaults")
-        val defaults: Map<String, Any> = Map(argv[0]) ?: return FreConversionException("defaults")
+        val defaults: Map<String, Any> = Map(argv[0]) ?: return null
         remoteConfig.setDefaults(defaults)
         return null
     }
 
     fun getByteArray(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getByteArray")
-        val key = String(argv[0]) ?: return FreConversionException("key")
+        val key = String(argv[0]) ?: return null
         try {
             val ba = remoteConfig.getByteArray(key) ?: return null
             val ret = FREByteArray.newByteArray()
@@ -93,37 +92,37 @@ class KotlinController : FreKotlinMainController {
 
     fun getBoolean(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getBoolean")
-        val key = String(argv[0]) ?: return FreConversionException("key")
+        val key = String(argv[0]) ?: return null
         return remoteConfig.getBoolean(key).toFREObject()
     }
 
     fun getDouble(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getDouble")
-        val key = String(argv[0]) ?: return FreConversionException("key")
+        val key = String(argv[0]) ?: return null
         return remoteConfig.getDouble(key).toFREObject()
     }
 
     fun getLong(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getLong")
-        val key = String(argv[0]) ?: return FreConversionException("key")
+        val key = String(argv[0]) ?: return null
         return remoteConfig.getLong(key).toFREObject()
     }
 
     fun getString(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getString")
-        val key = String(argv[0]) ?: return FreConversionException("key")
+        val key = String(argv[0]) ?: return null
         return remoteConfig.getString(key).toFREObject()
     }
 
     fun getKeysByPrefix(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getKeysByPrefix")
-        val prefix = String(argv[0]) ?: return FreConversionException("prefix")
+        val prefix = String(argv[0]) ?: return null
         return remoteConfig.getKeysByPrefix(prefix).toList().toFREObject()
     }
 
     fun fetch(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("fetch")
-        val cacheExpiration = Long(argv[0]) ?: return FreConversionException("cacheExpiration")
+        val cacheExpiration = Long(argv[0]) ?: return null
         when {
             remoteConfig.info.configSettings.isDeveloperModeEnabled -> this.cacheExpiration = 0
             else -> this.cacheExpiration = cacheExpiration

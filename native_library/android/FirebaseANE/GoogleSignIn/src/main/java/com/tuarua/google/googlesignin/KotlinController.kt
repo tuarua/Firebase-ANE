@@ -26,7 +26,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private val TRACE = "TRACE"
     private var googleSignInClient: GoogleSignInClient? = null
     private val RC_SIGN_IN = 9001
     fun createGUID(ctx: FREContext, argv: FREArgv): FREObject? {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="Android Device">
+  <component name="FlexBuildConfigurationManager" active="iOS Device">
     <configurations>
       <configuration name="Android Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies>
@@ -171,7 +171,7 @@
           <map>
             <entry key="compiler.locale" value="en_US" />
           </map>
-          <option name="additionalOptions" value="-swf-version=43" />
+          <option name="additionalOptions" value="-advanced-telemetry -swf-version=43" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="iOS_Device">
@@ -195,7 +195,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GINInviteResources.bundle" path-in-package="GINInviteResources.bundle" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GPPACLPickerResources.bundle" path-in-package="GPPACLPickerResources.bundle" />
           </files-to-package>
-          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/tua_rua_dev_2018.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/TuaRuaFirebase_Dev_Prov.mobileprovision" />
+          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2019/dev/tua_rua_dev_2019.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2019/dev/TuaRuaFirebase_Dev_Prov-2.mobileprovision" />
         </packaging-ios>
       </configuration>
       <configuration name="iOS Simulator" target-platform="Mobile" pure-as="true" main-class="Main" output-file="iOS_Simulator.swf" output-folder="$MODULE_DIR$/bin-release">
@@ -305,7 +305,7 @@
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="AIRSDK_31" />
+          <sdk name="AIRSDK_32" />
         </dependencies>
         <compiler-options>
           <map>
@@ -334,7 +334,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GINInviteResources.bundle" path-in-package="GINInviteResources.bundle" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GPPACLPickerResources.bundle" path-in-package="GPPACLPickerResources.bundle" />
           </files-to-package>
-          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2018/prod/Tua_Rua_Dist_WebView.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2018/prod/Firebase_App_Live_Prov.mobileprovision" />
+          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2019/prod/Tua_Rua_Dist_WebView.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2019/prod/Firebase_App_Live_Prov.mobileprovision" />
         </packaging-ios>
       </configuration>
     </configurations>
@@ -345,7 +345,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="AIRSDK_31&#9;AIRSDK_32" jdkType="__CompositeFlexSdk__" />
+    <orderEntry type="jdk" jdkName="AIRSDK_32" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="starling" level="project" />
     <orderEntry type="library" exported="" name="ZipANE" level="project" />

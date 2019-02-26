@@ -31,7 +31,6 @@ import com.tuarua.firebase.dynamiclinks.extensions.*
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private val TRACE = "TRACE"
     private val gson = Gson()
 
     fun createGUID(ctx: FREContext, argv: FREArgv): FREObject? {
@@ -45,7 +44,7 @@ class KotlinController : FreKotlinMainController {
     fun buildDynamicLink(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 4 } ?: return FreArgException("createDynamicLink")
         val linkFre = argv[0]
-        val eventId = String(argv[1]) ?: return FreConversionException("eventId")
+        val eventId = String(argv[1]) ?: return null
         val copyToClipboard = Boolean(argv[2]) == true
         val shorten = Boolean(argv[3]) == true
         val suffix = Int(argv[4]) ?: 0
@@ -136,7 +135,7 @@ class KotlinController : FreKotlinMainController {
 
     fun getDynamicLink(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getDynamicLink")
-        val eventId = String(argv[0]) ?: return FreConversionException("eventId")
+        val eventId = String(argv[0]) ?: return null
         val appActivity = ctx.activity
         if (appActivity != null) {
             val task = FirebaseDynamicLinks.getInstance().getDynamicLink(appActivity.intent)

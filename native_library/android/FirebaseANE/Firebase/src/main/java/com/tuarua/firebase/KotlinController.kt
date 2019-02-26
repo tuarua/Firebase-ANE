@@ -11,7 +11,6 @@ import com.google.android.gms.common.GoogleApiAvailability
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private val TRACE = "TRACE"
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         val context = context ?: return FreException("no context").getError()
         val resources = context.activity?.resources
