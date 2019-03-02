@@ -25,7 +25,7 @@ public class PerformanceANE implements FREExtension {
             "init"
             ,"startTrace"
             ,"stopTrace"
-            ,"incrementCounter"
+            ,"incrementMetric"
             ,"setIsDataCollectionEnabled"
     };
     private static PerformanceANEContext extensionContext;

@@ -16,11 +16,11 @@
     
     <packagedDependencies>
         <packagedDependency>Frameworks/FirebaseFirestore.framework</packagedDependency>
-        <packagedDependency>Frameworks/BoringSSL.framework</packagedDependency>
+        <packagedDependency>Frameworks/BoringSSL-GRPC.framework</packagedDependency>
         <packagedDependency>Frameworks/gRPC-Core.framework</packagedDependency>
-        <packagedDependency>Frameworks/gRPC-ProtoRPC.framework</packagedDependency>
-        <packagedDependency>Frameworks/gRPC-RxLibrary.framework</packagedDependency>
-        <packagedDependency>Frameworks/gRPC.framework</packagedDependency>
+        <!--<packagedDependency>Frameworks/gRPC-ProtoRPC.framework</packagedDependency>-->
+        <!--<packagedDependency>Frameworks/gRPC-RxLibrary.framework</packagedDependency>-->
+        <!--<packagedDependency>Frameworks/gRPC.framework</packagedDependency>-->
         <packagedDependency>Frameworks/gRPC-C++.framework</packagedDependency>
         <packagedDependency>Frameworks/leveldb-library.framework</packagedDependency>
         <packagedDependency>Frameworks/Protobuf.framework</packagedDependency>

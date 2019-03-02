@@ -79,8 +79,9 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
         GlobalScope.launch(bgContext) {
             detector.detectInImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    if (!task.result.isEmpty()) {
-                        results[eventId] = task.result
+                    val result = task.result ?: return@addOnCompleteListener
+                    if (!result.isEmpty()) {
+                        results[eventId] = result
                         dispatchEvent(BarcodeEvent.DETECTED,
                                 gson.toJson(BarcodeEvent(eventId)))
                     }

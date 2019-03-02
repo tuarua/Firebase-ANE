@@ -79,13 +79,12 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    fun incrementCounter(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException("incrementCounter")
+    fun incrementMetric(ctx: FREContext, argv: FREArgv): FREObject? {
+        argv.takeIf { argv.size > 2 } ?: return FreArgException("incrementMetric")
         val name = String(argv[0]) ?: return null
         val counterName = String(argv[1]) ?: return null
         val by = Long(argv[2]) ?: return null
-        traces[name]?.incrementCounter(counterName, by)
-        // traces[name]?.incrementMetric(counterName, by)
+        traces[name]?.incrementMetric(counterName, by)
         return null
     }
 

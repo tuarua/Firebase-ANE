@@ -27,7 +27,7 @@
         <compilerSettings />
         <compilerArguments>
           <option name="destination" value="$MODULE_DIR$/build/tmp/kotlin-classes/release" />
-          <option name="classpath" value="$USER_HOME$/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.6.0.aar/9148ff96d38f311fd95118c4c213786f/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.6.0.aar/9148ff96d38f311fd95118c4c213786f/jars/libs/FlashRuntimeExtensions.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.6.0.aar/9148ff96d38f311fd95118c4c213786f/jars/libs/runtimeClasses.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.11/4cbc5922a54376018307a731162ccaf3ef851a39/kotlin-stdlib-1.3.11.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.greenrobot/eventbus/3.0.0/ddd99896e9569eaababbe81b35d80e1b91c4ad85/eventbus-3.0.0.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.4/d0de1ca9b69e69d1d497ee3c6009d015f64dad57/gson-2.8.4.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.0.aar/9a4caf31ece41defd6f8244a2b264208/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-ml-vision-17.0.0.aar/dbc889e9f6967cf5c69506f4b1f365f3/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.11/d8b8e746e279f1c4f5e08bc14a96b82e6bb1de02/kotlin-stdlib-common-1.3.11.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-16.0.0.aar/e2aaecf5ccbf2687c182c99fb9f08505/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.0.aar/55073847fcea2ca08843dc20c63f158d/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-15.1.0.aar/c9b415856792cafcc307fa87ca32dec1/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-vision-15.0.2.aar/af8c1e4b848182cb3ed70dad091d702c/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-vision-image-label-15.0.0.aar/517da1e8654b981d0f164434b344be8c/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-15.0.2.aar/3329f8e1b30a9b22d9f943d01acab8c9/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-ml-common-16.1.2.aar/3ac76dc39d5468807381521af70efcc0/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-clearcut-15.0.1.aar/1a891251db1313382a4f939d1b0cdbb8/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-flags-15.0.1.aar/ae923b4f13795d93af80bd4a80b460af/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-phenotype-15.0.1.aar/25a161ac9872fe9d7da1cc805b307b2a/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.0.0.aar/ee50e0421b30b8e3b1d21e53933198b8/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-iid-16.0.0.aar/fd6f5dce75eb8bef3873b6a674182adc/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.0.aar/c1f3a3d5ecf653d0ed2030aac9f40d8f/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/8f0199a928843f507166a8c9d2768747/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.0.aar/8e513821a80385cfcc60e529421a0578/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/3045495796f8fac1397924ec3025b58a/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/a078fa2804e64ca569cd578301192ec7/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-16.0.0.aar/eced7646f0f66faa3c6f2c1420930e8c/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/7c4430da54aa86733e42711359d5f038/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/ae056f3b17c07ec332f9898edc97855b/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.4.aar/dba99ac26e71d0c91c5d7e8af0e94df4/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/df096f08f5dc1dee0b136bf1eb314d4c/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/f2e97219878f1e707e2c505d77ee8efd/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/ac5469dcbd81acbaea3dae6ce1534d4a/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/401eabc3aea3a3a776bd4533d8d56f85/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/80637cf1ce0f0958e0d2777b031c1099/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/2fdcc1a6a96c03b3631fea010d621d42/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/26.1.0/814258103cf26a15fcc26ecce35f5b7d24b73f8/support-annotations-26.1.0.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/de25a6643373ccb872f619abf4f1fb84/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.0.0/e414a4cb28434e25c4f6aa71426eb20cf4874ae9/common-1.0.0.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.0.0/a2d487452376193fc8c103dd2b9bd5f2b1b44563/common-1.0.0.jar:/Users/eoinlandy/Library/Android/sdk/platforms/android-27/android.jar" />
+          <option name="classpath" value="$USER_HOME$/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.6.0.aar/0b35fe2c7d1f236e1242babce50fa5a6/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.6.0.aar/0b35fe2c7d1f236e1242babce50fa5a6/jars/libs/FlashRuntimeExtensions.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.6.0.aar/0b35fe2c7d1f236e1242babce50fa5a6/jars/libs/runtimeClasses.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.11/4cbc5922a54376018307a731162ccaf3ef851a39/kotlin-stdlib-1.3.11.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.greenrobot/eventbus/3.0.0/ddd99896e9569eaababbe81b35d80e1b91c4ad85/eventbus-3.0.0.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.4/d0de1ca9b69e69d1d497ee3c6009d015f64dad57/gson-2.8.4.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.7.aar/4e238457f257b1a09658042d77e98cd3/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-ml-vision-19.0.2.aar/cb3396abba16458c0833ab7ea0228d62/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.11/d8b8e746e279f1c4f5e08bc14a96b82e6bb1de02/kotlin-stdlib-common-1.3.11.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.5.aar/07841fd58e05d064853278ed69839ecc/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.3.0.aar/810912f2925eb761113698cf89830e39/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/exifinterface-1.0.0.aar/d5d75be6635927c872e9f2566ddd1b1d/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-16.0.0.aar/6bb32d1770a20a40fa35739422bb7c33/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-vision-17.0.2.aar/c7be29492b323a25ed6dc81249046746/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-vision-image-label-17.0.2.aar/baf03228b8a71b6e1432abe45bfa56f4/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-17.0.2.aar/b95e8a49de44753990fdb22ae85b4ca7/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-ml-common-16.2.3.aar/1ea3a55b4bc5d14fa2061c2d4355ebf2/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-clearcut-16.0.0.aar/e49fed6c96bbea1b808df25b41008468/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-flags-16.0.1.aar/44ca61c86f061c0f84cbac2d43ae705e/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-phenotype-16.0.0.aar/f3e1a19ea1fd5e82cf833006a21f746a/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.3.0.aar/27efb3b2b5732bd7ff8449b91a990beb/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.3.0.aar/af41343db61b4b02a29114074d7a8a51/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.0.3.aar/de8c2950c680c25b1200cac97a28647d/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.1.aar/5874e143674ef5468500ebabaeb7c7d8/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/e706c2c2184da018690adb065ca88162/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.3.aar/c1c5d04a3536b6b8d0647ae567df3e20/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-16.0.1.aar/426eea41686a3e0275867fdf4a151ca5/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.3.0.aar/ffc497f8d2756c31259e0bea03fd115f/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/3eb61d10d6c00f8f0302e70f8debc91e/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-17.0.1.aar/da355327a482975957626ac06e43040b/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-16.0.0.aar/702357cd1589f19e7a03261a24e1bfe8/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.1.0.aar/caf2244d01da96292af18fdc882d1b41/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.0.0/45599f2cd5965ac05a1488fa2a5c0cdd7c499ead/annotation-1.0.0.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/31aa302585786ebfcfd9c22697608000/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/c5dab110126b937b911a60b4df2746dc/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/8d9ea10b2c2433f37c38cddea14c7088/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/f7329d56df58dff2263f378491b0631a/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/49191286c14d358352b8ebe58b6b8f1e/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/48098a9db38d363935608f467f75692a/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/26.1.0/814258103cf26a15fcc26ecce35f5b7d24b73f8/support-annotations-26.1.0.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/3d1840439badc26ae5e426cb561d0b94/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.0.0/e414a4cb28434e25c4f6aa71426eb20cf4874ae9/common-1.0.0.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.0.0/a2d487452376193fc8c103dd2b9bd5f2b1b44563/common-1.0.0.jar:/Users/eoinlandy/Library/Android/sdk/platforms/android-27/android.jar" />
           <option name="noStdlib" value="true" />
           <option name="noReflect" value="true" />
           <option name="moduleName" value="Vision_release" />
@@ -47,6 +47,9 @@
               <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.3.11/61615dc1b4490a6a1940454da57496356067e488/kotlin-android-extensions-1.3.11.jar" />
             </array>
           </option>
+          <option name="errors">
+            <ArgumentParseErrors />
+          </option>
         </compilerArguments>
       </configuration>
     </facet>
@@ -57,7 +60,6 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/release" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/release" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/release" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/release" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/release" isTestSource="false" generated="true" />
@@ -99,6 +101,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/build/generated/not_namespaced_r_class_sources" />
+      <excludeFolder url="file://$MODULE_DIR$/build/generated/source/r" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotations" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/attr" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
@@ -129,44 +133,47 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 27 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-core-16.0.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-phenotype-15.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement-15.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-ml-common-16.1.2" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-15.0.2" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-base-15.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-identifier:16.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-base:16.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-image-label:17.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-base:16.3.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-ml-vision:19.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-interop:16.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.11@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-fragment-26.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.exifinterface:exifinterface:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.core:common:1.0.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.11@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base-15.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.tuarua:FreKotlin-1.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-v4:26.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-measurement-connector-impl:17.0.5@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics:16.3.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.4@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-media-compat-26.1.0" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-annotations:26.1.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-base-15.0.4" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-v4-26.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-compat-26.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid:17.0.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-media-compat:26.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-identifier-15.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-clearcut-15.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-stats:16.0.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.lifecycle:runtime:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-api:16.3.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-ml-common:16.2.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-core:16.0.7@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-impl:16.3.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-flags:16.0.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base:16.0.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-phenotype:16.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-fragment:26.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:common:1.0.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-core-ui-26.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-common-15.0.2" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-image-label-15.0.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-core-utils-26.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-stats-15.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-16.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-common:16.0.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.tuarua:FreKotlin:1.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.0.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.greenrobot:eventbus:3.0.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-measurement-connector-impl-16.0.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-interop-16.0.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-16.0.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-ml-vision-17.0.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-measurement-connector-16.0.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks-15.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-common-16.0.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-flags-15.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-impl-16.0.0" level="project" />
-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:runtime-1.0.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-core-utils:26.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision:17.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-clearcut:16.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-compat:26.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement:16.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-vision-common:17.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-core-ui:26.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.firebase:firebase-measurement-connector:17.0.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks:16.0.1@aar" level="project" />
   </component>
 </module>

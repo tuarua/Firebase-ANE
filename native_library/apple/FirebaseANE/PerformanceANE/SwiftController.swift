@@ -59,13 +59,13 @@ public class SwiftController: NSObject {
         return nil
     }
     
-    func incrementCounter(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+    func incrementMetric(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 2,
             let name = String(argv[0]),
             let counterName = String(argv[1]),
             let by = Int(argv[2])
             else {
-                return FreArgError(message: "incrementCounter").getError(#file, #line, #column)
+                return FreArgError(message: "incrementMetric").getError(#file, #line, #column)
         }
         traces[name]?.incrementMetric(counterName, by: Int64(by))
         return nil

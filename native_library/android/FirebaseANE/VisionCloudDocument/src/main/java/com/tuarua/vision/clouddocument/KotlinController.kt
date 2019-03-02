@@ -62,7 +62,8 @@ class KotlinController : FreKotlinMainController {
         GlobalScope.launch(bgContext) {
             recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    results[eventId] = task.result
+                    val result = task.result ?: return@addOnCompleteListener
+                    results[eventId] = result
                     dispatchEvent(CloudDocumentEvent.RECOGNIZED,
                             gson.toJson(CloudDocumentEvent(eventId, null)))
                 } else {

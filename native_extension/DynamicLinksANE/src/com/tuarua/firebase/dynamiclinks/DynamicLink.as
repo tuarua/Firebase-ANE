@@ -21,7 +21,8 @@ public final class DynamicLink {
      * either HTTP or HTTPS, and cannot be another Dynamic Link.</p> */
     public var link:String;
     /** <p>Your Dynamic Link domain, which you can find in the Firebase console. A Dynamic Link domain looks
-     * like the following example: abc123.app.goo.gl</p> */
+     * like the following example: abc123.app.goo.gl</p>
+     * @deprecated */
     public var dynamicLinkDomain:String;
     public var iosParameters:IosParameters;
     public var androidParameters:AndroidParameters = new AndroidParameters();

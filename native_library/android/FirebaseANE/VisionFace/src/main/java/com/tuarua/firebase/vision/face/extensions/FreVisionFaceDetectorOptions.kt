@@ -17,6 +17,7 @@ package com.tuarua.firebase.vision.face.extensions
 
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions
+import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions.Builder
 import com.tuarua.frekotlin.Boolean
 import com.tuarua.frekotlin.get
 import com.tuarua.frekotlin.Int
@@ -31,11 +32,14 @@ fun FirebaseVisionFaceDetectorOptions(freObject: FREObject?): FirebaseVisionFace
     val isTrackingEnabled = Boolean(rv["isTrackingEnabled"]) ?: false
     val minFaceSize = Float(rv["minFaceSize"]) ?: 0.1f
 
-    val builder = com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions.Builder()
-    builder.setClassificationType(classificationType)
-    builder.setLandmarkType(landmarkType)
-    builder.setModeType(modeType)
-    builder.setTrackingEnabled(isTrackingEnabled)
+    // TODO naming conventions
+    val builder = Builder()
+    builder.setClassificationMode(classificationType)
+    builder.setLandmarkMode(landmarkType)
+    builder.setContourMode(modeType)
+    if (isTrackingEnabled) {
+        builder.enableTracking()
+    }
     builder.setMinFaceSize(minFaceSize)
     return builder.build()
 }

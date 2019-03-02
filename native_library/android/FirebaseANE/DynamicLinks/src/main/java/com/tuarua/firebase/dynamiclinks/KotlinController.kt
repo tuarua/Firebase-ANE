@@ -65,6 +65,7 @@ class KotlinController : FreKotlinMainController {
             builder.setLink(Uri.parse(link))
         }
         if (dynamicLinkDomain != null && !dynamicLinkDomain.isNullOrEmpty()) {
+            // TODO
             builder.setDynamicLinkDomain(dynamicLinkDomain)
         }
         builder.setAndroidParameters(androidParameters)
@@ -86,22 +87,23 @@ class KotlinController : FreKotlinMainController {
         if (shorten) {
             val dynamicLink = builder.buildShortDynamicLink(suffix)
             dynamicLink.addOnCompleteListener { task ->
+                // TODO result is ?
                 if (task.isSuccessful) {
                     val warnings: MutableList<String> = mutableListOf()
-                    task.result.warnings.mapTo(warnings) { it.message }
+                    task.result?.warnings?.mapTo(warnings) { it.message }
 
                     if (copyToClipboard) {
                         val act = ctx.activity
                         val cb = act.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                         cb.primaryClip = ClipData.newPlainText("short link",
-                                task.result.shortLink.toString())
+                                task.result?.shortLink.toString())
                     }
 
                     dispatchEvent(DynamicLinkEvent.ON_CREATED,
                             gson.toJson(
                                     DynamicLinkEvent(eventId, true, mapOf(
-                                            "previewLink" to task.result.previewLink.toString(),
-                                            "shortLink" to task.result.shortLink.toString(),
+                                            "previewLink" to task.result?.previewLink.toString(),
+                                            "shortLink" to task.result?.shortLink.toString(),
                                             "warnings" to warnings))
                             )
                     )

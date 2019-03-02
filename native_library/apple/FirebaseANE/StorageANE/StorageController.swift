@@ -248,8 +248,7 @@ class StorageController: FreSwiftController {
                 self.dispatchEvent(name: StorageEvent.GET_METADATA,
                                value: StorageEvent(eventId: eventId,
                                                    data: nil,
-                                                   error: ["text": err.localizedDescription,
-                                                           "id": err.code]).toJSONString())
+                                                   error: err).toJSONString())
                 
             } else {
                 if let m = metadata {
@@ -289,8 +288,7 @@ class StorageController: FreSwiftController {
                 self.dispatchEvent(name: StorageEvent.GET_DOWNLOAD_URL,
                                value: StorageEvent(eventId: eventId,
                                                    data: nil,
-                                                   error: ["text": err.localizedDescription,
-                                                           "id": err.code]).toJSONString())
+                                                   error: err).toJSONString())
                 
             } else {
                 if let u = url?.absoluteString {
@@ -310,8 +308,7 @@ class StorageController: FreSwiftController {
             if let err = error as NSError? {
                 self.dispatchEvent(name: StorageEvent.UPDATE_METADATA,
                                value: StorageEvent(eventId: eventId, 
-                                                   error: ["text": err.localizedDescription,
-                                                           "id": err.code]).toJSONString())
+                                                   error: err).toJSONString())
                 
             } else { 
                 self.dispatchEvent(name: StorageEvent.UPDATE_METADATA,

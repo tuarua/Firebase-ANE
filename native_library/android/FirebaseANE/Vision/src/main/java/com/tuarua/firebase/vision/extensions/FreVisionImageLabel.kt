@@ -16,22 +16,23 @@
 
 @file:Suppress("FunctionName")
 
-package com.tuarua.firebase.vision.label.extensions
+package com.tuarua.firebase.vision.extensions
 
 import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
-import com.google.firebase.ml.vision.label.FirebaseVisionLabel
+import com.google.firebase.ml.vision.label.FirebaseVisionImageLabel
 import com.tuarua.frekotlin.*
 
-fun FirebaseVisionLabel.toFREObject(): FREObject? {
+fun FirebaseVisionImageLabel.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.vision.Label")
     ret["confidence"] = confidence.toFREObject()
-    ret["label"] = label.toFREObject()
-    ret["entityId"] = entityId.toFREObject()
+    // TODO naming convention
+    ret["label"] = text.toFREObject()
+    ret["entityId"] = entityId?.toFREObject()
     return ret
 }
 
-fun List<FirebaseVisionLabel>.toFREArray(): FREArray? {
+fun List<FirebaseVisionImageLabel>.toFREArray(): FREArray? {
     val ret = FREArray("com.tuarua.firebase.vision.Label", size, true) ?: return null
     for (i in this.indices) {
         ret[i] = this[i].toFREObject()

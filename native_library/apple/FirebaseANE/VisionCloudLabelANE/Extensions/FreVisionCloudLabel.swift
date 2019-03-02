@@ -18,17 +18,17 @@ import Foundation
 import FreSwift
 import FirebaseMLVision
 
-public extension VisionCloudLabel {
+public extension VisionImageLabel {
     func toFREObject() -> FREObject? {
         guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.CloudLabel") else { return nil }
         ret.confidence = confidence
-        ret.entityId = entityId
-        ret.label = label
+        ret.entityId = entityID
+        ret.label = text
         return ret.rawValue
     }
 }
 
-public extension Array where Element == VisionCloudLabel? {
+public extension Array where Element == VisionImageLabel? {
     func toFREObject() -> FREObject? {
         guard let ret = FREArray(className: "com.tuarua.firebase.vision.CloudLabel") else { return nil }
         for element in self {

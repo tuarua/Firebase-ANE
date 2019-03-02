@@ -69,12 +69,11 @@ public class SwiftController: NSObject {
             options.pathLength = ShortDynamicLinkPathLength(rawValue: suffix) ?? .default
             components.options = options
             components.shorten { (shortURL, warnings, error) in
-                if let err = error {
+                if let err = error as NSError? {
                     self.dispatchEvent(name: DynamicLinkEvent.ON_CREATED,
                                    value: DynamicLinkEvent(eventId: eventId,
                                                        data: nil,
-                                                       error: ["text": err.localizedDescription,
-                                                               "id": 0]).toJSONString())
+                                                       error: err).toJSONString())
                     return
                 }
                 if copyToClipboard {
@@ -112,10 +111,10 @@ public class SwiftController: NSObject {
             let webpageURL = userActivity.webpageURL {
     
             DynamicLinks.dynamicLinks().handleUniversalLink(webpageURL, completion: { (link, error) in
-                if let err = error {
+                if let err = error as NSError? {
                     self.dispatchEvent(name: DynamicLinkEvent.ON_LINK,
                                    value: DynamicLinkEvent(eventId: eventId,
-                                                           error: ["text": err.localizedDescription, "id": 0]
+                                                           error: err
                                     ).toJSONString())
                     return
                 }

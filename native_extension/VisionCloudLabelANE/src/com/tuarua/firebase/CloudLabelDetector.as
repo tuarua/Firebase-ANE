@@ -15,7 +15,7 @@
  */
 
 package com.tuarua.firebase {
-import com.tuarua.firebase.vision.CloudDetectorOptions;
+import com.tuarua.firebase.vision.LabelDetectorOptions;
 import com.tuarua.firebase.vision.VisionImage;
 import com.tuarua.fre.ANEError;
 
@@ -26,12 +26,12 @@ import flash.utils.Dictionary;
 public class CloudLabelDetector {
     internal static const NAME:String = "VisionCloudLabelANE";
     private static var _context:ExtensionContext;
-    private var _options:CloudDetectorOptions = new CloudDetectorOptions();
+    private var _options:LabelDetectorOptions = new LabelDetectorOptions();
     /** @private */
     public static var closures:Dictionary = new Dictionary();
     private static const RECOGNIZED:String = "CloudLabelEvent.Recognized";
     /** @private */
-    public function CloudLabelDetector(options:CloudDetectorOptions) {
+    public function CloudLabelDetector(options:LabelDetectorOptions) {
         try {
             if (options) {
                 _options = options;
@@ -128,8 +128,8 @@ public class CloudLabelDetector {
     }
 
     /** @private */
-    internal function reinit(options:CloudDetectorOptions):void {
-        _context.call("init", options ? options : new CloudDetectorOptions());
+    internal function reinit(options:LabelDetectorOptions):void {
+        _context.call("init", options ? options : new LabelDetectorOptions());
     }
 
 }

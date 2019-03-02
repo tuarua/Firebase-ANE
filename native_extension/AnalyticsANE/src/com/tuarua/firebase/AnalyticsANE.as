@@ -80,6 +80,7 @@ public class AnalyticsANE extends EventDispatcher {
     /**
      * Sets the minimum engagement time in seconds required to start a new session. The default value
      * is 10000 milliseconds.
+     * @deprecated
      */
     public function set minimumSessionDuration(milliseconds:Number):void {
         AnalyticsANEContext.validate();

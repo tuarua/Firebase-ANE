@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="iOS Device">
+  <component name="FlexBuildConfigurationManager" active="Android Device">
     <configurations>
       <configuration name="Android Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies>
@@ -23,19 +23,10 @@
             <entry library-name="FirestoreANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.squareup.okhttp.okhttp-2.7.2" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="StorageANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="RemoteConfigANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="AuthANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="PerformanceANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="org.greenrobot.eventbus-3.0.0" library-level="project">
@@ -47,43 +38,10 @@
             <entry library-name="DynamicLinksANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.android.gms.play-services-base-15.0.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-analytics-16.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-auth-16.0.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-config-16.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-dynamic-links-16.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-iid-16.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-messaging-17.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-perf-15.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.guava.guava-20.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="GoogleSignInANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.android.gms.play-services-auth-15.0.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="android.arch.lifecycle.runtime-1.1.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-invites-16.0.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="InvitesANE" library-level="project">
@@ -92,13 +50,55 @@
             <entry library-name="com.google.code.gson.gson-2.8.4" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.firebase.firebase-storage-16.0.2" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.crashlytics.sdk.android.crashlytics-2.9.5" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="CrashlyticsANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.crashlytics.sdk.android.crashlytics-2.9.9" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.android.gms.play-services-auth-16.0.1" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-analytics-16.3.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-auth-16.1.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-iid-17.1.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-messaging-17.3.4" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-storage-16.0.5" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.squareup.okhttp.okhttp-2.7.5" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.guava.guava-26.0-android" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.android.gms.play-services-base-16.0.1" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-invites-16.0.6" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="RemoteConfigANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-config-16.1.3" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-dynamic-links-16.1.3" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-perf-16.2.3" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="PerformanceANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -403,5 +403,24 @@
     <orderEntry type="library" exported="" name="InvitesANE" level="project" />
     <orderEntry type="library" exported="" name="com.crashlytics.sdk.android.crashlytics-2.9.5" level="project" />
     <orderEntry type="library" exported="" name="CrashlyticsANE" level="project" />
+    <orderEntry type="library" exported="" name="com.crashlytics.sdk.android.crashlytics-2.9.9" level="project" />
+    <orderEntry type="library" exported="" name="com.google.android.gms.play-services-auth-16.0.1" level="project" />
+    <orderEntry type="library" exported="" name="com.google.android.gms.play-services-base-16.0.1" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-analytics-16.3.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-auth-16.1.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-dynamic-links-16.1.7" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-iid-17.1.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-invites-16.1.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-messaging-17.3.4" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-perf-16.2.3" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-storage-16.0.5" level="project" />
+    <orderEntry type="library" exported="" name="com.squareup.okhttp.okhttp-2.7.5" level="project" />
+    <orderEntry type="library" exported="" name="com.google.guava.guava-26.0-android" level="project" />
+    <orderEntry type="library" exported="" name="com.google.android.gms.play-services-base-16.1.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-dynamic-links-16.1.2" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-invites-16.0.6" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-config-16.3.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-config-16.1.3" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-dynamic-links-16.1.3" level="project" />
   </component>
 </module>

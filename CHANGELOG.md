@@ -1,3 +1,6 @@
+### 0.3.0
+- iOS: Update to Firebase 5.17.0
+
 ### 0.2.0
 - iOS: Updated to FreSwift 3.0.0
 - AND: Updated to FreKotlin 1.6.0

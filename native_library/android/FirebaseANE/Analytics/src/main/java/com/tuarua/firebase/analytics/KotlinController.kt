@@ -75,6 +75,7 @@ class KotlinController : FreKotlinMainController {
     fun setMinimumSessionDuration(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setMinimumSessionDuration")
         val milliseconds = Long(argv[0]) ?: return null
+        // TODO
         analytics.setMinimumSessionDuration(milliseconds)
         return null
     }
@@ -108,7 +109,7 @@ class KotlinController : FreKotlinMainController {
 
     private fun isDefaultFirebaseAppInitialized(): Boolean {
         return try {
-            FirebaseApp.getInstance(FirebaseApp.DEFAULT_APP_NAME) != null
+            FirebaseApp.getInstance() != null
         } catch (e: IllegalStateException) {
             Log.e(TAG, "isDefaultFirebaseAppInitialized", e)
             trace(e.message)

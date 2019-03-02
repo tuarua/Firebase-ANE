@@ -39,7 +39,7 @@ CONTEXT_INIT(TRFIRPF) {
          MAP_FUNCTION(TRFIRPF, init)
         ,MAP_FUNCTION(TRFIRPF, startTrace)
         ,MAP_FUNCTION(TRFIRPF, stopTrace)
-        ,MAP_FUNCTION(TRFIRPF, incrementCounter)
+        ,MAP_FUNCTION(TRFIRPF, incrementMetric)
         ,MAP_FUNCTION(TRFIRPF, setIsDataCollectionEnabled)
         ,MAP_FUNCTION(TRFIRPF, setIsInstrumentationEnabled)
     };

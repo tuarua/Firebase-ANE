@@ -91,7 +91,7 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
         val storageRef: StorageReference = storage.getReference(path)
         storageRef.metadata.addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val meta = task.result
+                val meta = task.result ?: return@addOnCompleteListener
                 dispatchEvent(StorageEvent.GET_METADATA, gson.toJson(StorageEvent(asId, mapOf("data" to meta.toMap()))))
             } else {
                 val error = task.exception as StorageException

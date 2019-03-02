@@ -30,7 +30,7 @@ class ResultListener(override var context: FREContext?) : FreKotlinController, T
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             val completedTask = task ?: return
             try {
-                val account = completedTask.getResult(ApiException::class.java)
+                val account = completedTask.getResult(ApiException::class.java) ?: return
                 dispatchEvent(GoogleSignInEvent.SIGN_IN,
                         Gson().toJson(GoogleSignInEvent(
                                 mapOf("idToken" to account.idToken))

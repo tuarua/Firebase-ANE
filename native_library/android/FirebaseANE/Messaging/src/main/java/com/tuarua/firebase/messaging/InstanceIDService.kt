@@ -19,7 +19,7 @@ import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.iid.FirebaseInstanceIdService
 import com.tuarua.firebase.messaging.events.MessageEvent
 import org.greenrobot.eventbus.EventBus
-
+// TODO
 class InstanceIDService : FirebaseInstanceIdService() {
     override fun onTokenRefresh() {
         val refreshedToken = FirebaseInstanceId.getInstance().token

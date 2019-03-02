@@ -43,7 +43,7 @@ public class Trace {
      */
     public function incrementMetric(named:String, by:int = 1):void {
         PerformanceANEContext.validate();
-        var theRet:* = PerformanceANEContext.context.call("incrementCounter", name, named, by);
+        var theRet:* = PerformanceANEContext.context.call("incrementMetric", name, named, by);
         if (theRet is ANEError) throw theRet as ANEError;
     }
 }

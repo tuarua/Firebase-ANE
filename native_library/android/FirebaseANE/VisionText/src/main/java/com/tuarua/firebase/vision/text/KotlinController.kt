@@ -39,7 +39,8 @@ class KotlinController : FreKotlinMainController {
         GlobalScope.launch(bgContext) {
             recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    results[eventId] = task.result
+                    val result = task.result ?: return@addOnCompleteListener
+                    results[eventId] = result
                     dispatchEvent(TextEvent.RECOGNIZED,
                             gson.toJson(TextEvent(eventId, null)))
                 } else {

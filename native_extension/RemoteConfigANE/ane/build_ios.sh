@@ -1,12 +1,7 @@
 #!/bin/sh
-
 #Get the path to the script and trim to get the directory.
-echo "Setting path to current directory to:"
 pathtome=$0
 pathtome="${pathtome%/*}"
-
-
-echo $pathtome
 
 PROJECTNAME=RemoteConfigANE
 libSuffix="_LIB"
@@ -24,7 +19,7 @@ exit
 fi
 
 #Setup the directory.
-echo "Making directories."ex
+echo "Making directories."
 
 if [ ! -d "$pathtome/platforms" ]; then
 mkdir "$pathtome/platforms"

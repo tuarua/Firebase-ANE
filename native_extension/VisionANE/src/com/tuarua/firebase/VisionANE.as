@@ -140,7 +140,7 @@ public class VisionANE extends EventDispatcher {
      * @param options Options for configuring the cloud label detector.
      * @return A cloud label detector configured with the given options.
      */
-    public function cloudLabelDetector(options:CloudDetectorOptions = null):CloudLabelDetector {
+    public function cloudLabelDetector(options:LabelDetectorOptions = null):CloudLabelDetector {
         if (_cloudLabelDetector != null) {
             _cloudLabelDetector.reinit(options);
         } else {
