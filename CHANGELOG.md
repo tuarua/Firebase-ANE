@@ -14,11 +14,13 @@
 - AND: Play Services 16.0.1
 - Added Natural Language from MLKit
 - AND: Face model is now packaged with app - See assets/models
+- [Messaging] allow custom sounds (via patched adt.jar)
 - [Performance] deprecate `Trace.incrementCounter()`
 - [Analytics] deprecate `AnalyticsANE.minimumSessionDuration`
 - [Dynamic Links] replace `DynamicLink.dynamicLinkDomain` with `DynamicLink.domainUriPrefix`
 - [Vision] `com.tuarua.firebase.vision.Label` is now `com.tuarua.firebase.vision.ImageLabel`
 - [Vision] remove `com.tuarua.firebase.vision.CloudLabel`
+- [Vision] set correct properties of `FaceDetectorOptions`
 
 ### 0.2.0
 - iOS: Updated to FreSwift 3.0.0

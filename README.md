@@ -71,4 +71,5 @@ Pull requests and contributions are welcome! This might entail:
 - [x] Label
 - [x] Cloud Label
 - [x] Landmark
+- [x] Natural Language
 - [ ] Model Interpreter

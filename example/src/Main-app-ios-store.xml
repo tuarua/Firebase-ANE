@@ -3,8 +3,8 @@
 
     <id>com.tuarua.firebaseane.examplelive</id>
     <filename>FireBaseExample</filename>
-    <name>FIR-Example-iOS-Device</name>
-    <versionNumber>0.2.0</versionNumber>
+    <name>FIR-Example-iOS-Store</name>
+    <versionNumber>0.3.0</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
