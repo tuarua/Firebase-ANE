@@ -62,7 +62,7 @@ Pull requests and contributions are welcome! This might entail:
 - [x] Google Sign In
 - [x] Invites
 - [x] Crashlytics
-* Vision
+* MLKit
 - [x] Face
 - [x] Barcode
 - [x] Text
