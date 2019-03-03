@@ -10,8 +10,8 @@ public class MessagingANE extends EventDispatcher {
     /** @private */
     public function MessagingANE() {
         if (MessagingANEContext.context) {
-            var theRet:* = MessagingANEContext.context.call("init", _channelId, _channelName);
-            if (theRet is ANEError) throw theRet as ANEError;
+            var ret:* = MessagingANEContext.context.call("init", _channelId, _channelName);
+            if (ret is ANEError) throw ret as ANEError;
         }
         _messaging = this;
     }
@@ -26,9 +26,9 @@ public class MessagingANE extends EventDispatcher {
      */
     public function get token():String {
         MessagingANEContext.validate();
-        var theRet:* = MessagingANEContext.context.call("getToken");
-        if (theRet is ANEError) throw theRet as ANEError;
-        return theRet as String;
+        var ret:* = MessagingANEContext.context.call("getToken");
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as String;
     }
 
     /**
@@ -37,8 +37,8 @@ public class MessagingANE extends EventDispatcher {
      */
     public function subscribe(toTopic:String):void {
         MessagingANEContext.validate();
-        var theRet:* = MessagingANEContext.context.call("subscribe", toTopic);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = MessagingANEContext.context.call("subscribe", toTopic);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -47,8 +47,8 @@ public class MessagingANE extends EventDispatcher {
      */
     public function unsubscribe(fromTopic:String):void {
         MessagingANEContext.validate();
-        var theRet:* = MessagingANEContext.context.call("unsubscribe", fromTopic);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = MessagingANEContext.context.call("unsubscribe", fromTopic);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** The ANE instance. */

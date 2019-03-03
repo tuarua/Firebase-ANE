@@ -9,10 +9,8 @@ public class AnalyticsANE extends EventDispatcher {
     /** @private */
     public function AnalyticsANE() {
         if (AnalyticsANEContext.context) {
-            var theRet:* = AnalyticsANEContext.context.call("init");
-            if (theRet is ANEError) {
-                throw theRet as ANEError;
-            }
+            var ret:* = AnalyticsANEContext.context.call("init");
+            if (ret is ANEError) throw ret as ANEError;
         }
         _analytics = this;
     }
@@ -37,20 +35,16 @@ public class AnalyticsANE extends EventDispatcher {
      */
     public function logEvent(name:String, params:Object):void {
         AnalyticsANEContext.validate();
-        var theRet:* = AnalyticsANEContext.context.call("logEvent", name, params);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        var ret:* = AnalyticsANEContext.context.call("logEvent", name, params);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** The unique ID for this instance of the application. */
     public function get appInstanceId():String {
         AnalyticsANEContext.validate();
-        var theRet:* = AnalyticsANEContext.context.call("getAppInstanceId");
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
-        return theRet as String;
+        var ret:* = AnalyticsANEContext.context.call("getAppInstanceId");
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as String;
     }
 
     /**
@@ -59,10 +53,8 @@ public class AnalyticsANE extends EventDispatcher {
      */
     public function set analyticsCollectionEnabled(value:Boolean):void {
         AnalyticsANEContext.validate();
-        var theRet:* = AnalyticsANEContext.context.call("setAnalyticsCollectionEnabled", value);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        var ret:* = AnalyticsANEContext.context.call("setAnalyticsCollectionEnabled", value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -71,10 +63,8 @@ public class AnalyticsANE extends EventDispatcher {
      * */
     public function set currentScreen(screenName:String):void {
         AnalyticsANEContext.validate();
-        var theRet:* = AnalyticsANEContext.context.call("setCurrentScreen", screenName);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        var ret:* = AnalyticsANEContext.context.call("setCurrentScreen", screenName);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -84,10 +74,8 @@ public class AnalyticsANE extends EventDispatcher {
      */
     public function set minimumSessionDuration(milliseconds:Number):void {
         AnalyticsANEContext.validate();
-        var theRet:* = AnalyticsANEContext.context.call("setMinimumSessionDuration", milliseconds);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        var ret:* = AnalyticsANEContext.context.call("setMinimumSessionDuration", milliseconds);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -96,10 +84,8 @@ public class AnalyticsANE extends EventDispatcher {
      */
     public function set sessionTimeoutDuration(milliseconds:Number):void {
         AnalyticsANEContext.validate();
-        var theRet:* = AnalyticsANEContext.context.call("setSessionTimeoutDuration", milliseconds);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        var ret:* = AnalyticsANEContext.context.call("setSessionTimeoutDuration", milliseconds);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -108,10 +94,8 @@ public class AnalyticsANE extends EventDispatcher {
      */
     public function set userId(value:String):void {
         AnalyticsANEContext.validate();
-        var theRet:* = AnalyticsANEContext.context.call("setUserId", value);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        var ret:* = AnalyticsANEContext.context.call("setUserId", value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -123,20 +107,16 @@ public class AnalyticsANE extends EventDispatcher {
      */
     public function setUserProperty(name:String, value:String):void {
         AnalyticsANEContext.validate();
-        var theRet:* = AnalyticsANEContext.context.call("setUserProperty", name, value);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        var ret:* = AnalyticsANEContext.context.call("setUserProperty", name, value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Clears all analytics data for this app from the device and resets the app instance id.
      * Android only.*/
     public function resetAnalyticsData():void {
         AnalyticsANEContext.validate();
-        var theRet:* = AnalyticsANEContext.context.call("resetAnalyticsData");
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        var ret:* = AnalyticsANEContext.context.call("resetAnalyticsData");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Disposes the ANE */

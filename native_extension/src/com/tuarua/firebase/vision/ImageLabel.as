@@ -15,17 +15,11 @@
  */
 
 package com.tuarua.firebase.vision {
-import flash.geom.Rectangle;
-[RemoteClass(alias="com.tuarua.firebase.vision.Label")]
+[RemoteClass(alias="com.tuarua.firebase.vision.ImageLabel")]
 /**
  * Represents a label for an image.
  */
-public class Label {
-    /**
-     * The rectangle that holds the discovered label relative to the detected image in the view
-     * coordinate system.
-     */
-    public var frame:Rectangle;
+public class ImageLabel {
     /**
      * Confidence for the label in range [0, 1].
      */
@@ -41,8 +35,8 @@ public class Label {
      * <p>Note: this is not fit for display purposes, as it is not localized. Use the `entityID` and query<br>
      * the Knowledge Graph to get a localized description of the label.</p>
      */
-    public var label:String;
-    public function Label() {
+    public var text:String;
+    public function ImageLabel() {
     }
 }
 }

@@ -28,10 +28,8 @@ public class RemoteConfigANE extends EventDispatcher {
     /** @private */
     public function RemoteConfigANE() {
         if (RemoteConfigANEContext.context) {
-            var theRet:* = RemoteConfigANEContext.context.call("init");
-            if (theRet is ANEError) {
-                throw theRet as ANEError;
-            }
+            var ret:* = RemoteConfigANEContext.context.call("init");
+            if (ret is ANEError) throw ret as ANEError;
         }
         _remoteConfig = this;
     }
@@ -46,15 +44,15 @@ public class RemoteConfigANE extends EventDispatcher {
 
     public function set configSettings(value:RemoteConfigSettings):void {
         RemoteConfigANEContext.validate();
-        var theRet:* = RemoteConfigANEContext.context.call("setConfigSettings", value);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = RemoteConfigANEContext.context.call("setConfigSettings", value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Sets config defaults for parameter keys and values in the default namespace config. */
     public function setDefaults(value:Object):void {
         RemoteConfigANEContext.validate();
-        var theRet:* = RemoteConfigANEContext.context.call("setDefaults", value);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = RemoteConfigANEContext.context.call("setDefaults", value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -66,48 +64,48 @@ public class RemoteConfigANE extends EventDispatcher {
      */
     public function fetch(cacheExpirationSeconds:int = ONE_DAY):void {
         RemoteConfigANEContext.validate();
-        var theRet:* = RemoteConfigANEContext.context.call("fetch", cacheExpirationSeconds);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = RemoteConfigANEContext.context.call("fetch", cacheExpirationSeconds);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Gets the value as a Boolean. */
     public function getBoolean(key:String):Boolean {
         RemoteConfigANEContext.validate();
-        var theRet:* = RemoteConfigANEContext.context.call("getBoolean", key);
-        if (theRet is ANEError) throw theRet as ANEError;
-        return theRet as Boolean;
+        var ret:* = RemoteConfigANEContext.context.call("getBoolean", key);
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as Boolean;
     }
 
     /** Gets the value as a ByteArray. */
     public function getByteArray(key:String):ByteArray {
         RemoteConfigANEContext.validate();
-        var theRet:* = RemoteConfigANEContext.context.call("getByteArray", key);
-        if (theRet is ANEError) throw theRet as ANEError;
-        return theRet as ByteArray;
+        var ret:* = RemoteConfigANEContext.context.call("getByteArray", key);
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as ByteArray;
     }
 
     /** Gets the value as a Double. */
     public function getDouble(key:String):Number {
         RemoteConfigANEContext.validate();
-        var theRet:* = RemoteConfigANEContext.context.call("getDouble", key);
-        if (theRet is ANEError) throw theRet as ANEError;
-        return theRet as Number;
+        var ret:* = RemoteConfigANEContext.context.call("getDouble", key);
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as Number;
     }
 
     /** Gets the value as a Long. */
     public function getLong(key:String):int {
         RemoteConfigANEContext.validate();
-        var theRet:* = RemoteConfigANEContext.context.call("getLong", key);
-        if (theRet is ANEError) throw theRet as ANEError;
-        return theRet as int;
+        var ret:* = RemoteConfigANEContext.context.call("getLong", key);
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as int;
     }
 
     /** Gets the value as a String. */
     public function getString(key:String):String {
         RemoteConfigANEContext.validate();
-        var theRet:* = RemoteConfigANEContext.context.call("getString", key);
-        if (theRet is ANEError) throw theRet as ANEError;
-        return theRet as String;
+        var ret:* = RemoteConfigANEContext.context.call("getString", key);
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as String;
     }
 
     /**
@@ -119,25 +117,25 @@ public class RemoteConfigANE extends EventDispatcher {
      */
     public function activateFetched():Boolean {
         RemoteConfigANEContext.validate();
-        var theRet:* = RemoteConfigANEContext.context.call("activateFetched");
-        if (theRet is ANEError) throw theRet as ANEError;
-        return theRet as Boolean;
+        var ret:* = RemoteConfigANEContext.context.call("activateFetched");
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as Boolean;
     }
 
     public function get info():RemoteConfigInfo {
         RemoteConfigANEContext.validate();
-        var theRet:* = RemoteConfigANEContext.context.call("getInfo");
-        if (theRet is ANEError) throw theRet as ANEError;
-        return theRet as RemoteConfigInfo;
+        var ret:* = RemoteConfigANEContext.context.call("getInfo");
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as RemoteConfigInfo;
     }
 
     /** Returns the set of parameter keys that start with the given prefix, from the default namespace
      * in the active config.*/
     public function getKeysByPrefix(prefix:String):Vector.<String> {
         RemoteConfigANEContext.validate();
-        var theRet:* = RemoteConfigANEContext.context.call("getKeysByPrefix", prefix);
-        if (theRet is ANEError) throw theRet as ANEError;
-        return theRet as Vector.<String>;
+        var ret:* = RemoteConfigANEContext.context.call("getKeysByPrefix", prefix);
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as Vector.<String>;
     }
 
     /** Disposes the ANE */

@@ -3,9 +3,10 @@ import com.tuarua.firebase.FaceDetector;
 import com.tuarua.firebase.FaceError;
 import com.tuarua.firebase.VisionANE;
 import com.tuarua.firebase.vision.Face;
-import com.tuarua.firebase.vision.FaceDetectorClassification;
-import com.tuarua.firebase.vision.FaceDetectorLandmark;
-import com.tuarua.firebase.vision.FaceDetectorMode;
+import com.tuarua.firebase.vision.FaceDetectorClassificationMode;
+import com.tuarua.firebase.vision.FaceDetectorLandmarkMode;
+import com.tuarua.firebase.vision.FaceDetectorContourMode;
+import com.tuarua.firebase.vision.FaceDetectorPerformanceMode;
 import com.tuarua.firebase.vision.FaceDetectorOptions;
 import com.tuarua.firebase.vision.FaceLandmark;
 import com.tuarua.firebase.vision.FaceLandmarkType;
@@ -54,9 +55,10 @@ public class FaceExample extends Sprite implements IExample {
     public function initANE():void {
         if (isInited) return;
         var options:FaceDetectorOptions = new FaceDetectorOptions();
-        options.classificationType = FaceDetectorClassification.all;
-        options.landmarkType = FaceDetectorLandmark.all;
-        options.modeType = FaceDetectorMode.accurate;
+        options.performanceMode = FaceDetectorPerformanceMode.fast;
+        options.classificationMode = FaceDetectorClassificationMode.all;
+        options.landmarkMode = FaceDetectorLandmarkMode.all;
+        options.contourMode = FaceDetectorContourMode.all;
         faceDetector = vision.faceDetector(options);
         isInited = true;
 

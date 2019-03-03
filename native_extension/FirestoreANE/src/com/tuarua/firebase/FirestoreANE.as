@@ -31,8 +31,8 @@ public final class FirestoreANE extends EventDispatcher {
     /** @private */
     public function FirestoreANE() {
         if (FirestoreANEContext.context) {
-            var theRet:* = FirestoreANEContext.context.call("init", _loggingEnabled, _settings);
-            if (theRet is ANEError) throw theRet as ANEError;
+            var ret:* = FirestoreANEContext.context.call("init", _loggingEnabled, _settings);
+            if (ret is ANEError) throw ret as ANEError;
         }
         _firestore = this;
     }
@@ -47,16 +47,16 @@ public final class FirestoreANE extends EventDispatcher {
 
     public function batch():WriteBatch {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("startBatch");
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("startBatch");
+        if (ret is ANEError) throw ret as ANEError;
         return new WriteBatch();
     }
 
     public function get settings():FirestoreSettings {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("getFirestoreSettings");
-        if (theRet is ANEError) throw theRet as ANEError;
-        return theRet as FirestoreSettings;
+        var ret:* = FirestoreANEContext.context.call("getFirestoreSettings");
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as FirestoreSettings;
     }
 
     public function collection(collectionPath:String):CollectionReference {
@@ -91,8 +91,8 @@ public final class FirestoreANE extends EventDispatcher {
      */
     public function enableNetwork(listener:Function = null):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("enableNetwork", FirestoreANEContext.createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("enableNetwork", FirestoreANEContext.createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -110,8 +110,8 @@ public final class FirestoreANE extends EventDispatcher {
      */
     public function disableNetwork(listener:Function = null):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("disableNetwork", FirestoreANEContext.createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("disableNetwork", FirestoreANEContext.createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     public static function set settings(value:FirestoreSettings):void {

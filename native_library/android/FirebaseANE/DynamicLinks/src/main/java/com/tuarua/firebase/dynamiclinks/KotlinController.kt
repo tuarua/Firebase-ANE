@@ -49,7 +49,7 @@ class KotlinController : FreKotlinMainController {
         val shorten = Boolean(argv[3]) == true
         val suffix = Int(argv[4]) ?: 0
         val link = String(linkFre["link"])
-        val dynamicLinkDomain = String(linkFre["dynamicLinkDomain"])
+        val domainUriPrefix = String(linkFre["domainUriPrefix"])
         val iosParameters = IosParameters(linkFre["iosParameters"])
         val androidParameters = AndroidParameters(linkFre["androidParameters"])
                 ?: return FreArgException("androidParameters")
@@ -64,10 +64,11 @@ class KotlinController : FreKotlinMainController {
         if (!link.isNullOrEmpty()) {
             builder.setLink(Uri.parse(link))
         }
-        if (dynamicLinkDomain != null && !dynamicLinkDomain.isNullOrEmpty()) {
-            // TODO
-            builder.setDynamicLinkDomain(dynamicLinkDomain)
+
+        if (domainUriPrefix != null && !domainUriPrefix.isNullOrEmpty()) {
+            builder.setDomainUriPrefix(domainUriPrefix)
         }
+
         builder.setAndroidParameters(androidParameters)
         if (iosParameters != null) {
             builder.setIosParameters(iosParameters)
@@ -87,23 +88,23 @@ class KotlinController : FreKotlinMainController {
         if (shorten) {
             val dynamicLink = builder.buildShortDynamicLink(suffix)
             dynamicLink.addOnCompleteListener { task ->
-                // TODO result is ?
                 if (task.isSuccessful) {
+                    val result = task.result ?: return@addOnCompleteListener
                     val warnings: MutableList<String> = mutableListOf()
-                    task.result?.warnings?.mapTo(warnings) { it.message }
+                    result.warnings?.mapTo(warnings) { it.message }
 
                     if (copyToClipboard) {
                         val act = ctx.activity
                         val cb = act.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                         cb.primaryClip = ClipData.newPlainText("short link",
-                                task.result?.shortLink.toString())
+                                result.shortLink.toString())
                     }
 
                     dispatchEvent(DynamicLinkEvent.ON_CREATED,
                             gson.toJson(
                                     DynamicLinkEvent(eventId, true, mapOf(
-                                            "previewLink" to task.result?.previewLink.toString(),
-                                            "shortLink" to task.result?.shortLink.toString(),
+                                            "previewLink" to result.previewLink.toString(),
+                                            "shortLink" to result.shortLink.toString(),
                                             "warnings" to warnings))
                             )
                     )

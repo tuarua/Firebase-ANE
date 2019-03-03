@@ -14,13 +14,13 @@
  *  limitations under the License.
  */
 package com.tuarua.firebase.vision {
-public final class FaceDetectorClassification {
+public final class FaceDetectorLandmarkMode {
     /**
-     * Face classification type indicating it performs no classification.
+     * Face landmark detection type indicating it performs no landmark detection.
      */
     public static const none:uint = 1;
     /**
-     * Face classification type indicating it performs all classification.
+     * Face landmark detection type indicating it performs all landmark detection.
      */
     public static const all:uint = 2;
 }

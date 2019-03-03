@@ -17,7 +17,7 @@
 #import "FreMacros.h"
 #import "InvitesANE_oc.h"
 
-#define FRE_OBJC_BRIDGE TRFIRIV_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRFIRIV_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,7 +26,7 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation InvitesANE_LIB
-SWIFT_DECL(TRFIRIV) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRFIRIV)
 CONTEXT_INIT(TRFIRIV) {
     SWIFT_INITS(TRFIRIV)
     

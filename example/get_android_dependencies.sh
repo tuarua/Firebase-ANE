@@ -1,21 +1,24 @@
 #!/bin/sh
 
-AneVersion="0.2.0"
-PlayerServicesVersion="15.0.1"
+AneVersion="0.3.0"
+PlayerServicesVersion="16.0.1"
 SupportV4Version="27.1.0"
-FirebaseVersion="16.0.0"
-StorageVersion="16.0.2"
-PerfVersion="15.0.0"
-FirestoreVersion="17.0.1"
-MessagingVersion="17.0.0"
-ConfigVersion="16.0.0"
-AuthVersion="16.0.1"
+AnalyticsVersion="16.3.0"
+DynamicLinksVersion="16.1.3"
+InvitesVersion="16.0.6"
+IidVersion="17.1.0"
+StorageVersion="16.0.5"
+PerfVersion="16.2.3"
+FirestoreVersion="18.0.1"
+MessagingVersion="17.3.4"
+ConfigVersion="16.1.3"
+AuthVersion="16.1.0"
 EventBusVersion="3.0.0"
 GsonVersion="2.8.4"
-OkhttpVersion="2.7.2"
-GuavaVersion="20.0"
+OkhttpVersion="2.7.5"
+GuavaVersion="26.0-android"
 LifeCycleVersion="1.1.1"
-CrashlyticsVersion="2.9.5"
+CrashlyticsVersion="2.9.9"
 
 wget -O ../native_extension/ane/FirebaseANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/FirebaseANE.ane?raw=true
 wget -O ../native_extension/AnalyticsANE/ane/AnalyticsANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/AnalyticsANE.ane?raw=true
@@ -40,14 +43,13 @@ wget -O android_dependencies/com.google.android.gms.play-services-base-$PlayerSe
 wget -O android_dependencies/com.google.android.gms.play-services-auth-$PlayerServicesVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.google.android.gms.play-services-auth-$PlayerServicesVersion.ane?raw=true
 wget -O android_dependencies/android.arch.lifecycle.runtime-$LifeCycleVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/android.arch.lifecycle.runtime-$LifeCycleVersion.ane?raw=true
 wget -O android_dependencies/com.crashlytics.sdk.android.crashlytics-$CrashlyticsVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.crashlytics.sdk.android.crashlytics-$CrashlyticsVersion.ane?raw=true
-
-wget -O android_dependencies/com.google.firebase.firebase-analytics-$FirebaseVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-analytics-$FirebaseVersion.ane?raw=true
+wget -O android_dependencies/com.google.firebase.firebase-analytics-$AnalyticsVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-analytics-$AnalyticsVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-auth-$AuthVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-auth-$AuthVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-config-$ConfigVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-config-$ConfigVersion.ane?raw=true
-wget -O android_dependencies/com.google.firebase.firebase-dynamic-links-$FirebaseVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-dynamic-links-$FirebaseVersion.ane?raw=true
-wget -O android_dependencies/com.google.firebase.firebase-invites-$FirebaseVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-invites-$FirebaseVersion.ane?raw=true
+wget -O android_dependencies/com.google.firebase.firebase-dynamic-links-$DynamicLinksVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-dynamic-links-$DynamicLinksVersion.ane?raw=true
+wget -O android_dependencies/com.google.firebase.firebase-invites-$InvitesVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-invites-$InvitesVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-firestore-$FirestoreVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-firestore-$FirestoreVersion.ane?raw=true
-wget -O android_dependencies/com.google.firebase.firebase-iid-$FirebaseVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-iid-$FirebaseVersion.ane?raw=true
+wget -O android_dependencies/com.google.firebase.firebase-iid-$IidVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-iid-$IidVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-messaging-$MessagingVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-messaging-$MessagingVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-perf-$PerfVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-perf-$PerfVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-storage-$StorageVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-storage-$StorageVersion.ane?raw=true

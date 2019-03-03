@@ -17,7 +17,7 @@
 #import "FreMacros.h"
 #import "CrashlyticsANE_oc.h"
 
-#define FRE_OBJC_BRIDGE TRFIRCSH_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRFIRCSH_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,7 +26,7 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation CrashlyticsANE_LIB
-SWIFT_DECL(TRFIRCSH) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRFIRCSH)
 CONTEXT_INIT(TRFIRCSH) {
     SWIFT_INITS(TRFIRCSH)
     

@@ -137,9 +137,10 @@ public class Query {
      */
     public function getDocuments(listener:Function):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("getDocuments", _path, FirestoreANEContext.createEventId(listener, this), whereClauses,
+        var ret:* = FirestoreANEContext.context.call("getDocuments", _path,
+                FirestoreANEContext.createEventId(listener, this), whereClauses,
                 orderClauses, startAts, startAfters, endAts, endBefores, limitTo);
-        if (theRet is ANEError) throw theRet as ANEError;
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**@private */

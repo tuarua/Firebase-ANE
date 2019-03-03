@@ -26,17 +26,17 @@ import com.tuarua.frekotlin.Float
 @Suppress("FunctionName")
 fun FirebaseVisionFaceDetectorOptions(freObject: FREObject?): FirebaseVisionFaceDetectorOptions? {
     val rv = freObject ?: return null
-    val classificationType = Int(rv["classificationType"]) ?: 1
-    val modeType = Int(rv["modeType"]) ?: 1
-    val landmarkType = Int(rv["landmarkType"]) ?: 1
+    val classificationMode = Int(rv["classificationMode"]) ?: 1
+    val contourMode = Int(rv["contourMode"]) ?: 1
+    val performanceMode = Int(rv["performanceMode"]) ?: 1
+    val landmarkMode = Int(rv["landmarkMode"]) ?: 1
     val isTrackingEnabled = Boolean(rv["isTrackingEnabled"]) ?: false
     val minFaceSize = Float(rv["minFaceSize"]) ?: 0.1f
-
-    // TODO naming conventions
     val builder = Builder()
-    builder.setClassificationMode(classificationType)
-    builder.setLandmarkMode(landmarkType)
-    builder.setContourMode(modeType)
+    builder.setPerformanceMode(performanceMode)
+    builder.setClassificationMode(classificationMode)
+    builder.setLandmarkMode(landmarkMode)
+    builder.setContourMode(contourMode)
     if (isTrackingEnabled) {
         builder.enableTracking()
     }

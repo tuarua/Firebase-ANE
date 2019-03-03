@@ -30,8 +30,8 @@ public class WriteBatch {
      */
     public function deleteDocument(documentReference:DocumentReference):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("deleteBatch", documentReference.path);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("deleteBatch", documentReference.path);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -43,8 +43,8 @@ public class WriteBatch {
      */
     public function updateData(data:*, forDocument:DocumentReference):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("updateBatch", forDocument.path, data);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("updateBatch", forDocument.path, data);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -59,8 +59,8 @@ public class WriteBatch {
      */
     public function setData(data:*, forDocument:DocumentReference, merge:Boolean = false):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("setBatch", forDocument.path, data, merge);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("setBatch", forDocument.path, data, merge);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -79,8 +79,8 @@ public class WriteBatch {
      */
     public function commit(listener:Function = null):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("commitBatch", FirestoreANEContext.createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("commitBatch", FirestoreANEContext.createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
 }

@@ -17,7 +17,7 @@
 #import "FreMacros.h"
 #import "VisionBarcodeANE_oc.h"
 
-#define FRE_OBJC_BRIDGE TRFBVBC_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRFBVBC_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
     @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,7 +26,7 @@
     @end
 
 @implementation VisionBarcodeANE_LIB
-SWIFT_DECL(TRFBVBC) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRFBVBC)
 CONTEXT_INIT(TRFBVBC) {
     SWIFT_INITS(TRFBVBC)
     static FRENamedFunction extensionFunctions[] =

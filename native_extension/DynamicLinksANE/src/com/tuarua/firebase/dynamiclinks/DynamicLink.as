@@ -20,10 +20,12 @@ public final class DynamicLink {
      * displaying a welcome screen). This link must be a well-formatted URL, be properly URL-encoded, use
      * either HTTP or HTTPS, and cannot be another Dynamic Link.</p> */
     public var link:String;
-    /** <p>Your Dynamic Link domain, which you can find in the Firebase console. A Dynamic Link domain looks
-     * like the following example: abc123.app.goo.gl</p>
-     * @deprecated */
-    public var dynamicLinkDomain:String;
+    /**
+     * Domain URI Prefix of your App. This value must be your assigned
+     * domain from the Firebase console. (e.g. https://xyz.page.link)  The domain URI prefix must
+     * start with a valid HTTPS scheme (https://).
+     */
+    public var domainUriPrefix:String;
     public var iosParameters:IosParameters;
     public var androidParameters:AndroidParameters = new AndroidParameters();
     public var googleAnalyticsParameters:GoogleAnalyticsParameters;
@@ -31,9 +33,9 @@ public final class DynamicLink {
     public var socialMetaTagParameters:SocialMetaTagParameters;
     public var navigationInfoParameters:NavigationInfoParameters;
 
-    public function DynamicLink(link:String, dynamicLinkDomain:String) {
+    public function DynamicLink(link:String, domainUriPrefix:String) {
         this.link = link;
-        this.dynamicLinkDomain = dynamicLinkDomain;
+        this.domainUriPrefix = domainUriPrefix;
     }
 }
 }

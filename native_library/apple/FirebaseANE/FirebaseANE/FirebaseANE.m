@@ -17,7 +17,7 @@
 #import "FreMacros.h"
 #import "FirebaseANE_oc.h"
 
-#define FRE_OBJC_BRIDGE TRFIRFB_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRFIRFB_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,7 +26,7 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation FirebaseANE_LIB
-SWIFT_DECL(TRFIRFB) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRFIRFB)
 CONTEXT_INIT(TRFIRFB) {
     SWIFT_INITS(TRFIRFB)
     

@@ -3,7 +3,7 @@
 rm -r ios_dependencies/device
 rm -r ios_dependencies/simulator
 
-AneVersion="0.2.0"
+AneVersion="0.3.0"
 FreSwiftVersion="3.0.0"
 
 wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/$FreSwiftVersion/ios_dependencies.zip
@@ -34,3 +34,4 @@ wget -O ../native_extension/VisionCloudDocumentANE/ane/VisionCloudDocumentANE.an
 wget -O ../native_extension/VisionLabelANE/ane/VisionLabelANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/VisionLabelANE.ane?raw=true
 wget -O ../native_extension/VisionCloudLabelANE/ane/VisionCloudLabelANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/VisionCloudLabelANE.ane?raw=true
 wget -O ../native_extension/VisionLandmarkANE/ane/VisionLandmarkANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/VisionLandmarkANE.ane?raw=true
+wget -O ../native_extension/NaturalLanguageANE/ane/NaturalLanguageANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/NaturalLanguageANE.ane?raw=true

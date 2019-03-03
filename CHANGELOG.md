@@ -1,5 +1,24 @@
 ### 0.3.0
-- iOS: Update to Firebase 5.17.0
+- iOS: Firebase 5.17.0
+- AND: Firebase Core 16.0.7
+- AND: Storage 16.0.5
+- AND: Crashlytics 2.9.9
+- AND: Vision 19.0.2
+- AND: Firestore 18.0.1
+- AND: Invites 16.0.6
+- AND: Dynamic Links 16.1.3
+- AND: Remote Config 16.1.3
+- AND: Auth 16.1.0
+- AND: Performance 16.2.3
+- AND: Messaging 17.3.4
+- AND: Play Services 16.0.1
+- Added Natural Language from MLKit
+- AND: Face model is now packaged with app - See assets/models
+- [Performance] deprecate `Trace.incrementCounter()`
+- [Analytics] deprecate `AnalyticsANE.minimumSessionDuration`
+- [Dynamic Links] replace `DynamicLink.dynamicLinkDomain` with `DynamicLink.domainUriPrefix`
+- [Vision] `com.tuarua.firebase.vision.Label` is now `com.tuarua.firebase.vision.ImageLabel`
+- [Vision] remove `com.tuarua.firebase.vision.CloudLabel`
 
 ### 0.2.0
 - iOS: Updated to FreSwift 3.0.0

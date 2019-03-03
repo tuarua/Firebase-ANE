@@ -61,6 +61,7 @@
         <extensionID>com.tuarua.firebase.VisionLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionLandmarkANE</extensionID>
+        <extensionID>com.tuarua.firebase.NaturalLanguageANE</extensionID>
     </extensions>
 
 </application>

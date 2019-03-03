@@ -73,17 +73,8 @@ cp -R -L "$pathtome/../../../firebase_frameworks/device/BoringSSL-GRPC.framework
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/gRPC-Core.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/gRPC-Core.framework" "$pathtome/platforms/ios/device/Frameworks"
 
-#cp -R -L "$pathtome/../../../firebase_frameworks/simulator/gRPC-ProtoRPC.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-#cp -R -L "$pathtome/../../../firebase_frameworks/device/gRPC-ProtoRPC.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-#cp -R -L "$pathtome/../../../firebase_frameworks/simulator/gRPC-RxLibrary.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-#cp -R -L "$pathtome/../../../firebase_frameworks/device/gRPC-RxLibrary.framework" "$pathtome/platforms/ios/device/Frameworks"
-
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/gRPC-C++.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/gRPC-C++.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-#cp -R -L "$pathtome/../../../firebase_frameworks/simulator//gRPC.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-#cp -R -L "$pathtome/../../../firebase_frameworks/device/gRPC.framework" "$pathtome/platforms/ios/device/Frameworks"
 
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/leveldb-library.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/leveldb-library.framework" "$pathtome/platforms/ios/device/Frameworks"

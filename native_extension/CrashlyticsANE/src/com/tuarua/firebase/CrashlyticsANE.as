@@ -25,8 +25,8 @@ public class CrashlyticsANE extends EventDispatcher {
 
     public function CrashlyticsANE() {
         if (CrashlyticsANEContext.context) {
-            var theRet:* = CrashlyticsANEContext.context.call("init", _debug);
-            if (theRet is ANEError) throw theRet as ANEError;
+            var ret:* = CrashlyticsANEContext.context.call("init", _debug);
+            if (ret is ANEError) throw ret as ANEError;
         }
         _crashlytics = this;
     }
@@ -54,8 +54,8 @@ public class CrashlyticsANE extends EventDispatcher {
      */
     public function log(message:String):void {
         CrashlyticsANEContext.validate();
-        var theRet:* = CrashlyticsANEContext.context.call("log", message);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = CrashlyticsANEContext.context.call("log", message);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -67,8 +67,8 @@ public class CrashlyticsANE extends EventDispatcher {
         CrashlyticsANEContext.validate();
         var message:String = error.errorID.toString() + ": " + error.message + "\n";
         message += error.getStackTrace();
-        var theRet:* = CrashlyticsANEContext.context.call("logException", message);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = CrashlyticsANEContext.context.call("logException", message);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -95,8 +95,8 @@ public class CrashlyticsANE extends EventDispatcher {
      */
     public function set userIdentifier(value:String):void {
         CrashlyticsANEContext.validate();
-        var theRet:* = CrashlyticsANEContext.context.call("setUserIdentifier", value);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = CrashlyticsANEContext.context.call("setUserIdentifier", value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -109,8 +109,8 @@ public class CrashlyticsANE extends EventDispatcher {
      */
     public function set userEmail(value:String):void {
         CrashlyticsANEContext.validate();
-        var theRet:* = CrashlyticsANEContext.context.call("setUserEmail", value);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = CrashlyticsANEContext.context.call("setUserEmail", value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -121,8 +121,8 @@ public class CrashlyticsANE extends EventDispatcher {
      */
     public function setString(key:String, value:String):void {
         CrashlyticsANEContext.validate();
-        var theRet:* = CrashlyticsANEContext.context.call("setString", key, value);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = CrashlyticsANEContext.context.call("setString", key, value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -133,8 +133,8 @@ public class CrashlyticsANE extends EventDispatcher {
      */
     public function setBool(key:String, value:Boolean):void {
         CrashlyticsANEContext.validate();
-        var theRet:* = CrashlyticsANEContext.context.call("setBool", key, value);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = CrashlyticsANEContext.context.call("setBool", key, value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -145,8 +145,8 @@ public class CrashlyticsANE extends EventDispatcher {
      */
     public function setDouble(key:String, value:Number):void {
         CrashlyticsANEContext.validate();
-        var theRet:* = CrashlyticsANEContext.context.call("setDouble", key, value);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = CrashlyticsANEContext.context.call("setDouble", key, value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -157,8 +157,8 @@ public class CrashlyticsANE extends EventDispatcher {
      */
     public function setInt(key:String, value:int):void {
         CrashlyticsANEContext.validate();
-        var theRet:* = CrashlyticsANEContext.context.call("setInt", key, value);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = CrashlyticsANEContext.context.call("setInt", key, value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -170,8 +170,8 @@ public class CrashlyticsANE extends EventDispatcher {
      */
     public function set userName(value:String):void {
         CrashlyticsANEContext.validate();
-        var theRet:* = CrashlyticsANEContext.context.call("setUserName", value);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = CrashlyticsANEContext.context.call("setUserName", value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**

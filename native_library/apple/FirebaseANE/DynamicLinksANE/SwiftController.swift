@@ -43,12 +43,14 @@ public class SwiftController: NSObject {
             let suffix = Int(argv[4]),
             let link = String(linkFre["link"]),
             let linkUrl = URL(string: link),
-            let dynamicLinkDomain = String(linkFre["dynamicLinkDomain"])
+            let domainUriPrefix = String(linkFre["domainUriPrefix"])
             else {
                 return FreArgError(message: "buildDynamicLink").getError(#file, #line, #column)
         }
-
-        let components = DynamicLinkComponents(link: linkUrl, domain: dynamicLinkDomain)
+        
+        guard let components = DynamicLinkComponents(link: linkUrl, domainURIPrefix: domainUriPrefix) else {
+            return nil }
+        
         components.iOSParameters = DynamicLinkIOSParameters(linkFre["iosParameters"])
         components.iTunesConnectParameters = DynamicLinkItunesConnectAnalyticsParameters(
             linkFre["itunesConnectAnalyticsParameters"]

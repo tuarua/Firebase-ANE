@@ -16,24 +16,14 @@
 
 import Foundation
 import FreSwift
+import Firebase
 import FirebaseMLVision
 
-public extension VisionImageLabel {
-    func toFREObject() -> FREObject? {
-        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.CloudLabel") else { return nil }
-        ret.confidence = confidence
-        ret.entityId = entityID
-        ret.label = text
-        return ret.rawValue
-    }
-}
-
-public extension Array where Element == VisionImageLabel? {
-    func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.vision.CloudLabel") else { return nil }
-        for element in self {
-            ret.push(element?.toFREObject())
-        }
-        return ret.rawValue
+public extension LanguageIdentificationOptions {
+    convenience init?(_ freObject: FREObject?) {
+        guard let rv = freObject,
+            let confidenceThreshold = Float(rv["confidenceThreshold"])
+            else { return nil }
+        self.init(confidenceThreshold: confidenceThreshold)
     }
 }

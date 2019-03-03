@@ -61,7 +61,7 @@ public class DynamicLinksExample extends Sprite implements IExample {
     private function onCreateDynamicLinkClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnCreateDynamicLink);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            var dynamicLink:DynamicLink = new DynamicLink("http://www.tuarua.com", "fq7yh.app.goo.gl");
+            var dynamicLink:DynamicLink = new DynamicLink("http://www.tuarua.com", "https://fq7yh.app.goo.gl");
             dynamicLink.iosParameters = new IosParameters("com.tuarua.firebaseane.example");
             dynamicLinks.buildDynamicLink(dynamicLink, onDynamicLinkCreated, true);
         }
@@ -85,7 +85,7 @@ public class DynamicLinksExample extends Sprite implements IExample {
     private function onCreateShortLinkClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnCreateShortLink);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            var shortLink:DynamicLink = new DynamicLink("http://www.github.com", "fq7yh.app.goo.gl");
+            var shortLink:DynamicLink = new DynamicLink("http://www.github.com", "https://fq7yh.app.goo.gl");
             dynamicLinks.buildDynamicLink(shortLink, onDynamicLinkCreated, false, true, ShortDynamicLinkSuffix.SHORT);
         }
     }

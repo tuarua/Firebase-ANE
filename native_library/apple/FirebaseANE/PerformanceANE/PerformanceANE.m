@@ -17,7 +17,7 @@
 #import "FreMacros.h"
 #import "PerformanceANE_oc.h"
 
-#define FRE_OBJC_BRIDGE TRFIRPF_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRFIRPF_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,7 +26,7 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation PerformanceANE_LIB
-SWIFT_DECL(TRFIRPF) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRFIRPF)
 CONTEXT_INIT(TRFIRPF) {
     SWIFT_INITS(TRFIRPF)
     

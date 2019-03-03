@@ -13,15 +13,9 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.tuarua.firebase.vision {
-public final class FaceDetectorLandmark {
-    /**
-     * Face landmark detection type indicating it performs no landmark detection.
-     */
-    public static const none:uint = 1;
-    /**
-     * Face landmark detection type indicating it performs all landmark detection.
-     */
-    public static const all:uint = 2;
-}
-}
+
+#import <Foundation/Foundation.h>
+#import <NaturalLanguageANE-Swift.h>
+@interface NaturalLanguageANE_LIB : NSObject
+
+@end

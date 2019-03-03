@@ -18,6 +18,7 @@ package com.tuarua.firebase.vision.cloudlabel.extensions
 
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.label.FirebaseVisionCloudImageLabelerOptions
+import com.tuarua.frekotlin.Boolean
 import com.tuarua.frekotlin.Float
 import com.tuarua.frekotlin.get
 
@@ -25,8 +26,11 @@ import com.tuarua.frekotlin.get
 fun FirebaseVisionCloudImageLabelerOptions(freObject: FREObject?): FirebaseVisionCloudImageLabelerOptions? {
     val rv = freObject ?: return null
     val confidenceThreshold = Float(rv["confidenceThreshold"]) ?: 0.5f
-    return FirebaseVisionCloudImageLabelerOptions.Builder()
-            .setConfidenceThreshold(confidenceThreshold)
-            // .enforceCertFingerprintMatch() //TODO
-            .build()
+    val enforceCertFingerprintMatch = Boolean(rv["enforceCertFingerprintMatch"]) ?: false
+    val builder = FirebaseVisionCloudImageLabelerOptions.Builder()
+    builder.setConfidenceThreshold(confidenceThreshold)
+    if (enforceCertFingerprintMatch) {
+        builder.enforceCertFingerprintMatch()
+    }
+    return builder.build()
 }

@@ -17,7 +17,7 @@
 #import "FreMacros.h"
 #import "VisionLabelANE_oc.h"
 
-#define FRE_OBJC_BRIDGE TRFBVLB_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRFBVLB_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,7 +26,7 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation VisionLabelANE_LIB
-SWIFT_DECL(TRFBVLB) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRFBVLB)
 CONTEXT_INIT(TRFBVLB) {
     SWIFT_INITS(TRFBVLB)
     static FRENamedFunction extensionFunctions[] =

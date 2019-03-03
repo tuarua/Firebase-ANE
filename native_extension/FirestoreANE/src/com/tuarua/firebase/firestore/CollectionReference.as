@@ -29,9 +29,9 @@ public class CollectionReference extends Query {
     public function CollectionReference(path:String) {
         _path = path;
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("initCollectionReference", path);
-        if (theRet is ANEError) throw theRet as ANEError;
-        _id = theRet as String;
+        var ret:* = FirestoreANEContext.context.call("initCollectionReference", path);
+        if (ret is ANEError) throw ret as ANEError;
+        _id = ret as String;
     }
 
     /**
@@ -62,11 +62,9 @@ public class CollectionReference extends Query {
         if (documentPath) {
             return new DocumentReference(_path + "/" + documentPath);
         } else {
-            var theRet:* = FirestoreANEContext.context.call("documentWithAutoId", _path);
-            if (theRet is ANEError) {
-                throw theRet as ANEError;
-            }
-            var docPath:String = theRet as String;
+            var ret:* = FirestoreANEContext.context.call("documentWithAutoId", _path);
+            if (ret is ANEError) throw ret as ANEError;
+            var docPath:String = ret as String;
             return new DocumentReference(docPath);
         }
     }
@@ -77,9 +75,9 @@ public class CollectionReference extends Query {
      */
     public function get parent():DocumentReference {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("getCollectionParent", _path);
-        if (theRet is ANEError) throw theRet as ANEError;
-        return new DocumentReference(theRet as String);
+        var ret:* = FirestoreANEContext.context.call("getCollectionParent", _path);
+        if (ret is ANEError) throw ret as ANEError;
+        return new DocumentReference(ret as String);
     }
 
     public function get path():String {

@@ -17,7 +17,7 @@
 #import "FreMacros.h"
 #import "VisionCloudTextANE_oc.h"
 
-#define FRE_OBJC_BRIDGE TRFBVCTX_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRFBVCTX_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,7 +26,7 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation VisionCloudTextANE_LIB
-SWIFT_DECL(TRFBVCTX) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRFBVCTX)
 CONTEXT_INIT(TRFBVCTX) {
     SWIFT_INITS(TRFBVCTX)
     static FRENamedFunction extensionFunctions[] =

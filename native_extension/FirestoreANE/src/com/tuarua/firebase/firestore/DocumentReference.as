@@ -33,9 +33,9 @@ public class DocumentReference {
         this._path = path;
         FirestoreANEContext.validate();
         this._asId = FirestoreANEContext.context.call("createGUID") as String;
-        var theRet:* = FirestoreANEContext.context.call("initDocumentReference", path);
-        if (theRet is ANEError) throw theRet as ANEError;
-        this._id = theRet as String;
+        var ret:* = FirestoreANEContext.context.call("initDocumentReference", path);
+        if (ret is ANEError) throw ret as ANEError;
+        this._id = ret as String;
     }
 
     /**
@@ -58,9 +58,9 @@ public class DocumentReference {
      */
     public function addSnapshotListener(listener:Function):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("addSnapshotListenerDocument", _path,
+        var ret:* = FirestoreANEContext.context.call("addSnapshotListenerDocument", _path,
                 FirestoreANEContext.createEventId(listener, this), _asId);
-        if (theRet is ANEError) throw theRet as ANEError;
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -69,8 +69,8 @@ public class DocumentReference {
      */
     public function removeSnapshotListener(listener:Function):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("removeSnapshotListener", _asId);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("removeSnapshotListener", _asId);
+        if (ret is ANEError) throw ret as ANEError;
         for (var k:String in FirestoreANEContext.closures) {
             var value:Function = FirestoreANEContext.closures[k];
             if (value == listener) {
@@ -94,9 +94,9 @@ public class DocumentReference {
      */
     public function getDocument(listener:Function):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("getDocumentReference", _path,
+        var ret:* = FirestoreANEContext.context.call("getDocumentReference", _path,
                 FirestoreANEContext.createEventId(listener, this));
-        if (theRet is ANEError) throw theRet as ANEError;
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -123,9 +123,9 @@ public class DocumentReference {
      */
     public function setData(data:*, listener:Function = null, merge:Boolean = false):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("setDocumentReference", _path,
+        var ret:* = FirestoreANEContext.context.call("setDocumentReference", _path,
                 FirestoreANEContext.createEventId(listener), data, merge);
-        if (theRet is ANEError) throw theRet as ANEError;
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -143,9 +143,9 @@ public class DocumentReference {
      */
     public function updateData(data:*, listener:Function = null):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("updateDocumentReference", _path,
+        var ret:* = FirestoreANEContext.context.call("updateDocumentReference", _path,
                 FirestoreANEContext.createEventId(listener), data);
-        if (theRet is ANEError) throw theRet as ANEError;
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -155,17 +155,17 @@ public class DocumentReference {
      */
     public function remove(listener:Function = null):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("deleteDocumentReference", _path,
+        var ret:* = FirestoreANEContext.context.call("deleteDocumentReference", _path,
                 FirestoreANEContext.createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** A reference to the collection to which this `DocumentReference` belongs. */
     public function get parent():CollectionReference {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("getDocumentParent", _path);
-        if (theRet is ANEError) throw theRet as ANEError;
-        return new CollectionReference(theRet as String);
+        var ret:* = FirestoreANEContext.context.call("getDocumentParent", _path);
+        if (ret is ANEError) throw ret as ANEError;
+        return new CollectionReference(ret as String);
     }
 
     /**@private */

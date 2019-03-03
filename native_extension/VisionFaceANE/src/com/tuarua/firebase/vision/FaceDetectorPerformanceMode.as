@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 package com.tuarua.firebase.vision {
-public final class FaceDetectorMode {
+public final class FaceDetectorPerformanceMode {
     /**
      * Face detection mode code indicating detect fewer faces and may be less precise in determining
      * values such as position, but will run faster.

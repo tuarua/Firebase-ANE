@@ -28,6 +28,5 @@ public extension VisionCloudDetectorOptions {
         self.init()
         self.maxResults = maxResults
         self.modelType = modelType
-        
     }
 }
