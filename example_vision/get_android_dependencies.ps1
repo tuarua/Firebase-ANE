@@ -6,6 +6,7 @@ $IidVersion = "17.1.0"
 $VisionVersion = "19.0.2"
 $ImageLabelVersion = "17.0.2"
 $NaturalLanguageVersion = "18.1.1"
+$ModelInterpreterVersion = "17.0.3"
 $FaceModelVersion = "17.0.2"
 $KotlinxCoroutinesVersion = "1.0.1"
 $EventBusVersion = "3.0.0"
@@ -27,6 +28,8 @@ Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/VisionLabelANE.ane?raw=true -OutFile "$currentDir\..\native_extension\VisionLabelANE\ane\VisionLabelANE.ane"
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/VisionCloudLabelANE.ane?raw=true -OutFile "$currentDir\..\native_extension\VisionCloudLabelANE\ane\VisionCloudLabelANE.ane"
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/VisionLandmarkANE.ane?raw=true -OutFile "$currentDir\..\native_extension\VisionLandmarkANE\ane\VisionLandmarkANE.ane"
+Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/ModelInterpreterANE.ane?raw=true -OutFile "$currentDir\..\native_extension\ModelInterpreterANE\ane\ModelInterpreterANE.ane"
+
 
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.tuarua.frekotlin.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\org.jetbrains.kotlinx.kotlinx-coroutines-android-$KotlinxCoroutinesVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/org.jetbrains.kotlinx.kotlinx-coroutines-android-$KotlinxCoroutinesVersion.ane?raw=true
@@ -40,3 +43,4 @@ Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.android.gms.play-services-vision-image-label-$ImageLabelVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.android.gms.play-services-vision-image-label-$ImageLabelVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-ml-natural-language-$NaturalLanguageVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-ml-natural-language-$NaturalLanguageVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-ml-vision-face-model-$FaceModelVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-ml-vision-face-model-$FaceModelVersion.ane?raw=true
+Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-ml-model-interpreter-$ModelInterpreterVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-ml-model-interpreter-$ModelInterpreterVersion.ane?raw=true

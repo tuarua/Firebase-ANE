@@ -7,6 +7,7 @@ import com.tuarua.firebase.CloudTextRecognizer;
 import com.tuarua.firebase.FaceDetector;
 import com.tuarua.firebase.FirebaseOptions;
 import com.tuarua.firebase.LabelDetector;
+import com.tuarua.firebase.ModelInterpreterANE;
 import com.tuarua.firebase.NaturalLanguageANE;
 import com.tuarua.firebase.TextRecognizer;
 import com.tuarua.firebase.VisionANE;
@@ -39,6 +40,7 @@ public class StarlingRoot extends Sprite {
     private var btnLabel:SimpleButton = new SimpleButton("Label");
     private var btnLandmark:SimpleButton = new SimpleButton("Landmark");
     private var btnLanguage:SimpleButton = new SimpleButton("Natural Language");
+    private var btnTensorFlow:SimpleButton = new SimpleButton("Tensor Flow");
 
     private var btnBack:SimpleButton = new SimpleButton("Back");
     private var menuContainer:Sprite = new Sprite();
@@ -50,6 +52,7 @@ public class StarlingRoot extends Sprite {
     private var labelExample:LabelExample;
     private var landmarkExample:LandmarkExample;
     private var languageExample:NaturalLanguageExample;
+    private var tensorFlowExample:TensorFlowExample;
 
     private var vision:VisionANE;
     private var naturalLanguage:NaturalLanguageANE;
@@ -109,7 +112,11 @@ public class StarlingRoot extends Sprite {
         languageExample.x = stage.stageWidth;
         addChild(languageExample);
 
-        btnLanguage.x = btnLandmark.x =  btnLabel.x = btnText.x = btnFace.x = btnBack.x = btnBarcode.x = (stage.stageWidth - 200) * 0.5;
+        tensorFlowExample = new TensorFlowExample(stage.stageWidth);
+        tensorFlowExample.x = stage.stageWidth;
+        addChild(tensorFlowExample);
+
+        btnTensorFlow.x = btnLanguage.x = btnLandmark.x =  btnLabel.x = btnText.x = btnFace.x = btnBack.x = btnBarcode.x = (stage.stageWidth - 200) * 0.5;
         btnBarcode.y = GAP;
         btnBarcode.addEventListener(TouchEvent.TOUCH, onBarcodeClick);
         menuContainer.addChild(btnBarcode);
@@ -134,12 +141,15 @@ public class StarlingRoot extends Sprite {
         btnLanguage.addEventListener(TouchEvent.TOUCH, onLanguageClick);
         menuContainer.addChild(btnLanguage);
 
+        btnTensorFlow.y = btnLanguage.y + GAP;
+        btnTensorFlow.addEventListener(TouchEvent.TOUCH, onTensorFlowClick);
+        menuContainer.addChild(btnTensorFlow);
+
         btnBack.y = stage.stageHeight - 100;
         btnBack.addEventListener(TouchEvent.TOUCH, onBackClick);
         btnBack.visible = false;
 
         addChild(menuContainer);
-
         addChild(btnBack);
     }
 
@@ -197,6 +207,15 @@ public class StarlingRoot extends Sprite {
         }
     }
 
+    private function onTensorFlowClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnTensorFlow);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            showMenu(false);
+            showExample(tensorFlowExample);
+            btnBack.visible = true;
+        }
+    }
+
     private function showMenu(value:Boolean):void {
         var tween:Tween = new Tween(menuContainer, 0.5, Transitions.EASE_OUT);
         tween.moveTo(value ? 0 : -stage.stageWidth, 0);
@@ -224,6 +243,7 @@ public class StarlingRoot extends Sprite {
             showExample(labelExample, false);
             showExample(landmarkExample, false);
             showExample(languageExample, false);
+            showExample(tensorFlowExample, false);
             btnBack.visible = false;
         }
     }
@@ -248,6 +268,7 @@ public class StarlingRoot extends Sprite {
         CloudLandmarkDetector.dispose();
         VisionANE.dispose();
         NaturalLanguageANE.dispose();
+        ModelInterpreterANE.dispose();
     }
 
 }

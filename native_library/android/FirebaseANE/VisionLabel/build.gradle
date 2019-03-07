@@ -34,8 +34,3 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_coroutines_version"
     implementation project(':Vision')
 }
-kotlin {
-    experimental {
-        coroutines "enable"
-    }
-}

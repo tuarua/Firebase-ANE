@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/GoogleSignIn/GoogleSignIn.iml" filepath="$PROJECT_DIR$/GoogleSignIn/GoogleSignIn.iml" />
       <module fileurl="file://$PROJECT_DIR$/Invites/Invites.iml" filepath="$PROJECT_DIR$/Invites/Invites.iml" />
       <module fileurl="file://$PROJECT_DIR$/Messaging/Messaging.iml" filepath="$PROJECT_DIR$/Messaging/Messaging.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Modelinterpreter/Modelinterpreter.iml" filepath="$PROJECT_DIR$/Modelinterpreter/Modelinterpreter.iml" />
       <module fileurl="file://$PROJECT_DIR$/NaturalLanguage/NaturalLanguage.iml" filepath="$PROJECT_DIR$/NaturalLanguage/NaturalLanguage.iml" />
       <module fileurl="file://$PROJECT_DIR$/Performance/Performance.iml" filepath="$PROJECT_DIR$/Performance/Performance.iml" />
       <module fileurl="file://$PROJECT_DIR$/RemoteConfig/RemoteConfig.iml" filepath="$PROJECT_DIR$/RemoteConfig/RemoteConfig.iml" />

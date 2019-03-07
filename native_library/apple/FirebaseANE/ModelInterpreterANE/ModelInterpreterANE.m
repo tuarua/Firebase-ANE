@@ -36,6 +36,8 @@ CONTEXT_INIT(TRFBMI) {
         ,MAP_FUNCTION(TRFBMI, run)
         ,MAP_FUNCTION(TRFBMI, registerCloudModel)
         ,MAP_FUNCTION(TRFBMI, registerLocalModel)
+        ,MAP_FUNCTION(TRFBMI, cloudModelSource)
+        ,MAP_FUNCTION(TRFBMI, localModelSource)
     };
     SET_FUNCTIONS
     

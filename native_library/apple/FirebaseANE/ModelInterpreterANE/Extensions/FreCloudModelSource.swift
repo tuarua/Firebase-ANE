@@ -16,17 +16,18 @@
 
 import Foundation
 import FreSwift
-import Firebase
+import FirebaseMLCommon
+import FirebaseMLModelInterpreter
 
 public extension CloudModelSource {
     convenience init?(_ freObject: FREObject?) {
         guard let rv = freObject,
-            let modelName = String(rv["modelName"]),
+            let name = String(rv["name"]),
             let enableModelUpdates = Bool(rv["enableModelUpdates"]),
-            let initialConditions = ModelDownloadConditions(rv["initialConditions"]),
-            let updateConditions = ModelDownloadConditions(rv["updateConditions"])
+            let initialConditions = ModelDownloadConditions(rv["initialConditions"])
             else { return nil }
-        self.init(modelName: modelName, enableModelUpdates: enableModelUpdates,
+        let updateConditions = ModelDownloadConditions(rv["updateConditions"])
+        self.init(name: name, enableModelUpdates: enableModelUpdates,
                   initialConditions: initialConditions, updateConditions: updateConditions)
     }
 }

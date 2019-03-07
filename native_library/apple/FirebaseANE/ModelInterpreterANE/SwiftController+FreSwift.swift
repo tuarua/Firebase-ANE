@@ -25,6 +25,8 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)run"] = run
         functionsToSet["\(prefix)registerCloudModel"] = registerCloudModel
         functionsToSet["\(prefix)registerLocalModel"] = registerLocalModel
+        functionsToSet["\(prefix)cloudModelSource"] = cloudModelSource
+        functionsToSet["\(prefix)localModelSource"] = localModelSource
         
         var arr: [String] = []
         for key in functionsToSet.keys {
@@ -32,6 +34,10 @@ extension SwiftController: FreSwiftMainController {
         }
         
         return arr
+    }
+    
+    func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        return UUID().uuidString.toFREObject()
     }
     
     @objc public func dispose() {
@@ -47,7 +53,9 @@ extension SwiftController: FreSwiftMainController {
     }
     
     @objc public func setFREContext(ctx: FREContext) {
-        self.context = FreContextSwift.init(freContext: ctx)
+        self.context = FreContextSwift(freContext: ctx)
+        // Turn on FreSwift logging
+        FreSwiftLogger.shared.context = context
     }
     
     @objc public func onLoad() {

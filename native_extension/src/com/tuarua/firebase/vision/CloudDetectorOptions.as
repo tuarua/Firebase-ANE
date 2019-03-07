@@ -19,13 +19,24 @@ package com.tuarua.firebase.vision {
 public class CloudDetectorOptions {
     /**
      * Maximum number of results to return.  Defaults to 10.  Does not apply to
-     * `VisionCloudTextDetector` and `VisionCloudDocumentTextDetector`.
+     * `CloudTextDetector` and `CloudDocumentTextDetector`.
      */
     public var maxResults:uint = 10;
     /**
      * Type of model to use in vision cloud detection API.  Defaults to `.stable`.
      */
     public var modelType:uint = CloudModelType.stable;
+    /**
+     * Only allow registered application instances with matching certificate fingerprint to use Cloud Vision API.
+     * <p>Do not set this for debug build if you use simulators to test.</p>
+     * <p>Applies to Android only.</p>
+     */
+    public var enforceCertFingerprintMatch:Boolean;
+    /**
+     * API key to use for Cloud Vision API.  If <code>null</code>, the default API key from FirebaseApp will be
+     * used.
+     */
+    public var apiKeyOverride:String;
     public function CloudDetectorOptions() {
     }
 }

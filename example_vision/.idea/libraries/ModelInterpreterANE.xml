@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ModelInterpreterANE" type="flex">
+    <CLASSES>
+      <root url="jar://$DOCUMENTS$/Firebase-ANE/native_extension/ModelInterpreterANE/ane/ModelInterpreterANE.ane!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

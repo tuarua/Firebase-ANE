@@ -16,7 +16,8 @@
 
 import Foundation
 import FreSwift
-import Firebase
+import FirebaseMLCommon
+import FirebaseMLModelInterpreter
 
 public extension ModelOptions {
     convenience init?(_ freObject: FREObject?) {

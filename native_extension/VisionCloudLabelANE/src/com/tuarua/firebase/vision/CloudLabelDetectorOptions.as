@@ -21,6 +21,11 @@ public class CloudLabelDetectorOptions {
     private var _confidenceThreshold:Number = 0.5;
     private var _enforceCertFingerprintMatch:Boolean;
     /**
+     * API key to use for Cloud Vision API.  If <code>null</code>, the default API key from FirebaseApp will be
+     * used.
+     */
+    public var apiKeyOverride:String;
+    /**
      * Creates a new instance with the given detector options.
      *
      * @param confidenceThreshold The confidence threshold for labels returned by the label detector.
@@ -49,8 +54,10 @@ public class CloudLabelDetectorOptions {
     /**
      * Only allow registered application instances with matching certificate
      * fingerprint to use Cloud Vision API.
-     * Applies to Android only.
+     * <p>Do not set this for debug build if you use simulators to test.</p>
+     * <p>Applies to Android only.</p>
      */
+
     public function get enforceCertFingerprintMatch():Boolean {
         return _enforceCertFingerprintMatch;
     }

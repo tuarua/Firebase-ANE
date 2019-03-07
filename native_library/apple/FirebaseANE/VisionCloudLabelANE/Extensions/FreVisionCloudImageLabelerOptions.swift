@@ -25,5 +25,8 @@ public extension VisionCloudImageLabelerOptions {
         let confidenceThreshold = Float(rv["confidenceThreshold"]) ?? 0.5
         self.init()
         self.confidenceThreshold = confidenceThreshold
+        if let apiKeyOverride = String(rv["apiKeyOverride"]) {
+            self.apiKeyOverride = apiKeyOverride
+        }
     }
 }

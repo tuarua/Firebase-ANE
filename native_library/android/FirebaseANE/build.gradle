@@ -11,6 +11,7 @@ buildscript {
     ext.firebase_vision_version = '19.0.2'
     ext.firebase_natural_language_version = '18.1.1'
     ext.firebase_natural_language_model_version = '18.0.2'
+    ext.firebase_model_interpreter_version = '17.0.3'
     ext.firebase_storage_version = '16.0.5'
     ext.firebase_firestore_version = '18.0.1'
     ext.firebase_auth_version = '16.1.0'

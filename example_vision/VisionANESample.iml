@@ -44,6 +44,9 @@
             <entry library-name="NaturalLanguageANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="ModelInterpreterANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_32" />
         </dependencies>
@@ -60,6 +63,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/GoogleService-Info.plist" path-in-package="GoogleService-Info.plist" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleMVFaceDetectorResources.bundle" path-in-package="GoogleMVFaceDetectorResources.bundle" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleMVTextDetectorResources.bundle" path-in-package="GoogleMVTextDetectorResources.bundle" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/mobilenet" path-in-package="mobilenet" />
           </files-to-package>
           <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2019/dev/tua_rua_dev_2019.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2019/dev/TuaRuaFirebase_Dev_Prov-2.mobileprovision" />
         </packaging-ios>
@@ -145,6 +149,12 @@
             <entry library-name="com.google.firebase.firebase-ml-vision-face-model-17.0.2" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="ModelInterpreterANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-ml-model-interpreter-17.0.3" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_32" />
         </dependencies>
@@ -161,6 +171,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon83.5x83.5@2x~ipad.png" path-in-package="AppIcon83.5x83.5@2x~ipad.png" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/langid_model.smfb.jpg" path-in-package="langid_model.smfb.jpg" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/models" path-in-package="models" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/mobilenet" path-in-package="mobilenet" />
           </files-to-package>
         </packaging-android>
         <packaging-ios package-file-name="Android_Device" />
@@ -209,5 +220,7 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-ml-natural-language-18.1.1" level="project" />
     <orderEntry type="library" exported="" name="NaturalLanguageANE" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-ml-vision-face-model-17.0.2" level="project" />
+    <orderEntry type="library" exported="" name="ModelInterpreterANE" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-ml-model-interpreter-17.0.3" level="project" />
   </component>
 </module>

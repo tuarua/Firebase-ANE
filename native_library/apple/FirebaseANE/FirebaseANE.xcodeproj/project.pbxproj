@@ -110,6 +110,9 @@
 		9033689420FCBFE5001A3B24 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033689320FCBFE5001A3B24 /* UIUtilities.swift */; };
 		9062053F20F800B400AFCE48 /* RemoteConfigErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062053E20F800B400AFCE48 /* RemoteConfigErrorEvent.swift */; };
 		9062054120F801A300AFCE48 /* RemoteConfigEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062054020F801A300AFCE48 /* RemoteConfigEvent.swift */; };
+		90656DB9222C5F2700B4626A /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90656DBA222C5F2700B4626A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90656DBB222C5F8D00B4626A /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
 		90658A7621162EF9003197A5 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		90658A7821162EF9003197A5 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		90658A8121162EF9003197A5 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
@@ -2317,6 +2320,7 @@
 			files = (
 				90658A8C21162F98003197A5 /* ModelInterpreterANE_oc.h in Headers */,
 				90658A8121162EF9003197A5 /* FreMacros.h in Headers */,
+				90656DB9222C5F2700B4626A /* SwiftyJSON.h in Headers */,
 				90658A9321163015003197A5 /* ModelInterpreterANE-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3687,6 +3691,7 @@
 				90658A952116314B003197A5 /* FreModelDownloadConditions.swift in Sources */,
 				90658AA121164476003197A5 /* ModelInterpreterEvent.swift in Sources */,
 				90658A8D21162F98003197A5 /* ModelInterpreterANE.m in Sources */,
+				90656DBA222C5F2700B4626A /* SwiftyJSON.swift in Sources */,
 				90658A9F2116378C003197A5 /* FreModelInputs.swift in Sources */,
 				90658A9B21163389003197A5 /* FreModelOptions.swift in Sources */,
 				90658A992116330F003197A5 /* FreLocalModelSource.swift in Sources */,
@@ -3694,6 +3699,7 @@
 				90658A9721163213003197A5 /* FreCloudModelSource.swift in Sources */,
 				90658A8F21162FBA003197A5 /* SwiftController.swift in Sources */,
 				90658A9121162FC9003197A5 /* SwiftController+FreSwift.swift in Sources */,
+				90656DBB222C5F8D00B4626A /* FreNSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

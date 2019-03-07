@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/GoogleSignInANE/GoogleSignInANE.iml" filepath="$PROJECT_DIR$/GoogleSignInANE/GoogleSignInANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/InvitesANE/InvitesANE.iml" filepath="$PROJECT_DIR$/InvitesANE/InvitesANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/MessagingANE/MessagingANE.iml" filepath="$PROJECT_DIR$/MessagingANE/MessagingANE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ModelInterpreterANE/ModelInterpreterANE.iml" filepath="$PROJECT_DIR$/ModelInterpreterANE/ModelInterpreterANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/NaturalLanguageANE/NaturalLanguageANE.iml" filepath="$PROJECT_DIR$/NaturalLanguageANE/NaturalLanguageANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/PerformanceANE/PerformanceANE.iml" filepath="$PROJECT_DIR$/PerformanceANE/PerformanceANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/RemoteConfigANE/RemoteConfigANE.iml" filepath="$PROJECT_DIR$/RemoteConfigANE/RemoteConfigANE.iml" />

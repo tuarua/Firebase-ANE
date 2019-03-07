@@ -20,6 +20,7 @@ package com.tuarua.firebase.vision.cloudtext.extensions
 
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.text.FirebaseVisionCloudTextRecognizerOptions
+import com.tuarua.frekotlin.Boolean
 import com.tuarua.frekotlin.Int
 import com.tuarua.frekotlin.List
 import com.tuarua.frekotlin.get
@@ -28,11 +29,15 @@ fun FirebaseVisionCloudTextRecognizerOptions(freObject: FREObject?): FirebaseVis
     val rv = freObject ?: return null
     val modelType = Int(rv["modelType"]) ?: return null
     val languageHints = List<String>(rv["languageHints"])
+    val enforceCertFingerprintMatch = Boolean(rv["enforceCertFingerprintMatch"]) ?: false
     val builder = FirebaseVisionCloudTextRecognizerOptions.Builder()
+
     if (languageHints.isNotEmpty()) {
         builder.setLanguageHints(languageHints)
     }
     builder.setModelType(modelType + 1)
-
+    if (enforceCertFingerprintMatch) {
+        builder.enforceCertFingerprintMatch()
+    }
     return builder.build()
 }

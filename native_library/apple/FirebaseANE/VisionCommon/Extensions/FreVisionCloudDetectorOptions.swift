@@ -28,5 +28,8 @@ public extension VisionCloudDetectorOptions {
         self.init()
         self.maxResults = maxResults
         self.modelType = modelType
+        if let apiKeyOverride = String(rv["apiKeyOverride"]) {
+            self.apiKeyOverride = apiKeyOverride
+        }
     }
 }

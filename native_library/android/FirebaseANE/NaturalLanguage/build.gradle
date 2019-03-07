@@ -33,8 +33,3 @@ dependencies {
     implementation "com.tuarua:FreKotlin:$frekotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_coroutines_version"
 }
-kotlin {
-    experimental {
-        coroutines "enable"
-    }
-}

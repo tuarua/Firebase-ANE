@@ -16,25 +16,29 @@
 
 import Foundation
 import FreSwift
-import Firebase
+import FirebaseMLCommon
+import FirebaseMLModelInterpreter
 
 public extension ModelInputs {
     convenience init?(_ freObject: FREObject?) {
         guard let rv = freObject,
-            let freInputs = rv["inputs"]
+            let freInputs = rv["input"]
             else { return nil }
         self.init()
-        let freArray = FREArray(freInputs)
-        guard freArray.length > 0 else { return nil }
-        do {
-            for fre in freArray {
-                let ba = FreByteArraySwift.init(freByteArray: fre)
-                if let data = ba.value {
-                    try self.addInput(data)
-                }
+        let asByteArray = FreByteArraySwift(freByteArray: freInputs)
+        if let byteData = asByteArray.value {
+            do {
+                try self.addInput(byteData)
+            } catch let e as NSError {
+                asByteArray.releaseBytes()
+                FreSwiftLogger.shared.log(message: e.localizedDescription,
+                                          type: .invalidArgument, line: #line, column: #column, file: #file)
+                return nil
+            } catch {
+                asByteArray.releaseBytes()
+                return nil
             }
-        } catch {
-            return nil 
         }
+        asByteArray.releaseBytes()
     }
 }
