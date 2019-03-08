@@ -32,12 +32,12 @@ public class TextLine {
     public var text:String;
     /**
      * The four corner points of the text line in clockwise order starting with the top left point
-     * relative to the image in the default coordinate space. The `NSValue` objects are `CGPoint`s.
+     * relative to the image in the default coordinate space. The objects are <code>flash.geom.Point</code>s.
      */
     public var cornerPoints:Vector.<Point> = new <Point>[];
     /**
-     * The confidence of the recognized text line. The value is `nil` for all text recognizers except
-     * for cloud text recognizers with model type `VisionCloudTextModelType.dense`.
+     * The confidence of the recognized text line. The value is <code>null</code> for all text recognizers except
+     * for cloud text recognizers with model type <code>VisionCloudTextModelType.dense</code>.
      */
     public var confidence:Number;
     /**

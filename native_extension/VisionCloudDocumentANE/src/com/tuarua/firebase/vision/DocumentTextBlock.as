@@ -60,7 +60,7 @@ public class DocumentTextBlock {
         this._index = index;
     }
     /**
-     * An array of paragraphs in the block if the type is `DocumentBlockType.text`. Otherwise,
+     * An array of paragraphs in the block if the type is <code>DocumentBlockType.text</code>. Otherwise,
      * the array is empty.
      */
     public function get paragraphs():Vector.<DocumentTextParagraph> {

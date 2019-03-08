@@ -33,9 +33,9 @@ public class ModelInputOutputOptions {
      * @param index The index of the input to configure.
      * @param type The element type for the input at a given index.
      * @param dimensions The array of dimensions for the input at a given index.  Each
-     * dimension should have an `uint` value.  For example, for a 2 dimensional input with 4 rows
-     * and 9 columns, the corresponding dimensions should be provided as an `Array` containing two
-     * `Number`s with unsigned integer values, 4 and 9 respectively.
+     * dimension should have an <code>uint</code> value.  For example, for a 2 dimensional input with 4 rows
+     * and 9 columns, the corresponding dimensions should be provided as an <code>Array</code> containing two
+     * <code>Number</code>s with unsigned integer values, 4 and 9 respectively.
      */
     public function setInputFormat(index: uint, type: uint, dimensions: Array):void {
         _inputIndex = index;
@@ -49,8 +49,8 @@ public class ModelInputOutputOptions {
      * @param index The index of the output to configure.
      * @param type The element type for the output at a given index.
      * @param dimensions The array of dimensions for the output at a given index.  Each dimension should
-     * have an `uint` value.  For example, for a 2 dimensional output with 4 rows and 9 columns,
-     * the corresponding dimensions should be provided as an `Array` containing two `Number`s with
+     * have an <code>uint</code> value.  For example, for a 2 dimensional output with 4 rows and 9 columns,
+     * the corresponding dimensions should be provided as an <code>Array</code> containing two <code>Number</code>s with
      *     unsigned integer values, 4 and 9 respectively.
      */
     public function setOutputFormat(index: uint, type: uint, dimensions: Array):void {

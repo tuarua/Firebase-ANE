@@ -80,7 +80,7 @@ public final class FirestoreANE extends EventDispatcher {
 
     /**
      * Re-enables usage of the network by this Firestore instance after a prior call to
-     * `disableNetwork`.
+     * <code>disableNetwork</code>.
      * @param listener Optional Function to be called on completion.
      * The function is expected to have the following signature:
      * <listing version="3.0">
@@ -97,7 +97,7 @@ public final class FirestoreANE extends EventDispatcher {
 
     /**
      * Disables usage of the network by this Firestore instance. It can be re-enabled by via
-     * `enableNetwork`. While the network is disabled, any snapshot listeners or get calls
+     * <code>enableNetwork</code>. While the network is disabled, any snapshot listeners or get calls
      * will return results from cache and any write operations will be queued until the network is
      * restored.
      * @param listener Optional Function to be called on completion.

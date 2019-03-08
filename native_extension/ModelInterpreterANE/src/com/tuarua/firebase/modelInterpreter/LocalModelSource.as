@@ -23,7 +23,7 @@ public class LocalModelSource {
     private var _name:String;
 
     /**
-     * Creates an instance of `LocalModelSource` with a given name and file path.
+     * Creates an instance of <code>LocalModelSource</code> with a given name and file path.
      *
      * @param name A local model name. Within the same Firebase app, all local models should have distinct names.
      * @param path An relative path to the model file stored locally on the device.

@@ -30,7 +30,7 @@ public class ModelInputs {
      * Appends an input at the next index. The index starts from 0 and is incremented each time an
      * input is added.
      * @param value Input data for the next index. Input can be <code>ByteArray</code>, or a one-dimensional or multi-dimensional
-     * array of `Number`s (Number, int, string).
+     * array of <code>Number</code>s (Number, int, string).
      */
     public function addInput(value:ByteArray):void {
         if (value == null) throw new ArgumentError("cannot add null value as input");

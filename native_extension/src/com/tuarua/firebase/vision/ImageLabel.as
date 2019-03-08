@@ -32,7 +32,7 @@ public class ImageLabel {
     /**
      * <p>The human readable label string in American English. For example: "Balloon".</p>
      *
-     * <p>Note: this is not fit for display purposes, as it is not localized. Use the `entityID` and query<br>
+     * <p>Note: this is not fit for display purposes, as it is not localized. Use the <code>entityId</code> and query<br>
      * the Knowledge Graph to get a localized description of the label.</p>
      */
     public var text:String;

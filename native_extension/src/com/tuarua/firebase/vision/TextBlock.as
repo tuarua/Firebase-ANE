@@ -41,7 +41,7 @@ public class TextBlock {
     public var lines:Vector.<TextLine> = new <TextLine>[];
     /**
      * The confidence of the recognized text block. The value is 0 for all text recognizers except
-     * for cloud text recognizers with model type `CloudTextModelType.dense`.
+     * for cloud text recognizers with model type <code>CloudTextModelType.dense</code>.
      */
     public var confidence:Number;
     /**

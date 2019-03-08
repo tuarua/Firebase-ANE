@@ -20,12 +20,12 @@ package com.tuarua.firebase.vision {
  */
 public class CloudDocumentRecognizerOptions {
     /**
-     * API key to use for Cloud Vision API.  If <code>null</code>, the default API key from FirebaseApp will be
+     * API key to use for Cloud Vision API. If <code>null</code>, the default API key from FirebaseApp will be
      * used.
      */
     public var apiKeyOverride:String;
     /**
-     * An array of hinted language codes for cloud document text recognition. The default is `nil`. See
+     * An array of hinted language codes for cloud document text recognition. The default is <code>null</code>. See
      * https://cloud.google.com/vision/docs/languages for supported language codes.
      */
     public var languageHints:Vector.<String> = new Vector.<String>();

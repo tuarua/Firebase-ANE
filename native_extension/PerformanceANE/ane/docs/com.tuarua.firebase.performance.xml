@@ -3,7 +3,10 @@
      </shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>name</apiItemName><apiType value="String"/><apiDesc>The name of the Trace.
      </apiDesc></apiParam></apiConstructorDef><apiDesc>
      Creates a new Trace
-     </apiDesc></apiConstructorDetail></apiConstructor><apiOperation id="com.tuarua.firebase.performance:Trace:incrementMetric"><apiName>incrementMetric</apiName><shortdesc>
+     </apiDesc></apiConstructorDetail></apiConstructor><apiOperation id="com.tuarua.firebase.performance:Trace:incrementCounter"><apiName>incrementCounter</apiName><shortdesc>
+     </shortdesc><prolog><asCustoms><deprecated>use #incrementMetric(String, int) instead
+     </deprecated></asCustoms></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>named</apiItemName><apiType value="String"/></apiParam><apiParam><apiItemName>by</apiItemName><apiType value="int"/><apiData>1</apiData></apiParam></apiOperationDef><apiDesc>
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.performance:Trace:incrementMetric"><apiName>incrementMetric</apiName><shortdesc>
      Increments the counter for the provided counter name by 1.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>named</apiItemName><apiType value="String"/><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>by</apiItemName><apiType value="int"/><apiData>1</apiData><apiDesc>    </apiDesc></apiParam></apiOperationDef><apiDesc>
      Increments the counter for the provided counter name by 1. If it is a new counter name, the
      counter value will be initialized to 1. Does nothing if the trace has not been started or has

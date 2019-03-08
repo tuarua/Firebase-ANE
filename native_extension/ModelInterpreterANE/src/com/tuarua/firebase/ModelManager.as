@@ -27,12 +27,12 @@ public class ModelManager {
 
     /**
      * Registers a cloud model. The model name is unique to each cloud model and can only be registered
-     * once with a given instance of the `ModelManager`. The model name should be the same name used
+     * once with a given instance of the <code>ModelManager</code>. The model name should be the same name used
      * when uploading the model to the Firebase Console. It's OK to separately register a cloud model
-     * and a local model with the same name for a given instance of the `ModelManager`.
+     * and a local model with the same name for a given instance of the <code>ModelManager</code>.
      *
      * @param cloudModelSource The cloud model source to register.
-     * @return Whether the registration was successful. Returns false if the given `cloudModelSource` is
+     * @return Whether the registration was successful. Returns false if the given <code>cloudModelSource</code> is
      *     invalid or has already been registered.
      */
     public function registerCloudModel(cloudModelSource:CloudModelSource):Boolean {
@@ -44,11 +44,11 @@ public class ModelManager {
 
     /**
      * Registers a local model. The model name is unique to each local model and can only be registered
-     * once with a given instance of the `ModelManager`. It's OK to separately register a cloud model
-     * and a local model with the same name for a given instance of the `ModelManager`.
+     * once with a given instance of the <code>ModelManager</code>. It's OK to separately register a cloud model
+     * and a local model with the same name for a given instance of the <code>ModelManager</code>.
      *
      * @param localModelSource The local model source to register.
-     * @return Whether the registration was successful. Returns false if the given `localModelSource` is
+     * @return Whether the registration was successful. Returns false if the given <code>localModelSource</code> is
      *     invalid or has already been registered.
      */
     public function registerLocalModel(localModelSource:LocalModelSource):Boolean {
@@ -59,7 +59,7 @@ public class ModelManager {
     }
 
     /**
-     * Gets the registered cloud model with the given name. Returns `nil` if the model was never
+     * Gets the registered cloud model with the given name. Returns <code>null</code> if the model was never
      * registered with this model manager.
      *
      * @param name Name of the cloud model.
@@ -74,7 +74,7 @@ public class ModelManager {
     }
 
     /**
-     * Gets the registered local model with the given name. Returns `nil` if the model was never
+     * Gets the registered local model with the given name. Returns <code>null</code> if the model was never
      * registered with this model manager.
      *
      * @param name Name of the local model.

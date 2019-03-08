@@ -3,33 +3,27 @@
  Options for a cloud document text recognizer.
  </apiDesc></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:CloudDocumentRecognizerOptions:CloudDocumentRecognizerOptions"><apiName>CloudDocumentRecognizerOptions</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:CloudDocumentRecognizerOptions:apiKeyOverride"><apiName>apiKeyOverride</apiName><shortdesc>
      API key to use for Cloud Vision API.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     API key to use for Cloud Vision API.  If `null`, the default API key from FirebaseApp will be
+     API key to use for Cloud Vision API. If <codeph>null</codeph>, the default API key from FirebaseApp will be
      used.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudDocumentRecognizerOptions:enforceCertFingerprintMatch"><apiName>enforceCertFingerprintMatch</apiName><shortdesc>
+     Only allow registered application instances with matching certificate fingerprint to use Cloud Vision API.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Boolean"/></apiValueDef><apiDesc>
+     Only allow registered application instances with matching certificate fingerprint to use Cloud Vision API.
+     <p>Do not set this for debug build if you use simulators to test.</p>
+     <p>Applies to Android only.</p>
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudDocumentRecognizerOptions:languageHints"><apiName>languageHints</apiName><shortdesc>
      An array of hinted language codes for cloud document text recognition.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$String"/></apiValueDef><apiDesc>
-     An array of hinted language codes for cloud document text recognition. The default is `nil`. See
+     An array of hinted language codes for cloud document text recognition. The default is <codeph>null</codeph>. See
      https://cloud.google.com/vision/docs/languages for supported language codes.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:Label"><apiName>Label</apiName><shortdesc>
- Represents a label for an image.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
- Represents a label for an image.
- </apiDesc></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:Label:Label"><apiName>Label</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:Label:confidence"><apiName>confidence</apiName><shortdesc>
-     Confidence for the label in range [0, 1].</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
-     Confidence for the label in range [0, 1].
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:Label:entityId"><apiName>entityId</apiName><shortdesc>
-     Opaque entity ID.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     Opaque entity ID. Some IDs may be available in [Google Knowledge Graph Search API].
-     (https://developers.google.com/knowledge-graph/).
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:Label:frame"><apiName>frame</apiName><shortdesc>
-     The rectangle that holds the discovered label relative to the detected image in the view
-     coordinate system.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="flash.geom:Rectangle"/></apiValueDef><apiDesc>
-     The rectangle that holds the discovered label relative to the detected image in the view
-     coordinate system.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:Label:label"><apiName>label</apiName><shortdesc>
-     The human readable label string in American English.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     <p>The human readable label string in American English. For example: "Balloon".</p>
-     
-     <p>Note: this is not fit for display purposes, as it is not localized. Use the `entityID` and query
-     the Knowledge Graph to get a localized description of the label.</p>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:FaceDetectorPerformanceMode"><apiName>FaceDetectorPerformanceMode</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:FaceDetectorPerformanceMode:accurate"><apiName>accurate</apiName><shortdesc>
+     Face detection mode code indicating detect more faces and may be more precise in determining
+     values such as position, at the cost of speed.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="uint"/></apiValueDef><apiDesc>
+     Face detection mode code indicating detect more faces and may be more precise in determining
+     values such as position, at the cost of speed.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:FaceDetectorPerformanceMode:fast"><apiName>fast</apiName><shortdesc>
+     Face detection mode code indicating detect fewer faces and may be less precise in determining
+     values such as position, but will run faster.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc>
+     Face detection mode code indicating detect fewer faces and may be less precise in determining
+     values such as position, but will run faster.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:TextRecognizedBreakType"><apiName>TextRecognizedBreakType</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:TextRecognizedBreakType:hyphen"><apiName>hyphen</apiName><shortdesc>
      Hyphen break type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="uint"/></apiValueDef><apiDesc>
      Hyphen break type.
@@ -53,18 +47,18 @@
  Detected break from text recognition.
  </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:TextRecognizedBreak:isPrefix"><apiName>isPrefix</apiName><shortdesc>
      Indicates whether the break prepends the text element.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Boolean"/></apiValueDef><apiDesc>
-     Indicates whether the break prepends the text element. If `false`, the break comes after the text
+     Indicates whether the break prepends the text element. If <codeph>false</codeph>, the break comes after the text
      element.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextRecognizedBreak:type"><apiName>type</apiName><shortdesc>
       The recognized text break type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="uint"/></apiValueDef><apiDesc>
       The recognized text break type.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:FaceDetectorClassification"><apiName>FaceDetectorClassification</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:FaceDetectorClassification:all"><apiName>all</apiName><shortdesc>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:LatitudeLongitude"><apiName>LatitudeLongitude</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:LatitudeLongitude:LatitudeLongitude"><apiName>LatitudeLongitude</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:LatitudeLongitude:latitude"><apiName>latitude</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:LatitudeLongitude:longitude"><apiName>longitude</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:FaceDetectorClassificationMode"><apiName>FaceDetectorClassificationMode</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:FaceDetectorClassificationMode:all"><apiName>all</apiName><shortdesc>
      Face classification type indicating it performs all classification.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="uint"/></apiValueDef><apiDesc>
      Face classification type indicating it performs all classification.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:FaceDetectorClassification:none"><apiName>none</apiName><shortdesc>
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:FaceDetectorClassificationMode:none"><apiName>none</apiName><shortdesc>
      Face classification type indicating it performs no classification.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc>
      Face classification type indicating it performs no classification.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:LatitudeLongitude"><apiName>LatitudeLongitude</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:LatitudeLongitude:LatitudeLongitude"><apiName>LatitudeLongitude</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:LatitudeLongitude:latitude"><apiName>latitude</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:LatitudeLongitude:longitude"><apiName>longitude</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeEmail"><apiName>BarcodeEmail</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:BarcodeEmail:address"><apiName>address</apiName><shortdesc>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeEmail"><apiName>BarcodeEmail</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:BarcodeEmail:address"><apiName>address</apiName><shortdesc>
      Email message address.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
      Email message address.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeEmail:body"><apiName>body</apiName><shortdesc>
@@ -155,8 +149,8 @@
      The detected block type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="uint"/></apiValueDef><apiDesc>
      The detected block type.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:DocumentTextBlock:paragraphs:get"><apiName>paragraphs</apiName><shortdesc>
-     An array of paragraphs in the block if the type is `DocumentBlockType.text`.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Vector$com.tuarua.firebase.vision:DocumentTextParagraph"/></apiValueDef><apiDesc>
-     An array of paragraphs in the block if the type is `DocumentBlockType.text`. Otherwise,
+     An array of paragraphs in the block if the type is DocumentBlockType.text.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Vector$com.tuarua.firebase.vision:DocumentTextParagraph"/></apiValueDef><apiDesc>
+     An array of paragraphs in the block if the type is <codeph>DocumentBlockType.text</codeph>. Otherwise,
      the array is empty.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeDriverLicense"><apiName>BarcodeDriverLicense</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:BarcodeDriverLicense:expiryDate"><apiName>expiryDate</apiName><shortdesc>
      Driver license expiration date.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
@@ -214,28 +208,20 @@
      A URL bookmark url.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:CloudTextRecognizerOptions"><apiName>CloudTextRecognizerOptions</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:CloudTextRecognizerOptions:CloudTextRecognizerOptions"><apiName>CloudTextRecognizerOptions</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:CloudTextRecognizerOptions:apiKeyOverride"><apiName>apiKeyOverride</apiName><shortdesc>
      API key to use for Cloud Vision API.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     API key to use for Cloud Vision API.  If `null`, the default API key from FirebaseApp will be
+     API key to use for Cloud Vision API.  If <codeph>null</codeph>, the default API key from FirebaseApp will be
      used.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudTextRecognizerOptions:enforceCertFingerprintMatch"><apiName>enforceCertFingerprintMatch</apiName><shortdesc>
+     Only allow registered application instances with matching certificate fingerprint to use Cloud Vision API.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Boolean"/></apiValueDef><apiDesc>
+     Only allow registered application instances with matching certificate fingerprint to use Cloud Vision API.
+     <p>Do not set this for debug build if you use simulators to test.</p>
+     <p>Applies to Android only.</p>
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudTextRecognizerOptions:languageHints"><apiName>languageHints</apiName><shortdesc>
      An array of hinted language codes for cloud text recognition.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$String"/></apiValueDef><apiDesc>
      An array of hinted language codes for cloud text recognition. The default is []. See
      https://cloud.google.com/vision/docs/languages for supported language codes.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudTextRecognizerOptions:modelType"><apiName>modelType</apiName><shortdesc>
      Model type for cloud text recognition.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="uint"/></apiValueDef><apiDesc>
-     Model type for cloud text recognition. The default is `CloudTextModelType.sparse`.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:CloudLabel"><apiName>CloudLabel</apiName><shortdesc>
- Set of label properties identified by a vision cloud detector.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
- Set of label properties identified by a vision cloud detector.
- </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:CloudLabel:confidence"><apiName>confidence</apiName><shortdesc>
-     Overall confidence of the result.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
-     Overall confidence of the result.  The value is float, in range [0, 1].
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudLabel:entityId"><apiName>entityId</apiName><shortdesc>
-     Opaque entity ID.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     Opaque entity ID. Some IDs may be available in [Google Knowledge Graph Search API]
-     (https://developers.google.com/knowledge-graph/).
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudLabel:label"><apiName>label</apiName><shortdesc>
-     Textual label name.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
-     Textual label name.
+     Model type for cloud text recognition. The default is <codeph>CloudTextModelType.sparse</codeph>.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:LabelDetectorOptions"><apiName>LabelDetectorOptions</apiName><shortdesc>
  Options for an image label detector.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
  Options for an image label detector.
@@ -252,6 +238,12 @@
      The confidence threshold for labels returned by the label detector. Features returned by the
      label detector will have a confidence higher or equal to the confidence threshold. Default value
      is 0.5.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:FaceDetectorLandmarkMode"><apiName>FaceDetectorLandmarkMode</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:FaceDetectorLandmarkMode:all"><apiName>all</apiName><shortdesc>
+     Face landmark detection type indicating it performs all landmark detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="uint"/></apiValueDef><apiDesc>
+     Face landmark detection type indicating it performs all landmark detection.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:FaceDetectorLandmarkMode:none"><apiName>none</apiName><shortdesc>
+     Face landmark detection type indicating it performs no landmark detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc>
+     Face landmark detection type indicating it performs no landmark detection.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:DocumentTextWord"><apiName>DocumentTextWord</apiName><shortdesc>
  A document text word recognized in an image that consists of an array of symbols.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
  A document text word recognized in an image that consists of an array of symbols.
@@ -288,7 +280,7 @@
      The four corner points of the barcode, in clockwise order starting with the top left relative
      to the detected image in the view coordinate system.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$flash.geom:Point"/></apiValueDef><apiDesc>
      <p>The four corner points of the barcode, in clockwise order starting with the top left relative
-     to the detected image in the view coordinate system. These are CGPoints boxed in NSValues.
+     to the detected image in the view coordinate system. These are <codeph>flash.geom.Point</codeph> boxed in values.
      Due to the possible perspective distortions, this is not necessarily a rectangle.</p>
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:Barcode:displayValue"><apiName>displayValue</apiName><shortdesc>
      A barcode value in a user-friendly format.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
@@ -342,7 +334,7 @@
  </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:TextBlock:confidence"><apiName>confidence</apiName><shortdesc>
      The confidence of the recognized text block.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
      The confidence of the recognized text block. The value is 0 for all text recognizers except
-     for cloud text recognizers with model type `CloudTextModelType.dense`.
+     for cloud text recognizers with model type <codeph>CloudTextModelType.dense</codeph>.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextBlock:cornerPoints"><apiName>cornerPoints</apiName><shortdesc>
      The four corner points of the text block in clockwise order starting with the top left point
      relative to the image in the default coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$flash.geom:Point"/></apiValueDef><apiDesc>
@@ -362,20 +354,57 @@
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextBlock:text"><apiName>text</apiName><shortdesc>
      String representation of the text block that was recognized.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
      String representation of the text block that was recognized.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:CloudModelType"><apiName>CloudModelType</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:CloudModelType:latest"><apiName>latest</apiName><shortdesc> Latest model.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc> Latest model. </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudModelType:stable"><apiName>stable</apiName><shortdesc> Stable model.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="uint"/></apiValueDef><apiDesc> Stable model. </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:FaceDetectorMode"><apiName>FaceDetectorMode</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:FaceDetectorMode:accurate"><apiName>accurate</apiName><shortdesc>
-     Face detection mode code indicating detect more faces and may be more precise in determining
-     values such as position, at the cost of speed.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="uint"/></apiValueDef><apiDesc>
-     Face detection mode code indicating detect more faces and may be more precise in determining
-     values such as position, at the cost of speed.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:FaceDetectorMode:fast"><apiName>fast</apiName><shortdesc>
-     Face detection mode code indicating detect fewer faces and may be less precise in determining
-     values such as position, but will run faster.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc>
-     Face detection mode code indicating detect fewer faces and may be less precise in determining
-     values such as position, but will run faster.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeDetectorOptions"><apiName>BarcodeDetectorOptions</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:BarcodeDetectorOptions:BarcodeDetectorOptions"><apiName>BarcodeDetectorOptions</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:BarcodeDetectorOptions:formats"><apiName>formats</apiName><shortdesc>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:ImageLabel"><apiName>ImageLabel</apiName><shortdesc>
+ Represents a label for an image.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ Represents a label for an image.
+ </apiDesc></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:ImageLabel:ImageLabel"><apiName>ImageLabel</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:ImageLabel:confidence"><apiName>confidence</apiName><shortdesc>
+     Confidence for the label in range [0, 1].</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
+     Confidence for the label in range [0, 1].
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:ImageLabel:entityId"><apiName>entityId</apiName><shortdesc>
+     Opaque entity ID.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     Opaque entity ID. Some IDs may be available in [Google Knowledge Graph Search API].
+     (https://developers.google.com/knowledge-graph/).
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:ImageLabel:text"><apiName>text</apiName><shortdesc>
+     The human readable label string in American English.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     <p>The human readable label string in American English. For example: "Balloon".</p>
+     
+     <p>Note: this is not fit for display purposes, as it is not localized. Use the <codeph>entityId</codeph> and query
+     the Knowledge Graph to get a localized description of the label.</p>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:CloudModelType"><apiName>CloudModelType</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:CloudModelType:CloudModelType"><apiName>CloudModelType</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:CloudModelType:latest"><apiName>latest</apiName><shortdesc> Latest model.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc> Latest model. </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudModelType:stable"><apiName>stable</apiName><shortdesc> Stable model.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>0</apiData><apiType value="uint"/></apiValueDef><apiDesc> Stable model. </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeDetectorOptions"><apiName>BarcodeDetectorOptions</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:BarcodeDetectorOptions:BarcodeDetectorOptions"><apiName>BarcodeDetectorOptions</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:BarcodeDetectorOptions:formats"><apiName>formats</apiName><shortdesc>
      The barcode formats detected in an image.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$int"/></apiValueDef><apiDesc>
      The barcode formats detected in an image. Note that the detection time will increase for each
      additional format that is specified.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:CloudLabelDetectorOptions"><apiName>CloudLabelDetectorOptions</apiName><shortdesc>
+ Options for an image label detector.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ Options for an image label detector.
+ </apiDesc></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:CloudLabelDetectorOptions:CloudLabelDetectorOptions"><apiName>CloudLabelDetectorOptions</apiName><shortdesc>
+     Creates a new instance with the given detector options.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>confidenceThreshold</apiItemName><apiType value="Number"/><apiData>0.5</apiData><apiDesc>The confidence threshold for labels returned by the label detector.
+         Features returned by the label detector will have a confidence higher or equal to the given
+         threshold. Values must be in range [0, 1]. If an invalid value is provided, the default
+         threshold of 0.5 is used.
+     </apiDesc></apiParam><apiParam><apiItemName>enforceCertFingerprintMatch</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Only allow registered application instances with matching certificate
+     fingerprint to use Cloud Vision API.
+     <p>Do not set this for debug build if you use simulators to test.</p>
+     Applies to Android only.
+     </apiDesc></apiParam></apiConstructorDef><apiDesc>
+     Creates a new instance with the given detector options.
+     
+     </apiDesc></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:CloudLabelDetectorOptions:apiKeyOverride"><apiName>apiKeyOverride</apiName><shortdesc>
+     API key to use for Cloud Vision API.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     API key to use for Cloud Vision API.  If <codeph>null</codeph>, the default API key from FirebaseApp will be
+     used.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudLabelDetectorOptions:confidenceThreshold:get"><apiName>confidenceThreshold</apiName><shortdesc>
+     The confidence threshold for labels returned by the label detector.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Number"/></apiValueDef><apiDesc>
+     The confidence threshold for labels returned by the label detector. Features returned by the
+     label detector will have a confidence higher or equal to the confidence threshold. Default value
+     is 0.5.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudLabelDetectorOptions:enforceCertFingerprintMatch:get"><apiName>enforceCertFingerprintMatch</apiName><shortdesc>
+     Only allow registered application instances with matching certificate
+     fingerprint to use Cloud Vision API.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+     Only allow registered application instances with matching certificate
+     fingerprint to use Cloud Vision API.
+     <p>Do not set this for debug build if you use simulators to test.</p>
+     <p>Applies to Android only.</p>
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodePhone"><apiName>BarcodePhone</apiName><shortdesc>
  A phone number from a 'TEL:' or similar QR Code type.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
  A phone number from a 'TEL:' or similar QR Code type.
@@ -392,12 +421,12 @@
  </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:TextElement:confidence"><apiName>confidence</apiName><shortdesc>
      The confidence of the recognized text element.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
      The confidence of the recognized text element. The value is 0 for all text recognizers except
-     for cloud text recognizers with model type `VisionCloudTextModelType.dense`.
+     for cloud text recognizers with model type <codeph>VisionCloudTextModelType.dense</codeph>.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextElement:cornerPoints"><apiName>cornerPoints</apiName><shortdesc>
      The four corner points of the text element in clockwise order starting with the top left point
      relative to the image in the default coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$flash.geom:Point"/></apiValueDef><apiDesc>
      The four corner points of the text element in clockwise order starting with the top left point
-     relative to the image in the default coordinate space. The `NSValue` objects are `CGPoint`s.
+     relative to the image in the default coordinate space. The objects are <codeph>flash.geom.Point</codeph>s.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextElement:frame"><apiName>frame</apiName><shortdesc>
      The rectangle that contains the text element relative to the image in the default coordinate
      space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="flash.geom:Rectangle"/></apiValueDef><apiDesc>
@@ -414,12 +443,6 @@
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextElement:text"><apiName>text</apiName><shortdesc>
      String representation of the text element that was recognized.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
      String representation of the text element that was recognized.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:FaceDetectorLandmark"><apiName>FaceDetectorLandmark</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:FaceDetectorLandmark:all"><apiName>all</apiName><shortdesc>
-     Face landmark detection type indicating it performs all landmark detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="uint"/></apiValueDef><apiDesc>
-     Face landmark detection type indicating it performs all landmark detection.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:FaceDetectorLandmark:none"><apiName>none</apiName><shortdesc>
-     Face landmark detection type indicating it performs no landmark detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc>
-     Face landmark detection type indicating it performs no landmark detection.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:VisionPoint"><apiName>VisionPoint</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:VisionPoint:VisionPoint"><apiName>VisionPoint</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>x</apiItemName><apiType value="Number"/></apiParam><apiParam><apiItemName>y</apiItemName><apiType value="Number"/></apiParam><apiParam><apiItemName>z</apiItemName><apiType value="Number"/></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:VisionPoint:x:get"><apiName>x</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Number"/></apiValueDef></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:VisionPoint:y:get"><apiName>y</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Number"/></apiValueDef></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:VisionPoint:z:get"><apiName>z</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Number"/></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:Face"><apiName>Face</apiName><shortdesc>
  A human face detected in an image.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
  A human face detected in an image.
@@ -503,13 +526,22 @@
       The BCP-47 language code, such as, "en-US" or "sr-Latn".</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
       The BCP-47 language code, such as, "en-US" or "sr-Latn". For more information, see
       http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:CloudDetectorOptions"><apiName>CloudDetectorOptions</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:CloudDetectorOptions:CloudDetectorOptions"><apiName>CloudDetectorOptions</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:CloudDetectorOptions:maxResults"><apiName>maxResults</apiName><shortdesc>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:CloudDetectorOptions"><apiName>CloudDetectorOptions</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:CloudDetectorOptions:CloudDetectorOptions"><apiName>CloudDetectorOptions</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:CloudDetectorOptions:apiKeyOverride"><apiName>apiKeyOverride</apiName><shortdesc>
+     API key to use for Cloud Vision API.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     API key to use for Cloud Vision API.  If <codeph>null</codeph>, the default API key from FirebaseApp will be
+     used.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudDetectorOptions:enforceCertFingerprintMatch"><apiName>enforceCertFingerprintMatch</apiName><shortdesc>
+     Only allow registered application instances with matching certificate fingerprint to use Cloud Vision API.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Boolean"/></apiValueDef><apiDesc>
+     Only allow registered application instances with matching certificate fingerprint to use Cloud Vision API.
+     <p>Do not set this for debug build if you use simulators to test.</p>
+     <p>Applies to Android only.</p>
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudDetectorOptions:maxResults"><apiName>maxResults</apiName><shortdesc>
      Maximum number of results to return.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>10</apiData><apiType value="uint"/></apiValueDef><apiDesc>
      Maximum number of results to return.  Defaults to 10.  Does not apply to
-     `VisionCloudTextDetector` and `VisionCloudDocumentTextDetector`.
+     <codeph>CloudTextDetector</codeph> and <codeph>CloudDocumentTextDetector</codeph>.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudDetectorOptions:modelType"><apiName>modelType</apiName><shortdesc>
      Type of model to use in vision cloud detection API.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>0</apiData><apiType value="uint"/></apiValueDef><apiDesc>
-     Type of model to use in vision cloud detection API.  Defaults to `.stable`.
+     Type of model to use in vision cloud detection API.  Defaults to <codeph>stable</codeph>.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:BarcodeContactInfo"><apiName>BarcodeContactInfo</apiName><shortdesc>
  A person's or organization's business card.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
  A person's or organization's business card. For example, a vCard.
@@ -534,7 +566,13 @@
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeContactInfo:urls"><apiName>urls</apiName><shortdesc>
      Contact URLs.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$String"/></apiValueDef><apiDesc>
      Contact URLs.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:VisionImageMetadata"><apiName>VisionImageMetadata</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:VisionImageMetadata:VisionImageMetadata"><apiName>VisionImageMetadata</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>orientation</apiItemName><apiType value="uint"/><apiData>unknown</apiData></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:VisionImageMetadata:orientation:get"><apiName>orientation</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="uint"/></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:DocumentTextSymbol"><apiName>DocumentTextSymbol</apiName><shortdesc>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:VisionImageMetadata"><apiName>VisionImageMetadata</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:VisionImageMetadata:VisionImageMetadata"><apiName>VisionImageMetadata</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>orientation</apiItemName><apiType value="uint"/><apiData>unknown</apiData></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:VisionImageMetadata:orientation:get"><apiName>orientation</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="uint"/></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:FaceDetectorContourMode"><apiName>FaceDetectorContourMode</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:FaceDetectorContourMode:all"><apiName>all</apiName><shortdesc>
+     Face contour mode indicating that the detector performs contour detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>2</apiData><apiType value="uint"/></apiValueDef><apiDesc>
+     Face contour mode indicating that the detector performs contour detection.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:FaceDetectorContourMode:none"><apiName>none</apiName><shortdesc>
+     Face contour mode indicating that the detector performs no contour detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc>
+     Face contour mode indicating that the detector performs no contour detection.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:DocumentTextSymbol"><apiName>DocumentTextSymbol</apiName><shortdesc>
  A document text symbol recognized in an image.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
  A document text symbol recognized in an image.
  </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:DocumentTextSymbol:confidence"><apiName>confidence</apiName><shortdesc>
@@ -560,13 +598,13 @@
  A text line recognized in an image that consists of an array of elements.
  </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:TextLine:confidence"><apiName>confidence</apiName><shortdesc>
      The confidence of the recognized text line.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
-     The confidence of the recognized text line. The value is `nil` for all text recognizers except
-     for cloud text recognizers with model type `VisionCloudTextModelType.dense`.
+     The confidence of the recognized text line. The value is <codeph>null</codeph> for all text recognizers except
+     for cloud text recognizers with model type <codeph>VisionCloudTextModelType.dense</codeph>.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextLine:cornerPoints"><apiName>cornerPoints</apiName><shortdesc>
      The four corner points of the text line in clockwise order starting with the top left point
      relative to the image in the default coordinate space.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$flash.geom:Point"/></apiValueDef><apiDesc>
      The four corner points of the text line in clockwise order starting with the top left point
-     relative to the image in the default coordinate space. The `NSValue` objects are `CGPoint`s.
+     relative to the image in the default coordinate space. The objects are <codeph>flash.geom.Point</codeph>s.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:TextLine:elements"><apiName>elements</apiName><shortdesc>
      An array of text elements that make up the line.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>unknown</apiData><apiType value="Vector$com.tuarua.firebase.vision:TextElement"/></apiValueDef><apiDesc>
      An array of text elements that make up the line.
@@ -605,7 +643,7 @@
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:BarcodeCalendarEvent:summary"><apiName>summary</apiName><shortdesc>
      Calendar event summary.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
      Calendar event summary.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:CloudTextModelType"><apiName>CloudTextModelType</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:CloudTextModelType:dense"><apiName>dense</apiName><shortdesc>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:CloudTextModelType"><apiName>CloudTextModelType</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiFinal/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:CloudTextModelType:CloudTextModelType"><apiName>CloudTextModelType</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.vision:CloudTextModelType:dense"><apiName>dense</apiName><shortdesc>
      Dense or document text cloud model type.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc>
      Dense or document text cloud model type.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:CloudTextModelType:sparse"><apiName>sparse</apiName><shortdesc>
@@ -695,27 +733,42 @@
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:FaceDetectorOptions"><apiName>FaceDetectorOptions</apiName><shortdesc>
  Options for specifying a face detector.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
  Options for specifying a face detector.
- </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:FaceDetectorOptions:classificationType"><apiName>classificationType</apiName><shortdesc>
+ </apiDesc></apiClassifierDetail><apiValue id="com.tuarua.firebase.vision:FaceDetectorOptions:classificationMode"><apiName>classificationMode</apiName><shortdesc>
      Whether to run additional classifiers for characterizing attributes such as smiling.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc>
      Whether to run additional classifiers for characterizing attributes such as smiling. Defaults to
-     VisionFaceDetectorClassificationNone.
+     FaceDetectorClassificationMode.none.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:FaceDetectorOptions:contourMode"><apiName>contourMode</apiName><shortdesc>
+     The face detector contour mode that determines the type of contour results returned by detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc>
+     The face detector contour mode that determines the type of contour results returned by detection.
+     Defaults to FaceDetectorContourMode.none.
+     
+     <p>The following detection results are returned when setting this mode to <codeph>.all</codeph>:</p>
+     
+     <p><codeph>performanceMode</codeph> set to <codeph>.fast</codeph>, and both <codeph>classificationMode</codeph>
+     and <codeph>landmarkMode</codeph> set to
+     <codeph>.none</codeph>, then only the prominent face will be returned with detected contours.</p>
+     
+     <p><codeph>performanceMode</codeph> set to <codeph>.accurate</codeph>, or if <codeph>classificationMode</codeph>
+     or <codeph>landmarkMode</codeph> is set to
+     <codeph>.all</codeph>, then all detected faces will be returned, but only the prominent face will have
+     detecteted contours.</p>
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:FaceDetectorOptions:isTrackingEnabled"><apiName>isTrackingEnabled</apiName><shortdesc>
      Whether the face tracking feature is enabled in face detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>false</apiData><apiType value="Boolean"/></apiValueDef><apiDesc>
-     Whether the face tracking feature is enabled in face detection. Defaults to NO.
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:FaceDetectorOptions:landmarkType"><apiName>landmarkType</apiName><shortdesc>
+     Whether the face tracking feature is enabled in face detection. Defaults to false.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:FaceDetectorOptions:landmarkMode"><apiName>landmarkMode</apiName><shortdesc>
      Whether to detect no landmarks or all landmarks in face detection.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc>
      <p>Whether to detect no landmarks or all landmarks in face detection. Processing time increases as
      the number of landmarks to search for increases, so detecting all landmarks will increase the
-     overall detection time. Defaults to VisionFaceDetectorLandmarkNone.</p>
+     overall detection time. Defaults to FaceDetectorLandmarkMode.none.</p>
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:FaceDetectorOptions:minFaceSize"><apiName>minFaceSize</apiName><shortdesc>
      The smallest desired face size.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>0.1</apiData><apiType value="Number"/></apiValueDef><apiDesc>
      <p>The smallest desired face size. The size is expressed as a proportion of the width of the head to
      the image width. For example, if a value of 0.1 is specified, then the smallest face to search
      for is roughly 10% of the width of the image being searched. Defaults to 0.1.</p>
-     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:FaceDetectorOptions:modeType"><apiName>modeType</apiName><shortdesc>
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.vision:FaceDetectorOptions:performanceMode"><apiName>performanceMode</apiName><shortdesc>
      Preference for accuracy vs.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiData>1</apiData><apiType value="uint"/></apiValueDef><apiDesc>
      Preference for accuracy vs. speed trade-offs in face detection.  Defaults to
-     VisionFaceDetectorModeFast.
+     FaceDetectorPerformanceMode.fast.
      </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.vision:VisionImage"><apiName>VisionImage</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.vision:VisionImage:VisionImage"><apiName>VisionImage</apiName><shortdesc>
      Initializes a VisionImage object with the given image.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>bitmapdata</apiItemName><apiType value="flash.display:BitmapData"/><apiData>null</apiData><apiDesc>BitmapData to use in vision detection. The given image should be rotated, so its
      orientation up. Set to null if using the path param.

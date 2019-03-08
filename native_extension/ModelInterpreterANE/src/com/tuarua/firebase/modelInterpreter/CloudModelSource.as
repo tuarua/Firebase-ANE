@@ -24,7 +24,7 @@ public class CloudModelSource {
     private var _initialConditions:ModelDownloadConditions;
     private var _updateConditions:ModelDownloadConditions;
     /**
-     * Creates an instance of `CloudModelSource` with the given name and the download conditions.
+     * Creates an instance of <code>CloudModelSource</code> with the given name and the download conditions.
      *
      * @param name The name of the model to download. Specify the name you assigned the model when you
      *     uploaded it to the Firebase console. Within the same Firebase app, all cloud models should
@@ -32,7 +32,7 @@ public class CloudModelSource {
      * @param enableModelUpdates Indicates whether model updates are enabled.
      * @param initialConditions Initial downloading conditions for the model.
      * @param updateConditions Subsequent update conditions for the model. If it is null and
-     *     `enableModelUpdates` is true, the default download conditions are used.
+     *     <code>enableModelUpdates</code> is true, the default download conditions are used.
      */
     public function CloudModelSource(name:String, enableModelUpdates:Boolean,
                                      initialConditions:ModelDownloadConditions,
@@ -59,8 +59,8 @@ public class CloudModelSource {
     }
 
     /**
-     * Subsequent update conditions for the model. If `nil` is passed to the initializer, the default
-     * download conditions are set, but are only used if `enableModelUpdates` is `YES`.
+     * Subsequent update conditions for the model. If <code>null</code> is passed to the initializer, the default
+     * download conditions are set, but are only used if <code>enableModelUpdates</code> is <code>true</code>.
      */
     public function get updateConditions():ModelDownloadConditions {
         return _updateConditions;

@@ -24,7 +24,7 @@ public class WriteBatch {
     }
 
     /**
-     * Deletes the document referred to by `documentReference`.
+     * Deletes the document referred to by <code>documentReference</code>.
      *
      * @param documentReference
      */
@@ -35,7 +35,7 @@ public class WriteBatch {
     }
 
     /**
-     * Updates fields in the document referred to by `documentReference`.
+     * Updates fields in the document referred to by <code>documentReference</code>.
      * If document does not exist, the write batch will fail.
      *
      * @param forDocument A reference to the document whose data should be overwritten.
@@ -48,7 +48,7 @@ public class WriteBatch {
     }
 
     /**
-     * Writes to the document referred to by `documentReference`. If the document doesn't yet exist,
+     * Writes to the document referred to by <code>documentReference</code>. If the document doesn't yet exist,
      * this method creates it and then sets the data. If the document exists, this method overwrites
      * the document data with the new values.
      *

@@ -22,7 +22,7 @@ public class CloudTextRecognizerOptions {
      */
     public var apiKeyOverride:String;
     /**
-     * Model type for cloud text recognition. The default is `CloudTextModelType.sparse`.
+     * Model type for cloud text recognition. The default is <code>CloudTextModelType.sparse</code>.
      */
     public var modelType:uint;
     /**

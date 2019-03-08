@@ -19,11 +19,11 @@ package com.tuarua.firebase.vision {
 public class CloudDetectorOptions {
     /**
      * Maximum number of results to return.  Defaults to 10.  Does not apply to
-     * `CloudTextDetector` and `CloudDocumentTextDetector`.
+     * <code>CloudTextDetector</code> and <code>CloudDocumentTextDetector</code>.
      */
     public var maxResults:uint = 10;
     /**
-     * Type of model to use in vision cloud detection API.  Defaults to `.stable`.
+     * Type of model to use in vision cloud detection API.  Defaults to <code>stable</code>.
      */
     public var modelType:uint = CloudModelType.stable;
     /**

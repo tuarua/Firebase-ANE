@@ -23,13 +23,13 @@ public class ModelOptions {
     private var _localModelName:String;
 
     /**
-     * Creates a new instance of `ModelOptions` with the given cloud and/or local model name. At least
+     * Creates a new instance of <code>ModelOptions</code> with the given cloud and/or local model name. At least
      * one model name must be provided. If both cloud and local model names are provided, then the cloud
      * model takes priority.
      *
-     * @param cloudModelName The cloud custom model name. Pass null if only the provided local model
+     * @param cloudModelName The cloud custom model name. Pass <code>null</code> if only the provided local model
      *     name should be used.
-     * @param localModelName The local custom model name. Pass null if only the provided cloud model
+     * @param localModelName The local custom model name. Pass <code>null</code> if only the provided cloud model
      *     name should be used.
      */
     public function ModelOptions(cloudModelName:String = null, localModelName:String = null) {

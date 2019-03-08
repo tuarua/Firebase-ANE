@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><apiMap><apiItemRef href="com.tuarua.fre.xml"/><apiItemRef href="com.tuarua.firebase.xml"><apiItemRef href="com.tuarua.firebase.performance.xml"/></apiItemRef></apiMap>
+<?xml version="1.0" encoding="UTF-8"?><apiMap><apiItemRef href="avmplus.xml"/><apiItemRef href="com.tuarua.fre.xml"/><apiItemRef href="com.tuarua.firebase.xml"><apiItemRef href="com.tuarua.firebase.performance.xml"/></apiItemRef></apiMap>

@@ -43,7 +43,7 @@ public class ModelInterpreterANE extends EventDispatcher {
      * @param inputs Inputs for custom model inference.
      * @param options Data options for the custom model specifiying input and output data types and
      *     dimensions.
-     * @param listener Handler to call back on the main thread with `ModelOutputs` or error.
+     * @param listener Handler to call back on the main thread with <code>ModelOutputs</code> or error.
      * @param numPossibilities The number of possibile values that may match.
      * @param maxResults The number of results to return.
      */
@@ -65,7 +65,7 @@ public class ModelInterpreterANE extends EventDispatcher {
 
     /**
      * Gets the model manager for the default Firebase app. The default Firebase app instance must be
-     * configured before calling this method; otherwise raises `FIRAppNotConfigured` exception. The
+     * configured before calling this method; otherwise raises an exception. The
      * returned model manager is thread safe. Models hosted in non-default Firebase apps are currently
      * not supported.
      *
@@ -79,7 +79,7 @@ public class ModelInterpreterANE extends EventDispatcher {
      * Enables stats collection in ML Kit model interpreter. The stats include API call counts, errors,
      * API call durations, options, etc. No personally identifiable information is logged.
      *
-     * <p>The setting is per `FirebaseApp`, and therefore per `ModelInterpreter`, and it is persistent
+     * <p>The setting is per <code>FirebaseApp</code>, and therefore per <code>ModelInterpreter</code>, and it is persistent
      * across launches of the app. It means if the user uninstalls the app or clears all app data, the
      * setting will be erased. The best practice is to set the flag in each initialization.</p>
      *
