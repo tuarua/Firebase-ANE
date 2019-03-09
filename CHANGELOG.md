@@ -1,5 +1,5 @@
 ### 0.3.0
-- iOS: Firebase 5.17.0
+- iOS: Firebase 5.18.2
 - AND: Firebase Core 16.0.7
 - AND: Storage 16.0.5
 - AND: Crashlytics 2.9.9
@@ -12,8 +12,9 @@
 - AND: Performance 16.2.3
 - AND: Messaging 17.3.4
 - AND: Play Services 16.0.1
-- Added Natural Language from MLKit
-- AND: Face model is now packaged with app - See assets/models
+- [Vision]  Added Natural Language from MLKit
+- iOS: [Vision] Remove Simulator binaries from ANE. iOS simulator not supported for Vision.
+- AND: [Vision] Face model is now packaged with app - See assets/models
 - [Messaging] allow custom sounds (via patched adt.jar)
 - [Performance] deprecate `Trace.incrementCounter()`
 - [Analytics] deprecate `AnalyticsANE.minimumSessionDuration`

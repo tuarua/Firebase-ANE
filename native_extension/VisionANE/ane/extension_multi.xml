@@ -26,13 +26,6 @@
                 <finalizer>TRFBVISExtFinizer</finalizer>
             </applicationDeployment>
         </platform>
-        <platform name="iPhone-x86">
-            <applicationDeployment>
-                <nativeLibrary>libVisionANE.a</nativeLibrary>
-                <initializer>TRFBVISExtInizer</initializer>
-                <finalizer>TRFBVISExtFinizer</finalizer>
-            </applicationDeployment>
-        </platform>
         <platform name="default">
             <applicationDeployment/>
         </platform>

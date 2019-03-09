@@ -12,13 +12,6 @@
                 <finalizer>TRFBVLBExtFinizer</finalizer>
             </applicationDeployment>
         </platform>
-        <platform name="iPhone-x86">
-            <applicationDeployment>
-                <nativeLibrary>libVisionLabelANE.a</nativeLibrary>
-                <initializer>TRFBVLBExtInizer</initializer>
-                <finalizer>TRFBVLBExtFinizer</finalizer>
-            </applicationDeployment>
-        </platform>
         <platform name="Android-ARM">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>

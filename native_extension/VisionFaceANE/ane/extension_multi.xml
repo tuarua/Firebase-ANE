@@ -12,13 +12,6 @@
                 <finalizer>TRFBVFCExtFinizer</finalizer>
             </applicationDeployment>
         </platform>
-        <platform name="iPhone-x86">
-            <applicationDeployment>
-                <nativeLibrary>libVisionFaceANE.a</nativeLibrary>
-                <initializer>TRFBVFCExtInizer</initializer>
-                <finalizer>TRFBVFCExtFinizer</finalizer>
-            </applicationDeployment>
-        </platform>
         <platform name="Android-ARM">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>

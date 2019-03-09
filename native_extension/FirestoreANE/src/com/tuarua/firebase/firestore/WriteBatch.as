@@ -55,7 +55,7 @@ public class WriteBatch {
      * @param data
      * @param forDocument A reference to the document whose data should be overwritten.
      * @param merge Whether to merge the provided data into any existing document.
-     * @return This `WriteBatch` instance. Used for chaining method calls.
+     * @return This <code>WriteBatch</code> instance. Used for chaining method calls.
      */
     public function setData(data:*, forDocument:DocumentReference, merge:Boolean = false):void {
         FirestoreANEContext.validate();

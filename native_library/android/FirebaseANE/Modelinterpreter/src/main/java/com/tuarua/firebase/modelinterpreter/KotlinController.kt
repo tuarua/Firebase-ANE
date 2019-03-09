@@ -92,7 +92,9 @@ class KotlinController : FreKotlinMainController {
                                 )
                         )
                     }
+                    interpreter.close()
                 }
+
             }
         }
         return null

@@ -12,13 +12,6 @@
                 <finalizer>TRFBVLMExtFinizer</finalizer>
             </applicationDeployment>
         </platform>
-        <platform name="iPhone-x86">
-            <applicationDeployment>
-                <nativeLibrary>libVisionLandmarkANE.a</nativeLibrary>
-                <initializer>TRFBVLMExtInizer</initializer>
-                <finalizer>TRFBVLMExtFinizer</finalizer>
-            </applicationDeployment>
-        </platform>
         <platform name="Android-ARM">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>

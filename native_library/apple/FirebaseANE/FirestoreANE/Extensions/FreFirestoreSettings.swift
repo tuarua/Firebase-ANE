@@ -23,7 +23,6 @@ public extension FirestoreSettings {
         guard let rv = freObject else { return nil }
         let fre = FreObjectSwift(rv)
         self.init()
-        self.areTimestampsInSnapshotsEnabled = fre.areTimestampsInSnapshotsEnabled
         self.isSSLEnabled = fre.isSslEnabled
         self.isPersistenceEnabled = fre.isPersistenceEnabled
     }

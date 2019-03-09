@@ -12,13 +12,6 @@
                 <finalizer>TRFBVCLBExtFinizer</finalizer>
             </applicationDeployment>
         </platform>
-        <platform name="iPhone-x86">
-            <applicationDeployment>
-                <nativeLibrary>libVisionCloudLabelANE.a</nativeLibrary>
-                <initializer>TRFBVCLBExtInizer</initializer>
-                <finalizer>TRFBVCLBExtFinizer</finalizer>
-            </applicationDeployment>
-        </platform>
         <platform name="Android-ARM">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>

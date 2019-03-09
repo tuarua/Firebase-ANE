@@ -22,7 +22,7 @@ public class CollectionReference extends Query {
     private var _id:String;
 
     /**
-     * Gets a `CollectionReference` referring to the collection at the specified path within the
+     * Gets a <code>CollectionReference</code> referring to the collection at the specified path within the
      * database.
      * @param path
      */
@@ -70,7 +70,7 @@ public class CollectionReference extends Query {
     }
 
     /**
-     * For subcollections, `parent` returns the containing `DocumentReference`.  For root
+     * For subcollections, <code>parent</code> returns the containing <code>DocumentReference</code>.  For root
      * collections, null is returned.
      */
     public function get parent():DocumentReference {

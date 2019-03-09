@@ -73,9 +73,6 @@ public class AnalyticsANE extends EventDispatcher {
      * @deprecated
      */
     public function set minimumSessionDuration(milliseconds:Number):void {
-        AnalyticsANEContext.validate();
-        var ret:* = AnalyticsANEContext.context.call("setMinimumSessionDuration", milliseconds);
-        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**

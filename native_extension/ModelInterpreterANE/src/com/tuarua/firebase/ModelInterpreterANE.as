@@ -27,7 +27,8 @@ public class ModelInterpreterANE extends EventDispatcher {
     private static var _modelManager:ModelManager = new ModelManager();
     private var options:ModelOptions;
     private static var _isStatsCollectionEnabled:Boolean = true;
-    public function ModelInterpreterANE(options: ModelOptions) {
+
+    public function ModelInterpreterANE(options:ModelOptions) {
         this.options = options;
         if (ModelInterpreterANEContext.context) {
             var ret:* = ModelInterpreterANEContext.context.call("init", options, _isStatsCollectionEnabled);
@@ -47,18 +48,22 @@ public class ModelInterpreterANE extends EventDispatcher {
      * @param numPossibilities The number of possibile values that may match.
      * @param maxResults The number of results to return.
      */
-    public function run(inputs: ModelInputs, options: ModelInputOutputOptions, listener:Function, numPossibilities:uint, maxResults:int = 5):void {
+    public function run(inputs:ModelInputs, options:ModelInputOutputOptions, listener:Function, numPossibilities:uint, maxResults:int = 5):void {
         ModelInterpreterANEContext.validate();
         var ret:* = ModelInterpreterANEContext.context.call("run", inputs, options,
                 maxResults, numPossibilities, ModelInterpreterANEContext.createEventId(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
+
     /**
      * A Firebase interpreter for a custom model.
      */
-    public static function modelInterpreter(options: ModelOptions):ModelInterpreterANE {
-        if (!_modelInterpreter) {
+    public static function modelInterpreter(options:ModelOptions):ModelInterpreterANE {
+        if (_modelInterpreter == null) {
             new ModelInterpreterANE(options);
+        } else {
+            var ret:* = ModelInterpreterANEContext.context.call("init", options, _isStatsCollectionEnabled);
+            if (ret is ANEError) throw ret as ANEError;
         }
         return _modelInterpreter;
     }

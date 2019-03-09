@@ -72,13 +72,6 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    fun setMinimumSessionDuration(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("setMinimumSessionDuration")
-        val milliseconds = Long(argv[0]) ?: return null
-        analytics.setMinimumSessionDuration(milliseconds)
-        return null
-    }
-
     fun setSessionTimeoutDuration(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setSessionTimeoutDuration")
         val milliseconds = Long(argv[0]) ?: return null

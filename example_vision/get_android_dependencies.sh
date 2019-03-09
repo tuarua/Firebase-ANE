@@ -14,6 +14,11 @@ KotlinxCoroutinesVersion="1.0.1"
 EventBusVersion="3.0.0"
 GsonVersion="2.8.4"
 
+# TODO android
+wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/${FreSwiftVersion}/AIRSDK_additions.zip
+unzip -u -o AIRSDK_additions.zip
+rm AIRSDK_additions.zip
+
 wget https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/assets.zip
 unzip -u -o assets.zip
 rm assets.zip

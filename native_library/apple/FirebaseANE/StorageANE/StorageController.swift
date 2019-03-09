@@ -189,7 +189,6 @@ class StorageController: FreSwiftController {
         uploadTask.observe(.success, handler: { _ in
             var data = [String: Any]()
             data["localPath"] = filePath
-            // TODO return metaData
             if !self.hasEventListener(asId: asId, type: StorageEvent.TASK_COMPLETE) { return }
             self.dispatchEvent(name: StorageEvent.TASK_COMPLETE,
                            value: StorageEvent(eventId: asId, data: data).toJSONString())

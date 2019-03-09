@@ -41,7 +41,6 @@ CONTEXT_INIT(TRFIRAN) {
         ,MAP_FUNCTION(TRFIRAN, setUserProperty)
         ,MAP_FUNCTION(TRFIRAN, setUserId)
         ,MAP_FUNCTION(TRFIRAN, setSessionTimeoutDuration)
-        ,MAP_FUNCTION(TRFIRAN, setMinimumSessionDuration)
         ,MAP_FUNCTION(TRFIRAN, setCurrentScreen)
         ,MAP_FUNCTION(TRFIRAN, setAnalyticsCollectionEnabled)
         ,MAP_FUNCTION(TRFIRAN, logEvent)

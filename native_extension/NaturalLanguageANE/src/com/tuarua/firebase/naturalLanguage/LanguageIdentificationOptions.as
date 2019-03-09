@@ -23,7 +23,7 @@ public class LanguageIdentificationOptions {
      *
      * @param confidenceThreshold The confidence threshold for language identification.
      *
-     * @return A new instance of `LanguageIdentificationOptions` with the given confidence threshold.
+     * @return A new instance of <code>LanguageIdentificationOptions</code> with the given confidence threshold.
      */
     public function LanguageIdentificationOptions(confidenceThreshold:Number = 0.5) {
         this._confidenceThreshold = confidenceThreshold;

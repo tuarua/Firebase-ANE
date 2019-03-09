@@ -65,7 +65,7 @@ unzip "$pathtome/platforms/android/app-release.aar" "classes.jar" -d "$pathtome/
 unzip "$pathtome/platforms/android/app-release.aar" "res/*" -d "$pathtome/platforms/android"
 mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.tuarua.google.$PROJECTNAME-res"
 
-cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Debug-iphonesimulator/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/simulator/lib$PROJECTNAME.a"
+cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/simulator/lib$PROJECTNAME.a"
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/device/lib$PROJECTNAME.a"
 
 cp -R -L "$pathtome/../../../example/ios_dependencies/simulator/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/simulator/Frameworks"
@@ -94,11 +94,11 @@ echo "Building ANE."
 -platformoptions "$pathtome/platforms/ios/platform.xml" \
 -platform Android-ARM \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
-com.tuarua.google.$PROJECTNAME-res/. \
+com.tuarua.google.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
 -platform Android-x86 \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
-com.tuarua.google.$PROJECTNAME-res/. \
+com.tuarua.google.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
 -platform default -C "$pathtome/platforms/default" "library.swf"
 

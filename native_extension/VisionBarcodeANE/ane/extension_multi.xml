@@ -26,13 +26,6 @@
                 <finalizer>TRFBVBCExtFinizer</finalizer>
             </applicationDeployment>
         </platform>
-        <platform name="iPhone-x86">
-            <applicationDeployment>
-                <nativeLibrary>libVisionBarcodeANE.a</nativeLibrary>
-                <initializer>TRFBVBCExtInizer</initializer>
-                <finalizer>TRFBVBCExtFinizer</finalizer>
-            </applicationDeployment>
-        </platform>
         <platform name="default">
             <applicationDeployment/>
         </platform>

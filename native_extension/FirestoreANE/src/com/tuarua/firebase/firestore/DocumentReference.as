@@ -82,7 +82,7 @@ public class DocumentReference {
     }
 
     /**
-     * Reads the document referenced by this `DocumentReference`.
+     * Reads the document referenced by this <code>DocumentReference</code>.
      *
      * @param listener Optional Function to be called on completion.
      * The function is expected to have the following signature:
@@ -129,7 +129,7 @@ public class DocumentReference {
     }
 
     /**
-     * Updates fields in the document referred to by this `DocumentReference`. If the document
+     * Updates fields in the document referred to by this <code>DocumentReference</code>. If the document
      * does not exist, the update fails and the specified completion block receives an error.
      *
      * @param data
@@ -149,7 +149,7 @@ public class DocumentReference {
     }
 
     /**
-     * Deletes the document referred to by this `DocumentReference`.
+     * Deletes the document referred to by this <code>DocumentReference</code>.
      *
      * @param listener
      */
@@ -160,7 +160,7 @@ public class DocumentReference {
         if (ret is ANEError) throw ret as ANEError;
     }
 
-    /** A reference to the collection to which this `DocumentReference` belongs. */
+    /** A reference to the collection to which this <code>DocumentReference</code> belongs. */
     public function get parent():CollectionReference {
         FirestoreANEContext.validate();
         var ret:* = FirestoreANEContext.context.call("getDocumentParent", _path);

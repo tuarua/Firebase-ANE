@@ -27,7 +27,7 @@ public class DocumentChange {
      * (i.e. supposing that all prior DocumentChange objects have been applied).
      */
     public var oldIndex:int;
-    /** The ID of the document for which this `DocumentSnapshot` contains data. */
+    /** The ID of the document for which this <code>DocumentSnapshot</code> contains data. */
     public var documentId:String;
     /** The type of change that occurred (added, modified, or removed). */
     public var type:int;
