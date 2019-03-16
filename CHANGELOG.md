@@ -1,21 +1,23 @@
 ### 0.3.0
 - iOS: Firebase 5.18.2
-- AND: Firebase Core 16.0.7
+- AND: Firebase Core 16.0.5
+- AND: Analytics 16.0.5
 - AND: Storage 16.0.5
 - AND: Crashlytics 2.9.9
 - AND: Vision 19.0.2
 - AND: Firestore 18.0.1
-- AND: Invites 16.0.6
+- AND: Invites 16.0.5
 - AND: Dynamic Links 16.1.3
-- AND: Remote Config 16.1.3
-- AND: Auth 16.1.0
-- AND: Performance 16.2.3
+- AND: Remote Config 16.1.0
+- AND: Auth 16.0.5
+- AND: Performance 16.2.1
 - AND: Messaging 17.3.4
 - AND: Play Services 16.0.1
 - [Vision]  Added Natural Language from MLKit
 - iOS: [Vision] Remove Simulator binaries from ANE. iOS simulator not supported for Vision.
 - AND: [Vision] Face model is now packaged with app - See assets/models
 - [Messaging] allow custom sounds (via patched adt.jar)
+- [Messaging] remove `<service android:name="com.tuarua.firebase.messaging.InstanceIDService"/>`
 - [Performance] deprecate `Trace.incrementCounter()`
 - [Analytics] deprecate `AnalyticsANE.minimumSessionDuration`
 - [Dynamic Links] replace `DynamicLink.dynamicLinkDomain` with `DynamicLink.domainUriPrefix`

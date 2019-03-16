@@ -1,8 +1,8 @@
 $AneVersion = "0.3.0"
 $PlayerServicesVersion = "16.0.1"
 $SupportV4Version = "27.1.0"
-$AnalyticsVersion = "16.3.0"
-$IidVersion = "17.1.0"
+$AnalyticsVersion = "16.0.5"
+$IidVersion = "17.0.4"
 $VisionVersion = "19.0.2"
 $ImageLabelVersion = "17.0.2"
 $NaturalLanguageVersion = "18.1.1"
@@ -11,11 +11,13 @@ $FaceModelVersion = "17.0.2"
 $KotlinxCoroutinesVersion = "1.0.1"
 $EventBusVersion = "3.0.0"
 $GsonVersion = "2.8.4"
+$FreSwiftVersion = "3.0.0"
 
 $currentDir = (Get-Item -Path ".\" -Verbose).FullName
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/assets.zip?raw=true -OutFile "$currentDir\assets.zip"
+Invoke-WebRequest -Uri https://github.com/tuarua/Swift-IOS-ANE/releases/download/$FreSwiftVersion/AIRSDK_patch.zip -OutFile "$currentDir\AIRSDK_patch.zip"
 
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/FirebaseANE.ane?raw=true -OutFile "$currentDir\..\native_extension\ane\FirebaseANE.ane"
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/AnalyticsANE.ane?raw=true -OutFile "$currentDir\..\native_extension\AnalyticsANE\ane\AnalyticsANE.ane"
