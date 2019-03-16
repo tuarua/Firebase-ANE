@@ -77,9 +77,6 @@ public class TensorFlowExample extends Sprite implements IExample {
         isInited = true;
     }
 
-    // Caused by: com.google.firebase.ml.common.FirebaseMLException: Can not load the file from asset: mobilenet\mobilenet_quant_v2_1.0_299.tflite.
-    // Please double check your assetfile name and ensure it's not compressed. See documentation for details how touse aaptOptions to skip file compression
-
     private function OnIdentifyClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnLanguage);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
