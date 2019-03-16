@@ -62,16 +62,6 @@ public class SwiftController: NSObject {
         return nil
     }
     
-    func setMinimumSessionDuration(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
-            let milliseconds = Int(argv[0])
-            else {
-                return FreArgError(message: "setMinimumSessionDuration").getError(#file, #line, #column)
-        }
-        AnalyticsConfiguration.shared().setMinimumSessionInterval(TimeInterval(milliseconds))
-        return nil
-    }
-    
     func setCurrentScreen(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
             let screenName = String(argv[0])

@@ -60,14 +60,14 @@ public class DocumentTextBlock {
         this._index = index;
     }
     /**
-     * An array of paragraphs in the block if the type is `DocumentBlockType.text`. Otherwise,
+     * An array of paragraphs in the block if the type is <code>DocumentBlockType.text</code>. Otherwise,
      * the array is empty.
      */
     public function get paragraphs():Vector.<DocumentTextParagraph> {
         if (_paragraphs.length > 0) return _paragraphs;
-        var theRet:* = CloudDocumentRecognizer.context.call("getParagraphs", this._id, this._index);
-        if (theRet is ANEError) throw theRet as ANEError;
-        if (theRet != null) _paragraphs = theRet;
+        var ret:* = CloudDocumentRecognizer.context.call("getParagraphs", this._id, this._index);
+        if (ret is ANEError) throw ret as ANEError;
+        if (ret != null) _paragraphs = ret;
         return _paragraphs;
     }
 }

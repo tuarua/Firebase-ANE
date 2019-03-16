@@ -17,6 +17,8 @@
             <option value="$PROJECT_DIR$/GoogleSignIn" />
             <option value="$PROJECT_DIR$/Invites" />
             <option value="$PROJECT_DIR$/Messaging" />
+            <option value="$PROJECT_DIR$/Modelinterpreter" />
+            <option value="$PROJECT_DIR$/NaturalLanguage" />
             <option value="$PROJECT_DIR$/Performance" />
             <option value="$PROJECT_DIR$/RemoteConfig" />
             <option value="$PROJECT_DIR$/Storage" />

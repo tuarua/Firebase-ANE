@@ -3,8 +3,8 @@
 
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
-    <name>FIR-Example-iOS-Device</name>
-    <versionNumber>0.2.0</versionNumber>
+    <name>FIR-Example-Android</name>
+    <versionNumber>0.3.0</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -58,6 +58,12 @@
 
                     <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
                         <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.perf.component.FirebasePerfRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                         <meta-data
@@ -101,7 +107,6 @@
                         android:exported="false"
                         android:permission="android.permission.BIND_JOB_SERVICE" />
 
-
                    <!-- iid -->
                     <receiver
                         android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
@@ -109,7 +114,6 @@
                         android:permission="com.google.android.c2dm.permission.SEND" >
                         <intent-filter>
                             <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-
                             <category android:name="air.com.tuarua.firebaseane.example" />
                         </intent-filter>
                     </receiver>
@@ -128,11 +132,6 @@
                             <action android:name="com.google.firebase.MESSAGING_EVENT"/>
                         </intent-filter>
 				    </service>
-				    <service android:name="com.tuarua.firebase.messaging.InstanceIDService">
-                        <intent-filter>
-                            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-                        </intent-filter>
-				    </service>
 
                     <!-- dynamic links -->
                     <intent-filter>
@@ -144,6 +143,7 @@
                     </intent-filter>
 
                     <!-- performance -->
+
                     <provider
                         android:name="com.google.firebase.perf.provider.FirebasePerfProvider"
                         android:authorities="air.com.tuarua.firebaseane.example.firebaseperfprovider"

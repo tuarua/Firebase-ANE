@@ -17,7 +17,7 @@
 #import "FreMacros.h"
 #import "AnalyticsANE_oc.h"
 
-#define FRE_OBJC_BRIDGE TRFIRAN_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRFIRAN_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,7 +26,7 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation AnalyticsANE_LIB
-SWIFT_DECL(TRFIRAN) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRFIRAN)
 CONTEXT_INIT(TRFIRAN) {
     SWIFT_INITS(TRFIRAN)
     
@@ -41,7 +41,6 @@ CONTEXT_INIT(TRFIRAN) {
         ,MAP_FUNCTION(TRFIRAN, setUserProperty)
         ,MAP_FUNCTION(TRFIRAN, setUserId)
         ,MAP_FUNCTION(TRFIRAN, setSessionTimeoutDuration)
-        ,MAP_FUNCTION(TRFIRAN, setMinimumSessionDuration)
         ,MAP_FUNCTION(TRFIRAN, setCurrentScreen)
         ,MAP_FUNCTION(TRFIRAN, setAnalyticsCollectionEnabled)
         ,MAP_FUNCTION(TRFIRAN, logEvent)

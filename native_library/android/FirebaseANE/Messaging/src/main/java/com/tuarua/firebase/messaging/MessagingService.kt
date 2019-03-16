@@ -1,4 +1,5 @@
 package com.tuarua.firebase.messaging
+
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.tuarua.firebase.messaging.events.MessageEvent
@@ -45,5 +46,13 @@ class MessagingService : FirebaseMessagingService() {
 
             EventBus.getDefault().post(MessageEvent(MessageEvent.ON_MESSAGE_RECEIVED, payload))
         }
+    }
+
+    override fun onNewToken(token: String?) {
+        super.onNewToken(token)
+        if (token != null) {
+            EventBus.getDefault().post(MessageEvent(MessageEvent.ON_TOKEN_REFRESHED, mapOf("token" to token)))
+        }
+
     }
 }

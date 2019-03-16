@@ -65,8 +65,8 @@ public class CloudDocumentRecognizer {
      *     completes.
      */
     public function process(image:VisionImage, listener:Function):void {
-        var theRet:* = _context.call("detect", image, createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = _context.call("detect", image, createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** @private */
@@ -86,12 +86,12 @@ public class CloudDocumentRecognizer {
                     if (pObj.hasOwnProperty("error") && pObj.error) {
                         err = new TextError(pObj.error.text, pObj.error.id);
                     }
-                    var theRet:* = _context.call("getResults", pObj.eventId);
-                    if (theRet is ANEError) {
-                        printANEError(theRet as ANEError);
+                    var ret:* = _context.call("getResults", pObj.eventId);
+                    if (ret is ANEError) {
+                        printANEError(ret as ANEError);
                         return;
                     }
-                    closure.call(null, theRet, err);
+                    closure.call(null, ret, err);
                     delete closures[pObj.eventId];
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
@@ -102,7 +102,7 @@ public class CloudDocumentRecognizer {
 
     /** Closes the cloud document recognizer and release its model resources. */
     public function close():void {
-        if (!_context) return;
+        if (_context == null) return;
         _context.call("close");
     }
 

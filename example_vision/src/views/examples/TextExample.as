@@ -184,7 +184,6 @@ public class TextExample extends Sprite implements IExample {
             return;
         }
         trace(document.text);
-
         var blocks:Vector.<DocumentTextBlock> = document.blocks;
         if (blocks.length > 0) {
             var block:DocumentTextBlock = blocks[0];

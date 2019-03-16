@@ -18,6 +18,7 @@ package com.tuarua.firebase.vision.extensions
 
 import com.google.firebase.ml.vision.cloud.FirebaseVisionCloudDetectorOptions
 import com.adobe.fre.FREObject
+import com.tuarua.frekotlin.Boolean
 import com.tuarua.frekotlin.Int
 import com.tuarua.frekotlin.get
 
@@ -26,7 +27,12 @@ fun FirebaseVisionCloudDetectorOptions(freObject: FREObject?): FirebaseVisionClo
     val rv = freObject ?: return null
     val maxResults = Int(rv["maxResults"]) ?: 10
     val modelType = Int(rv["modelType"]) ?: return null
-    return FirebaseVisionCloudDetectorOptions.Builder()
-            .setModelType(modelType + 1)
-            .setMaxResults(maxResults).build()
+    val enforceCertFingerprintMatch = Boolean(rv["enforceCertFingerprintMatch"]) ?: false
+    val builder = FirebaseVisionCloudDetectorOptions.Builder()
+    builder.setModelType(modelType + 1)
+    builder.setMaxResults(maxResults)
+    if (enforceCertFingerprintMatch) {
+        builder.enforceCertFingerprintMatch()
+    }
+    return builder.build()
 }

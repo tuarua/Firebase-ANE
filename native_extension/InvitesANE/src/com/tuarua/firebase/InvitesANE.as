@@ -24,8 +24,8 @@ public final class InvitesANE extends EventDispatcher {
     /** @private */
     public function InvitesANE() {
         if (InvitesANEContext.context) {
-            var theRet:* = InvitesANEContext.context.call("init");
-            if (theRet is ANEError) throw theRet as ANEError;
+            var ret:* = InvitesANEContext.context.call("init");
+            if (ret is ANEError) throw ret as ANEError;
         }
         _invites = this;
     }
@@ -41,8 +41,8 @@ public final class InvitesANE extends EventDispatcher {
      */
     public function getDynamicLink(listener:Function):void {
         InvitesANEContext.validate();
-        var theRet:* = InvitesANEContext.context.call("getDynamicLink", InvitesANEContext.createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = InvitesANEContext.context.call("getDynamicLink", InvitesANEContext.createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** The ANE instance. */

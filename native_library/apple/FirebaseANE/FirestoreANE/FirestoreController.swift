@@ -97,8 +97,7 @@ class FirestoreController: FreSwiftController {
                 self.dispatchEvent(name: DocumentEvent.QUERY_SNAPSHOT,
                                value: DocumentEvent(
                                 eventId: eventId,
-                                error: ["text": err.localizedDescription,
-                                        "id": err.code]).toJSONString()
+                                error: err).toJSONString()
                 )
                 
             } else {
@@ -131,8 +130,7 @@ class FirestoreController: FreSwiftController {
                 self.dispatchEvent(name: DocumentEvent.DELETED,
                                value: DocumentEvent(eventId: eventId,
                                                     data: ["path": path],
-                                                    error: ["text": err.localizedDescription,
-                                                            "id": err.code]).toJSONString())
+                                                    error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: DocumentEvent.DELETED,
                                value: DocumentEvent(eventId: eventId,
@@ -150,21 +148,18 @@ class FirestoreController: FreSwiftController {
         snapshotRegistrations[asId] = docRef.addSnapshotListener({ snapshot, error in
             if let err = error as NSError? {
                 self.dispatchEvent(name: DocumentEvent.SNAPSHOT,
-                               value: DocumentEvent(
-                                eventId: eventId,
-                                data: nil,
-                                realtime: true,
-                                error: ["text": err.localizedDescription,
-                                        "id": err.code]).toJSONString()
+                                   value: DocumentEvent(eventId: eventId,
+                                                        data: nil,
+                                                        realtime: true,
+                                                        error: err).toJSONString()
                 )
                 
             } else {
                 if let document = snapshot {
                     self.dispatchEvent(name: DocumentEvent.SNAPSHOT,
-                                   value: DocumentEvent(
-                                    eventId: eventId,
-                                    data: document.toDictionary(),
-                                    realtime: true).toJSONString()
+                                       value: DocumentEvent(eventId: eventId,
+                                                             data: document.toDictionary(),
+                                                             realtime: true).toJSONString()
                     )
                 }
             }
@@ -182,8 +177,7 @@ class FirestoreController: FreSwiftController {
             if let err = error as NSError? {
                 self.dispatchEvent(name: DocumentEvent.SNAPSHOT,
                                value: DocumentEvent(eventId: eventId,
-                                                    error: ["text": err.localizedDescription,
-                                                            "id": err.code]).toJSONString())
+                                                    error: err).toJSONString())
             } else {
                 if let document = snapshot {
                     self.dispatchEvent(name: DocumentEvent.SNAPSHOT,
@@ -205,8 +199,7 @@ class FirestoreController: FreSwiftController {
                 self.dispatchEvent(name: DocumentEvent.SET,
                                value: DocumentEvent(eventId: eventId,
                                                     data: ["path": path],
-                                                    error: ["text": err.localizedDescription,
-                                                            "id": err.code]).toJSONString())
+                                                    error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: DocumentEvent.SET,
                                value: DocumentEvent(eventId: eventId,
@@ -226,8 +219,7 @@ class FirestoreController: FreSwiftController {
                 self.dispatchEvent(name: DocumentEvent.UPDATED,
                                value: DocumentEvent(eventId: eventId,
                                                     data: ["path": path],
-                                                    error: ["text": err.localizedDescription,
-                                                            "id": err.code]).toJSONString())
+                                                    error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: DocumentEvent.UPDATED,
                                value: DocumentEvent(eventId: eventId,
@@ -276,8 +268,7 @@ class FirestoreController: FreSwiftController {
                 if eventId == nil { return }
                 self.dispatchEvent(name: BatchEvent.COMPLETE,
                                value: BatchEvent(eventId: eventId,
-                                                 error: ["text": err.localizedDescription,
-                                                         "id": err.code]).toJSONString())
+                                                 error: err).toJSONString())
                 
             } else {
                 self.dispatchEvent(name: BatchEvent.COMPLETE,
@@ -293,9 +284,7 @@ class FirestoreController: FreSwiftController {
             if eventId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: NetworkEvent.ENABLED,
-                               value: NetworkEvent(eventId: eventId,
-                                                   error: ["text": err.localizedDescription,
-                                                           "id": err.code]).toJSONString())
+                               value: NetworkEvent(eventId: eventId, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: NetworkEvent.ENABLED,
                                value: NetworkEvent(eventId: eventId).toJSONString())
@@ -308,9 +297,7 @@ class FirestoreController: FreSwiftController {
             if eventId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: NetworkEvent.DISABLED,
-                               value: NetworkEvent(eventId: eventId,
-                                                   error: ["text": err.localizedDescription,
-                                                           "id": err.code]).toJSONString())
+                               value: NetworkEvent(eventId: eventId, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: NetworkEvent.DISABLED,
                                value: NetworkEvent(eventId: eventId).toJSONString())

@@ -23,7 +23,7 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)init"] = initController
         functionsToSet["\(prefix)startTrace"] = startTrace
         functionsToSet["\(prefix)stopTrace"] = stopTrace
-        functionsToSet["\(prefix)incrementCounter"] = incrementCounter
+        functionsToSet["\(prefix)incrementMetric"] = incrementMetric
         functionsToSet["\(prefix)setIsDataCollectionEnabled"] = setIsDataCollectionEnabled
         functionsToSet["\(prefix)setIsInstrumentationEnabled"] = setIsInstrumentationEnabled
         

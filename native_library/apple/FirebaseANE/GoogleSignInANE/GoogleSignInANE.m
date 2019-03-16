@@ -17,7 +17,7 @@
 #import "FreMacros.h"
 #import "GoogleSignInANE_oc.h"
 
-#define FRE_OBJC_BRIDGE TRGSI_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRGSI_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,7 +26,7 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation GoogleSignInANE_LIB
-SWIFT_DECL(TRGSI) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRGSI)
 CONTEXT_INIT(TRGSI) {
     SWIFT_INITS(TRGSI)
     static FRENamedFunction extensionFunctions[] =

@@ -25,8 +25,8 @@ public final class GoogleSignInANE extends EventDispatcher {
     /** @private */
     public function GoogleSignInANE() {
         if (GoogleSignInANEContext.context) {
-            var theRet:* = GoogleSignInANEContext.context.call("init");
-            if (theRet is ANEError) throw theRet as ANEError;
+            var ret:* = GoogleSignInANEContext.context.call("init");
+            if (ret is ANEError) throw ret as ANEError;
         }
         _googleSignIn = this;
     }
@@ -42,23 +42,23 @@ public final class GoogleSignInANE extends EventDispatcher {
     /** Starts the sign-in process. Note that this method should not be called when the app is starting up.*/
     public function signIn():void {
         GoogleSignInANEContext.validate();
-        var theRet:* = GoogleSignInANEContext.context.call("signIn");
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = GoogleSignInANEContext.context.call("signIn");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Attempts to sign in a previously authenticated user without interaction. */
     public function signInSilently():void {
         GoogleSignInANEContext.validate();
-        var theRet:* = GoogleSignInANEContext.context.call("signInSilently");
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = GoogleSignInANEContext.context.call("signInSilently");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Signs out the current signed-in user if any. It also clears the account previously selected by the user
      * and a future sign in attempt will require the user pick an account again. */
     public function signOut():void {
         GoogleSignInANEContext.validate();
-        var theRet:* = GoogleSignInANEContext.context.call("signOut");
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = GoogleSignInANEContext.context.call("signOut");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Revokes access given to the current application. Future sign-in attempts will require the user to re-consent
@@ -67,15 +67,15 @@ public final class GoogleSignInANE extends EventDispatcher {
      * delete the information that your app obtained from the Google APIs. */
     public function revokeAccess():void {
         GoogleSignInANEContext.validate();
-        var theRet:* = GoogleSignInANEContext.context.call("revokeAccess");
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = GoogleSignInANEContext.context.call("revokeAccess");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** */
     public function handle(url:String, sourceApplication:String):void {
         GoogleSignInANEContext.validate();
-        var theRet:* = GoogleSignInANEContext.context.call("handle", url, sourceApplication);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = GoogleSignInANEContext.context.call("handle", url, sourceApplication);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Disposes the ANE */

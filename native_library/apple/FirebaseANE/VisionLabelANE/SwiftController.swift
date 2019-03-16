@@ -24,8 +24,8 @@ public class SwiftController: NSObject {
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.lbl.uiq", qos: .userInitiated)
-    private var results: [String: [VisionLabel?]] = [:]
-    private var labelDetector: VisionLabelDetector?
+    private var results: [String: [VisionImageLabel?]] = [:]
+    private var labelDetector: VisionImageLabeler?
     
     func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return UUID().uuidString.toFREObject()
@@ -33,11 +33,11 @@ public class SwiftController: NSObject {
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let options = VisionLabelDetectorOptions(argv[0])
+            let options = VisionOnDeviceImageLabelerOptions(argv[0])
             else {
                 return FreArgError(message: "initController").getError(#file, #line, #column)
         }
-        labelDetector = Vision.vision().labelDetector(options: options)
+        labelDetector = Vision.vision().onDeviceImageLabeler(options: options)
         return true.toFREObject()
     }
     
@@ -49,10 +49,10 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         userInitiatedQueue.async {
-            self.labelDetector?.detect(in: image) { (result, error) in
+            self.labelDetector?.process(image, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: LabelEvent.RECOGNIZED,
-                                       value: LabelEvent(eventId: eventId, error: err.toDictionary()).toJSONString()
+                                       value: LabelEvent(eventId: eventId, error: err).toJSONString()
                     )
                 } else {
                     if let result = result, !result.isEmpty {
@@ -61,7 +61,7 @@ public class SwiftController: NSObject {
                                            value: LabelEvent(eventId: eventId).toJSONString())
                     }
                 }
-            }
+            })
         }
         return nil
     }

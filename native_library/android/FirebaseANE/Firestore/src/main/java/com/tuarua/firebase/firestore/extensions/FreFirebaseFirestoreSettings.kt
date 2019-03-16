@@ -23,14 +23,14 @@ import com.tuarua.frekotlin.*
 
 fun FirebaseFirestoreSettings(freObject: FREObject?): FirebaseFirestoreSettings? {
     val rv = freObject ?: return null
-    val isSSLEnabled = Boolean(rv["isSSLEnabled"])
+    val isSslEnabled = Boolean(rv["isSslEnabled"])
     val isPersistenceEnabled = Boolean(rv["isPersistenceEnabled"])
     val builder = FirebaseFirestoreSettings.Builder()
     if (isPersistenceEnabled != null) {
         builder.setPersistenceEnabled(isPersistenceEnabled)
     }
-    if (isSSLEnabled != null) {
-        builder.setSslEnabled(isSSLEnabled)
+    if (isSslEnabled != null) {
+        builder.setSslEnabled(isSslEnabled)
     }
     return builder.build()
 }

@@ -17,7 +17,7 @@
 #import "FreMacros.h"
 #import "ModelInterpreterANE_oc.h"
 
-#define FRE_OBJC_BRIDGE TRFBMI_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRFBMI_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,7 +26,7 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation ModelInterpreterANE_LIB
-SWIFT_DECL(TRFBMI) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRFBMI)
 CONTEXT_INIT(TRFBMI) {
     SWIFT_INITS(TRFBMI)
     static FRENamedFunction extensionFunctions[] =
@@ -36,6 +36,8 @@ CONTEXT_INIT(TRFBMI) {
         ,MAP_FUNCTION(TRFBMI, run)
         ,MAP_FUNCTION(TRFBMI, registerCloudModel)
         ,MAP_FUNCTION(TRFBMI, registerLocalModel)
+        ,MAP_FUNCTION(TRFBMI, cloudModelSource)
+        ,MAP_FUNCTION(TRFBMI, localModelSource)
     };
     SET_FUNCTIONS
     

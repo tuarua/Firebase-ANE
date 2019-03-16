@@ -140,8 +140,8 @@ class CameraPreviewManager(private val context: Context, private val textureView
             cameraCallback.onError("Opening Camera is timeout. Please try again.")
         }
 
-        var cameraId: String? = null
-        var backgroundHandler: Handler? = null
+        var cameraId: String?
+        var backgroundHandler: Handler?
         synchronized(cameraStateLock) {
             cameraId = this.cameraId
             backgroundHandler = this.backgroundHandler

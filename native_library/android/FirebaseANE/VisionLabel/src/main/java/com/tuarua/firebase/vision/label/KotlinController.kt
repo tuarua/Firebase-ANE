@@ -19,13 +19,13 @@ package com.tuarua.firebase.vision.label
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.FirebaseVision
-import com.google.firebase.ml.vision.label.FirebaseVisionLabel
-import com.google.firebase.ml.vision.label.FirebaseVisionLabelDetector
+import com.google.firebase.ml.vision.label.FirebaseVisionImageLabel
+import com.google.firebase.ml.vision.label.FirebaseVisionImageLabeler
 import com.google.gson.Gson
 import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
 import com.tuarua.firebase.vision.label.events.LabelEvent
 import com.tuarua.firebase.vision.label.extensions.FirebaseVisionLabelDetectorOptions
-import com.tuarua.firebase.vision.label.extensions.toFREArray
+import com.tuarua.firebase.vision.extensions.toFREArray
 import com.tuarua.frekotlin.*
 import java.util.*
 import kotlin.coroutines.CoroutineContext
@@ -35,19 +35,18 @@ import kotlinx.coroutines.launch
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private val TRACE = "TRACE"
-    private var results: MutableMap<String, MutableList<FirebaseVisionLabel>> = mutableMapOf()
+    private var results: MutableMap<String, MutableList<FirebaseVisionImageLabel>> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = Dispatchers.Default
-    private lateinit var detector: FirebaseVisionLabelDetector
+    private lateinit var detector: FirebaseVisionImageLabeler
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
         val options = FirebaseVisionLabelDetectorOptions(argv[0])
         detector = if (options != null) {
-            FirebaseVision.getInstance().getVisionLabelDetector(options)
+            FirebaseVision.getInstance().getOnDeviceImageLabeler(options)
         } else {
-            FirebaseVision.getInstance().visionLabelDetector
+            FirebaseVision.getInstance().onDeviceImageLabeler
         }
         return true.toFREObject()
     }
@@ -61,9 +60,10 @@ class KotlinController : FreKotlinMainController {
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
         GlobalScope.launch(bgContext) {
-            detector.detectInImage(image).addOnCompleteListener { task ->
+            detector.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    results[eventId] = task.result
+                    val result = task.result ?: return@addOnCompleteListener
+                    results[eventId] = result
                     dispatchEvent(LabelEvent.RECOGNIZED,
                             gson.toJson(LabelEvent(eventId, null)))
                 } else {

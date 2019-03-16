@@ -19,10 +19,10 @@ import Foundation
 class BarcodeEvent: NSObject {
     public static let DETECTED = "BarcodeEvent.Detected"
     var eventId: String?
-    var error: [String: Any]?
+    var error: NSError?
     var continuous: Bool = false
     
-    convenience init(eventId: String?, error: [String: Any]? = nil, continuous: Bool = false) {
+    convenience init(eventId: String?, error: NSError? = nil, continuous: Bool = false) {
         self.init()
         self.eventId = eventId
         self.error = error
@@ -32,7 +32,7 @@ class BarcodeEvent: NSObject {
     public func toJSONString() -> String {
         var props = [String: Any]()
         props["eventId"] = eventId
-        props["error"] = error
+        props["error"] = error?.toDictionary()
         props["continuous"] = continuous
         return JSON(props).description
     }

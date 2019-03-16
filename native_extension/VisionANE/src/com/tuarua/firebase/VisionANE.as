@@ -20,6 +20,7 @@ import com.tuarua.firebase.vision.CloudDetectorOptions;
 import com.tuarua.firebase.vision.CloudDocumentRecognizerOptions;
 import com.tuarua.firebase.vision.CloudTextRecognizerOptions;
 import com.tuarua.firebase.vision.FaceDetectorOptions;
+import com.tuarua.firebase.vision.CloudLabelDetectorOptions;
 import com.tuarua.firebase.vision.LabelDetectorOptions;
 import com.tuarua.firebase.vision.display.CameraOverlay;
 import com.tuarua.fre.ANEError;
@@ -41,8 +42,8 @@ public class VisionANE extends EventDispatcher {
     /** @private */
     public function VisionANE() {
         if (VisionANEContext.context) {
-            var theRet:* = VisionANEContext.context.call("init");
-            if (theRet is ANEError) throw theRet as ANEError;
+            var ret:* = VisionANEContext.context.call("init");
+            if (ret is ANEError) throw ret as ANEError;
         }
         _vision = this;
     }
@@ -140,7 +141,7 @@ public class VisionANE extends EventDispatcher {
      * @param options Options for configuring the cloud label detector.
      * @return A cloud label detector configured with the given options.
      */
-    public function cloudLabelDetector(options:CloudDetectorOptions = null):CloudLabelDetector {
+    public function cloudLabelDetector(options:CloudLabelDetectorOptions = null):CloudLabelDetector {
         if (_cloudLabelDetector != null) {
             _cloudLabelDetector.reinit(options);
         } else {

@@ -27,7 +27,6 @@ import java.util.*
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private val TRACE = "TRACE"
     private lateinit var storageController: StorageController
 
     fun createGUID(ctx: FREContext, argv: FREArgv): FREObject? {

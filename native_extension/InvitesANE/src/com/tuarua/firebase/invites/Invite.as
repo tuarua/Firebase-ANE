@@ -51,8 +51,8 @@ public class Invite {
     /** Opens the invite dialog. */
     public function open():void {
         InvitesANEContext.validate();
-        var theRet:* = InvitesANEContext.context.call("openInvite", this);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = InvitesANEContext.context.call("openInvite", this);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
 }

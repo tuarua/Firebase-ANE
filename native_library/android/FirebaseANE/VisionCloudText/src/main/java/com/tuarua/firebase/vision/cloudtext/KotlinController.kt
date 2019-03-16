@@ -36,7 +36,6 @@ import kotlinx.coroutines.launch
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private val TRACE = "TRACE"
     private var results: MutableMap<String, FirebaseVisionText> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = Dispatchers.Default
@@ -65,7 +64,8 @@ class KotlinController : FreKotlinMainController {
         GlobalScope.launch(bgContext) {
             recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    results[eventId] = task.result
+                    val result = task.result ?: return@addOnCompleteListener
+                    results[eventId] = result
                     dispatchEvent(CloudTextEvent.RECOGNIZED,
                             gson.toJson(CloudTextEvent(eventId, null)))
                 } else {

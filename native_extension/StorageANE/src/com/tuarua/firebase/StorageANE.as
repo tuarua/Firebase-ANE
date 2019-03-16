@@ -26,10 +26,8 @@ public class StorageANE extends EventDispatcher {
     /** @private */
     public function StorageANE() {
         if (StorageANEContext.context) {
-            var theRet:* = StorageANEContext.context.call("init", _url);
-            if (theRet is ANEError) {
-                throw theRet as ANEError;
-            }
+            var ret:* = StorageANEContext.context.call("init", _url);
+            if (ret is ANEError) throw ret as ANEError;
         }
         _storage = this;
     }
@@ -49,29 +47,25 @@ public class StorageANE extends EventDispatcher {
 
     public function get maxDownloadRetryTime():Number {
         StorageANEContext.validate();
-        var theRet:* = StorageANEContext.context.call("getMaxDownloadRetryTime");
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
+        var ret:* = StorageANEContext.context.call("getMaxDownloadRetryTime");
+        if (ret is ANEError) {
+            throw ret as ANEError;
         }
-        return theRet as Number;
+        return ret as Number;
     }
 
     public function get maxUploadRetryTime():Number {
         StorageANEContext.validate();
-        var theRet:* = StorageANEContext.context.call("getMaxUploadRetryTime");
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
-        return theRet as Number;
+        var ret:* = StorageANEContext.context.call("getMaxUploadRetryTime");
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as Number;
     }
 
     public function get maxOperationRetryTime():Number {
         StorageANEContext.validate();
-        var theRet:* = StorageANEContext.context.call("getMaxOperationRetryTime");
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
-        return theRet as Number;
+        var ret:* = StorageANEContext.context.call("getMaxOperationRetryTime");
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as Number;
     }
 
     /**
@@ -80,10 +74,8 @@ public class StorageANE extends EventDispatcher {
      */
     public function set maxDownloadRetryTime(value:Number):void {
         StorageANEContext.validate();
-        var theRet:* = StorageANEContext.context.call("setMaxDownloadRetryTime", value);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        var ret:* = StorageANEContext.context.call("setMaxDownloadRetryTime", value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -92,10 +84,8 @@ public class StorageANE extends EventDispatcher {
      */
     public function set maxOperationRetryTime(value:Number):void {
         StorageANEContext.validate();
-        var theRet:* = StorageANEContext.context.call("setMaxOperationRetryTime", value);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        var ret:* = StorageANEContext.context.call("setMaxOperationRetryTime", value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -104,10 +94,8 @@ public class StorageANE extends EventDispatcher {
      */
     public function set maxUploadRetryTime(value:Number):void {
         StorageANEContext.validate();
-        var theRet:* = StorageANEContext.context.call("setMaxUploadRetryTime", value);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
+        var ret:* = StorageANEContext.context.call("setMaxUploadRetryTime", value);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** The gs:// url to your Firebase Storage Bucket. */

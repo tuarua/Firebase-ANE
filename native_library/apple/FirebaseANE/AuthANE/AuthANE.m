@@ -17,7 +17,7 @@
 #import "FreMacros.h"
 #import "AuthANE_oc.h"
 
-#define FRE_OBJC_BRIDGE TRFIRAU_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRFIRAU_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,7 +26,7 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation AuthANE_LIB
-SWIFT_DECL(TRFIRAU) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRFIRAU)
 CONTEXT_INIT(TRFIRAU) {
     SWIFT_INITS(TRFIRAU)
     

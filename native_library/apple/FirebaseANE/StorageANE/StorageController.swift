@@ -189,7 +189,6 @@ class StorageController: FreSwiftController {
         uploadTask.observe(.success, handler: { _ in
             var data = [String: Any]()
             data["localPath"] = filePath
-            // TODO return metaData
             if !self.hasEventListener(asId: asId, type: StorageEvent.TASK_COMPLETE) { return }
             self.dispatchEvent(name: StorageEvent.TASK_COMPLETE,
                            value: StorageEvent(eventId: asId, data: data).toJSONString())
@@ -248,8 +247,7 @@ class StorageController: FreSwiftController {
                 self.dispatchEvent(name: StorageEvent.GET_METADATA,
                                value: StorageEvent(eventId: eventId,
                                                    data: nil,
-                                                   error: ["text": err.localizedDescription,
-                                                           "id": err.code]).toJSONString())
+                                                   error: err).toJSONString())
                 
             } else {
                 if let m = metadata {
@@ -289,8 +287,7 @@ class StorageController: FreSwiftController {
                 self.dispatchEvent(name: StorageEvent.GET_DOWNLOAD_URL,
                                value: StorageEvent(eventId: eventId,
                                                    data: nil,
-                                                   error: ["text": err.localizedDescription,
-                                                           "id": err.code]).toJSONString())
+                                                   error: err).toJSONString())
                 
             } else {
                 if let u = url?.absoluteString {
@@ -310,8 +307,7 @@ class StorageController: FreSwiftController {
             if let err = error as NSError? {
                 self.dispatchEvent(name: StorageEvent.UPDATE_METADATA,
                                value: StorageEvent(eventId: eventId, 
-                                                   error: ["text": err.localizedDescription,
-                                                           "id": err.code]).toJSONString())
+                                                   error: err).toJSONString())
                 
             } else { 
                 self.dispatchEvent(name: StorageEvent.UPDATE_METADATA,

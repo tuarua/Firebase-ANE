@@ -28,7 +28,7 @@ public class LabelDetectorOptions {
      *     Features returned by the label detector will have a confidence higher or equal to the given
      *     threshold. Values must be in range [0, 1]. If an invalid value is provided, the default
      *     threshold of 0.5 is used.
-     * @return Label detector options.
+     * @return com.tuarua.firebase.vision.ImageLabel detector options.
      */
     public function LabelDetectorOptions(confidenceThreshold:Number = 0.5) {
         this._confidenceThreshold = confidenceThreshold;

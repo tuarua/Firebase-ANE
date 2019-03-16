@@ -64,9 +64,9 @@ public class BarcodeDetector extends EventDispatcher {
      * @param listener Closure to call back on the main queue with barcodes detected or error.
      */
     public function detect(image:VisionImage, listener:Function):void {
-        if (!_context) return;
-        var theRet:* = _context.call("detect", image, createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        if (_context == null) return;
+        var ret:* = _context.call("detect", image, createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -75,9 +75,9 @@ public class BarcodeDetector extends EventDispatcher {
      * @param listener Closure to call back on the main queue with barcodes detected.
      */
     public function inputFromCamera(listener:Function):void {
-        if (!_context) return;
-        var theRet:* = _context.call("inputFromCamera", createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        if (_context == null) return;
+        var ret:* = _context.call("inputFromCamera", createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -85,9 +85,9 @@ public class BarcodeDetector extends EventDispatcher {
      *
      */
     public function closeCamera():void {
-        if (!_context) return;
-        var theRet:* = _context.call("closeCamera");
-        if (theRet is ANEError) throw theRet as ANEError;
+        if (_context == null) return;
+        var ret:* = _context.call("closeCamera");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
 //    public function get hasFlashlight():Boolean {
@@ -96,7 +96,7 @@ public class BarcodeDetector extends EventDispatcher {
 //    }
 //
 //    public function set isFlashLightEnabled(value:Boolean):void {
-//        if (!_context) return;
+//        if (_context == null) return;
 //        _context.call("toggleFlashlight", value);
 //    }
 
@@ -117,12 +117,12 @@ public class BarcodeDetector extends EventDispatcher {
                     if (pObj.hasOwnProperty("error") && pObj.error) {
                         err = new BarcodeError(pObj.error.text, pObj.error.id);
                     }
-                    var theRet:* = _context.call("getResults", pObj.eventId);
-                    if (theRet is ANEError) {
-                        printANEError(theRet as ANEError);
+                    var ret:* = _context.call("getResults", pObj.eventId);
+                    if (ret is ANEError) {
+                        printANEError(ret as ANEError);
                         return;
                     }
-                    closure.call(null, theRet, err);
+                    closure.call(null, ret, err);
                     if (!pObj.continuous) delete closures[pObj.eventId];
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
@@ -133,13 +133,13 @@ public class BarcodeDetector extends EventDispatcher {
 
     /** Closes the barcode detector and release its model resources. */
     public function close():void {
-        if (!_context) return;
+        if (_context == null) return;
         _context.call("close");
     }
 
     /** @private */
     internal function reinit(options:BarcodeDetectorOptions):void {
-        if (!_context) return;
+        if (_context == null) return;
         _context.call("init", options ? options : new BarcodeDetectorOptions());
     }
 

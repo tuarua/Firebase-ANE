@@ -42,7 +42,7 @@ fun FirebaseVisionFace.toFREObject(): FREObject? {
     val freLandMarks = FREArray("com.tuarua.firebase.vision.FaceLandmark") ?: return null
     val types = listOf(
             LEFT_EYE, RIGHT_EYE,
-            BOTTOM_MOUTH, RIGHT_MOUTH, LEFT_MOUTH,
+            MOUTH_BOTTOM, MOUTH_RIGHT, MOUTH_LEFT,
             LEFT_EAR, RIGHT_EAR,
             LEFT_CHEEK, RIGHT_CHEEK,
             NOSE_BASE)

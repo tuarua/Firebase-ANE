@@ -17,7 +17,7 @@
 #import "FreMacros.h"
 #import "DynamicLinksANE_oc.h"
 
-#define FRE_OBJC_BRIDGE TRFIRDL_FlashRuntimeExtensionsBridge // use unique prefix throughout to prevent clashes with other ANEs
+#define FRE_OBJC_BRIDGE TRFIRDL_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
 @end
 @implementation FRE_OBJC_BRIDGE {
@@ -26,7 +26,7 @@ FRE_OBJC_BRIDGE_FUNCS
 @end
 
 @implementation DynamicLinksANE_LIB
-SWIFT_DECL(TRFIRDL) // use unique prefix throughout to prevent clashes with other ANEs
+SWIFT_DECL(TRFIRDL)
 CONTEXT_INIT(TRFIRDL) {
     SWIFT_INITS(TRFIRDL)
     

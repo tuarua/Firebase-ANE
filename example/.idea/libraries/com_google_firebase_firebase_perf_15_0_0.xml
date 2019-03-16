@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="com.google.firebase.firebase-perf-15.0.0" type="flex">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/android_dependencies/com.google.firebase.firebase-perf-15.0.0.ane!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

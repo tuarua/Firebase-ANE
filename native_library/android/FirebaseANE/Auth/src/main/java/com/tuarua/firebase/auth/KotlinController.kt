@@ -24,7 +24,6 @@ import java.util.*
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private val TRACE = "TRACE"
     private lateinit var authController: AuthController
     private lateinit var userController: UserController
 
@@ -44,16 +43,16 @@ class KotlinController : FreKotlinMainController {
 
     fun getIdToken(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("getIdToken")
-        val forceRefresh = Boolean(argv[0]) ?: return FreConversionException("forceRefresh")
-        val eventId = String(argv[1]) ?: return FreConversionException("eventId")
+        val forceRefresh = Boolean(argv[0]) ?: return null
+        val eventId = String(argv[1]) ?: return null
         userController.getIdToken(forceRefresh, eventId)
         return null
     }
 
     fun createUserWithEmailAndPassword(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 2 } ?: return FreArgException("createUserWithEmailAndPassword")
-        val email = String(argv[0]) ?: return FreConversionException("email")
-        val password = String(argv[1]) ?: return FreConversionException("password")
+        val email = String(argv[0]) ?: return null
+        val password = String(argv[1]) ?: return null
         val eventId = String(argv[2])
         authController.createUserWithEmailAndPassword(email, password, eventId)
         return null
@@ -69,14 +68,14 @@ class KotlinController : FreKotlinMainController {
     fun signInWithCustomToken(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("signInAnonymously")
         val eventId = String(argv[0])
-        val token = String(argv[1]) ?: return FreConversionException("token")
+        val token = String(argv[1]) ?: return null
         authController.signInWithCustomToken(eventId, token)
         return null
     }
 
     fun signIn(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("signInWithCredential")
-        val credential = AuthCredential(argv[0]) ?: return FreConversionException("credential")
+        val credential = AuthCredential(argv[0]) ?: return null
         val eventId = String(argv[1])
         authController.signIn(credential, eventId)
         return null
@@ -112,7 +111,7 @@ class KotlinController : FreKotlinMainController {
 
     fun updateEmail(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("updateEmail")
-        val email = String(argv[0]) ?: return FreConversionException("email")
+        val email = String(argv[0]) ?: return null
         val eventId = String(argv[1])
         userController.updateEmail(email, eventId)
         return null
@@ -120,7 +119,7 @@ class KotlinController : FreKotlinMainController {
 
     fun updatePassword(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("updatePassword")
-        val password = String(argv[0]) ?: return FreConversionException("password")
+        val password = String(argv[0]) ?: return null
         val eventId = String(argv[1])
         userController.updatePassword(password, eventId)
         return null
@@ -128,7 +127,7 @@ class KotlinController : FreKotlinMainController {
 
     fun sendPasswordResetEmail(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("sendPasswordResetEmail")
-        val email = String(argv[0]) ?: return FreConversionException("email")
+        val email = String(argv[0]) ?: return null
         val eventId = String(argv[1])
         authController.sendPasswordResetEmail(email, eventId)
         return null
@@ -143,7 +142,7 @@ class KotlinController : FreKotlinMainController {
 
     fun reauthenticate(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("reauthenticate")
-        val credential = AuthCredential(argv[0]) ?: return FreConversionException("credential")
+        val credential = AuthCredential(argv[0]) ?: return null
         val eventId = String(argv[1])
         userController.reauthenticate(credential, eventId)
         return null
@@ -151,7 +150,7 @@ class KotlinController : FreKotlinMainController {
 
     fun unlink(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("unlink")
-        val provider = String(argv[0]) ?: return FreConversionException("provider")
+        val provider = String(argv[0]) ?: return null
         val eventId = String(argv[1])
         userController.unlink(provider, eventId)
         return null
@@ -159,7 +158,7 @@ class KotlinController : FreKotlinMainController {
 
     fun link(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("link")
-        val credential = AuthCredential(argv[0]) ?: return FreConversionException("credential")
+        val credential = AuthCredential(argv[0]) ?: return null
         val eventId = String(argv[1])
         userController.link(credential, eventId)
         return null
@@ -167,7 +166,7 @@ class KotlinController : FreKotlinMainController {
 
     fun verifyPhoneNumber(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("verifyPhoneNumber")
-        val phoneNumber = String(argv[0]) ?: return FreConversionException("phoneNumber")
+        val phoneNumber = String(argv[0]) ?: return null
         val eventId = String(argv[1])
         authController.verifyPhoneNumber(phoneNumber, eventId)
         return null
@@ -175,7 +174,7 @@ class KotlinController : FreKotlinMainController {
 
     fun setLanguageCode(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setLanguageCode")
-        val code = String(argv[0]) ?: return FreConversionException("code")
+        val code = String(argv[0]) ?: return null
         authController.setLanguageCode(code)
         return null
     }

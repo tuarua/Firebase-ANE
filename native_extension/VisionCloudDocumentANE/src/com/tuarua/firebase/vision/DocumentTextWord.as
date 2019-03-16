@@ -70,10 +70,10 @@ public class DocumentTextWord {
      */
     public function get symbols():Vector.<DocumentTextSymbol> {
         if (_symbols.length > 0) return _symbols;
-        var theRet:* = CloudDocumentRecognizer.context.call("getSymbols", this._id, this._blockIndex,
+        var ret:* = CloudDocumentRecognizer.context.call("getSymbols", this._id, this._blockIndex,
                 this._paragraphIndex, this._index);
-        if (theRet is ANEError) throw theRet as ANEError;
-        if (theRet != null) _symbols = theRet;
+        if (ret is ANEError) throw ret as ANEError;
+        if (ret != null) _symbols = ret;
         return _symbols;
     }
 }

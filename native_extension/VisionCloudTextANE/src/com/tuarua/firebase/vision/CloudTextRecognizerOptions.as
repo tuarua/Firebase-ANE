@@ -17,12 +17,12 @@
 package com.tuarua.firebase.vision {
 public class CloudTextRecognizerOptions {
     /**
-     * API key to use for Cloud Vision API.  If `null`, the default API key from FirebaseApp will be
+     * API key to use for Cloud Vision API.  If <code>null</code>, the default API key from FirebaseApp will be
      * used.
      */
     public var apiKeyOverride:String;
     /**
-     * Model type for cloud text recognition. The default is `CloudTextModelType.sparse`.
+     * Model type for cloud text recognition. The default is <code>CloudTextModelType.sparse</code>.
      */
     public var modelType:uint;
     /**
@@ -30,6 +30,12 @@ public class CloudTextRecognizerOptions {
      * https://cloud.google.com/vision/docs/languages for supported language codes.
      */
     public var languageHints:Vector.<String> = new Vector.<String>();
+    /**
+     * Only allow registered application instances with matching certificate fingerprint to use Cloud Vision API.
+     * <p>Do not set this for debug build if you use simulators to test.</p>
+     * <p>Applies to Android only.</p>
+     */
+    public var enforceCertFingerprintMatch:Boolean;
     public function CloudTextRecognizerOptions() {
     }
 }

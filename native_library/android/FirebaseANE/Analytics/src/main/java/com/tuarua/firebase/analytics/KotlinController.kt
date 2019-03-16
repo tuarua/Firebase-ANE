@@ -23,7 +23,6 @@ fun <V> Map<String, V>.toBundle(bundle: Bundle = Bundle()): Bundle = bundle.appl
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private val TRACE = "TRACE"
     private lateinit var analytics: FirebaseAnalytics
     private var appInstanceId:String? = null
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
@@ -52,8 +51,8 @@ class KotlinController : FreKotlinMainController {
 
     fun logEvent(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("logEvent")
-        val name = String(argv[0]) ?: return FreConversionException("name")
-        val params: Map<String, Any> = Map(argv[1]) ?: return FreConversionException("params")
+        val name = String(argv[0]) ?: return null
+        val params: Map<String, Any> = Map(argv[1]) ?: return null
         val bundle = params.toBundle()
         analytics.logEvent(name, bundle)
         return null
@@ -61,43 +60,36 @@ class KotlinController : FreKotlinMainController {
 
     fun setAnalyticsCollectionEnabled(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setAnalyticsCollectionEnabled")
-        val enabled = Boolean(argv[0]) ?: return FreConversionException("enabled")
+        val enabled = Boolean(argv[0]) ?: return null
         analytics.setAnalyticsCollectionEnabled(enabled)
         return null
     }
 
     fun setCurrentScreen(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setCurrentScreen")
-        val screenName = String(argv[0]) ?: return FreConversionException("screenName")
+        val screenName = String(argv[0]) ?: return null
         analytics.setCurrentScreen(ctx.activity, screenName, null)
-        return null
-    }
-
-    fun setMinimumSessionDuration(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("setMinimumSessionDuration")
-        val milliseconds = Long(argv[0]) ?: return FreConversionException("milliseconds")
-        analytics.setMinimumSessionDuration(milliseconds)
         return null
     }
 
     fun setSessionTimeoutDuration(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setSessionTimeoutDuration")
-        val milliseconds = Long(argv[0]) ?: return FreConversionException("milliseconds")
+        val milliseconds = Long(argv[0]) ?: return null
         analytics.setSessionTimeoutDuration(milliseconds)
         return null
     }
 
     fun setUserId(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("setUserId")
-        val id = String(argv[0]) ?: return FreConversionException("id")
+        val id = String(argv[0]) ?: return null
         analytics.setUserId(id)
         return null
     }
 
     fun setUserProperty(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("setUserProperty")
-        val name = String(argv[0]) ?: return FreConversionException("name")
-        val value = String(argv[1]) ?: return FreConversionException("value")
+        val name = String(argv[0]) ?: return null
+        val value = String(argv[1]) ?: return null
         analytics.setUserProperty(name, value)
         return null
     }
@@ -109,7 +101,7 @@ class KotlinController : FreKotlinMainController {
 
     private fun isDefaultFirebaseAppInitialized(): Boolean {
         return try {
-            FirebaseApp.getInstance(FirebaseApp.DEFAULT_APP_NAME) != null
+            FirebaseApp.getInstance() != null
         } catch (e: IllegalStateException) {
             Log.e(TAG, "isDefaultFirebaseAppInitialized", e)
             trace(e.message)

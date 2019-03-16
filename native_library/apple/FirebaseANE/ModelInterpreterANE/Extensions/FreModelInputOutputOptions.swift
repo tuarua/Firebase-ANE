@@ -16,44 +16,39 @@
 
 import Foundation
 import FreSwift
-import Firebase
+import FirebaseMLCommon
+import FirebaseMLModelInterpreter
 
 public extension ModelInputOutputOptions {
     convenience init?(_ freObject: FREObject?) {
         guard let rv = freObject,
-            let inputFormat = ModelInputOutputFormat(rv["inputFormat"]),
-            let outputFormat = ModelInputOutputFormat(rv["outputFormat"])
+            let inputIndex = UInt(rv["inputIndex"]),
+            let outputIndex = UInt(rv["outputIndex"]),
+            let inputTypeRaw = UInt(rv["inputType"]),
+            let inputType = ModelElementType(rawValue: inputTypeRaw),
+            let outputTypeRaw = UInt(rv["outputType"]),
+            let outputType = ModelElementType(rawValue: outputTypeRaw),
+            let inputDimensionsDbl = [Double](rv["inputDimensions"]),
+            let outputDimensionsDbl = [Double](rv["outputDimensions"])
             else { return nil }
         self.init()
+        var inputDimensions: [NSNumber] = []
+        for v in inputDimensionsDbl {
+            inputDimensions.append(NSNumber(value: v))
+        }
+        var outputDimensions: [NSNumber] = []
+        for v in outputDimensionsDbl {
+            outputDimensions.append(NSNumber(value: v))
+        }
         do {
-            try self.setInputFormat(index: inputFormat.index,
-                                    type: inputFormat.type,
-                                    dimensions: inputFormat.dimensions)
-            try self.setOutputFormat(index: outputFormat.index,
-                                     type: outputFormat.type,
-                                     dimensions: outputFormat.dimensions)
+            try self.setInputFormat(index: inputIndex,
+                                    type: inputType,
+                                    dimensions: inputDimensions)
+            try self.setOutputFormat(index: outputIndex,
+                                     type: outputType,
+                                     dimensions: outputDimensions)
         } catch {
             return nil 
-        }
-    }
-}
-
-class ModelInputOutputFormat: NSObject {
-    var index: UInt
-    var type: ModelElementType
-    var dimensions: [NSNumber] = []
-    init?(_ freObject: FREObject?) {
-        guard let rv = freObject,
-            let index = UInt(rv["index"]),
-            let freType = UInt(rv["type"]),
-            let dimensions = [Double](rv["dimensions"]),
-            let type = ModelElementType(rawValue: freType)
-            else { return nil }
-        
-        self.index = index
-        self.type = type
-        for dimension in dimensions {
-            self.dimensions.append(NSNumber(value: dimension))
         }
     }
 }

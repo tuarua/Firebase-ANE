@@ -42,7 +42,7 @@ public class Barcode {
     public var format:int;
     /**
      * <p>The four corner points of the barcode, in clockwise order starting with the top left relative<br>
-     * to the detected image in the view coordinate system. These are CGPoints boxed in NSValues.<br>
+     * to the detected image in the view coordinate system. These are <code>flash.geom.Point</code> boxed in values.<br>
      * Due to the possible perspective distortions, this is not necessarily a rectangle.</p>
      */
     public var cornerPoints:Vector.<Point> = new <Point>[];

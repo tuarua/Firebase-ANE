@@ -1,7 +1,6 @@
 #!/bin/sh
 
 #Get the path to the script and trim to get the directory.
-echo "Setting path to current directory to:"
 pathtome=$0
 pathtome="${pathtome%/*}"
 
@@ -66,26 +65,17 @@ unzip "$pathtome/platforms/android/app-release.aar" "classes.jar" -d "$pathtome/
 unzip "$pathtome/platforms/android/app-release.aar" "res/*" -d "$pathtome/platforms/android"
 mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.tuarua.firebase.$PROJECTNAME-res"
 
-cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Debug-iphonesimulator/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/simulator/lib$PROJECTNAME.a"
+cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/simulator/lib$PROJECTNAME.a"
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/device/lib$PROJECTNAME.a"
 
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/FirebaseFirestore.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseFirestore.framework" "$pathtome/platforms/ios/device/Frameworks"
 
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/BoringSSL.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/BoringSSL.framework" "$pathtome/platforms/ios/device/Frameworks"
+cp -R -L "$pathtome/../../../firebase_frameworks/simulator/BoringSSL-GRPC.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../../firebase_frameworks/device/BoringSSL-GRPC.framework" "$pathtome/platforms/ios/device/Frameworks"
 
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/gRPC-Core.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/gRPC-Core.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/gRPC-ProtoRPC.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/gRPC-ProtoRPC.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/gRPC-RxLibrary.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/gRPC-RxLibrary.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator//gRPC.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/gRPC.framework" "$pathtome/platforms/ios/device/Frameworks"
 
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/gRPC-C++.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/gRPC-C++.framework" "$pathtome/platforms/ios/device/Frameworks"
@@ -107,11 +97,11 @@ echo "Building ANE."
 -platformoptions "$pathtome/platforms/ios/platform.xml" \
 -platform Android-ARM \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
-com.tuarua.firebase.$PROJECTNAME-res/. \
+com.tuarua.firebase.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
 -platform Android-x86 \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
-com.tuarua.firebase.$PROJECTNAME-res/. \
+com.tuarua.firebase.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
 -platform default -C "$pathtome/platforms/default" "library.swf"
 

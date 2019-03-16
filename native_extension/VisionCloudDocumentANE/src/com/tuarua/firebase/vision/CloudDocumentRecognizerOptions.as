@@ -20,15 +20,21 @@ package com.tuarua.firebase.vision {
  */
 public class CloudDocumentRecognizerOptions {
     /**
-     * API key to use for Cloud Vision API.  If `null`, the default API key from FirebaseApp will be
+     * API key to use for Cloud Vision API. If <code>null</code>, the default API key from FirebaseApp will be
      * used.
      */
     public var apiKeyOverride:String;
     /**
-     * An array of hinted language codes for cloud document text recognition. The default is `nil`. See
+     * An array of hinted language codes for cloud document text recognition. The default is <code>null</code>. See
      * https://cloud.google.com/vision/docs/languages for supported language codes.
      */
     public var languageHints:Vector.<String> = new Vector.<String>();
+    /**
+     * Only allow registered application instances with matching certificate fingerprint to use Cloud Vision API.
+     * <p>Do not set this for debug build if you use simulators to test.</p>
+     * <p>Applies to Android only.</p>
+     */
+    public var enforceCertFingerprintMatch:Boolean;
     public function CloudDocumentRecognizerOptions() {
     }
 }

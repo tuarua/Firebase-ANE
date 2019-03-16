@@ -3,16 +3,9 @@
     <id>com.tuarua.firebase.VisionCloudLabelANE</id>
     <name>Firebase Vision Cloud Label ANE</name>
     <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
-    <versionNumber>0.2.0</versionNumber>
+    <versionNumber>0.3.0</versionNumber>
     <platforms>
         <platform name="iPhone-ARM">
-            <applicationDeployment>
-                <nativeLibrary>libVisionCloudLabelANE.a</nativeLibrary>
-                <initializer>TRFBVCLBExtInizer</initializer>
-                <finalizer>TRFBVCLBExtFinizer</finalizer>
-            </applicationDeployment>
-        </platform>
-        <platform name="iPhone-x86">
             <applicationDeployment>
                 <nativeLibrary>libVisionCloudLabelANE.a</nativeLibrary>
                 <initializer>TRFBVCLBExtInizer</initializer>

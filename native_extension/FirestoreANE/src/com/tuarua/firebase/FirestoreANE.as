@@ -31,8 +31,8 @@ public final class FirestoreANE extends EventDispatcher {
     /** @private */
     public function FirestoreANE() {
         if (FirestoreANEContext.context) {
-            var theRet:* = FirestoreANEContext.context.call("init", _loggingEnabled, _settings);
-            if (theRet is ANEError) throw theRet as ANEError;
+            var ret:* = FirestoreANEContext.context.call("init", _loggingEnabled, _settings);
+            if (ret is ANEError) throw ret as ANEError;
         }
         _firestore = this;
     }
@@ -47,16 +47,16 @@ public final class FirestoreANE extends EventDispatcher {
 
     public function batch():WriteBatch {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("startBatch");
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("startBatch");
+        if (ret is ANEError) throw ret as ANEError;
         return new WriteBatch();
     }
 
     public function get settings():FirestoreSettings {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("getFirestoreSettings");
-        if (theRet is ANEError) throw theRet as ANEError;
-        return theRet as FirestoreSettings;
+        var ret:* = FirestoreANEContext.context.call("getFirestoreSettings");
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as FirestoreSettings;
     }
 
     public function collection(collectionPath:String):CollectionReference {
@@ -80,7 +80,7 @@ public final class FirestoreANE extends EventDispatcher {
 
     /**
      * Re-enables usage of the network by this Firestore instance after a prior call to
-     * `disableNetwork`.
+     * <code>disableNetwork</code>.
      * @param listener Optional Function to be called on completion.
      * The function is expected to have the following signature:
      * <listing version="3.0">
@@ -91,13 +91,13 @@ public final class FirestoreANE extends EventDispatcher {
      */
     public function enableNetwork(listener:Function = null):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("enableNetwork", FirestoreANEContext.createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("enableNetwork", FirestoreANEContext.createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
      * Disables usage of the network by this Firestore instance. It can be re-enabled by via
-     * `enableNetwork`. While the network is disabled, any snapshot listeners or get calls
+     * <code>enableNetwork</code>. While the network is disabled, any snapshot listeners or get calls
      * will return results from cache and any write operations will be queued until the network is
      * restored.
      * @param listener Optional Function to be called on completion.
@@ -110,8 +110,8 @@ public final class FirestoreANE extends EventDispatcher {
      */
     public function disableNetwork(listener:Function = null):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("disableNetwork", FirestoreANEContext.createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("disableNetwork", FirestoreANEContext.createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     public static function set settings(value:FirestoreSettings):void {

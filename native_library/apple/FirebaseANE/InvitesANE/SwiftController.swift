@@ -81,10 +81,10 @@ public class SwiftController: NSObject {
             let userActivity = userActivityDict["UIApplicationLaunchOptionsUserActivityKey"] as? NSUserActivity,
             let webpageURL = userActivity.webpageURL {
             Invites.handleUniversalLink(webpageURL) { (invite, error) in
-                if let err = error {
+                if let err = error as NSError? {
                     self.dispatchEvent(name: InvitesEvent.ON_LINK,
                                    value: InvitesEvent(eventId: eventId,
-                                                           error: ["text": err.localizedDescription, "id": 0]
+                                                           error: err
                                     ).toJSONString())
                     return
                 }

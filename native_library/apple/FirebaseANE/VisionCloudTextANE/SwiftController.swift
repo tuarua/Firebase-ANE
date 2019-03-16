@@ -51,8 +51,7 @@ public class SwiftController: NSObject {
             self.recognizer?.process(image, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: CloudTextEvent.RECOGNIZED,
-                                       value: CloudTextEvent(eventId: eventId,
-                                                             error: err.toDictionary()).toJSONString())
+                                       value: CloudTextEvent(eventId: eventId, error: err).toJSONString())
                 } else {
                     if let result = result {
                         self.results[eventId] = result

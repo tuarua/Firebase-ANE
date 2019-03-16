@@ -38,6 +38,7 @@ public class LandmarkExample extends Sprite implements IExample {
     private var isInited:Boolean;
     private var vision:VisionANE;
     private var cloudLandmarkDetector:CloudLandmarkDetector;
+
     public function LandmarkExample(stageWidth:int, vision:VisionANE) {
         super();
         this.vision = vision;
@@ -89,20 +90,22 @@ public class LandmarkExample extends Sprite implements IExample {
             var visionImage:VisionImage = new VisionImage(bmpLandmarkImage.bitmapData);
             textContainer.visible = true;
             textImageDisplay.visible = true;
-            cloudLandmarkDetector.detect(visionImage, function (landmarks:Vector.<CloudLandmark>, error:LandmarkError):void {
-                cloudLandmarkDetector.close();
-                if (error) {
-                    statusLabel.text = "Landmark error: " + error.errorID + " : " + error.message;
-                    return;
-                }
-                statusLabel.text = "";
-                var index:int = 0;
-                for each (var landmark:CloudLandmark in landmarks) {
-                    statusLabel.text = statusLabel.text + landmark.landmark + " : " + Math.floor(landmark.confidence * 100) + "%\n";
-                    index++;
-                    if (index > 2) break;
-                }
-            });
+            cloudLandmarkDetector.detect(visionImage,
+                    function (landmarks:Vector.<CloudLandmark>, error:LandmarkError):void {
+                        cloudLandmarkDetector.close();
+                        if (error) {
+                            statusLabel.text = "Landmark error: " + error.errorID + " : " + error.message;
+                            return;
+                        }
+                        statusLabel.text = "";
+                        var index:int = 0;
+                        for each (var landmark:CloudLandmark in landmarks) {
+                            statusLabel.text = statusLabel.text + landmark.landmark + " : "
+                                    + Math.floor(landmark.confidence * 100) + "%\n";
+                            index++;
+                            if (index > 2) break;
+                        }
+                    });
 
         }
     }

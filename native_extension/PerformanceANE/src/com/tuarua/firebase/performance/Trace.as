@@ -20,8 +20,8 @@ public class Trace {
      */
     public function start():void {
         PerformanceANEContext.validate();
-        var theRet:* = PerformanceANEContext.context.call("startTrace", name);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = PerformanceANEContext.context.call("startTrace", name);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -29,8 +29,8 @@ public class Trace {
      */
     public function stop():void {
         PerformanceANEContext.validate();
-        var theRet:* = PerformanceANEContext.context.call("stopTrace", name);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = PerformanceANEContext.context.call("stopTrace", name);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -43,8 +43,17 @@ public class Trace {
      */
     public function incrementMetric(named:String, by:int = 1):void {
         PerformanceANEContext.validate();
-        var theRet:* = PerformanceANEContext.context.call("incrementCounter", name, named, by);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = PerformanceANEContext.context.call("incrementMetric", name, named, by);
+        if (ret is ANEError) throw ret as ANEError;
+    }
+
+    /**
+     * @deprecated use #incrementMetric(String, int) instead
+     */
+    public function incrementCounter(named:String, by:int = 1):void {
+        PerformanceANEContext.validate();
+        var ret:* = PerformanceANEContext.context.call("incrementMetric", name, named, by);
+        if (ret is ANEError) throw ret as ANEError;
     }
 }
 }

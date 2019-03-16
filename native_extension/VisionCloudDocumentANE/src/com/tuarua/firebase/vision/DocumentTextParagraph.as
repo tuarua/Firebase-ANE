@@ -66,9 +66,9 @@ public class DocumentTextParagraph {
      */
     public function get words():Vector.<DocumentTextWord> {
         if (_words.length > 0) return _words;
-        var theRet:* = CloudDocumentRecognizer.context.call("getWords", this._id, this._blockIndex, this._index);
-        if (theRet is ANEError) throw theRet as ANEError;
-        if (theRet != null) _words = theRet;
+        var ret:* = CloudDocumentRecognizer.context.call("getWords", this._id, this._blockIndex, this._index);
+        if (ret is ANEError) throw ret as ANEError;
+        if (ret != null) _words = ret;
         return _words;
     }
 }

@@ -15,7 +15,7 @@
  */
 
 package com.tuarua.firebase {
-import com.tuarua.firebase.vision.CloudDetectorOptions;
+import com.tuarua.firebase.vision.CloudLabelDetectorOptions;
 import com.tuarua.firebase.vision.VisionImage;
 import com.tuarua.fre.ANEError;
 
@@ -26,12 +26,12 @@ import flash.utils.Dictionary;
 public class CloudLabelDetector {
     internal static const NAME:String = "VisionCloudLabelANE";
     private static var _context:ExtensionContext;
-    private var _options:CloudDetectorOptions = new CloudDetectorOptions();
+    private var _options:CloudLabelDetectorOptions = new CloudLabelDetectorOptions();
     /** @private */
     public static var closures:Dictionary = new Dictionary();
     private static const RECOGNIZED:String = "CloudLabelEvent.Recognized";
     /** @private */
-    public function CloudLabelDetector(options:CloudDetectorOptions) {
+    public function CloudLabelDetector(options:CloudLabelDetectorOptions) {
         try {
             if (options) {
                 _options = options;
@@ -74,12 +74,12 @@ public class CloudLabelDetector {
                     if (pObj.hasOwnProperty("error") && pObj.error) {
                         err = new CloudLabelError(pObj.error.text, pObj.error.id);
                     }
-                    var theRet:* = _context.call("getResults", pObj.eventId);
-                    if (theRet is ANEError) {
-                        printANEError(theRet as ANEError);
+                    var ret:* = _context.call("getResults", pObj.eventId);
+                    if (ret is ANEError) {
+                        printANEError(ret as ANEError);
                         return;
                     }
-                    closure.call(null, theRet, err);
+                    closure.call(null, ret, err);
                     delete closures[pObj.eventId];
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
@@ -95,13 +95,13 @@ public class CloudLabelDetector {
      * @param listener Closure to call back on the main queue with label detected or error.
      */
     public function detect(image:VisionImage, listener:Function):void {
-        var theRet:* = _context.call("detect", image, createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = _context.call("detect", image, createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Closes the cloud label detector and release its model resources. */
     public function close():void {
-        if (!_context) return;
+        if (_context == null) return;
         _context.call("close");
     }
 
@@ -128,8 +128,8 @@ public class CloudLabelDetector {
     }
 
     /** @private */
-    internal function reinit(options:CloudDetectorOptions):void {
-        _context.call("init", options ? options : new CloudDetectorOptions());
+    internal function reinit(options:CloudLabelDetectorOptions):void {
+        _context.call("init", options ? options : new CloudLabelDetectorOptions());
     }
 
 }

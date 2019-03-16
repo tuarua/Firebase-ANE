@@ -51,14 +51,12 @@ public class StorageReference {
         this._asId = StorageANEContext.context.call("createGUID") as String;
         if (isRoot) return;
 
-        var theRet:* = StorageANEContext.context.call("getReference", path, url);
-        if (theRet is ANEError) {
-            throw theRet as ANEError;
-        }
-        if (theRet != null) {
-            this._name = theRet["name"];
-            this._bucket = theRet["bucket"];
-            this._path = theRet["path"];
+        var ret:* = StorageANEContext.context.call("getReference", path, url);
+        if (ret is ANEError) throw ret as ANEError;
+        if (ret != null) {
+            this._name = ret["name"];
+            this._bucket = ret["bucket"];
+            this._path = ret["path"];
         } else {
             throw new Error("no StorageReference created");
         }
@@ -95,10 +93,10 @@ public class StorageReference {
     public function get parent():StorageReference {
         if (_parent) return _parent;
         StorageANEContext.validate();
-        var theRet:* = StorageANEContext.context.call("getParent", _path);
-        if (theRet is ANEError) throw theRet as ANEError;
-        if (theRet != null) {
-            _parent = new StorageReference(theRet["path"], null, theRet["bucket"], theRet["name"], (theRet["path"] == null));
+        var ret:* = StorageANEContext.context.call("getParent", _path);
+        if (ret is ANEError) throw ret as ANEError;
+        if (ret != null) {
+            _parent = new StorageReference(ret["path"], null, ret["bucket"], ret["name"], (ret["path"] == null));
             return _parent;
         }
         return null;
@@ -111,10 +109,10 @@ public class StorageReference {
     public function get root():StorageReference {
         if (_root) return _root;
         StorageANEContext.validate();
-        var theRet:* = StorageANEContext.context.call("getRoot", _path);
-        if (theRet is ANEError) throw theRet as ANEError;
-        if (theRet != null) {
-            _root = new StorageReference(theRet["path"], null, theRet["bucket"], theRet["name"], true);
+        var ret:* = StorageANEContext.context.call("getRoot", _path);
+        if (ret is ANEError) throw ret as ANEError;
+        if (ret != null) {
+            _root = new StorageReference(ret["path"], null, ret["bucket"], ret["name"], true);
             return _root;
         }
         return null;
@@ -127,8 +125,8 @@ public class StorageReference {
     public function remove(listener:Function = null):void {
         if (_path == null) return;
         StorageANEContext.validate();
-        var theRet:* = StorageANEContext.context.call("deleteReference", _path, StorageANEContext.createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = StorageANEContext.context.call("deleteReference", _path, StorageANEContext.createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -147,8 +145,8 @@ public class StorageReference {
     public function downloadUrl(listener:Function):void {
         if (_path == null) return;
         StorageANEContext.validate();
-        var theRet:* = StorageANEContext.context.call("getDownloadUrl", _path, StorageANEContext.createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = StorageANEContext.context.call("getDownloadUrl", _path, StorageANEContext.createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -164,8 +162,8 @@ public class StorageReference {
      */
     public function getMetadata(listener:Function):void {
         StorageANEContext.validate();
-        var theRet:* = StorageANEContext.context.call("getMetadata", _path, StorageANEContext.createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = StorageANEContext.context.call("getMetadata", _path, StorageANEContext.createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -182,8 +180,8 @@ public class StorageReference {
     public function updateMetadata(metadata:StorageMetadata, listener:Function = null):void {
         if (_path == null || _name == null) return;
         StorageANEContext.validate();
-        var theRet:* = StorageANEContext.context.call("updateMetadata", _path, StorageANEContext.createEventId(listener), metadata);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = StorageANEContext.context.call("updateMetadata", _path, StorageANEContext.createEventId(listener), metadata);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -196,8 +194,8 @@ public class StorageReference {
         var downloadTask:DownloadTask = new DownloadTask(_asId);
         StorageANEContext.validate();
         StorageANEContext.tasks[downloadTask.asId] = downloadTask;
-        var theRet:* = StorageANEContext.context.call("getFile", _path, toFile.nativePath, downloadTask.asId);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = StorageANEContext.context.call("getFile", _path, toFile.nativePath, downloadTask.asId);
+        if (ret is ANEError) throw ret as ANEError;
         return downloadTask;
     }
 
@@ -214,8 +212,8 @@ public class StorageReference {
         var downloadTask:DownloadTask = new DownloadTask(_asId);
         StorageANEContext.validate();
         StorageANEContext.tasks[downloadTask.asId] = downloadTask;
-        var theRet:* = StorageANEContext.context.call("getBytes", _path, maxDownloadSizeBytes, downloadTask.asId);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = StorageANEContext.context.call("getBytes", _path, maxDownloadSizeBytes, downloadTask.asId);
+        if (ret is ANEError) throw ret as ANEError;
         return downloadTask;
     }
 
@@ -231,8 +229,8 @@ public class StorageReference {
         var uploadTask:UploadTask = new UploadTask(_asId);
         StorageANEContext.validate();
         StorageANEContext.tasks[uploadTask.asId] = uploadTask;
-        var theRet:* = StorageANEContext.context.call("putFile", _path, uploadTask.asId, file.nativePath, metadata);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = StorageANEContext.context.call("putFile", _path, uploadTask.asId, file.nativePath, metadata);
+        if (ret is ANEError) throw ret as ANEError;
         return uploadTask;
     }
 
@@ -249,8 +247,8 @@ public class StorageReference {
         StorageANEContext.validate();
         var uploadTask:UploadTask = new UploadTask(_asId);
         StorageANEContext.tasks[uploadTask.asId] = uploadTask;
-        var theRet:* = StorageANEContext.context.call("putBytes", _path, uploadTask.asId, byteArray);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = StorageANEContext.context.call("putBytes", _path, uploadTask.asId, byteArray);
+        if (ret is ANEError) throw ret as ANEError;
         return uploadTask;
     }
 

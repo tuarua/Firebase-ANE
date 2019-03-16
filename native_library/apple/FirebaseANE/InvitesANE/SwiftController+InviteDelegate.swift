@@ -19,10 +19,10 @@ import FirebaseInvites
 
 extension SwiftController: InviteDelegate {
     public func inviteFinished(withInvitations invitationIds: [String], error: Error?) {
-        if let err = error {
+        if let err = error as NSError? {
             self.dispatchEvent(name: InvitesEvent.ERROR,
                            value: InvitesEvent(eventId: InvitesEvent.ERROR,
-                                               error: ["text": err.localizedDescription, "id": 0]
+                                               error: err
                             ).toJSONString())
             return
         } 

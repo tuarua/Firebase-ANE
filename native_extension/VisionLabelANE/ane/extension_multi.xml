@@ -3,16 +3,9 @@
     <id>com.tuarua.firebase.VisionLabelANE</id>
     <name>Firebase Vision Label ANE</name>
     <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
-    <versionNumber>0.2.0</versionNumber>
+    <versionNumber>0.3.0</versionNumber>
     <platforms>
         <platform name="iPhone-ARM">
-            <applicationDeployment>
-                <nativeLibrary>libVisionLabelANE.a</nativeLibrary>
-                <initializer>TRFBVLBExtInizer</initializer>
-                <finalizer>TRFBVLBExtFinizer</finalizer>
-            </applicationDeployment>
-        </platform>
-        <platform name="iPhone-x86">
             <applicationDeployment>
                 <nativeLibrary>libVisionLabelANE.a</nativeLibrary>
                 <initializer>TRFBVLBExtInizer</initializer>

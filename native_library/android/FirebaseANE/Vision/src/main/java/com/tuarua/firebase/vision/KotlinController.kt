@@ -39,7 +39,6 @@ import java.util.*
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private val TRACE = "TRACE"
     private val permissionsNeeded: Array<String> = arrayOf(
             Manifest.permission.CAMERA)
     private val gson = Gson()

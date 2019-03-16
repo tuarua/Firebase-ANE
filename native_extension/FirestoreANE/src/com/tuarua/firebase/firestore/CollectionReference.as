@@ -22,16 +22,16 @@ public class CollectionReference extends Query {
     private var _id:String;
 
     /**
-     * Gets a `CollectionReference` referring to the collection at the specified path within the
+     * Gets a <code>CollectionReference</code> referring to the collection at the specified path within the
      * database.
      * @param path
      */
     public function CollectionReference(path:String) {
         _path = path;
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("initCollectionReference", path);
-        if (theRet is ANEError) throw theRet as ANEError;
-        _id = theRet as String;
+        var ret:* = FirestoreANEContext.context.call("initCollectionReference", path);
+        if (ret is ANEError) throw ret as ANEError;
+        _id = ret as String;
     }
 
     /**
@@ -62,24 +62,22 @@ public class CollectionReference extends Query {
         if (documentPath) {
             return new DocumentReference(_path + "/" + documentPath);
         } else {
-            var theRet:* = FirestoreANEContext.context.call("documentWithAutoId", _path);
-            if (theRet is ANEError) {
-                throw theRet as ANEError;
-            }
-            var docPath:String = theRet as String;
+            var ret:* = FirestoreANEContext.context.call("documentWithAutoId", _path);
+            if (ret is ANEError) throw ret as ANEError;
+            var docPath:String = ret as String;
             return new DocumentReference(docPath);
         }
     }
 
     /**
-     * For subcollections, `parent` returns the containing `DocumentReference`.  For root
+     * For subcollections, <code>parent</code> returns the containing <code>DocumentReference</code>.  For root
      * collections, null is returned.
      */
     public function get parent():DocumentReference {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("getCollectionParent", _path);
-        if (theRet is ANEError) throw theRet as ANEError;
-        return new DocumentReference(theRet as String);
+        var ret:* = FirestoreANEContext.context.call("getCollectionParent", _path);
+        if (ret is ANEError) throw ret as ANEError;
+        return new DocumentReference(ret as String);
     }
 
     public function get path():String {

@@ -151,7 +151,7 @@ class UserController(override var context: FREContext?) : FreKotlinController {
         currentUser?.getIdToken(forceRefresh)?.addOnCompleteListener { task ->
             when {
                 task.isSuccessful -> dispatchEvent(AuthEvent.ID_TOKEN,
-                        gson.toJson(AuthEvent(eventId, mapOf("token" to task.result.token))))
+                        gson.toJson(AuthEvent(eventId, mapOf("token" to task.result?.token))))
                 else -> sendError(AuthEvent.ID_TOKEN, eventId, task.exception)
             }
         }

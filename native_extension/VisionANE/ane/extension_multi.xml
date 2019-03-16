@@ -3,7 +3,7 @@
     <id>com.tuarua.firebase.VisionANE</id>
     <name>Firebase Vision ANE</name>
     <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
-    <versionNumber>0.2.0</versionNumber>
+    <versionNumber>0.3.0</versionNumber>
     <platforms>
         <platform name="Android-ARM">
             <applicationDeployment>
@@ -20,13 +20,6 @@
             </applicationDeployment>
         </platform>
         <platform name="iPhone-ARM">
-            <applicationDeployment>
-                <nativeLibrary>libVisionANE.a</nativeLibrary>
-                <initializer>TRFBVISExtInizer</initializer>
-                <finalizer>TRFBVISExtFinizer</finalizer>
-            </applicationDeployment>
-        </platform>
-        <platform name="iPhone-x86">
             <applicationDeployment>
                 <nativeLibrary>libVisionANE.a</nativeLibrary>
                 <initializer>TRFBVISExtInizer</initializer>

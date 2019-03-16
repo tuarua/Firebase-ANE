@@ -40,7 +40,6 @@ import kotlinx.coroutines.launch
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeProcessSucceedListener {
     private lateinit var airView: ViewGroup
-    private val TRACE = "TRACE"
     private var optionsAsIntArray: IntArray? = null
     private var results: MutableMap<String, MutableList<FirebaseVisionBarcode>> = mutableMapOf()
     private val gson = Gson()
@@ -80,10 +79,11 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
         GlobalScope.launch(bgContext) {
             detector.detectInImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    if (!task.result.isEmpty()) {
-                        results[eventId] = task.result
+                    val result = task.result ?: return@addOnCompleteListener
+                    if (!result.isEmpty()) {
+                        results[eventId] = result
                         dispatchEvent(BarcodeEvent.DETECTED,
-                                gson.toJson(BarcodeEvent(eventId, null)))
+                                gson.toJson(BarcodeEvent(eventId)))
                     }
                 } else {
                     val error = task.exception
@@ -113,7 +113,7 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
     override fun onVisionProcessSucceed(eventId: String, result: MutableList<FirebaseVisionBarcode>) {
         results[eventId] = result
         hideCameraOverlay()
-        dispatchEvent(BarcodeEvent.DETECTED, gson.toJson(BarcodeEvent(eventId, null)))
+        dispatchEvent(BarcodeEvent.DETECTED, gson.toJson(BarcodeEvent(eventId)))
     }
 
     fun inputFromCamera(ctx: FREContext, argv: FREArgv): FREObject? {

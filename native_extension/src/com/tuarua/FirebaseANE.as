@@ -10,8 +10,8 @@ public final class FirebaseANE extends EventDispatcher {
     /** @private */
     public function FirebaseANE() {
         if (FirebaseANEContext.context) {
-            var theRet:* = FirebaseANEContext.context.call("init");
-            if (theRet is ANEError) throw theRet as ANEError;
+            var ret:* = FirebaseANEContext.context.call("init");
+            if (ret is ANEError) throw ret as ANEError;
         }
         _firebase = this;
     }
@@ -25,17 +25,17 @@ public final class FirebaseANE extends EventDispatcher {
 
     public static function get options():FirebaseOptions {
         FirebaseANEContext.validate();
-        var theRet:* = FirebaseANEContext.context.call("getOptions");
-        if (theRet is ANEError) throw theRet as ANEError;
-        return theRet as FirebaseOptions;
+        var ret:* = FirebaseANEContext.context.call("getOptions");
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as FirebaseOptions;
     }
 
     /** returns true if the user has the required version of Google Play Services. Always returns true on iOS.*/
     public static function get isGooglePlayServicesAvailable():Boolean {
         FirebaseANEContext.validate();
-        var theRet:* = FirebaseANEContext.context.call("isGooglePlayServicesAvailable");
-        if (theRet is ANEError) throw theRet as ANEError;
-        return theRet as Boolean;
+        var ret:* = FirebaseANEContext.context.call("isGooglePlayServicesAvailable");
+        if (ret is ANEError) throw ret as ANEError;
+        return ret as Boolean;
     }
 
     /** Disposes the ANE */

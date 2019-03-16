@@ -23,8 +23,8 @@ public final class DynamicLinksANE {
     /** @private */
     public function DynamicLinksANE() {
         if (DynamicLinksANEContext.context) {
-            var theRet:* = DynamicLinksANEContext.context.call("init");
-            if (theRet is ANEError) throw theRet as ANEError;
+            var ret:* = DynamicLinksANEContext.context.call("init");
+            if (ret is ANEError) throw ret as ANEError;
         }
         _dynamicLinks = this;
     }
@@ -53,9 +53,9 @@ public final class DynamicLinksANE {
     public function buildDynamicLink(dynamicLink:DynamicLink, listener:Function, copyToClipboard:Boolean = false,
                                      shorten:Boolean = false, suffix:int = 0):void {
         DynamicLinksANEContext.validate();
-        var theRet:* = DynamicLinksANEContext.context.call("buildDynamicLink", dynamicLink,
+        var ret:* = DynamicLinksANEContext.context.call("buildDynamicLink", dynamicLink,
                 DynamicLinksANEContext.createEventId(listener), copyToClipboard, shorten, suffix);
-        if (theRet is ANEError) throw theRet as ANEError;
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Determine if the app has a pending dynamic link and provide access to the dynamic link parameters.
@@ -69,8 +69,8 @@ public final class DynamicLinksANE {
      */
     public function getDynamicLink(listener:Function):void {
         DynamicLinksANEContext.validate();
-        var theRet:* = DynamicLinksANEContext.context.call("getDynamicLink", DynamicLinksANEContext.createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = DynamicLinksANEContext.context.call("getDynamicLink", DynamicLinksANEContext.createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /** Disposes the ANE */

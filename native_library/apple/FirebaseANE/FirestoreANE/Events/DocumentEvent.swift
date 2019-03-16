@@ -26,11 +26,11 @@ class DocumentEvent: NSObject {
     var eventId: String?
     var data: [String: Any]?
     var realtime: Bool = false
-    var error: [String: Any]?
+    var error: NSError?
 
     convenience init(eventId: String?, data: [String: Any]? = nil,
                      realtime: Bool = false,
-                     error: [String: Any]? = nil) {
+                     error: NSError? = nil) {
         self.init()
         self.eventId = eventId
         self.data = data
@@ -43,7 +43,7 @@ class DocumentEvent: NSObject {
         props["eventId"] = eventId
         props["data"] = data
         props["realtime"] = realtime
-        props["error"] = error
+        props["error"] = error?.toDictionary()
         return JSON(props).description
     }
 

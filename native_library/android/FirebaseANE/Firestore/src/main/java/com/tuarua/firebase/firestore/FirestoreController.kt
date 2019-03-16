@@ -105,7 +105,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
 
         q.get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val qSnapshot: QuerySnapshot = task.result
+                val qSnapshot: QuerySnapshot = task.result ?: return@addOnCompleteListener
                 val docChanges = qSnapshot.documentChanges
                 dispatchEvent(DocumentEvent.QUERY_SNAPSHOT, gson.toJson(DocumentEvent(eventId, data = mapOf(
                         "metadata" to mapOf(
@@ -129,7 +129,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
     fun getDocumentReference(path: String, eventId: String) {
         val docRef: DocumentReference = firestore.document(path)
         docRef.get().addOnCompleteListener { task ->
-            val documentSnapshot: DocumentSnapshot = task.result
+            val documentSnapshot: DocumentSnapshot = task.result ?: return@addOnCompleteListener
             if (task.isSuccessful) {
                 dispatchEvent(DocumentEvent.SNAPSHOT, gson.toJson(
                         DocumentEvent(eventId, documentSnapshot.toMap()))
@@ -196,7 +196,8 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
         docRef.update(documentData).addOnCompleteListener { task ->
             if (eventId == null) return@addOnCompleteListener
             if (task.isSuccessful) {
-                dispatchEvent(DocumentEvent.UPDATED, gson.toJson(DocumentEvent(eventId)))
+                dispatchEvent(DocumentEvent.UPDATED, gson.toJson(
+                        DocumentEvent(eventId,  mapOf("path" to path))))
             } else {
                 val error = task.exception as FirebaseFirestoreException
                 dispatchEvent(DocumentEvent.UPDATED, gson.toJson(

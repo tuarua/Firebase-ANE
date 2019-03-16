@@ -4,8 +4,7 @@ import com.tuarua.firebase.CloudLabelError;
 import com.tuarua.firebase.LabelDetector;
 import com.tuarua.firebase.LabelError;
 import com.tuarua.firebase.VisionANE;
-import com.tuarua.firebase.vision.CloudLabel;
-import com.tuarua.firebase.vision.Label;
+import com.tuarua.firebase.vision.ImageLabel;
 import com.tuarua.firebase.vision.LabelDetectorOptions;
 import com.tuarua.firebase.vision.VisionImage;
 
@@ -94,7 +93,7 @@ public class LabelExample extends Sprite implements IExample {
             textImageDisplay.visible = true;
             var visionImage:VisionImage = new VisionImage(bmpLabelImage.bitmapData);
 
-            labelDetector.detect(visionImage, function (labels:Vector.<Label>, error:LabelError):void {
+            labelDetector.detect(visionImage, function (labels:Vector.<ImageLabel>, error:LabelError):void {
                 labelDetector.close();
                 if (error) {
                     statusLabel.text = "Label error: " + error.errorID + " : " + error.message;
@@ -102,8 +101,8 @@ public class LabelExample extends Sprite implements IExample {
                 }
                 statusLabel.text = "";
                 var index:int = 0;
-                for each (var label:Label in labels) {
-                    statusLabel.text = statusLabel.text + label.label + " : " + Math.floor(label.confidence * 100) + "%\n";
+                for each (var label:ImageLabel in labels) {
+                    statusLabel.text = statusLabel.text + label.text + " : " + Math.floor(label.confidence * 100) + "%\n";
                     index++;
                     if (index > 2) break;
                 }
@@ -117,7 +116,7 @@ public class LabelExample extends Sprite implements IExample {
             textContainer.visible = true;
             textImageDisplay.visible = true;
             var visionImage:VisionImage = new VisionImage(bmpLabelImage.bitmapData);
-            cloudLabelDetector.detect(visionImage, function (labels:Vector.<CloudLabel>, error:CloudLabelError):void {
+            cloudLabelDetector.detect(visionImage, function (labels:Vector.<ImageLabel>, error:CloudLabelError):void {
                 cloudLabelDetector.close();
                 if (error) {
                     statusLabel.text = "Cloud Label error: " + error.errorID + " : " + error.message;
@@ -125,8 +124,8 @@ public class LabelExample extends Sprite implements IExample {
                 }
                 statusLabel.text = "";
                 var index:int = 0;
-                for each (var label:CloudLabel in labels) {
-                    statusLabel.text = statusLabel.text + label.label + " : " + Math.floor(label.confidence * 100) + "%\n";
+                for each (var label:ImageLabel in labels) {
+                    statusLabel.text = statusLabel.text + label.text + " : " + Math.floor(label.confidence * 100) + "%\n";
                     index++;
                     if (index > 2) break;
                 }

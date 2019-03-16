@@ -59,7 +59,6 @@
 		90160E092115CF950009A815 /* FreVisionCloudDetectorOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90160E082115CF580009A815 /* FreVisionCloudDetectorOptions.swift */; };
 		90160E0A2115CFA90009A815 /* FreVisionCloudDetectorOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90160E082115CF580009A815 /* FreVisionCloudDetectorOptions.swift */; };
 		90160E0C2115D0970009A815 /* CloudLabelEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90160E0B2115D0970009A815 /* CloudLabelEvent.swift */; };
-		90160E0E2115D0FF0009A815 /* FreVisionCloudLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90160E0D2115D0FF0009A815 /* FreVisionCloudLabel.swift */; };
 		90160E172115D3E60009A815 /* FreVisionCloudDetectorOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90160E082115CF580009A815 /* FreVisionCloudDetectorOptions.swift */; };
 		90160E182115D3E60009A815 /* FreVisionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C3FA720F4046600B9E210 /* FreVisionPoint.swift */; };
 		90160E192115D3E60009A815 /* FreVisionImageMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039420EED2A8008D6CE8 /* FreVisionImageMetadata.swift */; };
@@ -90,10 +89,30 @@
 		90207A562151C0850022B2C7 /* FreVisionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92E821506EE8004C98C1 /* FreVisionText.swift */; };
 		90207A582151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90207A572151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift */; };
 		90207A592151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90207A572151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift */; };
+		90236A58222A0C4600C4CB68 /* FreVisionCloudImageLabelerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90236A57222A0C4600C4CB68 /* FreVisionCloudImageLabelerOptions.swift */; };
+		90236A5B222A0E5B00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A5C222A0E6B00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A5D222A0EB300C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A5E222A0EC200C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A5F222A0ED400C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A60222A0F2B00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A61222A0F5A00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A62222A0F6700C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A63222A0F7C00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A64222A0F9600C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A65222A0FA200C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A66222A0FA200C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A67222A0FB200C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A68222A0FBF00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A69222A0FCB00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A6B222A19AC00C4CB68 /* BoringSSL-GRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90236A6A222A198F00C4CB68 /* BoringSSL-GRPC.framework */; };
 		9033688B20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033688A20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift */; };
 		9033689420FCBFE5001A3B24 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033689320FCBFE5001A3B24 /* UIUtilities.swift */; };
 		9062053F20F800B400AFCE48 /* RemoteConfigErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062053E20F800B400AFCE48 /* RemoteConfigErrorEvent.swift */; };
 		9062054120F801A300AFCE48 /* RemoteConfigEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062054020F801A300AFCE48 /* RemoteConfigEvent.swift */; };
+		90656DB9222C5F2700B4626A /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90656DBA222C5F2700B4626A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90656DBB222C5F8D00B4626A /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
 		90658A7621162EF9003197A5 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		90658A7821162EF9003197A5 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
 		90658A8121162EF9003197A5 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
@@ -187,14 +206,6 @@
 		9076901D21CEF4C7004F0D35 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED748E32092558C000327CD /* StoreKit.framework */; };
 		9076901E21CEF4D8004F0D35 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE83B04220A7536B0095C4F9 /* SystemConfiguration.framework */; };
 		908B92E921506EE8004C98C1 /* FreVisionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92E821506EE8004C98C1 /* FreVisionText.swift */; };
-		908B92EB2150705D004C98C1 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
-		908B92EC21507223004C98C1 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
-		908B92ED21507224004C98C1 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
-		908B92EE21507224004C98C1 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
-		908B92EF21507224004C98C1 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
-		908B92F021507225004C98C1 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
-		908B92F121507227004C98C1 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
-		908B92F221507229004C98C1 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
 		909587B12115A55E00AD59D5 /* FreVisionTextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909587B02115A55E00AD59D5 /* FreVisionTextElement.swift */; };
 		909587B42115A65300AD59D5 /* FreVisionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039220EED12C008D6CE8 /* FreVisionImage.swift */; };
 		909587C92115A65300AD59D5 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
@@ -219,6 +230,7 @@
 		90BABA7220FBE90800C012F8 /* PermissionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BABA7020FBE8C500C012F8 /* PermissionController.swift */; };
 		90BABA7520FBE93D00C012F8 /* PermissionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BABA7420FBE93D00C012F8 /* PermissionEvent.swift */; };
 		90BBBDD721AC93A50066541D /* FirebaseANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87F4781FB259DB005CF7DF /* FirebaseANE.m */; };
+		90C1152E222BF02C00F423FB /* FreVisionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90160DCD2115CA3F0009A815 /* FreVisionLabel.swift */; };
 		90CDBBA0215673090056DD92 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDBB9F215673090056DD92 /* SwiftController+FreSwift.swift */; };
 		90CDBBA221567F910056DD92 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CDBBA121567F910056DD92 /* Fabric.framework */; };
 		90CE411F21864C43002FBD4F /* FreNativeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE411E21864C43002FBD4F /* FreNativeType.swift */; };
@@ -228,6 +240,30 @@
 		90D35EA2217AA2990072B9DD /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
 		90D35EA3217AA2CC0072B9DD /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
 		90D35EA4217AA2E30072B9DD /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; };
+		90E495DF222A8EA200CF3B24 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90E495E7222A8EA200CF3B24 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90768F9D21CEBD5A004F0D35 /* SwiftyJSON.swift */; };
+		90E495ED222A8EA200CF3B24 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
+		90E495EE222A8EA200CF3B24 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
+		90E495EF222A8EA200CF3B24 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
+		90E495F0222A8EA200CF3B24 /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */; };
+		90E495F1222A8EA200CF3B24 /* FirebaseMLVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */; };
+		90E495F2222A8EA200CF3B24 /* GoogleMobileVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E038220EECAD5008D6CE8 /* GoogleMobileVision.framework */; };
+		90E495F3222A8EA200CF3B24 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED7492220929C1F000327CD /* GTMSessionFetcher.framework */; };
+		90E495F4222A8EA200CF3B24 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB572BC208D21C300CF6B1B /* GoogleToolboxForMac.framework */; };
+		90E495F5222A8EA200CF3B24 /* GoogleAPIClientForREST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */; };
+		90E495F6222A8EA200CF3B24 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; };
+		90E495FA222A8EA200CF3B24 /* SwiftyJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 90768F9E21CEBD5A004F0D35 /* SwiftyJSON.h */; };
+		90E495FB222A8EA200CF3B24 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
+		90E49608222A8FE700CF3B24 /* FirebaseMLNaturalLanguage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E49606222A8FE700CF3B24 /* FirebaseMLNaturalLanguage.framework */; };
+		90E49609222A8FE700CF3B24 /* FirebaseMLNLLanguageID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E49607222A8FE700CF3B24 /* FirebaseMLNLLanguageID.framework */; };
+		90E4960B222A907A00CF3B24 /* NaturalLanguageANE.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E4960A222A907A00CF3B24 /* NaturalLanguageANE.m */; };
+		90E4960D222A911400CF3B24 /* NaturalLanguageANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = 90E4960C222A911400CF3B24 /* NaturalLanguageANE_oc.h */; };
+		90E4960F222A91B800CF3B24 /* NaturalLanguageANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 90E4960E222A91B800CF3B24 /* NaturalLanguageANE-Bridging-Header.h */; };
+		90E49611222A921F00CF3B24 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E49610222A921F00CF3B24 /* SwiftController.swift */; };
+		90E49613222A923600CF3B24 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E49612222A923600CF3B24 /* SwiftController+FreSwift.swift */; };
+		90E49615222A943600CF3B24 /* FreLanguageIdentificationOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E49614222A943600CF3B24 /* FreLanguageIdentificationOptions.swift */; };
+		90E49617222A966700CF3B24 /* LanguageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E49616222A966700CF3B24 /* LanguageEvent.swift */; };
+		90E49619222A9AB100CF3B24 /* FreIdentifiedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E49618222A9AB100CF3B24 /* FreIdentifiedLanguage.swift */; };
 		90EF030B2154216000C91063 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
 		90EF030C2154216000C91063 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		90EF030E2154216000C91063 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
@@ -246,7 +282,6 @@
 		90EF03262154230100C91063 /* FreVisionCloudDocumentTextRecognizerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03252154230100C91063 /* FreVisionCloudDocumentTextRecognizerOptions.swift */; };
 		90EF0327215423C300C91063 /* FreVisionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039220EED12C008D6CE8 /* FreVisionImage.swift */; };
 		90EF0328215423C700C91063 /* FreVisionImageMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039420EED2A8008D6CE8 /* FreVisionImageMetadata.swift */; };
-		90EF0329215423CF00C91063 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
 		90EF032B2154247500C91063 /* FreVisionDocumentText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF032A2154247500C91063 /* FreVisionDocumentText.swift */; };
 		90EF032D215424BE00C91063 /* CloudDocumentEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF032C215424BE00C91063 /* CloudDocumentEvent.swift */; };
 		90EF032F2154256000C91063 /* FreVisionDocumentTextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF032E2154256000C91063 /* FreVisionDocumentTextBlock.swift */; };
@@ -259,11 +294,7 @@
 		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
 		CE05604A1FB25DF600D06976 /* FirebaseANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE87F4771FB259DB005CF7DF /* FirebaseANE_oc.h */; };
 		CE05604E1FB25E8E00D06976 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
-		CE265751208E5BC100C561E8 /* gRPC-ProtoRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE265749208E5BBF00C561E8 /* gRPC-ProtoRPC.framework */; };
-		CE265752208E5BC100C561E8 /* gRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574A208E5BC000C561E8 /* gRPC.framework */; };
-		CE265754208E5BC100C561E8 /* BoringSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574C208E5BC000C561E8 /* BoringSSL.framework */; };
 		CE265755208E5BC100C561E8 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; };
-		CE265756208E5BC100C561E8 /* gRPC-RxLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574E208E5BC000C561E8 /* gRPC-RxLibrary.framework */; };
 		CE265757208E5BC100C561E8 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574F208E5BC000C561E8 /* leveldb-library.framework */; };
 		CE265758208E5BC100C561E8 /* gRPC-Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE265750208E5BC000C561E8 /* gRPC-Core.framework */; };
 		CE26575C208E6FD500C561E8 /* FreDocumentSnaphot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26575B208E6FD500C561E8 /* FreDocumentSnaphot.swift */; };
@@ -527,7 +558,6 @@
 		90160E012115CDB60009A815 /* VisionCloudLabelANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionCloudLabelANE-Bridging-Header.h"; sourceTree = "<group>"; };
 		90160E082115CF580009A815 /* FreVisionCloudDetectorOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionCloudDetectorOptions.swift; sourceTree = "<group>"; };
 		90160E0B2115D0970009A815 /* CloudLabelEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudLabelEvent.swift; sourceTree = "<group>"; };
-		90160E0D2115D0FF0009A815 /* FreVisionCloudLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionCloudLabel.swift; sourceTree = "<group>"; };
 		90160E342115D3E60009A815 /* libVisionLandmarkANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVisionLandmarkANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		90160E352115D4630009A815 /* VisionLandmarkANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisionLandmarkANE_oc.h; sourceTree = "<group>"; };
 		90160E362115D4630009A815 /* VisionLandmarkANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionLandmarkANE.m; sourceTree = "<group>"; };
@@ -538,6 +568,8 @@
 		90160E432115D98A0009A815 /* FreVisionLatitudeLongitude.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionLatitudeLongitude.swift; sourceTree = "<group>"; };
 		90207A512151BDF90022B2C7 /* FreVisionCloudTextRecognizerOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionCloudTextRecognizerOptions.swift; sourceTree = "<group>"; };
 		90207A572151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionTextRecognizedLanguage.swift; sourceTree = "<group>"; };
+		90236A57222A0C4600C4CB68 /* FreVisionCloudImageLabelerOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionCloudImageLabelerOptions.swift; sourceTree = "<group>"; };
+		90236A6A222A198F00C4CB68 /* BoringSSL-GRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "BoringSSL-GRPC.framework"; path = "Carthage/Build/iOS/BoringSSL-GRPC.framework"; sourceTree = "<group>"; };
 		9033688A20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift; sourceTree = "<group>"; };
 		9033689320FCBFE5001A3B24 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		9062053E20F800B400AFCE48 /* RemoteConfigErrorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigErrorEvent.swift; sourceTree = "<group>"; };
@@ -593,6 +625,17 @@
 		90CE412021865034002FBD4F /* FreNativeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreNativeImage.swift; sourceTree = "<group>"; };
 		90CE4122218650E7002FBD4F /* FreNativeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreNativeButton.swift; sourceTree = "<group>"; };
 		90CE4126218658BD002FBD4F /* FreNativeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreNativeContainer.swift; sourceTree = "<group>"; };
+		90E49601222A8EA200CF3B24 /* libNaturalLanguageANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNaturalLanguageANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		90E49606222A8FE700CF3B24 /* FirebaseMLNaturalLanguage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMLNaturalLanguage.framework; path = Carthage/Build/iOS/FirebaseMLNaturalLanguage.framework; sourceTree = "<group>"; };
+		90E49607222A8FE700CF3B24 /* FirebaseMLNLLanguageID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMLNLLanguageID.framework; path = Carthage/Build/iOS/FirebaseMLNLLanguageID.framework; sourceTree = "<group>"; };
+		90E4960A222A907A00CF3B24 /* NaturalLanguageANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NaturalLanguageANE.m; sourceTree = "<group>"; };
+		90E4960C222A911400CF3B24 /* NaturalLanguageANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NaturalLanguageANE_oc.h; sourceTree = "<group>"; };
+		90E4960E222A91B800CF3B24 /* NaturalLanguageANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NaturalLanguageANE-Bridging-Header.h"; sourceTree = "<group>"; };
+		90E49610222A921F00CF3B24 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
+		90E49612222A923600CF3B24 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		90E49614222A943600CF3B24 /* FreLanguageIdentificationOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreLanguageIdentificationOptions.swift; sourceTree = "<group>"; };
+		90E49616222A966700CF3B24 /* LanguageEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageEvent.swift; sourceTree = "<group>"; };
+		90E49618222A9AB100CF3B24 /* FreIdentifiedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreIdentifiedLanguage.swift; sourceTree = "<group>"; };
 		90EF02F42154205800C91063 /* VisionCloudDocumentANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisionCloudDocumentANE_oc.h; sourceTree = "<group>"; };
 		90EF02F52154205800C91063 /* VisionCloudDocumentANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionCloudDocumentANE.m; sourceTree = "<group>"; };
 		90EF02F6215420E500C91063 /* VisionCloudDocumentANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionCloudDocumentANE-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -609,11 +652,7 @@
 		CE0038CA2094E9B7002A657A /* FreStorageMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreStorageMetadata.swift; sourceTree = "<group>"; };
 		CE05603E1FB25CE200D06976 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/iOS/FreSwift.framework; sourceTree = "<group>"; };
 		CE05604D1FB25E8E00D06976 /* FreMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreMacros.h; sourceTree = "<group>"; };
-		CE265749208E5BBF00C561E8 /* gRPC-ProtoRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "gRPC-ProtoRPC.framework"; path = "Carthage/Build/iOS/gRPC-ProtoRPC.framework"; sourceTree = "<group>"; };
-		CE26574A208E5BC000C561E8 /* gRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gRPC.framework; path = Carthage/Build/iOS/gRPC.framework; sourceTree = "<group>"; };
-		CE26574C208E5BC000C561E8 /* BoringSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BoringSSL.framework; path = Carthage/Build/iOS/BoringSSL.framework; sourceTree = "<group>"; };
 		CE26574D208E5BC000C561E8 /* Protobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Protobuf.framework; path = Carthage/Build/iOS/Protobuf.framework; sourceTree = "<group>"; };
-		CE26574E208E5BC000C561E8 /* gRPC-RxLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "gRPC-RxLibrary.framework"; path = "Carthage/Build/iOS/gRPC-RxLibrary.framework"; sourceTree = "<group>"; };
 		CE26574F208E5BC000C561E8 /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "leveldb-library.framework"; path = "Carthage/Build/iOS/leveldb-library.framework"; sourceTree = "<group>"; };
 		CE265750208E5BC000C561E8 /* gRPC-Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "gRPC-Core.framework"; path = "Carthage/Build/iOS/gRPC-Core.framework"; sourceTree = "<group>"; };
 		CE26575B208E6FD500C561E8 /* FreDocumentSnaphot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreDocumentSnaphot.swift; sourceTree = "<group>"; };
@@ -916,6 +955,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		90E495EC222A8EA200CF3B24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90E495ED222A8EA200CF3B24 /* nanopb.framework in Frameworks */,
+				90E495EE222A8EA200CF3B24 /* FreSwift.framework in Frameworks */,
+				90E495EF222A8EA200CF3B24 /* FirebaseCore.framework in Frameworks */,
+				90E495F0222A8EA200CF3B24 /* FirebaseMLCommon.framework in Frameworks */,
+				90E495F1222A8EA200CF3B24 /* FirebaseMLVision.framework in Frameworks */,
+				90E495F2222A8EA200CF3B24 /* GoogleMobileVision.framework in Frameworks */,
+				90E495F3222A8EA200CF3B24 /* GTMSessionFetcher.framework in Frameworks */,
+				90E495F4222A8EA200CF3B24 /* GoogleToolboxForMac.framework in Frameworks */,
+				90E495F5222A8EA200CF3B24 /* GoogleAPIClientForREST.framework in Frameworks */,
+				90E495F6222A8EA200CF3B24 /* Protobuf.framework in Frameworks */,
+				90E49608222A8FE700CF3B24 /* FirebaseMLNaturalLanguage.framework in Frameworks */,
+				90E49609222A8FE700CF3B24 /* FirebaseMLNLLanguageID.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90EF030A2154216000C91063 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1044,18 +1102,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90236A6B222A19AC00C4CB68 /* BoringSSL-GRPC.framework in Frameworks */,
 				9076901E21CEF4D8004F0D35 /* SystemConfiguration.framework in Frameworks */,
 				9076901D21CEF4C7004F0D35 /* StoreKit.framework in Frameworks */,
 				9076901C21CEF4C1004F0D35 /* Security.framework in Frameworks */,
 				9076901B21CEF4B2004F0D35 /* SafariServices.framework in Frameworks */,
 				CE265758208E5BC100C561E8 /* gRPC-Core.framework in Frameworks */,
-				CE265751208E5BC100C561E8 /* gRPC-ProtoRPC.framework in Frameworks */,
-				CE265752208E5BC100C561E8 /* gRPC.framework in Frameworks */,
 				90741DAE21504F88003366E3 /* gRPC-C++.framework in Frameworks */,
-				CE265756208E5BC100C561E8 /* gRPC-RxLibrary.framework in Frameworks */,
 				CEB57290208CF73F00CF6B1B /* FreSwift.framework in Frameworks */,
 				CE743201208D48E000E388D3 /* FirebaseFirestore.framework in Frameworks */,
-				CE265754208E5BC100C561E8 /* BoringSSL.framework in Frameworks */,
 				CE743202208D490600E388D3 /* FirebaseCore.framework in Frameworks */,
 				CE265755208E5BC100C561E8 /* Protobuf.framework in Frameworks */,
 				CE265757208E5BC100C561E8 /* leveldb-library.framework in Frameworks */,
@@ -1203,7 +1258,7 @@
 		90160DD42115CBE50009A815 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				90160E0D2115D0FF0009A815 /* FreVisionCloudLabel.swift */,
+				90236A57222A0C4600C4CB68 /* FreVisionCloudImageLabelerOptions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1448,6 +1503,45 @@
 			path = ../VisionANE/FreNative;
 			sourceTree = "<group>";
 		};
+		90E49602222A8F0F00CF3B24 /* NaturalLanguageANE */ = {
+			isa = PBXGroup;
+			children = (
+				90E49605222A8F4D00CF3B24 /* Headers */,
+				90E49604222A8F4500CF3B24 /* Extensions */,
+				90E49603222A8F3B00CF3B24 /* Events */,
+				90E4960A222A907A00CF3B24 /* NaturalLanguageANE.m */,
+				90E49610222A921F00CF3B24 /* SwiftController.swift */,
+				90E49612222A923600CF3B24 /* SwiftController+FreSwift.swift */,
+			);
+			path = NaturalLanguageANE;
+			sourceTree = "<group>";
+		};
+		90E49603222A8F3B00CF3B24 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				90E49616222A966700CF3B24 /* LanguageEvent.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		90E49604222A8F4500CF3B24 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				90E49614222A943600CF3B24 /* FreLanguageIdentificationOptions.swift */,
+				90E49618222A9AB100CF3B24 /* FreIdentifiedLanguage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		90E49605222A8F4D00CF3B24 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				90E4960C222A911400CF3B24 /* NaturalLanguageANE_oc.h */,
+				90E4960E222A91B800CF3B24 /* NaturalLanguageANE-Bridging-Header.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
 		90EF02F021541FF300C91063 /* VisionCloudDocumentANE */ = {
 			isa = PBXGroup;
 			children = (
@@ -1495,6 +1589,9 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90E49606222A8FE700CF3B24 /* FirebaseMLNaturalLanguage.framework */,
+				90E49607222A8FE700CF3B24 /* FirebaseMLNLLanguageID.framework */,
+				90236A6A222A198F00C4CB68 /* BoringSSL-GRPC.framework */,
 				90CDBBA121567F910056DD92 /* Fabric.framework */,
 				90741DB121504FC2003366E3 /* GoogleUtilities.framework */,
 				90741DAF21504FBA003366E3 /* GoogleAppMeasurement.framework */,
@@ -1543,12 +1640,8 @@
 				CED7492220929C1F000327CD /* GTMSessionFetcher.framework */,
 				CED748E32092558C000327CD /* StoreKit.framework */,
 				CED748E120925586000327CD /* AddressBook.framework */,
-				CE26574C208E5BC000C561E8 /* BoringSSL.framework */,
 				CE743200208D48E000E388D3 /* FirebaseFirestore.framework */,
 				CE265750208E5BC000C561E8 /* gRPC-Core.framework */,
-				CE265749208E5BBF00C561E8 /* gRPC-ProtoRPC.framework */,
-				CE26574E208E5BC000C561E8 /* gRPC-RxLibrary.framework */,
-				CE26574A208E5BC000C561E8 /* gRPC.framework */,
 				CE26574F208E5BC000C561E8 /* leveldb-library.framework */,
 				CE26574D208E5BC000C561E8 /* Protobuf.framework */,
 				CEB572BC208D21C300CF6B1B /* GoogleToolboxForMac.framework */,
@@ -1732,7 +1825,6 @@
 				906A682F21151A8100848218 /* FreCornerPoint.swift */,
 				90160E082115CF580009A815 /* FreVisionCloudDetectorOptions.swift */,
 				90160E432115D98A0009A815 /* FreVisionLatitudeLongitude.swift */,
-				908B92EA2150705D004C98C1 /* FreNSError.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1757,6 +1849,7 @@
 			isa = PBXGroup;
 			children = (
 				90768F9C21CEBD41004F0D35 /* SwiftyJSON */,
+				90E49602222A8F0F00CF3B24 /* NaturalLanguageANE */,
 				90EF02F021541FF300C91063 /* VisionCloudDocumentANE */,
 				90658A6321162ECF003197A5 /* ModelInterpreterANE */,
 				90160E0F2115D36D0009A815 /* VisionLandmarkANE */,
@@ -1811,6 +1904,7 @@
 				90658A8921162EF9003197A5 /* libModelInterpreterANE_LIB.a */,
 				909ED0DF214EE7070059EB62 /* libCrashlyticsANE_LIB.a */,
 				90EF031F2154216000C91063 /* libVisionCloudDocumentANE_LIB.a */,
+				90E49601222A8EA200CF3B24 /* libNaturalLanguageANE_LIB.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1903,6 +1997,7 @@
 		CE94517220951E6600FE2BD7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				908B92EA2150705D004C98C1 /* FreNSError.swift */,
 				CE94517320951E8B00FE2BD7 /* FreFirebaseOptions.swift */,
 			);
 			path = Extensions;
@@ -2225,6 +2320,7 @@
 			files = (
 				90658A8C21162F98003197A5 /* ModelInterpreterANE_oc.h in Headers */,
 				90658A8121162EF9003197A5 /* FreMacros.h in Headers */,
+				90656DB9222C5F2700B4626A /* SwiftyJSON.h in Headers */,
 				90658A9321163015003197A5 /* ModelInterpreterANE-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2258,6 +2354,17 @@
 				909ED0D9214EE7070059EB62 /* FreMacros.h in Headers */,
 				909ED0E5214EE7D30059EB62 /* CrashlyticsANE-Bridging-Header.h in Headers */,
 				909ED0E2214EE79C0059EB62 /* CrashlyticsANE_oc.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90E495F7222A8EA200CF3B24 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90E4960F222A91B800CF3B24 /* NaturalLanguageANE-Bridging-Header.h in Headers */,
+				90E4960D222A911400CF3B24 /* NaturalLanguageANE_oc.h in Headers */,
+				90E495FA222A8EA200CF3B24 /* SwiftyJSON.h in Headers */,
+				90E495FB222A8EA200CF3B24 /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2557,6 +2664,25 @@
 			name = CrashlyticsANE_LIB;
 			productName = HelloWorldANE_LIB;
 			productReference = 909ED0DF214EE7070059EB62 /* libCrashlyticsANE_LIB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		90E495DA222A8EA200CF3B24 /* NaturalLanguageANE_LIB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90E495FE222A8EA200CF3B24 /* Build configuration list for PBXNativeTarget "NaturalLanguageANE_LIB" */;
+			buildPhases = (
+				90E495DB222A8EA200CF3B24 /* Sources */,
+				90E495EC222A8EA200CF3B24 /* Frameworks */,
+				90E495F7222A8EA200CF3B24 /* Headers */,
+				90E495FC222A8EA200CF3B24 /* ShellScript */,
+				90E495FD222A8EA200CF3B24 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NaturalLanguageANE_LIB;
+			productName = HelloWorldANE_LIB;
+			productReference = 90E49601222A8EA200CF3B24 /* libNaturalLanguageANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		90EF02F82154216000C91063 /* VisionCloudDocumentANE_LIB */ = {
@@ -2894,6 +3020,7 @@
 				90658A6721162EF9003197A5 /* ModelInterpreterANE_LIB */,
 				909ED0C4214EE7070059EB62 /* CrashlyticsANE_LIB */,
 				90EF02F82154216000C91063 /* VisionCloudDocumentANE_LIB */,
+				90E495DA222A8EA200CF3B24 /* NaturalLanguageANE_LIB */,
 			);
 		};
 /* End PBXProject section */
@@ -3080,6 +3207,32 @@
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "../../../native_extension/CrashlyticsANE/ane/build_multi.sh\n";
+		};
+		90E495FC222A8EA200CF3B24 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		90E495FD222A8EA200CF3B24 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "../../../native_extension/VisionNaturalLanguageANE/ane/build_multi.sh\n";
 		};
 		90EF031A2154216000C91063 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3278,14 +3431,14 @@
 		};
 		CEB57295208CF73F00CF6B1B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "../../../native_extension/FirestoreANE/ane/build_multi.sh\n";
 		};
@@ -3352,7 +3505,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		CEBCF7B22095F9160028601B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3483,11 +3636,11 @@
 				90160DC42115C7290009A815 /* SwiftController.swift in Sources */,
 				90768FA621CEBDBE004F0D35 /* SwiftyJSON.swift in Sources */,
 				90160D9C2115C60B0009A815 /* FreVisionImageMetadata.swift in Sources */,
+				90236A65222A0FA200C4CB68 /* FreNSError.swift in Sources */,
 				90160DCE2115CA3F0009A815 /* FreVisionLabel.swift in Sources */,
 				90160DC22115C7050009A815 /* VisionLabelANE.m in Sources */,
 				90160DCC2115C9790009A815 /* FreVisionLabelDetectorOptions.swift in Sources */,
 				90658AA92116493E003197A5 /* SwiftController+FreSwift.swift in Sources */,
-				908B92ED21507224004C98C1 /* FreNSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3495,18 +3648,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90160E0E2115D0FF0009A815 /* FreVisionCloudLabel.swift in Sources */,
 				90160E0C2115D0970009A815 /* CloudLabelEvent.swift in Sources */,
 				90160E092115CF950009A815 /* FreVisionCloudDetectorOptions.swift in Sources */,
 				90768FA821CEBDFF004F0D35 /* SwiftyJSON.swift in Sources */,
 				90160E052115CF010009A815 /* FreVisionPoint.swift in Sources */,
 				90160E062115CF010009A815 /* FreVisionImageMetadata.swift in Sources */,
 				90160E072115CF010009A815 /* FreCornerPoint.swift in Sources */,
+				90236A66222A0FA200C4CB68 /* FreNSError.swift in Sources */,
 				90160DD92115CCA30009A815 /* FreVisionImage.swift in Sources */,
-				908B92EE21507224004C98C1 /* FreNSError.swift in Sources */,
+				90C1152E222BF02C00F423FB /* FreVisionLabel.swift in Sources */,
 				90160DFE2115CD840009A815 /* SwiftController.swift in Sources */,
 				90160DFC2115CD660009A815 /* VisionCloudLabelANE.m in Sources */,
 				90658AAA2116493E003197A5 /* SwiftController+FreSwift.swift in Sources */,
+				90236A58222A0C4600C4CB68 /* FreVisionCloudImageLabelerOptions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3521,12 +3675,12 @@
 				90160E402115D6440009A815 /* LandmarkEvent.swift in Sources */,
 				90160E422115D6A40009A815 /* FreVisionCloudLandmark.swift in Sources */,
 				90160E1A2115D3E60009A815 /* FreCornerPoint.swift in Sources */,
+				90236A67222A0FB200C4CB68 /* FreNSError.swift in Sources */,
 				90160E442115D98A0009A815 /* FreVisionLatitudeLongitude.swift in Sources */,
 				90658AAB2116493E003197A5 /* SwiftController+FreSwift.swift in Sources */,
 				90160E382115D4630009A815 /* VisionLandmarkANE.m in Sources */,
 				90160E1B2115D3E60009A815 /* FreVisionImage.swift in Sources */,
 				90768FAA21CEBE13004F0D35 /* SwiftyJSON.swift in Sources */,
-				908B92EF21507224004C98C1 /* FreNSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3537,14 +3691,15 @@
 				90658A952116314B003197A5 /* FreModelDownloadConditions.swift in Sources */,
 				90658AA121164476003197A5 /* ModelInterpreterEvent.swift in Sources */,
 				90658A8D21162F98003197A5 /* ModelInterpreterANE.m in Sources */,
+				90656DBA222C5F2700B4626A /* SwiftyJSON.swift in Sources */,
 				90658A9F2116378C003197A5 /* FreModelInputs.swift in Sources */,
 				90658A9B21163389003197A5 /* FreModelOptions.swift in Sources */,
 				90658A992116330F003197A5 /* FreLocalModelSource.swift in Sources */,
 				90658A9D21163400003197A5 /* FreModelInputOutputOptions.swift in Sources */,
-				908B92F021507225004C98C1 /* FreNSError.swift in Sources */,
 				90658A9721163213003197A5 /* FreCloudModelSource.swift in Sources */,
 				90658A8F21162FBA003197A5 /* SwiftController.swift in Sources */,
 				90658A9121162FC9003197A5 /* SwiftController+FreSwift.swift in Sources */,
+				90656DBB222C5F8D00B4626A /* FreNSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3553,6 +3708,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				906A68272114F42300848218 /* FreVisionImage.swift in Sources */,
+				90236A63222A0F7C00C4CB68 /* FreNSError.swift in Sources */,
 				906A682A2114F5C200848218 /* TextEvent.swift in Sources */,
 				906A68282114F42300848218 /* FreVisionImageMetadata.swift in Sources */,
 				90207A582151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift in Sources */,
@@ -3565,7 +3721,6 @@
 				906A683021151A8100848218 /* FreCornerPoint.swift in Sources */,
 				906A68162114F05000848218 /* VisionTextANE.m in Sources */,
 				906A681A2114F12500848218 /* SwiftController.swift in Sources */,
-				908B92EB2150705D004C98C1 /* FreNSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3577,6 +3732,7 @@
 				90207A522151BDF90022B2C7 /* FreVisionCloudTextRecognizerOptions.swift in Sources */,
 				90160D932115ABDB0009A815 /* FreVisionPoint.swift in Sources */,
 				90160D942115ABDB0009A815 /* FreCornerPoint.swift in Sources */,
+				90236A64222A0F9600C4CB68 /* FreNSError.swift in Sources */,
 				90160D922115ABCA0009A815 /* FreVisionImageMetadata.swift in Sources */,
 				90160D962115AC440009A815 /* CloudTextEvent.swift in Sources */,
 				90207A592151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift in Sources */,
@@ -3585,7 +3741,6 @@
 				90207A562151C0850022B2C7 /* FreVisionText.swift in Sources */,
 				90207A552151C0810022B2C7 /* FreVisionTextElement.swift in Sources */,
 				90160D8B2115A7BD0009A815 /* VisionCloudTextANE.m in Sources */,
-				908B92EC21507223004C98C1 /* FreNSError.swift in Sources */,
 				90160D8D2115A8640009A815 /* SwiftController.swift in Sources */,
 				90768FA321CEBD8D004F0D35 /* SwiftyJSON.swift in Sources */,
 				909587B42115A65300AD59D5 /* FreVisionImage.swift in Sources */,
@@ -3603,14 +3758,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		90E495DB222A8EA200CF3B24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90E495DF222A8EA200CF3B24 /* FreNSError.swift in Sources */,
+				90E49617222A966700CF3B24 /* LanguageEvent.swift in Sources */,
+				90E49611222A921F00CF3B24 /* SwiftController.swift in Sources */,
+				90E4960B222A907A00CF3B24 /* NaturalLanguageANE.m in Sources */,
+				90E49619222A9AB100CF3B24 /* FreIdentifiedLanguage.swift in Sources */,
+				90E495E7222A8EA200CF3B24 /* SwiftyJSON.swift in Sources */,
+				90E49615222A943600CF3B24 /* FreLanguageIdentificationOptions.swift in Sources */,
+				90E49613222A923600CF3B24 /* SwiftController+FreSwift.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90EF02F92154216000C91063 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				90EF032F2154256000C91063 /* FreVisionDocumentTextBlock.swift in Sources */,
 				90EF0328215423C700C91063 /* FreVisionImageMetadata.swift in Sources */,
-				90EF0329215423CF00C91063 /* FreNSError.swift in Sources */,
 				90EF03262154230100C91063 /* FreVisionCloudDocumentTextRecognizerOptions.swift in Sources */,
+				90236A68222A0FBF00C4CB68 /* FreNSError.swift in Sources */,
 				90EF0322215421E300C91063 /* VisionCloudDocumentANE.m in Sources */,
 				90EF0323215421E600C91063 /* SwiftController.swift in Sources */,
 				90EF0330215425AE00C91063 /* FreVisionTextRecognizedLanguage.swift in Sources */,
@@ -3638,10 +3808,10 @@
 				CE2C3F9620F3F5D800B9E210 /* VisionFaceANE.m in Sources */,
 				CE2C3FAD20F40A3300B9E210 /* FaceEvent.swift in Sources */,
 				CE2C3F9E20F3F84700B9E210 /* FreVisionFaceDetectorOptions.swift in Sources */,
-				908B92F121507227004C98C1 /* FreNSError.swift in Sources */,
 				90D35EA2217AA2990072B9DD /* SwiftController+FreSwift.swift in Sources */,
 				CE2C3FA820F4046600B9E210 /* FreVisionPoint.swift in Sources */,
 				CE2C3F9820F3F69000B9E210 /* SwiftController.swift in Sources */,
+				90236A62222A0F6700C4CB68 /* FreNSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3688,10 +3858,10 @@
 				CE6E03A120EEEA25008D6CE8 /* FreVisionBarcodeEmail.swift in Sources */,
 				CE6E039720EED577008D6CE8 /* FreVisionBarcodeDetectorOptions.swift in Sources */,
 				CE420A0B20F0DFBD0095967F /* FreVisionBarcodePersonName.swift in Sources */,
-				908B92F221507229004C98C1 /* FreNSError.swift in Sources */,
 				906A683121151B0C00848218 /* FreCornerPoint.swift in Sources */,
 				9033688B20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift in Sources */,
 				CE6E03A520EEEB68008D6CE8 /* FreVisionBarcodeSMS.swift in Sources */,
+				90236A61222A0F5A00C4CB68 /* FreNSError.swift in Sources */,
 				CE6E03AF20EEEDE2008D6CE8 /* FreVisionBarcodeCalendarEvent.swift in Sources */,
 				CE6E038C20EECBE7008D6CE8 /* SwiftController.swift in Sources */,
 				CE90A9CD20F42D850003C34F /* BarcodeEvent.swift in Sources */,
@@ -3733,6 +3903,7 @@
 				CE8BC51720B222D6009164ED /* DynamicLinkEvent.swift in Sources */,
 				CE8BC4CC20B1CAF3009164ED /* DynamicLinksANE.m in Sources */,
 				CE8BC4D020B1CB8B009164ED /* SwiftController+FreSwift.swift in Sources */,
+				90236A5F222A0ED400C4CB68 /* FreNSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3748,6 +3919,7 @@
 				9062053F20F800B400AFCE48 /* RemoteConfigErrorEvent.swift in Sources */,
 				9062054120F801A300AFCE48 /* RemoteConfigEvent.swift in Sources */,
 				CE9451AE2095355600FE2BD7 /* FreRemoteConfig.swift in Sources */,
+				90236A5B222A0E5B00C4CB68 /* FreNSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3758,6 +3930,7 @@
 				CE265762208E7AB600C561E8 /* FreDocumentChange.swift in Sources */,
 				CE265760208E767400C561E8 /* FreFirestoreSettings.swift in Sources */,
 				CEB572AB208CF8F400CF6B1B /* SwiftController.swift in Sources */,
+				90236A69222A0FCB00C4CB68 /* FreNSError.swift in Sources */,
 				90768FAE21CEBE3C004F0D35 /* SwiftyJSON.swift in Sources */,
 				CE265764208E7B7700C561E8 /* FreQuerySnapshot.swift in Sources */,
 				CEB572AD208CF8F400CF6B1B /* SwiftController+FreSwift.swift in Sources */,
@@ -3778,6 +3951,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB9480220D5CFEB00F707C1 /* InvitesANE.m in Sources */,
+				90236A60222A0F2B00C4CB68 /* FreNSError.swift in Sources */,
 				CEB9481320D5D64B00F707C1 /* SwiftController+InviteDelegate.swift in Sources */,
 				CEB9480820D5D04300F707C1 /* SwiftController.swift in Sources */,
 				90768FBC21CEBEE2004F0D35 /* SwiftyJSON.swift in Sources */,
@@ -3795,6 +3969,7 @@
 				CEBCF7B82095F9820028601B /* AuthANE.m in Sources */,
 				CEBCF7BE2095F9C80028601B /* SwiftController.swift in Sources */,
 				CEBCF7C42095FC190028601B /* AuthController.swift in Sources */,
+				90236A5D222A0EB300C4CB68 /* FreNSError.swift in Sources */,
 				CEBCF7D1209612060028601B /* AuthEvent.swift in Sources */,
 				90768FB621CEBEA5004F0D35 /* SwiftyJSON.swift in Sources */,
 				CE62952B20A8DD2600EEF76E /* FreAuthCredential.swift in Sources */,
@@ -3813,6 +3988,7 @@
 				CED7491C2092989B000327CD /* SwiftController.swift in Sources */,
 				CED7492F20929F0E000327CD /* FreStorageReference.swift in Sources */,
 				CED7492920929D54000327CD /* StorageErrorEvent.swift in Sources */,
+				90236A5C222A0E6B00C4CB68 /* FreNSError.swift in Sources */,
 				CED7491E209298B0000327CD /* SwiftController+FreSwift.swift in Sources */,
 				CED7492A20929D54000327CD /* StorageProgressEvent.swift in Sources */,
 				CED7492020929B22000327CD /* StorageController.swift in Sources */,
@@ -3836,6 +4012,7 @@
 				CE83B04620A7793A0095C4F9 /* SwiftController+UNUserNotificationCenter.swift in Sources */,
 				CEE3AE9120A06FB100D3AAF6 /* SwiftController.swift in Sources */,
 				CE2BDB4720A6222900C89A7C /* SwiftController+Messaging.swift in Sources */,
+				90236A5E222A0EC200C4CB68 /* FreNSError.swift in Sources */,
 				CEE3AE8D20A06F6500D3AAF6 /* MessagingANE.m in Sources */,
 				CE2BDB4920A6243800C89A7C /* MessageEvent.swift in Sources */,
 				90768FB821CEBEB6004F0D35 /* SwiftyJSON.swift in Sources */,
@@ -4237,6 +4414,67 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "CrashlyticsANE/Headers/CrashlyticsANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "CrashlyticsANE/CrashlyticsANE-Swift.h";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		90E495FF222A8EA200CF3B24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NaturalLanguageANE/Headers/NaturalLanguageANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "NaturalLanguageANE/NaturalLanguageANE-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		90E49600222A8EA200CF3B24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "NaturalLanguageANE/Headers/NaturalLanguageANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "NaturalLanguageANE/NaturalLanguageANE-Swift.h";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
@@ -5252,6 +5490,15 @@
 			buildConfigurations = (
 				909ED0DD214EE7070059EB62 /* Debug */,
 				909ED0DE214EE7070059EB62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90E495FE222A8EA200CF3B24 /* Build configuration list for PBXNativeTarget "NaturalLanguageANE_LIB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90E495FF222A8EA200CF3B24 /* Debug */,
+				90E49600222A8EA200CF3B24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -17,7 +17,7 @@
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/build/generated/res/rs/release;file://$MODULE_DIR$/build/generated/res/resValues/release" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
         <option name="PROJECT_TYPE" value="1" />
       </configuration>
@@ -27,7 +27,7 @@
         <compilerSettings />
         <compilerArguments>
           <option name="destination" value="$MODULE_DIR$/build/tmp/kotlin-classes/release" />
-          <option name="classpath" value="$USER_HOME$/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.6.0.aar/9148ff96d38f311fd95118c4c213786f/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.6.0.aar/9148ff96d38f311fd95118c4c213786f/jars/libs/FlashRuntimeExtensions.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.6.0.aar/9148ff96d38f311fd95118c4c213786f/jars/libs/runtimeClasses.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.11/4cbc5922a54376018307a731162ccaf3ef851a39/kotlin-stdlib-1.3.11.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.4/d0de1ca9b69e69d1d497ee3c6009d015f64dad57/gson-2.8.4.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-auth-15.0.1.aar/f0bc78b96c475357b6a92d5a0ec9bb7e/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-15.0.1.aar/77b2b539c97ba1885d7b4144b105cc1d/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-15.0.1.aar/21c889ac3b26deb36a1d97447f6e84ab/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/8f0199a928843f507166a8c9d2768747/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/3045495796f8fac1397924ec3025b58a/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/ae056f3b17c07ec332f9898edc97855b/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/af492fb28e2bee69dbd8db6b2b13e8ec/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.11/d8b8e746e279f1c4f5e08bc14a96b82e6bb1de02/kotlin-stdlib-common-1.3.11.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/844fa27dbc51ffee3b41a4861a557e82/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/aad0d5025c4367bd89c47328d8513a8d/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/3fe2d1aca902a42a12d104b823df2aa6/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/38412ab5cc7c302c1bf668abe0c39ad6/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/84951f2bf7369bd45ddc45251d22e30c/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/27.1.0/39ded76b5e1ce1c5b2688e1d25cdc20ecee32007/support-annotations-27.1.0.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/3f124d3f48c91bc6dc975666e56a3586/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/e6735b5f96ab5c0f9ecc021b12fadb33/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/daebcdd9dccc3abb51e4660bff0679c5/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.1.0/edf3f7bfb84a7521d0599efa3b0113a0ee90f85/common-1.1.0.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/7432069329f334e469a321e9963b24d1/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.1.0/8007981f7d7540d89cd18471b8e5dcd2b4f99167/common-1.1.0.jar:/Users/eoinlandy/Library/Android/sdk/platforms/android-27/android.jar" />
+          <option name="classpath" value="$USER_HOME$/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.6.0.aar/0b35fe2c7d1f236e1242babce50fa5a6/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.6.0.aar/0b35fe2c7d1f236e1242babce50fa5a6/jars/libs/FlashRuntimeExtensions.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.6.0.aar/0b35fe2c7d1f236e1242babce50fa5a6/jars/libs/runtimeClasses.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.11/4cbc5922a54376018307a731162ccaf3ef851a39/kotlin-stdlib-1.3.11.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.4/d0de1ca9b69e69d1d497ee3c6009d015f64dad57/gson-2.8.4.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-auth-16.0.1.aar/d0856fbd329e0142ece916399818b87f/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-auth-api-phone-16.0.0.aar/fce4e1245fd392016d02046b9251579f/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-auth-base-16.0.0.aar/6bb32d1770a20a40fa35739422bb7c33/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/e706c2c2184da018690adb065ca88162/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-16.0.1.aar/426eea41686a3e0275867fdf4a151ca5/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/e00319998cb62044f081c139ed8f9a79/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/485af5856fdfb01ddc477c5e421c0fbc/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.11/d8b8e746e279f1c4f5e08bc14a96b82e6bb1de02/kotlin-stdlib-common-1.3.11.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/1c41967804bfd77916ebdabefa7daa01/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/d44e791f9c73277d9d2f6cdfebcd04b4/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/fc88d9106c05f6fc5eb6e8abd62e836b/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/e5861ae1c0709ae5b94c756bc3dbc980/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/8b6b2a4aa14a3bba06f67edf22ff00c2/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/27.1.0/39ded76b5e1ce1c5b2688e1d25cdc20ecee32007/support-annotations-27.1.0.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/51733646a82103bdb5336403d17df7c3/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/11f30e1d9708c492076e943ec84a74d2/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/daf72d398b7d835291d86d46c92208df/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.1.0/edf3f7bfb84a7521d0599efa3b0113a0ee90f85/common-1.1.0.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/09a0b90f2cfdd1f901084f944917d648/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.1.0/8007981f7d7540d89cd18471b8e5dcd2b4f99167/common-1.1.0.jar:/Users/eoinlandy/Library/Android/sdk/platforms/android-27/android.jar" />
           <option name="noStdlib" value="true" />
           <option name="noReflect" value="true" />
           <option name="moduleName" value="GoogleSignIn_release" />
@@ -47,6 +47,9 @@
               <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.3.11/61615dc1b4490a6a1940454da57496356067e488/kotlin-android-extensions-1.3.11.jar" />
             </array>
           </option>
+          <option name="errors">
+            <ArgumentParseErrors />
+          </option>
         </compilerArguments>
       </configuration>
     </facet>
@@ -57,7 +60,6 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/release" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/release" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/release" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/release" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/release" isTestSource="false" generated="true" />
@@ -99,6 +101,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/build/generated/not_namespaced_r_class_sources" />
+      <excludeFolder url="file://$MODULE_DIR$/build/generated/source/r" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotations" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/attr" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
@@ -109,14 +113,12 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javaPrecompile" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_and_local_jars_jni" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged-aidl" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged-classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packagedAssets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged_res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/public_res" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/publish-proguard" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
@@ -128,29 +130,29 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 27 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-api-phone-15.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement-15.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-base:16.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.lifecycle:livedata-core:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.lifecycle:runtime:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:common:1.1.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-base-15.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-fragment-27.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: android.arch.core:runtime-1.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-15.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:viewmodel-1.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-compat-27.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-v4-27.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base:16.0.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.lifecycle:viewmodel:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-core-ui:27.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.tuarua:FreKotlin:1.6.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-api-phone:16.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-fragment:27.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement:16.0.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth:16.0.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-media-compat:27.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.11@jar" level="project" />
-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:livedata-core-1.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: android.arch.core:runtime:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.11@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base-15.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.tuarua:FreKotlin-1.6.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-media-compat-27.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-core-utils:27.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.4@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks-15.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-annotations:27.1.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-core-utils-27.1.0" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.core:common:1.1.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-core-ui-27.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:runtime-1.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-v4:27.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:support-compat:27.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks:16.0.1@aar" level="project" />
   </component>
 </module>

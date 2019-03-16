@@ -18,11 +18,12 @@ import Foundation
 import FreSwift
 import FirebaseMLVision
 
-public extension VisionLabelDetectorOptions {
+public extension VisionOnDeviceImageLabelerOptions {
     convenience init?(_ freObject: FREObject?) {
         guard let rv = freObject
             else { return nil }
         let confidenceThreshold = Float(rv["confidenceThreshold"]) ?? 0.5
-        self.init(confidenceThreshold: confidenceThreshold)
+        self.init()
+        self.confidenceThreshold = confidenceThreshold
     }
 }

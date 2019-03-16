@@ -16,7 +16,7 @@
 
 package com.tuarua.firebase.firestore {
 public class DocumentSnapshot {
-    /** The ID of the document for which this `DocumentSnapshot` contains data. */
+    /** The ID of the document for which this <code>DocumentSnapshot</code> contains data. */
     public var id:String;
     public var data:*;
     /** True if the document exists. */

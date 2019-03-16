@@ -41,9 +41,9 @@ public class DocumentText {
      */
     public function get blocks():Vector.<DocumentTextBlock> {
         if (_blocks.length > 0) return _blocks;
-        var theRet:* = CloudDocumentRecognizer.context.call("getBlocks", this._id);
-        if (theRet is ANEError) throw theRet as ANEError;
-        if (theRet != null) _blocks = theRet;
+        var ret:* = CloudDocumentRecognizer.context.call("getBlocks", this._id);
+        if (ret is ANEError) throw ret as ANEError;
+        if (ret != null) _blocks = ret;
         return _blocks;
     }
 

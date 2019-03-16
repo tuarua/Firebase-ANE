@@ -49,7 +49,9 @@ extension SwiftController: FreSwiftMainController {
     }
     
     @objc public func setFREContext(ctx: FREContext) {
-        self.context = FreContextSwift.init(freContext: ctx)
+        self.context = FreContextSwift(freContext: ctx)
+        // Turn on FreSwift logging
+        FreSwiftLogger.shared.context = context
     }
     
     @objc public func onLoad() {

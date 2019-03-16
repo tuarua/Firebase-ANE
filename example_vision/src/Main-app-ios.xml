@@ -4,7 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-iOS-Device</name>
-    <versionNumber>0.0.9</versionNumber>
+    <versionNumber>0.3.0</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -61,6 +61,9 @@
         <extensionID>com.tuarua.firebase.VisionLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionLandmarkANE</extensionID>
+        <extensionID>com.tuarua.firebase.NaturalLanguageANE</extensionID>
+        <extensionID>com.tuarua.firebase.ModelInterpreterANE</extensionID>
+
     </extensions>
 
 </application>

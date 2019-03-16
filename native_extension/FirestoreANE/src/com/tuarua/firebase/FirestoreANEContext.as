@@ -68,7 +68,7 @@ public class FirestoreANEContext {
         if (listener) {
             eventId = context.call("createGUID") as String;
             closures[eventId] = listener;
-            if (closureCallers) {
+            if (listenerCaller) {
                 closureCallers[eventId] = listenerCaller;
             }
         }

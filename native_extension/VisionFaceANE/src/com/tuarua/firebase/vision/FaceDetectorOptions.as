@@ -20,22 +20,38 @@ package com.tuarua.firebase.vision {
 public class FaceDetectorOptions {
     /**
      * Whether to run additional classifiers for characterizing attributes such as smiling. Defaults to
-     * VisionFaceDetectorClassificationNone.
+     * FaceDetectorClassificationMode.none.
      */
-    public var classificationType:uint = FaceDetectorClassification.none;
+    public var classificationMode:uint = FaceDetectorClassificationMode.none;
     /**
      * Preference for accuracy vs. speed trade-offs in face detection.  Defaults to
-     * VisionFaceDetectorModeFast.
+     * FaceDetectorPerformanceMode.fast.
      */
-    public var modeType:uint = FaceDetectorMode.fast;
+    public var performanceMode:uint = FaceDetectorPerformanceMode.fast;
     /**
      * <p>Whether to detect no landmarks or all landmarks in face detection. Processing time increases as<br>
      * the number of landmarks to search for increases, so detecting all landmarks will increase the<br>
-     * overall detection time. Defaults to VisionFaceDetectorLandmarkNone.</p>
+     * overall detection time. Defaults to FaceDetectorLandmarkMode.none.</p>
      */
-    public var landmarkType:uint = FaceDetectorLandmark.none;
+    public var landmarkMode:uint = FaceDetectorLandmarkMode.none;
     /**
-     * Whether the face tracking feature is enabled in face detection. Defaults to NO.
+     * The face detector contour mode that determines the type of contour results returned by detection.
+     * Defaults to FaceDetectorContourMode.none.
+     *
+     * <p>The following detection results are returned when setting this mode to <code>.all</code>:
+     *
+     * <p><code>performanceMode</code> set to <code>.fast</code>, and both <code>classificationMode</code>
+     * and <code>landmarkMode</code> set to
+     * <code>.none</code>, then only the prominent face will be returned with detected contours.
+     *
+     * <p><code>performanceMode</code> set to <code>.accurate</code>, or if <code>classificationMode</code>
+     * or <code>landmarkMode</code> is set to
+     * <code>.all</code>, then all detected faces will be returned, but only the prominent face will have
+     * detecteted contours.
+     */
+    public var contourMode:uint = FaceDetectorContourMode.none;
+    /**
+     * Whether the face tracking feature is enabled in face detection. Defaults to false.
      */
     public var isTrackingEnabled:Boolean = false;
     /**

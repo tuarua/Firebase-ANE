@@ -53,8 +53,7 @@ public class SwiftController: NSObject {
             self.detector?.process(image) { (features, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: FaceEvent.DETECTED,
-                                   value: FaceEvent(eventId: eventId,
-                                                       error: err.toDictionary()).toJSONString())
+                                   value: FaceEvent(eventId: eventId, error: err).toJSONString())
                 } else {
                     if let features = features, !features.isEmpty {
                         self.results[eventId] = features

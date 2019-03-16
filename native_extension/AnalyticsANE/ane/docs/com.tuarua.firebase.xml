@@ -25,7 +25,8 @@
      The name of the current screen. Should contain 1 to 100 characters.
      Set to null to clear the current screen name.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase:AnalyticsANE:minimumSessionDuration:set"><apiName>minimumSessionDuration</apiName><shortdesc>
-     Sets the minimum engagement time in seconds required to start a new session.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="write"/><apiType value="Number"/></apiValueDef><apiDesc>
+     Sets the minimum engagement time in seconds required to start a new session.</shortdesc><prolog><asCustoms><deprecated>
+     </deprecated></asCustoms></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="write"/><apiType value="Number"/></apiValueDef><apiDesc>
      Sets the minimum engagement time in seconds required to start a new session. The default value
      is 10000 milliseconds.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase:AnalyticsANE:sessionTimeoutDuration:set"><apiName>sessionTimeoutDuration</apiName><shortdesc>

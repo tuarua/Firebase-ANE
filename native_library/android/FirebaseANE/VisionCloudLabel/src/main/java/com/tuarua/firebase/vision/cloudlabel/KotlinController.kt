@@ -19,12 +19,13 @@ package com.tuarua.firebase.vision.cloudlabel
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.FirebaseVision
-import com.google.firebase.ml.vision.cloud.label.*
+import com.google.firebase.ml.vision.label.FirebaseVisionImageLabel
+import com.google.firebase.ml.vision.label.FirebaseVisionImageLabeler
 import com.google.gson.Gson
 import com.tuarua.firebase.vision.cloudlabel.events.CloudLabelEvent
-import com.tuarua.firebase.vision.cloudlabel.extensions.toFREArray
-import com.tuarua.firebase.vision.extensions.FirebaseVisionCloudDetectorOptions
+import com.tuarua.firebase.vision.cloudlabel.extensions.FirebaseVisionCloudImageLabelerOptions
 import com.tuarua.firebase.vision.extensions.FirebaseVisionImage
+import com.tuarua.firebase.vision.extensions.toFREArray
 import com.tuarua.frekotlin.*
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.Dispatchers
@@ -35,19 +36,18 @@ import java.util.*
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private val TRACE = "TRACE"
-    private var results: MutableMap<String, MutableList<FirebaseVisionCloudLabel>> = mutableMapOf()
+    private var results: MutableMap<String, MutableList<FirebaseVisionImageLabel>> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = Dispatchers.Default
-    private lateinit var detector: FirebaseVisionCloudLabelDetector
+    private lateinit var detector: FirebaseVisionImageLabeler
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
-        val options = FirebaseVisionCloudDetectorOptions(argv[0])
+        val options = FirebaseVisionCloudImageLabelerOptions(argv[0])
         detector = if (options != null) {
-            FirebaseVision.getInstance().getVisionCloudLabelDetector(options)
+            FirebaseVision.getInstance().getCloudImageLabeler(options)
         } else {
-            FirebaseVision.getInstance().visionCloudLabelDetector
+            FirebaseVision.getInstance().cloudImageLabeler
         }
         return true.toFREObject()
     }
@@ -61,9 +61,10 @@ class KotlinController : FreKotlinMainController {
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
         GlobalScope.launch(bgContext) {
-            detector.detectInImage(image).addOnCompleteListener { task ->
+            detector.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    results[eventId] = task.result
+                    val result = task.result ?: return@addOnCompleteListener
+                    results[eventId] = result
                     dispatchEvent(CloudLabelEvent.RECOGNIZED,
                             gson.toJson(CloudLabelEvent(eventId, null)))
                 } else {

@@ -20,15 +20,20 @@ package com.tuarua.vision.clouddocument.extensions
 
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.document.FirebaseVisionCloudDocumentRecognizerOptions
+import com.tuarua.frekotlin.Boolean
 import com.tuarua.frekotlin.List
 import com.tuarua.frekotlin.get
 
 fun FirebaseVisionCloudDocumentRecognizerOptions(freObject: FREObject?): FirebaseVisionCloudDocumentRecognizerOptions? {
     val rv = freObject ?: return null
     val languageHints = List<String>(rv["languageHints"])
+    val enforceCertFingerprintMatch = Boolean(rv["enforceCertFingerprintMatch"]) ?: false
     val builder = FirebaseVisionCloudDocumentRecognizerOptions.Builder()
     if (languageHints.isNotEmpty()) {
         builder.setLanguageHints(languageHints)
+    }
+    if (enforceCertFingerprintMatch) {
+        builder.enforceCertFingerprintMatch()
     }
     return builder.build()
 }

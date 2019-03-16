@@ -15,8 +15,6 @@
  */
 
 import Foundation
-
-import Foundation
 import FreSwift
 import FirebaseMLVision
 

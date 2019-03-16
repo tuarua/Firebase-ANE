@@ -3,8 +3,8 @@
 
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
-    <name>FIR-Example-iOS-Android</name>
-    <versionNumber>0.0.9</versionNumber>
+    <name>FIR-Example-Android</name>
+    <versionNumber>0.3.0</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -57,6 +57,7 @@
                     <meta-data
                         android:name="com.google.firebase.ml.vision.DEPENDENCIES"
                         android:value="face,barcode,text,label" />
+
                         <!-- To use multiple models: android:value="face,model2,model3" -->
 
 
@@ -132,8 +133,6 @@
                         </intent-filter>
                     </activity>
 
-
-
                 </application>
             </manifest>
             ]]>
@@ -151,7 +150,6 @@
         <extensionID>com.google.android.gms.play-services-base</extensionID>
         <extensionID>com.google.android.gms.play-services-vision-image-label</extensionID>
 
-
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
         <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionANE</extensionID>
@@ -163,12 +161,15 @@
         <extensionID>com.tuarua.firebase.VisionLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionLandmarkANE</extensionID>
+        <extensionID>com.tuarua.firebase.NaturalLanguageANE</extensionID>
+        <extensionID>com.tuarua.firebase.ModelInterpreterANE</extensionID>
 
         <extensionID>com.google.firebase.firebase-analytics</extensionID>
         <extensionID>com.google.firebase.firebase-iid</extensionID>
         <extensionID>com.google.firebase.firebase-ml-vision</extensionID>
-
-
+        <extensionID>com.google.firebase.firebase-ml-natural-language</extensionID>
+        <extensionID>com.google.firebase.firebase-ml-vision-face-model</extensionID>
+        <extensionID>com.google.firebase.firebase-ml-model-interpreter</extensionID>
     </extensions>
 
 </application>

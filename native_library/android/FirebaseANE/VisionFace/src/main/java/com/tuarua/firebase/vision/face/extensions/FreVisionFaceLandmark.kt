@@ -22,7 +22,7 @@ import com.tuarua.frekotlin.toFREObject
 
 fun FirebaseVisionFaceLandmark.toFREObject() =
         FREObject("com.tuarua.firebase.vision.FaceLandmark",
-                    position.toFREObject(), landmarkTypeString(faceLandmarkType)?.toFREObject())
+                    position.toFREObject(), landmarkTypeString(landmarkType)?.toFREObject())
 
 private fun landmarkTypeString(value: Int): String? {
     return when (value) {

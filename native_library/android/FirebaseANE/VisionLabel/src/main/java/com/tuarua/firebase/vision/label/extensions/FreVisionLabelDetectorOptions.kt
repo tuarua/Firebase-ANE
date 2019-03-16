@@ -17,15 +17,15 @@
 package com.tuarua.firebase.vision.label.extensions
 
 import com.adobe.fre.FREObject
-import com.google.firebase.ml.vision.label.FirebaseVisionLabelDetectorOptions
+import com.google.firebase.ml.vision.label.FirebaseVisionOnDeviceImageLabelerOptions
 import com.tuarua.frekotlin.Float
 import com.tuarua.frekotlin.get
 
 @Suppress("FunctionName")
-fun FirebaseVisionLabelDetectorOptions(freObject: FREObject?): FirebaseVisionLabelDetectorOptions? {
+fun FirebaseVisionLabelDetectorOptions(freObject: FREObject?): FirebaseVisionOnDeviceImageLabelerOptions? {
     val rv = freObject ?: return null
     val confidenceThreshold = Float(rv["confidenceThreshold"]) ?: 0.5f
 
-    return FirebaseVisionLabelDetectorOptions.Builder()
+    return FirebaseVisionOnDeviceImageLabelerOptions.Builder()
             .setConfidenceThreshold(confidenceThreshold).build()
 }

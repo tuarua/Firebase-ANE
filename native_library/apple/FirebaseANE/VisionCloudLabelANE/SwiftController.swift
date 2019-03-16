@@ -25,8 +25,8 @@ public class SwiftController: NSObject {
     public var functionsToSet: FREFunctionMap = [:]
     lazy var vision = Vision.vision()
     private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.clbl.uiq", qos: .userInitiated)
-    private var results: [String: [VisionCloudLabel?]] = [:]
-    private var detector: VisionCloudLabelDetector?
+    private var results: [String: [VisionImageLabel?]] = [:]
+    private var detector: VisionImageLabeler?
     
     func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return UUID().uuidString.toFREObject()
@@ -34,11 +34,11 @@ public class SwiftController: NSObject {
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let options = VisionCloudDetectorOptions(argv[0])
+            let options = VisionCloudImageLabelerOptions(argv[0])
             else {
                 return FreArgError(message: "initController").getError(#file, #line, #column)
         }
-        detector = self.vision.cloudLabelDetector(options: options)
+        detector = self.vision.cloudImageLabeler(options: options)
         return true.toFREObject()
     }
     
@@ -50,11 +50,11 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "detect").getError(#file, #line, #column)
         }
         userInitiatedQueue.async {
-            self.detector?.detect(in: image) { (result, error) in
+            self.detector?.process(image, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: CloudLabelEvent.RECOGNIZED,
                                        value: CloudLabelEvent(eventId: eventId,
-                                                              error: err.toDictionary()).toJSONString())
+                                                              error: err).toJSONString())
                 } else {
                     if let result = result, !result.isEmpty {
                         self.results[eventId] = result
@@ -62,7 +62,7 @@ public class SwiftController: NSObject {
                                            value: CloudLabelEvent(eventId: eventId).toJSONString())
                     }
                 }
-            }
+            })
         }
         return nil
     }

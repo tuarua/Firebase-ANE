@@ -29,6 +29,6 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.0.0'
     implementation "com.google.code.gson:gson:$gson_version"
     implementation "com.google.firebase:firebase-core:$firebase_core_version"
-    implementation "com.google.firebase:firebase-messaging:17.0.0"
+    implementation "com.google.firebase:firebase-messaging:$firebase_messaging_version"
     implementation "com.tuarua:FreKotlin:$frekotlin_version"
 }

@@ -24,7 +24,7 @@ public class TextRecognizedBreak {
      */
     public var type:uint;
     /**
-     * Indicates whether the break prepends the text element. If `false`, the break comes after the text
+     * Indicates whether the break prepends the text element. If <code>false</code>, the break comes after the text
      * element.
      */
     public var isPrefix:Boolean;

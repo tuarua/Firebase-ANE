@@ -1,2 +1,7 @@
 *.jpg
 *.png
+*.tfl
+*.emd
+*.tflite
+*.pb
+*.txt

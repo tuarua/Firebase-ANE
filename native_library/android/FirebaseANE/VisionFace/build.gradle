@@ -33,8 +33,3 @@ dependencies {
     implementation "com.tuarua:FreKotlin:$frekotlin_version"
     implementation project(':Vision')
 }
-kotlin {
-    experimental {
-        coroutines "enable"
-    }
-}

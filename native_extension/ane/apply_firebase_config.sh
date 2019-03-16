@@ -4,7 +4,6 @@ grn=$'\e[1;32m'
 white=$'\e[0m'
 
 #Get the path to the script and trim to get the directory.
-echo "Setting path to current directory to:"
 pathtome=$0
 pathtome="${pathtome%/*}"
 

@@ -24,18 +24,18 @@ public class WriteBatch {
     }
 
     /**
-     * Deletes the document referred to by `documentReference`.
+     * Deletes the document referred to by <code>documentReference</code>.
      *
      * @param documentReference
      */
     public function deleteDocument(documentReference:DocumentReference):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("deleteBatch", documentReference.path);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("deleteBatch", documentReference.path);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
-     * Updates fields in the document referred to by `documentReference`.
+     * Updates fields in the document referred to by <code>documentReference</code>.
      * If document does not exist, the write batch will fail.
      *
      * @param forDocument A reference to the document whose data should be overwritten.
@@ -43,24 +43,24 @@ public class WriteBatch {
      */
     public function updateData(data:*, forDocument:DocumentReference):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("updateBatch", forDocument.path, data);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("updateBatch", forDocument.path, data);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
-     * Writes to the document referred to by `documentReference`. If the document doesn't yet exist,
+     * Writes to the document referred to by <code>documentReference</code>. If the document doesn't yet exist,
      * this method creates it and then sets the data. If the document exists, this method overwrites
      * the document data with the new values.
      *
      * @param data
      * @param forDocument A reference to the document whose data should be overwritten.
      * @param merge Whether to merge the provided data into any existing document.
-     * @return This `WriteBatch` instance. Used for chaining method calls.
+     * @return This <code>WriteBatch</code> instance. Used for chaining method calls.
      */
     public function setData(data:*, forDocument:DocumentReference, merge:Boolean = false):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("setBatch", forDocument.path, data, merge);
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("setBatch", forDocument.path, data, merge);
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     /**
@@ -79,8 +79,8 @@ public class WriteBatch {
      */
     public function commit(listener:Function = null):void {
         FirestoreANEContext.validate();
-        var theRet:* = FirestoreANEContext.context.call("commitBatch", FirestoreANEContext.createEventId(listener));
-        if (theRet is ANEError) throw theRet as ANEError;
+        var ret:* = FirestoreANEContext.context.call("commitBatch", FirestoreANEContext.createEventId(listener));
+        if (ret is ANEError) throw ret as ANEError;
     }
 
 }

@@ -26,8 +26,8 @@ public final class PerformanceANE extends EventDispatcher {
     /** @private */
     public function PerformanceANE() {
         if (PerformanceANEContext.context) {
-            var theRet:* = PerformanceANEContext.context.call("init", _isDataCollectionEnabled, _isInstrumentationEnabled);
-            if (theRet is ANEError) throw theRet as ANEError;
+            var ret:* = PerformanceANEContext.context.call("init", _isDataCollectionEnabled, _isInstrumentationEnabled);
+            if (ret is ANEError) throw ret as ANEError;
         }
         _performance = this;
     }
@@ -52,8 +52,8 @@ public final class PerformanceANE extends EventDispatcher {
     public static function set isDataCollectionEnabled(value:Boolean):void {
         _isDataCollectionEnabled = value;
         if (_performance) {
-            var theRet:* = PerformanceANEContext.context.call("setIsDataCollectionEnabled", _isDataCollectionEnabled);
-            if (theRet is ANEError) throw theRet as ANEError;
+            var ret:* = PerformanceANEContext.context.call("setIsDataCollectionEnabled", _isDataCollectionEnabled);
+            if (ret is ANEError) throw ret as ANEError;
         }
     }
 
@@ -72,8 +72,8 @@ public final class PerformanceANE extends EventDispatcher {
     public static function set isInstrumentationEnabled(value:Boolean):void {
         _isInstrumentationEnabled = value;
         if (_performance) {
-            var theRet:* = PerformanceANEContext.context.call("setIsInstrumentationEnabled", _isInstrumentationEnabled);
-            if (theRet is ANEError) throw theRet as ANEError;
+            var ret:* = PerformanceANEContext.context.call("setIsInstrumentationEnabled", _isInstrumentationEnabled);
+            if (ret is ANEError) throw ret as ANEError;
         }
     }
 
