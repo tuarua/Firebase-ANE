@@ -24,6 +24,7 @@
         <packagedDependency>Frameworks/GoogleAppMeasurement.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleToolboxForMac.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleUtilities.framework</packagedDependency>
+        <packagedDependency>Frameworks/Fabric.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

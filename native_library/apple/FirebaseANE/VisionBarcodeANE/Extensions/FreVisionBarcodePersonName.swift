@@ -31,3 +31,10 @@ public extension VisionBarcodePersonName {
         return ret.rawValue
     }
 }
+
+public extension FreObjectSwift {
+    public subscript(dynamicMember name: String) -> VisionBarcodePersonName? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
+    }
+}

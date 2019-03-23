@@ -25,7 +25,7 @@ public class SwiftController: NSObject {
     public var functionsToSet: FREFunctionMap = [:]
     lazy var vision = Vision.vision()
     private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.fce.uiq", qos: .userInitiated)
-    private var results: [String: [VisionFace?]] = [:]
+    private var results: [String: [VisionFace]] = [:]
     private var detector: VisionFaceDetector?
     
     func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
@@ -72,15 +72,9 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "getResult").getError(#file, #line, #column)
         }
-        if let result = results[eventId] {
-            let freArray = FREArray(className: "com.tuarua.firebase.vision.Face")
-            for face in result {
-                freArray?.push(face?.toFREObject())
-            }
-            results[eventId] = nil
-            return freArray?.rawValue
-        }
-        return nil
+        let ret = results[eventId]?.toFREObject()
+        results.removeValue(forKey: eventId)
+        return ret
     }
     
     func close(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {

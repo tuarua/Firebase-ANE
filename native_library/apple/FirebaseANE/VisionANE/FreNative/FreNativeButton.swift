@@ -84,6 +84,7 @@ class FreNativeButton: UIButton {
                 height = img.size.width
             }
         }
+        asBitmapData.releaseData()
         super.init(frame: CGRect.init(x: _x, y: _y, width: width, height: height))
         context = ctx
         self.setBackgroundImage(img, for: .normal)

@@ -3006,8 +3006,10 @@
 				CEBCF79A2095F9160028601B /* AuthANE_LIB */,
 				CEE3AE5920A0691700D3AAF6 /* PerformanceANE_LIB */,
 				CEE3AE7520A06D2600D3AAF6 /* MessagingANE_LIB */,
+				909ED0C4214EE7070059EB62 /* CrashlyticsANE_LIB */,
 				CE8BC49A20B1C890009164ED /* DynamicLinksANE_LIB */,
 				CE62B34920D0618E002837B7 /* GoogleSignInANE_LIB */,
+				90E495DA222A8EA200CF3B24 /* NaturalLanguageANE_LIB */,
 				CEB947E320D5CED000F707C1 /* InvitesANE_LIB */,
 				CE6E035C20EEC828008D6CE8 /* VisionBarcodeANE_LIB */,
 				CE5E6AFC20F1787D001398C5 /* VisionANE_LIB */,
@@ -3018,9 +3020,7 @@
 				90160DD72115CCA30009A815 /* VisionCloudLabelANE_LIB */,
 				90160E132115D3E60009A815 /* VisionLandmarkANE_LIB */,
 				90658A6721162EF9003197A5 /* ModelInterpreterANE_LIB */,
-				909ED0C4214EE7070059EB62 /* CrashlyticsANE_LIB */,
 				90EF02F82154216000C91063 /* VisionCloudDocumentANE_LIB */,
-				90E495DA222A8EA200CF3B24 /* NaturalLanguageANE_LIB */,
 			);
 		};
 /* End PBXProject section */
@@ -3349,18 +3349,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		CE6E037320EEC828008D6CE8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "../../../native_extension/VisionBarcodeANE/ane/build_multi.sh\n";
 		};

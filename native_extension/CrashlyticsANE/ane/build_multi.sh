@@ -9,12 +9,12 @@ libSuffix="_LIB"
 
 AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_32"
 
-if [ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/" ]; then
+if [[ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/" ]]; then
 echo "No Simulator build. Build using Xcode"
 exit
 fi
 
-if [ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/" ]; then
+if [[ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/" ]]; then
 echo "No Device build. Build using Xcode"
 exit
 fi
@@ -22,28 +22,28 @@ fi
 #Setup the directory.
 echo "Making directories."
 
-if [ ! -d "$pathtome/platforms" ]; then
+if [[ ! -d "$pathtome/platforms" ]]; then
 mkdir "$pathtome/platforms"
 fi
-if [ ! -d "$pathtome/platforms/ios" ]; then
+if [[ ! -d "$pathtome/platforms/ios" ]]; then
 mkdir "$pathtome/platforms/ios"
 fi
-if [ ! -d "$pathtome/platforms/android" ]; then
+if [[ ! -d "$pathtome/platforms/android" ]]; then
 mkdir "$pathtome/platforms/android"
 fi
-if [ ! -d "$pathtome/platforms/ios/simulator" ]; then
+if [[ ! -d "$pathtome/platforms/ios/simulator" ]]; then
 mkdir "$pathtome/platforms/ios/simulator"
 fi
-if [ ! -d "$pathtome/platforms/ios/simulator/Frameworks" ]; then
+if [[ ! -d "$pathtome/platforms/ios/simulator/Frameworks" ]]; then
 mkdir "$pathtome/platforms/ios/simulator/Frameworks"
 fi
-if [ ! -d "$pathtome/platforms/ios/device" ]; then
+if [[ ! -d "$pathtome/platforms/ios/device" ]]; then
 mkdir "$pathtome/platforms/ios/device"
 fi
-if [ ! -d "$pathtome/platforms/ios/device/Frameworks" ]; then
+if [[ ! -d "$pathtome/platforms/ios/device/Frameworks" ]]; then
 mkdir "$pathtome/platforms/ios/device/Frameworks"
 fi
-if [ ! -d "$pathtome/platforms/default" ]; then
+if [[ ! -d "$pathtome/platforms/default" ]]; then
 mkdir "$pathtome/platforms/default"
 fi
 
@@ -67,9 +67,6 @@ mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.tuarua.fir
 
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/simulator/lib$PROJECTNAME.a"
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/device/lib$PROJECTNAME.a"
-
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/Fabric.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/Fabric.framework" "$pathtome/platforms/ios/device/Frameworks"
 
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/Crashlytics.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/Crashlytics.framework" "$pathtome/platforms/ios/device/Frameworks"

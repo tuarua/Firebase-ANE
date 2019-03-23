@@ -38,3 +38,17 @@ public extension Array where Element == VisionBarcodeEmail {
         return ret.rawValue
     }
 }
+
+public extension FreObjectSwift {
+    public subscript(dynamicMember name: String) -> VisionBarcodeEmail? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
+    }
+}
+
+public extension FreObjectSwift {
+    public subscript(dynamicMember name: String) -> [VisionBarcodeEmail]? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
+    }
+}

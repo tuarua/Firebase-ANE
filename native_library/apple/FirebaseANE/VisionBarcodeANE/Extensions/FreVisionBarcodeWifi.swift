@@ -23,3 +23,10 @@ public extension VisionBarcodeWifi {
         return FREObject(className: "com.tuarua.firebase.vision.BarcodeWifi", args: password, ssid, type.rawValue)
     }
 }
+
+public extension FreObjectSwift {
+    public subscript(dynamicMember name: String) -> VisionBarcodeWifi? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
+    }
+}

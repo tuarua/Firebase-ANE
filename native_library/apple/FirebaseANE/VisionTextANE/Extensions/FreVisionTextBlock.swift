@@ -23,9 +23,9 @@ public extension VisionTextBlock {
         guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.TextBlock") else {return nil}
         ret.lines = self.lines.toFREObject()
         ret.frame = self.frame
-        ret.cornerPoints = self.cornerPoints?.toFREObject()
+        ret.cornerPoints = cornerPoints
         ret.confidence = self.confidence
-        ret.recognizedLanguages = self.recognizedLanguages.toFREObject()
+        ret.recognizedLanguages = self.recognizedLanguages
         return ret.rawValue
     }
 }

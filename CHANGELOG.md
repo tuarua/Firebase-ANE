@@ -1,3 +1,6 @@
+### 0.4.0
+- iOS: Package Fabrio.io with FirebaseANE as it is required by mulitple frameworks not just Crashlytics. Issue #28
+
 ### 0.3.0
 - iOS: Firebase 5.18.2
 - AND: Firebase Core 16.0.5

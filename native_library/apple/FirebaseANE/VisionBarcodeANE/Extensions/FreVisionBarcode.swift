@@ -25,17 +25,30 @@ public extension VisionBarcode {
         ret["rawValue"] = rawValue?.toFREObject()
         ret.displayValue = displayValue
         ret.format = format.rawValue
-        ret.cornerPoints = cornerPoints?.toFREObject()
+        ret.cornerPoints = cornerPoints
         ret.valueType = valueType.rawValue
-        ret.email = email?.toFREObject()
-        ret.phone = phone?.toFREObject()
-        ret.sms = sms?.toFREObject()
-        ret.url = url?.toFREObject()
-        ret.wifi = wifi?.toFREObject()
-        ret.geoPoint = geoPoint?.toFREObject()
-        ret.contactInfo = contactInfo?.toFREObject()
-        ret.driverLicense = driverLicense?.toFREObject()
-        ret.calendarEvent = calendarEvent?.toFREObject()
+        ret.email = email
+        ret.phone = phone
+        ret.sms = sms
+        ret.url = url
+        ret.wifi = wifi
+        ret.geoPoint = geoPoint
+        ret.contactInfo = contactInfo
+        ret.driverLicense = driverLicense
+        ret.calendarEvent = calendarEvent
+        return ret.rawValue
+    }
+}
+
+public extension Array where Element == VisionBarcode {
+    func toFREObject() -> FREObject? {
+        guard let ret = FREArray(className: "com.tuarua.firebase.vision.Barcode",
+                                 length: self.count, fixed: true) else { return nil }
+        var index: UInt = 0
+        for element in self {
+            ret[index] = element.toFREObject()
+            index+=1
+        }
         return ret.rawValue
     }
 }

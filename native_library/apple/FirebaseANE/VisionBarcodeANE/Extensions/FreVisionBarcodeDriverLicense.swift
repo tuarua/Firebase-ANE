@@ -38,3 +38,10 @@ public extension VisionBarcodeDriverLicense {
         return ret.rawValue
     }
 }
+
+public extension FreObjectSwift {
+    public subscript(dynamicMember name: String) -> VisionBarcodeDriverLicense? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
+    }
+}
