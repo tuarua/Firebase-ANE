@@ -23,3 +23,10 @@ public extension VisionBarcodeURLBookmark {
         return FREObject(className: "com.tuarua.firebase.vision.BarcodeURLBookmark", args: title, url)
     }
 }
+
+public extension FreObjectSwift {
+    public subscript(dynamicMember name: String) -> VisionBarcodeURLBookmark? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
+    }
+}

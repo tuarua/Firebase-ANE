@@ -31,3 +31,10 @@ public extension VisionBarcodeCalendarEvent {
         return ret.rawValue
     }
 }
+
+public extension FreObjectSwift {
+    public subscript(dynamicMember name: String) -> VisionBarcodeCalendarEvent? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
+    }
+}

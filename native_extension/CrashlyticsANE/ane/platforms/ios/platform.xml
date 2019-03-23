@@ -11,7 +11,6 @@
     </linkerOptions>
     
     <packagedDependencies>
-        <packagedDependency>Frameworks/Fabric.framework</packagedDependency>
         <packagedDependency>Frameworks/Crashlytics.framework</packagedDependency>
     </packagedDependencies>
     

@@ -24,3 +24,10 @@ public extension VisionBarcodeSMS {
                                     args: self.message, self.phoneNumber)
     }
 }
+
+public extension FreObjectSwift {
+    public subscript(dynamicMember name: String) -> VisionBarcodeSMS? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
+    }
+}

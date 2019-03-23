@@ -23,7 +23,6 @@
         <packagedDependency>Frameworks/FirebaseMLCommon.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseMLVision.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleMobileVision.framework</packagedDependency>
-        <packagedDependency>Frameworks/Fabric.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

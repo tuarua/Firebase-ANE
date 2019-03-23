@@ -35,3 +35,10 @@ public extension Array where Element == VisionTextRecognizedLanguage {
         return ret.rawValue
     }
 }
+
+public extension FreObjectSwift {
+    public subscript(dynamicMember name: String) -> [VisionTextRecognizedLanguage]? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
+    }
+}

@@ -24,3 +24,10 @@ public extension VisionBarcodeGeoPoint {
                                     args: self.latitude, self.longitude)
     }
 }
+
+public extension FreObjectSwift {
+    public subscript(dynamicMember name: String) -> VisionBarcodeGeoPoint? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
+    }
+}

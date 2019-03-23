@@ -25,7 +25,7 @@ public extension VisionCloudLandmark {
         ret.confidence = confidence
         ret.entityId = entityId
         ret.landmark = landmark
-        ret.locations = locations?.toFREObject()
+        ret.locations = locations
         return ret.rawValue
     }
 }

@@ -51,3 +51,16 @@ public extension VisionFace {
         return ret.rawValue
     }
 }
+
+public extension Array where Element == VisionFace {
+    func toFREObject() -> FREObject? {
+        guard let ret = FREArray(className: "com.tuarua.firebase.vision.Face",
+                                 length: self.count, fixed: true) else { return nil }
+        var index: UInt = 0
+        for element in self {
+            ret[index] = element.toFREObject()
+            index+=1
+        }
+        return ret.rawValue
+    }
+}

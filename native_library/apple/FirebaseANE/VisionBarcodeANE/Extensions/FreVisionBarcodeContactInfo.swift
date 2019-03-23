@@ -22,12 +22,19 @@ public extension VisionBarcodeContactInfo {
     func toFREObject() -> FREObject? {
         guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.BarcodeContactInfo") else { return nil }
         ret.jobTitle = jobTitle
-        ret.name = name?.toFREObject()
+        ret.name = name
         ret.organization = organization
-        ret.addresses = addresses?.toFREObject()
-        ret.emails = emails?.toFREObject()
-        ret.phones = phones?.toFREObject()
+        ret.addresses = addresses
+        ret.emails = emails
+        ret.phones = phones
         ret.urls = urls?.toFREObject()
         return ret.rawValue
+    }
+}
+
+public extension FreObjectSwift {
+    public subscript(dynamicMember name: String) -> VisionBarcodeContactInfo? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
     }
 }

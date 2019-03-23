@@ -9,12 +9,12 @@ libSuffix="_LIB"
 
 AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_32"
 
-if [ ! -d "$pathtome/../../native_library/apple/$PROJECTNAME/Build/Products/Release-iphonesimulator/" ]; then
+if [[ ! -d "$pathtome/../../native_library/apple/$PROJECTNAME/Build/Products/Release-iphonesimulator/" ]]; then
 echo "No Simulator build. Build using Xcode"
 exit
 fi
 
-if [ ! -d "$pathtome/../../native_library/apple/$PROJECTNAME/Build/Products/Release-iphoneos/" ]; then
+if [[ ! -d "$pathtome/../../native_library/apple/$PROJECTNAME/Build/Products/Release-iphoneos/" ]]; then
 echo "No Device build. Build using Xcode"
 exit
 fi
@@ -22,28 +22,28 @@ fi
 #Setup the directory.
 echo "Making directories."
 
-if [ ! -d "$pathtome/platforms" ]; then
+if [[ ! -d "$pathtome/platforms" ]]; then
 mkdir "$pathtome/platforms"
 fi
-if [ ! -d "$pathtome/platforms/android" ]; then
+if [[ ! -d "$pathtome/platforms/android" ]]; then
 mkdir "$pathtome/platforms/android"
 fi
-if [ ! -d "$pathtome/platforms/ios" ]; then
+if [[ ! -d "$pathtome/platforms/ios" ]]; then
 mkdir "$pathtome/platforms/ios"
 fi
-if [ ! -d "$pathtome/platforms/ios/simulator" ]; then
+if [[ ! -d "$pathtome/platforms/ios/simulator" ]]; then
 mkdir "$pathtome/platforms/ios/simulator"
 fi
-if [ ! -d "$pathtome/platforms/ios/simulator/Frameworks" ]; then
+if [[ ! -d "$pathtome/platforms/ios/simulator/Frameworks" ]]; then
 mkdir "$pathtome/platforms/ios/simulator/Frameworks"
 fi
-if [ ! -d "$pathtome/platforms/ios/device" ]; then
+if [[ ! -d "$pathtome/platforms/ios/device" ]]; then
 mkdir "$pathtome/platforms/ios/device"
 fi
-if [ ! -d "$pathtome/platforms/ios/device/Frameworks" ]; then
+if [[ ! -d "$pathtome/platforms/ios/device/Frameworks" ]]; then
 mkdir "$pathtome/platforms/ios/device/Frameworks"
 fi
-if [ ! -d "$pathtome/platforms/default" ]; then
+if [[ ! -d "$pathtome/platforms/default" ]]; then
 mkdir "$pathtome/platforms/default"
 fi
 
@@ -105,6 +105,9 @@ cp -R -L "$pathtome/../../firebase_frameworks/device/GoogleToolboxForMac.framewo
 
 cp -R -L "$pathtome/../../firebase_frameworks/simulator/GoogleUtilities.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../firebase_frameworks/device/GoogleUtilities.framework" "$pathtome/platforms/ios/device/Frameworks"
+
+cp -R -L "$pathtome/../../firebase_frameworks/simulator/Fabric.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../firebase_frameworks/device/Fabric.framework" "$pathtome/platforms/ios/device/Frameworks"
 
 #Run the build command.
 echo "Building ANE."

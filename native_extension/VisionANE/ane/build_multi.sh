@@ -9,7 +9,7 @@ libSuffix="_LIB"
 
 AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_32"
 
-if [ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/" ]; then
+if [[ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/" ]]; then
 echo "No Device build. Build using Xcode"
 exit
 fi
@@ -17,19 +17,19 @@ fi
 #Setup the directory.
 echo "Making directories."
 
-if [ ! -d "$pathtome/platforms" ]; then
+if [[ ! -d "$pathtome/platforms" ]]; then
 mkdir "$pathtome/platforms"
 fi
-if [ ! -d "$pathtome/platforms/ios" ]; then
+if [[ ! -d "$pathtome/platforms/ios" ]]; then
 mkdir "$pathtome/platforms/ios"
 fi
-if [ ! -d "$pathtome/platforms/ios/device" ]; then
+if [[ ! -d "$pathtome/platforms/ios/device" ]]; then
 mkdir "$pathtome/platforms/ios/device"
 fi
-if [ ! -d "$pathtome/platforms/ios/device/Frameworks" ]; then
+if [[ ! -d "$pathtome/platforms/ios/device/Frameworks" ]]; then
 mkdir "$pathtome/platforms/ios/device/Frameworks"
 fi
-if [ ! -d "$pathtome/platforms/default" ]; then
+if [[ ! -d "$pathtome/platforms/default" ]]; then
 mkdir "$pathtome/platforms/default"
 fi
 
@@ -58,7 +58,6 @@ cp -R -L "$pathtome/../../../firebase_frameworks/device/GoogleAPIClientForREST.f
 cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseMLCommon.framework" "$pathtome/platforms/ios/device/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseMLVision.framework" "$pathtome/platforms/ios/device/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/GoogleMobileVision.framework" "$pathtome/platforms/ios/device/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/Fabric.framework" "$pathtome/platforms/ios/device/Frameworks"
 
 echo "Copying Android aars into place"
 cp "$pathtome/../../../native_library/android/FirebaseANE/Vision/build/outputs/aar/Vision-release.aar" "$pathtome/platforms/android/app-release.aar"

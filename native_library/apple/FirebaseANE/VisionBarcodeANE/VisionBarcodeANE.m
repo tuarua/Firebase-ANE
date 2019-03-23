@@ -19,11 +19,11 @@
 
 #define FRE_OBJC_BRIDGE TRFBVBC_FlashRuntimeExtensionsBridge
 @interface FRE_OBJC_BRIDGE : NSObject<FreSwiftBridgeProtocol>
-    @end
+@end
 @implementation FRE_OBJC_BRIDGE {
 }
-    FRE_OBJC_BRIDGE_FUNCS
-    @end
+FRE_OBJC_BRIDGE_FUNCS
+@end
 
 @implementation VisionBarcodeANE_LIB
 SWIFT_DECL(TRFBVBC)
