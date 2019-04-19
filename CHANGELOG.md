@@ -1,3 +1,8 @@
+### 0.5.0
+- Upgraded to AIR 32.0.0.116
+- AND: Updated to FreKotlin 1.7.0
+- iOS: Updated to FreSwift 3.1.0
+
 ### 0.4.0
 - iOS: Package Fabrio.io with FirebaseANE as it is required by mulitple frameworks not just Crashlytics. Issue #28
 

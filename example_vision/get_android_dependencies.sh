@@ -1,6 +1,6 @@
 #!/bin/sh
 
-AneVersion="0.4.0"
+AneVersion="0.5.0"
 PlayerServicesVersion="16.0.1"
 SupportV4Version="27.1.0"
 AnalyticsVersion="16.0.5"

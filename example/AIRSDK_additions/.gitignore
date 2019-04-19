@@ -1,4 +1,6 @@
 *.dylib
 *.framework
 *.bundle
+*.jar
+*.a
 
