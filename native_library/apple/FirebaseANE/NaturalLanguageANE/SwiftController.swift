@@ -36,7 +36,7 @@ public class SwiftController: NSObject {
         guard argc > 1,
             let isStatsCollectionEnabled = Bool(argv[1])
             else {
-                return FreArgError(message: "initController").getError(#file, #line, #column)
+                return FreArgError(message: "initController").getError()
         }
         if let options = LanguageIdentificationOptions(argv[0]) {
             languageIdentification = NaturalLanguage.naturalLanguage().languageIdentification(options: options)
@@ -52,7 +52,7 @@ public class SwiftController: NSObject {
             let text = String(argv[0]),
             let eventId = String(argv[1])
             else {
-                return FreArgError(message: "identifyLanguage").getError(#file, #line, #column)
+                return FreArgError(message: "identifyLanguage").getError()
         }
         userInitiatedQueue.async {
             self.languageIdentification?.identifyLanguage(for: text, completion: { (result, error) in
@@ -77,7 +77,7 @@ public class SwiftController: NSObject {
             let text = String(argv[0]),
             let eventId = String(argv[1])
             else {
-                return FreArgError(message: "identifyPossibleLanguages").getError(#file, #line, #column)
+                return FreArgError(message: "identifyPossibleLanguages").getError()
         }
         userInitiatedQueue.async {
             self.languageIdentification?.identifyPossibleLanguages(for: text, completion: { (result, error) in
@@ -101,7 +101,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let eventId = String(argv[0])
             else {
-                return FreArgError(message: "getResults").getError(#file, #line, #column)
+                return FreArgError(message: "getResults").getError()
         }
         let ret = results[eventId]?.toFREObject()
         results[eventId] = nil
@@ -112,7 +112,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let eventId = String(argv[0])
             else {
-                return FreArgError(message: "getResultsMulti").getError(#file, #line, #column)
+                return FreArgError(message: "getResultsMulti").getError()
         }
         let ret = resultsMulti[eventId]?.toFREObject()
         resultsMulti[eventId] = nil

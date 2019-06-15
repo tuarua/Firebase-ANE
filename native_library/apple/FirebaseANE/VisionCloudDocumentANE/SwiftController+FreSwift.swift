@@ -22,7 +22,7 @@ extension SwiftController: FreSwiftMainController {
         
         functionsToSet["\(prefix)init"] = initController
         functionsToSet["\(prefix)createGUID"] = createGUID
-        functionsToSet["\(prefix)detect"] = detect
+        functionsToSet["\(prefix)process"] = process
         functionsToSet["\(prefix)getResults"] = getResults
         functionsToSet["\(prefix)getBlocks"] = getBlocks
         functionsToSet["\(prefix)getParagraphs"] = getParagraphs

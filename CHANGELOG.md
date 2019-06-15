@@ -1,3 +1,7 @@
+### 0.6.0
+- Match package structure of official Firebase libraries
+- Match name of `CloudLabeler` and `OnDeviceLabeler`
+
 ### 0.5.0
 - Upgraded to AIR 32.0.0.116
 - AND: Updated to FreKotlin 1.7.0

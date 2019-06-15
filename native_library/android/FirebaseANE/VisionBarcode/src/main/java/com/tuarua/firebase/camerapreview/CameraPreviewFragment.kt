@@ -27,11 +27,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
-import com.tuarua.firebase.mlscanner.BarcodeVisionProcessor
-import com.tuarua.firebase.mlscanner.FrameVisionProcessor
-import com.tuarua.firebase.mlscanner.VisionProcessListener
+import com.tuarua.firebase.ml.vision.barcode.KotlinController
+import com.tuarua.firebase.ml.scanner.BarcodeVisionProcessor
+import com.tuarua.firebase.ml.scanner.FrameVisionProcessor
+import com.tuarua.firebase.ml.scanner.VisionProcessListener
 import com.tuarua.firebase.view.widget.AutoFitTextureView
-import com.tuarua.firebase.vision.barcode.KotlinController
 import com.tuarua.firebase.visionbarcodeane.R
 
 private const val ARG_EVENTID = "eventId"

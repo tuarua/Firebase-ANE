@@ -18,7 +18,7 @@ package com.tuarua.firebase;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
-import com.tuarua.firebase.modelinterpreter.KotlinController;
+import com.tuarua.firebase.ml.custom.KotlinController;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class ModelInterpreterANE implements FREExtension {

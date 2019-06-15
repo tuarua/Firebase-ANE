@@ -28,14 +28,12 @@ public class SwiftController: NSObject {
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard hasGooglePlist else {
             let msg = "Cannot find required GoogleService-Info.plist. Ensure Firebase config file added to AIR project"
-            return FreError(stackTrace: "",
-                            message: msg,
-                            type: .illegalState).getError(#file, #line, #column)
+            return FreError(stackTrace: "", message: msg, type: .illegalState).getError()
         }
         guard FirebaseApp.app() != nil else {
             return FreError(stackTrace: "",
                             message: "Cannot read options. FirebaseApp not configured.",
-                            type: .illegalState).getError(#file, #line, #column)
+                            type: .illegalState).getError()
             
         }
         return true.toFREObject()
@@ -45,7 +43,7 @@ public class SwiftController: NSObject {
         guard let app = FirebaseApp.app() else {
                 return FreError(stackTrace: "",
                                 message: "Cannot read options. FirebaseApp not configured.",
-                                type: .illegalState).getError(#file, #line, #column)       
+                                type: .illegalState).getError()       
         }
         return app.options.toFREObject()
     }
@@ -58,7 +56,6 @@ public class SwiftController: NSObject {
         appDidFinishLaunchingNotif = notification
         if Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") != nil {
             hasGooglePlist = true
-            // check Info.plist for CFBundleURLSchemes
             if let path = Bundle.main.path(forResource: "Info", ofType: "plist"),
                 let dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
                 if let bundleURLTypes = dict["CFBundleURLTypes"] as? NSArray {

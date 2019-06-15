@@ -18,7 +18,7 @@ package com.tuarua.firebase;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
-import com.tuarua.firebase.vision.landmark.KotlinController;
+import com.tuarua.firebase.ml.vision.landmark.KotlinController;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class VisionLandmarkANE  implements FREExtension {

@@ -33,7 +33,7 @@ CONTEXT_INIT(TRFBVCLB) {
     {
          MAP_FUNCTION(TRFBVCLB, init)
         ,MAP_FUNCTION(TRFBVCLB, createGUID)
-        ,MAP_FUNCTION(TRFBVCLB, detect)
+        ,MAP_FUNCTION(TRFBVCLB, process)
         ,MAP_FUNCTION(TRFBVCLB, getResults)
         ,MAP_FUNCTION(TRFBVCLB, close)
     };

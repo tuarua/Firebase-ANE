@@ -28,4 +28,4 @@ pack 'mp3'
 pack 'wav'
 pack 'mp4'
 
-echo ${grn}"Finished" $white
+echo ${grn}"Finished" ${white}

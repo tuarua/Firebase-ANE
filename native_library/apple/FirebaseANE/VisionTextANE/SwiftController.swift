@@ -36,12 +36,12 @@ public class SwiftController: NSObject {
         return true.toFREObject()
     }
     
-    func detect(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+    func process(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let image = VisionImage(argv[0]),
             let eventId = String(argv[1])
             else {
-                return FreArgError(message: "detect").getError(#file, #line, #column)
+                return FreArgError(message: "process").getError()
         }
         userInitiatedQueue.async {
             self.recognizer?.process(image, completion: { (result, error) in
@@ -64,7 +64,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let eventId = String(argv[0])
             else {
-                return FreArgError(message: "getResults").getError(#file, #line, #column)
+                return FreArgError(message: "getResults").getError()
         }
         let ret = results[eventId]?.toFREObject()
         results[eventId] = nil

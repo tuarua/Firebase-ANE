@@ -1,12 +1,12 @@
 package views.examples {
-import com.tuarua.firebase.CloudLabelDetector;
-import com.tuarua.firebase.CloudLabelError;
-import com.tuarua.firebase.LabelDetector;
-import com.tuarua.firebase.LabelError;
 import com.tuarua.firebase.VisionANE;
-import com.tuarua.firebase.vision.ImageLabel;
-import com.tuarua.firebase.vision.LabelDetectorOptions;
-import com.tuarua.firebase.vision.VisionImage;
+import com.tuarua.firebase.ml.vision.common.VisionImage;
+import com.tuarua.firebase.ml.vision.label.CloudImageError;
+import com.tuarua.firebase.ml.vision.label.CloudImageLabeler;
+import com.tuarua.firebase.ml.vision.label.OnDeviceImageError;
+import com.tuarua.firebase.ml.vision.label.OnDeviceImageLabeler;
+import com.tuarua.firebase.ml.vision.label.OnDeviceImageLabelerOptions;
+import com.tuarua.firebase.ml.vision.label.VisionImageLabel;
 
 import flash.display.Bitmap;
 
@@ -38,8 +38,9 @@ public class LabelExample extends Sprite implements IExample {
     private var stageHeight:Number;
     private var isInited:Boolean;
     private var vision:VisionANE;
-    private var labelDetector:LabelDetector;
-    private var cloudLabelDetector:CloudLabelDetector;
+    private var onDeviceImageLabeler:OnDeviceImageLabeler;
+    private var cloudImageLabeler:CloudImageLabeler;
+
     public function LabelExample(stageWidth:int, vision:VisionANE) {
         super();
         this.vision = vision;
@@ -79,9 +80,9 @@ public class LabelExample extends Sprite implements IExample {
 
     public function initANE():void {
         if (isInited) return;
-        var options:LabelDetectorOptions = new LabelDetectorOptions(0.75);
-        labelDetector = vision.labelDetector(options);
-        cloudLabelDetector = vision.cloudLabelDetector();
+        var options:OnDeviceImageLabelerOptions = new OnDeviceImageLabelerOptions(0.75);
+        onDeviceImageLabeler = vision.labelDetector(options);
+        cloudImageLabeler = vision.cloudLabelDetector();
 
         isInited = true;
     }
@@ -93,15 +94,15 @@ public class LabelExample extends Sprite implements IExample {
             textImageDisplay.visible = true;
             var visionImage:VisionImage = new VisionImage(bmpLabelImage.bitmapData);
 
-            labelDetector.detect(visionImage, function (labels:Vector.<ImageLabel>, error:LabelError):void {
-                labelDetector.close();
+            onDeviceImageLabeler.process(visionImage, function (labels:Vector.<VisionImageLabel>, error:OnDeviceImageError):void {
+                onDeviceImageLabeler.close();
                 if (error) {
                     statusLabel.text = "Label error: " + error.errorID + " : " + error.message;
                     return;
                 }
                 statusLabel.text = "";
                 var index:int = 0;
-                for each (var label:ImageLabel in labels) {
+                for each (var label:VisionImageLabel in labels) {
                     statusLabel.text = statusLabel.text + label.text + " : " + Math.floor(label.confidence * 100) + "%\n";
                     index++;
                     if (index > 2) break;
@@ -116,15 +117,15 @@ public class LabelExample extends Sprite implements IExample {
             textContainer.visible = true;
             textImageDisplay.visible = true;
             var visionImage:VisionImage = new VisionImage(bmpLabelImage.bitmapData);
-            cloudLabelDetector.detect(visionImage, function (labels:Vector.<ImageLabel>, error:CloudLabelError):void {
-                cloudLabelDetector.close();
+            cloudImageLabeler.process(visionImage, function (labels:Vector.<VisionImageLabel>, error:CloudImageError):void {
+                cloudImageLabeler.close();
                 if (error) {
                     statusLabel.text = "Cloud Label error: " + error.errorID + " : " + error.message;
                     return;
                 }
                 statusLabel.text = "";
                 var index:int = 0;
-                for each (var label:ImageLabel in labels) {
+                for each (var label:VisionImageLabel in labels) {
                     statusLabel.text = statusLabel.text + label.text + " : " + Math.floor(label.confidence * 100) + "%\n";
                     index++;
                     if (index > 2) break;

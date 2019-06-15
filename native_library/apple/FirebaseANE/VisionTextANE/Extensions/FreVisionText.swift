@@ -20,7 +20,7 @@ import FirebaseMLVision
 
 public extension VisionText {
     func toFREObject() -> FREObject? {
-        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.Text") else { return nil }
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.ml.vision.text.Text") else { return nil }
         ret.text = text.toFREObject()
         ret.blocks = blocks.toFREObject()
         return ret.rawValue

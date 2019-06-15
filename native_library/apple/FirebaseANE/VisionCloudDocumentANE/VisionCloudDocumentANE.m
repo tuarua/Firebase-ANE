@@ -33,7 +33,7 @@ CONTEXT_INIT(TRFBVCDC) {
     {
          MAP_FUNCTION(TRFBVCDC, init)
         ,MAP_FUNCTION(TRFBVCDC, createGUID)
-        ,MAP_FUNCTION(TRFBVCDC, detect)
+        ,MAP_FUNCTION(TRFBVCDC, process)
         ,MAP_FUNCTION(TRFBVCDC, getResults)
         ,MAP_FUNCTION(TRFBVCDC, getBlocks)
         ,MAP_FUNCTION(TRFBVCDC, getParagraphs)

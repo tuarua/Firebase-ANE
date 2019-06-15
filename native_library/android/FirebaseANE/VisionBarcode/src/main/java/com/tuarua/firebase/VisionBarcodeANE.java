@@ -17,7 +17,7 @@ package com.tuarua.firebase;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
-import com.tuarua.firebase.vision.barcode.KotlinController;
+import com.tuarua.firebase.ml.vision.barcode.KotlinController;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class VisionBarcodeANE implements FREExtension {

@@ -1,11 +1,11 @@
 package views.examples {
-import com.tuarua.firebase.CloudLandmarkDetector;
-import com.tuarua.firebase.LandmarkError;
 import com.tuarua.firebase.VisionANE;
-import com.tuarua.firebase.vision.CloudDetectorOptions;
-import com.tuarua.firebase.vision.CloudLandmark;
-import com.tuarua.firebase.vision.CloudModelType;
-import com.tuarua.firebase.vision.VisionImage;
+import com.tuarua.firebase.ml.vision.cloud.CloudDetectorOptions;
+import com.tuarua.firebase.ml.vision.cloud.CloudModelType;
+import com.tuarua.firebase.ml.vision.cloud.landmark.CloudLandmark;
+import com.tuarua.firebase.ml.vision.cloud.landmark.CloudLandmarkDetector;
+import com.tuarua.firebase.ml.vision.cloud.landmark.LandmarkError;
+import com.tuarua.firebase.ml.vision.common.VisionImage;
 
 import flash.display.Bitmap;
 

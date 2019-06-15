@@ -20,7 +20,7 @@ import FirebaseMLVision
 
 public extension VisionBarcode {
     func toFREObject() -> FREObject? {
-        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.Barcode") else { return nil }
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.ml.vision.barcode.Barcode") else { return nil }
         ret.frame = frame
         ret["rawValue"] = rawValue?.toFREObject()
         ret.displayValue = displayValue
@@ -42,7 +42,7 @@ public extension VisionBarcode {
 
 public extension Array where Element == VisionBarcode {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.vision.Barcode",
+        guard let ret = FREArray(className: "com.tuarua.firebase.ml.vision.barcode.Barcode",
                                  length: self.count, fixed: true) else { return nil }
         var index: UInt = 0
         for element in self {

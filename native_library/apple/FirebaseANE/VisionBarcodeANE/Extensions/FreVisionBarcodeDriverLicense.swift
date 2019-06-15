@@ -20,7 +20,8 @@ import FirebaseMLVision
 
 public extension VisionBarcodeDriverLicense {
     func toFREObject() -> FREObject? {
-        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.BarcodeDriverLicense") else { return nil }
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.ml.vision.barcode.BarcodeDriverLicense")
+            else { return nil }
         ret.addressCity = addressCity
         ret.addressState = addressState
         ret.addressStreet = addressStreet

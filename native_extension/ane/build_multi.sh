@@ -120,11 +120,11 @@ echo "Building ANE."
 -platformoptions "$pathtome/platforms/ios/platform.xml" \
 -platform Android-ARM \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
-com.tuarua.firebase.$PROJECTNAME-res/. \
+com.tuarua.firebase.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
 -platform Android-x86 \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
-com.tuarua.firebase.$PROJECTNAME-res/. \
+com.tuarua.firebase.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
 -platform default -C "$pathtome/platforms/default" "library.swf"
 

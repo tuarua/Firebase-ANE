@@ -20,8 +20,8 @@ import FirebaseMLVision
 
 public extension VisionFace {
     func toFREObject() -> FREObject? {
-        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.Face"),
-        let freLandMarks = FREArray(className: "com.tuarua.firebase.vision.FaceLandmark") else { return nil }
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.ml.vision.face.Face"),
+        let freLandMarks = FREArray(className: "com.tuarua.firebase.ml.vision.face.FaceLandmark") else { return nil }
         
         ret.frame = frame
         ret.hasTrackingId = hasTrackingID
@@ -54,7 +54,7 @@ public extension VisionFace {
 
 public extension Array where Element == VisionFace {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.vision.Face",
+        guard let ret = FREArray(className: "com.tuarua.firebase.ml.vision.face.Face",
                                  length: self.count, fixed: true) else { return nil }
         var index: UInt = 0
         for element in self {

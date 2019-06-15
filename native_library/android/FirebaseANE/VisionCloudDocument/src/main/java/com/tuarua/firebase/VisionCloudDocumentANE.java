@@ -18,14 +18,14 @@ package com.tuarua.firebase;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
-import com.tuarua.vision.clouddocument.KotlinController;
+import com.tuarua.firebase.ml.vision.document.KotlinController;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class VisionCloudDocumentANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"
             ,"createGUID"
-            ,"detect"
+            ,"process"
             ,"getResults"
             ,"getBlocks"
             ,"getParagraphs"

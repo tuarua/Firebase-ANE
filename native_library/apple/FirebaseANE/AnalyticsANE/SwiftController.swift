@@ -36,7 +36,7 @@ public class SwiftController: NSObject {
             let name = String(argv[0]),
             let value = String(argv[1])
             else {
-                return FreArgError(message: "setUserProperty").getError(#file, #line, #column)
+                return FreArgError(message: "setUserProperty").getError()
         }
         Analytics.setUserProperty(value, forName: name)
         return nil
@@ -46,7 +46,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let id = String(argv[0])
             else {
-                return FreArgError(message: "setUserId").getError(#file, #line, #column)
+                return FreArgError(message: "setUserId").getError()
         }
         Analytics.setUserID(id)
         return nil
@@ -56,7 +56,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let milliseconds = Int(argv[0])
             else {
-                return FreArgError(message: "setSessionTimeoutDuration").getError(#file, #line, #column)
+                return FreArgError(message: "setSessionTimeoutDuration").getError()
         }
         AnalyticsConfiguration.shared().setSessionTimeoutInterval(TimeInterval(milliseconds))
         return nil
@@ -66,7 +66,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let screenName = String(argv[0])
             else {
-                return FreArgError(message: "setCurrentScreen").getError(#file, #line, #column)
+                return FreArgError(message: "setCurrentScreen").getError()
         }
         Analytics.setScreenName(screenName, screenClass: nil)
         return nil
@@ -77,7 +77,7 @@ public class SwiftController: NSObject {
             let name = String(argv[0]),
             let params = [String: NSObject](argv[1])
             else {
-                return FreArgError(message: "logEvent").getError(#file, #line, #column)
+                return FreArgError(message: "logEvent").getError()
         }
         Analytics.logEvent(name, parameters: params)
         return nil
@@ -91,7 +91,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let enabled = Bool(argv[0])
             else {
-                return FreArgError(message: "setAnalyticsCollectionEnabled").getError(#file, #line, #column)
+                return FreArgError(message: "setAnalyticsCollectionEnabled").getError()
         }
         AnalyticsConfiguration.shared().setAnalyticsCollectionEnabled(enabled)
         return nil

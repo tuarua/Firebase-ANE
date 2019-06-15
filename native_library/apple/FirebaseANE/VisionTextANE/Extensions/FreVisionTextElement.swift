@@ -20,7 +20,7 @@ import FirebaseMLVision
 
 public extension VisionTextElement {
     func toFREObject() -> FREObject? {
-        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.TextElement") else { return nil }
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.ml.vision.text.TextElement") else { return nil }
         ret.frame = frame
         ret.text = text
         ret.cornerPoints = cornerPoints?.toFREObject()
@@ -32,7 +32,7 @@ public extension VisionTextElement {
 
 public extension Array where Element == VisionTextElement {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.vision.TextElement") else { return nil }
+        guard let ret = FREArray(className: "com.tuarua.firebase.ml.vision.text.TextElement") else { return nil }
         for element in self {
             ret.push(element.toFREObject())
         }

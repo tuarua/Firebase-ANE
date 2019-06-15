@@ -1,9 +1,9 @@
 package views.examples {
 
-import com.tuarua.firebase.LanguageIdentification;
-import com.tuarua.firebase.LanguageIdentificationError;
-import com.tuarua.firebase.NaturalLanguageANE;
-import com.tuarua.firebase.naturalLanguage.IdentifiedLanguage;
+import com.tuarua.firebase.ml.naturallanguage.LanguageIdentificationError;
+import com.tuarua.firebase.ml.naturallanguage.NaturalLanguageANE;
+import com.tuarua.firebase.ml.naturallanguage.languageid.IdentifiedLanguage;
+import com.tuarua.firebase.ml.naturallanguage.languageid.LanguageIdentification;
 
 import starling.display.Sprite;
 import starling.events.Touch;

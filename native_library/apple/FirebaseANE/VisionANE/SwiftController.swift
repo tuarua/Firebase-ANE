@@ -48,7 +48,7 @@ public class SwiftController: NSObject {
             let rootVC = UIApplication.shared.keyWindow?.rootViewController,
             let child = argv[0]
             else {
-                return FreArgError(message: "addNativeChild").getError(#file, #line, #column)
+                return FreArgError(message: "addNativeChild").getError()
         }
         if !cameraOverlayContainerAdded {
             cameraOverlayContainer = FreNativeContainer(frame: rootVC.view.frame, visible: false)
@@ -100,7 +100,7 @@ public class SwiftController: NSObject {
             let propName = argv[1],
             let propVal = argv[2]
             else {
-                return FreArgError(message: "updateNativeChild").getError(#file, #line, #column)
+                return FreArgError(message: "updateNativeChild").getError()
         }
         
         if let child = userChildren[id] as? FreNativeImage {
@@ -115,7 +115,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let id = String(argv[0])
             else {
-                return FreArgError(message: "removeNativeChild").getError(#file, #line, #column)
+                return FreArgError(message: "removeNativeChild").getError()
         }
         if let child = userChildren[id] {
             if let c = child as? FreNativeImage {

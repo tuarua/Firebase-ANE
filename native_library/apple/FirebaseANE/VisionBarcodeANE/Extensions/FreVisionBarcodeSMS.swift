@@ -20,7 +20,7 @@ import FirebaseMLVision
 
 public extension VisionBarcodeSMS {
     func toFREObject() -> FREObject? {
-        return FREObject(className: "com.tuarua.firebase.vision.BarcodeSMS",
+        return FREObject(className: "com.tuarua.firebase.ml.vision.barcode.BarcodeSMS",
                                     args: self.message, self.phoneNumber)
     }
 }

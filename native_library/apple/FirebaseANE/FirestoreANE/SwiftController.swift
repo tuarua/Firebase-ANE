@@ -35,7 +35,7 @@ public class SwiftController: NSObject {
         guard argc > 1,
             let loggingEnabled = Bool(argv[0])
             else {
-                return FreArgError(message: "initController").getError(#file, #line, #column)
+                return FreArgError(message: "initController").getError()
         }
         
         let settings = FirestoreSettings(argv[1])
@@ -60,7 +60,7 @@ public class SwiftController: NSObject {
             let endAtList = [Any](argv[6]),
             let endBeforeList = [Any](argv[7])
             else {
-                return FreArgError(message: "getDocuments").getError(#file, #line, #column)
+                return FreArgError(message: "getDocuments").getError()
         }
         
         let limitTo = Int(argv[8]) ?? 10000
@@ -101,7 +101,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let path = String(argv[0])
             else {
-                return FreArgError(message: "initDocumentReference").getError(#file, #line, #column)
+                return FreArgError(message: "initDocumentReference").getError()
         }
         return firestoreController?.initDocumentReference(path: path)?.toFREObject()
     }
@@ -110,7 +110,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let path = String(argv[0])
             else {
-                return FreArgError(message: "documentWithAutoId").getError(#file, #line, #column)
+                return FreArgError(message: "documentWithAutoId").getError()
         }
         return firestoreController?.documentWithAutoId(path: path)?.toFREObject()
     }
@@ -120,7 +120,7 @@ public class SwiftController: NSObject {
             let path = String(argv[0]),
             let eventId = String(argv[1])
             else {
-                return FreArgError(message: "getDocumentReference").getError(#file, #line, #column)
+                return FreArgError(message: "getDocumentReference").getError()
         }
         firestoreController?.getDocumentReference(path: path, eventId: eventId)
         return nil
@@ -132,7 +132,7 @@ public class SwiftController: NSObject {
             let documentData = [String: Any](argv[2]),
             let merge = Bool(argv[3])
             else {
-                return FreArgError(message: "setDocumentReference").getError(#file, #line, #column)
+                return FreArgError(message: "setDocumentReference").getError()
         }
         let eventId = String(argv[1])
         firestoreController?.setDocumentReference(path: path, eventId: eventId,
@@ -145,7 +145,7 @@ public class SwiftController: NSObject {
             let path = String(argv[0]),
             let documentData = [String: Any](argv[2])
             else {
-                return FreArgError(message: "updateDocumentReference").getError(#file, #line, #column)
+                return FreArgError(message: "updateDocumentReference").getError()
         }
         let eventId = String(argv[1])
         firestoreController?.updateDocumentReference(path: path, eventId: eventId, documentData: documentData)
@@ -156,7 +156,7 @@ public class SwiftController: NSObject {
         guard argc > 1,
             let path = String(argv[0])
             else {
-                return FreArgError(message: "deleteDocumentReference").getError(#file, #line, #column)
+                return FreArgError(message: "deleteDocumentReference").getError()
         }
         let eventId = String(argv[1])
         firestoreController?.deleteDocumentReference(path: path, eventId: eventId)
@@ -167,7 +167,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let path = String(argv[0])
             else {
-                return FreArgError(message: "getDocumentParent").getError(#file, #line, #column)
+                return FreArgError(message: "getDocumentParent").getError()
         }
         return firestoreController?.getDocumentParent(path: path)?.toFREObject()
     }
@@ -178,7 +178,7 @@ public class SwiftController: NSObject {
             let eventId = String(argv[1]),
             let asId = String(argv[2])
             else {
-                return FreArgError(message: "addSnapshotListenerDocument").getError(#file, #line, #column)
+                return FreArgError(message: "addSnapshotListenerDocument").getError()
         }
         firestoreController?.addSnapshotListenerDocument(path: path, eventId: eventId, asId: asId)
         return nil
@@ -188,7 +188,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let asId = String(argv[0])
             else {
-                return FreArgError(message: "removeSnapshotListener").getError(#file, #line, #column)
+                return FreArgError(message: "removeSnapshotListener").getError()
         }
         firestoreController?.removeSnapshotListener(asId: asId)
         return nil
@@ -200,7 +200,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let path = String(argv[0])
             else {
-                return FreArgError(message: "initCollectionReference").getError(#file, #line, #column)
+                return FreArgError(message: "initCollectionReference").getError()
         }
         return firestoreController?.initCollectionReference(path: path)?.toFREObject()
     }
@@ -209,7 +209,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let path = String(argv[0])
             else {
-                return FreArgError(message: "getCollectionParent").getError(#file, #line, #column)
+                return FreArgError(message: "getCollectionParent").getError()
         }
         return firestoreController?.getCollectionParent(path: path)?.toFREObject()
     }
@@ -224,7 +224,7 @@ public class SwiftController: NSObject {
     func commitBatch(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0
             else {
-                return FreArgError(message: "commitBatch").getError(#file, #line, #column)
+                return FreArgError(message: "commitBatch").getError()
         }
         let eventId = String(argv[0])
         firestoreController?.commitBatch(eventId: eventId)
@@ -237,7 +237,7 @@ public class SwiftController: NSObject {
             let documentData = [String: Any].init(argv[1]), //not working static
             let merge = Bool(argv[2])
             else {
-                return FreArgError(message: "setBatch").getError(#file, #line, #column)
+                return FreArgError(message: "setBatch").getError()
         }
         
         firestoreController?.setBatch(path: path, documentData: documentData, merge: merge)
@@ -248,7 +248,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let path = String(argv[0])
             else {
-                return FreArgError(message: "deleteBatch").getError(#file, #line, #column)
+                return FreArgError(message: "deleteBatch").getError()
         }
         firestoreController?.deleteBatch(path: path)
         return nil
@@ -259,7 +259,7 @@ public class SwiftController: NSObject {
             let path = String(argv[0]),
             let documentData = [String: Any](argv[1])
             else {
-                return FreArgError(message: "updateBatch").getError(#file, #line, #column)
+                return FreArgError(message: "updateBatch").getError()
         }
         firestoreController?.updateBatch(path: path, documentData: documentData)
         return nil
@@ -270,7 +270,7 @@ public class SwiftController: NSObject {
     func enableNetwork(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0
             else {
-                return FreArgError(message: "enableNetwork").getError(#file, #line, #column)
+                return FreArgError(message: "enableNetwork").getError()
         }
         let eventId = String(argv[0])
         firestoreController?.enableNetwork(eventId: eventId)
@@ -280,7 +280,7 @@ public class SwiftController: NSObject {
     func disableNetwork(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0
             else {
-                return FreArgError(message: "disableNetwork").getError(#file, #line, #column)
+                return FreArgError(message: "disableNetwork").getError()
         }
         let eventId = String(argv[0])
         firestoreController?.disableNetwork(eventId: eventId)
