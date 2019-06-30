@@ -33,8 +33,8 @@ class PermissionActivity : Activity(), ActivityCompat.OnRequestPermissionsResult
         val uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
         decorView.systemUiVisibility = uiOptions
 
-        val extras = intent.extras
-        val permissions = extras.getStringArray("ptc")
+        val extras = intent.extras ?: return
+        val permissions = extras.getStringArray("ptc") ?: return
         ActivityCompat.requestPermissions(this, permissions, 19001)
     }
 

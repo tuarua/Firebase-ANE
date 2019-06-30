@@ -61,7 +61,7 @@ public class NaturalLanguageExample extends Sprite implements IExample {
 
     public function initANE():void {
         if (isInited) return;
-        // make sure to package alangid_model.smfb.jpg with app for Android
+        // make sure to package a langid_model.smfb.jpg with app for Android
         languageIdentification = naturalLanguage.languageIdentification();
         isInited = true;
     }

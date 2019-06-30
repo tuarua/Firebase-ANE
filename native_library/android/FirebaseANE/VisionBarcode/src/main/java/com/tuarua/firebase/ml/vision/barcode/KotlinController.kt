@@ -132,7 +132,7 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
 
         val optionsAsIntArray = this.optionsAsIntArray
         cameraFragment = CameraPreviewFragment.newInstance(eventId, optionsAsIntArray)
-        val fragmentTransaction: FragmentTransaction = ctx.activity.fragmentManager.beginTransaction()
+        val fragmentTransaction = ctx.activity.fragmentManager.beginTransaction()
         fragmentTransaction.add(newId, cameraFragment)
         fragmentTransaction.commit()
         cameraFragment.setListener(this)

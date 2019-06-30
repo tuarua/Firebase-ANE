@@ -7,7 +7,7 @@ pathtome="${pathtome%/*}"
 PROJECTNAME=GoogleSignInANE
 libSuffix="_LIB"
 
-AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_32"
+AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_33"
 
 if [ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/" ]; then
 echo "No Simulator build. Build using Xcode"
@@ -96,7 +96,7 @@ echo "Building ANE."
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.google.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
--platform Android-x86 \
+-platform Android-ARM64 \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.google.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \

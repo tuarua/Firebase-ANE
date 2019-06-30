@@ -17,7 +17,7 @@
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/build/generated/res/rs/release;file://$MODULE_DIR$/build/generated/res/resValues/release" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/build/generated/res/resValues/release" />
         <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
         <option name="PROJECT_TYPE" value="1" />
@@ -25,15 +25,15 @@
     </facet>
     <facet type="kotlin-language" name="Kotlin">
       <configuration version="3" platform="JVM 1.6" useProjectSettings="false">
-        <compilerSettings />
+        <compilerSettings>
+          <option name="additionalArguments" value="-Xallow-no-source-files" />
+        </compilerSettings>
         <compilerArguments>
           <option name="destination" value="$MODULE_DIR$/build/tmp/kotlin-classes/release" />
-          <option name="classpath" value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions-runtime/1.3.30/80c54e4abd92342e1cf28b3aff009f9c741337c0/kotlin-android-extensions-runtime-1.3.30.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.7.0.aar/de8e3298f364c6d2f5d987aeee7f8a56/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.7.0.aar/de8e3298f364c6d2f5d987aeee7f8a56/jars/libs/FlashRuntimeExtensions.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/FreKotlin-1.7.0.aar/de8e3298f364c6d2f5d987aeee7f8a56/jars/libs/runtimeClasses.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.30/9ea98e65c246d34de9af59c104ad9bdea4908ee/kotlin-stdlib-1.3.30.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.5.aar/3b2bed152b8152bb01b1ec4fb3430f04/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.30/989a125fdb6e4d0d75a016032e03e1e3b57a13d/kotlin-stdlib-common-1.3.30.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.3.aar/a29d306a719831eec920fc2f9ef19ad6/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.5.aar/856c1fe2a3dd0ec9ae763ddb4b9cd5f0/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-api-16.0.3.aar/09280903459be9dbaaa2f59129a011d9/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.2.3.aar/4dcbb937f385f0e8ba57d6694d0a9700/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-16.0.4.aar/32cb902330f58f66dd7e72c3a6f9a550/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.0.3.aar/4ce5acf2e5db9edb3ca92be6f1fbf8de/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-stats-16.0.1.aar/8670be5f09ca8f781fde687e28c2e690/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-common-16.0.3.aar/474d6c27007c8d8150ad886b91261a7b/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-17.0.1.aar/4db577879f1bdc44393e6c2e605ca456/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-16.0.0.aar/265702a8c18932531b1565fdd6e5d536/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/firebase-iid-interop-16.0.1.aar/773a52cfa501662693446c0f1ea56f4f/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/1d811540cd63327cf26b1e6fff933632/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-tasks-16.0.1.aar/5653cdf4d92517a3652b0c1e06683373/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/f67e5285dcc49e97dc0faa939c2a8ce4/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/aeb601529f6721e76689f5563821e427/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/8c0755ad6e9a9a5c90705fc0afa7a16e/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/9eead0c4a4c733ed778265ff56e951fd/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/8bab2e480c07123fd4d44517703f81f1/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/5bac70fbf875357dc32da4eb19ef1ce2/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/d5efd6ef57234ede57fa06ea91b087c9/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/26.1.0/814258103cf26a15fcc26ecce35f5b7d24b73f8/support-annotations-26.1.0.jar:/Users/eoinlandy/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/7cfb9ab86fd1b4f6f343f563f8b34ccd/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.0.0/e414a4cb28434e25c4f6aa71426eb20cf4874ae9/common-1.0.0.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.0.0/a2d487452376193fc8c103dd2b9bd5f2b1b44563/common-1.0.0.jar:/Users/eoinlandy/Library/Android/sdk/platforms/android-27/android.jar" />
+          <option name="classpath" value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions-runtime/1.3.40/42aede14a73c7406de95c252e8aa6100a82d4b61/kotlin-android-extensions-runtime-1.3.40.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.40/b8a521c687329303778548e2f09b0ba5b2665236/kotlin-stdlib-1.3.40.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/d523e6c90870a6aff67e5d1d20709fc8/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/732d181deb0131da18b91f5d84116313/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/732d181deb0131da18b91f5d84116313/jars/libs/FlashRuntimeExtensions.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/732d181deb0131da18b91f5d84116313/jars/libs/runtimeClasses.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.40/ff8f3da514fc2877d1303d55e22d6da8156c29fb/kotlin-stdlib-common-1.3.40.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/757f985810f67ab427ef43f18ccd385e/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/c487340038c4dd333a70094c62361745/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/4ba5383ac691e9c3e025e24fe0d9062b/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/9c908017cd114d97bfd4246e1149c541/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/028fdeaaced707704cc4c802f9784d17/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/508557d421f52251273680a1fa0f7746/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/611ee869e130b851eaab0c25973b230d/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/10a68ca162de65dc1165f7994f4f58b5/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/439df9fd105758375fd64322a99912fa/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/db0da1a25588e784991adc0c6ef50f0c/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/bdc2a6b9ed7fce9f372a398f54883a1c/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/7249139e46dd1bb8de64d42fcb397f00/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/3e318fd3f43c948465753a1caf44984c/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/40c969caaaf01797d6e01a93a8edb741/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/2db59dcf864607b851c304478e48ad31/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/57f37855d83b78bd8fa3264a0f70cf40/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/aa8363646bcc27296637ac9d0b878d53/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/d1bec431690090e4d501f90a30587050/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/1ce22fa271bf712add85be394a11816a/jars/classes.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/3fee05401704662630e59669239ebc7e/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/26.1.0/814258103cf26a15fcc26ecce35f5b7d24b73f8/support-annotations-26.1.0.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/5bf5d15c460667ab6f9baaf005cf25dd/jars/classes.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.0.0/e414a4cb28434e25c4f6aa71426eb20cf4874ae9/common-1.0.0.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.0.0/a2d487452376193fc8c103dd2b9bd5f2b1b44563/common-1.0.0.jar:/Users/eoinlandy/flash/Firebase-ANE/native_library/android/FirebaseANE/Analytics/build/intermediates/compile_only_not_namespaced_r_class_jar/release/generateReleaseRFile/R.jar:/Users/eoinlandy/Library/Android/sdk/platforms/android-28/android.jar:/Users/eoinlandy/Library/Android/sdk/build-tools/28.0.3/core-lambda-stubs.jar" />
           <option name="noStdlib" value="true" />
           <option name="noReflect" value="true" />
           <option name="moduleName" value="Analytics_release" />
-          <option name="addCompilerBuiltIns" value="true" />
-          <option name="loadBuiltInsFromDependencies" value="true" />
           <option name="languageVersion" value="1.3" />
           <option name="apiVersion" value="1.3" />
           <option name="pluginOptions">
@@ -45,7 +45,14 @@
           </option>
           <option name="pluginClasspaths">
             <array>
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.3.30/6c4efb38cdff0c5c302f8ad6ebb471940fcda4d7/kotlin-android-extensions-1.3.30.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.intellij.deps/trove4j/1.0.20181211/216c2e14b070f334479d800987affe4054cd563f/trove4j-1.0.20181211.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.3.40/e35422f506e548ace9a43e75ecdcc6b965d8d202/kotlin-android-extensions-1.3.40.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/1.3.40/3075e01564a08e2d1ceac83175778d459036e5cd/kotlin-compiler-embeddable-1.3.40.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.3.40/f2f8357e000fd80d8d799110f012b86fd4637386/kotlin-reflect-1.3.40.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.3.40/3cc25515a8d5e4a59ef85e94625b8bf73bff47b2/kotlin-script-runtime-1.3.40.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.40/ff8f3da514fc2877d1303d55e22d6da8156c29fb/kotlin-stdlib-common-1.3.40.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.40/b8a521c687329303778548e2f09b0ba5b2665236/kotlin-stdlib-1.3.40.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" />
             </array>
           </option>
           <option name="errors">
@@ -55,15 +62,15 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
-    <output url="file://$MODULE_DIR$/build/intermediates/classes/release" />
-    <output-test url="file://$MODULE_DIR$/build/intermediates/classes/test/release" />
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/build/intermediates/javac/release/compileReleaseJavaWithJavac/classes" />
+    <output-test url="file://$MODULE_DIR$/build/intermediates/javac/releaseUnitTest/compileReleaseUnitTestJavaWithJavac/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/release" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/release" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/release/compileReleaseAidl/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/release" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/release" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/release/compileReleaseRenderscript/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/release" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/release" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/test/release" isTestSource="true" generated="true" />
@@ -104,37 +111,37 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/shaders" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build/generated/not_namespaced_r_class_sources" />
       <excludeFolder url="file://$MODULE_DIR$/build/generated/source/r" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotations" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/attr" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/aapt_friendly_merged_manifests" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotation_processor_list" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotations_typedef_file" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotations_zip" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/check-manifest" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/extractedTypedefs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/check_manifest_result" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/compile_only_not_namespaced_r_class_jar" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javaPrecompile" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javac" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_and_local_jars_jni" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged-aidl" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_assets" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_jni_libs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_manifests" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_shaders" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged-classes" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packagedAssets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged_res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/public_res" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/publish-proguard" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shader_assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
       <excludeFolder url="file://$MODULE_DIR$/build/kotlin" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
-    <orderEntry type="jdk" jdkName="Android API 27 Platform" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-identifier:16.0.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.tuarua:FreKotlin:1.7.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.tuarua:FreKotlin:1.8.0-beta1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.40@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-base:16.0.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-interop:16.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.core:common:1.0.0@jar" level="project" />
@@ -150,18 +157,17 @@
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base:16.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-fragment:26.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:common:1.0.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.3.30@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-measurement-connector-impl:17.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-common:16.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-api:16.0.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.40@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement:16.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-analytics-impl:16.2.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-core-utils:26.1.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.30@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.30@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-compat:26.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-core-ui:26.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-measurement-connector:17.0.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.3.40@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks:16.0.1@aar" level="project" />
   </component>
 </module>

@@ -1,6 +1,10 @@
 ### 0.6.0
 - Match package structure of official Firebase libraries
 - Match name of `CloudLabeler` and `OnDeviceLabeler`
+- Android manifest `com.tuarua.firebase.vision.PermissionActivity` is now `com.tuarua.firebase.ml.vision.PermissionActivity`
+- AND: Updated to FreKotlin 1.8.0
+- Updated to AIR 33 ARM 64bit
+- Remove Android-x86
 
 ### 0.5.0
 - Upgraded to AIR 32.0.0.116

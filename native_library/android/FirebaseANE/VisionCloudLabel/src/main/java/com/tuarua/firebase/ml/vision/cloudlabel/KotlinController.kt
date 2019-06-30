@@ -14,40 +14,40 @@
  * limitations under the License.
  */
 
-package com.tuarua.firebase.ml.vision.text
+package com.tuarua.firebase.ml.vision.cloudlabel
 
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.FirebaseVision
-import com.google.firebase.ml.vision.text.FirebaseVisionText
-import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer
+import com.google.firebase.ml.vision.label.FirebaseVisionImageLabel
+import com.google.firebase.ml.vision.label.FirebaseVisionImageLabeler
 import com.google.gson.Gson
 import com.tuarua.firebase.ml.vision.common.extensions.FirebaseVisionImage
-import com.tuarua.firebase.ml.vision.text.events.CloudTextEvent
-import com.tuarua.firebase.ml.vision.text.extensions.FirebaseVisionCloudTextRecognizerOptions
-import com.tuarua.firebase.ml.vision.text.extensions.toFREObject
+import com.tuarua.firebase.ml.vision.cloudlabel.events.CloudLabelEvent
+import com.tuarua.firebase.ml.vision.cloudlabel.extensions.FirebaseVisionCloudImageLabelerOptions
+import com.tuarua.firebase.ml.vision.label.extensions.toFREArray
 import com.tuarua.frekotlin.*
-
-import java.util.*
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.*
+
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
-    private var results: MutableMap<String, FirebaseVisionText> = mutableMapOf()
+    private var results: MutableMap<String, MutableList<FirebaseVisionImageLabel>> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = Dispatchers.Default
-    private lateinit var recognizer: FirebaseVisionTextRecognizer
+    private lateinit var labeler: FirebaseVisionImageLabeler
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
-        val options = FirebaseVisionCloudTextRecognizerOptions(argv[0])
-        recognizer = if (options != null) {
-            FirebaseVision.getInstance().getCloudTextRecognizer(options)
+        val options = FirebaseVisionCloudImageLabelerOptions(argv[0])
+        labeler = if (options != null) {
+            FirebaseVision.getInstance().getCloudImageLabeler(options)
         } else {
-            FirebaseVision.getInstance().cloudTextRecognizer
+            FirebaseVision.getInstance().cloudImageLabeler
         }
         return true.toFREObject()
     }
@@ -60,19 +60,18 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException("process")
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
-
         GlobalScope.launch(bgContext) {
-            recognizer.processImage(image).addOnCompleteListener { task ->
+            labeler.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
                     results[eventId] = result
-                    dispatchEvent(CloudTextEvent.RECOGNIZED,
-                            gson.toJson(CloudTextEvent(eventId, null)))
+                    dispatchEvent(CloudLabelEvent.RECOGNIZED,
+                            gson.toJson(CloudLabelEvent(eventId, null)))
                 } else {
                     val error = task.exception
-                    dispatchEvent(CloudTextEvent.RECOGNIZED,
+                    dispatchEvent(CloudLabelEvent.RECOGNIZED,
                             gson.toJson(
-                                    CloudTextEvent(eventId, mapOf(
+                                    CloudLabelEvent(eventId, mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -87,13 +86,14 @@ class KotlinController : FreKotlinMainController {
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
         val eventId = String(argv[0]) ?: return null
-        val ret = results[eventId]?.toFREObject()
+        val result = results[eventId] ?: return null
+        val ret = result.toFREArray()
         results.remove(eventId)
         return ret
     }
 
     fun close(ctx: FREContext, argv: FREArgv): FREObject? {
-        recognizer.close()
+        labeler.close()
         return null
     }
 
@@ -106,4 +106,5 @@ class KotlinController : FreKotlinMainController {
             _context = value
             FreKotlinLogger.context = _context
         }
+
 }

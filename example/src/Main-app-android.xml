@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/32.0">
+<application xmlns="http://ns.adobe.com/air/application/33.0">
 
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
@@ -34,7 +34,7 @@
         <manifestAdditions>
             <![CDATA[
             <manifest android:installLocation="auto">
-            <uses-sdk android:minSdkVersion="19" />
+                <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="28" />
                 <uses-permission android:name="android.permission.INTERNET"/>
                 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
                 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>

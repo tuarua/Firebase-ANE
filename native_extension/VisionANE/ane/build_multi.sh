@@ -7,9 +7,9 @@ pathtome="${pathtome%/*}"
 PROJECTNAME=VisionANE
 libSuffix="_LIB"
 
-AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_32"
+AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_33"
 
-if [[ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/" ]]; then
+if [ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/" ]; then
 echo "No Device build. Build using Xcode"
 exit
 fi
@@ -17,19 +17,19 @@ fi
 #Setup the directory.
 echo "Making directories."
 
-if [[ ! -d "$pathtome/platforms" ]]; then
+if [ ! -d "$pathtome/platforms" ]; then
 mkdir "$pathtome/platforms"
 fi
-if [[ ! -d "$pathtome/platforms/ios" ]]; then
+if [ ! -d "$pathtome/platforms/ios" ]; then
 mkdir "$pathtome/platforms/ios"
 fi
-if [[ ! -d "$pathtome/platforms/ios/device" ]]; then
+if [ ! -d "$pathtome/platforms/ios/device" ]; then
 mkdir "$pathtome/platforms/ios/device"
 fi
-if [[ ! -d "$pathtome/platforms/ios/device/Frameworks" ]]; then
+if [ ! -d "$pathtome/platforms/ios/device/Frameworks" ]; then
 mkdir "$pathtome/platforms/ios/device/Frameworks"
 fi
-if [[ ! -d "$pathtome/platforms/default" ]]; then
+if [ ! -d "$pathtome/platforms/default" ]; then
 mkdir "$pathtome/platforms/default"
 fi
 
@@ -78,7 +78,7 @@ echo "Building ANE."
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.firebase.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
--platform Android-x86 \
+-platform Android-ARM64 \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.firebase.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \

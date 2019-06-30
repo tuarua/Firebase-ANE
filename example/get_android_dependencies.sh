@@ -1,6 +1,7 @@
 #!/bin/sh
 
 AneVersion="0.6.0"
+FreKotlinVersion="1.8.0"
 PlayerServicesVersion="16.0.1"
 SupportV4Version="27.1.0"
 AnalyticsVersion="16.0.5"
@@ -33,7 +34,7 @@ wget -O ../native_extension/GoogleSignInANE/ane/GoogleSignInANE.ane https://gith
 wget -O ../native_extension/InvitesANE/ane/InvitesANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/InvitesANE.ane?raw=true
 wget -O ../native_extension/CrashlyticsANE/ane/CrashlyticsANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/CrashlyticsANE.ane?raw=true
 
-wget -O android_dependencies/com.tuarua.frekotlin.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin.ane?raw=true
+wget -O android_dependencies/com.tuarua.frekotlin-$FreKotlinVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin-$FreKotlinVersion.ane?raw=true
 wget -O android_dependencies/org.greenrobot.eventbus-$EventBusVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/org.greenrobot.eventbus-$EventBusVersion.ane?raw=true
 wget -O android_dependencies/com.google.code.gson.gson-$GsonVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.google.code.gson.gson-$GsonVersion.ane?raw=true
 wget -O android_dependencies/com.squareup.okhttp.okhttp-$OkhttpVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.squareup.okhttp.okhttp-$OkhttpVersion.ane?raw=true

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.tuarua.firebase.ml.vision.label.events
+package com.tuarua.firebase.ml.vision.cloudlabel.events
 
 data class CloudLabelEvent(val eventId: String, val error: Map<String, Any>? = null) {
     companion object {

@@ -19,7 +19,7 @@
                 <finalizer>com.tuarua.firebase.NaturalLanguageANE</finalizer>
             </applicationDeployment>
         </platform>
-        <platform name="Android-x86">
+        <platform name="Android-ARM64">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>
                 <initializer>com.tuarua.firebase.NaturalLanguageANE</initializer>

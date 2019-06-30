@@ -184,7 +184,8 @@ public class VisionANE extends EventDispatcher {
     /** Requests permissions for this ANE. */
     public function requestPermissions():void {
         if (VisionANEContext.context) {
-            VisionANEContext.context.call("requestPermissions");
+            var ret:* = VisionANEContext.context.call("requestPermissions");
+            if (ret is ANEError) throw ret as ANEError;
         }
     }
 

@@ -18,7 +18,7 @@ package com.tuarua.firebase;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
-import com.tuarua.firebase.ml.vision.text.KotlinController;
+import com.tuarua.firebase.ml.vision.cloudtext.KotlinController;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class VisionCloudTextANE implements FREExtension {

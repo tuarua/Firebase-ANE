@@ -101,13 +101,17 @@
             <entry library-name="com.google.firebase.firebase-perf-16.2.1" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="com.tuarua.frekotlin-1.8.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
-          <sdk name="AIRSDK_32" />
+          <sdk name="AIRSDK_33" />
         </dependencies>
         <compiler-options>
           <map>
             <entry key="compiler.locale" value="en_US" />
           </map>
+          <option name="additionalOptions" value="-swf-version=44" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app-android.xml" package-file-name="Main">
@@ -119,6 +123,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon83.5x83.5@2x~ipad.png" path-in-package="AppIcon83.5x83.5@2x~ipad.png" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="." />
           </files-to-package>
+          <AirSigningOptions arch="armv8" />
         </packaging-android>
         <packaging-ios use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="Main" />
       </configuration>
@@ -345,7 +350,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="AIRSDK_32" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="AIRSDK_32&#9;AIRSDK_33" jdkType="__CompositeFlexSdk__" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="starling" level="project" />
     <orderEntry type="library" exported="" name="ZipANE" level="project" />
@@ -430,5 +435,6 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-iid-17.0.4" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-invites-16.0.5" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-perf-16.2.1" level="project" />
+    <orderEntry type="library" exported="" name="com.tuarua.frekotlin-1.8.0" level="project" />
   </component>
 </module>

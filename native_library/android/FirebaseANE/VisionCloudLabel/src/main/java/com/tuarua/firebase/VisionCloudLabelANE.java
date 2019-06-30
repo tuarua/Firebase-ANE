@@ -18,7 +18,7 @@ package com.tuarua.firebase;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
-import com.tuarua.firebase.ml.vision.label.KotlinController;
+import com.tuarua.firebase.ml.vision.cloudlabel.KotlinController;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class VisionCloudLabelANE implements FREExtension {

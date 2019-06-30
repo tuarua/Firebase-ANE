@@ -16,7 +16,7 @@
 
 @file:Suppress("FunctionName")
 
-package com.tuarua.firebase.ml.vision.text.extensions
+package com.tuarua.firebase.ml.vision.cloudtext.extensions
 
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.text.FirebaseVisionCloudTextRecognizerOptions

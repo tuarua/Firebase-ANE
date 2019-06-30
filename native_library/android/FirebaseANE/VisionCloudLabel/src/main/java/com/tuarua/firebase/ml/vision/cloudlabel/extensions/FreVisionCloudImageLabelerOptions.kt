@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.tuarua.firebase.ml.vision.label.extensions
+package com.tuarua.firebase.ml.vision.cloudlabel.extensions
 
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.label.FirebaseVisionCloudImageLabelerOptions
