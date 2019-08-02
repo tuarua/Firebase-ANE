@@ -19,6 +19,13 @@
                 <finalizer>TRFIRRCExtFinizer</finalizer>
             </applicationDeployment>
         </platform>
+        <platform name="Android-x86">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.firebase.RemoteConfigANE</initializer>
+                <finalizer>com.tuarua.firebase.RemoteConfigANE</finalizer>
+            </applicationDeployment>
+        </platform>
         <platform name="Android-ARM">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>

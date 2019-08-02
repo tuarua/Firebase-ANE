@@ -8,9 +8,6 @@
             <entry library-name="starling" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.tuarua.frekotlin" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="FirebaseANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
@@ -111,7 +108,7 @@
           <map>
             <entry key="compiler.locale" value="en_US" />
           </map>
-          <option name="additionalOptions" value="-swf-version=44" />
+          <option name="additionalOptions" value="-advanced-telemetry" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app-android.xml" package-file-name="Main">
@@ -395,19 +392,7 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-invites-16.0.0" level="project" />
     <orderEntry type="library" exported="" name="com.google.code.gson.gson-2.8.4" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-storage-16.0.2" level="project" />
-    <orderEntry type="library" exported="" name="FirebaseANE" level="project" />
-    <orderEntry type="library" exported="" name="AnalyticsANE" level="project" />
-    <orderEntry type="library" exported="" name="FirestoreANE" level="project" />
-    <orderEntry type="library" exported="" name="StorageANE" level="project" />
-    <orderEntry type="library" exported="" name="RemoteConfigANE" level="project" />
-    <orderEntry type="library" exported="" name="AuthANE" level="project" />
-    <orderEntry type="library" exported="" name="PerformanceANE" level="project" />
-    <orderEntry type="library" exported="" name="MessagingANE" level="project" />
-    <orderEntry type="library" exported="" name="DynamicLinksANE" level="project" />
-    <orderEntry type="library" exported="" name="GoogleSignInANE" level="project" />
-    <orderEntry type="library" exported="" name="InvitesANE" level="project" />
     <orderEntry type="library" exported="" name="com.crashlytics.sdk.android.crashlytics-2.9.5" level="project" />
-    <orderEntry type="library" exported="" name="CrashlyticsANE" level="project" />
     <orderEntry type="library" exported="" name="com.crashlytics.sdk.android.crashlytics-2.9.9" level="project" />
     <orderEntry type="library" exported="" name="com.google.android.gms.play-services-auth-16.0.1" level="project" />
     <orderEntry type="library" exported="" name="com.google.android.gms.play-services-base-16.0.1" level="project" />
@@ -436,5 +421,17 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-invites-16.0.5" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-perf-16.2.1" level="project" />
     <orderEntry type="library" exported="" name="com.tuarua.frekotlin-1.8.0" level="project" />
+    <orderEntry type="library" exported="" name="FirebaseANE" level="project" />
+    <orderEntry type="library" exported="" name="AnalyticsANE" level="project" />
+    <orderEntry type="library" exported="" name="FirestoreANE" level="project" />
+    <orderEntry type="library" exported="" name="StorageANE" level="project" />
+    <orderEntry type="library" exported="" name="AuthANE" level="project" />
+    <orderEntry type="library" exported="" name="MessagingANE" level="project" />
+    <orderEntry type="library" exported="" name="DynamicLinksANE" level="project" />
+    <orderEntry type="library" exported="" name="GoogleSignInANE" level="project" />
+    <orderEntry type="library" exported="" name="InvitesANE" level="project" />
+    <orderEntry type="library" exported="" name="CrashlyticsANE" level="project" />
+    <orderEntry type="library" exported="" name="RemoteConfigANE" level="project" />
+    <orderEntry type="library" exported="" name="PerformanceANE" level="project" />
   </component>
 </module>

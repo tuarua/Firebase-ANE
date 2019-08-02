@@ -19,6 +19,13 @@
                 <finalizer>TRGSIExtFinizer</finalizer>
             </applicationDeployment>
         </platform>
+        <platform name="Android-x86">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.google.GoogleSignInANE</initializer>
+                <finalizer>com.tuarua.google.GoogleSignInANE</finalizer>
+            </applicationDeployment>
+        </platform>
         <platform name="Android-ARM">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>

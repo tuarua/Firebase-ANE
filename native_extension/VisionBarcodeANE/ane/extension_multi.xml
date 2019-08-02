@@ -5,6 +5,13 @@
     <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
     <versionNumber>0.6.0</versionNumber>
     <platforms>
+        <platform name="Android-x86">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.firebase.VisionBarcodeANE</initializer>
+                <finalizer>com.tuarua.firebase.VisionBarcodeANE</finalizer>
+            </applicationDeployment>
+        </platform>
         <platform name="Android-ARM">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>
