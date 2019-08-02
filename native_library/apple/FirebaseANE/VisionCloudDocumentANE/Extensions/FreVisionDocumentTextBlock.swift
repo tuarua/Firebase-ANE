@@ -20,8 +20,8 @@ import FirebaseMLVision
 
 public extension VisionDocumentTextBlock {
     func toFREObject(id: String, index: UInt) -> FREObject? {
-        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.DocumentTextBlock", args: id, index)
-        else { return nil }
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.ml.vision.document.DocumentTextBlock",
+                                       args: id, index) else { return nil }
         ret.frame = frame
         ret.text = text
         ret["type"] = type.rawValue.toFREObject()
@@ -34,7 +34,7 @@ public extension VisionDocumentTextBlock {
 
 public extension Array where Element == VisionDocumentTextBlock {
     func toFREObject(resultId: String) -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.vision.DocumentTextBlock",
+        guard let ret = FREArray(className: "com.tuarua.firebase.ml.vision.document.DocumentTextBlock",
                                       length: self.count, fixed: true) else { return nil }
         var index: UInt = 0
         for element in self {

@@ -1,19 +1,21 @@
 package views.examples {
-import com.tuarua.firebase.FaceDetector;
-import com.tuarua.firebase.FaceError;
 import com.tuarua.firebase.VisionANE;
-import com.tuarua.firebase.vision.Face;
-import com.tuarua.firebase.vision.FaceDetectorClassificationMode;
-import com.tuarua.firebase.vision.FaceDetectorLandmarkMode;
-import com.tuarua.firebase.vision.FaceDetectorContourMode;
-import com.tuarua.firebase.vision.FaceDetectorPerformanceMode;
-import com.tuarua.firebase.vision.FaceDetectorOptions;
-import com.tuarua.firebase.vision.FaceLandmark;
-import com.tuarua.firebase.vision.FaceLandmarkType;
-import com.tuarua.firebase.vision.VisionImage;
+import com.tuarua.firebase.ml.vision.common.VisionImage;
+import com.tuarua.firebase.ml.vision.face.Face;
+import com.tuarua.firebase.ml.vision.face.FaceDetector;
+import com.tuarua.firebase.ml.vision.face.FaceDetectorClassificationMode;
+import com.tuarua.firebase.ml.vision.face.FaceDetectorContourMode;
+import com.tuarua.firebase.ml.vision.face.FaceDetectorLandmarkMode;
+import com.tuarua.firebase.ml.vision.face.FaceDetectorOptions;
+import com.tuarua.firebase.ml.vision.face.FaceDetectorPerformanceMode;
+import com.tuarua.firebase.ml.vision.face.FaceError;
+import com.tuarua.firebase.ml.vision.face.FaceLandmark;
+import com.tuarua.firebase.ml.vision.face.FaceLandmarkType;
 
 import flash.display.Bitmap;
+
 import roipeker.display.MeshRoundRect;
+
 import starling.display.Canvas;
 import starling.display.Image;
 import starling.display.Sprite;

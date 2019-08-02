@@ -35,18 +35,18 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let options = VisionCloudDocumentTextRecognizerOptions(argv[0])
             else {
-                return FreArgError(message: "initController").getError(#file, #line, #column)
+                return FreArgError(message: "initController").getError()
         }
         recognizer = Vision.vision().cloudDocumentTextRecognizer(options: options)
         return true.toFREObject()
     }
     
-    func detect(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+    func process(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let image = VisionImage(argv[0]),
             let eventId = String(argv[1])
             else {
-                return FreArgError(message: "detect").getError(#file, #line, #column)
+                return FreArgError(message: "detect").getError()
         }
         userInitiatedQueue.async {
             self.recognizer?.process(image, completion: { (result, error) in
@@ -69,7 +69,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let eventId = String(argv[0])
             else {
-                return FreArgError(message: "getResults").getError(#file, #line, #column)
+                return FreArgError(message: "getResults").getError()
         }
         return results[eventId]?.toFREObject(id: eventId)
     }
@@ -78,7 +78,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let resultId = String(argv[0])
             else {
-                return FreArgError(message: "getBlocks").getError(#file, #line, #column)
+                return FreArgError(message: "getBlocks").getError()
         }
         guard let document = results[resultId]  else { return nil }
         return document.blocks.toFREObject(resultId: resultId)
@@ -89,7 +89,7 @@ public class SwiftController: NSObject {
             let resultId = String(argv[0]),
             let blockIndex = Int(argv[1])
             else {
-                return FreArgError(message: "getParagraphs").getError(#file, #line, #column)
+                return FreArgError(message: "getParagraphs").getError()
         }
         guard let document = results[resultId],
             document.blocks.count > blockIndex else { return nil }
@@ -104,7 +104,7 @@ public class SwiftController: NSObject {
             let blockIndex = Int(argv[1]),
             let paragraphIndex = Int(argv[2])
             else {
-                return FreArgError(message: "getWords").getError(#file, #line, #column)
+                return FreArgError(message: "getWords").getError()
         }
         guard let document = results[resultId],
             document.blocks.count > blockIndex else { return nil }
@@ -126,7 +126,7 @@ public class SwiftController: NSObject {
             let paragraphIndex = Int(argv[2]),
             let wordIndex = Int(argv[3])
             else {
-                return FreArgError(message: "getSymbols").getError(#file, #line, #column)
+                return FreArgError(message: "getSymbols").getError()
         }
         guard let document = results[resultId],
             document.blocks.count > blockIndex else { return nil }
@@ -147,7 +147,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let id = String(argv[0])
             else {
-                return FreArgError(message: "disposeResult").getError(#file, #line, #column)
+                return FreArgError(message: "disposeResult").getError()
         }
         results[id] = nil
         return nil

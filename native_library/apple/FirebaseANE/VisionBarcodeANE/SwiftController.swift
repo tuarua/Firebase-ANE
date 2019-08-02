@@ -42,7 +42,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let options = VisionBarcodeDetectorOptions(argv[0])
             else {
-                return FreArgError(message: "initController").getError(#file, #line, #column)
+                return FreArgError(message: "initController").getError()
         }
         self.options = options
         detector = Vision.vision().barcodeDetector(options: options)
@@ -54,7 +54,7 @@ public class SwiftController: NSObject {
             let image = VisionImage(argv[0]),
             let eventId = String(argv[1])
             else {
-                return FreArgError(message: "detect").getError(#file, #line, #column)
+                return FreArgError(message: "detect").getError()
         }
         userInitiatedQueue.async {
             self.detector?.detect(in: image) { (features, error) in
@@ -77,7 +77,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let eventId = String(argv[0])
             else {
-                return FreArgError(message: "getResult").getError(#file, #line, #column)
+                return FreArgError(message: "getResult").getError()
         }
         let ret = results[eventId]?.toFREObject()
         results.removeValue(forKey: eventId)
@@ -91,7 +91,7 @@ public class SwiftController: NSObject {
             let eventId = String(argv[0]),
             let rvc = UIApplication.shared.keyWindow?.rootViewController
             else {
-                return FreArgError(message: "inputFromCamera").getError(#file, #line, #column)
+                return FreArgError(message: "inputFromCamera").getError()
         }
         cameraEventId = eventId
         inputFromCamera(rootViewController: rvc, eventId: eventId)

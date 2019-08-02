@@ -18,14 +18,14 @@ package com.tuarua.firebase;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
-import com.tuarua.firebase.vision.cloudtext.KotlinController;
+import com.tuarua.firebase.ml.vision.cloudtext.KotlinController;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class VisionCloudTextANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"
             ,"createGUID"
-            ,"detect"
+            ,"process"
             ,"getResults"
             ,"close"
     };

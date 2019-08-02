@@ -62,7 +62,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let toTopic = String(argv[0])
             else {
-                return FreArgError(message: "subscribe").getError(#file, #line, #column)
+                return FreArgError(message: "subscribe").getError()
         }
         Messaging.messaging().subscribe(toTopic: toTopic)
         return nil
@@ -72,7 +72,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let fromTopic = String(argv[0])
             else {
-                return FreArgError(message: "unsubscribe").getError(#file, #line, #column)
+                return FreArgError(message: "unsubscribe").getError()
         }
         Messaging.messaging().unsubscribe(fromTopic: fromTopic)
         return nil

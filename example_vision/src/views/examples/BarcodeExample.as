@@ -1,12 +1,12 @@
 package views.examples {
 
-import com.tuarua.firebase.BarcodeDetector;
-import com.tuarua.firebase.BarcodeError;
 import com.tuarua.firebase.VisionANE;
-import com.tuarua.firebase.vision.Barcode;
-import com.tuarua.firebase.vision.BarcodeDetectorOptions;
-import com.tuarua.firebase.vision.BarcodeFormat;
-import com.tuarua.firebase.vision.VisionImage;
+import com.tuarua.firebase.ml.vision.barcode.Barcode;
+import com.tuarua.firebase.ml.vision.barcode.BarcodeDetector;
+import com.tuarua.firebase.ml.vision.barcode.BarcodeDetectorOptions;
+import com.tuarua.firebase.ml.vision.barcode.BarcodeError;
+import com.tuarua.firebase.ml.vision.barcode.BarcodeFormat;
+import com.tuarua.firebase.ml.vision.common.VisionImage;
 import com.tuarua.firebase.vision.display.NativeButton;
 import com.tuarua.firebase.vision.display.NativeImage;
 

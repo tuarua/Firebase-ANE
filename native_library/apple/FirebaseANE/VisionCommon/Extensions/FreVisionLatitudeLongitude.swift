@@ -20,7 +20,7 @@ import FirebaseMLVision
 
 public extension VisionLatitudeLongitude {
     func toFREObject() -> FREObject? {
-        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.vision.LatitudeLongitude")
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.ml.vision.common.LatitudeLongitude")
             else { return nil }
         ret.latitude = latitude ?? 0.0
         ret.longitude = longitude ?? 0.0
@@ -30,7 +30,8 @@ public extension VisionLatitudeLongitude {
 
 public extension Array where Element == VisionLatitudeLongitude {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.vision.LatitudeLongitude") else { return nil }
+        guard let ret = FREArray(className: "com.tuarua.firebase.ml.vision.common.LatitudeLongitude")
+            else { return nil }
         for element in self {
             ret.push(element.toFREObject())
         }

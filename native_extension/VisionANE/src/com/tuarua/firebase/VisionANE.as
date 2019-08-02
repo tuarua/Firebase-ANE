@@ -15,13 +15,21 @@
  */
 
 package com.tuarua.firebase {
-import com.tuarua.firebase.vision.BarcodeDetectorOptions;
-import com.tuarua.firebase.vision.CloudDetectorOptions;
-import com.tuarua.firebase.vision.CloudDocumentRecognizerOptions;
-import com.tuarua.firebase.vision.CloudTextRecognizerOptions;
-import com.tuarua.firebase.vision.FaceDetectorOptions;
-import com.tuarua.firebase.vision.CloudLabelDetectorOptions;
-import com.tuarua.firebase.vision.LabelDetectorOptions;
+import com.tuarua.firebase.ml.vision.barcode.BarcodeDetector;
+import com.tuarua.firebase.ml.vision.barcode.BarcodeDetectorOptions;
+import com.tuarua.firebase.ml.vision.cloud.landmark.CloudLandmarkDetector;
+import com.tuarua.firebase.ml.vision.document.CloudDocumentTextRecognizer;
+import com.tuarua.firebase.ml.vision.face.FaceDetector;
+import com.tuarua.firebase.ml.vision.label.CloudImageLabeler;
+import com.tuarua.firebase.ml.vision.label.OnDeviceImageLabeler;
+import com.tuarua.firebase.ml.vision.cloud.CloudDetectorOptions;
+import com.tuarua.firebase.ml.vision.document.CloudDocumentRecognizerOptions;
+import com.tuarua.firebase.ml.vision.text.CloudTextRecognizer;
+import com.tuarua.firebase.ml.vision.text.CloudTextRecognizerOptions;
+import com.tuarua.firebase.ml.vision.face.FaceDetectorOptions;
+import com.tuarua.firebase.ml.vision.label.CloudImageLabelerOptions;
+import com.tuarua.firebase.ml.vision.label.OnDeviceImageLabelerOptions;
+import com.tuarua.firebase.ml.vision.text.TextRecognizer;
 import com.tuarua.firebase.vision.display.CameraOverlay;
 import com.tuarua.fre.ANEError;
 
@@ -32,10 +40,10 @@ public class VisionANE extends EventDispatcher {
     private var _faceDetector:FaceDetector;
     private var _textRecognizer:TextRecognizer;
     private var _cloudTextRecognizer:CloudTextRecognizer;
-    private var _labelDetector:LabelDetector;
-    private var _cloudLabelDetector:CloudLabelDetector;
+    private var _labelDetector:OnDeviceImageLabeler;
+    private var _cloudLabelDetector:CloudImageLabeler;
     private var _cloudLandmarkDetector:CloudLandmarkDetector;
-    private var _cloudDocumentTextRecognizer:CloudDocumentRecognizer;
+    private var _cloudDocumentTextRecognizer:CloudDocumentTextRecognizer;
     private static var _vision:VisionANE;
     private var _cameraOverlay:CameraOverlay = new CameraOverlay();
 
@@ -111,11 +119,11 @@ public class VisionANE extends EventDispatcher {
      * @param options Options for configuring the cloud document text recognizer.
      * @return A document text recognizer configured with the given options.
      */
-    public function cloudDocumentTextRecognizer(options:CloudDocumentRecognizerOptions = null):CloudDocumentRecognizer {
+    public function cloudDocumentTextRecognizer(options:CloudDocumentRecognizerOptions = null):CloudDocumentTextRecognizer {
         if (_cloudDocumentTextRecognizer != null) {
             _cloudDocumentTextRecognizer.reinit(options);
         } else {
-            _cloudDocumentTextRecognizer = new CloudDocumentRecognizer(options);
+            _cloudDocumentTextRecognizer = new CloudDocumentTextRecognizer(options);
         }
         return _cloudDocumentTextRecognizer
     }
@@ -126,11 +134,11 @@ public class VisionANE extends EventDispatcher {
      * @param options Options for configuring the label detector.
      * @return A label detector configured with the given options.
      */
-    public function labelDetector(options:LabelDetectorOptions = null):LabelDetector {
+    public function labelDetector(options:OnDeviceImageLabelerOptions = null):OnDeviceImageLabeler {
         if (_labelDetector != null) {
             _labelDetector.reinit(options);
         } else {
-            _labelDetector = new LabelDetector(options);
+            _labelDetector = new OnDeviceImageLabeler(options);
         }
         return _labelDetector;
     }
@@ -141,11 +149,11 @@ public class VisionANE extends EventDispatcher {
      * @param options Options for configuring the cloud label detector.
      * @return A cloud label detector configured with the given options.
      */
-    public function cloudLabelDetector(options:CloudLabelDetectorOptions = null):CloudLabelDetector {
+    public function cloudLabelDetector(options:CloudImageLabelerOptions = null):CloudImageLabeler {
         if (_cloudLabelDetector != null) {
             _cloudLabelDetector.reinit(options);
         } else {
-            _cloudLabelDetector = new CloudLabelDetector(options);
+            _cloudLabelDetector = new CloudImageLabeler(options);
         }
         return _cloudLabelDetector
     }
@@ -176,7 +184,8 @@ public class VisionANE extends EventDispatcher {
     /** Requests permissions for this ANE. */
     public function requestPermissions():void {
         if (VisionANEContext.context) {
-            VisionANEContext.context.call("requestPermissions");
+            var ret:* = VisionANEContext.context.call("requestPermissions");
+            if (ret is ANEError) throw ret as ANEError;
         }
     }
 
@@ -209,14 +218,14 @@ public class VisionANE extends EventDispatcher {
         if (CloudTextRecognizer.context) {
             CloudTextRecognizer.dispose();
         }
-        if (CloudDocumentRecognizer.context) {
-            CloudDocumentRecognizer.dispose();
+        if (CloudDocumentTextRecognizer.context) {
+            CloudDocumentTextRecognizer.dispose();
         }
-        if (LabelDetector.context) {
-            LabelDetector.dispose();
+        if (OnDeviceImageLabeler.context) {
+            OnDeviceImageLabeler.dispose();
         }
-        if (CloudLabelDetector.context) {
-            CloudLabelDetector.dispose();
+        if (CloudImageLabeler.context) {
+            CloudImageLabeler.dispose();
         }
         if (CloudLandmarkDetector.context) {
             CloudLandmarkDetector.dispose();

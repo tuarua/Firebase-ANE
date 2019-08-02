@@ -1,6 +1,7 @@
 #!/bin/sh
 
-AneVersion="0.5.0"
+AneVersion="0.6.0"
+FreKotlinVersion="1.8.0"
 PlayerServicesVersion="16.0.1"
 SupportV4Version="27.1.0"
 AnalyticsVersion="16.0.5"
@@ -10,14 +11,9 @@ ImageLabelVersion="17.0.2"
 ModelInterpreterVersion="17.0.3"
 NaturalLanguageVersion="18.1.1"
 FaceModelVersion="17.0.2"
-KotlinxCoroutinesVersion="1.0.1"
+KotlinxCoroutinesVersion="1.2.2"
 EventBusVersion="3.0.0"
 GsonVersion="2.8.4"
-FreSwiftVersion="3.0.0"
-
-wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/${FreSwiftVersion}/AIRSDK_patch.zip
-unzip -u -o AIRSDK_patch.zip
-rm AIRSDK_patch.zip
 
 wget https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/assets.zip
 unzip -u -o assets.zip
@@ -37,7 +33,7 @@ wget -O ../native_extension/VisionLandmarkANE/ane/VisionLandmarkANE.ane https://
 wget -O ../native_extension/NaturalLanguageANE/ane/NaturalLanguageANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/NaturalLanguageANE.ane?raw=true
 wget -O ../native_extension/ModelInterpreterANE/ane/ModelInterpreterANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/ModelInterpreterANE.ane?raw=true
 
-wget -O android_dependencies/com.tuarua.frekotlin.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin.ane?raw=true
+wget -O android_dependencies/com.tuarua.frekotlin-${FreKotlinVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin-${FreKotlinVersion}.ane?raw=true
 wget -O android_dependencies/org.jetbrains.kotlinx.kotlinx-coroutines-android-${KotlinxCoroutinesVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/org.jetbrains.kotlinx.kotlinx-coroutines-android-${KotlinxCoroutinesVersion}.ane?raw=true
 wget -O android_dependencies/org.greenrobot.eventbus-${EventBusVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/org.greenrobot.eventbus-${EventBusVersion}.ane?raw=true
 wget -O android_dependencies/com.google.code.gson.gson-${GsonVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.google.code.gson.gson-${GsonVersion}.ane?raw=true

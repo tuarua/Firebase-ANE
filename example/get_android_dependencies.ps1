@@ -1,4 +1,5 @@
-$AneVersion = "0.5.0"
+$AneVersion = "0.6.0"
+$FreKotlinVersion = "1.8.0"
 $PlayerServicesVersion = "16.0.1"
 $SupportV4Version = "27.1.0"
 $AnalyticsVersion = "16.0.5"
@@ -33,7 +34,7 @@ Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/InvitesANE.ane?raw=true -OutFile "$currentDir\..\native_extension\InvitesANE\ane\InvitesANE.ane"
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/CrashlyticsANE.ane?raw=true -OutFile "$currentDir\..\native_extension\CrashlyticsANE\ane\CrashlyticsANE.ane"
 
-Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.tuarua.frekotlin.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin.ane?raw=true
+Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.tuarua.frekotlin-$FreKotlinVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin-$FreKotlinVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\org.greenrobot.eventbus-$EventBusVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/org.greenrobot.eventbus-$EventBusVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.code.gson.gson-$GsonVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.google.code.gson.gson-$GsonVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.squareup.okhttp.okhttp-$OkhttpVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.squareup.okhttp.okhttp-$OkhttpVersion.ane?raw=true
@@ -52,5 +53,5 @@ Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-messaging-$MessagingVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-messaging-$MessagingVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-perf-$PerfVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-perf-$PerfVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-storage-$StorageVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-storage-$StorageVersion.ane?raw=true
-Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.crashlytics.sdk.android.crashlytics-$CrashlyticsVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.crashlytics.sdk.android.crashlytics-$CrashlyticsVersion.ane?raw=true
+Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.crashlytics.sdk.android.crashlytics-$CrashlyticsVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.crashlytics.sdk.android.crashlytics-$CrashlyticsVersion.ane?raw=true
 

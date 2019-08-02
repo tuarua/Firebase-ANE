@@ -58,9 +58,9 @@ public class SwiftController: NSObject {
             let url = String(argv[0]),
             let sourceApplication = String(argv[1])
             else {
-                return FreArgError(message: "handle").getError(#file, #line, #column)
+                return FreArgError(message: "handle").getError()
         }
-        GIDSignIn.sharedInstance().handle(URL.init(string: url), sourceApplication: sourceApplication, annotation: "")
+        GIDSignIn.sharedInstance().handle(URL(string: url), sourceApplication: sourceApplication, annotation: "")
         return nil
     }
 

@@ -17,7 +17,7 @@ package com.tuarua.firebase;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
-import com.tuarua.firebase.vision.face.KotlinController;
+import com.tuarua.firebase.ml.vision.face.KotlinController;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class VisionFaceANE implements FREExtension {

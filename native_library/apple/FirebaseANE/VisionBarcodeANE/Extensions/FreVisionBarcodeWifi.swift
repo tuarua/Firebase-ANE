@@ -20,7 +20,8 @@ import FirebaseMLVision
 
 public extension VisionBarcodeWifi {
     func toFREObject() -> FREObject? {
-        return FREObject(className: "com.tuarua.firebase.vision.BarcodeWifi", args: password, ssid, type.rawValue)
+        return FREObject(className: "com.tuarua.firebase.ml.vision.barcode.BarcodeWifi",
+                         args: password, ssid, type.rawValue)
     }
 }
 

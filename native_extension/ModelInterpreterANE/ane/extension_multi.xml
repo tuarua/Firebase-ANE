@@ -3,13 +3,20 @@
     <id>com.tuarua.firebase.ModelInterpreterANE</id>
     <name>Firebase Tensor Flow Lite ANE</name>
     <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
-    <versionNumber>0.5.0</versionNumber>
+    <versionNumber>0.6.0</versionNumber>
     <platforms>
         <platform name="iPhone-ARM">
             <applicationDeployment>
                 <nativeLibrary>libModelInterpreterANE.a</nativeLibrary>
                 <initializer>TRFBMIExtInizer</initializer>
                 <finalizer>TRFBMIExtFinizer</finalizer>
+            </applicationDeployment>
+        </platform>
+        <platform name="Android-x86">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.firebase.ModelInterpreterANE</initializer>
+                <finalizer>com.tuarua.firebase.ModelInterpreterANE</finalizer>
             </applicationDeployment>
         </platform>
         <platform name="Android-ARM">
@@ -19,7 +26,7 @@
                 <finalizer>com.tuarua.firebase.ModelInterpreterANE</finalizer>
             </applicationDeployment>
         </platform>
-        <platform name="Android-x86">
+        <platform name="Android-ARM64">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>
                 <initializer>com.tuarua.firebase.ModelInterpreterANE</initializer>

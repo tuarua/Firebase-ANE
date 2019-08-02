@@ -20,7 +20,7 @@ import FirebaseMLVision
 
 public extension VisionFaceLandmark {
     func toFREObject() -> FREObject? {
-        return FREObject(className: "com.tuarua.firebase.vision.FaceLandmark",
+        return FREObject(className: "com.tuarua.firebase.ml.vision.face.FaceLandmark",
                          args: position.toFREObject(), type.rawValue)
     }
 }

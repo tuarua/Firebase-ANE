@@ -34,7 +34,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let defaults = [String: NSObject](argv[0])
             else {
-                return FreArgError(message: "setDefaults").getError(#file, #line, #column)
+                return FreArgError(message: "setDefaults").getError()
         }
         remoteConfig?.setDefaults(defaults)
         return nil
@@ -44,7 +44,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
         let settings = RemoteConfigSettings(argv[0])
             else {
-                return FreArgError(message: "setConfigSettings").getError(#file, #line, #column)
+                return FreArgError(message: "setConfigSettings").getError()
         }
         remoteConfig?.configSettings = settings
         return nil
@@ -54,7 +54,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let key = String(argv[0])
             else {
-                return FreArgError(message: "getByteArray").getError(#file, #line, #column)
+                return FreArgError(message: "getByteArray").getError()
         }
         if let rc = remoteConfig {
             let data = rc[key].dataValue
@@ -70,7 +70,7 @@ public class SwiftController: NSObject {
             let rc = remoteConfig,
             let key = String(argv[0])
             else {
-                return FreArgError(message: "getBoolean").getError(#file, #line, #column)
+                return FreArgError(message: "getBoolean").getError()
         }
         return rc[key].boolValue.toFREObject()
     }
@@ -80,7 +80,7 @@ public class SwiftController: NSObject {
             let rc = remoteConfig,
             let key = String(argv[0])
             else {
-                return FreArgError(message: "getDouble").getError(#file, #line, #column)
+                return FreArgError(message: "getDouble").getError()
         }
         return Double(truncating: rc[key].numberValue ?? 0).toFREObject()
     }
@@ -90,7 +90,7 @@ public class SwiftController: NSObject {
             let rc = remoteConfig,
             let key = String(argv[0])
             else {
-                return FreArgError(message: "getLong").getError(#file, #line, #column)
+                return FreArgError(message: "getLong").getError()
         }
         return Int(truncating: rc[key].numberValue ?? 0).toFREObject()
     }
@@ -100,7 +100,7 @@ public class SwiftController: NSObject {
             let rc = remoteConfig,
             let key = String(argv[0])
             else {
-                return FreArgError(message: "getString").getError(#file, #line, #column)
+                return FreArgError(message: "getString").getError()
         }
         return rc[key].stringValue?.toFREObject()
     }
@@ -110,7 +110,7 @@ public class SwiftController: NSObject {
             let rc = remoteConfig,
             let key = String(argv[0])
             else {
-                return FreArgError(message: "getKeysByPrefix").getError(#file, #line, #column)
+                return FreArgError(message: "getKeysByPrefix").getError()
         }
         return [String](rc.keys(withPrefix: key)).toFREObject()
     }
@@ -128,7 +128,7 @@ public class SwiftController: NSObject {
             let rc = remoteConfig,
             let cacheExpiration = Int(argv[0])
             else {
-                return FreArgError(message: "fetch").getError(#file, #line, #column)
+                return FreArgError(message: "fetch").getError()
         }
         self.cacheExpiration = rc.configSettings.isDeveloperModeEnabled ? 0 : cacheExpiration
         

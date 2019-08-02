@@ -1,17 +1,18 @@
 package views.examples {
 
-import com.tuarua.firebase.ModelInterpreterANE;
-import com.tuarua.firebase.ModelInterpreterError;
-import com.tuarua.firebase.ModelManager;
-import com.tuarua.firebase.modelInterpreter.LocalModelSource;
-import com.tuarua.firebase.modelInterpreter.ModelElementType;
-import com.tuarua.firebase.modelInterpreter.ModelInputOutputOptions;
-import com.tuarua.firebase.modelInterpreter.ModelInputs;
-import com.tuarua.firebase.modelInterpreter.ModelOptions;
+import com.tuarua.firebase.ml.common.modeldownload.LocalModelSource;
+import com.tuarua.firebase.ml.common.modeldownload.ModelManager;
+import com.tuarua.firebase.ml.custom.ModelElementType;
+import com.tuarua.firebase.ml.custom.ModelInputOutputOptions;
+import com.tuarua.firebase.ml.custom.ModelInputs;
+import com.tuarua.firebase.ml.custom.ModelInterpreterANE;
+import com.tuarua.firebase.ml.custom.ModelInterpreterError;
+import com.tuarua.firebase.ml.custom.ModelOptions;
 
 import flash.display.Bitmap;
 import flash.filesystem.File;
 import flash.utils.ByteArray;
+
 import starling.display.Sprite;
 import starling.events.Touch;
 import starling.events.TouchEvent;
@@ -88,7 +89,7 @@ public class TensorFlowExample extends Sprite implements IExample {
             var modelSource:LocalModelSource = new LocalModelSource("mobilenet_quant_v2_1.0_299", "mobilenet/mobilenet_quant_v2_1.0_299.tflite");
             var registrationSuccessful:Boolean = modelManager.registerLocalModel(modelSource);
             statusLabel.text = "Model registration successful: " + registrationSuccessful + "\n";
-            if(!registrationSuccessful) return;
+            if (!registrationSuccessful) return;
 
             // convert bitmap into byte array of ModelElementType.byte
             var pixels:ByteArray = new ByteArray();

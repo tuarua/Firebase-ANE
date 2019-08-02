@@ -36,7 +36,7 @@ import kotlin.math.sign
 
 /**
  * Camera initializing processing is
- *  - Init surfaceView / TextureView. should make sure [SurfaceView] or [TextureView] is initialized.
+ *  - Init surfaceView / TextureView. should make sure [AutoFitTextureView] or [TextureView] is initialized.
  *  - Check **Camera Permission**. In this phase, it needs a callback to
  *  main Activity. Otherwise, Activity can't display camera previewing if not permitted.
  *  - If camera permission is grant. Run the background thread for camera things.

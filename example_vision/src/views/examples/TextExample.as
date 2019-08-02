@@ -1,17 +1,17 @@
 package views.examples {
-import com.tuarua.firebase.CloudDocumentRecognizer;
-import com.tuarua.firebase.CloudTextRecognizer;
-import com.tuarua.firebase.TextRecognizer;
 import com.tuarua.firebase.VisionANE;
-import com.tuarua.firebase.vision.CloudDocumentRecognizerOptions;
-import com.tuarua.firebase.vision.DocumentText;
-import com.tuarua.firebase.vision.DocumentTextBlock;
-import com.tuarua.firebase.vision.Text;
-import com.tuarua.firebase.vision.TextElement;
-import com.tuarua.firebase.vision.TextError;
-import com.tuarua.firebase.vision.TextLine;
-import com.tuarua.firebase.vision.VisionImage;
-import com.tuarua.firebase.vision.TextBlock;
+import com.tuarua.firebase.ml.vision.common.VisionImage;
+import com.tuarua.firebase.ml.vision.document.CloudDocumentRecognizerOptions;
+import com.tuarua.firebase.ml.vision.document.CloudDocumentTextRecognizer;
+import com.tuarua.firebase.ml.vision.document.DocumentText;
+import com.tuarua.firebase.ml.vision.document.DocumentTextBlock;
+import com.tuarua.firebase.ml.vision.text.CloudTextRecognizer;
+import com.tuarua.firebase.ml.vision.text.Text;
+import com.tuarua.firebase.ml.vision.text.TextBlock;
+import com.tuarua.firebase.ml.vision.text.TextElement;
+import com.tuarua.firebase.ml.vision.text.TextError;
+import com.tuarua.firebase.ml.vision.text.TextLine;
+import com.tuarua.firebase.ml.vision.text.TextRecognizer;
 
 import flash.display.Bitmap;
 import flash.geom.Rectangle;
@@ -57,7 +57,7 @@ public class TextExample extends Sprite implements IExample {
     private var isInited:Boolean;
     private var textRecognizer:TextRecognizer;
     private var cloudTextRecognizer:CloudTextRecognizer;
-    private var cloudDocumentRecognizer:CloudDocumentRecognizer;
+    private var cloudDocumentRecognizer:CloudDocumentTextRecognizer;
     private var vision:VisionANE;
 
     public function TextExample(stageWidth:int, vision:VisionANE) {

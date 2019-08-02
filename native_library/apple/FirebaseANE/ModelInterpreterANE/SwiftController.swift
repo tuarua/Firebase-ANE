@@ -32,7 +32,7 @@ public class SwiftController: NSObject {
             let options = ModelOptions(argv[0]),
             let isStatsCollectionEnabled = Bool(argv[1])
             else {
-                return FreArgError(message: "run").getError(#file, #line, #column)
+                return FreArgError(message: "run").getError()
         }
         modelOptions = options
         self.isStatsCollectionEnabled = isStatsCollectionEnabled
@@ -43,7 +43,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let modelSource = CloudModelSource(argv[0])
             else {
-                return FreArgError(message: "registerCloudModel").getError(#file, #line, #column)
+                return FreArgError(message: "registerCloudModel").getError()
         }
         return ModelManager.modelManager().register(modelSource).toFREObject()
     }
@@ -52,7 +52,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let modelSource = LocalModelSource(argv[0])
             else {
-                return FreArgError(message: "registerLocalModel").getError(#file, #line, #column)
+                return FreArgError(message: "registerLocalModel").getError()
         }
         return ModelManager.modelManager().register(modelSource).toFREObject()
     }
@@ -61,7 +61,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let name = String(argv[0])
             else {
-                return FreArgError(message: "cloudModelSource").getError(#file, #line, #column)
+                return FreArgError(message: "cloudModelSource").getError()
         }
         return ModelManager.modelManager().cloudModelSource(forModelName: name)?.name.toFREObject()
     }
@@ -70,7 +70,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let name = String(argv[0])
             else {
-                return FreArgError(message: "localModelSource").getError(#file, #line, #column)
+                return FreArgError(message: "localModelSource").getError()
         }
         return ModelManager.modelManager().localModelSource(forModelName: name)?.name.toFREObject()
     }
@@ -84,7 +84,7 @@ public class SwiftController: NSObject {
             let eventId = String(argv[4]),
             let modelOptions = modelOptions
             else {
-                return FreArgError(message: "run").getError(#file, #line, #column)
+                return FreArgError(message: "run").getError()
         }
         
         let interpreter = ModelInterpreter.modelInterpreter(options: modelOptions)

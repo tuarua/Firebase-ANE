@@ -20,7 +20,7 @@ import FirebaseMLVision
 
 public extension VisionBarcodeGeoPoint {
     func toFREObject() -> FREObject? {
-        return FREObject(className: "com.tuarua.firebase.vision.BarcodeGeoPoint",
+        return FREObject(className: "com.tuarua.firebase.ml.vision.barcode.BarcodeGeoPoint",
                                     args: self.latitude, self.longitude)
     }
 }

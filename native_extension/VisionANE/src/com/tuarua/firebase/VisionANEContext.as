@@ -23,6 +23,7 @@ import flash.utils.setTimeout;
 /** @private */
 public class VisionANEContext {
     internal static const NAME:String = "VisionANE";
+    internal static const TRACE:String = "TRACE";
     private static var _context:ExtensionContext;
     public function VisionANEContext() {
     }
@@ -41,6 +42,9 @@ public class VisionANEContext {
 
     private static function gotEvent(event:StatusEvent):void {
         switch (event.level) {
+            case TRACE:
+                trace("[" + NAME + "]", event.code);
+                break;
             case PermissionEvent.STATUS_CHANGED:
                 try {
                     var argsAsJSON:Object = JSON.parse(event.code);

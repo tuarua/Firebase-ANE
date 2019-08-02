@@ -21,8 +21,9 @@ import FirebaseMLVision
 
 public extension IdentifiedLanguage {
     func toFREObject() -> FREObject? {
-        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.naturalLanguage.IdentifiedLanguage") else {
-            return nil }
+        guard let ret = FreObjectSwift(className:
+            "com.tuarua.firebase.ml.naturallanguage.languageid.IdentifiedLanguage")
+            else { return nil }
         ret.confidence = confidence
         ret.languageCode = languageCode
         return ret.rawValue
@@ -31,8 +32,8 @@ public extension IdentifiedLanguage {
 
 public extension Array where Element == IdentifiedLanguage {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.naturalLanguage.IdentifiedLanguage") else {
-            return nil }
+        guard let ret = FREArray(className: "com.tuarua.firebase.ml.naturallanguage.languageid.IdentifiedLanguage")
+            else { return nil }
         for element in self where element.languageCode != "und" {
             ret.push(element.toFREObject())
         }

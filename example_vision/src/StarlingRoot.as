@@ -1,16 +1,16 @@
 package {
 import com.tuarua.FirebaseANE;
-import com.tuarua.firebase.BarcodeDetector;
-import com.tuarua.firebase.CloudLabelDetector;
-import com.tuarua.firebase.CloudLandmarkDetector;
-import com.tuarua.firebase.CloudTextRecognizer;
-import com.tuarua.firebase.FaceDetector;
 import com.tuarua.firebase.FirebaseOptions;
-import com.tuarua.firebase.LabelDetector;
-import com.tuarua.firebase.ModelInterpreterANE;
-import com.tuarua.firebase.NaturalLanguageANE;
-import com.tuarua.firebase.TextRecognizer;
 import com.tuarua.firebase.VisionANE;
+import com.tuarua.firebase.ml.custom.ModelInterpreterANE;
+import com.tuarua.firebase.ml.naturallanguage.NaturalLanguageANE;
+import com.tuarua.firebase.ml.vision.barcode.BarcodeDetector;
+import com.tuarua.firebase.ml.vision.cloud.landmark.CloudLandmarkDetector;
+import com.tuarua.firebase.ml.vision.face.FaceDetector;
+import com.tuarua.firebase.ml.vision.label.CloudImageLabeler;
+import com.tuarua.firebase.ml.vision.label.OnDeviceImageLabeler;
+import com.tuarua.firebase.ml.vision.text.CloudTextRecognizer;
+import com.tuarua.firebase.ml.vision.text.TextRecognizer;
 import com.tuarua.firebase.permissions.PermissionEvent;
 import com.tuarua.firebase.permissions.PermissionStatus;
 import com.tuarua.fre.ANEError;
@@ -263,8 +263,8 @@ public class StarlingRoot extends Sprite {
         FaceDetector.dispose();
         TextRecognizer.dispose();
         CloudTextRecognizer.dispose();
-        LabelDetector.dispose();
-        CloudLabelDetector.dispose();
+        OnDeviceImageLabeler.dispose();
+        CloudImageLabeler.dispose();
         CloudLandmarkDetector.dispose();
         VisionANE.dispose();
         NaturalLanguageANE.dispose();

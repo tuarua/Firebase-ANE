@@ -37,7 +37,7 @@ public class SwiftController: NSObject {
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0
             else {
-                return FreArgError(message: "initController").getError(#file, #line, #column)
+                return FreArgError(message: "initController").getError()
         }
         let debug = Bool(argv[0]) == true
         Fabric.with([Crashlytics.self])
@@ -61,7 +61,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let message = String(argv[0])
             else {
-                return FreArgError(message: "logException").getError(#file, #line, #column)
+                return FreArgError(message: "logException").getError()
         }
         crashlytics.recordCustomExceptionName("CrashlyticsANE", reason: message, frameArray: [])
         return nil
@@ -73,7 +73,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let value = String(argv[0])
             else {
-                return FreArgError(message: "setUserIdentifier").getError(#file, #line, #column)
+                return FreArgError(message: "setUserIdentifier").getError()
         }
         crashlytics.setUserIdentifier(value)
         return nil
@@ -83,7 +83,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let value = String(argv[0])
             else {
-                return FreArgError(message: "setUserEmail").getError(#file, #line, #column)
+                return FreArgError(message: "setUserEmail").getError()
         }
         crashlytics.setUserEmail(value)
         return nil
@@ -93,7 +93,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let value = String(argv[0])
             else {
-                return FreArgError(message: "setUserName").getError(#file, #line, #column)
+                return FreArgError(message: "setUserName").getError()
         }
         crashlytics.setUserName(value)
         return nil
@@ -104,7 +104,7 @@ public class SwiftController: NSObject {
             let key = String(argv[0]),
             let value = String(argv[1])
             else {
-                return FreArgError(message: "setString").getError(#file, #line, #column)
+                return FreArgError(message: "setString").getError()
         }
         crashlytics.setObjectValue(value, forKey: key)
         return nil
@@ -115,7 +115,7 @@ public class SwiftController: NSObject {
             let key = String(argv[0]),
             let value = Bool(argv[1])
             else {
-                return FreArgError(message: "setBool").getError(#file, #line, #column)
+                return FreArgError(message: "setBool").getError()
         }
         crashlytics.setBoolValue(value, forKey: key)
         return nil
@@ -126,7 +126,7 @@ public class SwiftController: NSObject {
             let key = String(argv[0]),
             let value = Float(argv[1])
             else {
-                return FreArgError(message: "setDouble").getError(#file, #line, #column)
+                return FreArgError(message: "setDouble").getError()
         }
         crashlytics.setFloatValue(value, forKey: key)
         return nil
@@ -137,7 +137,7 @@ public class SwiftController: NSObject {
             let key = String(argv[0]),
             let value = Int(argv[1])
             else {
-                return FreArgError(message: "setInt").getError(#file, #line, #column)
+                return FreArgError(message: "setInt").getError()
         }
         crashlytics.setIntValue(Int32(value), forKey: key)
         return nil

@@ -18,7 +18,7 @@ package com.tuarua.firebase;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
-import com.tuarua.firebase.naturallanguage.KotlinController;
+import com.tuarua.firebase.ml.naturallanguage.KotlinController;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class NaturalLanguageANE implements FREExtension {

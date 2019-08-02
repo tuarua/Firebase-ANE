@@ -36,7 +36,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let options = VisionFaceDetectorOptions(argv[0])
             else {
-                return FreArgError(message: "initController").getError(#file, #line, #column)
+                return FreArgError(message: "initController").getError()
         }
         detector = self.vision.faceDetector(options: options)
         return true.toFREObject()
@@ -47,7 +47,7 @@ public class SwiftController: NSObject {
             let image = VisionImage(argv[0]),
             let eventId = String(argv[1])
             else {
-                return FreArgError(message: "detect").getError(#file, #line, #column)
+                return FreArgError(message: "detect").getError()
         }
         userInitiatedQueue.async {
             self.detector?.process(image) { (features, error) in
@@ -70,7 +70,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let eventId = String(argv[0])
             else {
-                return FreArgError(message: "getResult").getError(#file, #line, #column)
+                return FreArgError(message: "getResult").getError()
         }
         let ret = results[eventId]?.toFREObject()
         results.removeValue(forKey: eventId)

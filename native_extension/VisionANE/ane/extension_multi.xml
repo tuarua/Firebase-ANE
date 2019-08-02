@@ -3,8 +3,15 @@
     <id>com.tuarua.firebase.VisionANE</id>
     <name>Firebase Vision ANE</name>
     <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
-    <versionNumber>0.5.0</versionNumber>
+    <versionNumber>0.6.0</versionNumber>
     <platforms>
+        <platform name="Android-x86">
+            <applicationDeployment>
+                <nativeLibrary>classes.jar</nativeLibrary>
+                <initializer>com.tuarua.firebase.VisionANE</initializer>
+                <finalizer>com.tuarua.firebase.VisionANE</finalizer>
+            </applicationDeployment>
+        </platform>
         <platform name="Android-ARM">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>
@@ -12,7 +19,7 @@
                 <finalizer>com.tuarua.firebase.VisionANE</finalizer>
             </applicationDeployment>
         </platform>
-        <platform name="Android-x86">
+        <platform name="Android-ARM64">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>
                 <initializer>com.tuarua.firebase.VisionANE</initializer>
