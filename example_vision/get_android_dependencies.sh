@@ -14,6 +14,7 @@ FaceModelVersion="17.0.2"
 KotlinxCoroutinesVersion="1.2.2"
 EventBusVersion="3.0.0"
 GsonVersion="2.8.4"
+LifeCycleVersion="1.1.1"
 
 wget https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/assets.zip
 unzip -u -o assets.zip
@@ -39,6 +40,7 @@ wget -O android_dependencies/org.greenrobot.eventbus-${EventBusVersion}.ane http
 wget -O android_dependencies/com.google.code.gson.gson-${GsonVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.google.code.gson.gson-${GsonVersion}.ane?raw=true
 wget -O android_dependencies/com.android.support.support-v4-${SupportV4Version}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/support/com.android.support.support-v4-${SupportV4Version}.ane?raw=true
 wget -O android_dependencies/com.google.android.gms.play-services-base-${PlayerServicesVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.google.android.gms.play-services-base-${PlayerServicesVersion}.ane?raw=true
+wget -O android_dependencies/android.arch.lifecycle.runtime-$LifeCycleVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/android.arch.lifecycle.runtime-$LifeCycleVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-analytics-${AnalyticsVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-analytics-${AnalyticsVersion}.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-iid-${IidVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-iid-${IidVersion}.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-ml-vision-${VisionVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-ml-vision-${VisionVersion}.ane?raw=true
