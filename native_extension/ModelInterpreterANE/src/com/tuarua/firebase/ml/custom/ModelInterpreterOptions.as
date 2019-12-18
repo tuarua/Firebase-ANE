@@ -15,11 +15,11 @@
  */
 
 package com.tuarua.firebase.ml.custom {
-public class FirebaseModelInterpreterOptions {
+public class ModelInterpreterOptions {
     private var _localModel:CustomLocalModel;
     private var _remoteModel:CustomRemoteModel;
 
-    public function FirebaseModelInterpreterOptions(localModel:CustomLocalModel = null, remoteModel:CustomRemoteModel = null) {
+    public function ModelInterpreterOptions(localModel:CustomLocalModel = null, remoteModel:CustomRemoteModel = null) {
         this._localModel = localModel;
         this._remoteModel = remoteModel;
     }

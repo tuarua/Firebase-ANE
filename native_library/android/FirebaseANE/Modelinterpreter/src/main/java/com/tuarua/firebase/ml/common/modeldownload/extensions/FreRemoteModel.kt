@@ -26,15 +26,6 @@ import com.tuarua.frekotlin.get
 fun FirebaseRemoteModel(freObject: FREObject?): FirebaseRemoteModel? {
     val rv = freObject ?: return null
     val name = String(rv["name"]) ?: return null
-//    val enableModelUpdates = Boolean(rv["enableModelUpdates"]) ?: false
-//    val initialConditions = FirebaseModelDownloadConditions(rv["initialConditions"])
-//            ?: return null
-//    val updateConditions = FirebaseModelDownloadConditions(rv["updateConditions"])
     val builder = FirebaseCustomRemoteModel.Builder(name)
-//    builder.enableModelUpdates(enableModelUpdates)
-//    builder.setInitialDownloadConditions(initialConditions)
-//    if (updateConditions != null) {
-//        builder.setUpdatesDownloadConditions(updateConditions)
-//    }
     return builder.build()
 }

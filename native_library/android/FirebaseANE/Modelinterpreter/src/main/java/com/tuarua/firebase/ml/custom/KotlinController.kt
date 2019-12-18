@@ -22,10 +22,12 @@ import com.google.firebase.ml.common.modeldownload.FirebaseModelManager
 import com.google.firebase.ml.custom.FirebaseModelInterpreter
 import com.google.firebase.ml.custom.FirebaseModelInterpreterOptions
 import com.google.gson.Gson
+import com.tuarua.firebase.ml.common.modeldownload.extensions.FirebaseModelDownloadConditions
 import com.tuarua.firebase.ml.common.modeldownload.extensions.FirebaseRemoteModel
 import com.tuarua.firebase.ml.custom.extensions.FirebaseModelInputOutputOptions
 import com.tuarua.firebase.ml.custom.extensions.FirebaseModelInputs
 import com.tuarua.firebase.ml.custom.events.ModelInterpreterEvent
+import com.tuarua.firebase.ml.custom.extensions.FirebaseCustomRemoteModel
 import com.tuarua.firebase.ml.custom.extensions.FirebaseModelInterpreterOptions
 import com.tuarua.frekotlin.*
 import kotlinx.coroutines.Dispatchers
@@ -108,39 +110,48 @@ class KotlinController : FreKotlinMainController {
         val model = FirebaseRemoteModel(argv[0]) ?: return null
         FirebaseModelManager.getInstance().isModelDownloaded(model).addOnCompleteListener { task ->
             // TODO
+            when {
+                task.isSuccessful -> {}
+                else -> {}
+            }
+
         }
         return null
     }
 
-//    fun registerCloudModel(ctx: FREContext, argv: FREArgv): FREObject? {
-//        argv.takeIf { argv.size > 0 } ?: return FreArgException()
-//        val modelSource = FirebaseCloudModelSource(argv[0])
-//                ?: return null
-//        return FirebaseModelManager.getInstance().registerCloudModelSource(modelSource).toFREObject()
-//    }
-//
-//    fun registerLocalModel(ctx: FREContext, argv: FREArgv): FREObject? {
-//        argv.takeIf { argv.size > 0 } ?: return FreArgException()
-//        val modelSource = FirebaseLocalModelSource(argv[0])
-//                ?: return null
-//        return FirebaseModelManager.getInstance().registerLocalModelSource(modelSource).toFREObject()
-//    }
-//
-//    fun cloudModelSource(ctx: FREContext, argv: FREArgv): FREObject? {
-//        argv.takeIf { argv.size > 0 } ?: return FreArgException()
-//        val name = String(argv[0]) ?: return null
-//        return FirebaseModelManager.getInstance().getCloudModelSource(name)?.modelName?.toFREObject()
-//    }
-//
-//    fun localModelSource(ctx: FREContext, argv: FREArgv): FREObject? {
-//        argv.takeIf { argv.size > 0 } ?: return FreArgException()
-//        val name = String(argv[0]) ?: return null
-//        return FirebaseModelManager.getInstance().getLocalModelSource(name)?.modelName?.toFREObject()
-//    }
+    fun deleteDownloadedModel(ctx: FREContext, argv: FREArgv): FREObject? {
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val model = FirebaseRemoteModel(argv[0]) ?: return null
+        FirebaseModelManager.getInstance().deleteDownloadedModel(model).addOnCompleteListener { task ->
+            // TODO
+            when {
+                task.isSuccessful -> {}
+                else -> {}
+            }
+        }
+        return null
 
-    fun test(ctx: FREContext, argv: FREArgv): FREObject? {
+    }
+
+
+    fun download(ctx: FREContext, argv: FREArgv): FREObject? {
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
+        val model = FirebaseCustomRemoteModel(argv[0]) ?: return FreArgException()
+        val conditions = FirebaseModelDownloadConditions(argv[1]) ?: return FreArgException()
+
+        FirebaseModelManager.getInstance().download(model, conditions).addOnCompleteListener {task ->
+            // TODO
+            when {
+                task.isSuccessful -> {
+                    // task.result
+                }
+                else -> {}
+            }
+        }
+
         return null
     }
+
 
     fun createGUID(ctx: FREContext, argv: FREArgv): FREObject? {
         return UUID.randomUUID().toString().toFREObject()

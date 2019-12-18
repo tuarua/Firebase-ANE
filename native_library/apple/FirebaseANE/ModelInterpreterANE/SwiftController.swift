@@ -23,58 +23,65 @@ public class SwiftController: NSObject {
     public static var TAG = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
-    private var modelOptions: ModelOptions?
     private var isStatsCollectionEnabled = true
     private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.tfl.uiq", qos: .userInitiated)
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
-            let options = ModelOptions(argv[0]),
             let isStatsCollectionEnabled = Bool(argv[1])
             else {
-                return FreArgError(message: "run").getError()
+                return FreArgError().getError()
         }
-        modelOptions = options
         self.isStatsCollectionEnabled = isStatsCollectionEnabled
         return true.toFREObject()
     }
     
-    func registerCloudModel(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+    func isModelDownloaded(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let modelSource = CloudModelSource(argv[0])
+            let remoteModel = CustomRemoteModel(argv[0])
             else {
-                return FreArgError(message: "registerCloudModel").getError()
+                return FreArgError().getError()
         }
-        return ModelManager.modelManager().register(modelSource).toFREObject()
+        return ModelManager.modelManager().isModelDownloaded(remoteModel).toFREObject()
     }
     
-    func registerLocalModel(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+    func deleteDownloadedModel(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let modelSource = LocalModelSource(argv[0])
+            let remoteModel = CustomRemoteModel(argv[0])
             else {
-                return FreArgError(message: "registerLocalModel").getError()
+                return FreArgError().getError()
         }
-        return ModelManager.modelManager().register(modelSource).toFREObject()
+        ModelManager.modelManager().deleteDownloadedModel(remoteModel) { (error) in
+            // TODO
+        }
+        return nil
     }
     
-    func cloudModelSource(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
-            let name = String(argv[0])
+    func download(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard argc > 1,
+            let model = CustomRemoteModel(argv[0]),
+            let conditions = ModelDownloadConditions(argv[1])
             else {
-                return FreArgError(message: "cloudModelSource").getError()
+                return FreArgError().getError()
         }
-        return ModelManager.modelManager().cloudModelSource(forModelName: name)?.name.toFREObject()
-    }
-    
-    func localModelSource(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
-            let name = String(argv[0])
-            else {
-                return FreArgError(message: "localModelSource").getError()
-        }
-        return ModelManager.modelManager().localModelSource(forModelName: name)?.name.toFREObject()
-    }
         
+        NotificationCenter.default.addObserver(
+            forName: .firebaseMLModelDownloadDidSucceed,
+            object: nil,
+            queue: nil
+        ) { [weak self] notification in
+            guard let _ = self,
+                let userInfo = notification.userInfo,
+                let model = userInfo[ModelDownloadUserInfoKey.remoteModel.rawValue]
+                    as? RemoteModel,
+                model.name == "your_remote_model"
+                else { return }
+            // The model was downloaded and is available on the device
+        }
+        ModelManager.modelManager().download(model, conditions: conditions)
+        return nil
+    }
+
     func run(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 4,
             let modelInputs = ModelInputs.init(argv[0]),
@@ -82,16 +89,21 @@ public class SwiftController: NSObject {
             let maxResults = Int(argv[2]),
             let numPossibilities = Int(argv[3]),
             let eventId = String(argv[4]),
-            let modelOptions = modelOptions
+            let interpreterOptions = FREObject(argv[5])
             else {
-                return FreArgError(message: "run").getError()
+                return FreArgError().getError()
         }
-        
-        let interpreter = ModelInterpreter.modelInterpreter(options: modelOptions)
-        interpreter.isStatsCollectionEnabled = isStatsCollectionEnabled
-        
+        var interpreter: ModelInterpreter?
+        if let localModel = CustomLocalModel.init(interpreterOptions["localModel"]) {
+            interpreter = ModelInterpreter.modelInterpreter(localModel: localModel)
+        }
+        if let remoteModel = CustomRemoteModel(interpreterOptions["remoteModel"]) {
+            interpreter = ModelInterpreter.modelInterpreter(remoteModel: remoteModel)
+        }
+    
+        interpreter?.isStatsCollectionEnabled = isStatsCollectionEnabled
         userInitiatedQueue.async {
-            interpreter.run(inputs: modelInputs, options: options) { (outputs, error) in
+            interpreter?.run(inputs: modelInputs, options: options, completion: { (outputs, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: ModelInterpreterEvent.OUTPUT,
                                        value: ModelInterpreterEvent(eventId: eventId,
@@ -100,7 +112,7 @@ public class SwiftController: NSObject {
                     var arrProps = [[String: Any]]()
                     if let outputs = outputs {
                         let probabilities = try? outputs.output(index: 0) as? [[NSNumber]]
-                        if let first = probabilities??.first {
+                        if let first = probabilities?.first {
                             let confidences = first.map { quantizedValue in
                                 Softmax.scale * Float(quantizedValue.intValue - Softmax.zeroPoint)
                             }
@@ -118,7 +130,7 @@ public class SwiftController: NSObject {
                                        value: ModelInterpreterEvent(eventId: eventId,
                                                                     data: arrProps).toJSONString())
                 }
-            }
+            })
         }
         return nil
     }

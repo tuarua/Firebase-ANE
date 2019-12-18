@@ -28,10 +28,8 @@ public class ModelInterpreterANE implements FREExtension {
             "init"
             ,"createGUID"
             ,"run"
-            ,"registerCloudModel"
-            ,"registerLocalModel"
-            ,"cloudModelSource"
-            ,"localModelSource"
+            ,"deleteDownloadedModel"
+            ,"download"
             ,"isModelDownloaded"
     };
     private static ModelInterpreterANEContext extensionContext;
@@ -44,7 +42,7 @@ public class ModelInterpreterANE implements FREExtension {
     @SuppressLint("UnknownNullness")
     @Override
     public FREContext createContext(String s) {
-        String NAME = "com.tuarua.firebase.NaturalLanguageANE";
+        String NAME = "com.tuarua.firebase.ml.ModelInterpreterANE";
         return extensionContext = new ModelInterpreterANEContext(NAME, new KotlinController(), FUNCTIONS);
     }
 

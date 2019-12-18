@@ -19,12 +19,11 @@ import FreSwift
 import FirebaseMLCommon
 import FirebaseMLModelInterpreter
 
-public extension ModelOptions {
+public extension CustomRemoteModel {
     convenience init?(_ freObject: FREObject?) {
-        guard let rv = freObject
-            else { return nil }
-        let cloudModelName = String(rv["cloudModelName"])
-        let localModelName = String(rv["localModelName"])
-        self.init(cloudModelName: cloudModelName, localModelName: localModelName)
+    guard let rv = freObject,
+        let name = String(rv["name"])
+        else { return nil }
+        self.init(name: name)
     }
 }

@@ -43,7 +43,7 @@ public class SwiftController: NSObject {
             let email = String(argv[0]),
             let password = String(argv[1])
             else {
-                return FreArgError(message: "createUserWithEmailAndPassword").getError()
+                return FreArgError().getError()
         }
         let eventId = String(argv[2])
         authController?.createUser(email: email, password: password, eventId: eventId)
@@ -55,7 +55,7 @@ public class SwiftController: NSObject {
         guard argc > 1,
             let credential: AuthCredential = AuthCredential.fromFREObject(argv[0])
             else {
-                return FreArgError(message: "signIn").getError()
+                return FreArgError().getError()
         }
         let eventId = String(argv[1])
         authController?.signIn(credential: credential, eventId: eventId)
@@ -65,7 +65,7 @@ public class SwiftController: NSObject {
     func signInAnonymously(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0
             else {
-                return FreArgError(message: "signInAnonymously").getError()
+                return FreArgError().getError()
         }
         let eventId = String(argv[0])
         authController?.signInAnonymously(eventId: eventId)
@@ -76,7 +76,7 @@ public class SwiftController: NSObject {
         guard argc > 1,
             let token = String(argv[0])
             else {
-                return FreArgError(message: "signInWithCustomToken").getError()
+                return FreArgError().getError()
         }
         let eventId = String(argv[1])
         authController?.signInWithCustomToken(token: token, eventId: eventId)
@@ -86,7 +86,7 @@ public class SwiftController: NSObject {
     func updateProfile(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 2
             else {
-                return FreArgError(message: "signInWithEmailAndPassword").getError()
+                return FreArgError().getError()
         }
         let displayName = String(argv[0])
         let photoUrl = String(argv[1])
@@ -110,7 +110,7 @@ public class SwiftController: NSObject {
         guard argc > 1,
             let email = String(argv[0])
             else {
-                return FreArgError(message: "updateEmail").getError()
+                return FreArgError().getError()
         }
         let eventId = String(argv[1])
         userController?.update(email: email, eventId: eventId)
@@ -121,7 +121,7 @@ public class SwiftController: NSObject {
         guard argc > 1,
             let password = String(argv[0])
             else {
-                return FreArgError(message: "updatePassword").getError()
+                return FreArgError().getError()
         }
         let eventId = String(argv[1])
         userController?.update(password: password, eventId: eventId)
@@ -132,7 +132,7 @@ public class SwiftController: NSObject {
         guard argc > 1,
             let email = String(argv[0])
             else {
-                return FreArgError(message: "sendPasswordResetEmail").getError()
+                return FreArgError().getError()
         }
         let eventId = String(argv[1])
         authController?.sendPasswordReset(email: email, eventId: eventId)
@@ -144,7 +144,7 @@ public class SwiftController: NSObject {
             let email = String(argv[0]),
             let password = String(argv[1])
             else {
-                return FreArgError(message: "reauthenticate").getError()
+                return FreArgError().getError()
         }
         let eventId = String(argv[2])
         authController?.reauthenticate(email: email, password: password, eventId: eventId)
@@ -155,7 +155,7 @@ public class SwiftController: NSObject {
         guard argc > 1,
             let provider = String(argv[0])
             else {
-                return FreArgError(message: "unlink").getError()
+                return FreArgError().getError()
         }
         let eventId = String(argv[1])
         userController?.unlink(provider: provider, eventId: eventId)
@@ -166,7 +166,7 @@ public class SwiftController: NSObject {
         guard argc > 1,
             let credential: AuthCredential = AuthCredential.fromFREObject(argv[0])
             else {
-                return FreArgError(message: "link").getError()
+                return FreArgError().getError()
         }
         let eventId = String(argv[1])
         userController?.link(credential: credential, eventId: eventId)
@@ -176,7 +176,7 @@ public class SwiftController: NSObject {
     func deleteUser(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0
             else {
-                return FreArgError(message: "remove").getError()
+                return FreArgError().getError()
         }
         let eventId = String(argv[0])
         userController?.deleteUser(eventId: eventId)
@@ -187,7 +187,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let code = String(argv[0])
             else {
-                return FreArgError(message: "setLanguageCode").getError()
+                return FreArgError().getError()
         }
         authController?.setLanguage(code: code)
         return nil
@@ -206,7 +206,7 @@ public class SwiftController: NSObject {
             let forceRefresh = Bool(argv[0]),
             let eventId = String(argv[1])
             else {
-                return FreArgError(message: "getIdToken").getError()
+                return FreArgError().getError()
         }
         userController?.getIdToken(forceRefresh: forceRefresh, eventId: eventId)
         return nil
@@ -215,7 +215,7 @@ public class SwiftController: NSObject {
     func reload(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0
             else {
-                return FreArgError(message: "reload").getError()
+                return FreArgError().getError()
         }
         let eventId = String(argv[0])
         userController?.reload(eventId: eventId)
@@ -226,7 +226,7 @@ public class SwiftController: NSObject {
         guard argc > 1,
             let phoneNumber = String(argv[0])
             else {
-                return FreArgError(message: "verifyPhoneNumber").getError()
+                return FreArgError().getError()
         }
         let eventId = String(argv[1])
         authController?.verifyPhoneNumber(phoneNumber: phoneNumber, eventId: eventId)

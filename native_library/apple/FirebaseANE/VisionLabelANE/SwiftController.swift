@@ -35,7 +35,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let options = VisionOnDeviceImageLabelerOptions(argv[0])
             else {
-                return FreArgError(message: "initController").getError()
+                return FreArgError().getError()
         }
         labelDetector = Vision.vision().onDeviceImageLabeler(options: options)
         return true.toFREObject()
@@ -46,7 +46,7 @@ public class SwiftController: NSObject {
             let image = VisionImage(argv[0]),
             let eventId = String(argv[1])
             else {
-                return FreArgError(message: "process").getError()
+                return FreArgError().getError()
         }
         userInitiatedQueue.async {
             self.labelDetector?.process(image, completion: { (result, error) in
@@ -70,7 +70,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let eventId = String(argv[0])
             else {
-                return FreArgError(message: "getResults").getError()
+                return FreArgError().getError()
         }
         let ret = results[eventId]?.toFREObject()
         results[eventId] = nil

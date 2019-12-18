@@ -40,7 +40,7 @@ public class SwiftController: NSObject {
             let title = String(rv["title"]),
             let message = String(rv["message"])
             else {
-                return FreArgError(message: "openInvite").getError()
+                return FreArgError().getError()
         }
         
         if let invite = Invites.inviteDialog() {
@@ -74,7 +74,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let eventId = String(argv[0])
             else {
-                return FreArgError(message: "getDynamicLink").getError()
+                return FreArgError().getError()
         }
         if let userInfo = appDidFinishLaunchingNotif?.userInfo,
             let userActivityDict = userInfo[UIApplication.LaunchOptionsKey.userActivityDictionary] as? NSDictionary,

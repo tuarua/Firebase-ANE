@@ -25,6 +25,6 @@ public extension ModelDownloadConditions {
             let isWiFiRequired = Bool(rv["isWiFiRequired"]),
             let canDownloadInBackground = Bool(rv["canDownloadInBackground"])
             else { return nil }
-        self.init(isWiFiRequired: isWiFiRequired, canDownloadInBackground: canDownloadInBackground)
+        self.init(allowsCellularAccess: !isWiFiRequired, allowsBackgroundDownloading: canDownloadInBackground)
     }
 }

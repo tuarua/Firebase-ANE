@@ -23,10 +23,10 @@ import flash.events.EventDispatcher;
 public class ModelInterpreterANE extends EventDispatcher {
     private static var _modelInterpreter:ModelInterpreterANE;
     private static var _modelManager:ModelManager = new ModelManager();
-    private var options:ModelOptions;
+    private var options:ModelInterpreterOptions;
     private static var _isStatsCollectionEnabled:Boolean = true;
 
-    public function ModelInterpreterANE(options:ModelOptions) {
+    public function ModelInterpreterANE(options:ModelInterpreterOptions) {
         this.options = options;
         if (ModelInterpreterANEContext.context) {
             var ret:* = ModelInterpreterANEContext.context.call("init", options, _isStatsCollectionEnabled);
@@ -56,7 +56,7 @@ public class ModelInterpreterANE extends EventDispatcher {
     /**
      * A Firebase interpreter for a custom model.
      */
-    public static function modelInterpreter(options:ModelOptions):ModelInterpreterANE {
+    public static function modelInterpreter(options:ModelInterpreterOptions):ModelInterpreterANE {
         if (_modelInterpreter == null) {
             new ModelInterpreterANE(options);
         } else {

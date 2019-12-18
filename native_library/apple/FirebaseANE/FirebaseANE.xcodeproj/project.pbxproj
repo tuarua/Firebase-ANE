@@ -124,9 +124,8 @@
 		90658A9121162FC9003197A5 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658A9021162FC9003197A5 /* SwiftController+FreSwift.swift */; };
 		90658A9321163015003197A5 /* ModelInterpreterANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 90658A9221163015003197A5 /* ModelInterpreterANE-Bridging-Header.h */; };
 		90658A952116314B003197A5 /* FreModelDownloadConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658A942116314B003197A5 /* FreModelDownloadConditions.swift */; };
-		90658A9721163213003197A5 /* FreCloudModelSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658A9621163213003197A5 /* FreCloudModelSource.swift */; };
-		90658A992116330F003197A5 /* FreLocalModelSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658A982116330F003197A5 /* FreLocalModelSource.swift */; };
-		90658A9B21163389003197A5 /* FreModelOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658A9A21163389003197A5 /* FreModelOptions.swift */; };
+		90658A9721163213003197A5 /* FreCustomRemoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658A9621163213003197A5 /* FreCustomRemoteModel.swift */; };
+		90658A992116330F003197A5 /* FreCustomLocalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658A982116330F003197A5 /* FreCustomLocalModel.swift */; };
 		90658A9D21163400003197A5 /* FreModelInputOutputOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658A9C21163400003197A5 /* FreModelInputOutputOptions.swift */; };
 		90658A9F2116378C003197A5 /* FreModelInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658A9E2116378C003197A5 /* FreModelInputs.swift */; };
 		90658AA121164476003197A5 /* ModelInterpreterEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA021164476003197A5 /* ModelInterpreterEvent.swift */; };
@@ -271,6 +270,11 @@
 		90EFB72D23AAAA7800910A47 /* VisionCloudDocumentANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB72C23AAAA7800910A47 /* VisionCloudDocumentANE-Swift.h */; };
 		90EFB72F23AAAAC400910A47 /* VisionLandmarkANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB72E23AAAAC400910A47 /* VisionLandmarkANE-Swift.h */; };
 		90EFB73123AAAB0000910A47 /* NaturalLanguageANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB73023AAAB0000910A47 /* NaturalLanguageANE-Swift.h */; };
+		90EFB73323AAC15000910A47 /* ModelInterpreterANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB73223AAC15000910A47 /* ModelInterpreterANE-Swift.h */; };
+		90EFB73523AAD42E00910A47 /* VisionTextANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB73423AAD42E00910A47 /* VisionTextANE-Swift.h */; };
+		90EFB73723AAD47F00910A47 /* VisionLabelANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB73623AAD47F00910A47 /* VisionLabelANE-Swift.h */; };
+		90EFB73923AAD4C800910A47 /* VisionCloudLabelANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB73823AAD4C800910A47 /* VisionCloudLabelANE-Swift.h */; };
+		90EFB73B23AAD51300910A47 /* VisionCloudTextANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB73A23AAD51300910A47 /* VisionCloudTextANE-Swift.h */; };
 		CE0038CB2094E9B7002A657A /* FreStorageMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0038CA2094E9B7002A657A /* FreStorageMetadata.swift */; };
 		CE05603F1FB25CE200D06976 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
 		CE05604A1FB25DF600D06976 /* FirebaseANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CE87F4771FB259DB005CF7DF /* FirebaseANE_oc.h */; platformFilter = ios; };
@@ -566,9 +570,8 @@
 		90658A9021162FC9003197A5 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
 		90658A9221163015003197A5 /* ModelInterpreterANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ModelInterpreterANE-Bridging-Header.h"; sourceTree = "<group>"; };
 		90658A942116314B003197A5 /* FreModelDownloadConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreModelDownloadConditions.swift; sourceTree = "<group>"; };
-		90658A9621163213003197A5 /* FreCloudModelSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreCloudModelSource.swift; sourceTree = "<group>"; };
-		90658A982116330F003197A5 /* FreLocalModelSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreLocalModelSource.swift; sourceTree = "<group>"; };
-		90658A9A21163389003197A5 /* FreModelOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreModelOptions.swift; sourceTree = "<group>"; };
+		90658A9621163213003197A5 /* FreCustomRemoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreCustomRemoteModel.swift; sourceTree = "<group>"; };
+		90658A982116330F003197A5 /* FreCustomLocalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreCustomLocalModel.swift; sourceTree = "<group>"; };
 		90658A9C21163400003197A5 /* FreModelInputOutputOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreModelInputOutputOptions.swift; sourceTree = "<group>"; };
 		90658A9E2116378C003197A5 /* FreModelInputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreModelInputs.swift; sourceTree = "<group>"; };
 		90658AA021164476003197A5 /* ModelInterpreterEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInterpreterEvent.swift; sourceTree = "<group>"; };
@@ -650,6 +653,11 @@
 		90EFB72C23AAAA7800910A47 /* VisionCloudDocumentANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionCloudDocumentANE-Swift.h"; sourceTree = "<group>"; };
 		90EFB72E23AAAAC400910A47 /* VisionLandmarkANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionLandmarkANE-Swift.h"; sourceTree = "<group>"; };
 		90EFB73023AAAB0000910A47 /* NaturalLanguageANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NaturalLanguageANE-Swift.h"; sourceTree = "<group>"; };
+		90EFB73223AAC15000910A47 /* ModelInterpreterANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ModelInterpreterANE-Swift.h"; sourceTree = "<group>"; };
+		90EFB73423AAD42E00910A47 /* VisionTextANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionTextANE-Swift.h"; sourceTree = "<group>"; };
+		90EFB73623AAD47F00910A47 /* VisionLabelANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionLabelANE-Swift.h"; sourceTree = "<group>"; };
+		90EFB73823AAD4C800910A47 /* VisionCloudLabelANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionCloudLabelANE-Swift.h"; sourceTree = "<group>"; };
+		90EFB73A23AAD51300910A47 /* VisionCloudTextANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionCloudTextANE-Swift.h"; sourceTree = "<group>"; };
 		CE0038CA2094E9B7002A657A /* FreStorageMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreStorageMetadata.swift; sourceTree = "<group>"; };
 		CE05603E1FB25CE200D06976 /* FreSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreSwift.framework; path = Carthage/Build/iOS/FreSwift.framework; sourceTree = "<group>"; };
 		CE05604D1FB25E8E00D06976 /* FreMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreMacros.h; sourceTree = "<group>"; };
@@ -1223,6 +1231,7 @@
 		90160DBC2115C6710009A815 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				90EFB73623AAD47F00910A47 /* VisionLabelANE-Swift.h */,
 				90160DBF2115C7050009A815 /* VisionLabelANE_oc.h */,
 				90160DC72115C75A0009A815 /* VisionLabelANE-Bridging-Header.h */,
 			);
@@ -1255,6 +1264,7 @@
 				90160DFA2115CD660009A815 /* VisionCloudLabelANE.m */,
 				901C6A11226CA85200889711 /* SwiftController+FreSwift.swift */,
 				90160DFD2115CD840009A815 /* SwiftController.swift */,
+				90EFB73823AAD4C800910A47 /* VisionCloudLabelANE-Swift.h */,
 			);
 			path = VisionCloudLabelANE;
 			sourceTree = "<group>";
@@ -1339,9 +1349,8 @@
 			isa = PBXGroup;
 			children = (
 				90658A942116314B003197A5 /* FreModelDownloadConditions.swift */,
-				90658A9621163213003197A5 /* FreCloudModelSource.swift */,
-				90658A982116330F003197A5 /* FreLocalModelSource.swift */,
-				90658A9A21163389003197A5 /* FreModelOptions.swift */,
+				90658A9621163213003197A5 /* FreCustomRemoteModel.swift */,
+				90658A982116330F003197A5 /* FreCustomLocalModel.swift */,
 				90658A9C21163400003197A5 /* FreModelInputOutputOptions.swift */,
 				90658A9E2116378C003197A5 /* FreModelInputs.swift */,
 			);
@@ -1359,6 +1368,7 @@
 		90658A6621162EEB003197A5 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				90EFB73223AAC15000910A47 /* ModelInterpreterANE-Swift.h */,
 				90658A8A21162F98003197A5 /* ModelInterpreterANE_oc.h */,
 				90658A9221163015003197A5 /* ModelInterpreterANE-Bridging-Header.h */,
 			);
@@ -1381,6 +1391,7 @@
 		906A68102114F01A00848218 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				90EFB73423AAD42E00910A47 /* VisionTextANE-Swift.h */,
 				906A68132114F05000848218 /* VisionTextANE_oc.h */,
 				906A68172114F10A00848218 /* VisionTextANE-Bridging-Header.h */,
 			);
@@ -1439,6 +1450,7 @@
 		909587AF2115A03F00AD59D5 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				90EFB73A23AAD51300910A47 /* VisionCloudTextANE-Swift.h */,
 				90160D882115A7BD0009A815 /* VisionCloudTextANE_oc.h */,
 				90160D902115A8DB0009A815 /* VisionCloudTextANE-Bridging-Header.h */,
 			);
@@ -2301,6 +2313,7 @@
 			files = (
 				90160DC82115C75A0009A815 /* VisionLabelANE-Bridging-Header.h in Headers */,
 				90160DC12115C7050009A815 /* VisionLabelANE_oc.h in Headers */,
+				90EFB73723AAD47F00910A47 /* VisionLabelANE-Swift.h in Headers */,
 				90160DB32115C60B0009A815 /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2311,6 +2324,7 @@
 			files = (
 				90160DFB2115CD660009A815 /* VisionCloudLabelANE_oc.h in Headers */,
 				90160E022115CDB60009A815 /* VisionCloudLabelANE-Bridging-Header.h in Headers */,
+				90EFB73923AAD4C800910A47 /* VisionCloudLabelANE-Swift.h in Headers */,
 				90160DF22115CCA30009A815 /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2330,6 +2344,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90EFB73323AAC15000910A47 /* ModelInterpreterANE-Swift.h in Headers */,
 				90658A8C21162F98003197A5 /* ModelInterpreterANE_oc.h in Headers */,
 				90658A8121162EF9003197A5 /* FreMacros.h in Headers */,
 				90658A9321163015003197A5 /* ModelInterpreterANE-Bridging-Header.h in Headers */,
@@ -2342,6 +2357,7 @@
 			files = (
 				906A68052114EFB000848218 /* FreMacros.h in Headers */,
 				906A68152114F05000848218 /* VisionTextANE_oc.h in Headers */,
+				90EFB73523AAD42E00910A47 /* VisionTextANE-Swift.h in Headers */,
 				906A68182114F10A00848218 /* VisionTextANE-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2352,6 +2368,7 @@
 			files = (
 				90160D912115A8DB0009A815 /* VisionCloudTextANE-Bridging-Header.h in Headers */,
 				90160D8A2115A7BD0009A815 /* VisionCloudTextANE_oc.h in Headers */,
+				90EFB73B23AAD51300910A47 /* VisionCloudTextANE-Swift.h in Headers */,
 				909587D72115A65300AD59D5 /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3709,10 +3726,9 @@
 				90658AA121164476003197A5 /* ModelInterpreterEvent.swift in Sources */,
 				90658A8D21162F98003197A5 /* ModelInterpreterANE.m in Sources */,
 				90658A9F2116378C003197A5 /* FreModelInputs.swift in Sources */,
-				90658A9B21163389003197A5 /* FreModelOptions.swift in Sources */,
-				90658A992116330F003197A5 /* FreLocalModelSource.swift in Sources */,
+				90658A992116330F003197A5 /* FreCustomLocalModel.swift in Sources */,
 				90658A9D21163400003197A5 /* FreModelInputOutputOptions.swift in Sources */,
-				90658A9721163213003197A5 /* FreCloudModelSource.swift in Sources */,
+				90658A9721163213003197A5 /* FreCustomRemoteModel.swift in Sources */,
 				90658A8F21162FBA003197A5 /* SwiftController.swift in Sources */,
 				90658A9121162FC9003197A5 /* SwiftController+FreSwift.swift in Sources */,
 				90656DBB222C5F8D00B4626A /* FreNSError.swift in Sources */,

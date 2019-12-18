@@ -45,7 +45,7 @@ public class SwiftController: NSObject {
             let linkUrl = URL(string: link),
             let domainUriPrefix = String(linkFre["domainUriPrefix"])
             else {
-                return FreArgError(message: "buildDynamicLink").getError()
+                return FreArgError().getError()
         }
         
         let components = DynamicLinkComponents(link: linkUrl, domain: domainUriPrefix)
@@ -104,7 +104,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let eventId = String(argv[0])
             else {
-                return FreArgError(message: "getDynamicLink").getError()
+                return FreArgError().getError()
         }
         if let userInfo = appDidFinishLaunchingNotif?.userInfo,
             let userActivityDict = userInfo[UIApplication.LaunchOptionsKey.userActivityDictionary] as? NSDictionary,

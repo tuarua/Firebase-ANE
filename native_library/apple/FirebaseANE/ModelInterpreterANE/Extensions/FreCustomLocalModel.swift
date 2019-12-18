@@ -19,13 +19,12 @@ import FreSwift
 import FirebaseMLCommon
 import FirebaseMLModelInterpreter
 
-public extension LocalModelSource {
+public extension CustomLocalModel {
     convenience init?(_ freObject: FREObject?) {
-        guard let rv = freObject,
-            let name = String(rv["name"]),
-            let path = String(rv["path"]),
-            let fullPath = Bundle.main.path(forResource: path, ofType: nil)
-            else { return nil }
-        self.init(name: name, path: fullPath)
+    guard let rv = freObject,
+        let path = String(rv["path"]),
+        let fullPath = Bundle.main.path(forResource: path, ofType: nil)
+        else { return nil }
+        self.init(modelPath: fullPath)
     }
 }
