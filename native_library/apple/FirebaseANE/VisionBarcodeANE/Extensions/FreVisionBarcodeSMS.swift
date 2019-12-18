@@ -26,7 +26,7 @@ public extension VisionBarcodeSMS {
 }
 
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> VisionBarcodeSMS? {
+    subscript(dynamicMember name: String) -> VisionBarcodeSMS? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }

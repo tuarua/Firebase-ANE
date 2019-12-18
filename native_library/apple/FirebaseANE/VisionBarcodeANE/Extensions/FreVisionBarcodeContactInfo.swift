@@ -34,7 +34,7 @@ public extension VisionBarcodeContactInfo {
 }
 
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> VisionBarcodeContactInfo? {
+    subscript(dynamicMember name: String) -> VisionBarcodeContactInfo? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }

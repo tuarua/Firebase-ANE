@@ -40,7 +40,7 @@ public extension Array where Element == VisionLatitudeLongitude {
 }
 
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> [VisionLatitudeLongitude]? {
+    subscript(dynamicMember name: String) -> [VisionLatitudeLongitude]? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }

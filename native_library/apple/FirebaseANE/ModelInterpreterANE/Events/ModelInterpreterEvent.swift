@@ -15,6 +15,7 @@
  */
 
 import Foundation
+import SwiftyJSON
 
 class ModelInterpreterEvent: NSObject {
     public static let OUTPUT = "ModelInterpreterEvent.Result"

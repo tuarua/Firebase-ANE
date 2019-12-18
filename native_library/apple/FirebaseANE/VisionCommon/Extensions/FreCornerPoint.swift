@@ -34,7 +34,7 @@ public extension Array where Element == NSValue {
     }
 }
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> [NSValue]? {
+    subscript(dynamicMember name: String) -> [NSValue]? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }

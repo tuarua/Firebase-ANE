@@ -15,6 +15,7 @@
  */
 
 import Foundation
+import SwiftyJSON
 
 class LandmarkEvent: NSObject {
     public static let RECOGNIZED = "LandmarkEvent.Recognized"

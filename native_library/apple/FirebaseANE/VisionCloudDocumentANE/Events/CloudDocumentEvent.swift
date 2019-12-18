@@ -15,6 +15,7 @@
  */
 
 import Foundation
+import SwiftyJSON
 
 class CloudDocumentEvent: NSObject {
     public static let RECOGNIZED = "CloudDocumentEvent.Recognized"

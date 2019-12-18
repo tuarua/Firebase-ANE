@@ -39,7 +39,7 @@ public extension Array where Element == VisionBarcodeAddress {
 }
 
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> [VisionBarcodeAddress]? {
+    subscript(dynamicMember name: String) -> [VisionBarcodeAddress]? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }

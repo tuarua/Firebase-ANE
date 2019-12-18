@@ -41,14 +41,14 @@ public extension Array where Element == VisionBarcodeEmail {
 }
 
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> VisionBarcodeEmail? {
+    subscript(dynamicMember name: String) -> VisionBarcodeEmail? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }
 }
 
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> [VisionBarcodeEmail]? {
+    subscript(dynamicMember name: String) -> [VisionBarcodeEmail]? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }

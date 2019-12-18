@@ -31,7 +31,7 @@ public extension ModelInputs {
                 try self.addInput(byteData)
             } catch let e as NSError {
                 asByteArray.releaseBytes()
-                FreSwiftLogger.shared.log(message: e.localizedDescription,
+                FreSwiftLogger.shared.error(message: e.localizedDescription,
                                           type: .invalidArgument, line: #line, column: #column, file: #file)
                 return nil
             } catch {
