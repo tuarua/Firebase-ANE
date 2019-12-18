@@ -15,11 +15,12 @@
  */
 
 package com.tuarua.firebase;
+import android.annotation.SuppressLint;
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.storage.KotlinController;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
 public class StorageANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"
@@ -55,6 +56,7 @@ public class StorageANE implements FREExtension {
 
     }
 
+    @SuppressLint("UnknownNullness")
     @Override
     public FREContext createContext(String s) {
         String NAME = "com.tuarua.firebase.StorageANE";

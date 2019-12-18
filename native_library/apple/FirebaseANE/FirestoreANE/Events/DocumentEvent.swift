@@ -15,6 +15,7 @@
  */
 
 import Foundation
+import SwiftyJSON
 
 class DocumentEvent: NSObject {
     public static let SNAPSHOT = "DocumentEvent.Snapshot"

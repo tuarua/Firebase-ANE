@@ -15,11 +15,12 @@
  */
 package com.tuarua.firebase;
 
+import android.annotation.SuppressLint;
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.ml.vision.barcode.KotlinController;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
 public class VisionBarcodeANE implements FREExtension {
     private static final String[] FUNCTIONS = {
              "init"
@@ -40,6 +41,7 @@ public class VisionBarcodeANE implements FREExtension {
 
     }
 
+    @SuppressLint("UnknownNullness")
     @Override
     public FREContext createContext(String s) {
         String NAME = "com.tuarua.firebase.VisionBarcodeANE";

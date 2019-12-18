@@ -53,13 +53,10 @@
                         android:value="@integer/google_play_services_version" />
 
                     <!-- Vision -->
-
+                    <!--
                     <meta-data
                         android:name="com.google.firebase.ml.vision.DEPENDENCIES"
-                        android:value="face,barcode,text,label" />
-
-                        <!-- To use multiple models: android:value="face,model2,model3" -->
-
+                        android:value="face,barcode,text,label" />-->
 
                     <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
                         <meta-data
@@ -67,6 +64,12 @@
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                         <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.ml.vision.VisionRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.ml.common.CommonComponentRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                     </service>
 

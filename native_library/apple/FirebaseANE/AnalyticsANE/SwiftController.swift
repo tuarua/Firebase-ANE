@@ -58,7 +58,7 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "setSessionTimeoutDuration").getError()
         }
-        AnalyticsConfiguration.shared().setSessionTimeoutInterval(TimeInterval(milliseconds))
+        Analytics.setSessionTimeoutInterval(TimeInterval(milliseconds))
         return nil
     }
     
@@ -93,7 +93,7 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError(message: "setAnalyticsCollectionEnabled").getError()
         }
-        AnalyticsConfiguration.shared().setAnalyticsCollectionEnabled(enabled)
+        Analytics.setAnalyticsCollectionEnabled(enabled)
         return nil
     }
     

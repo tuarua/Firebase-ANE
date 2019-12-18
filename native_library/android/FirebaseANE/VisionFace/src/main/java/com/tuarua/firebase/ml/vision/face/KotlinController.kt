@@ -24,7 +24,7 @@ import com.google.gson.Gson
 import com.tuarua.firebase.ml.vision.common.extensions.FirebaseVisionImage
 import com.tuarua.firebase.ml.vision.face.events.FaceEvent
 import com.tuarua.firebase.ml.vision.face.extensions.FirebaseVisionFaceDetectorOptions
-import com.tuarua.firebase.ml.vision.face.extensions.toFREArray
+import com.tuarua.firebase.ml.vision.face.extensions.toFREObject
 import com.tuarua.frekotlin.*
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.Dispatchers
@@ -40,7 +40,7 @@ class KotlinController : FreKotlinMainController {
     private val bgContext: CoroutineContext = Dispatchers.Default
     private lateinit var detector: FirebaseVisionFaceDetector
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val options = FirebaseVisionFaceDetectorOptions(argv[0])
         detector = if (options != null) {
             FirebaseVision.getInstance().getVisionFaceDetector(options)
@@ -55,7 +55,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun detect(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
 
@@ -84,10 +84,10 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val eventId = String(argv[0]) ?: return null
         val result = results[eventId] ?: return null
-        val ret = result.toFREArray()
+        val ret = result.toFREObject()
         results.remove(eventId)
         return ret
     }
@@ -97,7 +97,7 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

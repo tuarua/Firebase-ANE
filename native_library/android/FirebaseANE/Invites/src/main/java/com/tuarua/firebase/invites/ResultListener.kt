@@ -18,7 +18,7 @@ package com.tuarua.firebase.invites
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import com.adobe.air.TRActivityResultCallback
+import com.adobe.air.FreKotlinActivityResultCallback
 import com.adobe.fre.FREContext
 import com.tuarua.frekotlin.FreKotlinController
 import com.google.android.gms.appinvite.AppInviteInvitation
@@ -26,7 +26,7 @@ import com.tuarua.firebase.invites.events.InvitesEvent
 import org.greenrobot.eventbus.EventBus
 
 class ResultListener(override var context: FREContext?) : FreKotlinController,
-        TRActivityResultCallback {
+        FreKotlinActivityResultCallback {
     override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
         if (requestCode == REQUEST_INVITE) {
             if (resultCode == RESULT_OK) {
@@ -53,6 +53,6 @@ class ResultListener(override var context: FREContext?) : FreKotlinController,
         const val REQUEST_INVITE = 0
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.simpleName
 }

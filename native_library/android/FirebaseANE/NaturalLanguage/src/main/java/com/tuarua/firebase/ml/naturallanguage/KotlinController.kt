@@ -23,7 +23,7 @@ import com.google.firebase.ml.naturallanguage.languageid.FirebaseLanguageIdentif
 import com.google.firebase.ml.naturallanguage.languageid.IdentifiedLanguage
 import com.tuarua.firebase.ml.naturallanguage.events.LanguageEvent
 import com.tuarua.firebase.ml.naturallanguage.extensions.FirebaseLanguageIdentificationOptions
-import com.tuarua.firebase.ml.naturallanguage.extensions.toFREArray
+import com.tuarua.firebase.ml.naturallanguage.extensions.toFREObject
 import com.google.gson.Gson
 import com.tuarua.frekotlin.*
 import kotlinx.coroutines.Dispatchers
@@ -41,7 +41,7 @@ class KotlinController : FreKotlinMainController {
     private lateinit var languageIdentification: FirebaseLanguageIdentification
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val options = FirebaseLanguageIdentificationOptions(argv[0])
         languageIdentification = if (options != null) {
             FirebaseNaturalLanguage.getInstance().getLanguageIdentification(options)
@@ -56,7 +56,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun identifyLanguage(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("identifyLanguage")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val text = String(argv[0]) ?: return null
         val eventId = String(argv[1]) ?: return null
         GlobalScope.launch(bgContext) {
@@ -109,7 +109,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val eventId = String(argv[0]) ?: return null
         val result = results[eventId] ?: return null
         val ret = result.toFREObject()
@@ -118,10 +118,10 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getResultsMulti(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getResultsMulti")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val eventId = String(argv[0]) ?: return null
         val result = resultsMulti[eventId] ?: return null
-        val ret = result.toFREArray()
+        val ret = result.toFREObject()
         results.remove(eventId)
         return ret
     }
@@ -131,7 +131,7 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

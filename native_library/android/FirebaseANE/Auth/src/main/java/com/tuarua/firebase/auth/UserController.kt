@@ -181,7 +181,7 @@ class UserController(override var context: FREContext?) : FreKotlinController {
         }
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.simpleName
 
 

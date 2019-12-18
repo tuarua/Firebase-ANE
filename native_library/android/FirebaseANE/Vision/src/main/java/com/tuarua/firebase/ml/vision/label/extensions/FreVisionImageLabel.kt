@@ -31,10 +31,7 @@ fun FirebaseVisionImageLabel.toFREObject(): FREObject? {
     return ret
 }
 
-fun List<FirebaseVisionImageLabel>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.ml.vision.label.VisionImageLabel", size, true) ?: return null
-    for (i in this.indices) {
-        ret[i] = this[i].toFREObject()
-    }
-    return ret
+fun List<FirebaseVisionImageLabel>.toFREObject(): FREArray? {
+    return FREArray("com.tuarua.firebase.ml.vision.label.VisionImageLabel",
+            size, true, this.map { it.toFREObject() })
 }

@@ -15,28 +15,34 @@
  */
 package com.tuarua.firebase.ml.vision.barcode
 
-import android.app.FragmentTransaction
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
+import com.google.firebase.FirebaseApp
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
-import com.tuarua.frekotlin.*
-import java.util.*
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetector
 import com.google.gson.Gson
 import com.tuarua.firebase.camerapreview.CameraPreviewFragment
 import com.tuarua.firebase.ml.vision.barcode.events.BarcodeEvent
 import com.tuarua.firebase.ml.vision.barcode.extensions.FirebaseVisionBarcodeDetectorOptions
-import com.tuarua.firebase.ml.vision.barcode.extensions.toFREArray
+import com.tuarua.firebase.ml.vision.barcode.extensions.toFREObject
 import com.tuarua.firebase.ml.vision.common.extensions.FirebaseVisionImage
-
-import kotlin.coroutines.CoroutineContext
+import com.tuarua.frekotlin.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.*
+import kotlin.coroutines.CoroutineContext
+
+import com.google.firebase.ml.vision.automl.internal.zza
+
+// https://www.b4x.com/android/forum/threads/external-library-error-after-upgrade-to-androidx.108607/
+
+// https://github.com/firebase/quickstart-android/blob/master/mlkit/app/src/main/java/com/google/firebase/samples/apps/mlkit/kotlin/automl/AutoMLImageLabelerProcessor.kt
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeProcessSucceedListener {
@@ -51,7 +57,7 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
     private var cameraPreviewContainer: FrameLayout? = null
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val options = FirebaseVisionBarcodeDetectorOptions(argv[0])
         optionsAsIntArray = IntArray(argv[0]["formats"])
         detector = if (options != null) {
@@ -59,12 +65,9 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
         } else {
             FirebaseVision.getInstance().visionBarcodeDetector
         }
-        val appActivity = ctx.activity
-        if (appActivity != null) {
-            airView = appActivity.findViewById(android.R.id.content) as ViewGroup
-            airView = airView.getChildAt(0) as ViewGroup
-        }
-
+        val appActivity = ctx.activity ?: return true.toFREObject()
+        airView = appActivity.findViewById(android.R.id.content) as ViewGroup
+        airView = airView.getChildAt(0) as ViewGroup
         return true.toFREObject()
     }
 
@@ -73,7 +76,7 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
     }
 
     fun detect(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
 
@@ -103,10 +106,10 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
     }
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val eventId = String(argv[0]) ?: return null
         val result = results[eventId] ?: return null
-        val ret = result.toFREArray()
+        val ret = result.toFREObject()
         results.remove(eventId)
         return ret
     }
@@ -118,7 +121,7 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
     }
 
     fun inputFromCamera(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("inputFromCamera")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val eventId = String(argv[0]) ?: return null
         val appActivity = ctx.activity ?: return null
 
@@ -191,7 +194,7 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

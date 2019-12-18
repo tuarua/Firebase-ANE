@@ -37,10 +37,6 @@ fun FirebaseVisionDocumentText.Symbol.toFREObject(): FREObject? {
 }
 
 fun List<FirebaseVisionDocumentText.Symbol>.toFREObject(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.ml.vision.document.DocumentTextSymbol", size, true)
-            ?: return null
-    for (i in this.indices) {
-        ret[i] = this[i].toFREObject()
-    }
-    return ret
+    return FREArray("com.tuarua.firebase.ml.vision.document.DocumentTextSymbol",
+            size, true, this.map { it.toFREObject() })
 }

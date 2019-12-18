@@ -79,7 +79,7 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

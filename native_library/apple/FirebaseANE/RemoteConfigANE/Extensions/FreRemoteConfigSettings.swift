@@ -21,14 +21,19 @@ import FirebaseRemoteConfig
 public extension RemoteConfigSettings {
     convenience init?(_ freObject: FREObject?) {
         guard let rv = freObject,
-            let developerModeEnabled = Bool(rv["developerModeEnabled"])
+            let minimumFetchInterval = TimeInterval(rv["minimumFetchIntervalInSeconds"]),
+            let fetchTimeout = TimeInterval(rv["fetchTimeoutInSeconds"])
             else { return nil }
-        self.init(developerModeEnabled: developerModeEnabled)
+        self.init()
+        self.fetchTimeout = fetchTimeout
+        self.minimumFetchInterval = minimumFetchInterval
     }
     
     func toFREObject() -> FREObject? {
-        let ret = FREObject(className: "com.tuarua.firebase.remoteconfig.RemoteConfigSettings",
-                                args: self.isDeveloperModeEnabled)
-        return ret
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.remoteconfig.RemoteConfigSettings")
+            else { return nil }
+        ret.fetchTimeout = fetchTimeout
+        ret.minimumFetchInterval = minimumFetchInterval
+        return ret.rawValue
     }
 }

@@ -16,7 +16,7 @@
 package com.tuarua.google.googlesignin
 
 import android.content.Intent
-import com.adobe.air.TRActivityResultCallback
+import com.adobe.air.FreKotlinActivityResultCallback
 import com.adobe.fre.FREContext
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.common.api.ApiException
@@ -24,7 +24,7 @@ import com.google.gson.Gson
 import com.tuarua.frekotlin.FreKotlinController
 import com.tuarua.google.googlesignin.events.GoogleSignInEvent
 
-class ResultListener(override var context: FREContext?) : FreKotlinController, TRActivityResultCallback {
+class ResultListener(override var context: FREContext?) : FreKotlinController, FreKotlinActivityResultCallback {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
@@ -51,7 +51,7 @@ class ResultListener(override var context: FREContext?) : FreKotlinController, T
         const val RC_SIGN_IN = 9001
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.simpleName
 
 }

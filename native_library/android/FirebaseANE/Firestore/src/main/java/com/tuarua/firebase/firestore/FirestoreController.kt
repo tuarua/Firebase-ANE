@@ -43,15 +43,9 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
     init {
         try {
             FirebaseFirestore.setLoggingEnabled(loggingEnabled)
-            val app = FirebaseApp.getInstance()
-
-            if (app != null) {
-                firestore = FirebaseFirestore.getInstance(app)
-                if (settings != null) {
-                    firestore.firestoreSettings = settings
-                }
-            } else {
-                warning(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
+            firestore = FirebaseFirestore.getInstance(FirebaseApp.getInstance())
+            if (settings != null) {
+                firestore.firestoreSettings = settings
             }
         } catch (e: FreException) {
             warning(e.message)
@@ -67,6 +61,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
     /**************** Collections ****************/
 
     fun initCollectionReference(path: String): String = firestore.collection(path).id
+
     fun getCollectionParent(path: String): String? = firestore.collection(path).parent?.path
 
     /**************** Documents ****************/
@@ -197,7 +192,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
             if (eventId == null) return@addOnCompleteListener
             if (task.isSuccessful) {
                 dispatchEvent(DocumentEvent.UPDATED, gson.toJson(
-                        DocumentEvent(eventId,  mapOf("path" to path))))
+                        DocumentEvent(eventId, mapOf("path" to path))))
             } else {
                 val error = task.exception as FirebaseFirestoreException
                 dispatchEvent(DocumentEvent.UPDATED, gson.toJson(
@@ -290,7 +285,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
         }
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.simpleName
 
 

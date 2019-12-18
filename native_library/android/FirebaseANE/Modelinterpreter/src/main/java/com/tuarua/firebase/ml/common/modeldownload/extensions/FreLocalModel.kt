@@ -17,16 +17,16 @@
 package com.tuarua.firebase.ml.common.modeldownload.extensions
 
 import com.adobe.fre.FREObject
-import com.google.firebase.ml.common.modeldownload.FirebaseLocalModelSource
+import com.google.firebase.ml.common.modeldownload.FirebaseLocalModel
 import com.tuarua.frekotlin.String
 import com.tuarua.frekotlin.get
 
 @Suppress("FunctionName")
-fun FirebaseLocalModelSource(freObject: FREObject?): FirebaseLocalModelSource? {
+fun FirebaseLocalModel(freObject: FREObject?): FirebaseLocalModel? {
     val rv = freObject ?: return null
     val name = String(rv["name"]) ?: return null
     val path = String(rv["path"]) ?: return null
-    val builder = FirebaseLocalModelSource.Builder(name)
+    val builder = FirebaseLocalModel.Builder(name)
     builder.setAssetFilePath(path)
     return builder.build()
 }

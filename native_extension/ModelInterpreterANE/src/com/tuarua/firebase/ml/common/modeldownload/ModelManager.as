@@ -24,6 +24,12 @@ public class ModelManager {
     public function ModelManager() {
     }
 
+
+    // TODO
+    public function isModelDownloaded():void {
+
+    }
+
     /**
      * Registers a cloud model. The model name is unique to each cloud model and can only be registered
      * once with a given instance of the <code>ModelManager</code>. The model name should be the same name used

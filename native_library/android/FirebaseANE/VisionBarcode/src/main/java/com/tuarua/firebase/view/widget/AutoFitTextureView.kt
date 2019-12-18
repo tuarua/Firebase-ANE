@@ -17,7 +17,6 @@
 package com.tuarua.firebase.view.widget
 
 import android.content.Context
-import android.support.annotation.IntRange
 import android.util.AttributeSet
 import android.view.TextureView
 
@@ -25,7 +24,7 @@ class AutoFitTextureView(context: Context, attrs: AttributeSet) : TextureView(co
     private var retroWidth = 0
     private var retroHeight = 0
 
-    fun setAspectRatio(@IntRange(from = 0) width: Int, @IntRange(from = 0) height: Int) {
+    fun setAspectRatio(width: Int, height: Int) {
         require(width >= 0 && height >= 0) { "Width or Height can not be negative." }
         retroWidth = width
         retroHeight = height

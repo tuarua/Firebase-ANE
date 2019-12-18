@@ -59,15 +59,15 @@ class FirestoreController: FreSwiftController {
         for w in whereList {
             switch w.operatr {
             case "==":
-                q = q.whereField(w.fieldPath, isEqualTo: w.value)
+                q = q.whereField(w.fieldPath, isEqualTo: w.value!)
             case "<":
-                q = q.whereField(w.fieldPath, isLessThan: w.value)
+                q = q.whereField(w.fieldPath, isLessThan: w.value!)
             case ">":
-                q = q.whereField(w.fieldPath, isGreaterThan: w.value)
+                q = q.whereField(w.fieldPath, isGreaterThan: w.value!)
             case ">=":
-                q = q.whereField(w.fieldPath, isGreaterThanOrEqualTo: w.value)
+                q = q.whereField(w.fieldPath, isGreaterThanOrEqualTo: w.value!)
             case "<=":
-                q = q.whereField(w.fieldPath, isLessThanOrEqualTo: w.value)
+                q = q.whereField(w.fieldPath, isLessThanOrEqualTo: w.value!)
             default:
                 break
             }

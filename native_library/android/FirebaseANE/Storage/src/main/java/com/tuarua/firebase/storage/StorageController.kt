@@ -43,13 +43,9 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
     init {
         try {
             val app = FirebaseApp.getInstance()
-            if (app != null) {
-                storage = when (url) {
-                    null -> FirebaseStorage.getInstance(app)
-                    else -> FirebaseStorage.getInstance(app, url)
-                }
-            } else {
-                warning(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
+            storage = when (url) {
+                null -> FirebaseStorage.getInstance(app)
+                else -> FirebaseStorage.getInstance(app, url)
             }
         } catch (e: FreException) {
             warning(e.message)
@@ -302,7 +298,7 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
         return false
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.simpleName
 
 }

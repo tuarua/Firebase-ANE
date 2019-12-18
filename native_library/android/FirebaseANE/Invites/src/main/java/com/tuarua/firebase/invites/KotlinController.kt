@@ -42,43 +42,41 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun openInvite(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("openInvite")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val intent = InviteIntent(argv[0])
         ctx.activity.startActivityForResult(intent, REQUEST_INVITE)
         return null
     }
 
     fun getDynamicLink(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getDynamicLink")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val eventId = String(argv[0]) ?: return null
-        val appActivity = ctx.activity
-        if (appActivity != null) {
-            val task = FirebaseDynamicLinks.getInstance().getDynamicLink(appActivity.intent)
-            task.addOnSuccessListener {
-                val data = it ?: return@addOnSuccessListener
-                val link = data.link ?: ""
-                val invite = FirebaseAppInvite.getInvitation(data)
-                val invitationId = when {
-                    invite != null -> invite.invitationId
-                    else -> ""
-                }
-                dispatchEvent(InvitesEvent.ON_LINK,
-                        Gson().toJson(
-                                InvitesEvent(eventId, mapOf(
-                                        "url" to link.toString(),
-                                        "invitationId" to invitationId,
-                                        "sourceApplication" to "",
-                                        "sourceUrl" to "")
-                                )
-                        ))
+        val appActivity = ctx.activity ?: return null
+        val task = FirebaseDynamicLinks.getInstance().getDynamicLink(appActivity.intent)
+        task.addOnSuccessListener {
+            val data = it ?: return@addOnSuccessListener
+            val link = data.link ?: ""
+            val invite = FirebaseAppInvite.getInvitation(data)
+            val invitationId = when {
+                invite != null -> invite.invitationId
+                else -> ""
             }
-            task.addOnFailureListener {
-                dispatchEvent(InvitesEvent.ON_LINK, Gson().toJson(
-                        InvitesEvent(eventId, error = mapOf(
-                                "text" to it.localizedMessage.toString(),
-                                "id" to 0))
-                ))
-            }
+            dispatchEvent(InvitesEvent.ON_LINK,
+                    Gson().toJson(
+                            InvitesEvent(eventId, mapOf(
+                                    "url" to link.toString(),
+                                    "invitationId" to invitationId,
+                                    "sourceApplication" to "",
+                                    "sourceUrl" to "")
+                            )
+                    ))
+        }
+        task.addOnFailureListener {
+            dispatchEvent(InvitesEvent.ON_LINK, Gson().toJson(
+                    InvitesEvent(eventId, error = mapOf(
+                            "text" to it.localizedMessage.toString(),
+                            "id" to 0))
+            ))
         }
         return null
     }
@@ -91,7 +89,7 @@ class KotlinController : FreKotlinMainController {
         }
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

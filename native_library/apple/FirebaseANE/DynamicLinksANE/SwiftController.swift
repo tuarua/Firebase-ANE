@@ -48,8 +48,7 @@ public class SwiftController: NSObject {
                 return FreArgError(message: "buildDynamicLink").getError()
         }
         
-        guard let components = DynamicLinkComponents(link: linkUrl, domainURIPrefix: domainUriPrefix) else {
-            return nil }
+        let components = DynamicLinkComponents(link: linkUrl, domain: domainUriPrefix)
         
         components.iOSParameters = DynamicLinkIOSParameters(linkFre["iosParameters"])
         components.iTunesConnectParameters = DynamicLinkItunesConnectAnalyticsParameters(

@@ -14,11 +14,12 @@
  *  limitations under the License.
  */
 package com.tuarua.google;
+import android.annotation.SuppressLint;
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.google.googlesignin.KotlinController;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
 public class GoogleSignInANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"
@@ -37,6 +38,7 @@ public class GoogleSignInANE implements FREExtension {
 
     }
 
+    @SuppressLint("UnknownNullness")
     @Override
     public FREContext createContext(String s) {
         String NAME = "com.tuarua.google.GoogleSignInANE";

@@ -15,10 +15,11 @@
  */
 
 import Foundation
+import SwiftyJSON
 
 class RemoteConfigErrorEvent: NSObject {
     public static let FETCH_ERROR = "RemoteConfigErrorEvent.FetchError"
-    
+    public static let ACTIVATE_ERROR = "RemoteConfigErrorEvent.ActivateError"
     var eventId: String?
     var text: String?
     var id: Int = 0

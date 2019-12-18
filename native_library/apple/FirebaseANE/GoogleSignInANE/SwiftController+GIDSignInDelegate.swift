@@ -28,8 +28,9 @@ extension SwiftController: GIDSignInDelegate {
         } else {
             guard let authentication = user.authentication else { return }
             self.dispatchEvent(name: GoogleSignInEvent.SIGN_IN,
-                           value: GoogleSignInEvent(data: ["idToken": authentication.idToken,
-                                                           "accessToken": authentication.accessToken]).toJSONString())
+                               value: GoogleSignInEvent(data: ["idToken": authentication.idToken ?? "",
+                                                               "accessToken": authentication.accessToken
+                                                                ?? ""]).toJSONString())
         }
         
     }

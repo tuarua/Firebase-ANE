@@ -28,10 +28,6 @@ fun RecognizedLanguage.toFREObject(): FREObject? {
 }
 
 fun List<RecognizedLanguage>.toFREObject(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.ml.vision.text.TextRecognizedLanguage", size, true)
-            ?: return null
-    for (i in this.indices) {
-        ret[i] = this[i].toFREObject()
-    }
-    return ret
+    return FREArray("com.tuarua.firebase.ml.vision.text.TextRecognizedLanguage",
+            size, true, this.map { it.toFREObject() })
 }

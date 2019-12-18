@@ -23,11 +23,8 @@ fun FirebaseVisionBarcode.Address.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.vision.barcode.BarcodeAddress")
     ret["type"] = this.type.toFREObject()
     if (this.addressLines.isNotEmpty()) {
-        val freAddressArr = FREArray("String", addressLines.size, true)
-                ?: return null
-        for (i in this.addressLines.indices) {
-            freAddressArr[i] = this.addressLines[i].toFREObject()
-        }
+        val freAddressArr = FREArray("String", addressLines.size, true,
+                addressLines.map { it.toFREObject() }) ?: return ret
         ret["addressLines"] = freAddressArr
     }
     return ret

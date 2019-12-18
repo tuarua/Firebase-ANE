@@ -34,21 +34,21 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val url = String(argv[0])
         storageController = StorageController(context, url)
         return true.toFREObject()
     }
 
     fun getReference(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("getReference")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val url = String(argv[1])
         return storageController.getReference(path, url)?.toFREObject()
     }
 
     fun getFile(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException("getReference")
+        argv.takeIf { argv.size > 2 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val destinationFile = String(argv[1]) ?: return null
         val asId = String(argv[2]) ?: return null
@@ -57,19 +57,19 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getParent(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getReference")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         return storageController.getParent(path)?.toFREObject()
     }
 
     fun getRoot(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getReference")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         return storageController.getRoot(path)?.toFREObject()
     }
 
     fun deleteReference(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("deleteReference")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val asId = String(argv[1])
         storageController.deleteReference(path, asId)
@@ -77,7 +77,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getBytes(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException("getBytes")
+        argv.takeIf { argv.size > 2 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val maxDownloadSizeBytes = Long(argv[1]) ?: return null
         val asId = String(argv[2]) ?: return null
@@ -86,7 +86,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun putBytes(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 3 } ?: return FreArgException("putBytes")
+        argv.takeIf { argv.size > 3 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val asId = String(argv[1]) ?: return null
         val ba = argv[2] as FREByteArray
@@ -111,7 +111,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun putFile(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 3 } ?: return FreArgException("putFile")
+        argv.takeIf { argv.size > 3 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val asId = String(argv[1]) ?: return null
         val filePath = String(argv[2]) ?: return null
@@ -121,28 +121,28 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun pauseTask(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("pauseTask")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val asId = String(argv[0]) ?: return null
         storageController.pauseTask(asId)
         return null
     }
 
     fun resumeTask(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("resumeTask")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val asId = String(argv[0]) ?: return null
         storageController.resumeTask(asId)
         return null
     }
 
     fun cancelTask(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("cancelTask")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val asId = String(argv[0]) ?: return null
         storageController.cancelTask(asId)
         return null
     }
 
     fun getDownloadUrl(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("getDownloadUrl")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val asId = String(argv[1]) ?: return null
         storageController.getDownloadUrl(path, asId)
@@ -150,7 +150,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getMetadata(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("getMetadata")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val asId = String(argv[1]) ?: return null
         storageController.getMetadata(path, asId)
@@ -158,7 +158,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun updateMetadata(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException("getMetadata")
+        argv.takeIf { argv.size > 2 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val asId = String(argv[1])
         val metadata = StorageMetadata(argv[2]) ?: return null
@@ -179,21 +179,21 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun setMaxDownloadRetryTime(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("setMaxDownloadRetryTime")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val value = Long(argv[0]) ?: return null
         storageController.setMaxDownloadRetryTime(value)
         return null
     }
 
     fun setMaxUploadRetryTime(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("setMaxUploadRetryTime")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val value = Long(argv[0]) ?: return null
         storageController.setMaxUploadRetryTime(value)
         return null
     }
 
     fun setMaxOperationRetryTime(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("setMaxOperationRetryTime")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val value = Long(argv[0]) ?: return null
         storageController.setMaxOperationRetryTime(value)
         return null
@@ -202,7 +202,7 @@ class KotlinController : FreKotlinMainController {
     /**************** Listeners ****************/
 
     fun addEventListener(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("addEventListener")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val asId = String(argv[0]) ?: return null
         val type = String(argv[1]) ?: return null
         storageController.addEventListener(asId, type)
@@ -210,14 +210,14 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun removeEventListener(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("removeEventListener")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val asId = String(argv[0]) ?: return null
         val type = String(argv[1]) ?: return null
         storageController.removeEventListener(asId, type)
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

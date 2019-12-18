@@ -37,10 +37,6 @@ fun FirebaseVisionText.Line.toFREObject(): FREObject? {
 }
 
 fun List<FirebaseVisionText.Line>.toFREObject(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.ml.vision.text.TextLine", size, true)
-            ?: return null
-    for (i in this.indices) {
-        ret[i] = this[i].toFREObject()
-    }
-    return ret
+    return FREArray("com.tuarua.firebase.ml.vision.text.TextLine",
+            size, true, this.map { it.toFREObject() })
 }

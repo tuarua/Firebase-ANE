@@ -24,7 +24,7 @@ import com.tuarua.frekotlin.geom.toFREObject
 
 fun FirebaseVisionFace.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.vision.face.Face")
-    ret["frame"] = this.boundingBox?.toFREObject()
+    ret["frame"] = this.boundingBox.toFREObject()
     ret["hasTrackingId"] = true.toFREObject()
     ret["trackingId"] = this.trackingId.toFREObject()
     ret["hasHeadEulerAngleY"] = true.toFREObject()
@@ -38,28 +38,20 @@ fun FirebaseVisionFace.toFREObject(): FREObject? {
     ret["hasRightEyeOpenProbability"] = true.toFREObject()
     ret["rightEyeOpenProbability"] = this.rightEyeOpenProbability.toFREObject()
 
-    var cnt = 0
-    val freLandMarks = FREArray("com.tuarua.firebase.ml.vision.face.FaceLandmark") ?: return null
     val types = listOf(
             LEFT_EYE, RIGHT_EYE,
             MOUTH_BOTTOM, MOUTH_RIGHT, MOUTH_LEFT,
             LEFT_EAR, RIGHT_EAR,
             LEFT_CHEEK, RIGHT_CHEEK,
             NOSE_BASE)
-    for (type in types) {
-        val lm = this.getLandmark(type) ?: continue
-        freLandMarks[cnt] = lm.toFREObject()
-        cnt += 1
-    }
+
+    val freLandMarks = FREArray("com.tuarua.firebase.ml.vision.face.FaceLandmark",
+            items = types.mapNotNull { this.getLandmark(it)?.toFREObject() }) ?: return null
     ret["landmarks"] = freLandMarks
     return ret
 }
 
-fun List<FirebaseVisionFace>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.ml.vision.face.Face", size, true)
-            ?: return null
-    for (i in this.indices) {
-        ret[i] = this[i].toFREObject()
-    }
-    return ret
+fun List<FirebaseVisionFace>.toFREObject(): FREArray? {
+    return FREArray("com.tuarua.firebase.ml.vision.face.Face",
+            size, true, this.map { it.toFREObject() })
 }

@@ -21,7 +21,7 @@ import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.cloud.landmark.FirebaseVisionCloudLandmark
 import com.tuarua.frekotlin.*
 import com.tuarua.frekotlin.geom.toFREObject
-import com.tuarua.firebase.ml.vision.common.extensions.toFREArray
+import com.tuarua.firebase.ml.vision.common.extensions.toFREObject
 
 fun FirebaseVisionCloudLandmark.toFREObject(): FREObject? {
         val ret = FREObject("com.tuarua.firebase.ml.vision.cloud.landmark.CloudLandmark")
@@ -29,15 +29,11 @@ fun FirebaseVisionCloudLandmark.toFREObject(): FREObject? {
         ret["landmark"] = landmark.toFREObject()
         ret["entityId"] = entityId.toFREObject()
         ret["frame"] = boundingBox?.toFREObject()
-        ret["locations"] = locations.toFREArray()
+        ret["locations"] = locations.toFREObject()
         return ret
 }
 
-fun List<FirebaseVisionCloudLandmark>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.ml.vision.cloud.landmark.CloudLandmark", size, true)
-            ?: return null
-    for (i in this.indices) {
-        ret[i] = this[i].toFREObject()
-    }
-    return ret
+fun List<FirebaseVisionCloudLandmark>.toFREObject(): FREArray? {
+    return FREArray("com.tuarua.firebase.ml.vision.cloud.landmark.CloudLandmark",
+            size, true, this.map { it.toFREObject() })
 }

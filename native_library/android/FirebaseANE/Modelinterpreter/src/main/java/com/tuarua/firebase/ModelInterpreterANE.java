@@ -16,6 +16,8 @@
 
 package com.tuarua.firebase;
 
+import android.annotation.SuppressLint;
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.ml.custom.KotlinController;
@@ -30,6 +32,7 @@ public class ModelInterpreterANE implements FREExtension {
             ,"registerLocalModel"
             ,"cloudModelSource"
             ,"localModelSource"
+            ,"isModelDownloaded"
     };
     private static ModelInterpreterANEContext extensionContext;
 
@@ -38,6 +41,7 @@ public class ModelInterpreterANE implements FREExtension {
 
     }
 
+    @SuppressLint("UnknownNullness")
     @Override
     public FREContext createContext(String s) {
         String NAME = "com.tuarua.firebase.NaturalLanguageANE";

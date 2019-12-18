@@ -4,7 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-Android</name>
-    <versionNumber>0.6.0</versionNumber>
+    <versionNumber>0.10.0</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -58,7 +58,16 @@
 
                     <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
                         <meta-data
-                            android:name="com.google.firebase.components:com.google.firebase.perf.component.FirebasePerfRegistrar"
+                            android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                         <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
@@ -71,6 +80,9 @@
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                         <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                     </service>
 
@@ -163,8 +175,8 @@
 
                     <!-- Google Sign In -->
                     <activity android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-                    android:screenOrientation="portrait"
-                    android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
+                        android:screenOrientation="portrait"
+                        android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
 
                     <!-- crashlytics -->
                     <provider
@@ -191,10 +203,9 @@
         <extensionID>com.google.code.gson.gson</extensionID>
         <extensionID>com.squareup.okhttp.okhttp</extensionID>
         <extensionID>com.google.guava.guava</extensionID>
-        <extensionID>com.android.support.support-v4</extensionID>
+        <extensionID>androidx.legacy.legacy-support-v4</extensionID>
+        <extensionID>com.google.android.gms.play-services-measurement</extensionID>
         <extensionID>com.google.android.gms.play-services-base</extensionID>
-        <!-- Google Sign In -->
-        <extensionID>android.arch.lifecycle.runtime</extensionID>
         <extensionID>com.google.android.gms.play-services-auth</extensionID>
         <extensionID>com.tuarua.google.GoogleSignInANE</extensionID>
 

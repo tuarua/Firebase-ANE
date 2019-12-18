@@ -17,21 +17,14 @@
 package com.tuarua.firebase.ml.custom.extensions
 
 import com.adobe.fre.FREObject
-import com.google.firebase.ml.custom.FirebaseModelOptions
+import com.google.firebase.ml.custom.FirebaseCustomRemoteModel
 import com.tuarua.frekotlin.String
 import com.tuarua.frekotlin.get
 
 @Suppress("FunctionName")
-fun FirebaseModelOptions(freObject: FREObject?): FirebaseModelOptions? {
+fun FirebaseCustomRemoteModel(freObject: FREObject?): FirebaseCustomRemoteModel? {
     val rv = freObject ?: return null
-    val cloudModelName = String(rv["cloudModelName"])
-    val localModelName = String(rv["localModelName"])
-    val builder = FirebaseModelOptions.Builder()
-    if (cloudModelName != null) {
-        builder.setCloudModelName(cloudModelName)
-    }
-    if (localModelName != null) {
-        builder.setLocalModelName(localModelName)
-    }
+    val name = String(rv["name"]) ?: return null
+    val builder = FirebaseCustomRemoteModel.Builder(name)
     return builder.build()
 }

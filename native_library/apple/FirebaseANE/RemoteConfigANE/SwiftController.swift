@@ -119,6 +119,40 @@ public class SwiftController: NSObject {
         return remoteConfig?.activateFetched().toFREObject()
     }
     
+    func activate(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        remoteConfig?.activate(completionHandler: { (error) in
+            if let err = error {
+                self.dispatchEvent(name: RemoteConfigErrorEvent.ACTIVATE_ERROR,
+                value: RemoteConfigErrorEvent(
+                 eventId: "",
+                 text: err.localizedDescription,
+                 id: 0
+                 ).toJSONString())
+            } else {
+                self.dispatchEvent(name: RemoteConfigEvent.FETCH, value: "")
+            }
+        })
+        return nil
+    }
+    
+    func fetchAndActivate(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        remoteConfig?.fetchAndActivate(completionHandler: { (status, error) in
+            switch status {
+            case .successFetchedFromRemote, .successUsingPreFetchedData:
+                self.dispatchEvent(name: RemoteConfigEvent.FETCH, value: "")
+            case .error:
+                self.dispatchEvent(name: RemoteConfigErrorEvent.FETCH_ERROR,
+                value: RemoteConfigErrorEvent(
+                 eventId: "",
+                 text: error?.localizedDescription,
+                 id: 0
+                 ).toJSONString())
+            @unknown default: break
+            }
+        })
+        return nil
+    }
+    
     func getInfo(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return remoteConfig?.toFREObject()
     }
@@ -132,7 +166,7 @@ public class SwiftController: NSObject {
         }
         self.cacheExpiration = rc.configSettings.isDeveloperModeEnabled ? 0 : cacheExpiration
         
-        remoteConfig?.fetch(withExpirationDuration: TimeInterval(self.cacheExpiration)) { (status, error) -> Void in
+        remoteConfig?.fetch(withExpirationDuration: TimeInterval(self.cacheExpiration)) { (status, error) in
             if status == .success {
                 self.remoteConfig?.activateFetched()
                 self.dispatchEvent(name: RemoteConfigEvent.FETCH, value: "")

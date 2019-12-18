@@ -34,19 +34,19 @@ fun StorageMetadata(freObject: FREObject?): StorageMetadata? {
     val contentLanguage = String(rv["contentLanguage"])
     val contentType = String(rv["contentType"])
     if (cacheControl != null) {
-        builder.setCacheControl(cacheControl)
+        builder.cacheControl = cacheControl
     }
     if (contentDisposition != null) {
-        builder.setContentDisposition(contentDisposition)
+        builder.contentDisposition = contentDisposition
     }
     if (contentEncoding != null) {
-        builder.setContentEncoding(contentEncoding)
+        builder.contentEncoding = contentEncoding
     }
     if (contentLanguage != null) {
-        builder.setContentLanguage(contentLanguage)
+        builder.contentLanguage = contentLanguage
     }
     if (contentType != null) {
-        builder.setContentType(contentType)
+        builder.contentType = contentType
     }
 
     val customMetadata: Map<String, Any>? = Map(rv["customMetadata"])
@@ -60,7 +60,7 @@ fun StorageMetadata(freObject: FREObject?): StorageMetadata? {
 }
 
 fun StorageMetadata.toMap(): Map<String, Any?> {
-    val cmd: MutableMap<String, String> = mutableMapOf()
+    val cmd: MutableMap<String, String?> = mutableMapOf()
     this.customMetadataKeys.forEach { customMetadataKey ->
         cmd[customMetadataKey] = this.getCustomMetadata(customMetadataKey)
     }

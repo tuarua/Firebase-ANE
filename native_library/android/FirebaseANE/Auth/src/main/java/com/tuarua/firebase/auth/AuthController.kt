@@ -31,18 +31,8 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.tuarua.firebase.auth.extensions.toMap
 
 class AuthController(override var context: FREContext?) : FreKotlinController {
-    private lateinit var auth: FirebaseAuth
+    private var auth: FirebaseAuth = FirebaseAuth.getInstance(FirebaseApp.getInstance())
     private val gson = Gson()
-
-
-    init {
-        val app = FirebaseApp.getInstance()
-        if (app != null) {
-            auth = FirebaseAuth.getInstance(app)
-        } else {
-            warning(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
-        }
-    }
 
     private fun sendError(type: String, eventId: String, exception: Exception?) {
         when (exception) {
@@ -126,12 +116,11 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
                 sendError(AuthEvent.PHONE_CODE_SENT, eventId, e)
             }
 
-            override fun onCodeSent(verificationId: String?,
-                                    token: PhoneAuthProvider.ForceResendingToken?) {
+            override fun onCodeSent(verificationId: String, token: PhoneAuthProvider.ForceResendingToken) {
+                super.onCodeSent(verificationId, token)
                 if (eventId == null) return
                 dispatchEvent(AuthEvent.PHONE_CODE_SENT, gson.toJson(AuthEvent(eventId,
                         mapOf("verificationId" to verificationId))))
-
             }
         }
         PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNumber, 60, TimeUnit.SECONDS, act, callbacks)
@@ -144,7 +133,7 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
             return auth.languageCode
         }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.simpleName
 
 

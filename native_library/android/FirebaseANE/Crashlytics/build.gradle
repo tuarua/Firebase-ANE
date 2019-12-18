@@ -23,6 +23,9 @@ android {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
     lintOptions {
         disable 'GradleDependency','UnusedResources'
         abortOnError false
@@ -33,7 +36,7 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "com.google.code.gson:gson:$gson_version"
-    implementation "com.google.firebase:firebase-core:$firebase_core_version"
+    implementation "com.google.firebase:firebase-analytics:$firebase_analytics_version"
     implementation "com.crashlytics.sdk.android:crashlytics:$crashlytics_version"
     implementation "com.tuarua:FreKotlin:$frekotlin_version"
 }

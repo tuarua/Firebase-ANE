@@ -47,7 +47,7 @@ class AuthController: FreSwiftController {
     }
     
     func signIn(credential: AuthCredential, eventId: String?) {
-        auth?.signInAndRetrieveData(with: credential, completion: { (_, error) in
+        auth?.signIn(with: credential, completion: { (_, error) in
             if eventId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
@@ -112,7 +112,7 @@ class AuthController: FreSwiftController {
     func reauthenticate(email: String, password: String, eventId: String?) {
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         let user = Auth.auth().currentUser
-        user?.reauthenticateAndRetrieveData(with: credential, completion: { (_, error) in
+        user?.reauthenticate(with: credential, completion: { (_, error) in
             if eventId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.USER_REAUTHENTICATED,

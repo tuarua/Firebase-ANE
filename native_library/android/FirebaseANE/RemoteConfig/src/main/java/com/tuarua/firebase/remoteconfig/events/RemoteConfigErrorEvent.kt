@@ -19,5 +19,6 @@ package com.tuarua.firebase.remoteconfig.events
 data class RemoteConfigErrorEvent(val text: String? = null, val id: Int = 0) {
     companion object {
         const val FETCH_ERROR = "RemoteConfigErrorEvent.FetchError"
+        const val ACTIVATE_ERROR = "RemoteConfigErrorEvent.ActivateError"
     }
 }

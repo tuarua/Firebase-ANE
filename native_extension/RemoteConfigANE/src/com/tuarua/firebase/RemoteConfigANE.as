@@ -76,7 +76,8 @@ public class RemoteConfigANE extends EventDispatcher {
         return ret as Boolean;
     }
 
-    /** Gets the value as a ByteArray. */
+    /** Gets the value as a ByteArray.
+     * @deprecated */
     public function getByteArray(key:String):ByteArray {
         RemoteConfigANEContext.validate();
         var ret:* = RemoteConfigANEContext.context.call("getByteArray", key);
@@ -113,13 +114,34 @@ public class RemoteConfigANE extends EventDispatcher {
      * app to take effect (depending on how config data is used in the app).
      * @return true if there was a Fetched Config, and it was activated, false if no
      * Fetched Config was found, or the Fetched Config was already activated.
-     *
+     * @deprecated
      */
     public function activateFetched():Boolean {
         RemoteConfigANEContext.validate();
         var ret:* = RemoteConfigANEContext.context.call("activateFetched");
         if (ret is ANEError) throw ret as ANEError;
         return ret as Boolean;
+    }
+
+    /**
+     * Asynchronously activates the most recently fetched configs, so that the fetched key value pairs take effect.
+     */
+    public function activate():void {
+        RemoteConfigANEContext.validate();
+        var ret:* = RemoteConfigANEContext.context.call("activate");
+        if (ret is ANEError) throw ret as ANEError;
+    }
+
+    /**
+     * Asynchronously fetches and then activates the fetched configs.
+     * If the time elapsed since the last fetch from the Firebase Remote Config backend is more than the default
+     * minimum fetch interval, configs are fetched from the backend.
+     * After the fetch is complete, the configs are activated so that the fetched key value pairs take effect.
+     */
+    public function fetchAndActivate():void {
+        RemoteConfigANEContext.validate();
+        var ret:* = RemoteConfigANEContext.context.call("fetchAndActivate");
+        if (ret is ANEError) throw ret as ANEError;
     }
 
     public function get info():RemoteConfigInfo {

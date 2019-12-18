@@ -33,12 +33,7 @@ fun IdentifiedLanguage.toFREObject(): FREObject? {
     return ret
 }
 
-fun List<IdentifiedLanguage>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.ml.naturallanguage.languageid.IdentifiedLanguage",
-            size, true) ?: return null
-    for (i in this.indices) {
-        if (this[i].languageCode == "und") continue
-        ret[i] = this[i].toFREObject()
-    }
-    return ret
+fun List<IdentifiedLanguage>.toFREObject(): FREArray? {
+    return FREArray("com.tuarua.firebase.ml.naturallanguage.languageid.IdentifiedLanguage",
+            size, true, this.filter { it.languageCode != "und"}.map { it.toFREObject() })
 }

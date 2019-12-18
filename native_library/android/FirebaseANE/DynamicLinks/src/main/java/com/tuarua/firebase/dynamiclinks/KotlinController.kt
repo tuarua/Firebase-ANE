@@ -42,7 +42,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun buildDynamicLink(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 4 } ?: return FreArgException("createDynamicLink")
+        argv.takeIf { argv.size > 4 } ?: return FreArgException()
         val linkFre = argv[0]
         val eventId = String(argv[1]) ?: return null
         val copyToClipboard = Boolean(argv[2]) == true
@@ -52,7 +52,7 @@ class KotlinController : FreKotlinMainController {
         val domainUriPrefix = String(linkFre["domainUriPrefix"])
         val iosParameters = IosParameters(linkFre["iosParameters"])
         val androidParameters = AndroidParameters(linkFre["androidParameters"])
-                ?: return FreArgException("androidParameters")
+                ?: return FreArgException()
         val googleAnalyticsParameters = GoogleAnalyticsParameters(linkFre["googleAnalyticsParameters"])
         val itunesConnectAnalyticsParameters = ItunesConnectAnalyticsParameters(
                 linkFre["itunesConnectAnalyticsParameters"]
@@ -90,9 +90,6 @@ class KotlinController : FreKotlinMainController {
             dynamicLink.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
-                    val warnings: MutableList<String> = mutableListOf()
-                    result.warnings?.mapTo(warnings) { it.message }
-
                     if (copyToClipboard) {
                         val act = ctx.activity
                         val cb = act.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
@@ -105,7 +102,7 @@ class KotlinController : FreKotlinMainController {
                                     DynamicLinkEvent(eventId, true, mapOf(
                                             "previewLink" to result.previewLink.toString(),
                                             "shortLink" to result.shortLink.toString(),
-                                            "warnings" to warnings))
+                                            "warnings" to result.warnings.map { it.message }))
                             )
                     )
                 } else {
@@ -137,31 +134,29 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getDynamicLink(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getDynamicLink")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val eventId = String(argv[0]) ?: return null
-        val appActivity = ctx.activity
-        if (appActivity != null) {
-            val task = FirebaseDynamicLinks.getInstance().getDynamicLink(appActivity.intent)
-            task.addOnSuccessListener {
-                val link = it?.link ?: ""
-                dispatchEvent(DynamicLinkEvent.ON_LINK,
-                        gson.toJson(
-                                DynamicLinkEvent(eventId, false, mapOf(
-                                        "url" to link.toString()))
-                        ))
-            }
-            task.addOnFailureListener {
-                dispatchEvent(DynamicLinkEvent.ON_LINK, gson.toJson(
-                        DynamicLinkEvent(eventId, true, null, mapOf(
-                                "text" to it.localizedMessage.toString(),
-                                "id" to 0))
-                ))
-            }
+        val appActivity = ctx.activity ?: return null
+        val task = FirebaseDynamicLinks.getInstance().getDynamicLink(appActivity.intent)
+        task.addOnSuccessListener {
+            val link = it?.link ?: ""
+            dispatchEvent(DynamicLinkEvent.ON_LINK,
+                    gson.toJson(
+                            DynamicLinkEvent(eventId, false, mapOf(
+                                    "url" to link.toString()))
+                    ))
+        }
+        task.addOnFailureListener {
+            dispatchEvent(DynamicLinkEvent.ON_LINK, gson.toJson(
+                    DynamicLinkEvent(eventId, true, null, mapOf(
+                            "text" to it.localizedMessage.toString(),
+                            "id" to 0))
+            ))
         }
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

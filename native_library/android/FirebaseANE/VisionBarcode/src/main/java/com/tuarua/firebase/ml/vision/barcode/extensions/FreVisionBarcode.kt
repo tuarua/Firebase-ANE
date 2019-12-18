@@ -42,13 +42,9 @@ fun FirebaseVisionBarcode.toFREObject(): FREObject? {
     return ret
 }
 
-fun List<FirebaseVisionBarcode>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.ml.vision.barcode.Barcode", size, true)
-            ?: return null
-    for (i in this.indices) {
-        ret[i] = this[i].toFREObject()
-    }
-    return ret
+fun List<FirebaseVisionBarcode>.toFREObject(): FREArray? {
+    return FREArray("com.tuarua.firebase.ml.vision.barcode.Barcode",
+            size, true, this.map { it.toFREObject() })
 }
 
 

@@ -22,14 +22,17 @@ android {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
     lintOptions {
-        disable 'GradleDependency','UnusedResources'
+        disable 'GradleDependency', 'UnusedResources'
     }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "com.google.android.gms:play-services-base:$play_services_version"
-    implementation "com.google.firebase:firebase-core:$firebase_core_version"
+    implementation "com.google.firebase:firebase-analytics:$firebase_analytics_version"
+//    implementation 'com.google.firebase:firebase-common-ktx:19.3.0'
     implementation "com.tuarua:FreKotlin:$frekotlin_version"
 }

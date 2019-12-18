@@ -20,12 +20,12 @@ import android.app.Fragment
 import android.graphics.Point
 import android.graphics.Rect
 import android.os.Bundle
-import android.support.annotation.IdRes
 import android.util.Log
 import android.util.Size
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.IdRes
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.tuarua.firebase.ml.vision.barcode.KotlinController
 import com.tuarua.firebase.ml.scanner.BarcodeVisionProcessor

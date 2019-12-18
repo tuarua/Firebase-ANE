@@ -15,6 +15,7 @@
  */
 
 import Foundation
+import SwiftyJSON
 
 class BatchEvent: NSObject {
     public static let COMPLETE = "BatchEvent.Complete"
