@@ -1,13 +1,13 @@
 package views.examples {
 
-import com.tuarua.firebase.ml.common.modeldownload.LocalModelSource;
 import com.tuarua.firebase.ml.common.modeldownload.ModelManager;
+import com.tuarua.firebase.ml.custom.CustomLocalModel;
 import com.tuarua.firebase.ml.custom.ModelElementType;
 import com.tuarua.firebase.ml.custom.ModelInputOutputOptions;
 import com.tuarua.firebase.ml.custom.ModelInputs;
 import com.tuarua.firebase.ml.custom.ModelInterpreterANE;
 import com.tuarua.firebase.ml.custom.ModelInterpreterError;
-import com.tuarua.firebase.ml.custom.ModelOptions;
+import com.tuarua.firebase.ml.custom.ModelInterpreterOptions;
 
 import flash.display.Bitmap;
 import flash.filesystem.File;
@@ -72,7 +72,12 @@ public class TensorFlowExample extends Sprite implements IExample {
 
     public function initANE():void {
         if (isInited) return;
-        var options:ModelOptions = new ModelOptions(null, "mobilenet_quant_v2_1.0_299");
+        var testFile:File = File.applicationDirectory.resolvePath("mobilenet").resolvePath("mobilenet_quant_v2_1.0_299.tflite");
+        if (!testFile.exists) {
+            statusLabel.text = "Can't find mobilenet tflite file";
+            return;
+        }
+        var options:ModelInterpreterOptions = new ModelInterpreterOptions(new CustomLocalModel("mobilenet/mobilenet_quant_v2_1.0_299.tflite"));
         modelInterpreter = ModelInterpreterANE.modelInterpreter(options);
         modelManager = ModelInterpreterANE.modelManager;
         isInited = true;
@@ -81,15 +86,6 @@ public class TensorFlowExample extends Sprite implements IExample {
     private function OnIdentifyClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnLanguage);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            var testFile:File = File.applicationDirectory.resolvePath("mobilenet").resolvePath("mobilenet_quant_v2_1.0_299.tflite");
-            if (!testFile.exists) {
-                statusLabel.text = "Can't find mobilenet tflite file";
-                return;
-            }
-            var modelSource:LocalModelSource = new LocalModelSource("mobilenet_quant_v2_1.0_299", "mobilenet/mobilenet_quant_v2_1.0_299.tflite");
-            var registrationSuccessful:Boolean = modelManager.registerLocalModel(modelSource);
-            statusLabel.text = "Model registration successful: " + registrationSuccessful + "\n";
-            if (!registrationSuccessful) return;
 
             // convert bitmap into byte array of ModelElementType.byte
             var pixels:ByteArray = new ByteArray();

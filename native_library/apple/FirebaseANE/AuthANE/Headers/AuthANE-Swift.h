@@ -181,9 +181,9 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import FirebaseAuth;
 @import Foundation;
 @import FreSwift;
-@import GoogleSignIn;
 @import ObjectiveC;
 #endif
 
@@ -198,47 +198,36 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_attribute(external_source_symbol)
 # pragma push_macro("any")
 # undef any
-# pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="GoogleSignInANE_LIB",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
+# pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="AuthANE_LIB",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
 # pragma pop_macro("any")
 #endif
 
 
-SWIFT_CLASS("_TtC19GoogleSignInANE_LIB17GoogleSignInEvent")
-@interface GoogleSignInEvent : NSObject
+
+
+SWIFT_CLASS("_TtC11AuthANE_LIB9AuthEvent")
+@interface AuthEvent : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-SWIFT_CLASS("_TtC19GoogleSignInANE_LIB15SwiftController")
+
+
+SWIFT_CLASS("_TtC11AuthANE_LIB15SwiftController")
 @interface SwiftController : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class GIDSignIn;
-@class UIViewController;
 
-@interface SwiftController (SWIFT_EXTENSION(GoogleSignInANE_LIB)) <GIDSignInUIDelegate>
-- (void)signInWillDispatch:(GIDSignIn * _Null_unspecified)signIn error:(NSError * _Null_unspecified)error;
-- (void)signIn:(GIDSignIn * _Null_unspecified)signIn presentViewController:(UIViewController * _Null_unspecified)viewController;
-- (void)signIn:(GIDSignIn * _Null_unspecified)signIn dismissViewController:(UIViewController * _Null_unspecified)viewController;
-@end
-
-@class GIDGoogleUser;
-
-@interface SwiftController (SWIFT_EXTENSION(GoogleSignInANE_LIB)) <GIDSignInDelegate>
-- (void)signIn:(GIDSignIn * _Null_unspecified)signIn didSignInForUser:(GIDGoogleUser * _Null_unspecified)user withError:(NSError * _Null_unspecified)error;
-- (void)signIn:(GIDSignIn * _Null_unspecified)signIn didDisconnectWithUser:(GIDGoogleUser * _Null_unspecified)user withError:(NSError * _Null_unspecified)error;
-- (void)applicationDidFinishLaunching:(NSNotification * _Nonnull)notification;
-@end
-
-
-@interface SwiftController (SWIFT_EXTENSION(GoogleSignInANE_LIB))
+@interface SwiftController (SWIFT_EXTENSION(AuthANE_LIB))
 - (NSArray<NSString *> * _Nonnull)getFunctionsWithPrefix:(NSString * _Nonnull)prefix SWIFT_WARN_UNUSED_RESULT;
 - (void)dispose;
 - (FREObject _Nullable)callSwiftFunctionWithName:(NSString * _Nonnull)name ctx:(FREContext _Nonnull)ctx argc:(uint32_t)argc argv:(FREObject _Nullable * _Nonnull)argv SWIFT_WARN_UNUSED_RESULT;
 - (void)setFREContextWithCtx:(FREContext _Nonnull)ctx;
 - (void)onLoad;
 @end
+
+
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop

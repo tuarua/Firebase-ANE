@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="com.android.support.support-v4-27.1.0" type="flex">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/android_dependencies/com.android.support.support-v4-27.1.0.ane!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

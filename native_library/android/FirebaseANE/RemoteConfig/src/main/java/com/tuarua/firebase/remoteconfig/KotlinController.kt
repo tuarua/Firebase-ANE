@@ -20,9 +20,13 @@ import android.util.Log
 import com.adobe.fre.FREByteArray
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
-import com.google.firebase.FirebaseApp
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.ktx.app
+import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigException
+import com.google.firebase.remoteconfig.ktx.get
+
 import com.google.gson.Gson
 import com.tuarua.firebase.remoteconfig.events.RemoteConfigErrorEvent
 import com.tuarua.firebase.remoteconfig.events.RemoteConfigEvent
@@ -38,7 +42,7 @@ class KotlinController : FreKotlinMainController {
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         try {
-            remoteConfig = FirebaseRemoteConfig.getInstance(FirebaseApp.getInstance())
+            remoteConfig = Firebase.remoteConfig(Firebase.app)
         } catch (e: FreException) {
             warning(e.message)
             warning(e.stackTrace)
@@ -69,7 +73,7 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val key = String(argv[0]) ?: return null
         try {
-            val ba = remoteConfig.getByteArray(key)
+            val ba = remoteConfig[key].asByteArray()
             val ret = FREByteArray.newByteArray()
             ret["length"] = ba.size.toFREObject()
             ret.acquire()
@@ -87,25 +91,25 @@ class KotlinController : FreKotlinMainController {
     fun getBoolean(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val key = String(argv[0]) ?: return null
-        return remoteConfig.getBoolean(key).toFREObject()
+        return remoteConfig[key].asBoolean().toFREObject()
     }
 
     fun getDouble(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val key = String(argv[0]) ?: return null
-        return remoteConfig.getDouble(key).toFREObject()
+        return remoteConfig[key].asDouble().toFREObject()
     }
 
     fun getLong(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val key = String(argv[0]) ?: return null
-        return remoteConfig.getLong(key).toFREObject()
+        return remoteConfig[key].asLong().toFREObject()
     }
 
     fun getString(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val key = String(argv[0]) ?: return null
-        return remoteConfig.getString(key).toFREObject()
+        return remoteConfig[key].asString().toFREObject()
     }
 
     fun getKeysByPrefix(ctx: FREContext, argv: FREArgv): FREObject? {
@@ -136,7 +140,6 @@ class KotlinController : FreKotlinMainController {
         return remoteConfig.activateFetched().toFREObject()
     }
 
-    // TODO
     fun activate(ctx: FREContext, argv: FREArgv): FREObject? {
         remoteConfig.activate().addOnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -149,7 +152,6 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    // TODO
     fun fetchAndActivate(ctx: FREContext, argv: FREArgv): FREObject? {
         remoteConfig.fetchAndActivate().addOnCompleteListener { task ->
             if (task.isSuccessful) {

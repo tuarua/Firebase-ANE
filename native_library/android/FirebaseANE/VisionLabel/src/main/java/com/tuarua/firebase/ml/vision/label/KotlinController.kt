@@ -38,12 +38,12 @@ class KotlinController : FreKotlinMainController {
     private var results: MutableMap<String, MutableList<FirebaseVisionImageLabel>> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = Dispatchers.Default
-    private lateinit var detector: FirebaseVisionImageLabeler
+    private lateinit var labeler: FirebaseVisionImageLabeler
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val options = FirebaseVisionLabelDetectorOptions(argv[0])
-        detector = if (options != null) {
+        labeler = if (options != null) {
             FirebaseVision.getInstance().getOnDeviceImageLabeler(options)
         } else {
             FirebaseVision.getInstance().onDeviceImageLabeler
@@ -60,7 +60,7 @@ class KotlinController : FreKotlinMainController {
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
         val eventId = String(argv[1]) ?: return null
         GlobalScope.launch(bgContext) {
-            detector.processImage(image).addOnCompleteListener { task ->
+            labeler.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
                     results[eventId] = result
@@ -89,6 +89,11 @@ class KotlinController : FreKotlinMainController {
         val ret = result.toFREObject()
         results.remove(eventId)
         return ret
+    }
+
+    fun close(ctx: FREContext, argv: FREArgv): FREObject? {
+        labeler.close()
+        return null
     }
 
     override val TAG: String?

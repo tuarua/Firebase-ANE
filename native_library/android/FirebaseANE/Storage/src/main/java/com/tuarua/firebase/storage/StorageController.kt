@@ -20,7 +20,9 @@ import android.net.Uri
 import android.util.Base64
 import android.util.Log
 import com.adobe.fre.FREContext
-import com.google.firebase.FirebaseApp
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.ktx.app
+import com.google.firebase.storage.ktx.storage
 import com.google.firebase.storage.*
 import com.google.gson.Gson
 import com.tuarua.firebase.storage.events.StorageErrorEvent
@@ -42,10 +44,10 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
 
     init {
         try {
-            val app = FirebaseApp.getInstance()
+            val app = Firebase.app
             storage = when (url) {
-                null -> FirebaseStorage.getInstance(app)
-                else -> FirebaseStorage.getInstance(app, url)
+                null -> Firebase.storage(app)
+                else -> Firebase.storage(app, url)
             }
         } catch (e: FreException) {
             warning(e.message)

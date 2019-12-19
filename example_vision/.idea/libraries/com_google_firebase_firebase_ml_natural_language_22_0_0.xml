@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="com.google.firebase.firebase-ml-natural-language-22.0.0" type="flex">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android_dependencies/com.google.firebase.firebase-ml-natural-language-22.0.0.ane!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -42,11 +42,11 @@ class KotlinController : FreKotlinMainController {
     private val gson = Gson()
     private val bgContext: CoroutineContext = Dispatchers.Default
     private var isStatsCollectionEnabled = true
-
     private var modelOptions: FirebaseModelInterpreterOptions? = null
+
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
-        modelOptions = FirebaseModelInterpreterOptions(argv[0]) ?: return false.toFREObject()
+        modelOptions = FirebaseModelInterpreterOptions(argv[0]) ?: return FreArgException()
         isStatsCollectionEnabled = Boolean(argv[1]) ?: true
         return true.toFREObject()
     }
@@ -54,13 +54,12 @@ class KotlinController : FreKotlinMainController {
     fun run(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 4 } ?: return FreArgException()
         val modelInputs = FirebaseModelInputs(argv[0]) ?: return null
-        val options = FirebaseModelInputOutputOptions(argv[1])
-                ?: return null
+        val options = FirebaseModelInputOutputOptions(argv[1]) ?: return null
         val maxResults = Int(argv[2]) ?: return null
         val numPossibilities = Int(argv[3]) ?: return null
         val eventId = String(argv[4]) ?: return null
-
         val modelOptions = this.modelOptions ?: return null
+
         GlobalScope.launch(bgContext) {
             val interpreter = FirebaseModelInterpreter.getInstance(modelOptions)
             interpreter?.isStatsCollectionEnabled = isStatsCollectionEnabled

@@ -7,6 +7,8 @@ import com.google.android.gms.common.ConnectionResult
 import com.google.firebase.FirebaseApp
 import com.tuarua.frekotlin.*
 import com.google.android.gms.common.GoogleApiAvailability
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.ktx.initialize
 
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
@@ -30,8 +32,7 @@ class KotlinController : FreKotlinMainController {
                     "Cannot find required google_app_id. Ensure Firebase resources file added to FirebaseANE"
             ).getError()
         }
-
-        FirebaseApp.initializeApp(ac)
+        Firebase.initialize(ac)
         return true.toFREObject()
     }
 

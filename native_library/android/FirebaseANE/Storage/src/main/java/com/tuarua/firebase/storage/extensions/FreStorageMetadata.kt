@@ -20,6 +20,7 @@ package com.tuarua.firebase.storage.extensions
 
 import com.adobe.fre.FREObject
 import com.google.firebase.storage.StorageMetadata
+import com.google.firebase.storage.ktx.storageMetadata
 import com.tuarua.frekotlin.Map
 import com.tuarua.frekotlin.String
 import com.tuarua.frekotlin.get
@@ -27,36 +28,20 @@ import com.tuarua.frekotlin.get
 @Suppress("FunctionName")
 fun StorageMetadata(freObject: FREObject?): StorageMetadata? {
     val rv = freObject ?: return null
-    val builder = StorageMetadata.Builder()
-    val cacheControl = String(rv["cacheControl"])
-    val contentDisposition = String(rv["contentDisposition"])
-    val contentEncoding = String(rv["contentEncoding"])
-    val contentLanguage = String(rv["contentLanguage"])
-    val contentType = String(rv["contentType"])
-    if (cacheControl != null) {
-        builder.cacheControl = cacheControl
-    }
-    if (contentDisposition != null) {
-        builder.contentDisposition = contentDisposition
-    }
-    if (contentEncoding != null) {
-        builder.contentEncoding = contentEncoding
-    }
-    if (contentLanguage != null) {
-        builder.contentLanguage = contentLanguage
-    }
-    if (contentType != null) {
-        builder.contentType = contentType
-    }
-
-    val customMetadata: Map<String, Any>? = Map(rv["customMetadata"])
-    customMetadata?.keys?.forEach { k ->
-        val v = customMetadata[k]
-        when {
-            v != null -> builder.setCustomMetadata(k, v as String?)
+    return storageMetadata {
+        cacheControl = String(rv["cacheControl"]) ?: cacheControl
+        contentDisposition = String(rv["contentDisposition"]) ?: contentDisposition
+        contentEncoding = String(rv["contentEncoding"]) ?: contentEncoding
+        contentLanguage = String(rv["contentLanguage"]) ?: contentLanguage
+        contentType = String(rv["contentType"]) ?: contentType
+        val cmd: Map<String, Any>? = Map(rv["customMetadata"])
+        cmd?.keys?.forEach { k ->
+            val v = cmd[k]
+            when {
+                v != null -> setCustomMetadata(k, v as String?)
+            }
         }
     }
-    return builder.build()
 }
 
 fun StorageMetadata.toMap(): Map<String, Any?> {

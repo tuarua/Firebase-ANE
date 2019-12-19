@@ -36,8 +36,7 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
     implementation "com.google.firebase:firebase-analytics:$firebase_analytics_version"
     implementation "com.google.firebase:firebase-ml-vision:$firebase_vision_version"
-
-    implementation 'com.google.firebase:firebase-ml-vision-barcode-model:16.0.2'
+    implementation "com.google.firebase:firebase-ml-vision-barcode-model:$firebase_vision_barcode_model_version"
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_coroutines_version"
     implementation "com.tuarua:FreKotlin:$frekotlin_version"

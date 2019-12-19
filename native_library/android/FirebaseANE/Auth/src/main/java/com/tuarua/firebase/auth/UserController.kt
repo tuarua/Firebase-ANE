@@ -17,27 +17,19 @@ package com.tuarua.firebase.auth
 
 import android.net.Uri
 import com.adobe.fre.FREContext
-import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.*
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.ktx.app
 import com.google.gson.Gson
 import com.tuarua.firebase.auth.events.AuthEvent
 import com.tuarua.firebase.auth.extensions.toMap
 import com.tuarua.frekotlin.FreKotlinController
 
 class UserController(override var context: FREContext?) : FreKotlinController {
-    private lateinit var auth: FirebaseAuth
+    private var auth: FirebaseAuth = FirebaseAuth.getInstance(Firebase.app)
     private val gson = Gson()
-
-    init {
-        val app = FirebaseApp.getInstance()
-        if (app != null) {
-            auth = FirebaseAuth.getInstance(app)
-        } else {
-            warning(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
-        }
-    }
 
     private fun sendError(type: String, eventId: String, exception: Exception?) {
         when (exception) {

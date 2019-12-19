@@ -107,11 +107,13 @@
 		90236A65222A0FA200C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
 		90236A66222A0FA200C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
 		90236A67222A0FB200C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
-		90236A68222A0FBF00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90236A68222A0FBF00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; platformFilter = ios; };
 		90236A69222A0FCB00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; platformFilter = ios; };
 		90236A6B222A19AC00C4CB68 /* BoringSSL-GRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90236A6A222A198F00C4CB68 /* BoringSSL-GRPC.framework */; platformFilter = ios; };
 		9033688B20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033688A20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift */; };
 		9033689420FCBFE5001A3B24 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033689320FCBFE5001A3B24 /* UIUtilities.swift */; };
+		903EDD9023AAEFBF00960A23 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 903EDD8F23AAEFBF00960A23 /* SwiftyJSON */; };
+		903EDD9223AAF1FA00960A23 /* FirestoreANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 903EDD9123AAF1FA00960A23 /* FirestoreANE-Swift.h */; };
 		9062053F20F800B400AFCE48 /* RemoteConfigErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062053E20F800B400AFCE48 /* RemoteConfigErrorEvent.swift */; platformFilter = ios; };
 		9062054120F801A300AFCE48 /* RemoteConfigEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062054020F801A300AFCE48 /* RemoteConfigEvent.swift */; platformFilter = ios; };
 		90656DBB222C5F8D00B4626A /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
@@ -196,7 +198,7 @@
 		90BABA7520FBE93D00C012F8 /* PermissionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BABA7420FBE93D00C012F8 /* PermissionEvent.swift */; platformFilter = ios; };
 		90BBBDD721AC93A50066541D /* FirebaseANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87F4781FB259DB005CF7DF /* FirebaseANE.m */; platformFilter = ios; };
 		90C1152E222BF02C00F423FB /* FreVisionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90160DCD2115CA3F0009A815 /* FreVisionLabel.swift */; };
-		90CDBBA0215673090056DD92 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDBB9F215673090056DD92 /* SwiftController+FreSwift.swift */; };
+		90CDBBA0215673090056DD92 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDBB9F215673090056DD92 /* SwiftController+FreSwift.swift */; platformFilter = ios; };
 		90CDBBA221567F910056DD92 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CDBBA121567F910056DD92 /* Fabric.framework */; platformFilter = ios; };
 		90CE411F21864C43002FBD4F /* FreNativeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE411E21864C43002FBD4F /* FreNativeType.swift */; platformFilter = ios; };
 		90CE412121865034002FBD4F /* FreNativeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CE412021865034002FBD4F /* FreNativeImage.swift */; platformFilter = ios; };
@@ -225,37 +227,36 @@
 		90E49615222A943600CF3B24 /* FreLanguageIdentificationOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E49614222A943600CF3B24 /* FreLanguageIdentificationOptions.swift */; };
 		90E49617222A966700CF3B24 /* LanguageEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E49616222A966700CF3B24 /* LanguageEvent.swift */; };
 		90E49619222A9AB100CF3B24 /* FreIdentifiedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E49618222A9AB100CF3B24 /* FreIdentifiedLanguage.swift */; };
-		90EF030B2154216000C91063 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; };
-		90EF030C2154216000C91063 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; };
-		90EF030E2154216000C91063 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; };
-		90EF030F2154216000C91063 /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */; };
-		90EF03102154216000C91063 /* FirebaseMLVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */; };
-		90EF03112154216000C91063 /* GoogleMobileVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E038220EECAD5008D6CE8 /* GoogleMobileVision.framework */; };
-		90EF03122154216000C91063 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED7492220929C1F000327CD /* GTMSessionFetcher.framework */; };
-		90EF03132154216000C91063 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB572BC208D21C300CF6B1B /* GoogleToolboxForMac.framework */; };
-		90EF03142154216000C91063 /* GoogleAPIClientForREST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */; };
-		90EF03152154216000C91063 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; };
-		90EF03192154216000C91063 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; };
-		90EF0320215421DB00C91063 /* VisionCloudDocumentANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EF02F42154205800C91063 /* VisionCloudDocumentANE_oc.h */; };
-		90EF0321215421E000C91063 /* VisionCloudDocumentANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EF02F6215420E500C91063 /* VisionCloudDocumentANE-Bridging-Header.h */; };
-		90EF0322215421E300C91063 /* VisionCloudDocumentANE.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EF02F52154205800C91063 /* VisionCloudDocumentANE.m */; };
-		90EF0323215421E600C91063 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF02F72154214800C91063 /* SwiftController.swift */; };
-		90EF03262154230100C91063 /* FreVisionCloudDocumentTextRecognizerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03252154230100C91063 /* FreVisionCloudDocumentTextRecognizerOptions.swift */; };
-		90EF0327215423C300C91063 /* FreVisionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039220EED12C008D6CE8 /* FreVisionImage.swift */; };
-		90EF0328215423C700C91063 /* FreVisionImageMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039420EED2A8008D6CE8 /* FreVisionImageMetadata.swift */; };
-		90EF032B2154247500C91063 /* FreVisionDocumentText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF032A2154247500C91063 /* FreVisionDocumentText.swift */; };
-		90EF032D215424BE00C91063 /* CloudDocumentEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF032C215424BE00C91063 /* CloudDocumentEvent.swift */; };
-		90EF032F2154256000C91063 /* FreVisionDocumentTextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF032E2154256000C91063 /* FreVisionDocumentTextBlock.swift */; };
-		90EF0330215425AE00C91063 /* FreVisionTextRecognizedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90207A572151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift */; };
-		90EF03322154260B00C91063 /* FreVisionDocumentTextParagraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03312154260B00C91063 /* FreVisionDocumentTextParagraph.swift */; };
-		90EF03342154262000C91063 /* FreVisionTextRecognizedBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03332154262000C91063 /* FreVisionTextRecognizedBreak.swift */; };
-		90EF0336215445E700C91063 /* FreVisionDocumentTextWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF0335215445E700C91063 /* FreVisionDocumentTextWord.swift */; };
-		90EF03382154478D00C91063 /* FreVisionDocumentTextSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03372154478D00C91063 /* FreVisionDocumentTextSymbol.swift */; };
+		90EF030B2154216000C91063 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; platformFilter = ios; };
+		90EF030C2154216000C91063 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
+		90EF030E2154216000C91063 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; platformFilter = ios; };
+		90EF030F2154216000C91063 /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */; platformFilter = ios; };
+		90EF03102154216000C91063 /* FirebaseMLVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */; platformFilter = ios; };
+		90EF03112154216000C91063 /* GoogleMobileVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E038220EECAD5008D6CE8 /* GoogleMobileVision.framework */; platformFilter = ios; };
+		90EF03122154216000C91063 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED7492220929C1F000327CD /* GTMSessionFetcher.framework */; platformFilter = ios; };
+		90EF03132154216000C91063 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB572BC208D21C300CF6B1B /* GoogleToolboxForMac.framework */; platformFilter = ios; };
+		90EF03142154216000C91063 /* GoogleAPIClientForREST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */; platformFilter = ios; };
+		90EF03152154216000C91063 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; platformFilter = ios; };
+		90EF03192154216000C91063 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; platformFilter = ios; };
+		90EF0320215421DB00C91063 /* VisionCloudDocumentANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EF02F42154205800C91063 /* VisionCloudDocumentANE_oc.h */; platformFilter = ios; };
+		90EF0321215421E000C91063 /* VisionCloudDocumentANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EF02F6215420E500C91063 /* VisionCloudDocumentANE-Bridging-Header.h */; platformFilter = ios; };
+		90EF0322215421E300C91063 /* VisionCloudDocumentANE.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EF02F52154205800C91063 /* VisionCloudDocumentANE.m */; platformFilter = ios; };
+		90EF0323215421E600C91063 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF02F72154214800C91063 /* SwiftController.swift */; platformFilter = ios; };
+		90EF03262154230100C91063 /* FreVisionCloudDocumentTextRecognizerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03252154230100C91063 /* FreVisionCloudDocumentTextRecognizerOptions.swift */; platformFilter = ios; };
+		90EF0327215423C300C91063 /* FreVisionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039220EED12C008D6CE8 /* FreVisionImage.swift */; platformFilter = ios; };
+		90EF0328215423C700C91063 /* FreVisionImageMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E039420EED2A8008D6CE8 /* FreVisionImageMetadata.swift */; platformFilter = ios; };
+		90EF032B2154247500C91063 /* FreVisionDocumentText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF032A2154247500C91063 /* FreVisionDocumentText.swift */; platformFilter = ios; };
+		90EF032D215424BE00C91063 /* CloudDocumentEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF032C215424BE00C91063 /* CloudDocumentEvent.swift */; platformFilter = ios; };
+		90EF032F2154256000C91063 /* FreVisionDocumentTextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF032E2154256000C91063 /* FreVisionDocumentTextBlock.swift */; platformFilter = ios; };
+		90EF0330215425AE00C91063 /* FreVisionTextRecognizedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90207A572151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift */; platformFilter = ios; };
+		90EF03322154260B00C91063 /* FreVisionDocumentTextParagraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03312154260B00C91063 /* FreVisionDocumentTextParagraph.swift */; platformFilter = ios; };
+		90EF03342154262000C91063 /* FreVisionTextRecognizedBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03332154262000C91063 /* FreVisionTextRecognizedBreak.swift */; platformFilter = ios; };
+		90EF0336215445E700C91063 /* FreVisionDocumentTextWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF0335215445E700C91063 /* FreVisionDocumentTextWord.swift */; platformFilter = ios; };
+		90EF03382154478D00C91063 /* FreVisionDocumentTextSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03372154478D00C91063 /* FreVisionDocumentTextSymbol.swift */; platformFilter = ios; };
 		90EFB70823AA7D6C00910A47 /* FirebaseANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB70723AA7D6C00910A47 /* FirebaseANE-Swift.h */; platformFilter = ios; };
 		90EFB70B23AA7E1D00910A47 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 90EFB70A23AA7E1D00910A47 /* SwiftyJSON */; };
 		90EFB70F23AA7F3A00910A47 /* RemoteConfigANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB70E23AA7F3A00910A47 /* RemoteConfigANE-Swift.h */; };
 		90EFB71323AA9C5D00910A47 /* AnalyticsANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB71223AA9C5D00910A47 /* AnalyticsANE-Swift.h */; };
-		90EFB71523AAA0C800910A47 /* FirestoreANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB71423AAA0C800910A47 /* FirestoreANE-Swift.h */; };
 		90EFB71723AAA21E00910A47 /* StorageANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB71623AAA21E00910A47 /* StorageANE-Swift.h */; };
 		90EFB71923AAA2C100910A47 /* AuthANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB71823AAA2C100910A47 /* AuthANE-Swift.h */; };
 		90EFB71B23AAA41400910A47 /* PerformanceANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB71A23AAA41400910A47 /* PerformanceANE-Swift.h */; platformFilter = ios; };
@@ -267,7 +268,7 @@
 		90EFB72723AAA86400910A47 /* VisionANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB72623AAA86400910A47 /* VisionANE-Swift.h */; platformFilter = ios; };
 		90EFB72923AAA90800910A47 /* VisionFaceANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB72823AAA90800910A47 /* VisionFaceANE-Swift.h */; };
 		90EFB72B23AAA96900910A47 /* VisionBarcodeANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB72A23AAA96900910A47 /* VisionBarcodeANE-Swift.h */; };
-		90EFB72D23AAAA7800910A47 /* VisionCloudDocumentANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB72C23AAAA7800910A47 /* VisionCloudDocumentANE-Swift.h */; };
+		90EFB72D23AAAA7800910A47 /* VisionCloudDocumentANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB72C23AAAA7800910A47 /* VisionCloudDocumentANE-Swift.h */; platformFilter = ios; };
 		90EFB72F23AAAAC400910A47 /* VisionLandmarkANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB72E23AAAAC400910A47 /* VisionLandmarkANE-Swift.h */; };
 		90EFB73123AAAB0000910A47 /* NaturalLanguageANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB73023AAAB0000910A47 /* NaturalLanguageANE-Swift.h */; };
 		90EFB73323AAC15000910A47 /* ModelInterpreterANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB73223AAC15000910A47 /* ModelInterpreterANE-Swift.h */; };
@@ -561,6 +562,7 @@
 		90236A6A222A198F00C4CB68 /* BoringSSL-GRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "BoringSSL-GRPC.framework"; path = "Carthage/Build/iOS/BoringSSL-GRPC.framework"; sourceTree = "<group>"; };
 		9033688A20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift; sourceTree = "<group>"; };
 		9033689320FCBFE5001A3B24 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
+		903EDD9123AAF1FA00960A23 /* FirestoreANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FirestoreANE-Swift.h"; sourceTree = "<group>"; };
 		9062053E20F800B400AFCE48 /* RemoteConfigErrorEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigErrorEvent.swift; sourceTree = "<group>"; };
 		9062054020F801A300AFCE48 /* RemoteConfigEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigEvent.swift; sourceTree = "<group>"; };
 		90658A8921162EF9003197A5 /* libModelInterpreterANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libModelInterpreterANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -638,7 +640,6 @@
 		90EFB70723AA7D6C00910A47 /* FirebaseANE-Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FirebaseANE-Swift.h"; sourceTree = "<group>"; };
 		90EFB70E23AA7F3A00910A47 /* RemoteConfigANE-Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RemoteConfigANE-Swift.h"; sourceTree = "<group>"; };
 		90EFB71223AA9C5D00910A47 /* AnalyticsANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnalyticsANE-Swift.h"; sourceTree = "<group>"; };
-		90EFB71423AAA0C800910A47 /* FirestoreANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FirestoreANE-Swift.h"; sourceTree = "<group>"; };
 		90EFB71623AAA21E00910A47 /* StorageANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StorageANE-Swift.h"; sourceTree = "<group>"; };
 		90EFB71823AAA2C100910A47 /* AuthANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AuthANE-Swift.h"; sourceTree = "<group>"; };
 		90EFB71A23AAA41400910A47 /* PerformanceANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PerformanceANE-Swift.h"; sourceTree = "<group>"; };
@@ -922,6 +923,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				903EDD9023AAEFBF00960A23 /* SwiftyJSON in Frameworks */,
 				906A68222114F33300848218 /* nanopb.framework in Frameworks */,
 				906A67F82114EFB000848218 /* FreSwift.framework in Frameworks */,
 				906A67FA2114EFB000848218 /* FirebaseCore.framework in Frameworks */,
@@ -1857,6 +1859,7 @@
 				CEB572A9208CF8F400CF6B1B /* SwiftController+FreSwift.swift */,
 				CEB57289208CF6F500CF6B1B /* Headers */,
 				CE743207208D49AC00E388D3 /* FirestoreController.swift */,
+				903EDD9123AAF1FA00960A23 /* FirestoreANE-Swift.h */,
 			);
 			path = FirestoreANE;
 			sourceTree = "<group>";
@@ -2064,7 +2067,6 @@
 		CEB57289208CF6F500CF6B1B /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				90EFB71423AAA0C800910A47 /* FirestoreANE-Swift.h */,
 				CEB572B0208CF92400CF6B1B /* FirestoreANE_oc.h */,
 				CEB572AF208CF92400CF6B1B /* FirestoreANE-Bridging-Header.h */,
 			);
@@ -2121,7 +2123,6 @@
 				CEBCF7BF2095F9D90028601B /* SwiftController+FreSwift.swift */,
 				CEBCF7C32095FC190028601B /* AuthController.swift */,
 				CEBCF7C52095FC250028601B /* UserController.swift */,
-				90EFB71823AAA2C100910A47 /* AuthANE-Swift.h */,
 			);
 			path = AuthANE;
 			sourceTree = "<group>";
@@ -2146,6 +2147,7 @@
 		CEBCF7992095F8920028601B /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				90EFB71823AAA2C100910A47 /* AuthANE-Swift.h */,
 				CEBCF7B92095F99B0028601B /* AuthANE_oc.h */,
 				CEBCF7C12095FA0F0028601B /* AuthANE-Bridging-Header.h */,
 			);
@@ -2490,7 +2492,7 @@
 				CEB572B2208CF92400CF6B1B /* FirestoreANE_oc.h in Headers */,
 				CED749152092975C000327CD /* FreMacros.h in Headers */,
 				CEB572B1208CF92400CF6B1B /* FirestoreANE-Bridging-Header.h in Headers */,
-				90EFB71523AAA0C800910A47 /* FirestoreANE-Swift.h in Headers */,
+				903EDD9223AAF1FA00960A23 /* FirestoreANE-Swift.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2654,6 +2656,9 @@
 			dependencies = (
 			);
 			name = VisionTextANE_LIB;
+			packageProductDependencies = (
+				903EDD8F23AAEFBF00960A23 /* SwiftyJSON */,
+			);
 			productName = HelloWorldANE_LIB;
 			productReference = 906A680D2114EFB000848218 /* libVisionTextANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
@@ -5680,6 +5685,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		903EDD8F23AAEFBF00960A23 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90EFB70923AA7E1D00910A47 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		90EFB70A23AA7E1D00910A47 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 90EFB70923AA7E1D00910A47 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;

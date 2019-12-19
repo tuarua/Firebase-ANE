@@ -30,6 +30,9 @@ import com.google.firebase.firestore.Query.Direction.*
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.WriteBatch
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.app
 import com.tuarua.firebase.firestore.events.*
 import com.tuarua.firebase.firestore.extensions.*
 
@@ -43,7 +46,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
     init {
         try {
             FirebaseFirestore.setLoggingEnabled(loggingEnabled)
-            firestore = FirebaseFirestore.getInstance(FirebaseApp.getInstance())
+            firestore = Firebase.firestore(Firebase.app)
             if (settings != null) {
                 firestore.firestoreSettings = settings
             }

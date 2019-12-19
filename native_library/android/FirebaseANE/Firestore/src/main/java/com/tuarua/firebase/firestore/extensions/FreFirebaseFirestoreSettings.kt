@@ -19,20 +19,16 @@ package com.tuarua.firebase.firestore.extensions
 
 import com.adobe.fre.FREObject
 import com.google.firebase.firestore.FirebaseFirestoreSettings
+import com.google.firebase.firestore.ktx.firestoreSettings
 import com.tuarua.frekotlin.*
 
 fun FirebaseFirestoreSettings(freObject: FREObject?): FirebaseFirestoreSettings? {
     val rv = freObject ?: return null
-    val isSslEnabled = Boolean(rv["isSslEnabled"])
-    val isPersistenceEnabled = Boolean(rv["isPersistenceEnabled"])
-    val builder = FirebaseFirestoreSettings.Builder()
-    if (isPersistenceEnabled != null) {
-        builder.setPersistenceEnabled(isPersistenceEnabled)
+    return firestoreSettings {
+        isSslEnabled = Boolean(rv["isSslEnabled"]) == true
+        host = String(rv["host"]) ?: host
+        isPersistenceEnabled = Boolean(rv["isPersistenceEnabled"]) == true
     }
-    if (isSslEnabled != null) {
-        builder.setSslEnabled(isSslEnabled)
-    }
-    return builder.build()
 }
 
 fun FirebaseFirestoreSettings.toFREObject(): FREObject? {

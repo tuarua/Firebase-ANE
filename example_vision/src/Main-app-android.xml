@@ -4,7 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-Android</name>
-    <versionNumber>0.6.0</versionNumber>
+    <versionNumber>0.10.0</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -63,6 +63,12 @@
                             android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                         <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                         <meta-data
@@ -70,6 +76,21 @@
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                         <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.ml.common.CommonComponentRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.ml.naturallanguage.NaturalLanguageRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.ml.naturallanguage.translate.NaturalLanguageTranslateRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.ml.custom.CustomModelRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.remoteconfig.ktx.FirebaseConfigKtxRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                     </service>
 
@@ -149,12 +170,12 @@
         <extensionID>org.jetbrains.kotlinx.kotlinx-coroutines-android</extensionID>
         <extensionID>org.greenrobot.eventbus</extensionID>
         <extensionID>com.google.code.gson.gson</extensionID>
-        <extensionID>com.android.support.support-v4</extensionID>
         <extensionID>com.google.android.gms.play-services-base</extensionID>
-        <extensionID>com.google.android.gms.play-services-vision-image-label</extensionID>
-        <extensionID>android.arch.lifecycle.runtime</extensionID>
+        <extensionID>androidx.legacy.legacy-support-v4</extensionID>
+
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
         <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
+        <extensionID>com.tuarua.firebase.RemoteConfigANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionBarcodeANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionFaceANE</extensionID>
@@ -172,7 +193,9 @@
         <extensionID>com.google.firebase.firebase-ml-vision</extensionID>
         <extensionID>com.google.firebase.firebase-ml-natural-language</extensionID>
         <extensionID>com.google.firebase.firebase-ml-vision-face-model</extensionID>
+        <extensionID>com.google.firebase.firebase-ml-vision-image-label-model</extensionID>
         <extensionID>com.google.firebase.firebase-ml-model-interpreter</extensionID>
+        <extensionID>com.google.firebase.firebase-config</extensionID>
     </extensions>
 
 </application>
