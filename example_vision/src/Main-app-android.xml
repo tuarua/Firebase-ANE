@@ -193,6 +193,7 @@
         <extensionID>com.google.firebase.firebase-ml-vision</extensionID>
         <extensionID>com.google.firebase.firebase-ml-natural-language</extensionID>
         <extensionID>com.google.firebase.firebase-ml-vision-face-model</extensionID>
+        <extensionID>com.google.firebase.firebase-ml-vision-barcode-model</extensionID>
         <extensionID>com.google.firebase.firebase-ml-vision-image-label-model</extensionID>
         <extensionID>com.google.firebase.firebase-ml-model-interpreter</extensionID>
         <extensionID>com.google.firebase.firebase-config</extensionID>

@@ -161,6 +161,9 @@
             <entry library-name="RemoteConfigANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="com.google.firebase.firebase-ml-vision-barcode-model-16.0.2" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_33" />
         </dependencies>
@@ -247,5 +250,6 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-ml-model-interpreter-22.0.1" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-config-19.0.3" level="project" />
     <orderEntry type="library" exported="" name="RemoteConfigANE" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-ml-vision-barcode-model-16.0.2" level="project" />
   </component>
 </module>
