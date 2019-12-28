@@ -35,87 +35,87 @@ class UserController: FreSwiftController {
         auth = Auth.auth(app: app)
     }
     
-    func sendEmailVerification(eventId: String?) {
+    func sendEmailVerification(callbackId: String?) {
         let user = Auth.auth().currentUser
         user?.sendEmailVerification { error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.EMAIL_VERIFICATION_SENT,
-                               value: AuthEvent(eventId: eventId, data: nil, error: err).toJSONString())
+                               value: AuthEvent(callbackId: callbackId, data: nil, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.EMAIL_VERIFICATION_SENT,
-                               value: AuthEvent(eventId: eventId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
             }
         }
     }
     
-    func update(email: String, eventId: String?) {
+    func update(email: String, callbackId: String?) {
         let user = Auth.auth().currentUser
         user?.updateEmail(to: email) { error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.EMAIL_UPDATED,
-                               value: AuthEvent(eventId: eventId, data: nil, error: err).toJSONString())
+                               value: AuthEvent(callbackId: callbackId, data: nil, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.EMAIL_UPDATED,
-                               value: AuthEvent(eventId: eventId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
             }
         }
     }
     
-    func update(password: String, eventId: String?) {
+    func update(password: String, callbackId: String?) {
         let user = Auth.auth().currentUser
         user?.updatePassword(to: password) { error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.PASSWORD_UPDATED,
-                               value: AuthEvent(eventId: eventId, data: nil, error: err).toJSONString())
+                               value: AuthEvent(callbackId: callbackId, data: nil, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.PASSWORD_UPDATED,
-                               value: AuthEvent(eventId: eventId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
             }
         }
     }
     
-    func link(credential: AuthCredential, eventId: String?) {
+    func link(credential: AuthCredential, callbackId: String?) {
         let user = Auth.auth().currentUser
         user?.link(with: credential, completion: { (_, error) in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.USER_LINKED,
-                               value: AuthEvent(eventId: eventId, data: nil, error: err).toJSONString())
+                               value: AuthEvent(callbackId: callbackId, data: nil, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.USER_LINKED,
-                               value: AuthEvent(eventId: eventId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
             }
         })
     }
     
-    func unlink(provider: String, eventId: String?) {
+    func unlink(provider: String, callbackId: String?) {
         let user = Auth.auth().currentUser
         user?.unlink(fromProvider: provider) { _, error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.USER_UNLINKED,
-                               value: AuthEvent(eventId: eventId, data: nil, error: err).toJSONString())
+                               value: AuthEvent(callbackId: callbackId, data: nil, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.USER_UNLINKED,
-                               value: AuthEvent(eventId: eventId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
             }
         }
         
     }
     
-    func deleteUser(eventId: String?) {
+    func deleteUser(callbackId: String?) {
         let user = Auth.auth().currentUser
         user?.delete(completion: { (error) in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.USER_DELETED,
-                               value: AuthEvent(eventId: eventId, data: nil, error: err).toJSONString())
+                               value: AuthEvent(callbackId: callbackId, data: nil, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.USER_DELETED,
-                               value: AuthEvent(eventId: eventId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
             }
         })
     }
@@ -124,7 +124,7 @@ class UserController: FreSwiftController {
         return auth?.currentUser
     }
     
-    func updateProfile(displayName: String?, photoUrl: String?, eventId: String?) {
+    func updateProfile(displayName: String?, photoUrl: String?, callbackId: String?) {
         let user = Auth.auth().currentUser
         let pcr = user?.createProfileChangeRequest()
         pcr?.displayName = displayName
@@ -133,38 +133,38 @@ class UserController: FreSwiftController {
         }
     
         pcr?.commitChanges(completion: { error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.PROFILE_UPDATED,
-                               value: AuthEvent(eventId: eventId, data: nil, error: err).toJSONString())
+                               value: AuthEvent(callbackId: callbackId, data: nil, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.PROFILE_UPDATED,
-                               value: AuthEvent(eventId: eventId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
             }
         })
     }
     
-    func reload(eventId: String?) {
+    func reload(callbackId: String?) {
         auth?.currentUser?.reload(completion: { error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.USER_RELOADED,
-                               value: AuthEvent(eventId: eventId, data: nil, error: err).toJSONString())
+                               value: AuthEvent(callbackId: callbackId, data: nil, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.USER_RELOADED,
-                               value: AuthEvent(eventId: eventId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
             }
         })
     }
     
-    func getIdToken(forceRefresh: Bool, eventId: String) {
+    func getIdToken(forceRefresh: Bool, callbackId: String) {
         auth?.currentUser?.getIDTokenForcingRefresh(forceRefresh, completion: { token, error in
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.ID_TOKEN,
-                               value: AuthEvent(eventId: eventId, data: nil, error: err).toJSONString())
+                               value: AuthEvent(callbackId: callbackId, data: nil, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.ID_TOKEN,
-                               value: AuthEvent(eventId: eventId, data: ["token": token ?? ""]).toJSONString())
+                               value: AuthEvent(callbackId: callbackId, data: ["token": token ?? ""]).toJSONString())
             }
         })
     }

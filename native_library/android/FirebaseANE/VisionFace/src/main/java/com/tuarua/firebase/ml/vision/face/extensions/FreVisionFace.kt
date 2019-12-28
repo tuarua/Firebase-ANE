@@ -18,6 +18,9 @@ package com.tuarua.firebase.ml.vision.face.extensions
 import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.face.FirebaseVisionFace
+import com.google.firebase.ml.vision.face.FirebaseVisionFaceContour
+import com.google.firebase.ml.vision.face.FirebaseVisionFaceContour.*
+import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark.*
 import com.tuarua.frekotlin.*
 import com.tuarua.frekotlin.geom.toFREObject
@@ -38,16 +41,29 @@ fun FirebaseVisionFace.toFREObject(): FREObject? {
     ret["hasRightEyeOpenProbability"] = true.toFREObject()
     ret["rightEyeOpenProbability"] = this.rightEyeOpenProbability.toFREObject()
 
-    val types = listOf(
-            LEFT_EYE, RIGHT_EYE,
+    val landmarkTypes = listOf(
+            FirebaseVisionFaceLandmark.LEFT_EYE, FirebaseVisionFaceLandmark.RIGHT_EYE,
             MOUTH_BOTTOM, MOUTH_RIGHT, MOUTH_LEFT,
             LEFT_EAR, RIGHT_EAR,
             LEFT_CHEEK, RIGHT_CHEEK,
             NOSE_BASE)
 
     val freLandMarks = FREArray("com.tuarua.firebase.ml.vision.face.FaceLandmark",
-            items = types.mapNotNull { this.getLandmark(it)?.toFREObject() }) ?: return null
+            items = landmarkTypes.mapNotNull { this.getLandmark(it)?.toFREObject() }) ?: return null
     ret["landmarks"] = freLandMarks
+
+    val contourTypes = listOf(
+            FACE,
+            LEFT_EYEBROW_TOP, LEFT_EYEBROW_BOTTOM,
+            RIGHT_EYEBROW_TOP, RIGHT_EYEBROW_BOTTOM,
+            FirebaseVisionFaceContour.LEFT_EYE, FirebaseVisionFaceContour.RIGHT_EYE,
+            UPPER_LIP_TOP, UPPER_LIP_BOTTOM,
+            LOWER_LIP_TOP, LOWER_LIP_BOTTOM,
+            NOSE_BRIDGE, NOSE_BOTTOM
+    )
+    val freContours = FREArray("com.tuarua.firebase.ml.vision.face.FaceContour",
+            items = contourTypes.mapNotNull { this.getContour(it).toFREObject() }) ?: return null
+    ret["contours"] = freContours
     return ret
 }
 

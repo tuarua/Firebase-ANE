@@ -34,14 +34,14 @@ import com.tuarua.firebase.ml.scanner.VisionProcessListener
 import com.tuarua.firebase.view.widget.AutoFitTextureView
 import com.tuarua.firebase.visionbarcodeane.R
 
-private const val ARG_EVENTID = "eventId"
+private const val ARG_EVENTID = "callbackId"
 private const val ARG_FORMATS = "formats"
 
 class CameraPreviewFragment : Fragment(), CameraPreviewManager.OnCameraPreviewCallback,
         VisionProcessListener, CameraPreviewManager.OnDisplaySizeRequireHandler,
         FrameVisionProcessor.CameraInformationCollector {
 
-    private var eventId: String? = null
+    private var callbackId: String? = null
     private var formats: IntArray? = null
     private var listener: BarcodeProcessSucceedListener? = null
 
@@ -53,7 +53,7 @@ class CameraPreviewFragment : Fragment(), CameraPreviewManager.OnCameraPreviewCa
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            eventId = it.getString(ARG_EVENTID)
+            callbackId = it.getString(ARG_EVENTID)
             formats = it.getIntArray(ARG_FORMATS)
         }
     }
@@ -132,8 +132,8 @@ class CameraPreviewFragment : Fragment(), CameraPreviewManager.OnCameraPreviewCa
     override fun onVisionProcessSucceed(result: MutableList<FirebaseVisionBarcode>) {
         if (found) return
         found = true
-        val eventId = eventId ?: return
-        listener?.onVisionProcessSucceed(eventId, result)
+        val callbackId = callbackId ?: return
+        listener?.onVisionProcessSucceed(callbackId, result)
         close()
     }
 
@@ -144,7 +144,7 @@ class CameraPreviewFragment : Fragment(), CameraPreviewManager.OnCameraPreviewCa
     }
 
     interface BarcodeProcessSucceedListener {
-        fun onVisionProcessSucceed(eventId: String, result: MutableList<FirebaseVisionBarcode>)
+        fun onVisionProcessSucceed(callbackId: String, result: MutableList<FirebaseVisionBarcode>)
     }
 
     private fun <T : View> Fragment.bindView(@IdRes id: Int): Lazy<T> =
@@ -166,10 +166,10 @@ class CameraPreviewFragment : Fragment(), CameraPreviewManager.OnCameraPreviewCa
 
     companion object {
         @JvmStatic
-        fun newInstance(eventId: String, formats: IntArray?) =
+        fun newInstance(callbackId: String, formats: IntArray?) =
                 CameraPreviewFragment().apply {
                     arguments = Bundle().apply {
-                        putString(ARG_EVENTID, eventId)
+                        putString(ARG_EVENTID, callbackId)
                         putIntArray(ARG_FORMATS, formats)
                     }
                 }

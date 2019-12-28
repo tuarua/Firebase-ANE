@@ -45,7 +45,7 @@ public class SwiftController: NSObject {
     func detect(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let image = VisionImage(argv[0]),
-            let eventId = String(argv[1])
+            let callbackId = String(argv[1])
             else {
                 return FreArgError().getError()
         }
@@ -53,12 +53,12 @@ public class SwiftController: NSObject {
             self.detector?.process(image) { (features, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: FaceEvent.DETECTED,
-                                   value: FaceEvent(eventId: eventId, error: err).toJSONString())
+                                   value: FaceEvent(callbackId: callbackId, error: err).toJSONString())
                 } else {
                     if let features = features, !features.isEmpty {
-                        self.results[eventId] = features
+                        self.results[callbackId] = features
                         self.dispatchEvent(name: FaceEvent.DETECTED,
-                                       value: FaceEvent(eventId: eventId).toJSONString())
+                                       value: FaceEvent(callbackId: callbackId).toJSONString())
                     }
                 }
             }
@@ -68,12 +68,12 @@ public class SwiftController: NSObject {
     
     func getResults(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let eventId = String(argv[0])
+            let id = String(argv[0])
             else {
                 return FreArgError().getError()
         }
-        let ret = results[eventId]?.toFREObject()
-        results.removeValue(forKey: eventId)
+        let ret = results[id]?.toFREObject()
+        results.removeValue(forKey: id)
         return ret
     }
     

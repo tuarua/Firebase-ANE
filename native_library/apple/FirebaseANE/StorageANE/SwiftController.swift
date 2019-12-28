@@ -52,11 +52,11 @@ public class SwiftController: NSObject {
         guard argc > 2,
             let path = String(argv[0]),
             let destinationFile = String(argv[1]),
-            let asId = String(argv[2])
+            let callbackId = String(argv[2])
             else {
                 return FreArgError().getError()
         }
-        storageController?.getFile(path: path, destinationFile: destinationFile, asId: asId)
+        storageController?.getFile(path: path, destinationFile: destinationFile, callbackId: callbackId)
         return nil
     }
     
@@ -84,15 +84,15 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError().getError()
         }
-        let eventId = String(argv[1])
-        storageController?.deleteReference(path: path, eventId: eventId)
+        let callbackId = String(argv[1])
+        storageController?.deleteReference(path: path, callbackId: callbackId)
         return nil
     }
     
     func putBytes(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 3,
             let path = String(argv[0]),
-            let asId = String(argv[1]),
+            let callbackId = String(argv[1]),
             let inFRE2 = argv[2]
             else {
                 return FreArgError().getError()
@@ -100,7 +100,7 @@ public class SwiftController: NSObject {
         let metadata = StorageMetadata(argv[3])
         let ba = FreByteArraySwift.init(freByteArray: inFRE2)
         if let byteData = ba.value {
-            storageController?.putBytes(path: path, asId: asId, bytes: byteData, metadata: metadata)
+            storageController?.putBytes(path: path, callbackId: callbackId, bytes: byteData, metadata: metadata)
         }
         ba.releaseBytes()
         return nil
@@ -109,7 +109,7 @@ public class SwiftController: NSObject {
     func putFile(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 3,
             let path = String(argv[0]),
-            let asId = String(argv[1]),
+            let callbackId = String(argv[1]),
             let filePath = String(argv[2])
             else {
                 return FreArgError().getError()
@@ -117,41 +117,41 @@ public class SwiftController: NSObject {
         
         let metadata = StorageMetadata(argv[3])
         
-        storageController?.putFile(path: path, asId: asId, filePath: filePath, metadata: metadata)
+        storageController?.putFile(path: path, callbackId: callbackId, filePath: filePath, metadata: metadata)
         return nil
     }
     
     func getDownloadUrl(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let path = String(argv[0]),
-            let eventId = String(argv[1])
+            let callbackId = String(argv[1])
             else {
                 return FreArgError().getError()
         }
-        storageController?.getDownloadUrl(path: path, eventId: eventId)
+        storageController?.getDownloadUrl(path: path, callbackId: callbackId)
         return nil
     }
     
     func getBytes(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 2,
             let path = String(argv[0]),
-            let asId = String(argv[2])
+            let callbackId = String(argv[2])
             else {
                 return FreArgError().getError()
         }
         let maxDownloadSizeBytes = Int(argv[1])
-        storageController?.getBytes(path: path, maxDownloadSizeBytes: maxDownloadSizeBytes, asId: asId)
+        storageController?.getBytes(path: path, maxDownloadSizeBytes: maxDownloadSizeBytes, callbackId: callbackId)
         return nil
     }
     
     func getMetadata(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let path = String(argv[0]),
-            let eventId = String(argv[1])
+            let callbackId = String(argv[1])
             else {
                 return FreArgError().getError()
         }
-        storageController?.getMetadata(path: path, eventId: eventId)
+        storageController?.getMetadata(path: path, callbackId: callbackId)
         return nil
     }
     
@@ -162,8 +162,8 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError().getError()
         }
-        let eventId = String(argv[1])
-        storageController?.updateMetadata(path: path, eventId: eventId, metadata: metadata)
+        let callbackId = String(argv[1])
+        storageController?.updateMetadata(path: path, callbackId: callbackId, metadata: metadata)
         return nil
     }
     
@@ -211,31 +211,31 @@ public class SwiftController: NSObject {
     
     func pauseTask(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let asId = String(argv[0])
+            let callbackId = String(argv[0])
             else {
                 return FreArgError().getError()
         }
-        storageController?.pauseTask(asId: asId)
+        storageController?.pauseTask(callbackId: callbackId)
         return nil
     }
     
     func resumeTask(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let asId = String(argv[0])
+            let callbackId = String(argv[0])
             else {
                 return FreArgError().getError()
         }
-        storageController?.resumeTask(asId: asId)
+        storageController?.resumeTask(callbackId: callbackId)
         return nil
     }
     
     func cancelTask(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let asId = String(argv[0])
+            let callbackId = String(argv[0])
             else {
                 return FreArgError().getError()
         }
-        storageController?.cancelTask(asId: asId)
+        storageController?.cancelTask(callbackId: callbackId)
         return nil
     }
     
@@ -243,23 +243,23 @@ public class SwiftController: NSObject {
     
     func addEventListener(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let asId = String(argv[0]),
+            let callbackId = String(argv[0]),
             let type = String(argv[1])
             else {
                 return FreArgError().getError()
         }
-        storageController?.addEventListener(asId: asId, type: type)
+        storageController?.addEventListener(callbackId: callbackId, type: type)
         return nil
     }
     
     func removeEventListener(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let asId = String(argv[0]),
+            let callbackId = String(argv[0]),
             let type = String(argv[1])
             else {
                 return FreArgError().getError()
         }
-        storageController?.removeEventListener(asId: asId, type: type)
+        storageController?.removeEventListener(callbackId: callbackId, type: type)
         return nil
     }
     

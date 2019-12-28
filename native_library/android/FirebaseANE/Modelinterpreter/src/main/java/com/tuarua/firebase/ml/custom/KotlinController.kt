@@ -57,7 +57,7 @@ class KotlinController : FreKotlinMainController {
         val options = FirebaseModelInputOutputOptions(argv[1]) ?: return null
         val maxResults = Int(argv[2]) ?: return null
         val numPossibilities = Int(argv[3]) ?: return null
-        val eventId = String(argv[4]) ?: return null
+        val callbackId = String(argv[4]) ?: return null
         val modelOptions = this.modelOptions ?: return null
 
         GlobalScope.launch(bgContext) {
@@ -85,13 +85,13 @@ class KotlinController : FreKotlinMainController {
                         data.add(mapOf("index" to entry.key, "confidence" to entry.value))
                     }
                     dispatchEvent(ModelInterpreterEvent.OUTPUT,
-                            gson.toJson(ModelInterpreterEvent(eventId, data = data))
+                            gson.toJson(ModelInterpreterEvent(callbackId, data = data))
                     )
                 } else {
                     val error = task.exception
                     dispatchEvent(ModelInterpreterEvent.OUTPUT,
                             gson.toJson(
-                                    ModelInterpreterEvent(eventId, error = mapOf(
+                                    ModelInterpreterEvent(callbackId, error = mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -107,13 +107,12 @@ class KotlinController : FreKotlinMainController {
     fun isModelDownloaded(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val model = FirebaseRemoteModel(argv[0]) ?: return null
-        FirebaseModelManager.getInstance().isModelDownloaded(model).addOnCompleteListener { task ->
-            // TODO
-            when {
-                task.isSuccessful -> {}
-                else -> {}
-            }
+        val callbackId = String(argv[1]) ?: return null
 
+        FirebaseModelManager.getInstance().isModelDownloaded(model).addOnCompleteListener { task ->
+            dispatchEvent(ModelInterpreterEvent.IS_DOWNLOADED,
+                    gson.toJson(ModelInterpreterEvent(callbackId, result = task.result))
+            )
         }
         return null
     }
@@ -121,15 +120,14 @@ class KotlinController : FreKotlinMainController {
     fun deleteDownloadedModel(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val model = FirebaseRemoteModel(argv[0]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
+
         FirebaseModelManager.getInstance().deleteDownloadedModel(model).addOnCompleteListener { task ->
-            // TODO
-            when {
-                task.isSuccessful -> {}
-                else -> {}
-            }
+            dispatchEvent(ModelInterpreterEvent.DELETE_DOWNLOADED,
+                    gson.toJson(ModelInterpreterEvent(callbackId, result = task.isSuccessful))
+            )
         }
         return null
-
     }
 
 
@@ -137,15 +135,20 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val model = FirebaseCustomRemoteModel(argv[0]) ?: return FreArgException()
         val conditions = FirebaseModelDownloadConditions(argv[1]) ?: return FreArgException()
+        val callbackId = String(argv[2]) ?: return null
 
-        FirebaseModelManager.getInstance().download(model, conditions).addOnCompleteListener {task ->
-            // TODO
-            when {
-                task.isSuccessful -> {
-                    // task.result
-                }
-                else -> {}
-            }
+        FirebaseModelManager.getInstance().download(model, conditions).addOnSuccessListener {
+            dispatchEvent(ModelInterpreterEvent.DOWNLOAD,
+                    gson.toJson(ModelInterpreterEvent(callbackId))
+            )
+        }.addOnFailureListener { error ->
+            dispatchEvent(ModelInterpreterEvent.DOWNLOAD,
+                    gson.toJson(
+                            ModelInterpreterEvent(callbackId, error = mapOf(
+                                    "text" to error.message.toString(),
+                                    "id" to 0))
+                    )
+            )
         }
 
         return null

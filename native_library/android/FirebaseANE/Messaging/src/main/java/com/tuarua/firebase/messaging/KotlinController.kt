@@ -91,7 +91,7 @@ class KotlinController : FreKotlinMainController, FreKotlinStateChangeCallback, 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: MessageEvent) {
         if (_context != null) {
-            dispatchEvent(event.eventId, gson.toJson(MessageEvent(event.eventId, event.data)))
+            dispatchEvent(event.callbackId, gson.toJson(MessageEvent(event.callbackId, event.data)))
         }
     }
 

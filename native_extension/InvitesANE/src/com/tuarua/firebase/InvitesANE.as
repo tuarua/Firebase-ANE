@@ -41,7 +41,7 @@ public final class InvitesANE extends EventDispatcher {
      */
     public function getDynamicLink(listener:Function):void {
         InvitesANEContext.validate();
-        var ret:* = InvitesANEContext.context.call("getDynamicLink", InvitesANEContext.createEventId(listener));
+        var ret:* = InvitesANEContext.context.call("getDynamicLink", InvitesANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 

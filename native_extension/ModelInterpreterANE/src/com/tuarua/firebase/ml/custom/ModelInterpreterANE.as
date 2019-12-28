@@ -46,10 +46,11 @@ public class ModelInterpreterANE extends EventDispatcher {
      * @param numPossibilities The number of possibile values that may match.
      * @param maxResults The number of results to return.
      */
-    public function run(inputs:ModelInputs, options:ModelInputOutputOptions, listener:Function, numPossibilities:uint, maxResults:int = 5):void {
+    public function run(inputs:ModelInputs, options:ModelInputOutputOptions, listener:Function,
+                        numPossibilities:uint, maxResults:int = 5):void {
         ModelInterpreterANEContext.validate();
         var ret:* = ModelInterpreterANEContext.context.call("run", inputs, options,
-                maxResults, numPossibilities, ModelInterpreterANEContext.createEventId(listener));
+                maxResults, numPossibilities, ModelInterpreterANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 

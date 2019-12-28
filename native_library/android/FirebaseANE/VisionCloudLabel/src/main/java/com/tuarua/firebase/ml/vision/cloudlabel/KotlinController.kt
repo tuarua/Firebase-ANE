@@ -59,19 +59,19 @@ class KotlinController : FreKotlinMainController {
     fun process(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
-        val eventId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         GlobalScope.launch(bgContext) {
             labeler.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
-                    results[eventId] = result
+                    results[callbackId] = result
                     dispatchEvent(CloudLabelEvent.RECOGNIZED,
-                            gson.toJson(CloudLabelEvent(eventId, null)))
+                            gson.toJson(CloudLabelEvent(callbackId, null)))
                 } else {
                     val error = task.exception
                     dispatchEvent(CloudLabelEvent.RECOGNIZED,
                             gson.toJson(
-                                    CloudLabelEvent(eventId, mapOf(
+                                    CloudLabelEvent(callbackId, mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -85,10 +85,10 @@ class KotlinController : FreKotlinMainController {
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val eventId = String(argv[0]) ?: return null
-        val result = results[eventId] ?: return null
+        val callbackId = String(argv[0]) ?: return null
+        val result = results[callbackId] ?: return null
         val ret = result.toFREObject()
-        results.remove(eventId)
+        results.remove(callbackId)
         return ret
     }
 

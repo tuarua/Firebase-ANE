@@ -15,9 +15,9 @@
  */
 
 package com.tuarua.firebase.invites.events
-data class InvitesEvent(val eventId: String,
-                            val data: Map<String, Any>? = null,
-                            val error: Map<String, Any>? = null) {
+data class InvitesEvent(val callbackId: String,
+                        val data: Map<String, Any>? = null,
+                        val error: Map<String, Any>? = null) {
     companion object {
         const val SUCCESS = "FirebaseInvites.Success"
         const val ERROR = "FirebaseInvites.Error"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <platform xmlns="http://ns.adobe.com/air/extension/19.0">
-    <sdkVersion>12.1</sdkVersion>
+    <sdkVersion>13.0</sdkVersion>
     <linkerOptions>
         <option>-ios_version_min 9.0</option>
         <option>-lsqlite3</option>
@@ -24,6 +24,8 @@
         <packagedDependency>Frameworks/GoogleAppMeasurement.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleToolboxForMac.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleUtilities.framework</packagedDependency>
+        <packagedDependency>Frameworks/GoogleDataTransport.framework</packagedDependency>
+        <packagedDependency>Frameworks/GoogleDataTransportCCTSupport.framework</packagedDependency>
         <packagedDependency>Frameworks/Fabric.framework</packagedDependency>
     </packagedDependencies>
     

@@ -29,7 +29,7 @@ public class InvitesANEContext {
     internal static const TRACE:String = "TRACE";
     internal static const INIT_ERROR_MESSAGE:String = NAME + " not initialised... use .invites";
 
-    public static var closures:Dictionary = new Dictionary();
+    public static var callbacks:Dictionary = new Dictionary();
     private static var _isInited:Boolean = false;
     private static var _context:ExtensionContext;
     private static const ON_LINK:String = "FirebaseInvites.OnLink";
@@ -50,44 +50,56 @@ public class InvitesANEContext {
         return _context;
     }
 
+    public static function createCallback(listener:Function):String {
+        var id:String;
+        if (listener != null) {
+            id = context.call("createGUID") as String;
+            callbacks[id] = listener;
+        }
+        return id;
+    }
+
+    public static function callCallback(callbackId:String, ... args):void {
+        var callback:Function = callbacks[callbackId];
+        if (callback == null) return;
+        callback.apply(null, args);
+        delete callbacks[callbackId];
+    }
+
     private static function gotEvent(event:StatusEvent):void {
-        var closure:Function;
         var err:DynamicLinkError;
         var dynamicLinkResult:DynamicLinkResult;
-        var pObj:Object;
+        var argsAsJSON:Object;
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);
                 break;
             case InvitesEvent.SUCCESS:
                 try {
-                    pObj = JSON.parse(event.code);
-                    InvitesANE.invites.dispatchEvent(new InvitesEvent(event.level, pObj.data.ids));
+                    argsAsJSON = JSON.parse(event.code);
+                    InvitesANE.invites.dispatchEvent(new InvitesEvent(event.level, argsAsJSON.data.ids));
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
                 break;
             case InvitesEvent.ERROR:
                 try {
-                    pObj = JSON.parse(event.code);
+                    argsAsJSON = JSON.parse(event.code);
                     InvitesANE.invites.dispatchEvent(new InvitesEvent(event.level, null,
-                            new Error(pObj.error.text, pObj.error.id)));
+                            new Error(argsAsJSON.error.text, argsAsJSON.error.id)));
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
                 break;
             case ON_LINK:
                 try {
-                    pObj = JSON.parse(event.code);
-                    closure = closures[pObj.eventId];
-                    if (closure == null) return;
-                    if (pObj.hasOwnProperty("error") && pObj.error) {
-                        err = new DynamicLinkError(pObj.error.text, pObj.error.id);
-                    } else if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("url")) {
-                        dynamicLinkResult = ANEUtils.map(pObj.data, DynamicLinkResult) as DynamicLinkResult;
+                    argsAsJSON = JSON.parse(event.code);
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new DynamicLinkError(argsAsJSON.error.text, argsAsJSON.error.id);
+                    } else if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty("url")) {
+                        dynamicLinkResult = ANEUtils.map(argsAsJSON.data, DynamicLinkResult) as DynamicLinkResult;
                     }
-                    closure.call(null, dynamicLinkResult, err);
-                    delete closures[pObj.eventId];
+                    callCallback(argsAsJSON.callbackId, dynamicLinkResult, err);
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
@@ -104,15 +116,6 @@ public class InvitesANEContext {
         _context.dispose();
         _context = null;
         _isInited = false;
-    }
-
-    public static function createEventId(listener:Function):String {
-        var eventId:String;
-        if (listener != null) {
-            eventId = context.call("createGUID") as String;
-            closures[eventId] = listener;
-        }
-        return eventId;
     }
 
     public static function validate():void {

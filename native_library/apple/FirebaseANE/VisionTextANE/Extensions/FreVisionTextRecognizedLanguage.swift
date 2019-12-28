@@ -28,12 +28,11 @@ public extension VisionTextRecognizedLanguage {
 
 public extension Array where Element == VisionTextRecognizedLanguage {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.ml.vision.text.TextRecognizedLanguage")
-            else { return nil }
-        for element in self {
-            ret.push(element.toFREObject())
-        }
-        return ret.rawValue
+        return FREArray(className: "com.tuarua.firebase.ml.vision.text.TextRecognizedLanguage",
+                             length: self.count,
+                             fixed: true,
+                             items: self.compactMap { $0.toFREObject() }
+        )?.rawValue
     }
 }
 

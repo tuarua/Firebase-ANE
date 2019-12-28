@@ -58,20 +58,20 @@ class KotlinController : FreKotlinMainController {
     fun identifyLanguage(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val text = String(argv[0]) ?: return null
-        val eventId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         GlobalScope.launch(bgContext) {
             languageIdentification.identifyLanguage(text).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
                     if (result == "und") return@addOnCompleteListener
-                    results[eventId] = result
+                    results[callbackId] = result
                     dispatchEvent(LanguageEvent.RECOGNIZED,
-                            gson.toJson(LanguageEvent(eventId, null)))
+                            gson.toJson(LanguageEvent(callbackId, null)))
                 } else {
                     val error = task.exception
                     dispatchEvent(LanguageEvent.RECOGNIZED,
                             gson.toJson(
-                                    LanguageEvent(eventId, mapOf(
+                                    LanguageEvent(callbackId, mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -84,20 +84,20 @@ class KotlinController : FreKotlinMainController {
 
     fun identifyPossibleLanguages(ctx: FREContext, argv: FREArgv): FREObject? {
         val text = String(argv[0]) ?: return null
-        val eventId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         GlobalScope.launch(bgContext) {
             languageIdentification.identifyPossibleLanguages(text).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
                     if (result.isEmpty()) return@addOnCompleteListener
-                    resultsMulti[eventId] = result
+                    resultsMulti[callbackId] = result
                     dispatchEvent(LanguageEvent.RECOGNIZED_MULTI,
-                            gson.toJson(LanguageEvent(eventId, null)))
+                            gson.toJson(LanguageEvent(callbackId, null)))
                 } else {
                     val error = task.exception
                     dispatchEvent(LanguageEvent.RECOGNIZED_MULTI,
                             gson.toJson(
-                                    LanguageEvent(eventId, mapOf(
+                                    LanguageEvent(callbackId, mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -110,19 +110,19 @@ class KotlinController : FreKotlinMainController {
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val eventId = String(argv[0]) ?: return null
-        val result = results[eventId] ?: return null
+        val callbackId = String(argv[0]) ?: return null
+        val result = results[callbackId] ?: return null
         val ret = result.toFREObject()
-        results.remove(eventId)
+        results.remove(callbackId)
         return ret
     }
 
     fun getResultsMulti(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val eventId = String(argv[0]) ?: return null
-        val result = resultsMulti[eventId] ?: return null
+        val callbackId = String(argv[0]) ?: return null
+        val result = resultsMulti[callbackId] ?: return null
         val ret = result.toFREObject()
-        results.remove(eventId)
+        results.remove(callbackId)
         return ret
     }
 

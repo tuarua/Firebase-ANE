@@ -14,22 +14,24 @@
  * limitations under the License.
  */
 
-package com.tuarua.firebase.ml.custom {
-/** A model stored locally on the device. */
-public class LocalModel {
-    private var _path:String;
-    /**
-     * Creates a new instance with the given model file path.
-     *
-     * @param path An absolute path to the TensorFlow Lite model file stored locally on the device.
-     */
-    public function LocalModel(path:String) {
-        this._path = path;
+package com.tuarua.firebase.ml.vision.face {
+import com.tuarua.firebase.ml.vision.common.VisionPoint;
+[RemoteClass(alias="com.tuarua.firebase.ml.vision.face.FaceContour")]
+public class FaceContour {
+    private var _points:Vector.<VisionPoint>;
+    private var _type:String;
+    /** @private */
+    public function FaceContour(points:Vector.<VisionPoint>, type:String) {
+        this._points = points;
+        this._type = type;
     }
 
-    /** An absolute path to a model file stored locally on the device. */
-    public function get path():String {
-        return _path;
+    public function get type():String {
+        return _type;
+    }
+
+    public function get points():Vector.<VisionPoint> {
+        return _points;
     }
 }
 }

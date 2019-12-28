@@ -49,7 +49,7 @@ public final class AuthANE extends EventDispatcher {
         AuthANEContext.validate();
         if (AuthANEContext.isNullOrEmpty(email)) throw ArgumentError("email is null or empty");
         var ret:* = AuthANEContext.context.call("sendPasswordResetEmail", email,
-                AuthANEContext.createEventId(listener));
+                AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -70,7 +70,7 @@ public final class AuthANE extends EventDispatcher {
             throw ArgumentError("email or password is null or empty");
         }
         var ret:* = AuthANEContext.context.call("createUserWithEmailAndPassword", email, password,
-                AuthANEContext.createEventId(listener));
+                AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -87,7 +87,7 @@ public final class AuthANE extends EventDispatcher {
     public function signInWithCustomToken(token:String, listener:Function = null):void {
         AuthANEContext.validate();
         var ret:* = AuthANEContext.context.call("signInWithCustomToken", token,
-                AuthANEContext.createEventId(listener));
+                AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -102,7 +102,7 @@ public final class AuthANE extends EventDispatcher {
      */
     public function signInAnonymously(listener:Function = null):void {
         AuthANEContext.validate();
-        var ret:* = AuthANEContext.context.call("signInAnonymously", AuthANEContext.createEventId(listener));
+        var ret:* = AuthANEContext.context.call("signInAnonymously", AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -136,7 +136,7 @@ public final class AuthANE extends EventDispatcher {
     public function signIn(credential:AuthCredential, listener:Function = null):void {
         AuthANEContext.validate();
         var ret:* = AuthANEContext.context.call("signIn", credential,
-                AuthANEContext.createEventId(listener));
+                AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -156,7 +156,7 @@ public final class AuthANE extends EventDispatcher {
     public function verifyPhoneNumber(phoneNumber:String, listener:Function):void {
         AuthANEContext.validate();
         var ret:* = AuthANEContext.context.call("verifyPhoneNumber", phoneNumber,
-                AuthANEContext.createEventId(listener));
+                AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 

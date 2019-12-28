@@ -44,8 +44,8 @@ public class StorageANEContext {
     public static var listenersObjects:Dictionary = new Dictionary();
     private static var listenersObject:* = null;
     public static var tasks:Dictionary = new Dictionary();
-    public static var closures:Dictionary = new Dictionary();
-    private static var pObj:Object;
+    public static var callbacks:Dictionary = new Dictionary();
+    private static var argsAsJSON:Object;
 
     public function StorageANEContext() {
 
@@ -65,32 +65,39 @@ public class StorageANEContext {
         return _context;
     }
 
-    public static function createEventId(listener:Function):String {
-        var eventId:String;
+    public static function createCallback(listener:Function):String {
+        var id:String;
         if (listener != null) {
-            eventId = context.call("createGUID") as String;
-            closures[eventId] = listener;
+            id = context.call("createGUID") as String;
+            callbacks[id] = listener;
         }
-        return eventId;
+        return id;
     }
 
-    private static function getListenerObject(type:String, eventId:String):* {
+    public static function callCallback(callbackId:String, ... args):void {
+        var callback:Function = callbacks[callbackId];
+        if (callback == null) return;
+        callback.apply(null, args);
+        delete callbacks[callbackId];
+    }
+
+    private static function getListenerObject(type:String, callbackId:String):* {
         var length:int = listeners.length;
         var obj:Object;
         for (var i:int = 0; i < length; ++i) {
             obj = listeners[i];
-            if (obj.type == type && obj.id == eventId) {
-                return listenersObjects[eventId];
+            if (obj.type == type && obj.id == callbackId) {
+                return listenersObjects[callbackId];
             }
         }
     }
 
-    private static function getListener(type:String, eventId:String):Function {
+    private static function getListener(type:String, callbackId:String):Function {
         var length:int = listeners.length;
         var obj:Object;
         for (var i:int = 0; i < length; ++i) {
             obj = listeners[i];
-            if (obj.type == type && obj.id == eventId) {
+            if (obj.type == type && obj.id == callbackId) {
                 return obj.listener;
             }
         }
@@ -99,37 +106,36 @@ public class StorageANEContext {
 
     private static function gotEvent(event:StatusEvent):void {
         var err:StorageError;
-        var closure:Function;
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);
                 break;
             case StorageEvent.TASK_COMPLETE:
                 try {
-                    pObj = JSON.parse(event.code);
-                    listenersObject = getListenerObject(event.level, pObj.eventId);
+                    argsAsJSON = JSON.parse(event.code);
+                    listenersObject = getListenerObject(event.level, argsAsJSON.callbackId);
                     if (listenersObject == null) return;
                     var file:File;
                     var ba:ByteArray;
 
-                    if (pObj.data) {
-                        if (pObj.data.hasOwnProperty("b64")) {
-                            var b64:String = pObj.data.b64;
+                    if (argsAsJSON.data) {
+                        if (argsAsJSON.data.hasOwnProperty("b64")) {
+                            var b64:String = argsAsJSON.data.b64;
                             if (b64) ba = Base64.decode(b64);
-                        } else if (pObj.data.localPath != null) {
-                            file = new File(pObj.data.localPath);
+                        } else if (argsAsJSON.data.localPath != null) {
+                            file = new File(argsAsJSON.data.localPath);
                         }
                     }
                     listenersObject.dispatchEvent(new StorageEvent(event.level, file, ba));
-                    var lstner:Function = getListener(event.level, pObj.eventId);
+                    var lstner:Function = getListener(event.level, argsAsJSON.callbackId);
                     if (lstner != null) {
                         listenersObject.removeEventListener(event.level, lstner);
                     }
-                    lstner = getListener(StorageErrorEvent.ERROR, pObj.eventId);
+                    lstner = getListener(StorageErrorEvent.ERROR, argsAsJSON.callbackId);
                     if (lstner != null) {
                         listenersObject.removeEventListener(StorageErrorEvent.ERROR, lstner);
                     }
-                    lstner = getListener(StorageProgressEvent.PROGRESS, pObj.eventId);
+                    lstner = getListener(StorageProgressEvent.PROGRESS, argsAsJSON.callbackId);
                     if (lstner != null) {
                         listenersObject.removeEventListener(StorageProgressEvent.PROGRESS, lstner);
                     }
@@ -140,12 +146,12 @@ public class StorageANEContext {
 
             case StorageProgressEvent.PROGRESS:
                 try {
-                    pObj = JSON.parse(event.code);
-                    listenersObject = getListenerObject(event.level, pObj.eventId);
+                    argsAsJSON = JSON.parse(event.code);
+                    listenersObject = getListenerObject(event.level, argsAsJSON.callbackId);
                     if (listenersObject == null) return;
                     if (listenersObject is StorageTask) {
                         (listenersObject as StorageTask).dispatchEvent(
-                                new StorageProgressEvent(event.level, false, false, pObj.bytesLoaded, pObj.bytesTotal)
+                                new StorageProgressEvent(event.level, false, false, argsAsJSON.bytesLoaded, argsAsJSON.bytesTotal)
                         );
                     }
                 } catch (e:Error) {
@@ -155,17 +161,14 @@ public class StorageANEContext {
 
             case GET_METADATA:
                 try {
-                    pObj = JSON.parse(event.code);
+                    argsAsJSON = JSON.parse(event.code);
                     var metadata:StorageMetadata;
-                    if (pObj.hasOwnProperty("error") && pObj.error) {
-                        err = new StorageError(pObj.error.text, pObj.error.id);
-                    } else if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("data")) {
-                        metadata = ANEUtils.map(pObj.data.data, StorageMetadata) as StorageMetadata;
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new StorageError(argsAsJSON.error.text, argsAsJSON.error.id);
+                    } else if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty("data")) {
+                        metadata = ANEUtils.map(argsAsJSON.data.data, StorageMetadata) as StorageMetadata;
                     }
-                    closure = closures[pObj.eventId];
-                    if (closure == null) return;
-                    closure.call(null, metadata, err);
-                    delete closures[pObj.eventId];
+                    callCallback(argsAsJSON.callbackId, metadata, err);
                 } catch (e:Error) {
                     trace(event.code, e.message);
                 }
@@ -173,50 +176,43 @@ public class StorageANEContext {
 
             case StorageErrorEvent.ERROR:
                 try {
-                    pObj = JSON.parse(event.code);
-                    listenersObject = getListenerObject(event.level, pObj.eventId);
+                    argsAsJSON = JSON.parse(event.code);
+                    listenersObject = getListenerObject(event.level, argsAsJSON.callbackId);
                     if (listenersObject == null) return;
-                    listenersObject.dispatchEvent(new StorageErrorEvent(event.level, true, false, pObj.text, pObj.id));
+                    listenersObject.dispatchEvent(new StorageErrorEvent(event.level, true, false, argsAsJSON.text, argsAsJSON.id));
                 } catch (e:Error) {
                     trace(e.errorID, e.message);
                 }
                 break;
 
             case GET_DOWNLOAD_URL:
-                pObj = JSON.parse(event.code);
+                argsAsJSON = JSON.parse(event.code);
                 var url:String;
-                if (pObj.hasOwnProperty("error") && pObj.error) {
-                    err = new StorageError(pObj.error.text, pObj.error.id);
-                } else if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("url")) {
-                    url = pObj.data.url;
+                if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                    err = new StorageError(argsAsJSON.error.text, argsAsJSON.error.id);
+                } else if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty("url")) {
+                    url = argsAsJSON.data.url;
                 }
-                closure = closures[pObj.eventId];
-                if (closure == null) return;
-                closure.call(null, url, err);
-                delete closures[pObj.eventId];
+                callCallback(argsAsJSON.callbackId, url, err);
                 break;
             case UPDATE_METADATA:
-                pObj = JSON.parse(event.code);
-                if (pObj.hasOwnProperty("error") && pObj.error) {
-                    err = new StorageError(pObj.error.text, pObj.error.id);
+                argsAsJSON = JSON.parse(event.code);
+                if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                    err = new StorageError(argsAsJSON.error.text, argsAsJSON.error.id);
                 }
-                closure = closures[pObj.eventId];
-                if (closure == null) return;
-                closure.call(null, err);
-                delete closures[pObj.eventId];
+                callCallback(argsAsJSON.callbackId, err);
                 break;
             case DELETED:
-                pObj = JSON.parse(event.code);
+                argsAsJSON = JSON.parse(event.code);
                 var localPath:String;
-                if (pObj.hasOwnProperty("error") && pObj.error) {
-                    err = new StorageError(pObj.error.text, pObj.error.id);
-                } else if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("localPath")) {
-                    localPath = pObj.data.localPath;
+                if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                    err = new StorageError(argsAsJSON.error.text, argsAsJSON.error.id);
+                } else if (argsAsJSON.hasOwnProperty("data")
+                        && argsAsJSON.data
+                        && argsAsJSON.data.hasOwnProperty("localPath")) {
+                    localPath = argsAsJSON.data.localPath;
                 }
-                closure = closures[pObj.eventId];
-                if (closure == null) return;
-                closure.call(null, localPath, err);
-                delete closures[pObj.eventId];
+                callCallback(argsAsJSON.callbackId, localPath, err);
                 break;
         }
     }

@@ -28,8 +28,8 @@ public class GoogleSignInANEContext {
     internal static const INIT_ERROR_MESSAGE:String = NAME + " not initialised... use .googleSignIn";
     private static var _isInited:Boolean = false;
     private static var _context:ExtensionContext;
-    public static var closures:Dictionary = new Dictionary();
-    private static var pObj:Object;
+    public static var callbacks:Dictionary = new Dictionary();
+    private static var argsAsJSON:Object;
 
     public function GoogleSignInANEContext() {
     }
@@ -47,13 +47,13 @@ public class GoogleSignInANEContext {
         return _context;
     }
 
-    public static function createEventId(listener:Function):String {
-        var eventId:String;
+    public static function createCallback(listener:Function):String {
+        var id:String;
         if (listener != null) {
-            eventId = context.call("createGUID") as String;
-            closures[eventId] = listener;
+            id = context.call("createGUID") as String;
+            callbacks[id] = listener;
         }
-        return eventId;
+        return id;
     }
 
     private static function gotEvent(event:StatusEvent):void {
@@ -63,8 +63,8 @@ public class GoogleSignInANEContext {
                 break;
             case GoogleSignInEvent.ERROR:
                 try {
-                    pObj = JSON.parse(event.code);
-                    var error:Error = new Error(pObj.data.text, pObj.data.id);
+                    argsAsJSON = JSON.parse(event.code);
+                    var error:Error = new Error(argsAsJSON.data.text, argsAsJSON.data.id);
                     GoogleSignInANE.googleSignIn.dispatchEvent(new GoogleSignInEvent(event.level, null, error));
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
@@ -72,11 +72,11 @@ public class GoogleSignInANEContext {
                 break;
             case GoogleSignInEvent.SIGN_IN:
                 try {
-                    pObj = JSON.parse(event.code);
-                    var idToken:String = pObj.data.idToken;
+                    argsAsJSON = JSON.parse(event.code);
+                    var idToken:String = argsAsJSON.data.idToken;
                     var accessToken:String;
-                    if (pObj.data.hasOwnProperty("accessToken")) {
-                        accessToken = pObj.data.accessToken;
+                    if (argsAsJSON.data.hasOwnProperty("accessToken")) {
+                        accessToken = argsAsJSON.data.accessToken;
                     }
                     var credential:GoogleAuthCredential = new GoogleAuthCredential(idToken, accessToken);
                     GoogleSignInANE.googleSignIn.dispatchEvent(new GoogleSignInEvent(event.level, credential));

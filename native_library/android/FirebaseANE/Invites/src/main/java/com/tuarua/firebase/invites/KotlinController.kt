@@ -50,7 +50,7 @@ class KotlinController : FreKotlinMainController {
 
     fun getDynamicLink(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val eventId = String(argv[0]) ?: return null
+        val callbackId = String(argv[0]) ?: return null
         val appActivity = ctx.activity ?: return null
         val task = FirebaseDynamicLinks.getInstance().getDynamicLink(appActivity.intent)
         task.addOnSuccessListener {
@@ -63,7 +63,7 @@ class KotlinController : FreKotlinMainController {
             }
             dispatchEvent(InvitesEvent.ON_LINK,
                     Gson().toJson(
-                            InvitesEvent(eventId, mapOf(
+                            InvitesEvent(callbackId, mapOf(
                                     "url" to link.toString(),
                                     "invitationId" to invitationId,
                                     "sourceApplication" to "",
@@ -73,7 +73,7 @@ class KotlinController : FreKotlinMainController {
         }
         task.addOnFailureListener {
             dispatchEvent(InvitesEvent.ON_LINK, Gson().toJson(
-                    InvitesEvent(eventId, error = mapOf(
+                    InvitesEvent(callbackId, error = mapOf(
                             "text" to it.localizedMessage.toString(),
                             "id" to 0))
             ))
@@ -85,7 +85,7 @@ class KotlinController : FreKotlinMainController {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: InvitesEvent) {
         if (_context != null) {
-            dispatchEvent(event.eventId, Gson().toJson(InvitesEvent(event.eventId, event.data, event.error)))
+            dispatchEvent(event.callbackId, Gson().toJson(InvitesEvent(event.callbackId, event.data, event.error)))
         }
     }
 

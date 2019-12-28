@@ -31,20 +31,20 @@ class UserController(override var context: FREContext?) : FreKotlinController {
     private var auth: FirebaseAuth = FirebaseAuth.getInstance(Firebase.app)
     private val gson = Gson()
 
-    private fun sendError(type: String, eventId: String, exception: Exception?) {
+    private fun sendError(type: String, callbackId: String, exception: Exception?) {
         when (exception) {
             is FirebaseNetworkException -> dispatchEvent(type, gson.toJson(
-                    AuthEvent(eventId, error = mapOf(
+                    AuthEvent(callbackId, error = mapOf(
                             "text" to exception.message,
                             "id" to 17020))))
             is FirebaseAuthException -> {
                 dispatchEvent(type, gson.toJson(
-                        AuthEvent(eventId, error = exception.toMap()))
+                        AuthEvent(callbackId, error = exception.toMap()))
                 )
             }
             is FirebaseException -> {
                 dispatchEvent(type, gson.toJson(
-                        AuthEvent(eventId, error = exception.toMap()))
+                        AuthEvent(callbackId, error = exception.toMap()))
                 )
             }
         }
@@ -53,64 +53,64 @@ class UserController(override var context: FREContext?) : FreKotlinController {
     val currentUser: FirebaseUser?
         get() = auth.currentUser
 
-    fun sendEmailVerification(eventId: String?) {
+    fun sendEmailVerification(callbackId: String?) {
         val user = auth.currentUser
         user?.sendEmailVerification()?.addOnCompleteListener { task ->
-            if (eventId == null) return@addOnCompleteListener
+            if (callbackId == null) return@addOnCompleteListener
             when {
                 task.isSuccessful -> dispatchEvent(AuthEvent.EMAIL_VERIFICATION_SENT,
-                        gson.toJson(AuthEvent(eventId)))
-                else -> sendError(AuthEvent.EMAIL_VERIFICATION_SENT, eventId, task.exception)
+                        gson.toJson(AuthEvent(callbackId)))
+                else -> sendError(AuthEvent.EMAIL_VERIFICATION_SENT, callbackId, task.exception)
             }
         }
     }
 
-    fun updateEmail(email: String, eventId: String?) {
+    fun updateEmail(email: String, callbackId: String?) {
         currentUser?.updateEmail(email)?.addOnCompleteListener { task ->
-            if (eventId == null) return@addOnCompleteListener
+            if (callbackId == null) return@addOnCompleteListener
             when {
                 task.isSuccessful -> dispatchEvent(AuthEvent.EMAIL_UPDATED,
-                        gson.toJson(AuthEvent(eventId)))
-                else -> sendError(AuthEvent.EMAIL_UPDATED, eventId, task.exception)
+                        gson.toJson(AuthEvent(callbackId)))
+                else -> sendError(AuthEvent.EMAIL_UPDATED, callbackId, task.exception)
             }
         }
     }
 
-    fun updatePassword(password: String, eventId: String?) {
+    fun updatePassword(password: String, callbackId: String?) {
         val user = auth.currentUser
         user?.updatePassword(password)?.addOnCompleteListener { task ->
-            if (eventId == null) return@addOnCompleteListener
+            if (callbackId == null) return@addOnCompleteListener
             when {
                 task.isSuccessful -> dispatchEvent(AuthEvent.PASSWORD_UPDATED,
-                        gson.toJson(AuthEvent(eventId)))
-                else -> sendError(AuthEvent.PASSWORD_UPDATED, eventId, task.exception)
+                        gson.toJson(AuthEvent(callbackId)))
+                else -> sendError(AuthEvent.PASSWORD_UPDATED, callbackId, task.exception)
             }
         }
     }
 
-    fun deleteUser(eventId: String?) {
+    fun deleteUser(callbackId: String?) {
         currentUser?.delete()?.addOnCompleteListener { task ->
-            if (eventId == null) return@addOnCompleteListener
+            if (callbackId == null) return@addOnCompleteListener
             when {
                 task.isSuccessful -> dispatchEvent(AuthEvent.USER_DELETED,
-                        gson.toJson(AuthEvent(eventId)))
-                else -> sendError(AuthEvent.USER_DELETED, eventId, task.exception)
+                        gson.toJson(AuthEvent(callbackId)))
+                else -> sendError(AuthEvent.USER_DELETED, callbackId, task.exception)
             }
         }
     }
 
-    fun reauthenticate(credential: AuthCredential, eventId: String?) {
+    fun reauthenticate(credential: AuthCredential, callbackId: String?) {
         currentUser?.reauthenticate(credential)?.addOnCompleteListener { task ->
-            if (eventId == null) return@addOnCompleteListener
+            if (callbackId == null) return@addOnCompleteListener
             when {
                 task.isSuccessful -> dispatchEvent(AuthEvent.USER_REAUTHENTICATED,
-                        gson.toJson(AuthEvent(eventId)))
-                else -> sendError(AuthEvent.USER_REAUTHENTICATED, eventId, task.exception)
+                        gson.toJson(AuthEvent(callbackId)))
+                else -> sendError(AuthEvent.USER_REAUTHENTICATED, callbackId, task.exception)
             }
         }
     }
 
-    fun updateProfile(displayName: String?, photoUrl: String?, eventId: String?) {
+    fun updateProfile(displayName: String?, photoUrl: String?, callbackId: String?) {
         val request = UserProfileChangeRequest.Builder()
         when {
             displayName != null -> request.setDisplayName(displayName)
@@ -119,56 +119,56 @@ class UserController(override var context: FREContext?) : FreKotlinController {
             photoUrl != null -> request.setPhotoUri(Uri.parse(photoUrl))
         }
         currentUser?.updateProfile(request.build())?.addOnCompleteListener { task ->
-            if (eventId == null) return@addOnCompleteListener
+            if (callbackId == null) return@addOnCompleteListener
             when {
                 task.isSuccessful -> dispatchEvent(AuthEvent.PROFILE_UPDATED,
-                        gson.toJson(AuthEvent(eventId)))
-                else -> sendError(AuthEvent.PROFILE_UPDATED, eventId, task.exception)
+                        gson.toJson(AuthEvent(callbackId)))
+                else -> sendError(AuthEvent.PROFILE_UPDATED, callbackId, task.exception)
             }
         }
     }
 
-    fun reload(eventId: String?) {
+    fun reload(callbackId: String?) {
         currentUser?.reload()?.addOnCompleteListener { task ->
-            if (eventId == null) return@addOnCompleteListener
+            if (callbackId == null) return@addOnCompleteListener
             when {
                 task.isSuccessful -> dispatchEvent(AuthEvent.USER_RELOADED,
-                        gson.toJson(AuthEvent(eventId)))
-                else -> sendError(AuthEvent.USER_RELOADED, eventId, task.exception)
+                        gson.toJson(AuthEvent(callbackId)))
+                else -> sendError(AuthEvent.USER_RELOADED, callbackId, task.exception)
             }
         }
     }
 
-    fun getIdToken(forceRefresh: Boolean, eventId: String) {
+    fun getIdToken(forceRefresh: Boolean, callbackId: String) {
         currentUser?.getIdToken(forceRefresh)?.addOnCompleteListener { task ->
             when {
                 task.isSuccessful -> dispatchEvent(AuthEvent.ID_TOKEN,
-                        gson.toJson(AuthEvent(eventId, mapOf("token" to task.result?.token))))
-                else -> sendError(AuthEvent.ID_TOKEN, eventId, task.exception)
+                        gson.toJson(AuthEvent(callbackId, mapOf("token" to task.result?.token))))
+                else -> sendError(AuthEvent.ID_TOKEN, callbackId, task.exception)
             }
         }
     }
 
-    fun unlink(provider: String, eventId: String?) {
+    fun unlink(provider: String, callbackId: String?) {
         currentUser?.unlink(provider)?.addOnCompleteListener { task ->
-            if (eventId == null) return@addOnCompleteListener
+            if (callbackId == null) return@addOnCompleteListener
             when {
                 task.isSuccessful -> dispatchEvent(AuthEvent.USER_UNLINKED,
-                        gson.toJson(AuthEvent(eventId)))
-                else -> sendError(AuthEvent.USER_UNLINKED, eventId, task.exception)
+                        gson.toJson(AuthEvent(callbackId)))
+                else -> sendError(AuthEvent.USER_UNLINKED, callbackId, task.exception)
             }
         }
     }
 
-    fun link(value: AuthCredential, eventId: String?) {
+    fun link(value: AuthCredential, callbackId: String?) {
         currentUser?.linkWithCredential(value)?.addOnCompleteListener { task ->
-            if (eventId == null) return@addOnCompleteListener
+            if (callbackId == null) return@addOnCompleteListener
             when {
                 task.isSuccessful -> {
                     dispatchEvent(AuthEvent.USER_LINKED,
-                            gson.toJson(AuthEvent(eventId)))
+                            gson.toJson(AuthEvent(callbackId)))
                 }
-                else -> sendError(AuthEvent.USER_LINKED, eventId, task.exception)
+                else -> sendError(AuthEvent.USER_LINKED, callbackId, task.exception)
             }
         }
     }

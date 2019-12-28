@@ -15,23 +15,12 @@
  */
 
 import Foundation
-import SwiftyJSON
+import FreSwift
+import FirebaseMLVision
 
-class TextEvent: NSObject {
-    public static let RECOGNIZED = "TextEvent.Recognized"
-    var callbackId: String?
-    var error: NSError?
-    
-    convenience init(callbackId: String?, error: NSError? = nil) {
-        self.init()
-        self.callbackId = callbackId
-        self.error = error
-    }
-    
-    public func toJSONString() -> String {
-        var props = [String: Any]()
-        props["callbackId"] = callbackId
-        props["error"] = error?.toDictionary()
-        return JSON(props).description
+public extension VisionFaceContour {
+    func toFREObject() -> FREObject? {
+        return FREObject(className: "com.tuarua.firebase.ml.vision.face.FaceContour",
+                         args: points.toFREObject(), type.rawValue)
     }
 }

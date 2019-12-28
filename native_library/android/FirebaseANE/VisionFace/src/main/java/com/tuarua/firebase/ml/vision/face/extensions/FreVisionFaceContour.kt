@@ -13,29 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.tuarua.firebase.ml.vision.face.extensions
 
-import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark
+import com.google.firebase.ml.vision.face.FirebaseVisionFaceContour
 import com.tuarua.firebase.ml.vision.common.extensions.toFREObject
 import com.tuarua.frekotlin.FREObject
 import com.tuarua.frekotlin.toFREObject
 
-fun FirebaseVisionFaceLandmark.toFREObject() =
-        FREObject("com.tuarua.firebase.ml.vision.face.FaceLandmark",
-                    position.toFREObject(), faceContourTypeString(landmarkType)?.toFREObject())
+fun FirebaseVisionFaceContour.toFREObject() =
+        FREObject("com.tuarua.firebase.ml.vision.face.FaceContour",
+                points.toFREObject(), faceContourTypeString(faceContourType)?.toFREObject())
 
 private fun faceContourTypeString(value: Int): String? {
     return when (value) {
-        0 -> "MouthBottom"
-        1 -> "LeftCheek"
-        3 -> "LeftEar"
-        4 -> "LeftEye"
-        5 -> "MouthLeft"
-        6 -> "NoseBase"
-        7 -> "RightCheek"
-        9 -> "RightEar"
-        10 -> "RightEye"
-        11 -> "MouthRight"
+        2 -> "Face"
+        3 -> "LeftEyebrowTop"
+        4 -> "LeftEyebrowBottom"
+        5 -> "RightEyebrowTop"
+        6 -> "RightEyebrowBottom"
+        7 -> "LeftEye"
+        8 -> "RightEye"
+        9 -> "UpperLipTop"
+        10 -> "UpperLipBottom"
+        11 -> "LowerLipTop"
+        12 -> "LowerLipBottom"
+        13 -> "NoseBridge"
+        14 -> "NoseBottom"
         else -> null
     }
 }

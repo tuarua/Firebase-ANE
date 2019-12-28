@@ -15,10 +15,17 @@
  */
 package com.tuarua.firebase.ml.vision.common.extensions
 
+import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.common.FirebaseVisionPoint
+import com.tuarua.frekotlin.FREArray
 import com.tuarua.frekotlin.FREObject
 
 fun FirebaseVisionPoint.toFREObject(): FREObject? {
     return FREObject("com.tuarua.firebase.ml.vision.common.VisionPoint", x, y, z ?: 0)
+}
+
+fun List<FirebaseVisionPoint>.toFREObject(): FREArray? {
+    return FREArray("com.tuarua.firebase.ml.vision.common.VisionPoint",
+            size, true, this.mapNotNull { it.toFREObject() })
 }

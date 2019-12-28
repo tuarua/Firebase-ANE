@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 package com.tuarua.firebase.ml.vision.text.events
-data class TextEvent(val eventId: String, val error: Map<String, Any>? = null) {
+data class TextEvent(val callbackId: String, val error: Map<String, Any>? = null) {
     companion object {
         const val RECOGNIZED = "TextEvent.Recognized"
     }

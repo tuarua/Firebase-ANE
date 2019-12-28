@@ -45,7 +45,7 @@ public class SwiftController: NSObject {
     func process(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let image = VisionImage(argv[0]),
-            let eventId = String(argv[1])
+            let callbackId = String(argv[1])
             else {
                 return FreArgError().getError()
         }
@@ -53,13 +53,13 @@ public class SwiftController: NSObject {
             self.detector?.process(image, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: CloudLabelEvent.RECOGNIZED,
-                                       value: CloudLabelEvent(eventId: eventId,
+                                       value: CloudLabelEvent(callbackId: callbackId,
                                                               error: err).toJSONString())
                 } else {
                     if let result = result, !result.isEmpty {
-                        self.results[eventId] = result
+                        self.results[callbackId] = result
                         self.dispatchEvent(name: CloudLabelEvent.RECOGNIZED,
-                                           value: CloudLabelEvent(eventId: eventId).toJSONString())
+                                           value: CloudLabelEvent(callbackId: callbackId).toJSONString())
                     }
                 }
             })
@@ -69,12 +69,12 @@ public class SwiftController: NSObject {
     
     func getResults(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let eventId = String(argv[0])
+            let id = String(argv[0])
             else {
                 return FreArgError().getError()
         }
-        let ret = results[eventId]?.toFREObject()
-        results[eventId] = nil
+        let ret = results[id]?.toFREObject()
+        results[id] = nil
         return ret
     }
     

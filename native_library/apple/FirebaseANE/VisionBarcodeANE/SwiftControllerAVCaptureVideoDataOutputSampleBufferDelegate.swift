@@ -25,7 +25,7 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
                               didOutput sampleBuffer: CMSampleBuffer,
                               from connection: AVCaptureConnection) {
         
-        guard let eventId = cameraEventId,
+        guard let callbackId = cameraCallbackId,
             let options = self.options else { return }
         
         let visionImage = VisionImage(buffer: sampleBuffer)
@@ -40,14 +40,14 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         barcodeDetector.detect(in: visionImage) { (features, error) in
             if let err = error as NSError? {
                 self.dispatchEvent(name: BarcodeEvent.DETECTED,
-                               value: BarcodeEvent(eventId: eventId,
+                               value: BarcodeEvent(callbackId: callbackId,
                                                    error: err,
                                                    continuous: false).toJSONString())
             } else {
                 if let features = features, !features.isEmpty {
-                    self.results[eventId] = features
+                    self.results[callbackId] = features
                     self.dispatchEvent(name: BarcodeEvent.DETECTED,
-                                   value: BarcodeEvent(eventId: eventId,
+                                   value: BarcodeEvent(callbackId: callbackId,
                                                        continuous: false).toJSONString())
                     self.closeCamera()
                 }
@@ -125,7 +125,7 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
         rootViewController.view.addSubview(cameraView)
     }
     
-    func inputFromCamera(rootViewController: UIViewController, eventId: String) {
+    func inputFromCamera(rootViewController: UIViewController, callbackId: String) {
         cameraView = UIView(frame: CGRect(x: 0, y: 0, width: rootViewController.view.frame.width,
                                           height: rootViewController.view.frame.height))
         setUpCaptureSessionInput()

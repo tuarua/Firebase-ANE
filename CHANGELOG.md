@@ -1,3 +1,21 @@
+### 0.10.0
+- AND: Updated to FreKotlin 1.9.1
+- iOS: Updated to FreSwift 4.2.0
+- iOS: Firebase 6.13.0
+- AND: Analytics 17.2.1
+- AND: Storage 19.1.0
+- AND: Crashlytics 2.10.1
+- AND: Vision 24.0.1
+- AND: Firestore 21.3.0
+- AND: Invites 17.0.0
+- AND: Dynamic Links 19.0.0
+- AND: Remote Config 19.0.3
+- AND: Auth 17.0.0
+- AND: Performance 19.0.2
+- AND: Messaging 20.0.1
+- AND: Play Services 17.1.0
+- AND: Support androidx 1.0.0
+
 ### 0.6.0
 - Match package structure of official Firebase libraries
 - Match name of `CloudLabeler` and `OnDeviceLabeler`

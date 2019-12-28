@@ -72,7 +72,7 @@ public class SwiftController: NSObject {
     
     func getDynamicLink(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let eventId = String(argv[0])
+            let callbackId = String(argv[0])
             else {
                 return FreArgError().getError()
         }
@@ -83,7 +83,7 @@ public class SwiftController: NSObject {
             Invites.handleUniversalLink(webpageURL) { (invite, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: InvitesEvent.ON_LINK,
-                                   value: InvitesEvent(eventId: eventId,
+                                   value: InvitesEvent(callbackId: callbackId,
                                                            error: err
                                     ).toJSONString())
                     return
@@ -98,7 +98,7 @@ public class SwiftController: NSObject {
                 }
                 
                 self.dispatchEvent(name: InvitesEvent.ON_LINK,
-                               value: InvitesEvent(eventId: eventId,
+                               value: InvitesEvent(callbackId: callbackId,
                                                    data: ["url": invite?.deepLink ?? "",
                                                           "invitationId": invite?.inviteId ?? "",
                                                           "sourceApplication": sourceApplication,
@@ -107,7 +107,7 @@ public class SwiftController: NSObject {
             } 
         } else {
             self.dispatchEvent(name: InvitesEvent.ON_LINK,
-                           value: InvitesEvent(eventId: eventId,
+                           value: InvitesEvent(callbackId: callbackId,
                                                data: ["url": "", "invitationId": ""]
                             ).toJSONString())
         }

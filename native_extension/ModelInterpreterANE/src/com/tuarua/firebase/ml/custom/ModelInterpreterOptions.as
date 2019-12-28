@@ -15,6 +15,7 @@
  */
 
 package com.tuarua.firebase.ml.custom {
+/** Options for a custom model specifying input and output data types and dimensions. */
 public class ModelInterpreterOptions {
     private var _localModel:CustomLocalModel;
     private var _remoteModel:CustomRemoteModel;

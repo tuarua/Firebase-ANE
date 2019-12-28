@@ -91,7 +91,7 @@ public final class FirestoreANE extends EventDispatcher {
      */
     public function enableNetwork(listener:Function = null):void {
         FirestoreANEContext.validate();
-        var ret:* = FirestoreANEContext.context.call("enableNetwork", FirestoreANEContext.createEventId(listener));
+        var ret:* = FirestoreANEContext.context.call("enableNetwork", FirestoreANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -110,7 +110,7 @@ public final class FirestoreANE extends EventDispatcher {
      */
     public function disableNetwork(listener:Function = null):void {
         FirestoreANEContext.validate();
-        var ret:* = FirestoreANEContext.context.call("disableNetwork", FirestoreANEContext.createEventId(listener));
+        var ret:* = FirestoreANEContext.context.call("disableNetwork", FirestoreANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 

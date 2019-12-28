@@ -16,10 +16,14 @@
 
 package com.tuarua.firebase.ml.custom.events
 
-data class ModelInterpreterEvent(val eventId: String,
+data class ModelInterpreterEvent(val callbackId: String,
                                  val data: MutableList<Map<String, Any?>>? = null,
-                        val error: Map<String, Any>? = null) {
+                                 val result: Boolean? = null,
+                                 val error: Map<String, Any>? = null) {
     companion object {
         const val OUTPUT = "ModelInterpreterEvent.Result"
+        const val IS_DOWNLOADED = "ModelInterpreterEvent.IsDownloaded"
+        const val DOWNLOAD = "ModelInterpreterEvent.Download"
+        const val DELETE_DOWNLOADED = "ModelInterpreterEvent.DeleteDownload"
     }
 }

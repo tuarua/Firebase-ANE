@@ -124,7 +124,7 @@ public class SwiftController: NSObject {
             if let err = error {
                 self.dispatchEvent(name: RemoteConfigErrorEvent.ACTIVATE_ERROR,
                 value: RemoteConfigErrorEvent(
-                 eventId: "",
+                 callbackId: "",
                  text: err.localizedDescription,
                  id: 0
                  ).toJSONString())
@@ -143,7 +143,7 @@ public class SwiftController: NSObject {
             case .error:
                 self.dispatchEvent(name: RemoteConfigErrorEvent.FETCH_ERROR,
                 value: RemoteConfigErrorEvent(
-                 eventId: "",
+                 callbackId: "",
                  text: error?.localizedDescription,
                  id: 0
                  ).toJSONString())
@@ -173,7 +173,7 @@ public class SwiftController: NSObject {
             } else {
                 self.dispatchEvent(name: RemoteConfigErrorEvent.FETCH_ERROR,
                                value: RemoteConfigErrorEvent(
-                                eventId: "",
+                                callbackId: "",
                                 text: error?.localizedDescription,
                                 id: 0
                                 ).toJSONString())

@@ -27,12 +27,15 @@ public class ModelInterpreterANEContext {
     internal static const TRACE:String = "TRACE";
     internal static const INIT_ERROR_MESSAGE:String = NAME + " not initialised... use .firestore";
     internal static const OUTPUT:String = "ModelInterpreterEvent.Result";
+    internal static const IS_DOWNLOADED:String = "ModelInterpreterEvent.IsDownloaded";
+    internal static const DOWNLOAD:String = "ModelInterpreterEvent.Download";
+    internal static const DELETE_DOWNLOADED:String = "ModelInterpreterEvent.DeleteDownload";
     private static var _isInited:Boolean = false;
     private static var _context:ExtensionContext;
-    public static var closures:Dictionary = new Dictionary();
-    public static var closureCallers:Dictionary = new Dictionary();
+    public static var callbacks:Dictionary = new Dictionary();
 
-    private static var pObj:Object;
+    private static var argsAsJSON:Object;
+
     public function ModelInterpreterANEContext() {
     }
 
@@ -49,38 +52,58 @@ public class ModelInterpreterANEContext {
         return _context;
     }
 
-    public static function createEventId(listener:Function, listenerCaller:Object = null):String {
-        var eventId:String;
+    public static function createCallback(listener:Function):String {
+        var id:String;
         if (listener != null) {
-            eventId = context.call("createGUID") as String;
-            closures[eventId] = listener;
-            if (listenerCaller) {
-                closureCallers[eventId] = listenerCaller;
-            }
+            id = context.call("createGUID") as String;
+            callbacks[id] = listener;
         }
-        return eventId;
+        return id;
+    }
+
+    public static function callCallback(callbackId:String, ...args):void {
+        var callback:Function = callbacks[callbackId];
+        if (callback == null) return;
+        callback.apply(null, args);
+        delete callbacks[callbackId];
     }
 
     private static function gotEvent(event:StatusEvent):void {
         var err:Error;
-        var closure:Function;
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);
                 break;
             case OUTPUT:
                 try {
-                    pObj = JSON.parse(event.code);
-                    closure = closures[pObj.eventId];
-                    if (closure == null) return;
+                    argsAsJSON = JSON.parse(event.code);
                     var ret:* = null;
-                    if (pObj.hasOwnProperty("error") && pObj.error) {
-                        err = new ModelInterpreterError(pObj.error.text, pObj.error.id);
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new ModelInterpreterError(argsAsJSON.error.text, argsAsJSON.error.id);
                     } else {
-                        ret = pObj.data;
+                        ret = argsAsJSON.data;
                     }
-                    closure.call(null, ret, err);
-                    delete closures[pObj.eventId];
+                    callCallback(argsAsJSON.callbackId, ret, err);
+                } catch (e:Error) {
+                    trace("parsing error", event.code, e.message);
+                }
+                break;
+            case IS_DOWNLOADED:
+            case DELETE_DOWNLOADED:
+                try {
+                    argsAsJSON = JSON.parse(event.code);
+                    callCallback(argsAsJSON.callbackId, argsAsJSON.result);
+                } catch (e:Error) {
+                    trace("parsing error", event.code, e.message);
+                }
+                break;
+            case DOWNLOAD:
+                try {
+                    argsAsJSON = JSON.parse(event.code);
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new ModelInterpreterError(argsAsJSON.error.text, argsAsJSON.error.id);
+                    }
+                    callCallback(argsAsJSON.callbackId, err);
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }

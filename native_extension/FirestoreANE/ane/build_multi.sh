@@ -86,6 +86,9 @@ cp -R -L "$pathtome/../../../firebase_frameworks/device/leveldb-library.framewor
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/Protobuf.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/Protobuf.framework" "$pathtome/platforms/ios/device/Frameworks"
 
+cp -R -L "$pathtome/../../../firebase_frameworks/simulator/abseil.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../../firebase_frameworks/device/abseil.framework" "$pathtome/platforms/ios/device/Frameworks"
+
 #Run the build command.
 echo "Building ANE."
 "$AIR_SDK"/bin/adt -package \

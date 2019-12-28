@@ -44,7 +44,7 @@ class KotlinController : FreKotlinMainController {
     fun buildDynamicLink(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 4 } ?: return FreArgException()
         val linkFre = argv[0]
-        val eventId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         val copyToClipboard = Boolean(argv[2]) == true
         val shorten = Boolean(argv[3]) == true
         val suffix = Int(argv[4]) ?: 0
@@ -99,7 +99,7 @@ class KotlinController : FreKotlinMainController {
 
                     dispatchEvent(DynamicLinkEvent.ON_CREATED,
                             gson.toJson(
-                                    DynamicLinkEvent(eventId, true, mapOf(
+                                    DynamicLinkEvent(callbackId, true, mapOf(
                                             "previewLink" to result.previewLink.toString(),
                                             "shortLink" to result.shortLink.toString(),
                                             "warnings" to result.warnings.map { it.message }))
@@ -108,7 +108,7 @@ class KotlinController : FreKotlinMainController {
                 } else {
                     val error = task.exception
                     dispatchEvent(DynamicLinkEvent.ON_CREATED, gson.toJson(
-                            DynamicLinkEvent(eventId, true, null, mapOf(
+                            DynamicLinkEvent(callbackId, true, null, mapOf(
                                     "text" to error?.localizedMessage.toString(),
                                     "id" to 0))
                     ))
@@ -125,7 +125,7 @@ class KotlinController : FreKotlinMainController {
 
             dispatchEvent(DynamicLinkEvent.ON_CREATED,
                     gson.toJson(
-                            DynamicLinkEvent(eventId, false, mapOf(
+                            DynamicLinkEvent(callbackId, false, mapOf(
                                     "url" to dynamicLink.uri.toString())
                             )
                     ))
@@ -135,20 +135,20 @@ class KotlinController : FreKotlinMainController {
 
     fun getDynamicLink(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val eventId = String(argv[0]) ?: return null
+        val callbackId = String(argv[0]) ?: return null
         val appActivity = ctx.activity ?: return null
         val task = FirebaseDynamicLinks.getInstance().getDynamicLink(appActivity.intent)
         task.addOnSuccessListener {
             val link = it?.link ?: ""
             dispatchEvent(DynamicLinkEvent.ON_LINK,
                     gson.toJson(
-                            DynamicLinkEvent(eventId, false, mapOf(
+                            DynamicLinkEvent(callbackId, false, mapOf(
                                     "url" to link.toString()))
                     ))
         }
         task.addOnFailureListener {
             dispatchEvent(DynamicLinkEvent.ON_LINK, gson.toJson(
-                    DynamicLinkEvent(eventId, true, null, mapOf(
+                    DynamicLinkEvent(callbackId, true, null, mapOf(
                             "text" to it.localizedMessage.toString(),
                             "id" to 0))
             ))

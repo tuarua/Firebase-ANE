@@ -15,13 +15,11 @@
  */
 package com.tuarua.firebase.ml.vision.barcode
 
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
-import com.google.firebase.FirebaseApp
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetector
@@ -37,8 +35,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.coroutines.CoroutineContext
-
-import com.google.firebase.ml.vision.automl.internal.zza
 
 // https://www.b4x.com/android/forum/threads/external-library-error-after-upgrade-to-androidx.108607/
 
@@ -78,22 +74,22 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
     fun detect(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
-        val eventId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
 
         GlobalScope.launch(bgContext) {
             detector.detectInImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
                     if (result.isNotEmpty()) {
-                        results[eventId] = result
+                        results[callbackId] = result
                         dispatchEvent(BarcodeEvent.DETECTED,
-                                gson.toJson(BarcodeEvent(eventId)))
+                                gson.toJson(BarcodeEvent(callbackId)))
                     }
                 } else {
                     val error = task.exception
                     dispatchEvent(BarcodeEvent.DETECTED,
                             gson.toJson(
-                                    BarcodeEvent(eventId, mapOf(
+                                    BarcodeEvent(callbackId, mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -107,22 +103,22 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val eventId = String(argv[0]) ?: return null
-        val result = results[eventId] ?: return null
+        val callbackId = String(argv[0]) ?: return null
+        val result = results[callbackId] ?: return null
         val ret = result.toFREObject()
-        results.remove(eventId)
+        results.remove(callbackId)
         return ret
     }
 
-    override fun onVisionProcessSucceed(eventId: String, result: MutableList<FirebaseVisionBarcode>) {
-        results[eventId] = result
+    override fun onVisionProcessSucceed(callbackId: String, result: MutableList<FirebaseVisionBarcode>) {
+        results[callbackId] = result
         hideCameraOverlay()
-        dispatchEvent(BarcodeEvent.DETECTED, gson.toJson(BarcodeEvent(eventId)))
+        dispatchEvent(BarcodeEvent.DETECTED, gson.toJson(BarcodeEvent(callbackId)))
     }
 
     fun inputFromCamera(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val eventId = String(argv[0]) ?: return null
+        val callbackId = String(argv[0]) ?: return null
         val appActivity = ctx.activity ?: return null
 
         cameraPreviewContainer = FrameLayout(appActivity)
@@ -134,7 +130,7 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
         airView.addView(frame)
 
         val optionsAsIntArray = this.optionsAsIntArray
-        cameraFragment = CameraPreviewFragment.newInstance(eventId, optionsAsIntArray)
+        cameraFragment = CameraPreviewFragment.newInstance(callbackId, optionsAsIntArray)
         val fragmentTransaction = ctx.activity.fragmentManager.beginTransaction()
         fragmentTransaction.add(newId, cameraFragment)
         fragmentTransaction.commit()

@@ -20,18 +20,18 @@ import SwiftyJSON
 class LanguageEvent: NSObject {
     public static let RECOGNIZED = "LanguageEvent.Recognized"
     public static let RECOGNIZED_MULTI = "LanguageEvent.RecognizedMulti"
-    var eventId: String?
+    var callbackId: String?
     var error: NSError?
     
-    convenience init(eventId: String?, error: NSError? = nil) {
+    convenience init(callbackId: String?, error: NSError? = nil) {
         self.init()
-        self.eventId = eventId
+        self.callbackId = callbackId
         self.error = error
     }
     
     public func toJSONString() -> String {
         var props = [String: Any]()
-        props["eventId"] = eventId
+        props["callbackId"] = callbackId
         props["error"] = error?.toDictionary()
         return JSON(props).description
     }

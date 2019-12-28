@@ -16,8 +16,11 @@
 
 package com.tuarua.firebase.ml.custom {
 import com.tuarua.firebase.ml.common.modeldownload.RemoteModel;
-
+/** A custom model that is stored remotely on the server and downloaded to the device. */
 public class CustomRemoteModel extends RemoteModel {
+    /**
+     * @param name The model name.
+     */
     public function CustomRemoteModel(name:String) {
         super(name);
     }

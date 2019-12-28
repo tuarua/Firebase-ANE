@@ -44,7 +44,7 @@ public class RemoteConfigANEContext {
     }
 
     private static function gotEvent(event:StatusEvent):void {
-        var pObj:Object;
+        var argsAsJSON:Object;
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);
@@ -54,8 +54,8 @@ public class RemoteConfigANEContext {
                 break;
             case RemoteConfigErrorEvent:
                 try {
-                    pObj = JSON.parse(event.code);
-                    RemoteConfigANE.remoteConfig.dispatchEvent(new RemoteConfigErrorEvent(event.level, true, false, pObj.text));
+                    argsAsJSON = JSON.parse(event.code);
+                    RemoteConfigANE.remoteConfig.dispatchEvent(new RemoteConfigErrorEvent(event.level, true, false, argsAsJSON.text));
                 } catch (e:Error) {
                     trace(event.code, e.message);
                 }

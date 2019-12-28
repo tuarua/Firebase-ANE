@@ -50,7 +50,7 @@ public class SwiftController: NSObject {
     func identifyLanguage(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let text = String(argv[0]),
-            let eventId = String(argv[1])
+            let callbackId = String(argv[1])
             else {
                 return FreArgError().getError()
         }
@@ -58,13 +58,13 @@ public class SwiftController: NSObject {
             self.languageIdentification?.identifyLanguage(for: text, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: LanguageEvent.RECOGNIZED,
-                                       value: LanguageEvent(eventId: eventId, error: err).toJSONString()
+                                       value: LanguageEvent(callbackId: callbackId, error: err).toJSONString()
                     )
                 } else {
                     if let result = result, result != "und" {
-                        self.results[eventId] = result
+                        self.results[callbackId] = result
                         self.dispatchEvent(name: LanguageEvent.RECOGNIZED,
-                                           value: LanguageEvent(eventId: eventId).toJSONString())
+                                           value: LanguageEvent(callbackId: callbackId).toJSONString())
                     }
                 }
             })
@@ -75,7 +75,7 @@ public class SwiftController: NSObject {
     func identifyPossibleLanguages(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let text = String(argv[0]),
-            let eventId = String(argv[1])
+            let callbackId = String(argv[1])
             else {
                 return FreArgError().getError()
         }
@@ -83,13 +83,13 @@ public class SwiftController: NSObject {
             self.languageIdentification?.identifyPossibleLanguages(for: text, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: LanguageEvent.RECOGNIZED_MULTI,
-                                       value: LanguageEvent(eventId: eventId, error: err).toJSONString()
+                                       value: LanguageEvent(callbackId: callbackId, error: err).toJSONString()
                     )
                 } else {
                     if let result = result, !result.isEmpty {
-                        self.resultsMulti[eventId] = result
+                        self.resultsMulti[callbackId] = result
                         self.dispatchEvent(name: LanguageEvent.RECOGNIZED_MULTI,
-                                           value: LanguageEvent(eventId: eventId).toJSONString())
+                                           value: LanguageEvent(callbackId: callbackId).toJSONString())
                     }
                 }
             })
@@ -99,23 +99,23 @@ public class SwiftController: NSObject {
     
     func getResults(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let eventId = String(argv[0])
+            let id = String(argv[0])
             else {
                 return FreArgError().getError()
         }
-        let ret = results[eventId]?.toFREObject()
-        results[eventId] = nil
+        let ret = results[id]?.toFREObject()
+        results[id] = nil
         return ret
     }
     
     func getResultsMulti(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let eventId = String(argv[0])
+            let id = String(argv[0])
             else {
                 return FreArgError().getError()
         }
-        let ret = resultsMulti[eventId]?.toFREObject()
-        resultsMulti[eventId] = nil
+        let ret = resultsMulti[id]?.toFREObject()
+        resultsMulti[id] = nil
         return ret
     }
     

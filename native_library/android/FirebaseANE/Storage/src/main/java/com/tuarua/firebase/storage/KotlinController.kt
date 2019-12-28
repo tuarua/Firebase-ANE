@@ -51,8 +51,8 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 2 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val destinationFile = String(argv[1]) ?: return null
-        val asId = String(argv[2]) ?: return null
-        storageController.getFile(path, destinationFile, asId)
+        val callbackId = String(argv[2]) ?: return null
+        storageController.getFile(path, destinationFile, callbackId)
         return null
     }
 
@@ -71,8 +71,8 @@ class KotlinController : FreKotlinMainController {
     fun deleteReference(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
-        val asId = String(argv[1])
-        storageController.deleteReference(path, asId)
+        val callbackId = String(argv[1])
+        storageController.deleteReference(path, callbackId)
         return null
     }
 
@@ -80,15 +80,15 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 2 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val maxDownloadSizeBytes = Long(argv[1]) ?: return null
-        val asId = String(argv[2]) ?: return null
-        storageController.getBytes(path, maxDownloadSizeBytes, asId)
+        val callbackId = String(argv[2]) ?: return null
+        storageController.getBytes(path, maxDownloadSizeBytes, callbackId)
         return null
     }
 
     fun putBytes(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 3 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
-        val asId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         val ba = argv[2] as FREByteArray
         val metadata = StorageMetadata(argv[3])
         try {
@@ -98,7 +98,7 @@ class KotlinController : FreKotlinMainController {
             bb.get(bytes)
             ba.release()
             if (bytes.isNotEmpty()) {
-                storageController.putBytes(path, asId, bytes, metadata)
+                storageController.putBytes(path, callbackId, bytes, metadata)
             } else {
                 return null
             }
@@ -113,56 +113,56 @@ class KotlinController : FreKotlinMainController {
     fun putFile(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 3 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
-        val asId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         val filePath = String(argv[2]) ?: return null
         val metadata= StorageMetadata(argv[3])
-        storageController.putFile(path, asId, filePath, metadata)
+        storageController.putFile(path, callbackId, filePath, metadata)
         return null
     }
 
     fun pauseTask(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val asId = String(argv[0]) ?: return null
-        storageController.pauseTask(asId)
+        val callbackId = String(argv[0]) ?: return null
+        storageController.pauseTask(callbackId)
         return null
     }
 
     fun resumeTask(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val asId = String(argv[0]) ?: return null
-        storageController.resumeTask(asId)
+        val callbackId = String(argv[0]) ?: return null
+        storageController.resumeTask(callbackId)
         return null
     }
 
     fun cancelTask(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val asId = String(argv[0]) ?: return null
-        storageController.cancelTask(asId)
+        val callbackId = String(argv[0]) ?: return null
+        storageController.cancelTask(callbackId)
         return null
     }
 
     fun getDownloadUrl(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
-        val asId = String(argv[1]) ?: return null
-        storageController.getDownloadUrl(path, asId)
+        val callbackId = String(argv[1]) ?: return null
+        storageController.getDownloadUrl(path, callbackId)
         return null
     }
 
     fun getMetadata(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
-        val asId = String(argv[1]) ?: return null
-        storageController.getMetadata(path, asId)
+        val callbackId = String(argv[1]) ?: return null
+        storageController.getMetadata(path, callbackId)
         return null
     }
 
     fun updateMetadata(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 2 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
-        val asId = String(argv[1])
+        val callbackId = String(argv[1])
         val metadata = StorageMetadata(argv[2]) ?: return null
-        storageController.updateMetadata(path, asId, metadata)
+        storageController.updateMetadata(path, callbackId, metadata)
         return null
     }
 
@@ -203,17 +203,17 @@ class KotlinController : FreKotlinMainController {
 
     fun addEventListener(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
-        val asId = String(argv[0]) ?: return null
+        val callbackId = String(argv[0]) ?: return null
         val type = String(argv[1]) ?: return null
-        storageController.addEventListener(asId, type)
+        storageController.addEventListener(callbackId, type)
         return null
     }
 
     fun removeEventListener(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
-        val asId = String(argv[0]) ?: return null
+        val callbackId = String(argv[0]) ?: return null
         val type = String(argv[1]) ?: return null
-        storageController.removeEventListener(asId, type)
+        storageController.removeEventListener(callbackId, type)
         return null
     }
 

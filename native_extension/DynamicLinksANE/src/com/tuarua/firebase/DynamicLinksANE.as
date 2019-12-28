@@ -54,7 +54,7 @@ public final class DynamicLinksANE {
                                      shorten:Boolean = false, suffix:int = 0):void {
         DynamicLinksANEContext.validate();
         var ret:* = DynamicLinksANEContext.context.call("buildDynamicLink", dynamicLink,
-                DynamicLinksANEContext.createEventId(listener), copyToClipboard, shorten, suffix);
+                DynamicLinksANEContext.createCallback(listener), copyToClipboard, shorten, suffix);
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -69,7 +69,7 @@ public final class DynamicLinksANE {
      */
     public function getDynamicLink(listener:Function):void {
         DynamicLinksANEContext.validate();
-        var ret:* = DynamicLinksANEContext.context.call("getDynamicLink", DynamicLinksANEContext.createEventId(listener));
+        var ret:* = DynamicLinksANEContext.context.call("getDynamicLink", DynamicLinksANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 

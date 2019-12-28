@@ -15,7 +15,7 @@
  */
 package com.tuarua.firebase.ml.vision.barcode.events
 
-data class BarcodeEvent(val eventId: String,
+data class BarcodeEvent(val callbackId: String,
                         val error: Map<String, Any>? = null,
                         val continuous: Boolean = false) {
     companion object {

@@ -30,11 +30,9 @@ public extension VisionBarcodeAddress {
 
 public extension Array where Element == VisionBarcodeAddress {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.ml.vision.barcode.BarcodeAddress") else { return nil }
-        for element in self {
-            ret.push(element.toFREObject())
-        }
-        return ret.rawValue
+        return FREArray(className: "com.tuarua.firebase.ml.vision.barcode.BarcodeAddress",
+                        length: self.count, fixed: true,
+                        items: self.compactMap { $0.toFREObject() })?.rawValue
     }
 }
 

@@ -19,20 +19,20 @@ import SwiftyJSON
 
 class BarcodeEvent: NSObject {
     public static let DETECTED = "BarcodeEvent.Detected"
-    var eventId: String?
+    var callbackId: String?
     var error: NSError?
     var continuous: Bool = false
     
-    convenience init(eventId: String?, error: NSError? = nil, continuous: Bool = false) {
+    convenience init(callbackId: String?, error: NSError? = nil, continuous: Bool = false) {
         self.init()
-        self.eventId = eventId
+        self.callbackId = callbackId
         self.error = error
         self.continuous = continuous
     }
     
     public func toJSONString() -> String {
         var props = [String: Any]()
-        props["eventId"] = eventId
+        props["callbackId"] = callbackId
         props["error"] = error?.toDictionary()
         props["continuous"] = continuous
         return JSON(props).description

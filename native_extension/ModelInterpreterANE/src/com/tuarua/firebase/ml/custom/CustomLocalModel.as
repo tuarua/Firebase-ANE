@@ -15,8 +15,13 @@
  */
 
 package com.tuarua.firebase.ml.custom {
+/** A custom model stored locally on the device. */
 public class CustomLocalModel extends LocalModel{
-
+    /**
+     * Creates a new instance with the given model file path.
+     *
+     * @param path An absolute path to the TensorFlow Lite model file stored locally on the device.
+     */
     public function CustomLocalModel(path:String) {
         super(path);
     }

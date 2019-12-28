@@ -49,7 +49,7 @@ class FirestoreController: FreSwiftController {
     
     // MARK: - Documents
     
-    func getDocuments(path: String, eventId: String, whereList: [Where], orderList: [Order],
+    func getDocuments(path: String, callbackId: String, whereList: [Where], orderList: [Order],
                       startAtList: [Any], startAfterList: [Any], endAtList: [Any],
                       endBeforeList: [Any], limitTo: Int) {
         guard let fs = firestore else {
@@ -96,7 +96,7 @@ class FirestoreController: FreSwiftController {
             if let err = error as NSError? {
                 self.dispatchEvent(name: DocumentEvent.QUERY_SNAPSHOT,
                                value: DocumentEvent(
-                                eventId: eventId,
+                                callbackId: callbackId,
                                 error: err).toJSONString()
                 )
                 
@@ -104,7 +104,7 @@ class FirestoreController: FreSwiftController {
                 if let qSnapshot: QuerySnapshot = querySnapshot {
                     self.dispatchEvent(name: DocumentEvent.QUERY_SNAPSHOT,
                                    value: DocumentEvent(
-                                    eventId: eventId,
+                                    callbackId: callbackId,
                                     data: qSnapshot.toDictionary()).toJSONString()
                     )
                 }
@@ -122,18 +122,18 @@ class FirestoreController: FreSwiftController {
         return firestore?.collection(path).document().path
     }
     
-    func deleteDocumentReference(path: String, eventId: String?) {
+    func deleteDocumentReference(path: String, callbackId: String?) {
         let docRef = firestore?.document(path)
         docRef?.delete { error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: DocumentEvent.DELETED,
-                               value: DocumentEvent(eventId: eventId,
+                               value: DocumentEvent(callbackId: callbackId,
                                                     data: ["path": path],
                                                     error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: DocumentEvent.DELETED,
-                               value: DocumentEvent(eventId: eventId,
+                               value: DocumentEvent(callbackId: callbackId,
                                                     data: ["path": path]).toJSONString())
             }
         }
@@ -143,12 +143,12 @@ class FirestoreController: FreSwiftController {
         return firestore?.document(path).parent.path
     }
     
-    func addSnapshotListenerDocument(path: String, eventId: String, asId: String) {
+    func addSnapshotListenerDocument(path: String, callbackId: String, callbackCallerId: String) {
         guard let docRef = firestore?.document(path) else { return }
-        snapshotRegistrations[asId] = docRef.addSnapshotListener({ snapshot, error in
+        snapshotRegistrations[callbackCallerId] = docRef.addSnapshotListener({ snapshot, error in
             if let err = error as NSError? {
                 self.dispatchEvent(name: DocumentEvent.SNAPSHOT,
-                                   value: DocumentEvent(eventId: eventId,
+                                   value: DocumentEvent(callbackId: callbackId,
                                                         data: nil,
                                                         realtime: true,
                                                         error: err).toJSONString()
@@ -157,7 +157,7 @@ class FirestoreController: FreSwiftController {
             } else {
                 if let document = snapshot {
                     self.dispatchEvent(name: DocumentEvent.SNAPSHOT,
-                                       value: DocumentEvent(eventId: eventId,
+                                       value: DocumentEvent(callbackId: callbackId,
                                                              data: document.toDictionary(),
                                                              realtime: true).toJSONString()
                     )
@@ -166,22 +166,22 @@ class FirestoreController: FreSwiftController {
         })
     }
     
-    func removeSnapshotListener(asId: String) {
-        snapshotRegistrations[asId]?.remove()
-        snapshotRegistrations.removeValue(forKey: asId)
+    func removeSnapshotListener(callbackId: String) {
+        snapshotRegistrations[callbackId]?.remove()
+        snapshotRegistrations.removeValue(forKey: callbackId)
     }
     
-    func getDocumentReference(path: String, eventId: String) {
+    func getDocumentReference(path: String, callbackId: String) {
         let docRef = firestore?.document(path)
         docRef?.getDocument { snapshot, error in
             if let err = error as NSError? {
                 self.dispatchEvent(name: DocumentEvent.SNAPSHOT,
-                               value: DocumentEvent(eventId: eventId,
+                               value: DocumentEvent(callbackId: callbackId,
                                                     error: err).toJSONString())
             } else {
                 if let document = snapshot {
                     self.dispatchEvent(name: DocumentEvent.SNAPSHOT,
-                                   value: DocumentEvent(eventId: eventId,
+                                   value: DocumentEvent(callbackId: callbackId,
                                                         data: document.toDictionary()).toJSONString()
                     )
                 }
@@ -189,40 +189,40 @@ class FirestoreController: FreSwiftController {
         }   
     }
     
-    func setDocumentReference(path: String, eventId: String?, documentData: [String: Any], merge: Bool) {
+    func setDocumentReference(path: String, callbackId: String?, documentData: [String: Any], merge: Bool) {
         guard let docRef: DocumentReference = firestore?.document(path) else {
             return
         }
         docRef.setData(documentData, merge: merge, completion: { error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: DocumentEvent.SET,
-                               value: DocumentEvent(eventId: eventId,
+                               value: DocumentEvent(callbackId: callbackId,
                                                     data: ["path": path],
                                                     error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: DocumentEvent.SET,
-                               value: DocumentEvent(eventId: eventId,
+                               value: DocumentEvent(callbackId: callbackId,
                                                     data: ["path": path]).toJSONString())
                 
             }
         })
     }
     
-    func updateDocumentReference(path: String, eventId: String?, documentData: [String: Any]) {
+    func updateDocumentReference(path: String, callbackId: String?, documentData: [String: Any]) {
         guard let docRef: DocumentReference = firestore?.document(path) else {
             return
         }
         docRef.updateData(documentData, completion: { error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: DocumentEvent.UPDATED,
-                               value: DocumentEvent(eventId: eventId,
+                               value: DocumentEvent(callbackId: callbackId,
                                                     data: ["path": path],
                                                     error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: DocumentEvent.UPDATED,
-                               value: DocumentEvent(eventId: eventId,
+                               value: DocumentEvent(callbackId: callbackId,
                                                     data: ["path": path]).toJSONString())
             }
         })
@@ -262,45 +262,45 @@ class FirestoreController: FreSwiftController {
         }
     }
     
-    func commitBatch(eventId: String?) {
+    func commitBatch(callbackId: String?) {
         batch?.commit { error in
             if let err = error as NSError? {
-                if eventId == nil { return }
+                if callbackId == nil { return }
                 self.dispatchEvent(name: BatchEvent.COMPLETE,
-                               value: BatchEvent(eventId: eventId,
+                               value: BatchEvent(callbackId: callbackId,
                                                  error: err).toJSONString())
                 
             } else {
                 self.dispatchEvent(name: BatchEvent.COMPLETE,
-                               value: BatchEvent(eventId: eventId).toJSONString())
+                               value: BatchEvent(callbackId: callbackId).toJSONString())
             }
         }
     }
     
     // MARK: - Network
     
-    func enableNetwork(eventId: String?) {
+    func enableNetwork(callbackId: String?) {
         firestore?.enableNetwork(completion: { error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: NetworkEvent.ENABLED,
-                               value: NetworkEvent(eventId: eventId, error: err).toJSONString())
+                               value: NetworkEvent(callbackId: callbackId, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: NetworkEvent.ENABLED,
-                               value: NetworkEvent(eventId: eventId).toJSONString())
+                               value: NetworkEvent(callbackId: callbackId).toJSONString())
             }
         })
     }
     
-    func disableNetwork(eventId: String?) {
+    func disableNetwork(callbackId: String?) {
         firestore?.disableNetwork(completion: { error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: NetworkEvent.DISABLED,
-                               value: NetworkEvent(eventId: eventId, error: err).toJSONString())
+                               value: NetworkEvent(callbackId: callbackId, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: NetworkEvent.DISABLED,
-                               value: NetworkEvent(eventId: eventId).toJSONString())
+                               value: NetworkEvent(callbackId: callbackId).toJSONString())
             }
         })
     }

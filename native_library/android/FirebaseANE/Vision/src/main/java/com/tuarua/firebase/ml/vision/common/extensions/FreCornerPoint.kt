@@ -21,7 +21,6 @@ package com.tuarua.firebase.ml.vision.common.extensions
 import com.adobe.fre.FREArray
 import com.tuarua.frekotlin.FREArray
 import com.tuarua.frekotlin.geom.toFREObject
-import com.tuarua.frekotlin.set
 
 fun FREArray(value: Array<out android.graphics.Point>?): FREArray? {
     return FREArray("flash.geom.Point",

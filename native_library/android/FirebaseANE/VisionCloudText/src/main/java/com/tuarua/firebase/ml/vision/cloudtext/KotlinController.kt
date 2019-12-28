@@ -59,20 +59,20 @@ class KotlinController : FreKotlinMainController {
     fun process(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
-        val eventId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
 
         GlobalScope.launch(bgContext) {
             recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
-                    results[eventId] = result
+                    results[callbackId] = result
                     dispatchEvent(CloudTextEvent.RECOGNIZED,
-                            gson.toJson(CloudTextEvent(eventId, null)))
+                            gson.toJson(CloudTextEvent(callbackId, null)))
                 } else {
                     val error = task.exception
                     dispatchEvent(CloudTextEvent.RECOGNIZED,
                             gson.toJson(
-                                    CloudTextEvent(eventId, mapOf(
+                                    CloudTextEvent(callbackId, mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -86,9 +86,9 @@ class KotlinController : FreKotlinMainController {
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val eventId = String(argv[0]) ?: return null
-        val ret = results[eventId]?.toFREObject()
-        results.remove(eventId)
+        val callbackId = String(argv[0]) ?: return null
+        val ret = results[callbackId]?.toFREObject()
+        results.remove(callbackId)
         return ret
     }
 

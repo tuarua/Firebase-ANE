@@ -29,7 +29,7 @@ public class FirebaseUser {
      */
     public function sendEmailVerification(listener:Function = null):void {
         AuthANEContext.validate();
-        var ret:* = AuthANEContext.context.call("sendEmailVerification", AuthANEContext.createEventId(listener));
+        var ret:* = AuthANEContext.context.call("sendEmailVerification", AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -41,7 +41,7 @@ public class FirebaseUser {
     public function unlink(provider:String, listener:Function = null):void {
         AuthANEContext.validate();
         var ret:* = AuthANEContext.context.call("unlink", provider,
-                AuthANEContext.createEventId(listener));
+                AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -55,14 +55,14 @@ public class FirebaseUser {
     public function link(credential:AuthCredential, listener:Function = null):void {
         AuthANEContext.validate();
         var ret:* = AuthANEContext.context.call("link", credential,
-                AuthANEContext.createEventId(listener));
+                AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
     public function reauthenticate(credential:AuthCredential, listener:Function = null):void {
         AuthANEContext.validate();
         var ret:* = AuthANEContext.context.call("reauthenticate", credential,
-                AuthANEContext.createEventId(listener));
+                AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -72,7 +72,7 @@ public class FirebaseUser {
      */
     public function remove(listener:Function = null):void {
         AuthANEContext.validate();
-        var ret:* = AuthANEContext.context.call("deleteUser", AuthANEContext.createEventId(listener));
+        var ret:* = AuthANEContext.context.call("deleteUser", AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -82,7 +82,7 @@ public class FirebaseUser {
      */
     public function reload(listener:Function = null):void {
         AuthANEContext.validate();
-        var ret:* = AuthANEContext.context.call("reload", AuthANEContext.createEventId(listener));
+        var ret:* = AuthANEContext.context.call("reload", AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -94,7 +94,7 @@ public class FirebaseUser {
      */
     public function getIdToken(forceRefresh:Boolean, listener:Function):void {
         AuthANEContext.validate();
-        var ret:* = AuthANEContext.context.call("getIdToken", forceRefresh, AuthANEContext.createEventId(listener));
+        var ret:* = AuthANEContext.context.call("getIdToken", forceRefresh, AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -107,7 +107,7 @@ public class FirebaseUser {
     public function updateEmail(value:String, listener:Function = null):void {
         AuthANEContext.validate();
         _email = value;
-        var ret:* = AuthANEContext.context.call("updateEmail", value, AuthANEContext.createEventId(listener));
+        var ret:* = AuthANEContext.context.call("updateEmail", value, AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -118,7 +118,7 @@ public class FirebaseUser {
      */
     public function updatePassword(value:String, listener:Function = null):void {
         AuthANEContext.validate();
-        var ret:* = AuthANEContext.context.call("updatePassword", value, AuthANEContext.createEventId(listener));
+        var ret:* = AuthANEContext.context.call("updatePassword", value, AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -131,7 +131,7 @@ public class FirebaseUser {
     public function updateProfile(displayName:String = null, photoUrl:String = null, listener:Function = null):void {
         AuthANEContext.validate();
         var ret:* = AuthANEContext.context.call("updateProfile", displayName, photoUrl,
-                AuthANEContext.createEventId(listener));
+                AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 

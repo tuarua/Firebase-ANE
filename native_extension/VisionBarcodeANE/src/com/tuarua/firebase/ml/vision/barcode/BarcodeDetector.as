@@ -28,7 +28,7 @@ public class BarcodeDetector extends EventDispatcher {
     internal static const NAME:String = "VisionBarcodeANE";
     private static var _context:ExtensionContext;
     /** @private */
-    public static var closures:Dictionary = new Dictionary();
+    public static var callbacks:Dictionary = new Dictionary();
     private static const DETECTED:String = "BarcodeEvent.Detected";
 
     /** @private */
@@ -46,14 +46,21 @@ public class BarcodeDetector extends EventDispatcher {
         }
     }
 
-    private function createEventId(listener:Function):String {
+    private function createCallback(listener:Function):String {
         if (!_context) return null;
-        var eventId:String;
+        var id:String;
         if (listener != null) {
-            eventId = _context.call("createGUID") as String;
-            closures[eventId] = listener;
+            id = _context.call("createGUID") as String;
+            callbacks[id] = listener;
         }
-        return eventId;
+        return id;
+    }
+
+    private static function callCallback(callbackId:String, clear:Boolean, ... args):void {
+        var callback:Function = callbacks[callbackId];
+        if (callback == null) return;
+        callback.apply(null, args);
+        if (clear) delete callbacks[callbackId];
     }
 
     /**
@@ -64,7 +71,7 @@ public class BarcodeDetector extends EventDispatcher {
      */
     public function detect(image:VisionImage, listener:Function):void {
         if (_context == null) return;
-        var ret:* = _context.call("detect", image, createEventId(listener));
+        var ret:* = _context.call("detect", image, createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -75,7 +82,7 @@ public class BarcodeDetector extends EventDispatcher {
      */
     public function inputFromCamera(listener:Function):void {
         if (_context == null) return;
-        var ret:* = _context.call("inputFromCamera", createEventId(listener));
+        var ret:* = _context.call("inputFromCamera", createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -101,8 +108,7 @@ public class BarcodeDetector extends EventDispatcher {
 
     /** @private */
     public static function gotEvent(event:StatusEvent):void {
-        var pObj:Object;
-        var closure:Function;
+        var argsAsJSON:Object;
         var err:BarcodeError;
         switch (event.level) {
             case "TRACE":
@@ -110,19 +116,16 @@ public class BarcodeDetector extends EventDispatcher {
                 break;
             case DETECTED:
                 try {
-                    pObj = JSON.parse(event.code);
-                    closure = closures[pObj.eventId];
-                    if (closure == null) return;
-                    if (pObj.hasOwnProperty("error") && pObj.error) {
-                        err = new BarcodeError(pObj.error.text, pObj.error.id);
+                    argsAsJSON = JSON.parse(event.code);
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new BarcodeError(argsAsJSON.error.text, argsAsJSON.error.id);
                     }
-                    var ret:* = _context.call("getResults", pObj.eventId);
+                    var ret:* = _context.call("getResults", argsAsJSON.callbackId);
                     if (ret is ANEError) {
                         printANEError(ret as ANEError);
                         return;
                     }
-                    closure.call(null, ret, err);
-                    if (!pObj.continuous) delete closures[pObj.eventId];
+                    callCallback(argsAsJSON.callbackId, !argsAsJSON.continuous, ret, err);
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }

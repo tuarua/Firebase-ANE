@@ -20,20 +20,20 @@ import SwiftyJSON
 class StorageProgressEvent: NSObject {
     public static let PROGRESS = "StorageProgressEvent.Progress"
 
-    var eventId: String?
+    var callbackId: String?
     var bytesLoaded: Double = 0.0
     var bytesTotal: Double = 0.0
     
-    convenience init(eventId: String?, bytesLoaded: Double, bytesTotal: Double) {
+    convenience init(callbackId: String?, bytesLoaded: Double, bytesTotal: Double) {
         self.init()
-        self.eventId = eventId
+        self.callbackId = callbackId
         self.bytesLoaded = bytesLoaded
         self.bytesTotal = bytesTotal
     }
     
     public func toJSONString() -> String {
         var props = [String: Any] ()
-        props["eventId"] = eventId
+        props["callbackId"] = callbackId
         props["bytesLoaded"] = bytesLoaded
         props["bytesTotal"] = bytesTotal
         return JSON(props).description

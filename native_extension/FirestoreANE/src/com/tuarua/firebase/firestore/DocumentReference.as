@@ -59,7 +59,7 @@ public class DocumentReference {
     public function addSnapshotListener(listener:Function):void {
         FirestoreANEContext.validate();
         var ret:* = FirestoreANEContext.context.call("addSnapshotListenerDocument", _path,
-                FirestoreANEContext.createEventId(listener, this), _asId);
+                FirestoreANEContext.createCallback(listener, this), _asId);
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -71,11 +71,11 @@ public class DocumentReference {
         FirestoreANEContext.validate();
         var ret:* = FirestoreANEContext.context.call("removeSnapshotListener", _asId);
         if (ret is ANEError) throw ret as ANEError;
-        for (var k:String in FirestoreANEContext.closures) {
-            var value:Function = FirestoreANEContext.closures[k];
+        for (var k:String in FirestoreANEContext.callbacks) {
+            var value:Function = FirestoreANEContext.callbacks[k];
             if (value == listener) {
-                delete FirestoreANEContext.closures[k];
-                delete FirestoreANEContext.closureCallers[k];
+                delete FirestoreANEContext.callbacks[k];
+                delete FirestoreANEContext.callbackCallers[k];
                 return;
             }
         }
@@ -95,7 +95,7 @@ public class DocumentReference {
     public function getDocument(listener:Function):void {
         FirestoreANEContext.validate();
         var ret:* = FirestoreANEContext.context.call("getDocumentReference", _path,
-                FirestoreANEContext.createEventId(listener, this));
+                FirestoreANEContext.createCallback(listener, this));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -124,7 +124,7 @@ public class DocumentReference {
     public function setData(data:*, listener:Function = null, merge:Boolean = false):void {
         FirestoreANEContext.validate();
         var ret:* = FirestoreANEContext.context.call("setDocumentReference", _path,
-                FirestoreANEContext.createEventId(listener), data, merge);
+                FirestoreANEContext.createCallback(listener), data, merge);
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -144,7 +144,7 @@ public class DocumentReference {
     public function updateData(data:*, listener:Function = null):void {
         FirestoreANEContext.validate();
         var ret:* = FirestoreANEContext.context.call("updateDocumentReference", _path,
-                FirestoreANEContext.createEventId(listener), data);
+                FirestoreANEContext.createCallback(listener), data);
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -156,7 +156,7 @@ public class DocumentReference {
     public function remove(listener:Function = null):void {
         FirestoreANEContext.validate();
         var ret:* = FirestoreANEContext.context.call("deleteDocumentReference", _path,
-                FirestoreANEContext.createEventId(listener));
+                FirestoreANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 

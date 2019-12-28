@@ -15,7 +15,7 @@
  */
 package com.tuarua.firebase.ml.vision.face.events
 
-data class FaceEvent(val eventId: String, val error: Map<String, Any>? = null) {
+data class FaceEvent(val callbackId: String, val error: Map<String, Any>? = null) {
     companion object {
         const val DETECTED = "FaceEvent.Detected"
     }

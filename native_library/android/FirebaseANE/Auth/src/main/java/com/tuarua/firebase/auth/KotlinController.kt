@@ -44,8 +44,8 @@ class KotlinController : FreKotlinMainController {
     fun getIdToken(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val forceRefresh = Boolean(argv[0]) ?: return null
-        val eventId = String(argv[1]) ?: return null
-        userController.getIdToken(forceRefresh, eventId)
+        val callbackId = String(argv[1]) ?: return null
+        userController.getIdToken(forceRefresh, callbackId)
         return null
     }
 
@@ -53,31 +53,31 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 2 } ?: return FreArgException()
         val email = String(argv[0]) ?: return null
         val password = String(argv[1]) ?: return null
-        val eventId = String(argv[2])
-        authController.createUserWithEmailAndPassword(email, password, eventId)
+        val callbackId = String(argv[2])
+        authController.createUserWithEmailAndPassword(email, password, callbackId)
         return null
     }
 
     fun signInAnonymously(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val eventId = String(argv[0])
-        authController.signInAnonymously(eventId)
+        val callbackId = String(argv[0])
+        authController.signInAnonymously(callbackId)
         return null
     }
 
     fun signInWithCustomToken(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val eventId = String(argv[0])
+        val callbackId = String(argv[0])
         val token = String(argv[1]) ?: return null
-        authController.signInWithCustomToken(eventId, token)
+        authController.signInWithCustomToken(callbackId, token)
         return null
     }
 
     fun signIn(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val credential = AuthCredential(argv[0]) ?: return null
-        val eventId = String(argv[1])
-        authController.signIn(credential, eventId)
+        val callbackId = String(argv[1])
+        authController.signIn(credential, callbackId)
         return null
     }
 
@@ -85,8 +85,8 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 2 } ?: return FreArgException()
         val displayName = String(argv[0])
         val photoUrl = String(argv[1])
-        val eventId = String(argv[2])
-        userController.updateProfile(displayName, photoUrl, eventId)
+        val callbackId = String(argv[2])
+        userController.updateProfile(displayName, photoUrl, callbackId)
         return null
     }
 
@@ -97,78 +97,78 @@ class KotlinController : FreKotlinMainController {
 
     fun reload(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val eventId = String(argv[0])
-        userController.reload(eventId)
+        val callbackId = String(argv[0])
+        userController.reload(callbackId)
         return null
     }
 
     fun sendEmailVerification(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val eventId = String(argv[0])
-        userController.sendEmailVerification(eventId)
+        val callbackId = String(argv[0])
+        userController.sendEmailVerification(callbackId)
         return null
     }
 
     fun updateEmail(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val email = String(argv[0]) ?: return null
-        val eventId = String(argv[1])
-        userController.updateEmail(email, eventId)
+        val callbackId = String(argv[1])
+        userController.updateEmail(email, callbackId)
         return null
     }
 
     fun updatePassword(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val password = String(argv[0]) ?: return null
-        val eventId = String(argv[1])
-        userController.updatePassword(password, eventId)
+        val callbackId = String(argv[1])
+        userController.updatePassword(password, callbackId)
         return null
     }
 
     fun sendPasswordResetEmail(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val email = String(argv[0]) ?: return null
-        val eventId = String(argv[1])
-        authController.sendPasswordResetEmail(email, eventId)
+        val callbackId = String(argv[1])
+        authController.sendPasswordResetEmail(email, callbackId)
         return null
     }
 
     fun deleteUser(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
-        val eventId = String(argv[0])
-        userController.deleteUser(eventId)
+        val callbackId = String(argv[0])
+        userController.deleteUser(callbackId)
         return null
     }
 
     fun reauthenticate(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val credential = AuthCredential(argv[0]) ?: return null
-        val eventId = String(argv[1])
-        userController.reauthenticate(credential, eventId)
+        val callbackId = String(argv[1])
+        userController.reauthenticate(credential, callbackId)
         return null
     }
 
     fun unlink(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val provider = String(argv[0]) ?: return null
-        val eventId = String(argv[1])
-        userController.unlink(provider, eventId)
+        val callbackId = String(argv[1])
+        userController.unlink(provider, callbackId)
         return null
     }
 
     fun link(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val credential = AuthCredential(argv[0]) ?: return null
-        val eventId = String(argv[1])
-        userController.link(credential, eventId)
+        val callbackId = String(argv[1])
+        userController.link(credential, callbackId)
         return null
     }
 
     fun verifyPhoneNumber(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val phoneNumber = String(argv[0]) ?: return null
-        val eventId = String(argv[1])
-        authController.verifyPhoneNumber(phoneNumber, eventId)
+        val callbackId = String(argv[1])
+        authController.verifyPhoneNumber(phoneNumber, callbackId)
         return null
     }
 

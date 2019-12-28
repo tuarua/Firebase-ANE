@@ -20,17 +20,11 @@ import FirebaseMLVision
 
 public extension Array where Element == NSValue {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "flash.geom.Point",
+        return FREArray(className: "flash.geom.Point",
                                       length: self.count,
-                                      fixed: true) else { return nil }
-        var cnt: UInt = 0
-        for cornerPoint in self {
-            if let freCornerPoint = cornerPoint.cgPointValue.toFREObject() {
-                ret[cnt] = freCornerPoint
-                cnt += 1
-            }
-        }
-        return ret.rawValue
+                                      fixed: true,
+                                      items: self.compactMap { $0.cgPointValue.toFREObject() }
+            )?.rawValue
     }
 }
 public extension FreObjectSwift {

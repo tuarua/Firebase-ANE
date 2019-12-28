@@ -32,11 +32,9 @@ public extension VisionBarcodeEmail {
 
 public extension Array where Element == VisionBarcodeEmail {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.ml.vision.barcode.BarcodeEmail") else { return nil }
-        for email in self {
-            ret.push(email.toFREObject())
-        }
-        return ret.rawValue
+        return FREArray(className: "com.tuarua.firebase.ml.vision.barcode.BarcodeEmail",
+                        length: self.count, fixed: true,
+                        items: self.compactMap { $0.toFREObject() })?.rawValue
     }
 }
 

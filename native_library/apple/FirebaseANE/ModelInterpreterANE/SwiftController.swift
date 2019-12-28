@@ -25,6 +25,7 @@ public class SwiftController: NSObject {
     public var functionsToSet: FREFunctionMap = [:]
     private var isStatsCollectionEnabled = true
     private let userInitiatedQueue = DispatchQueue(label: "com.tuarua.vision.tfl.uiq", qos: .userInitiated)
+    private var downloadCallbacks = [String: String]()
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
@@ -33,68 +34,79 @@ public class SwiftController: NSObject {
                 return FreArgError().getError()
         }
         self.isStatsCollectionEnabled = isStatsCollectionEnabled
+        
+        NotificationCenter.default.addObserver(
+          self,
+          selector: #selector(remoteModelDownloadDidSucceed(_:)),
+          name: .firebaseMLModelDownloadDidSucceed,
+          object: nil
+        )
+        NotificationCenter.default.addObserver(
+          self,
+          selector: #selector(remoteModelDownloadDidFail(_:)),
+          name: .firebaseMLModelDownloadDidFail,
+          object: nil
+        )
+        
         return true.toFREObject()
     }
     
     func isModelDownloaded(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
-            let remoteModel = CustomRemoteModel(argv[0])
+        guard argc > 1,
+            let model = CustomRemoteModel(argv[0]),
+            let callbackId = String(argv[1])
             else {
                 return FreArgError().getError()
         }
-        return ModelManager.modelManager().isModelDownloaded(remoteModel).toFREObject()
+        self.dispatchEvent(name: ModelInterpreterEvent.IS_DOWNLOADED,
+                           value: ModelInterpreterEvent(callbackId: callbackId,
+                                                        result: ModelManager.modelManager().isModelDownloaded(model))
+                            .toJSONString())
+        return nil
     }
     
     func deleteDownloadedModel(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
-            let remoteModel = CustomRemoteModel(argv[0])
+        guard argc > 1,
+            let remoteModel = CustomRemoteModel(argv[0]),
+            let callbackId = String(argv[1])
             else {
                 return FreArgError().getError()
         }
         ModelManager.modelManager().deleteDownloadedModel(remoteModel) { (error) in
-            // TODO
+            self.dispatchEvent(name: ModelInterpreterEvent.DELETE_DOWNLOADED,
+            value: ModelInterpreterEvent(callbackId: callbackId,
+                                         result: error != nil)
+             .toJSONString())
         }
         return nil
     }
     
     func download(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 1,
+        guard argc > 2,
             let model = CustomRemoteModel(argv[0]),
-            let conditions = ModelDownloadConditions(argv[1])
+            let conditions = ModelDownloadConditions(argv[1]),
+            let callbackId = String(argv[2])
             else {
                 return FreArgError().getError()
         }
-        
-        NotificationCenter.default.addObserver(
-            forName: .firebaseMLModelDownloadDidSucceed,
-            object: nil,
-            queue: nil
-        ) { [weak self] notification in
-            guard let _ = self,
-                let userInfo = notification.userInfo,
-                let model = userInfo[ModelDownloadUserInfoKey.remoteModel.rawValue]
-                    as? RemoteModel,
-                model.name == "your_remote_model"
-                else { return }
-            // The model was downloaded and is available on the device
-        }
+        downloadCallbacks[model.name] = callbackId
         ModelManager.modelManager().download(model, conditions: conditions)
         return nil
     }
 
     func run(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 4,
-            let modelInputs = ModelInputs.init(argv[0]),
+            let modelInputs = ModelInputs(argv[0]),
             let options = ModelInputOutputOptions(argv[1]),
             let maxResults = Int(argv[2]),
             let numPossibilities = Int(argv[3]),
-            let eventId = String(argv[4]),
+            let callbackId = String(argv[4]),
             let interpreterOptions = FREObject(argv[5])
             else {
                 return FreArgError().getError()
         }
         var interpreter: ModelInterpreter?
-        if let localModel = CustomLocalModel.init(interpreterOptions["localModel"]) {
+        if let localModel = CustomLocalModel(interpreterOptions["localModel"]) {
             interpreter = ModelInterpreter.modelInterpreter(localModel: localModel)
         }
         if let remoteModel = CustomRemoteModel(interpreterOptions["remoteModel"]) {
@@ -106,7 +118,7 @@ public class SwiftController: NSObject {
             interpreter?.run(inputs: modelInputs, options: options, completion: { (outputs, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: ModelInterpreterEvent.OUTPUT,
-                                       value: ModelInterpreterEvent(eventId: eventId,
+                                       value: ModelInterpreterEvent(callbackId: callbackId,
                                                                     error: err).toJSONString())
                 } else {
                     var arrProps = [[String: Any]]()
@@ -127,13 +139,47 @@ public class SwiftController: NSObject {
                         }
                     }
                     self.dispatchEvent(name: ModelInterpreterEvent.OUTPUT,
-                                       value: ModelInterpreterEvent(eventId: eventId,
+                                       value: ModelInterpreterEvent(callbackId: callbackId,
                                                                     data: arrProps).toJSONString())
                 }
             })
         }
         return nil
     }
+    
+    // MARK: - Notifications
+
+    @objc
+    private func remoteModelDownloadDidSucceed(_ notification: Notification) {
+      let notificationHandler = {
+        guard let userInfo = notification.userInfo,
+          let model = userInfo[ModelDownloadUserInfoKey.remoteModel.rawValue] as? RemoteModel
+        else { return }
+        self.dispatchEvent(name: ModelInterpreterEvent.DOWNLOAD,
+        value: ModelInterpreterEvent(callbackId: self.downloadCallbacks[model.name]).toJSONString())
+      }
+      if Thread.isMainThread {
+        notificationHandler()
+        return
+      }
+      DispatchQueue.main.async { notificationHandler() }
+    }
+    
+    @objc
+    private func remoteModelDownloadDidFail(_ notification: Notification) {
+      let notificationHandler = {
+        guard let userInfo = notification.userInfo,
+          let model = userInfo[ModelDownloadUserInfoKey.remoteModel.rawValue] as? RemoteModel,
+          let err = userInfo[ModelDownloadUserInfoKey.error.rawValue] as? NSError
+        else { return }
+        self.dispatchEvent(name: ModelInterpreterEvent.DOWNLOAD,
+                           value: ModelInterpreterEvent(callbackId: self.downloadCallbacks[model.name],
+                                                        error: err).toJSONString())
+      }
+      if Thread.isMainThread { notificationHandler();return }
+      DispatchQueue.main.async { notificationHandler() }
+    }
+    
 }
 
 // MARK: - Internal

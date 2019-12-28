@@ -21,13 +21,13 @@ extension SwiftController: InviteDelegate {
     public func inviteFinished(withInvitations invitationIds: [String], error: Error?) {
         if let err = error as NSError? {
             self.dispatchEvent(name: InvitesEvent.ERROR,
-                           value: InvitesEvent(eventId: InvitesEvent.ERROR,
+                           value: InvitesEvent(callbackId: InvitesEvent.ERROR,
                                                error: err
                             ).toJSONString())
             return
         } 
         self.dispatchEvent(name: InvitesEvent.SUCCESS,
-                       value: InvitesEvent(eventId: InvitesEvent.SUCCESS,
+                       value: InvitesEvent(callbackId: InvitesEvent.SUCCESS,
                                            data: ["ids": invitationIds]
                         ).toJSONString())
     }

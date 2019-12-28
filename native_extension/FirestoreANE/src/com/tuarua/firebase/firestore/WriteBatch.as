@@ -79,7 +79,7 @@ public class WriteBatch {
      */
     public function commit(listener:Function = null):void {
         FirestoreANEContext.validate();
-        var ret:* = FirestoreANEContext.context.call("commitBatch", FirestoreANEContext.createEventId(listener));
+        var ret:* = FirestoreANEContext.context.call("commitBatch", FirestoreANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 

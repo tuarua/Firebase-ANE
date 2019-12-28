@@ -15,7 +15,7 @@
  */
 
 package com.tuarua.firebase.ml.vision.label.events
-data class LabelEvent(val eventId: String, val error: Map<String, Any>? = null) {
+data class LabelEvent(val callbackId: String, val error: Map<String, Any>? = null) {
     companion object {
         const val RECOGNIZED = "LabelEvent.Recognized"
     }

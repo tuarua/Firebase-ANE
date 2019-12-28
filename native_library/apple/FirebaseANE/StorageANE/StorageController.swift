@@ -27,7 +27,7 @@ class StorageController: FreSwiftController {
     private var downloadTasks: [String: StorageDownloadTask] = [:]
     
     struct Listener {
-        var asId: String
+        var callbackId: String
         var type: String
     }
     var listeners: [Listener] = []
@@ -57,31 +57,31 @@ class StorageController: FreSwiftController {
         return nil
     }
     
-    func getFile(path: String, destinationFile: String, asId: String) {
+    func getFile(path: String, destinationFile: String, callbackId: String) {
         guard let storageRef = storage?.reference(withPath: path) else { return }
         if let localURL = URL(string: destinationFile) {
             let downloadTask = storageRef.write(toFile: localURL) { url, error in
                 if let err = error as NSError? {
-                    if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
+                    if !self.hasEventListener(callbackId: callbackId, type: StorageErrorEvent.ERROR) { return }
                     self.dispatchEvent(name: StorageErrorEvent.ERROR,
-                                   value: StorageErrorEvent(eventId: asId,
+                                   value: StorageErrorEvent(callbackId: callbackId,
                                                             text: err.localizedDescription,
                                                             id: err.code).toJSONString())
                 } else {
-                    if !self.hasEventListener(asId: asId, type: StorageEvent.TASK_COMPLETE) { return }
+                    if !self.hasEventListener(callbackId: callbackId, type: StorageEvent.TASK_COMPLETE) { return }
                     var data = [String: Any]()
                     data["localPath"] = destinationFile
                     data["url"] = url?.absoluteString
                     self.dispatchEvent(name: StorageEvent.TASK_COMPLETE,
-                                   value: StorageEvent(eventId: asId, data: data).toJSONString())
+                                   value: StorageEvent(callbackId: callbackId, data: data).toJSONString())
                 }
             }
             
             downloadTask.observe(.progress) { snapshot in
                 if let p = snapshot.progress, p.totalUnitCount > 0 {
-                    if !self.hasEventListener(asId: asId, type: StorageProgressEvent.PROGRESS) { return }
+                    if !self.hasEventListener(callbackId: callbackId, type: StorageProgressEvent.PROGRESS) { return }
                     self.dispatchEvent(name: StorageProgressEvent.PROGRESS,
-                                   value: StorageProgressEvent(eventId: asId,
+                                   value: StorageProgressEvent(callbackId: callbackId,
                                                                bytesLoaded: Double(p.completedUnitCount),
                                                                bytesTotal: Double(p.totalUnitCount)).toJSONString()
                     )
@@ -90,15 +90,15 @@ class StorageController: FreSwiftController {
             
             downloadTask.observe(.failure, handler: { snapshot in
                 if let err = snapshot.error as NSError? {
-                    if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
+                    if !self.hasEventListener(callbackId: callbackId, type: StorageErrorEvent.ERROR) { return }
                     self.dispatchEvent(name: StorageErrorEvent.ERROR,
-                                   value: StorageErrorEvent(eventId: asId,
+                                   value: StorageErrorEvent(callbackId: callbackId,
                                                                  text: err.localizedDescription,
                                                                  id: err.code).toJSONString())
                 }
             })
             
-            downloadTasks[asId] = downloadTask
+            downloadTasks[callbackId] = downloadTask
         }
     }
     
@@ -110,30 +110,30 @@ class StorageController: FreSwiftController {
         return storage?.reference(withPath: path).root()
     }
     
-    func deleteReference(path: String, eventId: String?) {
+    func deleteReference(path: String, callbackId: String?) {
         storage?.reference(withPath: path).delete(completion: { error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: StorageErrorEvent.ERROR,
-                               value: StorageErrorEvent(eventId: eventId,
+                               value: StorageErrorEvent(callbackId: callbackId,
                                                              text: err.localizedDescription,
                                                              id: err.code).toJSONString())
             } else {
                 self.dispatchEvent(name: StorageEvent.TASK_COMPLETE,
-                               value: StorageEvent(eventId: eventId, data: ["localPath": path]).toJSONString())
+                               value: StorageEvent(callbackId: callbackId, data: ["localPath": path]).toJSONString())
             }
         })
     }
     
-    func putBytes(path: String, asId: String, bytes: NSData, metadata: StorageMetadata?) {
+    func putBytes(path: String, callbackId: String, bytes: NSData, metadata: StorageMetadata?) {
         guard let storageRef = storage?.reference(withPath: path) else { return }
         let uploadTask = storageRef.putData(bytes as Data, metadata: metadata)
         
         uploadTask.observe(.failure, handler: {snapshot in
             if let err = snapshot.error as NSError? {
-                if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
+                if !self.hasEventListener(callbackId: callbackId, type: StorageErrorEvent.ERROR) { return }
                 self.dispatchEvent(name: StorageErrorEvent.ERROR,
-                               value: StorageErrorEvent(eventId: asId,
+                               value: StorageErrorEvent(callbackId: callbackId,
                                                              text: err.localizedDescription,
                                                              id: err.code).toJSONString())
             }
@@ -141,9 +141,9 @@ class StorageController: FreSwiftController {
         
         uploadTask.observe(.progress) { snapshot in
             if let p = snapshot.progress, p.totalUnitCount > 0 {
-                if !self.hasEventListener(asId: asId, type: StorageProgressEvent.PROGRESS) { return }
+                if !self.hasEventListener(callbackId: callbackId, type: StorageProgressEvent.PROGRESS) { return }
                 self.dispatchEvent(name: StorageProgressEvent.PROGRESS,
-                               value: StorageProgressEvent(eventId: asId,
+                               value: StorageProgressEvent(callbackId: callbackId,
                                                            bytesLoaded: Double(p.completedUnitCount),
                                                            bytesTotal: Double(p.totalUnitCount)).toJSONString()
                 )
@@ -151,26 +151,26 @@ class StorageController: FreSwiftController {
         }
         
         uploadTask.observe(.success, handler: { _ in
-            if !self.hasEventListener(asId: asId, type: StorageEvent.TASK_COMPLETE) { return }
+            if !self.hasEventListener(callbackId: callbackId, type: StorageEvent.TASK_COMPLETE) { return }
             self.dispatchEvent(name: StorageEvent.TASK_COMPLETE,
-                           value: StorageEvent(eventId: asId, data: nil).toJSONString())
-            self.uploadTasks[asId] = nil
+                           value: StorageEvent(callbackId: callbackId, data: nil).toJSONString())
+            self.uploadTasks[callbackId] = nil
         })
         
-        uploadTasks[asId] = uploadTask
+        uploadTasks[callbackId] = uploadTask
     
     }
     
-    func putFile(path: String, asId: String, filePath: String, metadata: StorageMetadata?) {
+    func putFile(path: String, callbackId: String, filePath: String, metadata: StorageMetadata?) {
         guard let storageRef = storage?.reference(withPath: path) else { return }
         let localFile = URL(fileURLWithPath: filePath)
         
         let uploadTask = storageRef.putFile(from: localFile, metadata: metadata)
         uploadTask.observe(.progress) { snapshot in
             if let p = snapshot.progress, p.totalUnitCount > 0 {
-                if !self.hasEventListener(asId: asId, type: StorageProgressEvent.PROGRESS) { return }
+                if !self.hasEventListener(callbackId: callbackId, type: StorageProgressEvent.PROGRESS) { return }
                 self.dispatchEvent(name: StorageProgressEvent.PROGRESS,
-                               value: StorageProgressEvent(eventId: asId,
+                               value: StorageProgressEvent(callbackId: callbackId,
                                                                 bytesLoaded: Double(p.completedUnitCount),
                                                                 bytesTotal: Double(p.totalUnitCount)).toJSONString())
             }
@@ -178,9 +178,9 @@ class StorageController: FreSwiftController {
         
         uploadTask.observe(.failure, handler: {snapshot in
             if let err = snapshot.error as NSError? {
-                if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
+                if !self.hasEventListener(callbackId: callbackId, type: StorageErrorEvent.ERROR) { return }
                 self.dispatchEvent(name: StorageErrorEvent.ERROR,
-                               value: StorageErrorEvent(eventId: asId,
+                               value: StorageErrorEvent(callbackId: callbackId,
                                                              text: err.localizedDescription,
                                                              id: err.code).toJSONString())
             }
@@ -189,17 +189,17 @@ class StorageController: FreSwiftController {
         uploadTask.observe(.success, handler: { _ in
             var data = [String: Any]()
             data["localPath"] = filePath
-            if !self.hasEventListener(asId: asId, type: StorageEvent.TASK_COMPLETE) { return }
+            if !self.hasEventListener(callbackId: callbackId, type: StorageEvent.TASK_COMPLETE) { return }
             self.dispatchEvent(name: StorageEvent.TASK_COMPLETE,
-                           value: StorageEvent(eventId: asId, data: data).toJSONString())
-            self.uploadTasks[asId] = nil
+                           value: StorageEvent(callbackId: callbackId, data: data).toJSONString())
+            self.uploadTasks[callbackId] = nil
         })
         
-        uploadTasks[asId] = uploadTask
+        uploadTasks[callbackId] = uploadTask
         
     }
     
-    func getBytes(path: String, maxDownloadSizeBytes: Int?, asId: String) {
+    func getBytes(path: String, maxDownloadSizeBytes: Int?, callbackId: String) {
         guard let storageRef = storage?.reference(withPath: path) else {return}
         let ONE_MEGABYTE: Int = 1024 * 1024
         
@@ -210,42 +210,42 @@ class StorageController: FreSwiftController {
         
         let downloadTask = storageRef.getData(maxSize: Int64(_maxDownloadSizeBytes), completion: { data, error in
             if let err = error as NSError? {
-                if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
+                if !self.hasEventListener(callbackId: callbackId, type: StorageErrorEvent.ERROR) { return }
                 self.dispatchEvent(name: StorageErrorEvent.ERROR,
-                               value: StorageErrorEvent(eventId: asId,
+                               value: StorageErrorEvent(callbackId: callbackId,
                                                         text: err.localizedDescription,
                                                         id: err.code).toJSONString())
             } else {
-                if !self.hasEventListener(asId: asId, type: StorageEvent.TASK_COMPLETE) { return }
+                if !self.hasEventListener(callbackId: callbackId, type: StorageEvent.TASK_COMPLETE) { return }
                 if let data = data {
                     let b64 = data.base64EncodedString(options: .init(rawValue: 0))
                     self.dispatchEvent(name: StorageEvent.TASK_COMPLETE,
-                                   value: StorageEvent(eventId: asId, data: ["b64": b64]).toJSONString())
+                                   value: StorageEvent(callbackId: callbackId, data: ["b64": b64]).toJSONString())
                 }
-                self.downloadTasks[asId] = nil
+                self.downloadTasks[callbackId] = nil
             }
         })
         
         downloadTask.observe(.failure, handler: { snapshot in
             if let err = snapshot.error as NSError? {
-                if !self.hasEventListener(asId: asId, type: StorageErrorEvent.ERROR) { return }
+                if !self.hasEventListener(callbackId: callbackId, type: StorageErrorEvent.ERROR) { return }
                 self.dispatchEvent(name: StorageErrorEvent.ERROR,
-                               value: StorageErrorEvent(eventId: asId,
+                               value: StorageErrorEvent(callbackId: callbackId,
                                                              text: err.localizedDescription,
                                                              id: err.code).toJSONString())
             }
         })
         
-        downloadTasks[asId] = downloadTask
+        downloadTasks[callbackId] = downloadTask
         
     }
     
-    func getMetadata(path: String, eventId: String) {
+    func getMetadata(path: String, callbackId: String) {
         guard let storageRef = storage?.reference(withPath: path) else { return }
         storageRef.getMetadata { metadata, error in
             if let err = error as NSError? {
                 self.dispatchEvent(name: StorageEvent.GET_METADATA,
-                               value: StorageEvent(eventId: eventId,
+                               value: StorageEvent(callbackId: callbackId,
                                                    data: nil,
                                                    error: err).toJSONString())
                 
@@ -272,7 +272,7 @@ class StorageController: FreSwiftController {
                     data["customMetadata"] = m.customMetadata
                     
                     self.dispatchEvent(name: StorageEvent.GET_METADATA,
-                                   value: StorageEvent(eventId: eventId,
+                                   value: StorageEvent(callbackId: callbackId,
                                                             data: ["data": data]).toJSONString())
                     
                 }
@@ -280,19 +280,19 @@ class StorageController: FreSwiftController {
         }
     }
     
-    func getDownloadUrl(path: String, eventId: String) {
+    func getDownloadUrl(path: String, callbackId: String) {
         guard let storageRef = storage?.reference(withPath: path) else { return }
         storageRef.downloadURL(completion: { url, error in
             if let err = error as NSError? {
                 self.dispatchEvent(name: StorageEvent.GET_DOWNLOAD_URL,
-                               value: StorageEvent(eventId: eventId,
+                               value: StorageEvent(callbackId: callbackId,
                                                    data: nil,
                                                    error: err).toJSONString())
                 
             } else {
                 if let u = url?.absoluteString {
                     self.dispatchEvent(name: StorageEvent.GET_DOWNLOAD_URL,
-                                   value: StorageEvent(eventId: eventId,
+                                   value: StorageEvent(callbackId: callbackId,
                                                             data: ["url": u]).toJSONString())
                 }
                 
@@ -300,18 +300,18 @@ class StorageController: FreSwiftController {
         })
     }
     
-    func updateMetadata(path: String, eventId: String?, metadata: StorageMetadata) {
+    func updateMetadata(path: String, callbackId: String?, metadata: StorageMetadata) {
         guard let storageRef = storage?.reference(withPath: path) else { return }
         storageRef.updateMetadata(metadata, completion: { _, error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: StorageEvent.UPDATE_METADATA,
-                               value: StorageEvent(eventId: eventId, 
+                               value: StorageEvent(callbackId: callbackId,
                                                    error: err).toJSONString())
                 
             } else { 
                 self.dispatchEvent(name: StorageEvent.UPDATE_METADATA,
-                               value: StorageEvent(eventId: eventId).toJSONString())
+                               value: StorageEvent(callbackId: callbackId).toJSONString())
                 
             }
         })
@@ -319,19 +319,19 @@ class StorageController: FreSwiftController {
     
     // MARK: - Tasks
     
-    func resumeTask(asId: String) {
-        uploadTasks[asId]?.resume()
-        downloadTasks[asId]?.resume()
+    func resumeTask(callbackId: String) {
+        uploadTasks[callbackId]?.resume()
+        downloadTasks[callbackId]?.resume()
     }
     
-    func pauseTask(asId: String) {
-        uploadTasks[asId]?.pause()
-        downloadTasks[asId]?.pause()
+    func pauseTask(callbackId: String) {
+        uploadTasks[callbackId]?.pause()
+        downloadTasks[callbackId]?.pause()
     }
     
-    func cancelTask(asId: String) {
-        uploadTasks[asId]?.cancel()
-        downloadTasks[asId]?.cancel()
+    func cancelTask(callbackId: String) {
+        uploadTasks[callbackId]?.cancel()
+        downloadTasks[callbackId]?.cancel()
     }
     
     // MARK: - Getters / Setters
@@ -375,22 +375,22 @@ class StorageController: FreSwiftController {
     
     // MARK: - AS Event Listeners
     
-    func addEventListener(asId: String, type: String) {
-        listeners.append(Listener(asId: asId, type: type))
+    func addEventListener(callbackId: String, type: String) {
+        listeners.append(Listener(callbackId: callbackId, type: type))
     }
     
-    func removeEventListener(asId: String, type: String) {
+    func removeEventListener(callbackId: String, type: String) {
         for i in 0..<listeners.count {
-            if listeners[i].asId == asId && listeners[i].type == type {
+            if listeners[i].callbackId == callbackId && listeners[i].type == type {
                 listeners.remove(at: i)
                 return
             }
         }
     }
     
-    private func hasEventListener(asId: String, type: String) -> Bool {
+    private func hasEventListener(callbackId: String, type: String) -> Bool {
         for i in 0..<listeners.count {
-            if listeners[i].asId == asId && listeners[i].type == type {
+            if listeners[i].callbackId == callbackId && listeners[i].type == type {
                 return true
             }
         }

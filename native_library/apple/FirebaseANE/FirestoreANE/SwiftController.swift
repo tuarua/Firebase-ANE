@@ -52,7 +52,7 @@ public class SwiftController: NSObject {
     func getDocuments(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 8,
             let path = String(argv[0]),
-            let asId = String(argv[1]),
+            let callbackId = String(argv[1]),
             let inFRE2 = argv[2],
             let inFRE3 = argv[3],
             let startAtList = [Any](argv[4]),
@@ -89,7 +89,7 @@ public class SwiftController: NSObject {
             }
         }
         
-        firestoreController?.getDocuments(path: path, eventId: asId, whereList: whereList,
+        firestoreController?.getDocuments(path: path, callbackId: callbackId, whereList: whereList,
                                           orderList: orderList, startAtList: startAtList,
                                           startAfterList: startAfterList,
                                           endAtList: endAtList, endBeforeList: endBeforeList, limitTo: limitTo)
@@ -118,11 +118,11 @@ public class SwiftController: NSObject {
     func getDocumentReference(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let path = String(argv[0]),
-            let eventId = String(argv[1])
+            let callbackId = String(argv[1])
             else {
                 return FreArgError().getError()
         }
-        firestoreController?.getDocumentReference(path: path, eventId: eventId)
+        firestoreController?.getDocumentReference(path: path, callbackId: callbackId)
         return nil
     }
     
@@ -134,8 +134,8 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError().getError()
         }
-        let eventId = String(argv[1])
-        firestoreController?.setDocumentReference(path: path, eventId: eventId,
+        let callbackId = String(argv[1])
+        firestoreController?.setDocumentReference(path: path, callbackId: callbackId,
                                                   documentData: documentData, merge: merge)
         return nil
     }
@@ -147,8 +147,8 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError().getError()
         }
-        let eventId = String(argv[1])
-        firestoreController?.updateDocumentReference(path: path, eventId: eventId, documentData: documentData)
+        let callbackId = String(argv[1])
+        firestoreController?.updateDocumentReference(path: path, callbackId: callbackId, documentData: documentData)
         return nil
     }
     
@@ -158,8 +158,8 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError().getError()
         }
-        let eventId = String(argv[1])
-        firestoreController?.deleteDocumentReference(path: path, eventId: eventId)
+        let callbackId = String(argv[1])
+        firestoreController?.deleteDocumentReference(path: path, callbackId: callbackId)
         return nil
     }
     
@@ -175,22 +175,23 @@ public class SwiftController: NSObject {
     func addSnapshotListenerDocument(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 2,
             let path = String(argv[0]),
-            let eventId = String(argv[1]),
-            let asId = String(argv[2])
+            let callbackId = String(argv[1]),
+            let callbackCallerId = String(argv[2])
             else {
                 return FreArgError().getError()
         }
-        firestoreController?.addSnapshotListenerDocument(path: path, eventId: eventId, asId: asId)
+        firestoreController?.addSnapshotListenerDocument(path: path, callbackId: callbackId,
+                                                         callbackCallerId: callbackCallerId)
         return nil
     }
     
     func removeSnapshotListener(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let asId = String(argv[0])
+            let callbackId = String(argv[0])
             else {
                 return FreArgError().getError()
         }
-        firestoreController?.removeSnapshotListener(asId: asId)
+        firestoreController?.removeSnapshotListener(callbackId: callbackId)
         return nil
     }
     
@@ -226,8 +227,8 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError().getError()
         }
-        let eventId = String(argv[0])
-        firestoreController?.commitBatch(eventId: eventId)
+        let callbackId = String(argv[0])
+        firestoreController?.commitBatch(callbackId: callbackId)
         return nil
     }
     
@@ -272,8 +273,8 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError().getError()
         }
-        let eventId = String(argv[0])
-        firestoreController?.enableNetwork(eventId: eventId)
+        let callbackId = String(argv[0])
+        firestoreController?.enableNetwork(callbackId: callbackId)
         return nil
     }
     
@@ -282,8 +283,8 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError().getError()
         }
-        let eventId = String(argv[0])
-        firestoreController?.disableNetwork(eventId: eventId)
+        let callbackId = String(argv[0])
+        firestoreController?.disableNetwork(callbackId: callbackId)
         return nil
     }
     

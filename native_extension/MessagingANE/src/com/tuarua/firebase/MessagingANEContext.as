@@ -14,9 +14,9 @@ public class MessagingANEContext {
 
     private static var _isInited:Boolean = false;
     private static var _context:ExtensionContext;
-    public static var closures:Dictionary = new Dictionary();
-    public static var closureCallers:Dictionary = new Dictionary();
-    private static var pObj:Object;
+    public static var callbacks:Dictionary = new Dictionary();
+    public static var callbackCallers:Dictionary = new Dictionary();
+    private static var argsAsJSON:Object;
 
     public function MessagingANEContext() {
     }
@@ -34,16 +34,16 @@ public class MessagingANEContext {
         return _context;
     }
 
-    public static function createEventId(listener:Function, listenerCaller:Object = null):String {
-        var eventId:String;
+    public static function createCallback(listener:Function, listenerCaller:Object = null):String {
+        var id:String;
         if (listener != null) {
-            eventId = context.call("createGUID") as String;
-            closures[eventId] = listener;
+            id = context.call("createGUID") as String;
+            callbacks[id] = listener;
             if (listenerCaller) {
-                closureCallers[eventId] = listenerCaller;
+                callbackCallers[id] = listenerCaller;
             }
         }
-        return eventId;
+        return id;
     }
 
     private static function gotEvent(event:StatusEvent):void {
@@ -53,17 +53,17 @@ public class MessagingANEContext {
                 break;
             case MessagingEvent.ON_MESSAGE_RECEIVED:
                 try {
-                    pObj = JSON.parse(event.code);
+                    argsAsJSON = JSON.parse(event.code);
                     MessagingANE.messaging.dispatchEvent(new MessagingEvent(event.level,
-                            ANEUtils.map(pObj.data, RemoteMessage) as RemoteMessage));
+                            ANEUtils.map(argsAsJSON.data, RemoteMessage) as RemoteMessage));
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
                 break;
             case MessagingEvent.ON_TOKEN_REFRESHED:
                 try {
-                    pObj = JSON.parse(event.code);
-                    MessagingANE.messaging.dispatchEvent(new MessagingEvent(event.level, null, pObj.data.token));
+                    argsAsJSON = JSON.parse(event.code);
+                    MessagingANE.messaging.dispatchEvent(new MessagingEvent(event.level, null, argsAsJSON.data.token));
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }

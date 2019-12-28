@@ -58,19 +58,19 @@ class KotlinController : FreKotlinMainController {
     fun process(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
-        val eventId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         GlobalScope.launch(bgContext) {
             recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
-                    results[eventId] = result
+                    results[callbackId] = result
                     dispatchEvent(CloudDocumentEvent.RECOGNIZED,
-                            gson.toJson(CloudDocumentEvent(eventId, null)))
+                            gson.toJson(CloudDocumentEvent(callbackId, null)))
                 } else {
                     val error = task.exception
                     dispatchEvent(CloudDocumentEvent.RECOGNIZED,
                             gson.toJson(
-                                    CloudDocumentEvent(eventId, mapOf(
+                                    CloudDocumentEvent(callbackId, mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -84,48 +84,48 @@ class KotlinController : FreKotlinMainController {
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val eventId = String(argv[0]) ?: return null
-        return results[eventId]?.toFREObject(eventId)
+        val callbackId = String(argv[0]) ?: return null
+        return results[callbackId]?.toFREObject(callbackId)
     }
 
     fun getBlocks(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val resultId = String(argv[0]) ?: return null
-        return results[resultId]?.blocks?.toFREObject(resultId)
+        val id = String(argv[0]) ?: return null
+        return results[id]?.blocks?.toFREObject(id)
     }
 
     fun getParagraphs(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
-        val resultId = String(argv[0]) ?: return null
+        val id = String(argv[0]) ?: return null
         val blockIndex = Int(argv[1]) ?: return null
 
-        val document = results[resultId] ?: return null
+        val document = results[id] ?: return null
         if (document.blocks.size <= blockIndex) return null
-        return document.blocks[blockIndex].paragraphs.toFREObject(resultId, blockIndex)
+        return document.blocks[blockIndex].paragraphs.toFREObject(id, blockIndex)
     }
 
     fun getWords(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 2 } ?: return FreArgException()
-        val resultId = String(argv[0]) ?: return null
+        val id = String(argv[0]) ?: return null
         val blockIndex = Int(argv[1]) ?: return null
         val paragraphIndex = Int(argv[2]) ?: return null
 
-        val document = results[resultId] ?: return null
+        val document = results[id] ?: return null
         if (document.blocks.size <= blockIndex) return null
         val block = document.blocks[blockIndex] ?: return null
         if (block.paragraphs.size <= paragraphIndex) return null
         val paragraph = block.paragraphs[paragraphIndex]
-        return paragraph.words.toFREObject(resultId, blockIndex, paragraphIndex)
+        return paragraph.words.toFREObject(id, blockIndex, paragraphIndex)
     }
 
     fun getSymbols(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 3 } ?: return FreArgException()
-        val resultId = String(argv[0]) ?: return null
+        val id = String(argv[0]) ?: return null
         val blockIndex = Int(argv[1]) ?: return null
         val paragraphIndex = Int(argv[2]) ?: return null
         val wordIndex = Int(argv[3]) ?: return null
 
-        val document = results[resultId] ?: return null
+        val document = results[id] ?: return null
         if (document.blocks.size <= blockIndex) return null
         val block = document.blocks[blockIndex] ?: return null
         if (block.paragraphs.size <= paragraphIndex) return null

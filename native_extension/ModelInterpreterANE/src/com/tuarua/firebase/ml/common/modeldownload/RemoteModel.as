@@ -17,7 +17,6 @@
 package com.tuarua.firebase.ml.common.modeldownload {
 public class RemoteModel {
     private var _name:String;
-    // TODO second param
     public function RemoteModel(name:String) {
         this._name = name;
     }

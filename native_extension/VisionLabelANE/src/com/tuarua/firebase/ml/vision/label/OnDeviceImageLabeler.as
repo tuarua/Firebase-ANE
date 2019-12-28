@@ -15,7 +15,6 @@
  */
 
 package com.tuarua.firebase.ml.vision.label {
-import com.tuarua.firebase.ml.vision.label.OnDeviceImageLabelerOptions;
 import com.tuarua.firebase.ml.vision.common.VisionImage;
 import com.tuarua.fre.ANEError;
 
@@ -26,7 +25,7 @@ import flash.utils.Dictionary;
 public class OnDeviceImageLabeler {
     internal static const NAME:String = "VisionLabelANE";
     private static var _context:ExtensionContext;
-    public static var closures:Dictionary = new Dictionary();
+    public static var callbacks:Dictionary = new Dictionary();
     private static const RECOGNIZED:String = "LabelEvent.Recognized";
 
     public function OnDeviceImageLabeler(options:OnDeviceImageLabelerOptions) {
@@ -43,19 +42,25 @@ public class OnDeviceImageLabeler {
         }
     }
 
-    private function createEventId(listener:Function):String {
-        var eventId:String;
+    private function createCallback(listener:Function):String {
+        var id:String;
         if (listener != null) {
-            eventId = context.call("createGUID") as String;
-            closures[eventId] = listener;
+            id = context.call("createGUID") as String;
+            callbacks[id] = listener;
         }
-        return eventId;
+        return id;
+    }
+
+    private static function callCallback(callbackId:String, ... args):void {
+        var callback:Function = callbacks[callbackId];
+        if (callback == null) return;
+        callback.apply(null, args);
+        delete callbacks[callbackId];
     }
 
     /** @private */
     public static function gotEvent(event:StatusEvent):void {
-        var pObj:Object;
-        var closure:Function;
+        var argsAsJSON:Object;
         var err:OnDeviceImageError;
         switch (event.level) {
             case "TRACE":
@@ -63,19 +68,16 @@ public class OnDeviceImageLabeler {
                 break;
             case RECOGNIZED:
                 try {
-                    pObj = JSON.parse(event.code);
-                    closure = closures[pObj.eventId];
-                    if (closure == null) return;
-                    if (pObj.hasOwnProperty("error") && pObj.error) {
-                        err = new OnDeviceImageError(pObj.error.text, pObj.error.id);
+                    argsAsJSON = JSON.parse(event.code);
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new OnDeviceImageError(argsAsJSON.error.text, argsAsJSON.error.id);
                     }
-                    var ret:* = _context.call("getResults", pObj.eventId);
+                    var ret:* = _context.call("getResults", argsAsJSON.callbackId);
                     if (ret is ANEError) {
                         printANEError(ret as ANEError);
                         return;
                     }
-                    closure.call(null, ret, err);
-                    delete closures[pObj.eventId];
+                    callCallback(argsAsJSON.callbackId, ret, err);
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
@@ -90,7 +92,7 @@ public class OnDeviceImageLabeler {
      * @param listener Closure to call back on the main queue with labels detected or error.
      */
     public function process(image:VisionImage, listener:Function):void {
-        var ret:* = _context.call("process", image, createEventId(listener));
+        var ret:* = _context.call("process", image, createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 

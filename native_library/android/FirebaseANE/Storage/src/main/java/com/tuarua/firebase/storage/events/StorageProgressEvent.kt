@@ -16,7 +16,7 @@
 
 package com.tuarua.firebase.storage.events
 
-data class StorageProgressEvent(val eventId: String, val bytesLoaded: Long, val bytesTotal: Long) {
+data class StorageProgressEvent(val callbackId: String, val bytesLoaded: Long, val bytesTotal: Long) {
     companion object {
         const val PROGRESS = "StorageProgressEvent.Progress"
     }

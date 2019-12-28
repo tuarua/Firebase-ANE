@@ -33,11 +33,8 @@ public extension VisionCloudLandmark {
 
 public extension Array where Element == VisionCloudLandmark? {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.ml.vision.cloud.landmark.CloudLandmark")
-            else { return nil }
-        for element in self {
-            ret.push(element?.toFREObject())
-        }
-        return ret.rawValue
+        return FREArray(className: "com.tuarua.firebase.ml.vision.cloud.landmark.CloudLandmark",
+                        items: self.compactMap { $0?.toFREObject() })?.rawValue
+
     }
 }
