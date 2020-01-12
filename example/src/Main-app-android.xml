@@ -243,7 +243,6 @@
         <extensionID>com.google.firebase.firebase-invites</extensionID>
         <extensionID>com.google.firebase.firebase-messaging</extensionID>
         <extensionID>com.google.firebase.firebase-perf</extensionID>
-
         <extensionID>com.crashlytics.sdk.android.crashlytics</extensionID>
 
     </extensions>
