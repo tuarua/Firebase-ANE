@@ -1,7 +1,7 @@
 #!/bin/sh
 
 AneVersion="0.10.0"
-FreKotlinVersion="1.9.1"
+FreKotlinVersion="1.9.5"
 PlayerServicesBaseVersion="17.1.0"
 SupportV4Version="1.0.0"
 AnalyticsVersion="17.2.1"
@@ -12,7 +12,7 @@ ModelInterpreterVersion="22.0.1"
 NaturalLanguageVersion="22.0.0"
 FaceModelVersion="19.0.0"
 BarcodeModelVersion="16.0.2"
-KotlinxCoroutinesVersion="1.2.2"
+KotlinxCoroutinesVersion="1.3.3"
 EventBusVersion="3.0.0"
 GsonVersion="2.8.6"
 ConfigVersion="19.0.3"

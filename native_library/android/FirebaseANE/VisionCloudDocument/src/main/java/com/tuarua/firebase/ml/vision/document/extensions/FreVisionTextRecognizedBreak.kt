@@ -20,11 +20,15 @@ import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.document.FirebaseVisionDocumentText
 import com.tuarua.frekotlin.FREObject
 import com.tuarua.frekotlin.set
-import com.tuarua.frekotlin.toFREObject
 
 fun FirebaseVisionDocumentText.RecognizedBreak.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.vision.document.RecognizedBreak")
-    ret["isPrefix"] = this.isPrefix.toFREObject()
-    ret["type"] = this.detectedBreakType.toFREObject()
+    ret["isPrefix"] = isPrefix
+    ret["type"] = detectedBreakType
     return ret
+}
+
+operator fun FREObject?.set(name: String, value: FirebaseVisionDocumentText.RecognizedBreak?) {
+    val rv = this ?: return
+    rv[name] = value?.toFREObject()
 }

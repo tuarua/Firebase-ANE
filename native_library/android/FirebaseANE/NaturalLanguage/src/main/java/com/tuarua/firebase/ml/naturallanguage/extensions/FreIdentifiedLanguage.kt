@@ -24,12 +24,11 @@ import com.google.firebase.ml.naturallanguage.languageid.IdentifiedLanguage
 import com.tuarua.frekotlin.FREArray
 import com.tuarua.frekotlin.FREObject
 import com.tuarua.frekotlin.set
-import com.tuarua.frekotlin.toFREObject
 
 fun IdentifiedLanguage.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.naturallanguage.languageid.IdentifiedLanguage")
-    ret["confidence"] = confidence.toFREObject()
-    ret["languageCode"] = languageCode.toFREObject()
+    ret["confidence"] = confidence
+    ret["languageCode"] = languageCode
     return ret
 }
 

@@ -22,12 +22,11 @@ import com.adobe.fre.FREObject
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigInfo
 import com.tuarua.frekotlin.FREObject
 import com.tuarua.frekotlin.set
-import com.tuarua.frekotlin.toFREObject
 
 fun FirebaseRemoteConfigInfo.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.remoteconfig.RemoteConfigInfo")
-    ret["fetchTime"] = fetchTimeMillis.toFREObject()
-    ret["lastFetchStatus"] = lastFetchStatus.toFREObject()
-    ret["configSettings"] = configSettings.toFREObject()
+    ret["fetchTime"] = fetchTimeMillis
+    ret["lastFetchStatus"] = lastFetchStatus
+    ret["configSettings"] = configSettings
     return ret
 }

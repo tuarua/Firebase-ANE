@@ -23,23 +23,23 @@ import com.google.firebase.ml.vision.face.FirebaseVisionFaceContour.*
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark.*
 import com.tuarua.frekotlin.*
-import com.tuarua.frekotlin.geom.toFREObject
+import com.tuarua.frekotlin.geom.set
 
 fun FirebaseVisionFace.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.vision.face.Face")
-    ret["frame"] = this.boundingBox.toFREObject()
-    ret["hasTrackingId"] = true.toFREObject()
-    ret["trackingId"] = this.trackingId.toFREObject()
-    ret["hasHeadEulerAngleY"] = true.toFREObject()
-    ret["headEulerAngleY"] = this.headEulerAngleY.toFREObject()
-    ret["hasHeadEulerAngleZ"] = true.toFREObject()
-    ret["headEulerAngleZ"] = this.headEulerAngleZ.toFREObject()
-    ret["hasSmilingProbability"] = true.toFREObject()
-    ret["smilingProbability"] = this.smilingProbability.toFREObject()
-    ret["hasLeftEyeOpenProbability"] = true.toFREObject()
-    ret["leftEyeOpenProbability"] = this.leftEyeOpenProbability.toFREObject()
-    ret["hasRightEyeOpenProbability"] = true.toFREObject()
-    ret["rightEyeOpenProbability"] = this.rightEyeOpenProbability.toFREObject()
+    ret["frame"] = boundingBox
+    ret["hasTrackingId"] = true
+    ret["trackingId"] = trackingId
+    ret["hasHeadEulerAngleY"] = true
+    ret["headEulerAngleY"] = headEulerAngleY
+    ret["hasHeadEulerAngleZ"] = true
+    ret["headEulerAngleZ"] = headEulerAngleZ
+    ret["hasSmilingProbability"] = true
+    ret["smilingProbability"] = smilingProbability
+    ret["hasLeftEyeOpenProbability"] = true
+    ret["leftEyeOpenProbability"] = leftEyeOpenProbability
+    ret["hasRightEyeOpenProbability"] = true
+    ret["rightEyeOpenProbability"] = rightEyeOpenProbability
 
     val landmarkTypes = listOf(
             FirebaseVisionFaceLandmark.LEFT_EYE, FirebaseVisionFaceLandmark.RIGHT_EYE,

@@ -15,6 +15,8 @@
  */
 package com.tuarua.firebase;
 
+import androidx.annotation.NonNull;
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.dynamiclinks.KotlinController;
@@ -35,8 +37,9 @@ public class DynamicLinksANE implements FREExtension {
 
     }
 
+    @NonNull
     @Override
-    public FREContext createContext(String s) {
+    public FREContext createContext(@NonNull String s) {
         String NAME = "com.tuarua.firebase.DynamicLinksANE";
         return extensionContext = new DynamicLinksANEContext(NAME, new KotlinController(), FUNCTIONS);
     }

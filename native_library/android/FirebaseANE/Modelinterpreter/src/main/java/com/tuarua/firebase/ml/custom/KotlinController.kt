@@ -154,7 +154,6 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-
     fun createGUID(ctx: FREContext, argv: FREArgv): FREObject? {
         return UUID.randomUUID().toString().toFREObject()
     }

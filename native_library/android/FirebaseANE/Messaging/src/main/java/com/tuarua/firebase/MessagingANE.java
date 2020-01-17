@@ -21,6 +21,7 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.messaging.KotlinController;
 
+@SuppressWarnings({"unused"})
 public class MessagingANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"

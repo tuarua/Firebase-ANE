@@ -72,12 +72,12 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
                      startAfterList: List<Any>, endAtList: List<Any>,
                      endBeforeList: List<Any>, limitTo: Int) {
         var q: Query = firestore.collection(path)
-        for (w in whereList) when {
-            w.operator == "==" -> q = q.whereEqualTo(w.fieldPath, w.value)
-            w.operator == "<" -> q = q.whereLessThan(w.fieldPath, w.value)
-            w.operator == ">" -> q = q.whereGreaterThan(w.fieldPath, w.value)
-            w.operator == ">=" -> q = q.whereGreaterThanOrEqualTo(w.fieldPath, w.value)
-            w.operator == "<=" -> q = q.whereLessThanOrEqualTo(w.fieldPath, w.value)
+        for (w in whereList) when (w.operator) {
+            "==" -> q = q.whereEqualTo(w.fieldPath, w.value)
+            "<" -> q = q.whereLessThan(w.fieldPath, w.value)
+            ">" -> q = q.whereGreaterThan(w.fieldPath, w.value)
+            ">=" -> q = q.whereGreaterThanOrEqualTo(w.fieldPath, w.value)
+            "<=" -> q = q.whereLessThanOrEqualTo(w.fieldPath, w.value)
         }
 
         orderList.forEach { o -> q = q.orderBy(o.by, if (o.descending) DESCENDING else ASCENDING) }

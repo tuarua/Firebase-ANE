@@ -106,8 +106,8 @@ class KotlinController : FreKotlinMainController {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: PermissionEvent) {
         dispatchEvent(PermissionEvent.ON_PERMISSION_STATUS, gson.toJson(event))
-        when {
-            event.status == PermissionEvent.PERMISSION_ALWAYS -> permissionsGranted = true
+        when (event.status) {
+            PermissionEvent.PERMISSION_ALWAYS -> permissionsGranted = true
         }
     }
 

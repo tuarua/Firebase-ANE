@@ -33,8 +33,8 @@ fun FirebaseFirestoreSettings(freObject: FREObject?): FirebaseFirestoreSettings?
 
 fun FirebaseFirestoreSettings.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.firestore.FirestoreSettings")
-    ret["host"] = host.toFREObject()
-    ret["isPersistenceEnabled"] = isPersistenceEnabled.toFREObject()
-    ret["isSslEnabled"] = isSslEnabled.toFREObject()
+    ret["host"] = host
+    ret["isPersistenceEnabled"] = isPersistenceEnabled
+    ret["isSslEnabled"] = isSslEnabled
     return ret
 }

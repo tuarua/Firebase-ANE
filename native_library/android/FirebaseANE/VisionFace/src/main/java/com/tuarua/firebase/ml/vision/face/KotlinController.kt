@@ -63,7 +63,7 @@ class KotlinController : FreKotlinMainController {
             detector.detectInImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
-                    if (!result.isEmpty()) {
+                    if (result.isNotEmpty()) {
                         results[callbackId] = result
                         dispatchEvent(FaceEvent.DETECTED,
                                 gson.toJson(FaceEvent(callbackId, null)))

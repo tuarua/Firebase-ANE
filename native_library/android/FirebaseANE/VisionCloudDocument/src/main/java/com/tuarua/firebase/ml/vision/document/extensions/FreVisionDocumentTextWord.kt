@@ -19,22 +19,19 @@ package com.tuarua.firebase.ml.vision.document.extensions
 import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.document.FirebaseVisionDocumentText
-import com.tuarua.frekotlin.FREArray
-import com.tuarua.frekotlin.FREObject
-import com.tuarua.frekotlin.geom.toFREObject
-import com.tuarua.frekotlin.set
-import com.tuarua.frekotlin.toFREObject
-import com.tuarua.firebase.ml.vision.text.extensions.toFREObject
+import com.tuarua.firebase.ml.vision.text.extensions.set
+import com.tuarua.frekotlin.*
+import com.tuarua.frekotlin.geom.set
 
 fun FirebaseVisionDocumentText.Word.toFREObject(resultId: String, blockIndex: Int,
                                                 paragraphIndex: Int, index: Int): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.vision.document.DocumentTextWord",
             resultId, blockIndex, paragraphIndex, index)
-    ret["frame"] = boundingBox?.toFREObject()
-    ret["text"] = text.toFREObject()
-    ret["confidence"] = confidence?.toFREObject()
-    ret["recognizedLanguages"] = this.recognizedLanguages.toFREObject()
-    ret["recognizedBreak"] = this.recognizedBreak?.toFREObject()
+    ret["frame"] = boundingBox
+    ret["text"] = text
+    confidence?.let { ret["confidence"] = it }
+    ret["recognizedLanguages"] = recognizedLanguages
+    ret["recognizedBreak"] = recognizedBreak
     return ret
 }
 

@@ -21,9 +21,9 @@ import com.tuarua.frekotlin.*
 
 fun FirebaseVisionBarcode.ContactInfo.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.vision.barcode.BarcodeContactInfo")
-    ret["jobTitle"] = title?.toFREObject()
-    ret["name"] = name?.toFREObject()
-    ret["organization"] = organization?.toFREObject()
+    ret["jobTitle"] = title
+    ret["name"] = name
+    ret["organization"] = organization
 
     if (addresses.isNotEmpty()) {
         val freAddressArr = FREArray("com.tuarua.firebase.ml.vision.barcode.BarcodeAddress",
@@ -52,5 +52,9 @@ fun FirebaseVisionBarcode.ContactInfo.toFREObject(): FREObject? {
     return ret
 }
 
+operator fun FREObject?.set(name: String, value: FirebaseVisionBarcode.ContactInfo?) {
+    val rv = this ?: return
+    rv[name] = value?.toFREObject()
+}
 
 

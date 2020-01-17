@@ -15,6 +15,8 @@
  */
 package com.tuarua.firebase;
 
+import androidx.annotation.NonNull;
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.auth.KotlinController;
@@ -54,7 +56,7 @@ public class AuthANE implements FREExtension {
     }
 
     @Override
-    public FREContext createContext(String s) {
+    public FREContext createContext(@NonNull String s) {
         String NAME = "com.tuarua.firebase.AuthANE";
         return extensionContext = new AuthANEContext(NAME, new KotlinController(), FUNCTIONS);
     }

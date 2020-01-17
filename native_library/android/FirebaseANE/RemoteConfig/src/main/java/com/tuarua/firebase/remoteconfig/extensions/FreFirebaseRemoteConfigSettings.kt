@@ -33,7 +33,12 @@ fun FirebaseRemoteConfigSettings(freObject: FREObject?): FirebaseRemoteConfigSet
 
 fun FirebaseRemoteConfigSettings.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.remoteconfig.RemoteConfigSettings")
-    ret["fetchTimeout"] = this.fetchTimeoutInSeconds.toFREObject()
-    ret["minimumFetchInterval"] = this.minimumFetchIntervalInSeconds.toFREObject()
+    ret["fetchTimeout"] = fetchTimeoutInSeconds
+    ret["minimumFetchInterval"] = minimumFetchIntervalInSeconds
     return ret
+}
+
+operator fun FREObject?.set(name: String, value: FirebaseRemoteConfigSettings) {
+    val rv = this ?: return
+    rv[name] = value.toFREObject()
 }

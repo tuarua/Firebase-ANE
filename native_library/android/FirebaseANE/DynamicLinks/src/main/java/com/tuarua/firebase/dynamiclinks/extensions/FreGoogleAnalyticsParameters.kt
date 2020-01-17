@@ -7,7 +7,7 @@ import com.tuarua.frekotlin.String
 import com.tuarua.frekotlin.get
 
 @Suppress("FunctionName")
-fun GoogleAnalyticsParameters(freObject: FREObject?): DynamicLink.GoogleAnalyticsParameters? {
+fun GoogleAnalyticsParameters(freObject: FREObject?): GoogleAnalyticsParameters? {
     val rv = freObject ?: return null
     val campaign = String(rv["campaign"])
     val content = String(rv["content"])

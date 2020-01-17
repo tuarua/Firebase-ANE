@@ -75,7 +75,7 @@ class KotlinController : FreKotlinMainController {
         try {
             val ba = remoteConfig[key].asByteArray()
             val ret = FREByteArray.newByteArray()
-            ret["length"] = ba.size.toFREObject()
+            ret["length"] = ba.size
             ret.acquire()
             ret.bytes.get(ba)
             ret.release()

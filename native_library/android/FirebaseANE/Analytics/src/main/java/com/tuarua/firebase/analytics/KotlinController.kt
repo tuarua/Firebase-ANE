@@ -5,14 +5,12 @@ import com.adobe.fre.FREObject
 import com.tuarua.frekotlin.*
 import android.os.Bundle
 import android.util.Log
-import com.google.firebase.FirebaseApp
 import com.google.firebase.analytics.FirebaseAnalytics
 
 fun <V> Map<String, V>.toBundle(bundle: Bundle = Bundle()): Bundle = bundle.apply {
     forEach {
         val k = it.key
-        val v = it.value
-        when (v) {
+        when (val v = it.value) {
             is String -> putString(k, v)
             is Int -> putInt(k, v)
             is Double -> putDouble(k, v)

@@ -4,7 +4,6 @@ import android.content.res.Resources
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.android.gms.common.ConnectionResult
-import com.google.firebase.FirebaseApp
 import com.tuarua.frekotlin.*
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.firebase.ktx.Firebase
@@ -73,12 +72,12 @@ class KotlinController : FreKotlinMainController {
             null
         }
         val ret = FREObject("com.tuarua.firebase.FirebaseOptions")
-        ret["apiKey"] = apiKey?.toFREObject()
-        ret["googleAppId"] = googleAppId?.toFREObject()
-        ret["databaseUrl"] = databaseUrl?.toFREObject()
-        ret["storageBucket"] = storageBucket?.toFREObject()
-        ret["projectId"] = projectId?.toFREObject()
-        ret["gcmSenderId"] = gcmSenderId?.toFREObject()
+        ret["apiKey"] = apiKey
+        ret["googleAppId"] = googleAppId
+        ret["databaseUrl"] = databaseUrl
+        ret["storageBucket"] = storageBucket
+        ret["projectId"] = projectId
+        ret["gcmSenderId"] = gcmSenderId
         return ret
 
     }

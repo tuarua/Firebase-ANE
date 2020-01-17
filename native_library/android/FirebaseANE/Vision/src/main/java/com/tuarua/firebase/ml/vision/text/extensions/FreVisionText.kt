@@ -22,7 +22,7 @@ import com.tuarua.frekotlin.*
 
 fun FirebaseVisionText.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.vision.text.Text")
-    ret["text"] = this.text.toFREObject()
-    ret["blocks"] = this.textBlocks.toFREObject()
+    ret["text"] = text
+    ret["blocks"] = textBlocks
     return ret
 }
