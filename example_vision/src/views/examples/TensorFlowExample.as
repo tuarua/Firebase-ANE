@@ -7,7 +7,7 @@ import com.tuarua.firebase.ml.custom.CustomRemoteModel;
 import com.tuarua.firebase.ml.custom.ModelElementType;
 import com.tuarua.firebase.ml.custom.ModelInputOutputOptions;
 import com.tuarua.firebase.ml.custom.ModelInputs;
-import com.tuarua.firebase.ml.custom.ModelInterpreterANE;
+import com.tuarua.firebase.ml.custom.ModelInterpreter;
 import com.tuarua.firebase.ml.custom.ModelInterpreterError;
 import com.tuarua.firebase.ml.custom.ModelInterpreterOptions;
 
@@ -42,7 +42,7 @@ public class TensorFlowExample extends Sprite implements IExample {
     private var stageWidth:Number;
     private var stageHeight:Number;
     private var isInited:Boolean;
-    private var modelInterpreter:ModelInterpreterANE;
+    private var modelInterpreter:ModelInterpreter;
     private var modelManager:ModelManager;
 
     public function TensorFlowExample(stageWidth:int) {
@@ -91,8 +91,8 @@ public class TensorFlowExample extends Sprite implements IExample {
             return;
         }
         var options:ModelInterpreterOptions = new ModelInterpreterOptions(new CustomLocalModel("mobilenet/mobilenet_quant_v2_1.0_299.tflite"));
-        modelInterpreter = ModelInterpreterANE.modelInterpreter(options);
-        modelManager = ModelInterpreterANE.modelManager;
+        modelInterpreter = ModelInterpreter.shared(options);
+        modelManager = ModelInterpreter.modelManager;
         isInited = true;
     }
 

@@ -1,6 +1,6 @@
 package views.examples {
 
-import com.tuarua.firebase.VisionANE;
+import com.tuarua.firebase.Vision;
 import com.tuarua.firebase.ml.vision.barcode.Barcode;
 import com.tuarua.firebase.ml.vision.barcode.BarcodeDetector;
 import com.tuarua.firebase.ml.vision.barcode.BarcodeDetectorOptions;
@@ -60,10 +60,10 @@ public class BarcodeExample extends Sprite implements IExample {
     private var stageHeight:Number;
     private var isInited:Boolean;
     private var barcodeDetector:BarcodeDetector;
-    private var vision:VisionANE;
+    private var vision:Vision;
     private var infoBox:MeshRoundRect;
 
-    public function BarcodeExample(stageWidth:Number, stageHeight:Number, vision:VisionANE) {
+    public function BarcodeExample(stageWidth:Number, stageHeight:Number, vision:Vision) {
         super();
         this.vision = vision;
         this.stageWidth = stageWidth;

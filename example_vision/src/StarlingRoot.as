@@ -1,9 +1,9 @@
 package {
-import com.tuarua.FirebaseANE;
+import com.tuarua.Firebase;
 import com.tuarua.firebase.FirebaseOptions;
-import com.tuarua.firebase.VisionANE;
-import com.tuarua.firebase.ml.custom.ModelInterpreterANE;
-import com.tuarua.firebase.ml.naturallanguage.NaturalLanguageANE;
+import com.tuarua.firebase.Vision;
+import com.tuarua.firebase.ml.custom.ModelInterpreter;
+import com.tuarua.firebase.ml.naturallanguage.NaturalLanguage;
 import com.tuarua.firebase.ml.vision.barcode.BarcodeDetector;
 import com.tuarua.firebase.ml.vision.cloud.landmark.CloudLandmarkDetector;
 import com.tuarua.firebase.ml.vision.face.FaceDetector;
@@ -54,8 +54,8 @@ public class StarlingRoot extends Sprite {
     private var languageExample:NaturalLanguageExample;
     private var tensorFlowExample:TensorFlowExample;
 
-    private var vision:VisionANE;
-    private var naturalLanguage:NaturalLanguageANE;
+    private var vision:Vision;
+    private var naturalLanguage:NaturalLanguage;
 
     public function StarlingRoot() {
         TextField.registerCompositor(Fonts.getFont("fira-sans-semi-bold-13"), "Fira Sans Semi-Bold 13");
@@ -64,21 +64,21 @@ public class StarlingRoot extends Sprite {
 
     public function start():void {
         try {
-            FirebaseANE.init();
-            if (!FirebaseANE.isGooglePlayServicesAvailable) {
+            Firebase.init();
+            if (!Firebase.isGooglePlayServicesAvailable) {
                 trace("Google Play Services Not Available");
                 return;
             }
-            var fo:FirebaseOptions = FirebaseANE.options;
+            var fo:FirebaseOptions = Firebase.options;
             if (fo) {
                 trace("apiKey", fo.apiKey);
                 trace("googleAppId", fo.googleAppId);
                 trace("storageBucket", fo.storageBucket);
             }
 
-            naturalLanguage = NaturalLanguageANE.naturalLanguage;
+            naturalLanguage = NaturalLanguage.shared();
 
-            vision = VisionANE.vision;
+            vision = Vision.vision;
             vision.cameraOverlay.contentScaleFactor = Starling.contentScaleFactor;
             vision.addEventListener(PermissionEvent.STATUS_CHANGED, onPermissionsStatus);
             vision.requestPermissions();
@@ -258,7 +258,7 @@ public class StarlingRoot extends Sprite {
     }
 
     private static function onExiting(event:Event):void {
-        FirebaseANE.dispose();
+        Firebase.dispose();
         BarcodeDetector.dispose();
         FaceDetector.dispose();
         TextRecognizer.dispose();
@@ -266,9 +266,9 @@ public class StarlingRoot extends Sprite {
         OnDeviceImageLabeler.dispose();
         CloudImageLabeler.dispose();
         CloudLandmarkDetector.dispose();
-        VisionANE.dispose();
-        NaturalLanguageANE.dispose();
-        ModelInterpreterANE.dispose();
+        Vision.dispose();
+        NaturalLanguage.dispose();
+        ModelInterpreter.dispose();
     }
 
 }

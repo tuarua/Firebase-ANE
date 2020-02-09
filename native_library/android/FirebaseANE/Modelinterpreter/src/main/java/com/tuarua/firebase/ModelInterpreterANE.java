@@ -22,7 +22,7 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.ml.custom.KotlinController;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({"unused"})
 public class ModelInterpreterANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"

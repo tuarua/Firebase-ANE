@@ -47,7 +47,7 @@ public class NaturalLanguage extends EventDispatcher {
     }
 
     /** The NaturalLanguage ANE instance. */
-    public static function get naturalLanguage():NaturalLanguage {
+    public static function shared():NaturalLanguage {
         if (!_naturalLanguage) {
             new NaturalLanguage();
         }

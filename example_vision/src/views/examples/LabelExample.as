@@ -1,5 +1,5 @@
 package views.examples {
-import com.tuarua.firebase.VisionANE;
+import com.tuarua.firebase.Vision;
 import com.tuarua.firebase.ml.vision.common.VisionImage;
 import com.tuarua.firebase.ml.vision.label.CloudImageError;
 import com.tuarua.firebase.ml.vision.label.CloudImageLabeler;
@@ -37,11 +37,11 @@ public class LabelExample extends Sprite implements IExample {
     private var stageWidth:Number;
     private var stageHeight:Number;
     private var isInited:Boolean;
-    private var vision:VisionANE;
+    private var vision:Vision;
     private var onDeviceImageLabeler:OnDeviceImageLabeler;
     private var cloudImageLabeler:CloudImageLabeler;
 
-    public function LabelExample(stageWidth:int, vision:VisionANE) {
+    public function LabelExample(stageWidth:int, vision:Vision) {
         super();
         this.vision = vision;
         this.stageWidth = stageWidth;

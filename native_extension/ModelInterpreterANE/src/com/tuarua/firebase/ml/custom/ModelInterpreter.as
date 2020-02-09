@@ -21,7 +21,7 @@ import com.tuarua.fre.ANEError;
 import flash.events.EventDispatcher;
 
 public class ModelInterpreter extends EventDispatcher {
-    private static var _modelInterpreter:ModelInterpreter;
+    private static var _shared:ModelInterpreter;
     private static var _modelManager:ModelManager = new ModelManager();
     private var options:ModelInterpreterOptions;
     private static var _isStatsCollectionEnabled:Boolean = true;
@@ -32,7 +32,7 @@ public class ModelInterpreter extends EventDispatcher {
             var ret:* = ModelInterpreterANEContext.context.call("init", options, _isStatsCollectionEnabled);
             if (ret is ANEError) throw ret as ANEError;
         }
-        _modelInterpreter = this;
+        _shared = this;
     }
 
     /**
@@ -57,14 +57,14 @@ public class ModelInterpreter extends EventDispatcher {
     /**
      * A Firebase interpreter for a custom model.
      */
-    public static function modelInterpreter(options:ModelInterpreterOptions):ModelInterpreter {
-        if (_modelInterpreter == null) {
+    public static function shared(options:ModelInterpreterOptions):ModelInterpreter {
+        if (_shared == null) {
             new ModelInterpreter(options);
         } else {
             var ret:* = ModelInterpreterANEContext.context.call("init", options, _isStatsCollectionEnabled);
             if (ret is ANEError) throw ret as ANEError;
         }
-        return _modelInterpreter;
+        return _shared;
     }
 
     /**

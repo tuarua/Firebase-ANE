@@ -1,5 +1,5 @@
 package views.examples {
-import com.tuarua.firebase.VisionANE;
+import com.tuarua.firebase.Vision;
 import com.tuarua.firebase.ml.vision.common.VisionImage;
 import com.tuarua.firebase.ml.vision.face.Face;
 import com.tuarua.firebase.ml.vision.face.FaceDetector;
@@ -44,9 +44,9 @@ public class FaceExample extends Sprite implements IExample {
     private var bmpFace:Bitmap = new faceBitmap() as Bitmap;
     private var faceContainer:Sprite = new Sprite();
 
-    private var vision:VisionANE;
+    private var vision:Vision;
 
-    public function FaceExample(stageWidth:int, vision:VisionANE) {
+    public function FaceExample(stageWidth:int, vision:Vision) {
         super();
         this.vision = vision;
         this.stageWidth = stageWidth;

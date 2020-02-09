@@ -1,5 +1,5 @@
 package views.examples {
-import com.tuarua.firebase.VisionANE;
+import com.tuarua.firebase.Vision;
 import com.tuarua.firebase.ml.vision.cloud.CloudDetectorOptions;
 import com.tuarua.firebase.ml.vision.cloud.CloudModelType;
 import com.tuarua.firebase.ml.vision.cloud.landmark.CloudLandmark;
@@ -36,10 +36,10 @@ public class LandmarkExample extends Sprite implements IExample {
     private var stageWidth:Number;
     private var stageHeight:Number;
     private var isInited:Boolean;
-    private var vision:VisionANE;
+    private var vision:Vision;
     private var cloudLandmarkDetector:CloudLandmarkDetector;
 
-    public function LandmarkExample(stageWidth:int, vision:VisionANE) {
+    public function LandmarkExample(stageWidth:int, vision:Vision) {
         super();
         this.vision = vision;
         this.stageWidth = stageWidth;
