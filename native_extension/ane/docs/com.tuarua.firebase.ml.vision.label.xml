@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.tuarua.firebase.ml.vision.label"><apiName>com.tuarua.firebase.ml.vision.label</apiName><apiDetail/><apiClassifier id="com.tuarua.firebase.ml.vision.label:VisionImageLabel"><apiName>VisionImageLabel</apiName><shortdesc>
+ Represents a label for an image.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ Represents a label for an image.
+ </apiDesc></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.ml.vision.label:VisionImageLabel:VisionImageLabel"><apiName>VisionImageLabel</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.ml.vision.label:VisionImageLabel:confidence"><apiName>confidence</apiName><shortdesc>
+     Confidence for the label in range [0, 1].</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
+     Confidence for the label in range [0, 1].
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.ml.vision.label:VisionImageLabel:entityId"><apiName>entityId</apiName><shortdesc>
+     Opaque entity ID.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     Opaque entity ID. Some IDs may be available in [Google Knowledge Graph Search API].
+     (https://developers.google.com/knowledge-graph/).
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.ml.vision.label:VisionImageLabel:text"><apiName>text</apiName><shortdesc>
+     The human readable label string in American English.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     <p>The human readable label string in American English. For example: "Balloon".</p>
+     
+     <p>Note: this is not fit for display purposes, as it is not localized. Use the <codeph>entityId</codeph> and query
+     the Knowledge Graph to get a localized description of the label.</p>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>

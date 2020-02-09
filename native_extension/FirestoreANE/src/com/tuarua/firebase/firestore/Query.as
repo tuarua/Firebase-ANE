@@ -45,7 +45,7 @@ public class Query {
      * Creates a new query that returns only documents that include the specified fields and where
      * the values satisfy the constraints provided.
      * @param fieldPath The path to compare.
-     * @param operator The operation string (e.g "<", "<=", "==", ">", ">=").
+     * @param operator The operation string (e.g "&lt;", "&lt;=", "==", "&gt;", "&gt;=").
      * @param value The value for comparison.
      */
     public function where(fieldPath:String, operator:String, value:*):Query {
