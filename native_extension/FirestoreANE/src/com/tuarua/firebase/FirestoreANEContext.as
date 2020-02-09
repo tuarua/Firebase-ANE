@@ -65,7 +65,7 @@ public class FirestoreANEContext {
 
     public static function createCallback(listener:Function, listenerCaller:Object = null):String {
         var id:String;
-        if (listener) {
+        if (listener != null) {
             id = context.call("createGUID") as String;
             callbacks[id] = listener;
             if (listenerCaller) {

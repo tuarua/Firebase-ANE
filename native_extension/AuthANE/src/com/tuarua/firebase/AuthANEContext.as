@@ -50,7 +50,7 @@ public class AuthANEContext {
 
     public static function createCallback(listener:Function):String{
         var id:String;
-        if (listener) {
+        if (listener != null) {
             id = context.call("createGUID") as String;
             callbacks[id] = listener;
         }
