@@ -20,21 +20,7 @@ on set-up and each of the FirebaseANEs.
 
 ## Asdocs
 
-- https://tuarua.github.io/asdocs/firebaseane/analytics/
-- https://tuarua.github.io/asdocs/firebaseane/auth/
-- https://tuarua.github.io/asdocs/firebaseane/core/
-- https://tuarua.github.io/asdocs/firebaseane/dynamiclinks/
-- https://tuarua.github.io/asdocs/firebaseane/invites/
-- https://tuarua.github.io/asdocs/firebaseane/googlesignin/
-- https://tuarua.github.io/asdocs/firebaseane/firestore/
-- https://tuarua.github.io/asdocs/firebaseane/messaging/
-- https://tuarua.github.io/asdocs/firebaseane/performance/
-- https://tuarua.github.io/asdocs/firebaseane/remoteconfig/
-- https://tuarua.github.io/asdocs/firebaseane/storage/
-- https://tuarua.github.io/asdocs/firebaseane/crashlytics/
-- https://tuarua.github.io/asdocs/firebaseane/naturallanguage/
-- https://tuarua.github.io/asdocs/firebaseane/modelinterpreter/
-- https://tuarua.github.io/asdocs/visionane/
+- https://tuarua.github.io/asdocs/firebaseane/
 
 ## Issue Tracker
 

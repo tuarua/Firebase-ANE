@@ -20,13 +20,13 @@ import com.tuarua.fre.ANEError;
 
 import flash.events.EventDispatcher;
 
-public class ModelInterpreterANE extends EventDispatcher {
-    private static var _modelInterpreter:ModelInterpreterANE;
+public class ModelInterpreter extends EventDispatcher {
+    private static var _modelInterpreter:ModelInterpreter;
     private static var _modelManager:ModelManager = new ModelManager();
     private var options:ModelInterpreterOptions;
     private static var _isStatsCollectionEnabled:Boolean = true;
 
-    public function ModelInterpreterANE(options:ModelInterpreterOptions) {
+    public function ModelInterpreter(options:ModelInterpreterOptions) {
         this.options = options;
         if (ModelInterpreterANEContext.context) {
             var ret:* = ModelInterpreterANEContext.context.call("init", options, _isStatsCollectionEnabled);
@@ -57,9 +57,9 @@ public class ModelInterpreterANE extends EventDispatcher {
     /**
      * A Firebase interpreter for a custom model.
      */
-    public static function modelInterpreter(options:ModelInterpreterOptions):ModelInterpreterANE {
+    public static function modelInterpreter(options:ModelInterpreterOptions):ModelInterpreter {
         if (_modelInterpreter == null) {
-            new ModelInterpreterANE(options);
+            new ModelInterpreter(options);
         } else {
             var ret:* = ModelInterpreterANEContext.context.call("init", options, _isStatsCollectionEnabled);
             if (ret is ANEError) throw ret as ANEError;

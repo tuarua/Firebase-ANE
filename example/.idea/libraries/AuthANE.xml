@@ -4,7 +4,7 @@
       <root url="jar://$DOCUMENTS$/Firebase-ANE/native_extension/AuthANE/ane/AuthANE.ane!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="https://tuarua.github.io/asdocs/firebaseane/auth/index.html" />
+      <root url="https://tuarua.github.io/asdocs/firebaseane/index.html" />
     </JAVADOC>
     <SOURCES />
   </library>

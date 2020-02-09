@@ -40,7 +40,7 @@ public class AuthExample extends Sprite implements IExample {
     public function initANE():void {
         if (isInited) return;
         auth = Firebase.auth();
-        googleSignIn = GoogleSignIn.googleSignIn;
+        googleSignIn = GoogleSignIn.shared();
         googleSignIn.addEventListener(GoogleSignInEvent.SIGN_IN, onGoogleSignIn);
         googleSignIn.addEventListener(GoogleSignInEvent.ERROR, onGoogleSignIn);
         isInited = true;

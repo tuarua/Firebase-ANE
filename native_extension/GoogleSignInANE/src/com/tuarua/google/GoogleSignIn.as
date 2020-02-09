@@ -20,7 +20,7 @@ import com.tuarua.fre.ANEError;
 import flash.events.EventDispatcher;
 
 public final class GoogleSignIn extends EventDispatcher {
-    private static var _googleSignIn:GoogleSignIn;
+    private static var _shared:GoogleSignIn;
 
     /** @private */
     public function GoogleSignIn() {
@@ -28,15 +28,15 @@ public final class GoogleSignIn extends EventDispatcher {
             var ret:* = GoogleSignInANEContext.context.call("init");
             if (ret is ANEError) throw ret as ANEError;
         }
-        _googleSignIn = this;
+        _shared = this;
     }
 
     /** The ANE instance. */
-    public static function get googleSignIn():GoogleSignIn {
-        if (!_googleSignIn) {
+    public static function shared():GoogleSignIn {
+        if (!_shared) {
             new GoogleSignIn();
         }
-        return _googleSignIn;
+        return _shared;
     }
 
     /** Starts the sign-in process. Note that this method should not be called when the app is starting up.*/

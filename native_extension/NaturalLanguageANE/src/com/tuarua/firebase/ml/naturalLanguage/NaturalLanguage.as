@@ -46,7 +46,7 @@ public class NaturalLanguage extends EventDispatcher {
         return _languageIdentification;
     }
 
-    /** The Vision ANE instance. */
+    /** The NaturalLanguage ANE instance. */
     public static function get naturalLanguage():NaturalLanguage {
         if (!_naturalLanguage) {
             new NaturalLanguage();
