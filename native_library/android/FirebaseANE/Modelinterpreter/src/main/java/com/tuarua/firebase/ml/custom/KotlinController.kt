@@ -37,7 +37,7 @@ import java.util.*
 import kotlin.coroutines.CoroutineContext
 import kotlin.experimental.and
 
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private val gson = Gson()
     private val bgContext: CoroutineContext = Dispatchers.Default

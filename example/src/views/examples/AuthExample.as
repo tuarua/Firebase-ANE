@@ -1,10 +1,11 @@
 package views.examples {
-import com.tuarua.firebase.AuthANE;
+import com.tuarua.Firebase;
+import com.tuarua.firebase.Auth;
 import com.tuarua.firebase.auth.AuthError;
 import com.tuarua.firebase.auth.EmailAuthCredential;
 import com.tuarua.firebase.auth.FirebaseUser;
 import com.tuarua.firebase.auth.GoogleAuthCredential;
-import com.tuarua.google.GoogleSignInANE;
+import com.tuarua.google.GoogleSignIn;
 import com.tuarua.google.signin.events.GoogleSignInEvent;
 
 import starling.display.Sprite;
@@ -19,8 +20,8 @@ import views.SimpleButton;
 public class AuthExample extends Sprite implements IExample {
     private var stageWidth:Number;
     private var isInited:Boolean;
-    private var auth:AuthANE;
-    private var googleSignIn:GoogleSignInANE;
+    private var auth:Auth;
+    private var googleSignIn:GoogleSignIn;
     private var btnSignInAnon:SimpleButton = new SimpleButton("Login Anonymously");
     private var btnSignInEmailPassword:SimpleButton = new SimpleButton("Sign in w/ Email + Password");
     private var btnSignOut:SimpleButton = new SimpleButton("Sign out");
@@ -38,8 +39,8 @@ public class AuthExample extends Sprite implements IExample {
 
     public function initANE():void {
         if (isInited) return;
-        auth = AuthANE.auth;
-        googleSignIn = GoogleSignInANE.googleSignIn;
+        auth = Firebase.auth();
+        googleSignIn = GoogleSignIn.googleSignIn;
         googleSignIn.addEventListener(GoogleSignInEvent.SIGN_IN, onGoogleSignIn);
         googleSignIn.addEventListener(GoogleSignInEvent.ERROR, onGoogleSignIn);
         isInited = true;

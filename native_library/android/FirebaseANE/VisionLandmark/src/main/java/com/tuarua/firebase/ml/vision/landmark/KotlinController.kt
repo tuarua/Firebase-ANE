@@ -34,7 +34,7 @@ import kotlinx.coroutines.launch
 import java.util.*
 
 
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private var results: MutableMap<String, MutableList<FirebaseVisionCloudLandmark>> = mutableMapOf()
     private val gson = Gson()

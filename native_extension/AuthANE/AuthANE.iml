@@ -5,7 +5,7 @@
       <configuration name="AuthANE" target-platform="Mobile" pure-as="true" output-type="Library" output-file="AuthANE.swc" output-folder="$MODULE_DIR$/bin">
         <dependencies target-player="27.0">
           <entries>
-            <entry module-name="FirebaseANE" build-configuration-name="FirebaseANE">
+            <entry module-name="ANEUtils" build-configuration-name="ANEUtils">
               <dependency linkage="External" />
             </entry>
           </entries>
@@ -28,6 +28,6 @@
     </content>
     <orderEntry type="jdk" jdkName="AIRSDK_32" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="FirebaseANE" exported="" />
+    <orderEntry type="module" module-name="ANEUtils" exported="" />
   </component>
 </module>

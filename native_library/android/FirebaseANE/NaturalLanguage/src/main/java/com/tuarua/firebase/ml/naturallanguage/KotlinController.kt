@@ -32,7 +32,7 @@ import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.coroutines.CoroutineContext
 
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private var results: MutableMap<String, String> = mutableMapOf()
     private var resultsMulti: MutableMap<String, MutableList<IdentifiedLanguage>> = mutableMapOf()

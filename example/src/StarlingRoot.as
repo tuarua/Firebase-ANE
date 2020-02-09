@@ -1,17 +1,16 @@
 package {
-import com.tuarua.FirebaseANE;
-import com.tuarua.firebase.AnalyticsANE;
-import com.tuarua.firebase.AuthANE;
-import com.tuarua.firebase.CrashlyticsANE;
+import com.tuarua.Firebase;
+import com.tuarua.firebase.Analytics;
+import com.tuarua.firebase.Auth;
+import com.tuarua.firebase.Crashlytics;
 
-import com.tuarua.firebase.DynamicLinksANE;
+import com.tuarua.firebase.DynamicLinks;
 import com.tuarua.firebase.FirebaseOptions;
-import com.tuarua.firebase.FirestoreANE;
-import com.tuarua.firebase.InvitesANE;
-import com.tuarua.firebase.MessagingANE;
-import com.tuarua.firebase.PerformanceANE;
-import com.tuarua.firebase.RemoteConfigANE;
-import com.tuarua.firebase.StorageANE;
+import com.tuarua.firebase.Firestore;
+import com.tuarua.firebase.Messaging;
+import com.tuarua.firebase.Performance;
+import com.tuarua.firebase.RemoteConfig;
+import com.tuarua.firebase.Storage;
 import com.tuarua.fre.ANEError;
 
 import flash.desktop.NativeApplication;
@@ -41,7 +40,6 @@ public class StarlingRoot extends Sprite {
     private var btnPerformance:SimpleButton = new SimpleButton("Performance");
     private var btnMessaging:SimpleButton = new SimpleButton("Messaging");
     private var btnDynamicLinks:SimpleButton = new SimpleButton("Dynamic Links");
-    private var btnInvites:SimpleButton = new SimpleButton("Invites");
     private var btnCrashlytics:SimpleButton = new SimpleButton("Crashlytics");
 
     private var btnBack:SimpleButton = new SimpleButton("Back");
@@ -56,7 +54,6 @@ public class StarlingRoot extends Sprite {
     private var performanceExample:PerformanceExample;
     private var messagingExample:MessagingExample;
     private var dynamicLinksExample:DynamicLinksExample;
-    private var invitesExample:InvitesExample;
     private var crashlyticsExample:CrashlyticsExample;
 
     public function StarlingRoot() {
@@ -66,12 +63,12 @@ public class StarlingRoot extends Sprite {
 
     public function start():void {
         try {
-            FirebaseANE.init();
-            if(!FirebaseANE.isGooglePlayServicesAvailable) {
+            Firebase.init();
+            if(!Firebase.isGooglePlayServicesAvailable) {
                 trace("Google Play Services Not Available");
                 return;
             }
-            var fo:FirebaseOptions = FirebaseANE.options;
+            var fo:FirebaseOptions = Firebase.options;
             if (fo) {
                 trace("apiKey", fo.apiKey);
                 trace("googleAppId", fo.googleAppId);
@@ -115,10 +112,6 @@ public class StarlingRoot extends Sprite {
         dynamicLinksExample.x = stage.stageWidth;
         addChild(dynamicLinksExample);
 
-        invitesExample = new InvitesExample(stage.stageWidth);
-        invitesExample.x = stage.stageWidth;
-        addChild(invitesExample);
-
         crashlyticsExample = new CrashlyticsExample(stage.stageWidth);
         crashlyticsExample.x = stage.stageWidth;
         addChild(crashlyticsExample);
@@ -127,7 +120,7 @@ public class StarlingRoot extends Sprite {
     }
 
     private function initMenu():void {
-        btnCrashlytics.x = btnInvites.x = btnDynamicLinks.x = btnMessaging.x = btnPerformance.x = btnAuth.x = btnRemoteConfig.x = btnBack.x = btnStorage.x =
+        btnCrashlytics.x = btnDynamicLinks.x = btnMessaging.x = btnPerformance.x = btnAuth.x = btnRemoteConfig.x = btnBack.x = btnStorage.x =
                 btnFirestore.x = btnAnalytics.x = (stage.stageWidth - 200) * 0.5;
         btnAnalytics.y = GAP;
         btnAnalytics.addEventListener(TouchEvent.TOUCH, onAnalyticsClick);
@@ -161,11 +154,7 @@ public class StarlingRoot extends Sprite {
         btnDynamicLinks.addEventListener(TouchEvent.TOUCH, onDynamicLinksClick);
         menuContainer.addChild(btnDynamicLinks);
 
-        btnInvites.y = btnDynamicLinks.y + GAP;
-        btnInvites.addEventListener(TouchEvent.TOUCH, onInvitesClick);
-        menuContainer.addChild(btnInvites);
-
-        btnCrashlytics.y = btnInvites.y + GAP;
+        btnCrashlytics.y = btnDynamicLinks.y + GAP;
         btnCrashlytics.addEventListener(TouchEvent.TOUCH, onCrashlyticsClick);
         menuContainer.addChild(btnCrashlytics);
 
@@ -256,15 +245,6 @@ public class StarlingRoot extends Sprite {
         }
     }
 
-    private function onInvitesClick(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(btnInvites);
-        if (touch != null && touch.phase == TouchPhase.ENDED) {
-            showMenu(false);
-            showExample(invitesExample);
-            btnBack.visible = true;
-        }
-    }
-
     private function onCrashlyticsClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnCrashlytics);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
@@ -297,24 +277,22 @@ public class StarlingRoot extends Sprite {
             showExample(performanceExample, false);
             showExample(messagingExample, false);
             showExample(dynamicLinksExample, false);
-            showExample(invitesExample, false);
             showExample(crashlyticsExample, false);
             btnBack.visible = false;
         }
     }
 
     private function onExiting(event:Event):void {
-        FirebaseANE.dispose();
-        AnalyticsANE.dispose();
-        FirestoreANE.dispose();
-        StorageANE.dispose();
-        RemoteConfigANE.dispose();
-        AuthANE.dispose();
-        PerformanceANE.dispose();
-        MessagingANE.dispose();
-        DynamicLinksANE.dispose();
-        InvitesANE.dispose();
-        CrashlyticsANE.dispose();
+        Firebase.dispose();
+        Analytics.dispose();
+        Firestore.dispose();
+        Storage.dispose();
+        RemoteConfig.dispose();
+        Auth.dispose();
+        Performance.dispose();
+        Messaging.dispose();
+        DynamicLinks.dispose();
+        Crashlytics.dispose();
     }
 
 }

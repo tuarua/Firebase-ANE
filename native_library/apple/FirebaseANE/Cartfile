@@ -7,7 +7,6 @@ binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAuthBinary.json" 
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebasePerformanceBinary.json" == 6.13.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseMessagingBinary.json" == 6.13.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseDynamicLinksBinary.json" == 6.13.0
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseInvitesBinary.json" == 5.6.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseMLVisionBinary.json" == 6.13.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseMLModelInterpreterBinary.json" == 6.13.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseMLVisionBarcodeModelBinary.json" == 6.13.0

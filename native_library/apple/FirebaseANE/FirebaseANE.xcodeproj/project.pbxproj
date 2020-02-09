@@ -99,7 +99,6 @@
 		90236A5D222A0EB300C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; platformFilter = ios; };
 		90236A5E222A0EC200C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; platformFilter = ios; };
 		90236A5F222A0ED400C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; platformFilter = ios; };
-		90236A60222A0F2B00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; platformFilter = ios; };
 		90236A61222A0F5A00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; platformFilter = ios; };
 		90236A62222A0F6700C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; platformFilter = ios; };
 		90236A63222A0F7C00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; platformFilter = ios; };
@@ -165,7 +164,6 @@
 		90741DB52150513E003366E3 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90741DB121504FC2003366E3 /* GoogleUtilities.framework */; platformFilter = ios; };
 		90741DB62150514A003366E3 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90741DB121504FC2003366E3 /* GoogleUtilities.framework */; platformFilter = ios; };
 		90741DB721505154003366E3 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB572BC208D21C300CF6B1B /* GoogleToolboxForMac.framework */; platformFilter = ios; };
-		90741DB82150522F003366E3 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB572BC208D21C300CF6B1B /* GoogleToolboxForMac.framework */; platformFilter = ios; };
 		9076901A21CEF477004F0D35 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; platformFilter = ios; };
 		9076901B21CEF4B2004F0D35 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8BC50920B205F9009164ED /* SafariServices.framework */; platformFilter = ios; };
 		9076901C21CEF4C1004F0D35 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8BC50B20B20601009164ED /* Security.framework */; platformFilter = ios; };
@@ -271,7 +269,6 @@
 		90EFB71D23AAA45800910A47 /* MessagingANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB71C23AAA45800910A47 /* MessagingANE-Swift.h */; platformFilter = ios; };
 		90EFB71F23AAA50800910A47 /* DynamicLinksANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB71E23AAA50800910A47 /* DynamicLinksANE-Swift.h */; platformFilter = ios; };
 		90EFB72123AAA54D00910A47 /* GoogleSignInANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB72023AAA54D00910A47 /* GoogleSignInANE-Swift.h */; platformFilter = ios; };
-		90EFB72323AAA5C100910A47 /* InvitesANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB72223AAA5C100910A47 /* InvitesANE-Swift.h */; platformFilter = ios; };
 		90EFB72523AAA81A00910A47 /* CrashlyticsANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB72423AAA81A00910A47 /* CrashlyticsANE-Swift.h */; platformFilter = ios; };
 		90EFB72723AAA86400910A47 /* VisionANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB72623AAA86400910A47 /* VisionANE-Swift.h */; platformFilter = ios; };
 		90EFB72923AAA90800910A47 /* VisionFaceANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB72823AAA90800910A47 /* VisionFaceANE-Swift.h */; platformFilter = ios; };
@@ -440,23 +437,6 @@
 		CEB572C3208D221100CF6B1B /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; platformFilter = ios; };
 		CEB572C4208D221600CF6B1B /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; platformFilter = ios; };
 		CEB572C5208D221900CF6B1B /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D49208CE3FF00C96EC6 /* FirebaseInstanceID.framework */; platformFilter = ios; };
-		CEB947F120D5CED000F707C1 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
-		CEB947F220D5CED000F707C1 /* FirebaseDynamicLinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8BC4C320B1C9BE009164ED /* FirebaseDynamicLinks.framework */; platformFilter = ios; };
-		CEB947F320D5CED000F707C1 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; platformFilter = ios; };
-		CEB947F720D5CED000F707C1 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; platformFilter = ios; };
-		CEB9480220D5CFEB00F707C1 /* InvitesANE.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9480120D5CFEB00F707C1 /* InvitesANE.m */; platformFilter = ios; };
-		CEB9480420D5D00500F707C1 /* InvitesANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB9480320D5D00500F707C1 /* InvitesANE_oc.h */; platformFilter = ios; };
-		CEB9480620D5D02A00F707C1 /* InvitesANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB9480520D5D02A00F707C1 /* InvitesANE-Bridging-Header.h */; platformFilter = ios; };
-		CEB9480820D5D04300F707C1 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9480720D5D04300F707C1 /* SwiftController.swift */; platformFilter = ios; };
-		CEB9480A20D5D05700F707C1 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9480920D5D05700F707C1 /* SwiftController+FreSwift.swift */; platformFilter = ios; };
-		CEB9480B20D5D5AD00F707C1 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; platformFilter = ios; };
-		CEB9480C20D5D5B200F707C1 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED7492220929C1F000327CD /* GTMSessionFetcher.framework */; platformFilter = ios; };
-		CEB9480D20D5D5B900F707C1 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37220D06A86002837B7 /* GoogleSignIn.framework */; platformFilter = ios; };
-		CEB9480E20D5D5BF00F707C1 /* GoogleAPIClientForREST.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */; platformFilter = ios; };
-		CEB9480F20D5D5DD00F707C1 /* GTMOAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE62B37820D06AF9002837B7 /* GTMOAuth2.framework */; platformFilter = ios; };
-		CEB9481120D5D60100F707C1 /* FirebaseInvites.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB9481020D5D60100F707C1 /* FirebaseInvites.framework */; platformFilter = ios; };
-		CEB9481320D5D64B00F707C1 /* SwiftController+InviteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9481220D5D64B00F707C1 /* SwiftController+InviteDelegate.swift */; platformFilter = ios; };
-		CEB9481720D5DB5700F707C1 /* InvitesEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9481620D5DB5700F707C1 /* InvitesEvent.swift */; platformFilter = ios; };
 		CEBCF7A82095F9160028601B /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
 		CEBCF7A92095F9160028601B /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; platformFilter = ios; };
 		CEBCF7B02095F9160028601B /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; platformFilter = ios; };
@@ -660,7 +640,6 @@
 		90EFB71C23AAA45800910A47 /* MessagingANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MessagingANE-Swift.h"; sourceTree = "<group>"; };
 		90EFB71E23AAA50800910A47 /* DynamicLinksANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DynamicLinksANE-Swift.h"; sourceTree = "<group>"; };
 		90EFB72023AAA54D00910A47 /* GoogleSignInANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoogleSignInANE-Swift.h"; sourceTree = "<group>"; };
-		90EFB72223AAA5C100910A47 /* InvitesANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InvitesANE-Swift.h"; sourceTree = "<group>"; };
 		90EFB72423AAA81A00910A47 /* CrashlyticsANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CrashlyticsANE-Swift.h"; sourceTree = "<group>"; };
 		90EFB72623AAA86400910A47 /* VisionANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionANE-Swift.h"; sourceTree = "<group>"; };
 		90EFB72823AAA90800910A47 /* VisionFaceANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionFaceANE-Swift.h"; sourceTree = "<group>"; };
@@ -800,15 +779,6 @@
 		CEB572B3208D0FAA00CF6B1B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		CEB572BA208D21A200CF6B1B /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Carthage/Build/iOS/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		CEB572BC208D21C300CF6B1B /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = Carthage/Build/iOS/GoogleToolboxForMac.framework; sourceTree = "<group>"; };
-		CEB947FD20D5CED000F707C1 /* libInvitesANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libInvitesANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEB9480120D5CFEB00F707C1 /* InvitesANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InvitesANE.m; sourceTree = "<group>"; };
-		CEB9480320D5D00500F707C1 /* InvitesANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InvitesANE_oc.h; sourceTree = "<group>"; };
-		CEB9480520D5D02A00F707C1 /* InvitesANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InvitesANE-Bridging-Header.h"; sourceTree = "<group>"; };
-		CEB9480720D5D04300F707C1 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
-		CEB9480920D5D05700F707C1 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
-		CEB9481020D5D60100F707C1 /* FirebaseInvites.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInvites.framework; path = Carthage/Build/iOS/FirebaseInvites.framework; sourceTree = "<group>"; };
-		CEB9481220D5D64B00F707C1 /* SwiftController+InviteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+InviteDelegate.swift"; sourceTree = "<group>"; };
-		CEB9481620D5DB5700F707C1 /* InvitesEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitesEvent.swift; sourceTree = "<group>"; };
 		CEBCF7B62095F9160028601B /* libAuthANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAuthANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBCF7B72095F9820028601B /* AuthANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthANE.m; sourceTree = "<group>"; };
 		CEBCF7B92095F99B0028601B /* AuthANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthANE_oc.h; sourceTree = "<group>"; };
@@ -1145,23 +1115,6 @@
 				CE265755208E5BC100C561E8 /* Protobuf.framework in Frameworks */,
 				CE265757208E5BC100C561E8 /* leveldb-library.framework in Frameworks */,
 				9076901A21CEF477004F0D35 /* nanopb.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CEB947EF20D5CED000F707C1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CEB947F120D5CED000F707C1 /* FreSwift.framework in Frameworks */,
-				CEB9480B20D5D5AD00F707C1 /* Protobuf.framework in Frameworks */,
-				CEB9481120D5D60100F707C1 /* FirebaseInvites.framework in Frameworks */,
-				CEB9480D20D5D5B900F707C1 /* GoogleSignIn.framework in Frameworks */,
-				CEB9480E20D5D5BF00F707C1 /* GoogleAPIClientForREST.framework in Frameworks */,
-				CEB9480C20D5D5B200F707C1 /* GTMSessionFetcher.framework in Frameworks */,
-				CEB9480F20D5D5DD00F707C1 /* GTMOAuth2.framework in Frameworks */,
-				CEB947F220D5CED000F707C1 /* FirebaseDynamicLinks.framework in Frameworks */,
-				CEB947F320D5CED000F707C1 /* FirebaseCore.framework in Frameworks */,
-				90741DB82150522F003366E3 /* GoogleToolboxForMac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1658,7 +1611,6 @@
 				CE6E038020EECAB5008D6CE8 /* FirebaseMLVisionBarcodeModel.framework */,
 				CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */,
 				CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */,
-				CEB9481020D5D60100F707C1 /* FirebaseInvites.framework */,
 				CE62B37820D06AF9002837B7 /* GTMOAuth2.framework */,
 				CE62B37520D06AAC002837B7 /* GoogleAPIClientForREST.framework */,
 				CE62B37220D06A86002837B7 /* GoogleSignIn.framework */,
@@ -1906,7 +1858,6 @@
 				CE8D621320F16ABC00FB2569 /* VisionANE */,
 				CE6E039A20EED9FA008D6CE8 /* VisionCommon */,
 				CE6E035B20EEC80B008D6CE8 /* VisionBarcodeANE */,
-				CEB947E220D5CEBD00F707C1 /* InvitesANE */,
 				CE62B36420D061A7002837B7 /* GoogleSignInANE */,
 				CE8BC49620B1C85E009164ED /* DynamicLinksANE */,
 				CEE3AE5820A0691000D3AAF6 /* MessagingANE */,
@@ -1937,7 +1888,6 @@
 				CEE3AE8320A06D2600D3AAF6 /* libMessagingANE_LIB.a */,
 				CE8BC4B920B1C890009164ED /* libDynamicLinksANE_LIB.a */,
 				CE62B36320D0618E002837B7 /* libGoogleSignInANE_LIB.a */,
-				CEB947FD20D5CED000F707C1 /* libInvitesANE_LIB.a */,
 				CE6E037720EEC828008D6CE8 /* libVisionBarcodeANE_LIB.a */,
 				CE5E6B2620F1787D001398C5 /* libVisionANE_LIB.a */,
 				CE2C3F6820F3F27200B9E210 /* libVisionFaceANE_LIB.a */,
@@ -2098,45 +2048,6 @@
 				CEB572AF208CF92400CF6B1B /* FirestoreANE-Bridging-Header.h */,
 			);
 			path = Headers;
-			sourceTree = "<group>";
-		};
-		CEB947E220D5CEBD00F707C1 /* InvitesANE */ = {
-			isa = PBXGroup;
-			children = (
-				CEB9480020D5CF4B00F707C1 /* Extensions */,
-				CEB947FF20D5CF4400F707C1 /* Headers */,
-				CEB947FE20D5CF3B00F707C1 /* Events */,
-				CEB9480120D5CFEB00F707C1 /* InvitesANE.m */,
-				CEB9480720D5D04300F707C1 /* SwiftController.swift */,
-				CEB9480920D5D05700F707C1 /* SwiftController+FreSwift.swift */,
-				CEB9481220D5D64B00F707C1 /* SwiftController+InviteDelegate.swift */,
-			);
-			path = InvitesANE;
-			sourceTree = "<group>";
-		};
-		CEB947FE20D5CF3B00F707C1 /* Events */ = {
-			isa = PBXGroup;
-			children = (
-				CEB9481620D5DB5700F707C1 /* InvitesEvent.swift */,
-			);
-			path = Events;
-			sourceTree = "<group>";
-		};
-		CEB947FF20D5CF4400F707C1 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				90EFB72223AAA5C100910A47 /* InvitesANE-Swift.h */,
-				CEB9480520D5D02A00F707C1 /* InvitesANE-Bridging-Header.h */,
-				CEB9480320D5D00500F707C1 /* InvitesANE_oc.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		CEB9480020D5CF4B00F707C1 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CEBCF7962095F8730028601B /* AuthANE */ = {
@@ -2520,17 +2431,6 @@
 				CED749152092975C000327CD /* FreMacros.h in Headers */,
 				CEB572B1208CF92400CF6B1B /* FirestoreANE-Bridging-Header.h in Headers */,
 				903EDD9223AAF1FA00960A23 /* FirestoreANE-Swift.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CEB947F420D5CED000F707C1 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				90EFB72323AAA5C100910A47 /* InvitesANE-Swift.h in Headers */,
-				CEB9480420D5D00500F707C1 /* InvitesANE_oc.h in Headers */,
-				CEB9480620D5D02A00F707C1 /* InvitesANE-Bridging-Header.h in Headers */,
-				CEB947F720D5CED000F707C1 /* FreMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2921,25 +2821,6 @@
 			productReference = CEB57299208CF73F00CF6B1B /* libFirestoreANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		CEB947E320D5CED000F707C1 /* InvitesANE_LIB */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CEB947FA20D5CED000F707C1 /* Build configuration list for PBXNativeTarget "InvitesANE_LIB" */;
-			buildPhases = (
-				CEB947E420D5CED000F707C1 /* Sources */,
-				CEB947EF20D5CED000F707C1 /* Frameworks */,
-				CEB947F420D5CED000F707C1 /* Headers */,
-				CEB947F820D5CED000F707C1 /* ShellScript */,
-				CEB947F920D5CED000F707C1 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = InvitesANE_LIB;
-			productName = HelloWorldANE_LIB;
-			productReference = CEB947FD20D5CED000F707C1 /* libInvitesANE_LIB.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		CEBCF79A2095F9160028601B /* AuthANE_LIB */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEBCF7B32095F9160028601B /* Build configuration list for PBXNativeTarget "AuthANE_LIB" */;
@@ -3079,7 +2960,6 @@
 				CE8BC49A20B1C890009164ED /* DynamicLinksANE_LIB */,
 				CE62B34920D0618E002837B7 /* GoogleSignInANE_LIB */,
 				90E495DA222A8EA200CF3B24 /* NaturalLanguageANE_LIB */,
-				CEB947E320D5CED000F707C1 /* InvitesANE_LIB */,
 				CE6E035C20EEC828008D6CE8 /* VisionBarcodeANE_LIB */,
 				CE5E6AFC20F1787D001398C5 /* VisionANE_LIB */,
 				CE2C3F3E20F3F27200B9E210 /* VisionFaceANE_LIB */,
@@ -3537,32 +3417,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
-		CEB947F820D5CED000F707C1 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		CEB947F920D5CED000F707C1 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "../../../native_extension/InvitesANE/ane/build_multi.sh\n";
-		};
 		CEBCF7B12095F9160028601B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3997,19 +3851,6 @@
 				CE26575E208E744D00C561E8 /* FreQueryDocumentSnapshot.swift in Sources */,
 				CE69C8DE208FF9E9004A1A5A /* NetworkEvent.swift in Sources */,
 				CE69C8DB208FEE1E004A1A5A /* BatchEvent.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CEB947E420D5CED000F707C1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CEB9480220D5CFEB00F707C1 /* InvitesANE.m in Sources */,
-				90236A60222A0F2B00C4CB68 /* FreNSError.swift in Sources */,
-				CEB9481320D5D64B00F707C1 /* SwiftController+InviteDelegate.swift in Sources */,
-				CEB9480820D5D04300F707C1 /* SwiftController.swift in Sources */,
-				CEB9480A20D5D05700F707C1 /* SwiftController+FreSwift.swift in Sources */,
-				CEB9481720D5DB5700F707C1 /* InvitesEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5150,61 +4991,6 @@
 			};
 			name = Release;
 		};
-		CEB947FB20D5CED000F707C1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "InvitesANE/Headers/InvitesANE-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "InvitesANE/InvitesANE-Swift.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		CEB947FC20D5CED000F707C1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "InvitesANE/Headers/InvitesANE-Bridging-Header.h";
-				SWIFT_OBJC_INTERFACE_HEADER_NAME = "InvitesANE/InvitesANE-Swift.h";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		CEBCF7B42095F9160028601B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -5641,15 +5427,6 @@
 			buildConfigurations = (
 				CEB57297208CF73F00CF6B1B /* Debug */,
 				CEB57298208CF73F00CF6B1B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CEB947FA20D5CED000F707C1 /* Build configuration list for PBXNativeTarget "InvitesANE_LIB" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CEB947FB20D5CED000F707C1 /* Debug */,
-				CEB947FC20D5CED000F707C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -9,8 +9,7 @@ import com.google.android.gms.common.GoogleApiAvailability
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.ktx.initialize
 
-
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         val context = context ?: return FreException("no context").getError()

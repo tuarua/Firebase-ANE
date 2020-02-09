@@ -50,12 +50,12 @@ public class RemoteConfigANEContext {
                 trace("[" + NAME + "]", event.code);
                 break;
             case RemoteConfigEvent.FETCH:
-                RemoteConfigANE.remoteConfig.dispatchEvent(new RemoteConfigEvent(event.level));
+                RemoteConfig.shared.dispatchEvent(new RemoteConfigEvent(event.level));
                 break;
             case RemoteConfigErrorEvent:
                 try {
                     argsAsJSON = JSON.parse(event.code);
-                    RemoteConfigANE.remoteConfig.dispatchEvent(new RemoteConfigErrorEvent(event.level, true, false, argsAsJSON.text));
+                    RemoteConfig.shared.dispatchEvent(new RemoteConfigErrorEvent(event.level, true, false, argsAsJSON.text));
                 } catch (e:Error) {
                     trace(event.code, e.message);
                 }

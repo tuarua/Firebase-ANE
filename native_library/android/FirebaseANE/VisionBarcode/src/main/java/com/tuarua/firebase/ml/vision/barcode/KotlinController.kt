@@ -36,11 +36,7 @@ import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.coroutines.CoroutineContext
 
-// https://www.b4x.com/android/forum/threads/external-library-error-after-upgrade-to-androidx.108607/
-
-// https://github.com/firebase/quickstart-android/blob/master/mlkit/app/src/main/java/com/google/firebase/samples/apps/mlkit/kotlin/automl/AutoMLImageLabelerProcessor.kt
-
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeProcessSucceedListener {
     private lateinit var airView: ViewGroup
     private var optionsAsIntArray: IntArray? = null

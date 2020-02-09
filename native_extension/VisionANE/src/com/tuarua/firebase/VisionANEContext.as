@@ -49,7 +49,7 @@ public class VisionANEContext {
                 try {
                     var argsAsJSON:Object = JSON.parse(event.code);
                     setTimeout(function():void{
-                        VisionANE.vision.dispatchEvent(new PermissionEvent(event.level, argsAsJSON.status));
+                        Vision.vision.dispatchEvent(new PermissionEvent(event.level, argsAsJSON.status));
                     }, (1 / 15)); //put a delay to prevent Stage3D Error #3768
                 } catch (e:Error) {
                     trace(e.message);

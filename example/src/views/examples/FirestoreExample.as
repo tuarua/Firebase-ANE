@@ -1,6 +1,7 @@
 package views.examples {
 import com.tuarua.City;
-import com.tuarua.firebase.FirestoreANE;
+import com.tuarua.Firebase;
+import com.tuarua.firebase.Firestore;
 import com.tuarua.firebase.firestore.CollectionReference;
 import com.tuarua.firebase.firestore.DocumentChange;
 import com.tuarua.firebase.firestore.DocumentChangeType;
@@ -24,7 +25,7 @@ import starling.utils.Align;
 import views.SimpleButton;
 
 public class FirestoreExample extends Sprite implements IExample {
-    private var db:FirestoreANE;
+    private var db:Firestore;
     private var btnCreateDatabase:SimpleButton = new SimpleButton("Create Database");
     private var btnGetDocument:SimpleButton = new SimpleButton("Get Document");
     private var btnUpdateDocument:SimpleButton = new SimpleButton("Update Document");
@@ -46,8 +47,8 @@ public class FirestoreExample extends Sprite implements IExample {
     public function initANE():void {
         if (isInited) return;
 
-        FirestoreANE.loggingEnabled = true;
-        db = FirestoreANE.firestore;
+        Firestore.loggingEnabled = true;
+        db = Firebase.firestore();
         sanFran = new DocumentReference("cities/SF");
         var fs:FirestoreSettings = db.settings;
         if (fs) {

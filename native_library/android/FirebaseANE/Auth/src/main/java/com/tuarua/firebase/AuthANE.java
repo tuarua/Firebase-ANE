@@ -55,6 +55,7 @@ public class AuthANE implements FREExtension {
 
     }
 
+    @NonNull
     @Override
     public FREContext createContext(@NonNull String s) {
         String NAME = "com.tuarua.firebase.AuthANE";

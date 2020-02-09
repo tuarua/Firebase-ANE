@@ -23,8 +23,7 @@ import com.tuarua.firebase.firestore.extensions.*
 import com.tuarua.frekotlin.*
 import java.util.*
 
-
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private lateinit var firestoreController: FirestoreController
 

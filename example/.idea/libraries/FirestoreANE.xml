@@ -5,6 +5,7 @@
     </CLASSES>
     <JAVADOC>
       <root url="https://tuarua.github.io/asdocs/firebaseane/firestore/index.html" />
+      <root url="https://tuarua.github.io/asdocs/firebaseane/index.html" />
     </JAVADOC>
     <SOURCES />
   </library>

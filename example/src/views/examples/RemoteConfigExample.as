@@ -1,5 +1,6 @@
 package views.examples {
-import com.tuarua.firebase.RemoteConfigANE;
+import com.tuarua.Firebase;
+import com.tuarua.firebase.RemoteConfig;
 import com.tuarua.firebase.remoteconfig.RemoteConfigSettings;
 import com.tuarua.firebase.remoteconfig.events.RemoteConfigEvent;
 
@@ -13,7 +14,7 @@ import starling.utils.Align;
 import views.SimpleButton;
 
 public class RemoteConfigExample extends Sprite implements IExample {
-    private var remoteConfig:RemoteConfigANE;
+    private var remoteConfig:RemoteConfig;
     private var stageWidth:Number;
     private var statusLabel:TextField;
     private var btnGetWelcomeMessage:SimpleButton = new SimpleButton("Get Welcome Message");
@@ -28,7 +29,7 @@ public class RemoteConfigExample extends Sprite implements IExample {
     public function initANE():void {
         if (isInited) return;
 
-        remoteConfig = RemoteConfigANE.remoteConfig;
+        remoteConfig = Firebase.remoteConfig();
         remoteConfig.configSettings = new RemoteConfigSettings(true);
         remoteConfig.addEventListener(RemoteConfigEvent.FETCH, onRemoteConfig);
         remoteConfig.setDefaults(

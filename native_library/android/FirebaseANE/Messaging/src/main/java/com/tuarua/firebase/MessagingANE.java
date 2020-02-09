@@ -17,6 +17,8 @@ package com.tuarua.firebase;
 
 import android.annotation.SuppressLint;
 
+import androidx.annotation.NonNull;
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.messaging.KotlinController;
@@ -38,6 +40,7 @@ public class MessagingANE implements FREExtension {
 
     }
 
+    @NonNull
     @Override
     public FREContext createContext(@SuppressLint("UnknownNullness") String s) {
         String NAME = "com.tuarua.firebase.MessagingANE";

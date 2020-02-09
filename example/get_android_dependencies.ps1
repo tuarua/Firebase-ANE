@@ -5,7 +5,6 @@ $PlayerServicesBaseVersion = "17.1.0"
 $SupportV4Version = "1.0.0"
 $AnalyticsVersion = "17.2.1"
 $DynamicLinksVersion="19.0.0"
-$InvitesVersion="17.0.0"
 $IidVersion="20.0.1"
 $StorageVersion="19.1.0"
 $PerfVersion="19.0.2"
@@ -31,7 +30,6 @@ Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/RemoteConfigANE.ane?raw=true -OutFile "$currentDir\..\native_extension\RemoteConfigANE\ane\RemoteConfigANE.ane"
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/StorageANE.ane?raw=true -OutFile "$currentDir\..\native_extension\StorageANE\ane\StorageANE.ane"
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/GoogleSignInANE.ane?raw=true -OutFile "$currentDir\..\native_extension\GoogleSignInANE\ane\GoogleSignInANE.ane"
-Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/InvitesANE.ane?raw=true -OutFile "$currentDir\..\native_extension\InvitesANE\ane\InvitesANE.ane"
 Invoke-WebRequest -Uri https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/CrashlyticsANE.ane?raw=true -OutFile "$currentDir\..\native_extension\CrashlyticsANE\ane\CrashlyticsANE.ane"
 
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.tuarua.frekotlin-$FreKotlinVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin-$FreKotlinVersion.ane?raw=true
@@ -45,7 +43,6 @@ Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.android.
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-analytics-$AnalyticsVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-analytics-$AnalyticsVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-auth-$AuthVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-auth-$AuthVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-config-$ConfigVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-config-$ConfigVersion.ane?raw=true
-Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-invites-$InvitesVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-invites-$InvitesVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-dynamic-links-$DynamicLinksVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-dynamic-links-$DynamicLinksVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-firestore-$FirestoreVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-firestore-$FirestoreVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-iid-$IidVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-iid-$IidVersion.ane?raw=true

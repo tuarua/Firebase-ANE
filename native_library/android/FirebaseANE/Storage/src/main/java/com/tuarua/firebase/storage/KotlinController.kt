@@ -24,8 +24,7 @@ import com.tuarua.firebase.storage.extensions.StorageMetadata
 import com.tuarua.firebase.storage.extensions.toFREObject
 import java.util.*
 
-
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private lateinit var storageController: StorageController
 

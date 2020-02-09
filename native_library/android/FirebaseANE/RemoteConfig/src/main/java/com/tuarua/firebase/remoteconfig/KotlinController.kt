@@ -34,7 +34,7 @@ import com.tuarua.firebase.remoteconfig.extensions.FirebaseRemoteConfigSettings
 import com.tuarua.firebase.remoteconfig.extensions.toFREObject
 import com.tuarua.frekotlin.*
 
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private lateinit var remoteConfig: FirebaseRemoteConfig
     private var cacheExpiration: Long = 86400

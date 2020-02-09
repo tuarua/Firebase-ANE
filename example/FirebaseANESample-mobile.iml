@@ -35,9 +35,6 @@
             <entry library-name="GoogleSignInANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="InvitesANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="CrashlyticsANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
@@ -75,9 +72,6 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="com.google.firebase.firebase-iid-20.0.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-invites-17.0.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="com.google.firebase.firebase-messaging-20.0.1" library-level="project">
@@ -160,9 +154,6 @@
             <entry library-name="GoogleSignInANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="InvitesANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="CrashlyticsANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
@@ -194,74 +185,9 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="." />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/gRPCCertificates.bundle" path-in-package="gRPCCertificates.bundle" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleSignIn.bundle" path-in-package="GoogleSignIn.bundle" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GINInviteResources.bundle" path-in-package="GINInviteResources.bundle" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GPPACLPickerResources.bundle" path-in-package="GPPACLPickerResources.bundle" />
           </files-to-package>
           <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2019/dev/tua_rua_dev_2019.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2019/dev/TuaRuaFirebase_Dev_Prov-2.mobileprovision" />
-        </packaging-ios>
-      </configuration>
-      <configuration name="iOS Simulator" target-platform="Mobile" pure-as="true" main-class="Main" output-file="iOS_Simulator.swf" output-folder="$MODULE_DIR$/bin-release">
-        <dependencies>
-          <entries>
-            <entry library-name="starling" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="FirebaseANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="AnalyticsANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="FirestoreANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="StorageANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="RemoteConfigANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="AuthANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="PerformanceANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="CrashlyticsANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-          </entries>
-          <sdk name="AIRSDK_32" />
-        </dependencies>
-        <compiler-options>
-          <map>
-            <entry key="compiler.locale" value="en_US" />
-          </map>
-          <option name="additionalOptions" value="-swf-version=43" />
-        </compiler-options>
-        <packaging-air-desktop />
-        <packaging-android use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="iOS_Simulator">
-          <files-to-package>
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon60x60@2x.png" path-in-package="AppIcon60x60@2x.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon60x60@3x.png" path-in-package="AppIcon60x60@3x.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon76x76@2x~ipad.png" path-in-package="AppIcon76x76@2x~ipad.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon76x76~ipad.png" path-in-package="AppIcon76x76~ipad.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon83.5x83.5@2x~ipad.png" path-in-package="AppIcon83.5x83.5@2x~ipad.png" />
-          </files-to-package>
-        </packaging-android>
-        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app-ios.xml" package-file-name="iOS_Simulator">
-          <files-to-package>
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/system" path-in-package="." />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/simulator" path-in-package="." />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Assets.car" path-in-package="Assets.car" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/GoogleService-Info.plist" path-in-package="GoogleService-Info.plist" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="." />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/gRPCCertificates.bundle" path-in-package="gRPCCertificates.bundle" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleSignIn.bundle" path-in-package="GoogleSignIn.bundle" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GINInviteResources.bundle" path-in-package="GINInviteResources.bundle" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GPPACLPickerResources.bundle" path-in-package="GPPACLPickerResources.bundle" />
-          </files-to-package>
-          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/tua_rua_dev_2018.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2018/dev/TuaRuaFirebase_Dev_Prov.mobileprovision" />
         </packaging-ios>
       </configuration>
       <configuration name="iOS Store" target-platform="Mobile" pure-as="true" main-class="Main" output-file="iOS_Store.swf" output-folder="$MODULE_DIR$/bin-release">
@@ -300,9 +226,6 @@
             <entry library-name="GoogleSignInANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="InvitesANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="CrashlyticsANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
@@ -333,7 +256,6 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="." />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/gRPCCertificates.bundle" path-in-package="gRPCCertificates.bundle" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleSignIn.bundle" path-in-package="GoogleSignIn.bundle" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GINInviteResources.bundle" path-in-package="GINInviteResources.bundle" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GPPACLPickerResources.bundle" path-in-package="GPPACLPickerResources.bundle" />
           </files-to-package>
           <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2019/prod/Tua_Rua_Dist_WebView.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2019/prod/Firebase_App_Live_Prov.mobileprovision" />

@@ -88,7 +88,7 @@ public class FirestoreANEContext {
     private static function gotEvent(event:StatusEvent):void {
         var err:FirestoreError;
         var path:String;
-       var callbackCaller:*;
+        var callbackCaller:*;
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);

@@ -54,7 +54,7 @@ public class MessagingANEContext {
             case MessagingEvent.ON_MESSAGE_RECEIVED:
                 try {
                     argsAsJSON = JSON.parse(event.code);
-                    MessagingANE.messaging.dispatchEvent(new MessagingEvent(event.level,
+                    Messaging.shared.dispatchEvent(new MessagingEvent(event.level,
                             ANEUtils.map(argsAsJSON.data, RemoteMessage) as RemoteMessage));
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
@@ -63,7 +63,7 @@ public class MessagingANEContext {
             case MessagingEvent.ON_TOKEN_REFRESHED:
                 try {
                     argsAsJSON = JSON.parse(event.code);
-                    MessagingANE.messaging.dispatchEvent(new MessagingEvent(event.level, null, argsAsJSON.data.token));
+                    Messaging.shared.dispatchEvent(new MessagingEvent(event.level, null, argsAsJSON.data.token));
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }

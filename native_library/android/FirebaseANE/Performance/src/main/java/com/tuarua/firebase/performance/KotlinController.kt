@@ -25,8 +25,7 @@ import com.google.firebase.perf.FirebasePerformance
 import com.google.firebase.perf.metrics.Trace
 import com.tuarua.frekotlin.*
 
-
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private var traces: MutableMap<String, Trace> = HashMap()
     private var packageManager: PackageManager? = null

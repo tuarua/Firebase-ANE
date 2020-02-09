@@ -65,7 +65,7 @@ public class GoogleSignInANEContext {
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     var error:Error = new Error(argsAsJSON.data.text, argsAsJSON.data.id);
-                    GoogleSignInANE.googleSignIn.dispatchEvent(new GoogleSignInEvent(event.level, null, error));
+                    GoogleSignIn.googleSignIn.dispatchEvent(new GoogleSignInEvent(event.level, null, error));
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
@@ -79,7 +79,7 @@ public class GoogleSignInANEContext {
                         accessToken = argsAsJSON.data.accessToken;
                     }
                     var credential:GoogleAuthCredential = new GoogleAuthCredential(idToken, accessToken);
-                    GoogleSignInANE.googleSignIn.dispatchEvent(new GoogleSignInEvent(event.level, credential));
+                    GoogleSignIn.googleSignIn.dispatchEvent(new GoogleSignInEvent(event.level, credential));
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }

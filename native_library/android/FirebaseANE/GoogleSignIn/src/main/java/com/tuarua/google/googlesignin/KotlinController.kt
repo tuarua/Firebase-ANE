@@ -27,7 +27,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
     private var googleSignInClient: GoogleSignInClient? = null
-    private val RC_SIGN_IN = 9001
     fun createGUID(ctx: FREContext, argv: FREArgv): FREObject? {
         return UUID.randomUUID().toString().toFREObject()
     }
@@ -56,7 +55,7 @@ class KotlinController : FreKotlinMainController {
 
     fun signIn(ctx: FREContext, argv: FREArgv): FREObject? {
         val signInIntent = googleSignInClient?.signInIntent ?: return null
-        ctx.activity.startActivityForResult(signInIntent, RC_SIGN_IN)
+        ctx.activity.startActivityForResult(signInIntent, ResultListener.RC_SIGN_IN)
         return null
     }
 
