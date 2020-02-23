@@ -1,7 +1,7 @@
 ### 0.10.0
 - Restructure API. See example for full changes.
 - AND: Updated to FreKotlin 1.9.5
-- iOS: Updated to FreSwift 4.2.0
+- iOS: Updated to FreSwift 4.3.0
 - iOS: Firebase 6.13.0
 - AND: Analytics 17.2.1
 - AND: Storage 19.1.0

@@ -21,11 +21,12 @@ import flash.events.EventDispatcher;
 
 public final class GoogleSignIn extends EventDispatcher {
     private static var _shared:GoogleSignIn;
+    private static var _apiKey:String;
 
     /** @private */
     public function GoogleSignIn() {
         if (GoogleSignInANEContext.context) {
-            var ret:* = GoogleSignInANEContext.context.call("init");
+            var ret:* = GoogleSignInANEContext.context.call("init", _apiKey);
             if (ret is ANEError) throw ret as ANEError;
         }
         _shared = this;
@@ -85,5 +86,9 @@ public final class GoogleSignIn extends EventDispatcher {
         }
     }
 
+    /** set the API key if not using Firebase resources */
+    public static function set apiKey(value:String):void {
+        _apiKey = value;
+    }
 }
 }

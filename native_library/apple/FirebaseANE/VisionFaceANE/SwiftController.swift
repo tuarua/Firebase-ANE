@@ -39,6 +39,11 @@ public class SwiftController: NSObject {
                 return FreArgError().getError()
         }
         detector = self.vision.faceDetector(options: options)
+        
+        // TODO trace out
+        trace("FaceContourType.face.rawValue", FaceContourType.face.rawValue)
+        trace("FaceContourType.leftEyebrowBottom.rawValue", FaceContourType.leftEyebrowBottom)
+
         return true.toFREObject()
     }
     

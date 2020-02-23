@@ -37,7 +37,7 @@ class KotlinController : FreKotlinMainController {
                 ?: return FreException("no resources").getError()
         val act = context.activity ?: return FreException("no application context").getError()
         try {
-            val apiKey = resources.getString(context.getResourceId("string.default_web_client_id"))
+            val apiKey = String(argv[0]) ?: resources.getString(context.getResourceId("string.default_web_client_id"))
             val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .requestIdToken(apiKey)
                     .requestEmail()
