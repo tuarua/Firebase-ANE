@@ -37,7 +37,7 @@ public class SwiftController: NSObject {
     func buildDynamicLink(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 4,
             let linkFre = argv[0],
-            let eventId = String(argv[1]),
+            let callbackId = String(argv[1]),
             let copyToClipboard = Bool(argv[2]),
             let shorten = Bool(argv[3]),
             let suffix = Int(argv[4]),
@@ -45,11 +45,10 @@ public class SwiftController: NSObject {
             let linkUrl = URL(string: link),
             let domainUriPrefix = String(linkFre["domainUriPrefix"])
             else {
-                return FreArgError(message: "buildDynamicLink").getError()
+                return FreArgError().getError()
         }
         
-        guard let components = DynamicLinkComponents(link: linkUrl, domainURIPrefix: domainUriPrefix) else {
-            return nil }
+        let components = DynamicLinkComponents(link: linkUrl, domain: domainUriPrefix)
         
         components.iOSParameters = DynamicLinkIOSParameters(linkFre["iosParameters"])
         components.iTunesConnectParameters = DynamicLinkItunesConnectAnalyticsParameters(
@@ -73,7 +72,7 @@ public class SwiftController: NSObject {
             components.shorten { (shortURL, warnings, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: DynamicLinkEvent.ON_CREATED,
-                                   value: DynamicLinkEvent(eventId: eventId,
+                                   value: DynamicLinkEvent(callbackId: callbackId,
                                                        data: nil,
                                                        error: err).toJSONString())
                     return
@@ -82,7 +81,7 @@ public class SwiftController: NSObject {
                     UIPasteboard.general.string = shortURL?.absoluteString
                 }
                 self.dispatchEvent(name: DynamicLinkEvent.ON_CREATED,
-                               value: DynamicLinkEvent(eventId: eventId,
+                               value: DynamicLinkEvent(callbackId: callbackId,
                                                        data: ["shortLink": shortURL?.absoluteString ?? "",
                                                               "warnings": warnings ?? []]
                                 ).toJSONString())  
@@ -93,7 +92,7 @@ public class SwiftController: NSObject {
                     UIPasteboard.general.string = dynamicLink
                 }
                 self.dispatchEvent(name: DynamicLinkEvent.ON_CREATED,
-                               value: DynamicLinkEvent(eventId: eventId,
+                               value: DynamicLinkEvent(callbackId: callbackId,
                                                        data: ["url": dynamicLink]).toJSONString())
             }
         }
@@ -103,9 +102,9 @@ public class SwiftController: NSObject {
 
     func getDynamicLink(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let eventId = String(argv[0])
+            let callbackId = String(argv[0])
             else {
-                return FreArgError(message: "getDynamicLink").getError()
+                return FreArgError().getError()
         }
         if let userInfo = appDidFinishLaunchingNotif?.userInfo,
             let userActivityDict = userInfo[UIApplication.LaunchOptionsKey.userActivityDictionary] as? NSDictionary,
@@ -115,19 +114,19 @@ public class SwiftController: NSObject {
             DynamicLinks.dynamicLinks().handleUniversalLink(webpageURL, completion: { (link, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: DynamicLinkEvent.ON_LINK,
-                                   value: DynamicLinkEvent(eventId: eventId,
+                                   value: DynamicLinkEvent(callbackId: callbackId,
                                                            error: err
                                     ).toJSONString())
                     return
                 }
                 self.dispatchEvent(name: DynamicLinkEvent.ON_LINK,
-                               value: DynamicLinkEvent(eventId: eventId,
+                               value: DynamicLinkEvent(callbackId: callbackId,
                                                        data: ["url": link?.url?.absoluteString ?? ""]
                                 ).toJSONString())
             })
         } else {
             self.dispatchEvent(name: DynamicLinkEvent.ON_LINK,
-                           value: DynamicLinkEvent(eventId: eventId,
+                           value: DynamicLinkEvent(callbackId: callbackId,
                                                    data: ["url": ""]
                             ).toJSONString())
         }

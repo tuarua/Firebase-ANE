@@ -20,21 +20,18 @@ on set-up and each of the FirebaseANEs.
 
 ## Asdocs
 
-- https://tuarua.github.io/asdocs/firebaseane/analytics/
-- https://tuarua.github.io/asdocs/firebaseane/auth/
-- https://tuarua.github.io/asdocs/firebaseane/core/
-- https://tuarua.github.io/asdocs/firebaseane/dynamiclinks/
-- https://tuarua.github.io/asdocs/firebaseane/invites/
-- https://tuarua.github.io/asdocs/firebaseane/googlesignin/
-- https://tuarua.github.io/asdocs/firebaseane/firestore/
-- https://tuarua.github.io/asdocs/firebaseane/messaging/
-- https://tuarua.github.io/asdocs/firebaseane/performance/
-- https://tuarua.github.io/asdocs/firebaseane/remoteconfig/
-- https://tuarua.github.io/asdocs/firebaseane/storage/
-- https://tuarua.github.io/asdocs/firebaseane/crashlytics/
-- https://tuarua.github.io/asdocs/firebaseane/naturallanguage/
-- https://tuarua.github.io/asdocs/firebaseane/modelinterpreter/
-- https://tuarua.github.io/asdocs/visionane/
+- https://tuarua.github.io/asdocs/firebaseane/
+
+## iOS
+
+The latest version (0.10.0) is built against iOS 13.3 SDK and not currently working.
+
+Please register your interest with HARMAN in getting this issue fixed!!
+
+https://github.com/Gamua/Adobe-Runtime-Support/issues/212
+
+You may use the previous version (0.6.0) but be aware this means it cannot be used in conjunction with the latest 
+version of our other ANEs. You will need to use latest - 1.
 
 ## Issue Tracker
 

@@ -16,7 +16,7 @@
 
 package com.tuarua.firebase.ml.vision.document.events
 
-data class CloudDocumentEvent(val eventId: String, val error: Map<String, Any>? = null) {
+data class CloudDocumentEvent(val callbackId: String, val error: Map<String, Any>? = null) {
     companion object {
         const val RECOGNIZED = "CloudDocumentEvent.Recognized"
     }

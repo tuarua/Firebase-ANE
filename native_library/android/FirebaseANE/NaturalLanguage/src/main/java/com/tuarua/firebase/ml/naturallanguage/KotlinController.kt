@@ -23,7 +23,7 @@ import com.google.firebase.ml.naturallanguage.languageid.FirebaseLanguageIdentif
 import com.google.firebase.ml.naturallanguage.languageid.IdentifiedLanguage
 import com.tuarua.firebase.ml.naturallanguage.events.LanguageEvent
 import com.tuarua.firebase.ml.naturallanguage.extensions.FirebaseLanguageIdentificationOptions
-import com.tuarua.firebase.ml.naturallanguage.extensions.toFREArray
+import com.tuarua.firebase.ml.naturallanguage.extensions.toFREObject
 import com.google.gson.Gson
 import com.tuarua.frekotlin.*
 import kotlinx.coroutines.Dispatchers
@@ -32,7 +32,7 @@ import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.coroutines.CoroutineContext
 
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private var results: MutableMap<String, String> = mutableMapOf()
     private var resultsMulti: MutableMap<String, MutableList<IdentifiedLanguage>> = mutableMapOf()
@@ -41,7 +41,7 @@ class KotlinController : FreKotlinMainController {
     private lateinit var languageIdentification: FirebaseLanguageIdentification
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val options = FirebaseLanguageIdentificationOptions(argv[0])
         languageIdentification = if (options != null) {
             FirebaseNaturalLanguage.getInstance().getLanguageIdentification(options)
@@ -56,22 +56,22 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun identifyLanguage(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("identifyLanguage")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val text = String(argv[0]) ?: return null
-        val eventId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         GlobalScope.launch(bgContext) {
             languageIdentification.identifyLanguage(text).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
                     if (result == "und") return@addOnCompleteListener
-                    results[eventId] = result
+                    results[callbackId] = result
                     dispatchEvent(LanguageEvent.RECOGNIZED,
-                            gson.toJson(LanguageEvent(eventId, null)))
+                            gson.toJson(LanguageEvent(callbackId, null)))
                 } else {
                     val error = task.exception
                     dispatchEvent(LanguageEvent.RECOGNIZED,
                             gson.toJson(
-                                    LanguageEvent(eventId, mapOf(
+                                    LanguageEvent(callbackId, mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -84,20 +84,20 @@ class KotlinController : FreKotlinMainController {
 
     fun identifyPossibleLanguages(ctx: FREContext, argv: FREArgv): FREObject? {
         val text = String(argv[0]) ?: return null
-        val eventId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         GlobalScope.launch(bgContext) {
             languageIdentification.identifyPossibleLanguages(text).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
                     if (result.isEmpty()) return@addOnCompleteListener
-                    resultsMulti[eventId] = result
+                    resultsMulti[callbackId] = result
                     dispatchEvent(LanguageEvent.RECOGNIZED_MULTI,
-                            gson.toJson(LanguageEvent(eventId, null)))
+                            gson.toJson(LanguageEvent(callbackId, null)))
                 } else {
                     val error = task.exception
                     dispatchEvent(LanguageEvent.RECOGNIZED_MULTI,
                             gson.toJson(
-                                    LanguageEvent(eventId, mapOf(
+                                    LanguageEvent(callbackId, mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -109,20 +109,20 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
-        val eventId = String(argv[0]) ?: return null
-        val result = results[eventId] ?: return null
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val callbackId = String(argv[0]) ?: return null
+        val result = results[callbackId] ?: return null
         val ret = result.toFREObject()
-        results.remove(eventId)
+        results.remove(callbackId)
         return ret
     }
 
     fun getResultsMulti(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getResultsMulti")
-        val eventId = String(argv[0]) ?: return null
-        val result = resultsMulti[eventId] ?: return null
-        val ret = result.toFREArray()
-        results.remove(eventId)
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val callbackId = String(argv[0]) ?: return null
+        val result = resultsMulti[callbackId] ?: return null
+        val ret = result.toFREObject()
+        results.remove(callbackId)
         return ret
     }
 
@@ -131,7 +131,7 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

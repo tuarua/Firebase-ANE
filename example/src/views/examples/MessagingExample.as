@@ -1,5 +1,6 @@
 package views.examples {
-import com.tuarua.firebase.MessagingANE;
+import com.tuarua.Firebase;
+import com.tuarua.firebase.Messaging;
 import com.tuarua.firebase.messaging.RemoteMessage;
 import com.tuarua.firebase.messaging.events.MessagingEvent;
 
@@ -17,9 +18,8 @@ public class MessagingExample extends Sprite implements IExample {
     private var isInited:Boolean;
     private var btnLogToken:SimpleButton = new SimpleButton("Log Token");
     private var btnSubscribe:SimpleButton = new SimpleButton("Subscribe");
-    private var messaging:MessagingANE;
+    private var messaging:Messaging;
     private var statusLabel:TextField;
-
 
     public function MessagingExample(stageWidth:Number) {
         super();
@@ -45,7 +45,6 @@ public class MessagingExample extends Sprite implements IExample {
 
     }
 
-
     private function onLogTokenClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnLogToken);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
@@ -53,7 +52,6 @@ public class MessagingExample extends Sprite implements IExample {
             statusLabel.text = "FCM Token: " + messaging.token;
         }
     }
-
 
     private function onSubscribeClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnSubscribe);
@@ -64,9 +62,9 @@ public class MessagingExample extends Sprite implements IExample {
 
     public function initANE():void {
         if (isInited) return;
-        MessagingANE.channelId = "fcm_default_channel";
-        MessagingANE.channelName = "News";
-        messaging = MessagingANE.messaging;
+        Messaging.channelId = "fcm_default_channel";
+        Messaging.channelName = "News";
+        messaging = Firebase.messaging();
         messaging.addEventListener(MessagingEvent.ON_TOKEN_REFRESHED, onTokenRefreshed);
         messaging.addEventListener(MessagingEvent.ON_MESSAGE_RECEIVED, onMessageReceived);
         isInited = true;
@@ -74,14 +72,10 @@ public class MessagingExample extends Sprite implements IExample {
 
     private function onMessageReceived(event:MessagingEvent):void {
         var remoteMessage:RemoteMessage = event.remoteMessage;
-        statusLabel.text = "Message Received" + "\n" +
-                "From: " + remoteMessage.from + "\n" +
-                "MessageId: " + remoteMessage.messageId + "\n" +
-                "Sent at: " + new Date(remoteMessage.sentTime) + "\n";
+        statusLabel.text = "Message Received" + "\n" + "From: " + remoteMessage.from + "\n" + "MessageId: " + remoteMessage.messageId + "\n" + "Sent at: " + new Date(remoteMessage.sentTime) + "\n";
 
         if (remoteMessage.notification) {
-            statusLabel.text = statusLabel.text + "Notification Body: " + remoteMessage.notification.body + "\n" +
-                    "Notification Title: " + remoteMessage.notification.title + "\n";
+            statusLabel.text = statusLabel.text + "Notification Body: " + remoteMessage.notification.body + "\n" + "Notification Title: " + remoteMessage.notification.title + "\n";
         }
         if (remoteMessage.data) {
             statusLabel.text = statusLabel.text + "Data: " + JSON.stringify(remoteMessage.data) + "\n";

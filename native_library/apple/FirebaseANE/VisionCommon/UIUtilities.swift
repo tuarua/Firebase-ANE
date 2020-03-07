@@ -39,6 +39,8 @@ public class UIUtilities {
             return devicePosition == .front ? .upMirrored : .down
         case .faceDown, .faceUp, .unknown:
             return .up
+        @unknown default:
+            return .up
         }
     }
     
@@ -62,6 +64,8 @@ public class UIUtilities {
             return .leftTop
         case .rightMirrored:
             return .rightBottom
+        @unknown default:
+            return .topLeft
         }
     }
     
@@ -75,6 +79,8 @@ public class UIUtilities {
             case .portraitUpsideDown:
                 return .portraitUpsideDown
             case .portrait, .unknown:
+                return .portrait
+            @unknown default:
                 return .portrait
             }
         }

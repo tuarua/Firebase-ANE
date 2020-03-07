@@ -18,7 +18,13 @@ package com.tuarua.firebase.messaging
 import android.app.Activity
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.Intent
+import android.content.res.Configuration
 import android.os.Build
+import com.adobe.air.AndroidActivityWrapper.*
+import com.adobe.air.AndroidActivityWrapper.ActivityState.*
+import com.adobe.air.FreKotlinActivityResultCallback
+import com.adobe.air.FreKotlinStateChangeCallback
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.iid.FirebaseInstanceId
@@ -33,7 +39,7 @@ import java.util.*
 import kotlin.concurrent.schedule
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
-class KotlinController : FreKotlinMainController {
+class KotlinController : FreKotlinMainController, FreKotlinStateChangeCallback, FreKotlinActivityResultCallback {
     private val gson = Gson()
 
     fun createGUID(ctx: FREContext, argv: FREArgv): FREObject? {
@@ -41,26 +47,24 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("init")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         EventBus.getDefault().register(this)
         val channelId = String(argv[0]) ?: "fcm_default_channel"
         val channelName = String(argv[1])
 
-        val appActivity = ctx.activity
-        if (appActivity != null) {
-            if (channelName != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                val notificationManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    appActivity.getSystemService(NotificationManager::class.java)
-                } else {
-                    null
-                }
-                notificationManager?.createNotificationChannel(NotificationChannel(channelId,
-                        channelName, NotificationManager.IMPORTANCE_LOW))
+        val appActivity = ctx.activity ?: return true.toFREObject()
+        if (channelName != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val notificationManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                appActivity.getSystemService(NotificationManager::class.java)
+            } else {
+                null
             }
+            notificationManager?.createNotificationChannel(NotificationChannel(channelId,
+                    channelName, NotificationManager.IMPORTANCE_LOW))
+        }
 
-            if (appActivity.intent.extras != null) {
-                sendMessageFromExtras(appActivity)
-            }
+        if (appActivity.intent.extras != null) {
+            sendMessageFromExtras(appActivity)
         }
         return true.toFREObject()
     }
@@ -70,14 +74,14 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun subscribe(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("subscribe")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val toTopic = String(argv[0]) ?: return null
         FirebaseMessaging.getInstance().subscribeToTopic(toTopic)
         return null
     }
 
     fun unsubscribe(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("unsubscribe")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val fromTopic = String(argv[0]) ?: return null
         FirebaseMessaging.getInstance().unsubscribeFromTopic(fromTopic)
         return null
@@ -87,12 +91,13 @@ class KotlinController : FreKotlinMainController {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: MessageEvent) {
         if (_context != null) {
-            dispatchEvent(event.eventId, gson.toJson(MessageEvent(event.eventId, event.data)))
+            dispatchEvent(event.callbackId, gson.toJson(MessageEvent(event.callbackId, event.data)))
         }
     }
 
     private fun sendMessageFromExtras(appActivity: Activity) {
-        if (appActivity.intent.extras.isEmpty) return
+        val extras = appActivity.intent.extras ?: return
+        if (extras.isEmpty) return
         var from: String? = null
         var ttl = 0
         var messageId: String? = null
@@ -100,10 +105,10 @@ class KotlinController : FreKotlinMainController {
         var collapseKey: String? = null
         val data = mutableMapOf<String, String>()
 
-        if (appActivity.intent.extras.keySet().contains("google.message_id")) {
-            for (key in appActivity.intent.extras.keySet()) {
-                val value = appActivity.intent.extras.get(key)
-                
+        if (extras.keySet().contains("google.message_id")) {
+            for (key in extras.keySet()) {
+                val value = extras.get(key)
+
                 when (key) {
                     "google.sent_time" -> sentTime = value as Long
                     "google.ttl" -> ttl = value as Int
@@ -133,17 +138,29 @@ class KotlinController : FreKotlinMainController {
 
     }
 
-    override fun onResumed() {
-        super.onResumed()
-        val appActivity = _context?.activity
-        if (appActivity != null) {
-            if (appActivity.intent.extras != null) {
-                sendMessageFromExtras(appActivity)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
+    }
+
+    override fun onConfigurationChanged(configuration: Configuration?) {
+    }
+
+    override fun onActivityStateChanged(activityState: ActivityState?) {
+        when (activityState) {
+            STARTED -> return
+            RESTARTED -> return
+            RESUMED -> {
+                val appActivity = _context?.activity ?: return
+                if (appActivity.intent.extras != null) {
+                    sendMessageFromExtras(appActivity)
+                }
             }
+            PAUSED -> return
+            STOPPED -> return
+            DESTROYED -> return
         }
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

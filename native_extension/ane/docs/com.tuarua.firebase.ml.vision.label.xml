@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.tuarua.firebase.ml.vision.label"><apiName>com.tuarua.firebase.ml.vision.label</apiName><apiDetail/><apiClassifier id="com.tuarua.firebase.ml.vision.label:CloudImageError"><apiName>CloudImageError</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Error</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.ml.vision.label:CloudImageError:CloudImageError"><apiName>CloudImageError</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>message</apiItemName><apiType value="any"/><apiData/></apiParam><apiParam><apiItemName>id</apiItemName><apiType value="any"/><apiData>0</apiData></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor></apiClassifier><apiClassifier id="com.tuarua.firebase.ml.vision.label:CloudImageLabeler"><apiName>CloudImageLabeler</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiOperation id="com.tuarua.firebase.ml.vision.label:CloudImageLabeler:close"><apiName>close</apiName><shortdesc> Closes the cloud label detector and release its model resources.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc> Closes the cloud label detector and release its model resources. </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.ml.vision.label:CloudImageLabeler:process"><apiName>process</apiName><shortdesc>
+     Detects labels in a given image.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>image</apiItemName><apiOperationClassifier>com.tuarua.firebase.ml.vision.common:VisionImage</apiOperationClassifier><apiDesc>The image to use when searching labels.
+     </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Closure to call back on the main queue with label detected or error.
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Detects labels in a given image.
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.tuarua.firebase.ml.vision.label:CloudImageLabeler:com.tuarua.firebase.ml.vision.label:NAME"><apiName>NAME</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>VisionCloudLabelANE</apiData><apiType value="String"/></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.ml.vision.label:OnDeviceImageLabeler"><apiName>OnDeviceImageLabeler</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.ml.vision.label:OnDeviceImageLabeler:OnDeviceImageLabeler"><apiName>OnDeviceImageLabeler</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>options</apiItemName><apiOperationClassifier>com.tuarua.firebase.ml.vision.label:OnDeviceImageLabelerOptions</apiOperationClassifier></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor><apiOperation id="com.tuarua.firebase.ml.vision.label:OnDeviceImageLabeler:close"><apiName>close</apiName><shortdesc> Closes the label detector and release its model resources.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc> Closes the label detector and release its model resources. </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.ml.vision.label:OnDeviceImageLabeler:process"><apiName>process</apiName><shortdesc>
+     Detects labels in a given image.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>image</apiItemName><apiOperationClassifier>com.tuarua.firebase.ml.vision.common:VisionImage</apiOperationClassifier><apiDesc>The image to use for detecting labels.
+     </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>Closure to call back on the main queue with labels detected or error.
+     </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Detects labels in a given image.
+     
+     </apiDesc></apiOperationDetail></apiOperation><apiValue id="com.tuarua.firebase.ml.vision.label:OnDeviceImageLabeler:com.tuarua.firebase.ml.vision.label:NAME"><apiName>NAME</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiAccess value="public"/><apiStatic/><apiData>VisionLabelANE</apiData><apiType value="String"/></apiValueDef></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.ml.vision.label:OnDeviceImageLabeler:callbacks"><apiName>callbacks</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiStatic/><apiData>unknown</apiData><apiType value="flash.utils:Dictionary"/></apiValueDef></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.ml.vision.label:VisionImageLabel"><apiName>VisionImageLabel</apiName><shortdesc>
+ Represents a label for an image.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ Represents a label for an image.
+ </apiDesc></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.ml.vision.label:VisionImageLabel:VisionImageLabel"><apiName>VisionImageLabel</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.ml.vision.label:VisionImageLabel:confidence"><apiName>confidence</apiName><shortdesc>
+     Confidence for the label in range [0, 1].</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="Number"/></apiValueDef><apiDesc>
+     Confidence for the label in range [0, 1].
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.ml.vision.label:VisionImageLabel:entityId"><apiName>entityId</apiName><shortdesc>
+     Opaque entity ID.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     Opaque entity ID. Some IDs may be available in [Google Knowledge Graph Search API].
+     (https://developers.google.com/knowledge-graph/).
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.ml.vision.label:VisionImageLabel:text"><apiName>text</apiName><shortdesc>
+     The human readable label string in American English.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     <p>The human readable label string in American English. For example: "Balloon".</p>
+     
+     <p>Note: this is not fit for display purposes, as it is not localized. Use the <codeph>entityId</codeph> and query
+     the Knowledge Graph to get a localized description of the label.</p>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.ml.vision.label:OnDeviceImageError"><apiName>OnDeviceImageError</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Error</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.ml.vision.label:OnDeviceImageError:OnDeviceImageError"><apiName>OnDeviceImageError</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>message</apiItemName><apiType value="any"/><apiData/></apiParam><apiParam><apiItemName>id</apiItemName><apiType value="any"/><apiData>0</apiData></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor></apiClassifier><apiClassifier id="com.tuarua.firebase.ml.vision.label:OnDeviceImageLabelerOptions"><apiName>OnDeviceImageLabelerOptions</apiName><shortdesc>
+ Options for an image label detector.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ Options for an image label detector.
+ </apiDesc></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.ml.vision.label:OnDeviceImageLabelerOptions:OnDeviceImageLabelerOptions"><apiName>OnDeviceImageLabelerOptions</apiName><shortdesc>
+     Creates a new instance with the given detector options.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>confidenceThreshold</apiItemName><apiType value="Number"/><apiData>0.5</apiData><apiDesc>The confidence threshold for labels returned by the label detector.
+         Features returned by the label detector will have a confidence higher or equal to the given
+         threshold. Values must be in range [0, 1]. If an invalid value is provided, the default
+         threshold of 0.5 is used.
+     </apiDesc></apiParam></apiConstructorDef><apiDesc>
+     Creates a new instance with the given detector options.
+     
+     </apiDesc></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.ml.vision.label:OnDeviceImageLabelerOptions:confidenceThreshold:get"><apiName>confidenceThreshold</apiName><shortdesc>
+     The confidence threshold for labels returned by the label detector.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Number"/></apiValueDef><apiDesc>
+     The confidence threshold for labels returned by the label detector. Features returned by the
+     label detector will have a confidence higher or equal to the confidence threshold. Default value
+     is 0.5.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.ml.vision.label:CloudImageLabelerOptions"><apiName>CloudImageLabelerOptions</apiName><shortdesc>
+ Options for an image label detector.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ Options for an image label detector.
+ </apiDesc></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.ml.vision.label:CloudImageLabelerOptions:CloudImageLabelerOptions"><apiName>CloudImageLabelerOptions</apiName><shortdesc>
+     Creates a new instance with the given detector options.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>confidenceThreshold</apiItemName><apiType value="Number"/><apiData>0.5</apiData><apiDesc>The confidence threshold for labels returned by the label detector.
+         Features returned by the label detector will have a confidence higher or equal to the given
+         threshold. Values must be in range [0, 1]. If an invalid value is provided, the default
+         threshold of 0.5 is used.
+     </apiDesc></apiParam><apiParam><apiItemName>enforceCertFingerprintMatch</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Only allow registered application instances with matching certificate
+     fingerprint to use Cloud Vision API.
+     <p>Do not set this for debug build if you use simulators to test.</p>
+     Applies to Android only.
+     </apiDesc></apiParam></apiConstructorDef><apiDesc>
+     Creates a new instance with the given detector options.
+     
+     </apiDesc></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.ml.vision.label:CloudImageLabelerOptions:apiKeyOverride"><apiName>apiKeyOverride</apiName><shortdesc>
+     API key to use for Cloud Vision API.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiType value="String"/></apiValueDef><apiDesc>
+     API key to use for Cloud Vision API.  If <codeph>null</codeph>, the default API key from FirebaseApp will be
+     used.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.ml.vision.label:CloudImageLabelerOptions:confidenceThreshold:get"><apiName>confidenceThreshold</apiName><shortdesc>
+     The confidence threshold for labels returned by the label detector.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Number"/></apiValueDef><apiDesc>
+     The confidence threshold for labels returned by the label detector. Features returned by the
+     label detector will have a confidence higher or equal to the confidence threshold. Default value
+     is 0.5.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.ml.vision.label:CloudImageLabelerOptions:enforceCertFingerprintMatch:get"><apiName>enforceCertFingerprintMatch</apiName><shortdesc>
+     Only allow registered application instances with matching certificate
+     fingerprint to use Cloud Vision API.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/></apiValueDef><apiDesc>
+     Only allow registered application instances with matching certificate
+     fingerprint to use Cloud Vision API.
+     <p>Do not set this for debug build if you use simulators to test.</p>
+     <p>Applies to Android only.</p>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier></apiPackage>

@@ -19,23 +19,27 @@ import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.tuarua.frekotlin.FREObject
 import com.tuarua.frekotlin.set
-import com.tuarua.frekotlin.toFREObject
 
 fun FirebaseVisionBarcode.DriverLicense.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.vision.barcode.BarcodeDriverLicense")
-    ret["addressCity"] = this.addressCity?.toFREObject()
-    ret["addressState"] = this.addressState?.toFREObject()
-    ret["addressStreet"] = this.addressStreet?.toFREObject()
-    ret["addressZip"] = this.addressZip?.toFREObject()
-    ret["birthDate"] = this.birthDate?.toFREObject()
-    ret["documentType"] = this.documentType?.toFREObject()
-    ret["expiryDate"] = this.expiryDate?.toFREObject()
-    ret["firstName"] = this.firstName?.toFREObject()
-    ret["gender"] = this.gender?.toFREObject()
-    ret["issuingCountry"] = this.issuingCountry?.toFREObject()
-    ret["issuingDate"] = this.issueDate?.toFREObject()
-    ret["lastName"] = this.lastName?.toFREObject()
-    ret["licenseNumber"] = this.licenseNumber?.toFREObject()
-    ret["middleName"] = this.middleName?.toFREObject()
+    ret["addressCity"] = addressCity
+    ret["addressState"] = addressState
+    ret["addressStreet"] = addressStreet
+    ret["addressZip"] = addressZip
+    ret["birthDate"] = birthDate
+    ret["documentType"] = documentType
+    ret["expiryDate"] = expiryDate
+    ret["firstName"] = firstName
+    ret["gender"] = gender
+    ret["issuingCountry"] = issuingCountry
+    ret["issuingDate"] = issueDate
+    ret["lastName"] = lastName
+    ret["licenseNumber"] = licenseNumber
+    ret["middleName"] = middleName
     return ret
+}
+
+operator fun FREObject?.set(name: String, value: FirebaseVisionBarcode.DriverLicense?) {
+    val rv = this ?: return
+    rv[name] = value?.toFREObject()
 }

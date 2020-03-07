@@ -25,7 +25,7 @@ import com.google.gson.Gson
 import com.tuarua.firebase.ml.vision.common.extensions.FirebaseVisionImage
 import com.tuarua.firebase.ml.vision.label.events.LabelEvent
 import com.tuarua.firebase.ml.vision.label.extensions.FirebaseVisionLabelDetectorOptions
-import com.tuarua.firebase.ml.vision.label.extensions.toFREArray
+import com.tuarua.firebase.ml.vision.label.extensions.toFREObject
 import com.tuarua.frekotlin.*
 import java.util.*
 import kotlin.coroutines.CoroutineContext
@@ -33,17 +33,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private var results: MutableMap<String, MutableList<FirebaseVisionImageLabel>> = mutableMapOf()
     private val gson = Gson()
     private val bgContext: CoroutineContext = Dispatchers.Default
-    private lateinit var detector: FirebaseVisionImageLabeler
+    private lateinit var labeler: FirebaseVisionImageLabeler
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val options = FirebaseVisionLabelDetectorOptions(argv[0])
-        detector = if (options != null) {
+        labeler = if (options != null) {
             FirebaseVision.getInstance().getOnDeviceImageLabeler(options)
         } else {
             FirebaseVision.getInstance().onDeviceImageLabeler
@@ -56,21 +56,21 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun process(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
-        val eventId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         GlobalScope.launch(bgContext) {
-            detector.processImage(image).addOnCompleteListener { task ->
+            labeler.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
-                    results[eventId] = result
+                    results[callbackId] = result
                     dispatchEvent(LabelEvent.RECOGNIZED,
-                            gson.toJson(LabelEvent(eventId, null)))
+                            gson.toJson(LabelEvent(callbackId, null)))
                 } else {
                     val error = task.exception
                     dispatchEvent(LabelEvent.RECOGNIZED,
                             gson.toJson(
-                                    LabelEvent(eventId, mapOf(
+                                    LabelEvent(callbackId, mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -83,15 +83,20 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
-        val eventId = String(argv[0]) ?: return null
-        val result = results[eventId] ?: return null
-        val ret = result.toFREArray()
-        results.remove(eventId)
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val id = String(argv[0]) ?: return null
+        val result = results[id] ?: return null
+        val ret = result.toFREObject()
+        results.remove(id)
         return ret
     }
 
-    override val TAG: String
+    fun close(ctx: FREContext, argv: FREArgv): FREObject? {
+        labeler.close()
+        return null
+    }
+
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

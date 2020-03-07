@@ -17,8 +17,8 @@
 import Foundation
 
 class Where: NSObject {
-    var fieldPath: String!
-    var operatr: String!
+    var fieldPath: String = ""
+    var operatr: String = ""
     var value: Any!
 
     convenience init(fieldPath: String, operatr: String, value: Any) {

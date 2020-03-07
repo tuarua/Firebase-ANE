@@ -1,6 +1,7 @@
 package views.examples {
+import com.tuarua.Firebase;
+import com.tuarua.firebase.Analytics;
 import com.tuarua.utils.GUID;
-import com.tuarua.firebase.AnalyticsANE;
 import com.tuarua.firebase.analytics.FirebaseAnalyticsEvent;
 import com.tuarua.firebase.analytics.FirebaseAnalyticsParam;
 
@@ -14,7 +15,7 @@ import starling.utils.Align;
 import views.SimpleButton;
 
 public class AnalyticsExample extends Sprite implements IExample {
-    private var analytics:AnalyticsANE;
+    private var analytics:Analytics;
     private var btnLogEvent:SimpleButton = new SimpleButton("Log Event");
     private var btnReset:SimpleButton = new SimpleButton("Reset Analytics Data");
     private var btnGetAppInstanceId:SimpleButton = new SimpleButton("Get AppInstanceID");
@@ -30,7 +31,7 @@ public class AnalyticsExample extends Sprite implements IExample {
 
     public function initANE():void {
         if (isInited) return;
-        analytics = AnalyticsANE.analytics;
+        analytics = Firebase.analytics();
         analytics.analyticsCollectionEnabled = true;
         analytics.currentScreen = "Home Screen";
         analytics.userId = GUID.create(); // for testing create a different user each session

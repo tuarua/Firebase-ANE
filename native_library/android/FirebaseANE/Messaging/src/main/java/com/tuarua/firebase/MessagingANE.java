@@ -15,11 +15,15 @@
  */
 package com.tuarua.firebase;
 
+import android.annotation.SuppressLint;
+
+import androidx.annotation.NonNull;
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.messaging.KotlinController;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({"unused"})
 public class MessagingANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"
@@ -36,8 +40,9 @@ public class MessagingANE implements FREExtension {
 
     }
 
+    @NonNull
     @Override
-    public FREContext createContext(String s) {
+    public FREContext createContext(@SuppressLint("UnknownNullness") String s) {
         String NAME = "com.tuarua.firebase.MessagingANE";
         return extensionContext = new MessagingANEContext(NAME, new KotlinController(), FUNCTIONS);
     }

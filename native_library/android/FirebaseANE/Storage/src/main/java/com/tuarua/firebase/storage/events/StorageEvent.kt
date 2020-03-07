@@ -16,7 +16,7 @@
 
 package com.tuarua.firebase.storage.events
 
-data class StorageEvent(val eventId: String, val data: Map<String, Any>? = null, val error: Map<String, Any>? = null) {
+data class StorageEvent(val callbackId: String, val data: Map<String, Any>? = null, val error: Map<String, Any>? = null) {
     companion object {
         const val GET_DOWNLOAD_URL = "StorageEvent.GetDownloadUrl"
         const val GET_METADATA = "StorageEvent.GetMetadata"

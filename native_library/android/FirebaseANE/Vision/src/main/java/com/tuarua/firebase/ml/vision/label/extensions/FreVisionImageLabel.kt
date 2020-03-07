@@ -25,16 +25,13 @@ import com.tuarua.frekotlin.*
 
 fun FirebaseVisionImageLabel.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.vision.label.VisionImageLabel")
-    ret["confidence"] = confidence.toFREObject()
-    ret["text"] = text.toFREObject()
-    ret["entityId"] = entityId?.toFREObject()
+    ret["confidence"] = confidence
+    ret["text"] = text
+    ret["entityId"] = entityId
     return ret
 }
 
-fun List<FirebaseVisionImageLabel>.toFREArray(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.ml.vision.label.VisionImageLabel", size, true) ?: return null
-    for (i in this.indices) {
-        ret[i] = this[i].toFREObject()
-    }
-    return ret
+fun List<FirebaseVisionImageLabel>.toFREObject(): FREArray? {
+    return FREArray("com.tuarua.firebase.ml.vision.label.VisionImageLabel",
+            size, true, this.map { it.toFREObject() })
 }

@@ -26,7 +26,7 @@ public extension VisionBarcodeWifi {
 }
 
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> VisionBarcodeWifi? {
+    subscript(dynamicMember name: String) -> VisionBarcodeWifi? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }

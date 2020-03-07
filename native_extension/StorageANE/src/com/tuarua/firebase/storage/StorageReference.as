@@ -125,7 +125,7 @@ public class StorageReference {
     public function remove(listener:Function = null):void {
         if (_path == null) return;
         StorageANEContext.validate();
-        var ret:* = StorageANEContext.context.call("deleteReference", _path, StorageANEContext.createEventId(listener));
+        var ret:* = StorageANEContext.context.call("deleteReference", _path, StorageANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -145,7 +145,7 @@ public class StorageReference {
     public function downloadUrl(listener:Function):void {
         if (_path == null) return;
         StorageANEContext.validate();
-        var ret:* = StorageANEContext.context.call("getDownloadUrl", _path, StorageANEContext.createEventId(listener));
+        var ret:* = StorageANEContext.context.call("getDownloadUrl", _path, StorageANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -162,7 +162,7 @@ public class StorageReference {
      */
     public function getMetadata(listener:Function):void {
         StorageANEContext.validate();
-        var ret:* = StorageANEContext.context.call("getMetadata", _path, StorageANEContext.createEventId(listener));
+        var ret:* = StorageANEContext.context.call("getMetadata", _path, StorageANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -180,7 +180,7 @@ public class StorageReference {
     public function updateMetadata(metadata:StorageMetadata, listener:Function = null):void {
         if (_path == null || _name == null) return;
         StorageANEContext.validate();
-        var ret:* = StorageANEContext.context.call("updateMetadata", _path, StorageANEContext.createEventId(listener), metadata);
+        var ret:* = StorageANEContext.context.call("updateMetadata", _path, StorageANEContext.createCallback(listener), metadata);
         if (ret is ANEError) throw ret as ANEError;
     }
 

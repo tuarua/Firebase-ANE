@@ -15,7 +15,6 @@
  */
 package com.tuarua.firebase.ml.vision.barcode
 
-import android.app.FragmentTransaction
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -23,22 +22,21 @@ import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
-import com.tuarua.frekotlin.*
-import java.util.*
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetector
 import com.google.gson.Gson
 import com.tuarua.firebase.camerapreview.CameraPreviewFragment
 import com.tuarua.firebase.ml.vision.barcode.events.BarcodeEvent
 import com.tuarua.firebase.ml.vision.barcode.extensions.FirebaseVisionBarcodeDetectorOptions
-import com.tuarua.firebase.ml.vision.barcode.extensions.toFREArray
+import com.tuarua.firebase.ml.vision.barcode.extensions.toFREObject
 import com.tuarua.firebase.ml.vision.common.extensions.FirebaseVisionImage
-
-import kotlin.coroutines.CoroutineContext
+import com.tuarua.frekotlin.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.*
+import kotlin.coroutines.CoroutineContext
 
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeProcessSucceedListener {
     private lateinit var airView: ViewGroup
     private var optionsAsIntArray: IntArray? = null
@@ -51,7 +49,7 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
     private var cameraPreviewContainer: FrameLayout? = null
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val options = FirebaseVisionBarcodeDetectorOptions(argv[0])
         optionsAsIntArray = IntArray(argv[0]["formats"])
         detector = if (options != null) {
@@ -59,12 +57,9 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
         } else {
             FirebaseVision.getInstance().visionBarcodeDetector
         }
-        val appActivity = ctx.activity
-        if (appActivity != null) {
-            airView = appActivity.findViewById(android.R.id.content) as ViewGroup
-            airView = airView.getChildAt(0) as ViewGroup
-        }
-
+        val appActivity = ctx.activity ?: return true.toFREObject()
+        airView = appActivity.findViewById(android.R.id.content) as ViewGroup
+        airView = airView.getChildAt(0) as ViewGroup
         return true.toFREObject()
     }
 
@@ -73,24 +68,24 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
     }
 
     fun detect(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("detect")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
-        val eventId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
 
         GlobalScope.launch(bgContext) {
             detector.detectInImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
                     if (result.isNotEmpty()) {
-                        results[eventId] = result
+                        results[callbackId] = result
                         dispatchEvent(BarcodeEvent.DETECTED,
-                                gson.toJson(BarcodeEvent(eventId)))
+                                gson.toJson(BarcodeEvent(callbackId)))
                     }
                 } else {
                     val error = task.exception
                     dispatchEvent(BarcodeEvent.DETECTED,
                             gson.toJson(
-                                    BarcodeEvent(eventId, mapOf(
+                                    BarcodeEvent(callbackId, mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -103,23 +98,23 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
     }
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
-        val eventId = String(argv[0]) ?: return null
-        val result = results[eventId] ?: return null
-        val ret = result.toFREArray()
-        results.remove(eventId)
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val callbackId = String(argv[0]) ?: return null
+        val result = results[callbackId] ?: return null
+        val ret = result.toFREObject()
+        results.remove(callbackId)
         return ret
     }
 
-    override fun onVisionProcessSucceed(eventId: String, result: MutableList<FirebaseVisionBarcode>) {
-        results[eventId] = result
+    override fun onVisionProcessSucceed(callbackId: String, result: MutableList<FirebaseVisionBarcode>) {
+        results[callbackId] = result
         hideCameraOverlay()
-        dispatchEvent(BarcodeEvent.DETECTED, gson.toJson(BarcodeEvent(eventId)))
+        dispatchEvent(BarcodeEvent.DETECTED, gson.toJson(BarcodeEvent(callbackId)))
     }
 
     fun inputFromCamera(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("inputFromCamera")
-        val eventId = String(argv[0]) ?: return null
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val callbackId = String(argv[0]) ?: return null
         val appActivity = ctx.activity ?: return null
 
         cameraPreviewContainer = FrameLayout(appActivity)
@@ -131,7 +126,7 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
         airView.addView(frame)
 
         val optionsAsIntArray = this.optionsAsIntArray
-        cameraFragment = CameraPreviewFragment.newInstance(eventId, optionsAsIntArray)
+        cameraFragment = CameraPreviewFragment.newInstance(callbackId, optionsAsIntArray)
         val fragmentTransaction = ctx.activity.fragmentManager.beginTransaction()
         fragmentTransaction.add(newId, cameraFragment)
         fragmentTransaction.commit()
@@ -191,7 +186,7 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

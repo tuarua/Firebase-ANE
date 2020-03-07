@@ -34,7 +34,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let defaults = [String: NSObject](argv[0])
             else {
-                return FreArgError(message: "setDefaults").getError()
+                return FreArgError().getError()
         }
         remoteConfig?.setDefaults(defaults)
         return nil
@@ -44,7 +44,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
         let settings = RemoteConfigSettings(argv[0])
             else {
-                return FreArgError(message: "setConfigSettings").getError()
+                return FreArgError().getError()
         }
         remoteConfig?.configSettings = settings
         return nil
@@ -54,7 +54,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let key = String(argv[0])
             else {
-                return FreArgError(message: "getByteArray").getError()
+                return FreArgError().getError()
         }
         if let rc = remoteConfig {
             let data = rc[key].dataValue
@@ -70,7 +70,7 @@ public class SwiftController: NSObject {
             let rc = remoteConfig,
             let key = String(argv[0])
             else {
-                return FreArgError(message: "getBoolean").getError()
+                return FreArgError().getError()
         }
         return rc[key].boolValue.toFREObject()
     }
@@ -80,7 +80,7 @@ public class SwiftController: NSObject {
             let rc = remoteConfig,
             let key = String(argv[0])
             else {
-                return FreArgError(message: "getDouble").getError()
+                return FreArgError().getError()
         }
         return Double(truncating: rc[key].numberValue ?? 0).toFREObject()
     }
@@ -90,7 +90,7 @@ public class SwiftController: NSObject {
             let rc = remoteConfig,
             let key = String(argv[0])
             else {
-                return FreArgError(message: "getLong").getError()
+                return FreArgError().getError()
         }
         return Int(truncating: rc[key].numberValue ?? 0).toFREObject()
     }
@@ -100,7 +100,7 @@ public class SwiftController: NSObject {
             let rc = remoteConfig,
             let key = String(argv[0])
             else {
-                return FreArgError(message: "getString").getError()
+                return FreArgError().getError()
         }
         return rc[key].stringValue?.toFREObject()
     }
@@ -110,13 +110,47 @@ public class SwiftController: NSObject {
             let rc = remoteConfig,
             let key = String(argv[0])
             else {
-                return FreArgError(message: "getKeysByPrefix").getError()
+                return FreArgError().getError()
         }
         return [String](rc.keys(withPrefix: key)).toFREObject()
     }
     
     func activateFetched(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return remoteConfig?.activateFetched().toFREObject()
+    }
+    
+    func activate(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        remoteConfig?.activate(completionHandler: { (error) in
+            if let err = error {
+                self.dispatchEvent(name: RemoteConfigErrorEvent.ACTIVATE_ERROR,
+                value: RemoteConfigErrorEvent(
+                 callbackId: "",
+                 text: err.localizedDescription,
+                 id: 0
+                 ).toJSONString())
+            } else {
+                self.dispatchEvent(name: RemoteConfigEvent.FETCH, value: "")
+            }
+        })
+        return nil
+    }
+    
+    func fetchAndActivate(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        remoteConfig?.fetchAndActivate(completionHandler: { (status, error) in
+            switch status {
+            case .successFetchedFromRemote, .successUsingPreFetchedData:
+                self.dispatchEvent(name: RemoteConfigEvent.FETCH, value: "")
+            case .error:
+                self.dispatchEvent(name: RemoteConfigErrorEvent.FETCH_ERROR,
+                value: RemoteConfigErrorEvent(
+                 callbackId: "",
+                 text: error?.localizedDescription,
+                 id: 0
+                 ).toJSONString())
+            @unknown default: break
+            }
+        })
+        return nil
     }
     
     func getInfo(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
@@ -128,18 +162,18 @@ public class SwiftController: NSObject {
             let rc = remoteConfig,
             let cacheExpiration = Int(argv[0])
             else {
-                return FreArgError(message: "fetch").getError()
+                return FreArgError().getError()
         }
         self.cacheExpiration = rc.configSettings.isDeveloperModeEnabled ? 0 : cacheExpiration
         
-        remoteConfig?.fetch(withExpirationDuration: TimeInterval(self.cacheExpiration)) { (status, error) -> Void in
+        remoteConfig?.fetch(withExpirationDuration: TimeInterval(self.cacheExpiration)) { (status, error) in
             if status == .success {
                 self.remoteConfig?.activateFetched()
                 self.dispatchEvent(name: RemoteConfigEvent.FETCH, value: "")
             } else {
                 self.dispatchEvent(name: RemoteConfigErrorEvent.FETCH_ERROR,
                                value: RemoteConfigErrorEvent(
-                                eventId: "",
+                                callbackId: "",
                                 text: error?.localizedDescription,
                                 id: 0
                                 ).toJSONString())

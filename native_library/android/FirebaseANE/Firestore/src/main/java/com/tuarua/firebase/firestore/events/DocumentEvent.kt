@@ -1,7 +1,7 @@
 package com.tuarua.firebase.firestore.events
 
-data class DocumentEvent(val eventId: String, val data: Map<String, Any?>? = null,
-                    val realtime: Boolean = false, val error: Map<String, Any?>? = null) {
+data class DocumentEvent(val callbackId: String, val data: Map<String, Any?>? = null,
+                         val realtime: Boolean = false, val error: Map<String, Any?>? = null) {
     companion object {
         const val SNAPSHOT = "DocumentEvent.Snapshot"
         const val QUERY_SNAPSHOT = "QueryEvent.QuerySnapshot"

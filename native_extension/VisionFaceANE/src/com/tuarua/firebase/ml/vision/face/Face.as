@@ -83,6 +83,11 @@ public class Face {
      */
     public var landmarks:Vector.<FaceLandmark> = new <FaceLandmark>[];
 
+    /**
+     * All the contours.
+     */
+    public var contours:Vector.<FaceContour> = new <FaceContour>[];
+
     /** @private */
     public function Face() {
     }
@@ -94,9 +99,23 @@ public class Face {
      * @return The landmark of the given type in this face.  nil if there isn't one.
      */
     public function landmark(ofType:String):FaceLandmark {
-        for each (var landmark:FaceLandmark in landmarks) {
-            if (landmark.type == ofType) {
-                return landmark;
+        for each (var i:FaceLandmark in landmarks) {
+            if (i.type == ofType) {
+                return i;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Returns the contour, if any, of the given type in this detected face.
+     * @param ofType The type of the facial contour.
+     * @return The contour of the given type in this face. null if there isn't one.
+     */
+    public function contour(ofType:String):FaceContour {
+        for each (var i:FaceContour in contours) {
+            if (i.type == ofType) {
+                return i;
             }
         }
         return null;

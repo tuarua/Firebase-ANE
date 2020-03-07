@@ -18,6 +18,12 @@ package com.tuarua.firebase.ml.vision.barcode.extensions
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.tuarua.frekotlin.FREObject
+import com.tuarua.frekotlin.set
 
 fun FirebaseVisionBarcode.UrlBookmark.toFREObject(): FREObject? =
         FREObject("com.tuarua.firebase.ml.vision.barcode.BarcodeURLBookmark", title, url)
+
+operator fun FREObject?.set(name: String, value: FirebaseVisionBarcode.UrlBookmark?) {
+    val rv = this ?: return
+    rv[name] = value?.toFREObject()
+}

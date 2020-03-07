@@ -16,7 +16,7 @@
 
 package com.tuarua.firebase.storage.events
 
-data class StorageErrorEvent(val eventId: String, val text: String? = null, val id: Int = 0) {
+data class StorageErrorEvent(val callbackId: String, val text: String? = null, val id: Int = 0) {
     companion object {
         const val ERROR = "StorageErrorEvent.Error"
     }

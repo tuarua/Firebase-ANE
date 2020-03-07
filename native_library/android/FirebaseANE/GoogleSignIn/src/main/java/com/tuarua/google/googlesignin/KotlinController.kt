@@ -27,7 +27,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
     private var googleSignInClient: GoogleSignInClient? = null
-    private val RC_SIGN_IN = 9001
     fun createGUID(ctx: FREContext, argv: FREArgv): FREObject? {
         return UUID.randomUUID().toString().toFREObject()
     }
@@ -38,7 +37,7 @@ class KotlinController : FreKotlinMainController {
                 ?: return FreException("no resources").getError()
         val act = context.activity ?: return FreException("no application context").getError()
         try {
-            val apiKey = resources.getString(context.getResourceId("string.default_web_client_id"))
+            val apiKey = String(argv[0]) ?: resources.getString(context.getResourceId("string.default_web_client_id"))
             val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .requestIdToken(apiKey)
                     .requestEmail()
@@ -56,7 +55,7 @@ class KotlinController : FreKotlinMainController {
 
     fun signIn(ctx: FREContext, argv: FREArgv): FREObject? {
         val signInIntent = googleSignInClient?.signInIntent ?: return null
-        ctx.activity.startActivityForResult(signInIntent, RC_SIGN_IN)
+        ctx.activity.startActivityForResult(signInIntent, ResultListener.RC_SIGN_IN)
         return null
     }
 
@@ -79,7 +78,7 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

@@ -1,7 +1,7 @@
 package views.examples {
 
 import com.tuarua.firebase.ml.naturallanguage.LanguageIdentificationError;
-import com.tuarua.firebase.ml.naturallanguage.NaturalLanguageANE;
+import com.tuarua.firebase.ml.naturallanguage.NaturalLanguage;
 import com.tuarua.firebase.ml.naturallanguage.languageid.IdentifiedLanguage;
 import com.tuarua.firebase.ml.naturallanguage.languageid.LanguageIdentification;
 
@@ -22,10 +22,10 @@ public class NaturalLanguageExample extends Sprite implements IExample {
     private var stageWidth:Number;
     private var stageHeight:Number;
     private var isInited:Boolean;
-    private var naturalLanguage:NaturalLanguageANE;
+    private var naturalLanguage:NaturalLanguage;
     private var languageIdentification:LanguageIdentification;
 
-    public function NaturalLanguageExample(stageWidth:int, naturalLanguage:NaturalLanguageANE) {
+    public function NaturalLanguageExample(stageWidth:int, naturalLanguage:NaturalLanguage) {
         super();
         this.naturalLanguage = naturalLanguage;
         this.stageWidth = stageWidth;

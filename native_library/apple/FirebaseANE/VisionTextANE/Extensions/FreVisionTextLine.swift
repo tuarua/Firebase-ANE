@@ -33,10 +33,10 @@ public extension VisionTextLine {
 
 public extension Array where Element == VisionTextLine {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.ml.vision.text.TextLine") else { return nil }
-        for element in self {
-            ret.push(element.toFREObject())
-        }
-        return ret.rawValue
+        return FREArray(className: "com.tuarua.firebase.ml.vision.text.TextLine",
+                             length: self.count,
+                             fixed: true,
+                             items: self.compactMap { $0.toFREObject() }
+        )?.rawValue
     }
 }

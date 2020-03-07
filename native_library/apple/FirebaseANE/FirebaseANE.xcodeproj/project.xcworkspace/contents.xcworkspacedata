@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/User/flash/Firebase-ANE/native_library/apple/FirebaseANE/FirebaseANE.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

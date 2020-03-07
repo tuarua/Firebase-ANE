@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="com.google.android.gms.play-services-base-16.0.1" type="flex">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/android_dependencies/com.google.android.gms.play-services-base-16.0.1.ane!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

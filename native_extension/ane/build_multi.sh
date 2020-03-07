@@ -105,6 +105,12 @@ cp -R -L "$pathtome/../../firebase_frameworks/device/GoogleToolboxForMac.framewo
 cp -R -L "$pathtome/../../firebase_frameworks/simulator/GoogleUtilities.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../firebase_frameworks/device/GoogleUtilities.framework" "$pathtome/platforms/ios/device/Frameworks"
 
+cp -R -L "$pathtome/../../firebase_frameworks/simulator/GoogleDataTransport.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../firebase_frameworks/device/GoogleDataTransport.framework" "$pathtome/platforms/ios/device/Frameworks"
+
+cp -R -L "$pathtome/../../firebase_frameworks/simulator/GoogleDataTransportCCTSupport.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../firebase_frameworks/device/GoogleDataTransportCCTSupport.framework" "$pathtome/platforms/ios/device/Frameworks"
+
 cp -R -L "$pathtome/../../firebase_frameworks/simulator/Fabric.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../firebase_frameworks/device/Fabric.framework" "$pathtome/platforms/ios/device/Frameworks"
 

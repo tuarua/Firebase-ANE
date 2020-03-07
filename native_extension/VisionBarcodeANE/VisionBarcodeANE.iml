@@ -5,6 +5,9 @@
       <configuration name="VisionBarcodeANE" target-platform="Mobile" pure-as="true" output-type="Library" output-file="VisionBarcodeANE.swc" output-folder="$MODULE_DIR$/bin">
         <dependencies target-player="30.0">
           <entries>
+            <entry module-name="ANEUtils" build-configuration-name="ANEUtils">
+              <dependency linkage="External" />
+            </entry>
             <entry module-name="FirebaseANE" build-configuration-name="FirebaseANE">
               <dependency linkage="External" />
             </entry>
@@ -28,6 +31,7 @@
     </content>
     <orderEntry type="jdk" jdkName="AIRSDK_32" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="ANEUtils" exported="" />
     <orderEntry type="module" module-name="FirebaseANE" exported="" />
   </component>
 </module>

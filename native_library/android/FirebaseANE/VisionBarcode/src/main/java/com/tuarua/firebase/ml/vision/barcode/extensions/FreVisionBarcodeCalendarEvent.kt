@@ -24,17 +24,26 @@ import java.text.DateFormat
 
 fun FirebaseVisionBarcode.CalendarEvent.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.vision.barcode.BarcodeCalendarEvent")
-    ret["end"] = this.end?.toFREObject()
-    ret["eventDescription"] = this.description?.toFREObject()
-    ret["location"] = this.location?.toFREObject()
-    ret["organizer"] = this.organizer?.toFREObject()
-    ret["start"] = this.start?.toFREObject()
-    ret["status"] = this.status?.toFREObject()
-    ret["summary"] = this.summary?.toFREObject()
-
+    ret["end"] = end
+    ret["eventDescription"] = description
+    ret["location"] = location
+    ret["organizer"] = organizer
+    ret["start"] = start
+    ret["status"] = status
+    ret["summary"] = summary
     return ret
+}
+
+operator fun FREObject?.set(name: String, value: FirebaseVisionBarcode.CalendarEvent?) {
+    val rv = this ?: return
+    rv[name] = value?.toFREObject()
 }
 
 private fun FirebaseVisionBarcode.CalendarDateTime.toFREObject(): FREObject? {
     return DateFormat.getDateInstance().parse(this.rawValue).toFREObject()
+}
+
+operator fun FREObject?.set(name: String, value: FirebaseVisionBarcode.CalendarDateTime?) {
+    val rv = this ?: return
+    rv[name] = value?.toFREObject()
 }

@@ -32,13 +32,10 @@ public extension VisionTextBlock {
 
 public extension Array where Element == VisionTextBlock {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.ml.vision.text.TextBlock",
-                                      length: self.count, fixed: true) else { return nil }
-        var cnt: UInt = 0
-        for element in self {
-            ret[cnt] = element.toFREObject()
-            cnt+=1
-        }
-        return ret.rawValue
+        return FREArray(className: "com.tuarua.firebase.ml.vision.text.TextBlock",
+                             length: self.count,
+                             fixed: true,
+                             items: self.compactMap { $0.toFREObject() }
+        )?.rawValue
     }
 }

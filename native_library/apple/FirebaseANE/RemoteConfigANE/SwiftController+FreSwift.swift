@@ -30,8 +30,10 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)getKeysByPrefix"] = getKeysByPrefix
         functionsToSet["\(prefix)fetch"] = fetch
         functionsToSet["\(prefix)activateFetched"] = activateFetched
+        functionsToSet["\(prefix)activate"] = activate
+        functionsToSet["\(prefix)fetchAndActivate"] = fetchAndActivate
         functionsToSet["\(prefix)getInfo"] = getInfo
-
+        
         var arr: [String] = []
         for key in functionsToSet.keys {
             arr.append(key)

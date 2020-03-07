@@ -23,7 +23,7 @@ import com.tuarua.frekotlin.String
 import com.tuarua.frekotlin.get
 
 @Suppress("FunctionName")
-fun SocialMetaTagParameters(freObject: FREObject?): DynamicLink.SocialMetaTagParameters? {
+fun SocialMetaTagParameters(freObject: FREObject?): SocialMetaTagParameters? {
     val rv = freObject ?: return null
     val description = String(rv["description"])
     val imageUrl = String(rv["imageUrl"])

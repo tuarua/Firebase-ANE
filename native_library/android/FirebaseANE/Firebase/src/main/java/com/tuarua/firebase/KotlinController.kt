@@ -4,12 +4,12 @@ import android.content.res.Resources
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.android.gms.common.ConnectionResult
-import com.google.firebase.FirebaseApp
 import com.tuarua.frekotlin.*
 import com.google.android.gms.common.GoogleApiAvailability
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.ktx.initialize
 
-
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         val context = context ?: return FreException("no context").getError()
@@ -30,8 +30,7 @@ class KotlinController : FreKotlinMainController {
                     "Cannot find required google_app_id. Ensure Firebase resources file added to FirebaseANE"
             ).getError()
         }
-
-        FirebaseApp.initializeApp(ac)
+        Firebase.initialize(ac)
         return true.toFREObject()
     }
 
@@ -72,12 +71,12 @@ class KotlinController : FreKotlinMainController {
             null
         }
         val ret = FREObject("com.tuarua.firebase.FirebaseOptions")
-        ret["apiKey"] = apiKey?.toFREObject()
-        ret["googleAppId"] = googleAppId?.toFREObject()
-        ret["databaseUrl"] = databaseUrl?.toFREObject()
-        ret["storageBucket"] = storageBucket?.toFREObject()
-        ret["projectId"] = projectId?.toFREObject()
-        ret["gcmSenderId"] = gcmSenderId?.toFREObject()
+        ret["apiKey"] = apiKey
+        ret["googleAppId"] = googleAppId
+        ret["databaseUrl"] = databaseUrl
+        ret["storageBucket"] = storageBucket
+        ret["projectId"] = projectId
+        ret["gcmSenderId"] = gcmSenderId
         return ret
 
     }
@@ -89,7 +88,7 @@ class KotlinController : FreKotlinMainController {
                 .toFREObject()
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

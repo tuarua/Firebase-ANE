@@ -1,5 +1,5 @@
 package views.examples {
-import com.tuarua.firebase.VisionANE;
+import com.tuarua.firebase.Vision;
 import com.tuarua.firebase.ml.vision.common.VisionImage;
 import com.tuarua.firebase.ml.vision.document.CloudDocumentRecognizerOptions;
 import com.tuarua.firebase.ml.vision.document.CloudDocumentTextRecognizer;
@@ -58,9 +58,9 @@ public class TextExample extends Sprite implements IExample {
     private var textRecognizer:TextRecognizer;
     private var cloudTextRecognizer:CloudTextRecognizer;
     private var cloudDocumentRecognizer:CloudDocumentTextRecognizer;
-    private var vision:VisionANE;
+    private var vision:Vision;
 
-    public function TextExample(stageWidth:int, vision:VisionANE) {
+    public function TextExample(stageWidth:int, vision:Vision) {
         super();
         this.vision = vision;
         this.stageWidth = stageWidth;

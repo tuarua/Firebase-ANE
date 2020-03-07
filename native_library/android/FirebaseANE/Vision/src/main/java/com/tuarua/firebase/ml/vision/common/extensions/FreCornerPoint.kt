@@ -21,15 +21,8 @@ package com.tuarua.firebase.ml.vision.common.extensions
 import com.adobe.fre.FREArray
 import com.tuarua.frekotlin.FREArray
 import com.tuarua.frekotlin.geom.toFREObject
-import com.tuarua.frekotlin.set
 
 fun FREArray(value: Array<out android.graphics.Point>?): FREArray? {
-    val ret = FREArray("flash.geom.Point") ?: return null
-    if (value == null || value.isEmpty()) return ret
-
-    for (i in value.indices) {
-        val p = value[i]
-        ret[i] = p.toFREObject()
-    }
-    return ret
+    return FREArray("flash.geom.Point",
+            items = value?.map { it.toFREObject() })
 }

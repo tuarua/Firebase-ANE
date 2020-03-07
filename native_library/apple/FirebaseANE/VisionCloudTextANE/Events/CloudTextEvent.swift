@@ -15,21 +15,22 @@
  */
 
 import Foundation
+import SwiftyJSON
 
 class CloudTextEvent: NSObject {
     public static let RECOGNIZED = "CloudTextEvent.Recognized"
-    var eventId: String?
+    var callbackId: String?
     var error: NSError?
     
-    convenience init(eventId: String?, error: NSError? = nil) {
+    convenience init(callbackId: String?, error: NSError? = nil) {
         self.init()
-        self.eventId = eventId
+        self.callbackId = callbackId
         self.error = error
     }
     
     public func toJSONString() -> String {
         var props = [String: Any]()
-        props["eventId"] = eventId
+        props["callbackId"] = callbackId
         props["error"] = error?.toDictionary()
         return JSON(props).description
     }

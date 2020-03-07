@@ -25,7 +25,7 @@ public extension VisionBarcodeURLBookmark {
 }
 
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> VisionBarcodeURLBookmark? {
+    subscript(dynamicMember name: String) -> VisionBarcodeURLBookmark? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }

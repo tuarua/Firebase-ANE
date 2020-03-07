@@ -26,7 +26,7 @@ public extension VisionBarcodeGeoPoint {
 }
 
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> VisionBarcodeGeoPoint? {
+    subscript(dynamicMember name: String) -> VisionBarcodeGeoPoint? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }

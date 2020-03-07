@@ -30,17 +30,13 @@ public extension VisionLatitudeLongitude {
 
 public extension Array where Element == VisionLatitudeLongitude {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.ml.vision.common.LatitudeLongitude")
-            else { return nil }
-        for element in self {
-            ret.push(element.toFREObject())
-        }
-        return ret.rawValue
+        return FREArray(className: "com.tuarua.firebase.ml.vision.common.LatitudeLongitude",
+                        items: self.compactMap { $0.toFREObject() })?.rawValue
     }
 }
 
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> [VisionLatitudeLongitude]? {
+    subscript(dynamicMember name: String) -> [VisionLatitudeLongitude]? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }

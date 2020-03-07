@@ -20,10 +20,10 @@ import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Build
-import android.support.v4.content.ContextCompat
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.core.content.ContextCompat
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.gson.Gson
@@ -57,21 +57,18 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        val appActivity = ctx.activity
-        if (appActivity != null) {
-            airView = appActivity.findViewById(android.R.id.content) as ViewGroup
-            airView = airView.getChildAt(0) as ViewGroup
-            cameraOverlayContainer = CameraOverlayContainer(ctx.activity)
-            cameraOverlayContainer.layoutParams = FrameLayout.LayoutParams(airView.width, airView.height)
-            cameraOverlayContainer.visibility = View.INVISIBLE
+        val appActivity = ctx.activity ?: return false.toFREObject()
+        airView = appActivity.findViewById(android.R.id.content) as ViewGroup
+        airView = airView.getChildAt(0) as ViewGroup
+        cameraOverlayContainer = CameraOverlayContainer(ctx.activity)
+        cameraOverlayContainer.layoutParams = FrameLayout.LayoutParams(airView.width, airView.height)
+        cameraOverlayContainer.visibility = View.INVISIBLE
 
-            packageManager = appActivity.packageManager
-            val pm = packageManager ?: return false.toFREObject()
-            packageInfo = pm.getPackageInfo(appActivity.packageName, PackageManager.GET_PERMISSIONS)
-            EventBus.getDefault().register(this)
-            return hasRequiredPermissions().toFREObject()
-        }
-        return false.toFREObject()
+        packageManager = appActivity.packageManager
+        val pm = packageManager ?: return false.toFREObject()
+        packageInfo = pm.getPackageInfo(appActivity.packageName, PackageManager.GET_PERMISSIONS)
+        EventBus.getDefault().register(this)
+        return hasRequiredPermissions().toFREObject()
     }
 
     private fun hasRequiredPermissions(): Boolean {
@@ -109,10 +106,8 @@ class KotlinController : FreKotlinMainController {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: PermissionEvent) {
         dispatchEvent(PermissionEvent.ON_PERMISSION_STATUS, gson.toJson(event))
-        when {
-            event.status == PermissionEvent.PERMISSION_ALWAYS -> {
-                permissionsGranted = true
-            }
+        when (event.status) {
+            PermissionEvent.PERMISSION_ALWAYS -> permissionsGranted = true
         }
     }
 
@@ -166,9 +161,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun updateNativeChild(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf {
-            argv.size > 2 && userChildren.isNotEmpty()
-        } ?: return null
+        argv.takeIf { argv.size > 2 && userChildren.isNotEmpty() } ?: return null
         val id = String(argv[0]) ?: return null
         val propName = argv[1]
         val propVal = argv[2]
@@ -196,7 +189,7 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

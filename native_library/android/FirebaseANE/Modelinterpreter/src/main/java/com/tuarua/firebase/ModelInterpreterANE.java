@@ -16,20 +16,21 @@
 
 package com.tuarua.firebase;
 
+import android.annotation.SuppressLint;
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.ml.custom.KotlinController;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({"unused"})
 public class ModelInterpreterANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"
             ,"createGUID"
             ,"run"
-            ,"registerCloudModel"
-            ,"registerLocalModel"
-            ,"cloudModelSource"
-            ,"localModelSource"
+            ,"deleteDownloadedModel"
+            ,"download"
+            ,"isModelDownloaded"
     };
     private static ModelInterpreterANEContext extensionContext;
 
@@ -38,9 +39,10 @@ public class ModelInterpreterANE implements FREExtension {
 
     }
 
+    @SuppressLint("UnknownNullness")
     @Override
     public FREContext createContext(String s) {
-        String NAME = "com.tuarua.firebase.NaturalLanguageANE";
+        String NAME = "com.tuarua.firebase.ml.ModelInterpreterANE";
         return extensionContext = new ModelInterpreterANEContext(NAME, new KotlinController(), FUNCTIONS);
     }
 

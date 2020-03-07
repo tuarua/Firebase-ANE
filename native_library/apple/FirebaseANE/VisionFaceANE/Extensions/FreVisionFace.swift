@@ -21,7 +21,8 @@ import FirebaseMLVision
 public extension VisionFace {
     func toFREObject() -> FREObject? {
         guard let ret = FreObjectSwift(className: "com.tuarua.firebase.ml.vision.face.Face"),
-        let freLandMarks = FREArray(className: "com.tuarua.firebase.ml.vision.face.FaceLandmark") else { return nil }
+        let freLandMarks = FREArray(className: "com.tuarua.firebase.ml.vision.face.FaceLandmark"),
+        let freContours = FREArray(className: "com.tuarua.firebase.ml.vision.face.FaceContour") else { return nil }
         
         ret.frame = frame
         ret.hasTrackingId = hasTrackingID
@@ -37,30 +38,37 @@ public extension VisionFace {
         ret.hasRightEyeOpenProbability = hasRightEyeOpenProbability
         ret.rightEyeOpenProbability = rightEyeOpenProbability
 
-        let types: [FaceLandmarkType] = [.leftEye, .rightEye,
+        let landmarkTypes: [FaceLandmarkType] = [.leftEye, .rightEye,
                                          .mouthBottom, .mouthRight, .mouthLeft,
                                          .leftEar, .rightEar,
                                          .leftCheek, .rightCheek,
                                          .noseBase]
-        
-        for type in types {
+        for type in landmarkTypes {
             freLandMarks.push(landmark(ofType: type)?.toFREObject())
         }
-        
         ret.landmarks = freLandMarks
+        
+        let contourTypes: [FaceContourType] = [.face,
+                                               .leftEyebrowTop, .leftEyebrowBottom,
+                                               .rightEyebrowTop, .rightEyebrowBottom,
+                                               .leftEye, .rightEye,
+                                               .upperLipTop, .upperLipBottom,
+                                               .lowerLipTop, .lowerLipBottom,
+                                               .noseBridge, .noseBottom]
+        for type in contourTypes {
+            freContours.push(contour(ofType: type)?.toFREObject())
+        }
+        ret.contours = freContours
         return ret.rawValue
     }
 }
 
 public extension Array where Element == VisionFace {
     func toFREObject() -> FREObject? {
-        guard let ret = FREArray(className: "com.tuarua.firebase.ml.vision.face.Face",
-                                 length: self.count, fixed: true) else { return nil }
-        var index: UInt = 0
-        for element in self {
-            ret[index] = element.toFREObject()
-            index+=1
-        }
-        return ret.rawValue
+        return FREArray(className: "com.tuarua.firebase.ml.vision.face.Face",
+                                 length: self.count,
+                                 fixed: true,
+                                 items: self.compactMap { $0.toFREObject() }
+            )?.rawValue
     }
 }

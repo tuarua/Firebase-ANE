@@ -22,24 +22,25 @@ import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.text.FirebaseVisionText
 import com.tuarua.firebase.ml.vision.common.extensions.FREArray
 import com.tuarua.frekotlin.*
-import com.tuarua.frekotlin.geom.toFREObject
+import com.tuarua.frekotlin.geom.set
 
 fun FirebaseVisionText.TextBlock.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.vision.text.TextBlock")
-    ret["lines"] = lines.toFREObject()
-    ret["frame"] = boundingBox?.toFREObject()
-    ret["text"] = text.toFREObject()
-    ret["confidence"] = confidence?.toFREObject()
+    ret["lines"] = lines
+    ret["frame"] = boundingBox
+    ret["text"] = text
+    confidence?.let { ret["confidence"] = it }
     ret["cornerPoints"] = FREArray(cornerPoints)
-    ret["recognizedLanguages"] = this.recognizedLanguages.toFREObject()
+    ret["recognizedLanguages"] = recognizedLanguages
     return ret
 }
 
 fun List<FirebaseVisionText.TextBlock>.toFREObject(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.ml.vision.text.TextBlock", size, true)
-            ?: return null
-    for (i in this.indices) {
-        ret[i] = this[i].toFREObject()
-    }
-    return ret
+    return FREArray("com.tuarua.firebase.ml.vision.text.TextBlock",
+            size, true, this.map { it.toFREObject() })
+}
+
+operator fun FREObject?.set(name: String, value: List<FirebaseVisionText.TextBlock>) {
+    val rv = this ?: return
+    rv[name] = value.toFREObject()
 }

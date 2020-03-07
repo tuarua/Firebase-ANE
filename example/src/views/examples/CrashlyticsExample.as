@@ -1,5 +1,6 @@
 package views.examples {
-import com.tuarua.firebase.CrashlyticsANE;
+import com.tuarua.Firebase;
+import com.tuarua.firebase.Crashlytics;
 import com.tuarua.fre.ANEError;
 
 import flash.system.Capabilities;
@@ -14,7 +15,7 @@ import starling.utils.Align;
 import views.SimpleButton;
 
 public class CrashlyticsExample extends Sprite implements IExample {
-    private var crashlytics:CrashlyticsANE;
+    private var crashlytics:Crashlytics;
     private var btnForceCrash:SimpleButton = new SimpleButton("Force Crash");
     private var btnLog:SimpleButton = new SimpleButton("Log Message");
     private var btnException:SimpleButton = new SimpleButton("Log Exception");
@@ -84,8 +85,8 @@ public class CrashlyticsExample extends Sprite implements IExample {
     public function initANE():void {
         if (isInited) return;
         try {
-            CrashlyticsANE.debug = Capabilities.isDebugger;
-            crashlytics = CrashlyticsANE.crashlytics;
+            Crashlytics.debug = Capabilities.isDebugger;
+            crashlytics = Firebase.crashlytics();
         } catch (e:ANEError) {
             statusLabel.text += e.message + "\n";
             statusLabel.text += e.getStackTrace() + "\n";

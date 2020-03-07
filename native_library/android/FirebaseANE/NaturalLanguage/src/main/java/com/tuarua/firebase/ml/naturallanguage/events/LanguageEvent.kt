@@ -16,7 +16,7 @@
 
 package com.tuarua.firebase.ml.naturallanguage.events
 
-data class LanguageEvent(val eventId: String, val error: Map<String, Any>? = null) {
+data class LanguageEvent(val callbackId: String, val error: Map<String, Any>? = null) {
     companion object {
         const val RECOGNIZED = "LanguageEvent.Recognized"
         const val RECOGNIZED_MULTI = "LanguageEvent.RecognizedMulti"

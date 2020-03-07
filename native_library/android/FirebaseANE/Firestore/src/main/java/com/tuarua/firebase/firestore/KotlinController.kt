@@ -23,8 +23,7 @@ import com.tuarua.firebase.firestore.extensions.*
 import com.tuarua.frekotlin.*
 import java.util.*
 
-
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private lateinit var firestoreController: FirestoreController
 
@@ -33,7 +32,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val loggingEnabled = Boolean(argv[0]) == true
         val settings = FirebaseFirestoreSettings(argv[1])
         firestoreController = FirestoreController(context, loggingEnabled, settings)
@@ -45,27 +44,27 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getCollectionParent(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getCollectionParent")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         return firestoreController.getCollectionParent(path)?.toFREObject()
     }
 
     fun initCollectionReference(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("initCollectionReference")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         return firestoreController.initCollectionReference(path).toFREObject()
     }
 
     fun getDocumentParent(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getDocumentParent")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         return firestoreController.getDocumentParent(path).toFREObject()
     }
 
     fun getDocuments(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 8 } ?: return FreArgException("getDocuments")
+        argv.takeIf { argv.size > 8 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
-        val asId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         try {
             val whereClauses = FREArray(argv[2])
             val orderClauses = FREArray(argv[3])
@@ -117,7 +116,7 @@ class KotlinController : FreKotlinMainController {
                 endBeforeList.add(item)
             }
 
-            firestoreController.getDocuments(path, asId, whereList, orderList,
+            firestoreController.getDocuments(path, callbackId, whereList, orderList,
                     startAtList, startAfterList, endAtList, endBeforeList, limitTo)
         } catch (e: FreException) {
             return e.getError()
@@ -128,64 +127,64 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun initDocumentReference(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("initDocumentReference")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         return firestoreController.initDocumentReference(path).toFREObject()
     }
 
     fun getDocumentReference(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("getDocumentReference")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
-        val asId = String(argv[1]) ?: return null
-        firestoreController.getDocumentReference(path, asId)
+        val callbackId = String(argv[1]) ?: return null
+        firestoreController.getDocumentReference(path, callbackId)
         return null
     }
 
     fun addSnapshotListenerDocument(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("addSnapshotListenerDocument")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
-        val eventId = String(argv[1]) ?: return null
-        val asId = String(argv[2]) ?: return null
-        firestoreController.addSnapshotListenerDocument(path, eventId, asId)
+        val callbackId = String(argv[1]) ?: return null
+        val callbackCallerId = String(argv[2]) ?: return null
+        firestoreController.addSnapshotListenerDocument(path, callbackId, callbackCallerId)
         return null
     }
 
     fun removeSnapshotListener(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("removeSnapshotListener")
-        val asId = String(argv[0]) ?: return null
-        firestoreController.removeSnapshotListener(asId)
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val id = String(argv[0]) ?: return null
+        firestoreController.removeSnapshotListener(id)
         return null
     }
 
     fun setDocumentReference(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 3 } ?: return FreArgException("setDocumentReference")
+        argv.takeIf { argv.size > 3 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
-        val eventId = String(argv[1])
+        val callbackId = String(argv[1])
         val documentData: Map<String, Any> = Map(argv[2]) ?: return null
         val merge = Boolean(argv[3]) ?: return null
-        firestoreController.setDocumentReference(path, eventId, documentData, merge)
+        firestoreController.setDocumentReference(path, callbackId, documentData, merge)
         return null
     }
 
     fun updateDocumentReference(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException("updateDocumentReference")
+        argv.takeIf { argv.size > 2 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
-        val eventId = String(argv[1])
+        val callbackId = String(argv[1])
         val documentData: Map<String, Any> = Map(argv[2]) ?: return null
-        firestoreController.updateDocumentReference(path, eventId, documentData)
+        firestoreController.updateDocumentReference(path, callbackId, documentData)
         return null
     }
 
     fun deleteDocumentReference(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("deleteDocumentReference")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
-        val eventId = String(argv[1])
-        firestoreController.deleteDocumentReference(path, eventId)
+        val callbackId = String(argv[1])
+        firestoreController.deleteDocumentReference(path, callbackId)
         return null
     }
 
     fun documentWithAutoId(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("documentWithAutoId")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         return firestoreController.documentWithAutoId(path).toFREObject()
     }
@@ -197,7 +196,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun setBatch(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException("setBatch")
+        argv.takeIf { argv.size > 2 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val documentData: Map<String, Any> = Map(argv[1]) ?: return null
         val merge = Boolean(argv[2]) ?: return null
@@ -206,14 +205,14 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun deleteBatch(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("deleteBatch")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         firestoreController.deleteBatch(path)
         return null
     }
 
     fun updateBatch(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("updateBatch")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val documentData: Map<String, Any> = Map(argv[1]) ?: return null
         firestoreController.updateBatch(path, documentData)
@@ -221,27 +220,27 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun commitBatch(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("commitBatch")
-        val asId = String(argv[0])
-        firestoreController.commitBatch(asId)
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val id = String(argv[0])
+        firestoreController.commitBatch(id)
         return null
     }
 
     fun enableNetwork(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("commitBatch")
-        val eventId = String(argv[0])
-        firestoreController.enableNetwork(eventId)
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val callbackId = String(argv[0])
+        firestoreController.enableNetwork(callbackId)
         return null
     }
 
     fun disableNetwork(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("commitBatch")
-        val eventId = String(argv[0])
-        firestoreController.disableNetwork(eventId)
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val callbackId = String(argv[0])
+        firestoreController.disableNetwork(callbackId)
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

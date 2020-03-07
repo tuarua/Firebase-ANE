@@ -31,7 +31,7 @@ public class SwiftController: NSObject {
     internal lazy var sessionQueue = DispatchQueue(label: "com.tuarua.firebase.vision.SessionQueue")
     internal var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     internal var cameraView: UIView?
-    internal var cameraEventId: String?
+    internal var cameraCallbackId: String?
     private var detector: VisionBarcodeDetector?
     
     func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
@@ -42,7 +42,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let options = VisionBarcodeDetectorOptions(argv[0])
             else {
-                return FreArgError(message: "initController").getError()
+                return FreArgError().getError()
         }
         self.options = options
         detector = Vision.vision().barcodeDetector(options: options)
@@ -52,20 +52,20 @@ public class SwiftController: NSObject {
     func detect(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let image = VisionImage(argv[0]),
-            let eventId = String(argv[1])
+            let callbackId = String(argv[1])
             else {
-                return FreArgError(message: "detect").getError()
+                return FreArgError().getError()
         }
         userInitiatedQueue.async {
             self.detector?.detect(in: image) { (features, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: BarcodeEvent.DETECTED,
-                                   value: BarcodeEvent(eventId: eventId, error: err).toJSONString())
+                                   value: BarcodeEvent(callbackId: callbackId, error: err).toJSONString())
                 } else {
                     if let features = features, !features.isEmpty {
-                        self.results[eventId] = features
+                        self.results[callbackId] = features
                         self.dispatchEvent(name: BarcodeEvent.DETECTED,
-                                       value: BarcodeEvent(eventId: eventId).toJSONString())
+                                       value: BarcodeEvent(callbackId: callbackId).toJSONString())
                     }
                 }
             }
@@ -75,12 +75,12 @@ public class SwiftController: NSObject {
     
     func getResults(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let eventId = String(argv[0])
+            let id = String(argv[0])
             else {
-                return FreArgError(message: "getResult").getError()
+                return FreArgError().getError()
         }
-        let ret = results[eventId]?.toFREObject()
-        results.removeValue(forKey: eventId)
+        let ret = results[id]?.toFREObject()
+        results.removeValue(forKey: id)
         return ret
     }
     
@@ -88,13 +88,13 @@ public class SwiftController: NSObject {
     
     func inputFromCamera(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let eventId = String(argv[0]),
+            let id = String(argv[0]),
             let rvc = UIApplication.shared.keyWindow?.rootViewController
             else {
-                return FreArgError(message: "inputFromCamera").getError()
+                return FreArgError().getError()
         }
-        cameraEventId = eventId
-        inputFromCamera(rootViewController: rvc, eventId: eventId)
+        cameraCallbackId = id
+        inputFromCamera(rootViewController: rvc, callbackId: id)
         return nil
     }
     

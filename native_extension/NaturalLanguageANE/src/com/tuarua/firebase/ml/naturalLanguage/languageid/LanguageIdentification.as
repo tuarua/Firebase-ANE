@@ -15,7 +15,6 @@
  */
 
 package com.tuarua.firebase.ml.naturallanguage.languageid {
-import com.tuarua.firebase.*;
 import com.tuarua.firebase.ml.naturallanguage.LanguageIdentificationError;
 import com.tuarua.fre.ANEError;
 
@@ -26,7 +25,7 @@ import flash.utils.Dictionary;
 public class LanguageIdentification {
     internal static const NAME:String = "NaturalLanguageANE";
     private static var _context:ExtensionContext;
-    public static var closures:Dictionary = new Dictionary();
+    public static var callbacks:Dictionary = new Dictionary();
     private static const RECOGNIZED:String = "LanguageEvent.Recognized";
     private static const RECOGNIZED_MULTI:String = "LanguageEvent.RecognizedMulti";
 
@@ -44,19 +43,25 @@ public class LanguageIdentification {
         }
     }
 
-    private function createEventId(listener:Function):String {
-        var eventId:String;
+    private function createCallback(listener:Function):String {
+        var id:String;
         if (listener != null) {
-            eventId = context.call("createGUID") as String;
-            closures[eventId] = listener;
+            id = context.call("createGUID") as String;
+            callbacks[id] = listener;
         }
-        return eventId;
+        return id;
+    }
+
+    private static function callCallback(callbackId:String, ... args):void {
+        var callback:Function = callbacks[callbackId];
+        if (callback == null) return;
+        callback.apply(null, args);
+        delete callbacks[callbackId];
     }
 
     /** @private */
     public static function gotEvent(event:StatusEvent):void {
-        var pObj:Object;
-        var closure:Function;
+        var argsAsJSON:Object;
         var err:LanguageIdentificationError;
         switch (event.level) {
             case "TRACE":
@@ -64,38 +69,32 @@ public class LanguageIdentification {
                 break;
             case RECOGNIZED:
                 try {
-                    pObj = JSON.parse(event.code);
-                    closure = closures[pObj.eventId];
-                    if (closure == null) return;
-                    if (pObj.hasOwnProperty("error") && pObj.error) {
-                        err = new LanguageIdentificationError(pObj.error.text, pObj.error.id);
+                    argsAsJSON = JSON.parse(event.code);
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new LanguageIdentificationError(argsAsJSON.error.text, argsAsJSON.error.id);
                     }
-                    var ret:* = _context.call("getResults", pObj.eventId);
+                    var ret:* = _context.call("getResults", argsAsJSON.callbackId);
                     if (ret is ANEError) {
                         printANEError(ret as ANEError);
                         return;
                     }
-                    closure.call(null, ret, err);
-                    delete closures[pObj.eventId];
+                    callCallback(argsAsJSON.callbackId, ret, err);
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
                 break;
             case RECOGNIZED_MULTI:
                 try {
-                    pObj = JSON.parse(event.code);
-                    closure = closures[pObj.eventId];
-                    if (closure == null) return;
-                    if (pObj.hasOwnProperty("error") && pObj.error) {
-                        err = new LanguageIdentificationError(pObj.error.text, pObj.error.id);
+                    argsAsJSON = JSON.parse(event.code);
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new LanguageIdentificationError(argsAsJSON.error.text, argsAsJSON.error.id);
                     }
-                    var ret2:* = _context.call("getResultsMulti", pObj.eventId);
+                    var ret2:* = _context.call("getResultsMulti", argsAsJSON.callbackId);
                     if (ret2 is ANEError) {
                         printANEError(ret2 as ANEError);
                         return;
                     }
-                    closure.call(null, ret2, err);
-                    delete closures[pObj.eventId];
+                    callCallback(argsAsJSON.callbackId, ret2, err);
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
@@ -111,7 +110,7 @@ public class LanguageIdentification {
      * @param listener Closure to call back on the main queue with the identified language code or error.
      */
     public function identifyLanguage(text:String, listener:Function):void {
-        var ret:* = _context.call("identifyLanguage", text, createEventId(listener));
+        var ret:* = _context.call("identifyLanguage", text, createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -123,7 +122,7 @@ public class LanguageIdentification {
      * @param listener Closure to call back on the main queue with the identified languages or error.
      */
     public function identifyPossibleLanguages(text:String, listener:Function):void {
-        var ret:* = _context.call("identifyPossibleLanguages", text, createEventId(listener));
+        var ret:* = _context.call("identifyPossibleLanguages", text, createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }
 

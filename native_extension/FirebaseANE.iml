@@ -4,6 +4,35 @@
     <configurations>
       <configuration name="FirebaseANE" target-platform="Mobile" pure-as="true" output-type="Library" output-file="FirebaseANE.swc" output-folder="$MODULE_DIR$/bin">
         <dependencies target-player="27.0">
+          <entries>
+            <entry module-name="FirestoreANE" build-configuration-name="FirestoreANE">
+              <dependency linkage="Include" />
+            </entry>
+            <entry module-name="ANEUtils" build-configuration-name="ANEUtils">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry module-name="StorageANE" build-configuration-name="StorageANE">
+              <dependency linkage="Include" />
+            </entry>
+            <entry module-name="RemoteConfigANE" build-configuration-name="RemoteConfigANE">
+              <dependency linkage="Include" />
+            </entry>
+            <entry module-name="AuthANE" build-configuration-name="AuthANE">
+              <dependency linkage="Include" />
+            </entry>
+            <entry module-name="AnalyticsANE" build-configuration-name="AnalyticsANE">
+              <dependency linkage="Include" />
+            </entry>
+            <entry module-name="CrashlyticsANE" build-configuration-name="CrashlyticsANE">
+              <dependency linkage="Include" />
+            </entry>
+            <entry module-name="DynamicLinksANE" build-configuration-name="DynamicLinksANE">
+              <dependency linkage="Include" />
+            </entry>
+            <entry module-name="MessagingANE" build-configuration-name="MessagingANE">
+              <dependency linkage="Include" />
+            </entry>
+          </entries>
           <sdk name="AIRSDK_32" />
         </dependencies>
         <compiler-options>
@@ -23,5 +52,14 @@
     </content>
     <orderEntry type="jdk" jdkName="AIRSDK_32" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="FirestoreANE" exported="" />
+    <orderEntry type="module" module-name="ANEUtils" exported="" />
+    <orderEntry type="module" module-name="StorageANE" exported="" />
+    <orderEntry type="module" module-name="RemoteConfigANE" exported="" />
+    <orderEntry type="module" module-name="AuthANE" exported="" />
+    <orderEntry type="module" module-name="AnalyticsANE" exported="" />
+    <orderEntry type="module" module-name="CrashlyticsANE" exported="" />
+    <orderEntry type="module" module-name="DynamicLinksANE" exported="" />
+    <orderEntry type="module" module-name="MessagingANE" exported="" />
   </component>
 </module>

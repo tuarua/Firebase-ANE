@@ -20,18 +20,25 @@ package com.tuarua.firebase.remoteconfig.extensions
 
 import com.adobe.fre.FREObject
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
-import com.tuarua.frekotlin.Boolean
-import com.tuarua.frekotlin.FREObject
-import com.tuarua.frekotlin.get
+import com.tuarua.frekotlin.*
 
 fun FirebaseRemoteConfigSettings(freObject: FREObject?): FirebaseRemoteConfigSettings? {
     val rv = freObject ?: return null
     return FirebaseRemoteConfigSettings.Builder()
+            .setFetchTimeoutInSeconds(Long(rv["fetchTimeout"]) ?: 60L)
+            .setMinimumFetchIntervalInSeconds(Long(rv["minimumFetchInterval"]) ?: 0L)
             .setDeveloperModeEnabled(Boolean(rv["developerModeEnabled"]) == true)
             .build()
 }
 
 fun FirebaseRemoteConfigSettings.toFREObject(): FREObject? {
-    return FREObject("com.tuarua.firebase.remoteconfig.RemoteConfigSettings",
-            args = *arrayOf(this.isDeveloperModeEnabled))
+    val ret = FREObject("com.tuarua.firebase.remoteconfig.RemoteConfigSettings")
+    ret["fetchTimeout"] = fetchTimeoutInSeconds
+    ret["minimumFetchInterval"] = minimumFetchIntervalInSeconds
+    return ret
+}
+
+operator fun FREObject?.set(name: String, value: FirebaseRemoteConfigSettings) {
+    val rv = this ?: return
+    rv[name] = value.toFREObject()
 }

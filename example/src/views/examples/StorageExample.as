@@ -1,5 +1,6 @@
 package views.examples {
-import com.tuarua.firebase.StorageANE;
+import com.tuarua.Firebase;
+import com.tuarua.firebase.Storage;
 import com.tuarua.firebase.storage.DownloadTask;
 import com.tuarua.firebase.storage.StorageError;
 import com.tuarua.firebase.storage.StorageMetadata;
@@ -32,7 +33,7 @@ import starling.utils.Align;
 import views.SimpleButton;
 
 public class StorageExample extends Sprite implements IExample {
-    private var storage:StorageANE;
+    private var storage:Storage;
     private var storageRef:StorageReference;
     private var btnGetMetadata:SimpleButton = new SimpleButton("Get File Metadata");
     private var btnUpdateMetadata:SimpleButton = new SimpleButton("Update File Metadata");
@@ -54,7 +55,7 @@ public class StorageExample extends Sprite implements IExample {
     public function initANE():void {
         if (isInited) return;
 
-        storage = StorageANE.storage;
+        storage = Firebase.storage();
         trace("storage.maxDownloadRetryTime", storage.maxDownloadRetryTime);
         trace("storage.maxOperationRetryTime", storage.maxOperationRetryTime);
         trace("storage.maxUploadRetryTime", storage.maxUploadRetryTime);

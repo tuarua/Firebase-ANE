@@ -34,7 +34,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let options = VisionCloudTextRecognizerOptions(argv[0])
             else {
-                return FreArgError(message: "initController").getError()
+                return FreArgError().getError()
         }
         recognizer = Vision.vision().cloudTextRecognizer(options: options)
         return true.toFREObject()
@@ -43,20 +43,20 @@ public class SwiftController: NSObject {
     func process(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let image = VisionImage(argv[0]),
-            let eventId = String(argv[1])
+            let callbackId = String(argv[1])
             else {
-                return FreArgError(message: "process").getError()
+                return FreArgError().getError()
         }
         userInitiatedQueue.async {
             self.recognizer?.process(image, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: CloudTextEvent.RECOGNIZED,
-                                       value: CloudTextEvent(eventId: eventId, error: err).toJSONString())
+                                       value: CloudTextEvent(callbackId: callbackId, error: err).toJSONString())
                 } else {
                     if let result = result {
-                        self.results[eventId] = result
+                        self.results[callbackId] = result
                         self.dispatchEvent(name: CloudTextEvent.RECOGNIZED,
-                                           value: CloudTextEvent(eventId: eventId).toJSONString())
+                                           value: CloudTextEvent(callbackId: callbackId).toJSONString())
                     }
                 }
             })
@@ -66,12 +66,12 @@ public class SwiftController: NSObject {
     
     func getResults(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let eventId = String(argv[0])
+            let id = String(argv[0])
             else {
-                return FreArgError(message: "getResults").getError()
+                return FreArgError().getError()
         }
-        let ret = results[eventId]?.toFREObject()
-        results[eventId] = nil
+        let ret = results[id]?.toFREObject()
+        results[id] = nil
         return ret
     }
     

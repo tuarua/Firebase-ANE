@@ -4,7 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-Android</name>
-    <versionNumber>0.6.0</versionNumber>
+    <versionNumber>0.10.0</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -47,26 +47,50 @@
                 <uses-feature android:name="android.hardware.camera.autofocus" />
                 <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
                 <application android:enabled="true">
-
+                    <meta-data android:name="android.max_aspect" android:value="2.1" />
                     <meta-data
                         android:name="com.google.android.gms.version"
                         android:value="@integer/google_play_services_version" />
 
                     <!-- Vision -->
-
+                    <!--
                     <meta-data
                         android:name="com.google.firebase.ml.vision.DEPENDENCIES"
-                        android:value="face,barcode,text,label" />
-
-                        <!-- To use multiple models: android:value="face,model2,model3" -->
-
+                        android:value="face,barcode,text,label" />-->
 
                     <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
                         <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                         <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.ml.vision.VisionRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.ml.common.CommonComponentRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.ml.naturallanguage.NaturalLanguageRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.ml.naturallanguage.translate.NaturalLanguageTranslateRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.ml.custom.CustomModelRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.remoteconfig.ktx.FirebaseRemoteConfigKtxRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                     </service>
 
@@ -146,12 +170,12 @@
         <extensionID>org.jetbrains.kotlinx.kotlinx-coroutines-android</extensionID>
         <extensionID>org.greenrobot.eventbus</extensionID>
         <extensionID>com.google.code.gson.gson</extensionID>
-        <extensionID>com.android.support.support-v4</extensionID>
         <extensionID>com.google.android.gms.play-services-base</extensionID>
-        <extensionID>com.google.android.gms.play-services-vision-image-label</extensionID>
-        <extensionID>android.arch.lifecycle.runtime</extensionID>
+        <extensionID>androidx.legacy.legacy-support-v4</extensionID>
+
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
         <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
+        <extensionID>com.tuarua.firebase.RemoteConfigANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionBarcodeANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionFaceANE</extensionID>
@@ -169,7 +193,10 @@
         <extensionID>com.google.firebase.firebase-ml-vision</extensionID>
         <extensionID>com.google.firebase.firebase-ml-natural-language</extensionID>
         <extensionID>com.google.firebase.firebase-ml-vision-face-model</extensionID>
+        <extensionID>com.google.firebase.firebase-ml-vision-barcode-model</extensionID>
+        <extensionID>com.google.firebase.firebase-ml-vision-image-label-model</extensionID>
         <extensionID>com.google.firebase.firebase-ml-model-interpreter</extensionID>
+        <extensionID>com.google.firebase.firebase-config</extensionID>
     </extensions>
 
 </application>

@@ -25,7 +25,7 @@ enum class FreNativeType(val i: Int) {
     IMAGE(0),
     BUTTON(1);
 
-    companion object : EnumCompanion<Int, FreNativeType>(FreNativeType.values().associateBy(FreNativeType::i))
+    companion object : EnumCompanion<Int, FreNativeType>(values().associateBy(FreNativeType::i))
 }
 
 

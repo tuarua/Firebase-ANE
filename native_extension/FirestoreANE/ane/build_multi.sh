@@ -86,6 +86,9 @@ cp -R -L "$pathtome/../../../firebase_frameworks/device/leveldb-library.framewor
 cp -R -L "$pathtome/../../../firebase_frameworks/simulator/Protobuf.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../firebase_frameworks/device/Protobuf.framework" "$pathtome/platforms/ios/device/Frameworks"
 
+cp -R -L "$pathtome/../../../firebase_frameworks/simulator/abseil.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../../firebase_frameworks/device/abseil.framework" "$pathtome/platforms/ios/device/Frameworks"
+
 #Run the build command.
 echo "Building ANE."
 "$AIR_SDK"/bin/adt -package \
@@ -108,9 +111,6 @@ com.tuarua.firebase.${PROJECTNAME}-res/. \
 com.tuarua.firebase.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
 -platform default -C "$pathtome/platforms/default" "library.swf"
-
-echo "Packaging docs into ANE."
-zip "$pathtome/$PROJECTNAME.ane" -u docs/*
 
 #remove the frameworks from sim and device, as not needed any more
 rm -r "$pathtome/platforms/ios/simulator"

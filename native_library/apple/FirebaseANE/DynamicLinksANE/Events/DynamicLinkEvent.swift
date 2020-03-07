@@ -15,25 +15,25 @@
  */
 
 import Foundation
-
+import SwiftyJSON
 class DynamicLinkEvent: NSObject {
     public static let ON_CREATED = "DynamicLinkEvent.OnCreated"
     public static let ON_LINK = "DynamicLinkEvent.OnLink"
     
-    var eventId: String?
+    var callbackId: String?
     var data: [String: Any]?
     var error: NSError?
     
-    convenience init(eventId: String?, data: [String: Any]? = nil, error: NSError? = nil) {
+    convenience init(callbackId: String?, data: [String: Any]? = nil, error: NSError? = nil) {
         self.init()
-        self.eventId = eventId
+        self.callbackId = callbackId
         self.data = data
         self.error = error
     }
     
     public func toJSONString() -> String {
         var props = [String: Any]()
-        props["eventId"] = eventId
+        props["callbackId"] = callbackId
         props["data"] = data
         props["error"] = error?.toDictionary()
         return JSON(props).description

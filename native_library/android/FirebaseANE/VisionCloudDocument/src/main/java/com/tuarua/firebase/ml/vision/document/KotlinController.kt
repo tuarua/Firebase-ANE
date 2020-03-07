@@ -33,7 +33,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private var results: MutableMap<String, FirebaseVisionDocumentText> = mutableMapOf()
     private val gson = Gson()
@@ -41,7 +41,7 @@ class KotlinController : FreKotlinMainController {
     private lateinit var recognizer: FirebaseVisionDocumentTextRecognizer
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val options = FirebaseVisionCloudDocumentRecognizerOptions(argv[0])
         recognizer = if (options != null) {
             FirebaseVision.getInstance().getCloudDocumentTextRecognizer(options)
@@ -56,21 +56,21 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun process(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("process")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
-        val eventId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         GlobalScope.launch(bgContext) {
             recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
-                    results[eventId] = result
+                    results[callbackId] = result
                     dispatchEvent(CloudDocumentEvent.RECOGNIZED,
-                            gson.toJson(CloudDocumentEvent(eventId, null)))
+                            gson.toJson(CloudDocumentEvent(callbackId, null)))
                 } else {
                     val error = task.exception
                     dispatchEvent(CloudDocumentEvent.RECOGNIZED,
                             gson.toJson(
-                                    CloudDocumentEvent(eventId, mapOf(
+                                    CloudDocumentEvent(callbackId, mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -83,49 +83,49 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
-        val eventId = String(argv[0]) ?: return null
-        return results[eventId]?.toFREObject(eventId)
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val callbackId = String(argv[0]) ?: return null
+        return results[callbackId]?.toFREObject(callbackId)
     }
 
     fun getBlocks(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getBlocks")
-        val resultId = String(argv[0]) ?: return null
-        return results[resultId]?.blocks?.toFREObject(resultId)
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val id = String(argv[0]) ?: return null
+        return results[id]?.blocks?.toFREObject(id)
     }
 
     fun getParagraphs(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("getParagraphs")
-        val resultId = String(argv[0]) ?: return null
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
+        val id = String(argv[0]) ?: return null
         val blockIndex = Int(argv[1]) ?: return null
 
-        val document = results[resultId] ?: return null
+        val document = results[id] ?: return null
         if (document.blocks.size <= blockIndex) return null
-        return document.blocks[blockIndex].paragraphs.toFREObject(resultId, blockIndex)
+        return document.blocks[blockIndex].paragraphs.toFREObject(id, blockIndex)
     }
 
     fun getWords(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException("getWords")
-        val resultId = String(argv[0]) ?: return null
+        argv.takeIf { argv.size > 2 } ?: return FreArgException()
+        val id = String(argv[0]) ?: return null
         val blockIndex = Int(argv[1]) ?: return null
         val paragraphIndex = Int(argv[2]) ?: return null
 
-        val document = results[resultId] ?: return null
+        val document = results[id] ?: return null
         if (document.blocks.size <= blockIndex) return null
         val block = document.blocks[blockIndex] ?: return null
         if (block.paragraphs.size <= paragraphIndex) return null
         val paragraph = block.paragraphs[paragraphIndex]
-        return paragraph.words.toFREObject(resultId, blockIndex, paragraphIndex)
+        return paragraph.words.toFREObject(id, blockIndex, paragraphIndex)
     }
 
     fun getSymbols(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 3 } ?: return FreArgException("getWords")
-        val resultId = String(argv[0]) ?: return null
+        argv.takeIf { argv.size > 3 } ?: return FreArgException()
+        val id = String(argv[0]) ?: return null
         val blockIndex = Int(argv[1]) ?: return null
         val paragraphIndex = Int(argv[2]) ?: return null
         val wordIndex = Int(argv[3]) ?: return null
 
-        val document = results[resultId] ?: return null
+        val document = results[id] ?: return null
         if (document.blocks.size <= blockIndex) return null
         val block = document.blocks[blockIndex] ?: return null
         if (block.paragraphs.size <= paragraphIndex) return null
@@ -135,7 +135,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun disposeResult(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("disposeResult")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val id = String(argv[0]) ?: return null
         results.remove(id)
         return null
@@ -146,7 +146,7 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

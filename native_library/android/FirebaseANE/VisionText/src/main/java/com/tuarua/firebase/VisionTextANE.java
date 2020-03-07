@@ -15,11 +15,12 @@
  */
 package com.tuarua.firebase;
 
+import android.annotation.SuppressLint;
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.ml.vision.text.KotlinController;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
 public class VisionTextANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"
@@ -35,6 +36,7 @@ public class VisionTextANE implements FREExtension {
 
     }
 
+    @SuppressLint("UnknownNullness")
     @Override
     public FREContext createContext(String s) {
         String NAME = "com.tuarua.firebase.VisionTextANE";

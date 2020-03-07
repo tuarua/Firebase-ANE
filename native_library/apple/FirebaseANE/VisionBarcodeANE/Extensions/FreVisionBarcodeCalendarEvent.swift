@@ -34,7 +34,7 @@ public extension VisionBarcodeCalendarEvent {
 }
 
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> VisionBarcodeCalendarEvent? {
+    subscript(dynamicMember name: String) -> VisionBarcodeCalendarEvent? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }

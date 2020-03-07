@@ -19,8 +19,8 @@ package com.tuarua.firebase.ml.vision
 import android.app.Activity
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
 import android.view.View
+import androidx.core.app.ActivityCompat
 import com.tuarua.firebase.ml.vision.events.PermissionEvent
 import org.greenrobot.eventbus.EventBus
 

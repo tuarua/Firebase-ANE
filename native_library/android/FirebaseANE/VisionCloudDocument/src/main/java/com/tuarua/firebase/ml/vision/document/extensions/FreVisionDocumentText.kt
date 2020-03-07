@@ -20,10 +20,9 @@ import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.document.FirebaseVisionDocumentText
 import com.tuarua.frekotlin.FREObject
 import com.tuarua.frekotlin.set
-import com.tuarua.frekotlin.toFREObject
 
 fun FirebaseVisionDocumentText.toFREObject(id: String): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.vision.document.DocumentText", id)
-    ret["text"] = text.toFREObject()
+    ret["text"] = text
     return ret
 }

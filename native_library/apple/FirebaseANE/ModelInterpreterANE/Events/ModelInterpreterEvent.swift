@@ -15,24 +15,31 @@
  */
 
 import Foundation
+import SwiftyJSON
 
 class ModelInterpreterEvent: NSObject {
     public static let OUTPUT = "ModelInterpreterEvent.Result"
-    var eventId: String?
+    public static let IS_DOWNLOADED = "ModelInterpreterEvent.IsDownloaded"
+    public static let DOWNLOAD = "ModelInterpreterEvent.Download"
+    public static let DELETE_DOWNLOADED = "ModelInterpreterEvent.DeleteDownload"
+    var callbackId: String?
     var error: NSError?
     var data: [[String: Any]]?
+    var result: Bool?
     
-    convenience init(eventId: String?, data: [[String: Any]]? = nil, error: NSError? = nil) {
+    convenience init(callbackId: String?, data: [[String: Any]]? = nil, result: Bool? = nil, error: NSError? = nil) {
         self.init()
-        self.eventId = eventId
+        self.callbackId = callbackId
         self.data = data
+        self.result = result
         self.error = error
     }
     
     public func toJSONString() -> String {
         var props = [String: Any]()
-        props["eventId"] = eventId
+        props["callbackId"] = callbackId
         props["data"] = data
+        props["result"] = result
         props["error"] = error?.toDictionary()
         return JSON(props).description
     }

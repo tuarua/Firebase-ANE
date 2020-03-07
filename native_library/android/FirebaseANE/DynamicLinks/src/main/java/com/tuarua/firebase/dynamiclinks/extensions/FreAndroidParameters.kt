@@ -29,7 +29,7 @@ fun AndroidParameters(freObject: FREObject?): DynamicLink.AndroidParameters? {
     val packageName = String(rv["packageName"])
     val fallbackUrl = String(rv["fallbackUrl"])
     val minimumVersion = Int(rv["minimumVersion"])
-    val builder: DynamicLink.AndroidParameters.Builder
+    val builder: Builder
     builder = when (packageName) {
         null -> Builder()
         else -> Builder(packageName)

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ANEUtils/ANEUtils.iml" filepath="$PROJECT_DIR$/ANEUtils/ANEUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/AnalyticsANE/AnalyticsANE.iml" filepath="$PROJECT_DIR$/AnalyticsANE/AnalyticsANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/AuthANE/AuthANE.iml" filepath="$PROJECT_DIR$/AuthANE/AuthANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/CrashlyticsANE/CrashlyticsANE.iml" filepath="$PROJECT_DIR$/CrashlyticsANE/CrashlyticsANE.iml" />
@@ -9,7 +10,6 @@
       <module fileurl="file://$PROJECT_DIR$/FirebaseANE.iml" filepath="$PROJECT_DIR$/FirebaseANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/FirestoreANE/FirestoreANE.iml" filepath="$PROJECT_DIR$/FirestoreANE/FirestoreANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/GoogleSignInANE/GoogleSignInANE.iml" filepath="$PROJECT_DIR$/GoogleSignInANE/GoogleSignInANE.iml" />
-      <module fileurl="file://$PROJECT_DIR$/InvitesANE/InvitesANE.iml" filepath="$PROJECT_DIR$/InvitesANE/InvitesANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/MessagingANE/MessagingANE.iml" filepath="$PROJECT_DIR$/MessagingANE/MessagingANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/ModelInterpreterANE/ModelInterpreterANE.iml" filepath="$PROJECT_DIR$/ModelInterpreterANE/ModelInterpreterANE.iml" />
       <module fileurl="file://$PROJECT_DIR$/NaturalLanguageANE/NaturalLanguageANE.iml" filepath="$PROJECT_DIR$/NaturalLanguageANE/NaturalLanguageANE.iml" />

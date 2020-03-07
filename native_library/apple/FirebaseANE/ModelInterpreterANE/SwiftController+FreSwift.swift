@@ -23,10 +23,8 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)init"] = initController
         functionsToSet["\(prefix)createGUID"] = createGUID
         functionsToSet["\(prefix)run"] = run
-        functionsToSet["\(prefix)registerCloudModel"] = registerCloudModel
-        functionsToSet["\(prefix)registerLocalModel"] = registerLocalModel
-        functionsToSet["\(prefix)cloudModelSource"] = cloudModelSource
-        functionsToSet["\(prefix)localModelSource"] = localModelSource
+        functionsToSet["\(prefix)deleteDownloadedModel"] = deleteDownloadedModel
+        functionsToSet["\(prefix)download"] = download
         
         var arr: [String] = []
         for key in functionsToSet.keys {

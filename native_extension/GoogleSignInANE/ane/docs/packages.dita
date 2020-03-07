@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><apiMap><apiItemRef href="com.tuarua.fre.xml"/><apiItemRef href="com.tuarua.google.xml"><apiItemRef href="com.tuarua.google.signin.xml"/><apiItemRef href="com.tuarua.google.signin.events.xml"/></apiItemRef><apiItemRef href="com.tuarua.firebase.auth.xml"/></apiMap>

@@ -21,12 +21,11 @@ import android.content.pm.PackageManager.GET_PERMISSIONS
 import android.view.ViewGroup
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
-import com.tuarua.frekotlin.*
 import com.google.firebase.perf.FirebasePerformance
 import com.google.firebase.perf.metrics.Trace
+import com.tuarua.frekotlin.*
 
-
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private var traces: MutableMap<String, Trace> = HashMap()
     private var packageManager: PackageManager? = null
@@ -47,23 +46,20 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val isDataCollectionEnabled = Boolean(argv[0]) == true
-        val appActivity = ctx.activity
-        if (appActivity != null) {
-            airView = appActivity.findViewById(android.R.id.content) as ViewGroup
-            airView = airView.getChildAt(0) as ViewGroup
-            packageManager = appActivity.packageManager
-            val pm = packageManager ?: return false.toFREObject()
-            packageInfo = pm.getPackageInfo(appActivity.packageName, GET_PERMISSIONS)
-            FirebasePerformance.getInstance().isPerformanceCollectionEnabled = isDataCollectionEnabled
-            return hasRequiredPermissions().toFREObject()
-        }
-        return false.toFREObject()
+        val appActivity = ctx.activity ?: return false.toFREObject()
+        airView = appActivity.findViewById(android.R.id.content) as ViewGroup
+        airView = airView.getChildAt(0) as ViewGroup
+        packageManager = appActivity.packageManager
+        val pm = packageManager ?: return false.toFREObject()
+        packageInfo = pm.getPackageInfo(appActivity.packageName, GET_PERMISSIONS)
+        FirebasePerformance.getInstance().isPerformanceCollectionEnabled = isDataCollectionEnabled
+        return hasRequiredPermissions().toFREObject()
     }
 
     fun startTrace(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("startTrace")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val name = String(argv[0]) ?: return null
         if (traces[name] == null) {
             traces[name] = FirebasePerformance.getInstance().newTrace(name)
@@ -73,14 +69,14 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun stopTrace(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("stopTrace")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val name = String(argv[0]) ?: return null
         traces[name]?.stop()
         return null
     }
 
     fun incrementMetric(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 2 } ?: return FreArgException("incrementMetric")
+        argv.takeIf { argv.size > 2 } ?: return FreArgException()
         val name = String(argv[0]) ?: return null
         val counterName = String(argv[1]) ?: return null
         val by = Long(argv[2]) ?: return null
@@ -89,13 +85,13 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun setIsDataCollectionEnabled(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("setIsDataCollectionEnabled")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val value = Boolean(argv[0]) ?: return null
         FirebasePerformance.getInstance().isPerformanceCollectionEnabled = value
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

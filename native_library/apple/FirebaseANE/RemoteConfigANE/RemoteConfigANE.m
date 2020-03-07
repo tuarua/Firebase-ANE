@@ -46,6 +46,8 @@ CONTEXT_INIT(TRFIRRC) {
         ,MAP_FUNCTION(TRFIRRC, getKeysByPrefix)
         ,MAP_FUNCTION(TRFIRRC, fetch)
         ,MAP_FUNCTION(TRFIRRC, activateFetched)
+        ,MAP_FUNCTION(TRFIRRC, activate)
+        ,MAP_FUNCTION(TRFIRRC, fetchAndActivate)
         ,MAP_FUNCTION(TRFIRRC, getInfo)
     };
     

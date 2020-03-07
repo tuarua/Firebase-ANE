@@ -32,7 +32,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private var results: MutableMap<String, FirebaseVisionText> = mutableMapOf()
     private val gson = Gson()
@@ -49,21 +49,21 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun process(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("process")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
-        val eventId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         GlobalScope.launch(bgContext) {
             recognizer.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
-                    results[eventId] = result
+                    results[callbackId] = result
                     dispatchEvent(TextEvent.RECOGNIZED,
-                            gson.toJson(TextEvent(eventId, null)))
+                            gson.toJson(TextEvent(callbackId, null)))
                 } else {
                     val error = task.exception
                     dispatchEvent(TextEvent.RECOGNIZED,
                             gson.toJson(
-                                    TextEvent(eventId, mapOf(
+                                    TextEvent(callbackId, mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -76,10 +76,10 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
-        val eventId = String(argv[0]) ?: return null
-        val ret = results[eventId]?.toFREObject()
-        results.remove(eventId)
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val id = String(argv[0]) ?: return null
+        val ret = results[id]?.toFREObject()
+        results.remove(id)
         return ret
     }
 
@@ -88,7 +88,7 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

@@ -35,7 +35,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let options = VisionCloudDocumentTextRecognizerOptions(argv[0])
             else {
-                return FreArgError(message: "initController").getError()
+                return FreArgError().getError()
         }
         recognizer = Vision.vision().cloudDocumentTextRecognizer(options: options)
         return true.toFREObject()
@@ -44,20 +44,20 @@ public class SwiftController: NSObject {
     func process(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let image = VisionImage(argv[0]),
-            let eventId = String(argv[1])
+            let callbackId = String(argv[1])
             else {
-                return FreArgError(message: "detect").getError()
+                return FreArgError().getError()
         }
         userInitiatedQueue.async {
             self.recognizer?.process(image, completion: { (result, error) in
                 if let err = error as NSError? {
                     self.dispatchEvent(name: CloudDocumentEvent.RECOGNIZED,
-                                       value: CloudDocumentEvent(eventId: eventId, error: err).toJSONString())
+                                       value: CloudDocumentEvent(callbackId: callbackId, error: err).toJSONString())
                 } else {
                     if let result = result {
-                        self.results[eventId] = result
+                        self.results[callbackId] = result
                         self.dispatchEvent(name: CloudDocumentEvent.RECOGNIZED,
-                                           value: CloudDocumentEvent(eventId: eventId).toJSONString())
+                                           value: CloudDocumentEvent(callbackId: callbackId).toJSONString())
                     }
                 }
             })
@@ -67,18 +67,18 @@ public class SwiftController: NSObject {
     
     func getResults(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let eventId = String(argv[0])
+            let id = String(argv[0])
             else {
-                return FreArgError(message: "getResults").getError()
+                return FreArgError().getError()
         }
-        return results[eventId]?.toFREObject(id: eventId)
+        return results[id]?.toFREObject(id: id)
     }
     
     func getBlocks(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
             let resultId = String(argv[0])
             else {
-                return FreArgError(message: "getBlocks").getError()
+                return FreArgError().getError()
         }
         guard let document = results[resultId]  else { return nil }
         return document.blocks.toFREObject(resultId: resultId)
@@ -89,7 +89,7 @@ public class SwiftController: NSObject {
             let resultId = String(argv[0]),
             let blockIndex = Int(argv[1])
             else {
-                return FreArgError(message: "getParagraphs").getError()
+                return FreArgError().getError()
         }
         guard let document = results[resultId],
             document.blocks.count > blockIndex else { return nil }
@@ -104,7 +104,7 @@ public class SwiftController: NSObject {
             let blockIndex = Int(argv[1]),
             let paragraphIndex = Int(argv[2])
             else {
-                return FreArgError(message: "getWords").getError()
+                return FreArgError().getError()
         }
         guard let document = results[resultId],
             document.blocks.count > blockIndex else { return nil }
@@ -126,7 +126,7 @@ public class SwiftController: NSObject {
             let paragraphIndex = Int(argv[2]),
             let wordIndex = Int(argv[3])
             else {
-                return FreArgError(message: "getSymbols").getError()
+                return FreArgError().getError()
         }
         guard let document = results[resultId],
             document.blocks.count > blockIndex else { return nil }
@@ -147,7 +147,7 @@ public class SwiftController: NSObject {
         guard argc > 0,
             let id = String(argv[0])
             else {
-                return FreArgError(message: "disposeResult").getError()
+                return FreArgError().getError()
         }
         results[id] = nil
         return nil

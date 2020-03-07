@@ -1,5 +1,6 @@
 package views.examples {
-import com.tuarua.firebase.DynamicLinksANE;
+import com.tuarua.Firebase;
+import com.tuarua.firebase.DynamicLinks;
 import com.tuarua.firebase.dynamiclinks.DynamicLink;
 import com.tuarua.firebase.dynamiclinks.DynamicLinkError;
 import com.tuarua.firebase.dynamiclinks.DynamicLinkResult;
@@ -18,7 +19,7 @@ import views.SimpleButton;
 public class DynamicLinksExample extends Sprite implements IExample {
     private var stageWidth:Number;
     private var isInited:Boolean;
-    private var dynamicLinks:DynamicLinksANE;
+    private var dynamicLinks:DynamicLinks;
     private var btnCreateDynamicLink:SimpleButton = new SimpleButton("Create Dynamic Link");
     private var btnCreateShortLink:SimpleButton = new SimpleButton("Create Short Link");
     private var btnGetDynamicLink:SimpleButton = new SimpleButton("Get Dynamic Link");
@@ -32,7 +33,7 @@ public class DynamicLinksExample extends Sprite implements IExample {
 
     public function initANE():void {
         if (isInited) return;
-        dynamicLinks = DynamicLinksANE.dynamicLinks;
+        dynamicLinks = Firebase.dynamicLinks();
         isInited = true;
 
     }

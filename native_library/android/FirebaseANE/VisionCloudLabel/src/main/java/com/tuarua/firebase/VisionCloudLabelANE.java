@@ -16,11 +16,12 @@
 
 package com.tuarua.firebase;
 
+import android.annotation.SuppressLint;
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.ml.vision.cloudlabel.KotlinController;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
 public class VisionCloudLabelANE implements FREExtension {
     private static final String[] FUNCTIONS = {
              "init"
@@ -36,6 +37,7 @@ public class VisionCloudLabelANE implements FREExtension {
 
     }
 
+    @SuppressLint("UnknownNullness")
     @Override
     public FREContext createContext(String s) {
         String NAME = "com.tuarua.firebase.VisionCloudLabelANE";

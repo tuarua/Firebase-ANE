@@ -23,15 +23,16 @@ import com.google.firebase.ml.vision.text.RecognizedLanguage
 
 fun RecognizedLanguage.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.vision.text.TextRecognizedLanguage")
-    ret["languageCode"] = languageCode?.toFREObject()
+    ret["languageCode"] = languageCode
     return ret
 }
 
 fun List<RecognizedLanguage>.toFREObject(): FREArray? {
-    val ret = FREArray("com.tuarua.firebase.ml.vision.text.TextRecognizedLanguage", size, true)
-            ?: return null
-    for (i in this.indices) {
-        ret[i] = this[i].toFREObject()
-    }
-    return ret
+    return FREArray("com.tuarua.firebase.ml.vision.text.TextRecognizedLanguage",
+            size, true, this.map { it.toFREObject() })
+}
+
+operator fun FREObject?.set(name: String, value: List<RecognizedLanguage>?) {
+    val rv = this ?: return
+    rv[name] = value?.toFREObject()
 }

@@ -33,8 +33,8 @@ public class FirestoreANEContext {
 
     private static var _isInited:Boolean = false;
     private static var _context:ExtensionContext;
-    public static var closures:Dictionary = new Dictionary();
-    public static var closureCallers:Dictionary = new Dictionary();
+    public static var callbacks:Dictionary = new Dictionary();
+    public static var callbackCallers:Dictionary = new Dictionary();
 
     private static const NETWORK_ENABLED:String = "NetworkEvent.Enabled";
     private static const NETWORK_DISABLED:String = "NetworkEvent.Disabled";
@@ -45,7 +45,7 @@ public class FirestoreANEContext {
     private static const QUERY_SNAPSHOT:String = "QueryEvent.QuerySnapshot";
     private static const BATCH_COMPLETE:String = "BatchEvent.Complete";
 
-    private static var pObj:Object;
+    private static var argsAsJSON:Object;
 
     public function FirestoreANEContext() {
     }
@@ -63,80 +63,81 @@ public class FirestoreANEContext {
         return _context;
     }
 
-    public static function createEventId(listener:Function, listenerCaller:Object = null):String {
-        var eventId:String;
-        if (listener) {
-            eventId = context.call("createGUID") as String;
-            closures[eventId] = listener;
+    public static function createCallback(listener:Function, listenerCaller:Object = null):String {
+        var id:String;
+        if (listener != null) {
+            id = context.call("createGUID") as String;
+            callbacks[id] = listener;
             if (listenerCaller) {
-                closureCallers[eventId] = listenerCaller;
+                callbackCallers[id] = listenerCaller;
             }
         }
-        return eventId;
+        return id;
+    }
+
+    public static function callCallback(callbackId:String, clear:Boolean, ... args):void {
+        var callback:Function = callbacks[callbackId];
+        if (callback == null) return;
+        callback.apply(null, args);
+        if (clear) {
+            delete callbacks[callbackId];
+            delete callbackCallers[callbackId];
+        }
     }
 
     private static function gotEvent(event:StatusEvent):void {
         var err:FirestoreError;
         var path:String;
-        var closure:Function;
-        var closureObject:*;
+        var callbackCaller:*;
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);
                 break;
             case DOCUMENT_SNAPSHOT:
                 try {
-                    pObj = JSON.parse(event.code);
+                    argsAsJSON = JSON.parse(event.code);
                     var snap:DocumentSnapshot;
-                    closureObject = closureCallers[pObj.eventId];
-                    if (closureObject == null) return;
-                    closure = closures[pObj.eventId];
-                    if (closure == null) return;
-
+                    callbackCaller = callbackCallers[argsAsJSON.callbackId];
+                    if (callbackCaller == null) return;
                     var data:Object;
-                    if (pObj.hasOwnProperty("error") && pObj.error) {
-                        err = new FirestoreError(pObj.error.text, pObj.error.id);
-                    } else if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("data")) {
-                        data = pObj.data.data;
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new FirestoreError(argsAsJSON.error.text, argsAsJSON.error.id);
+                    } else if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty("data")) {
+                        data = argsAsJSON.data.data;
                     }
 
-                    if (closureObject.mapTo) {
-                        data = ANEUtils.map(pObj.data.data, closureObject.mapTo) as closureObject.mapTo;
+                    if (callbackCaller.mapTo) {
+                        data = ANEUtils.map(argsAsJSON.data.data, callbackCaller.mapTo) as callbackCaller.mapTo;
                     }
 
-                    snap = new DocumentSnapshot(pObj.data.id,
+                    snap = new DocumentSnapshot(argsAsJSON.data.id,
                             data,
-                            pObj.data.exists,
-                            ANEUtils.map(pObj.data.metadata, SnapshotMetadata) as SnapshotMetadata);
-                    closure.call(null, snap, err, pObj.realtime);
-                    if (!pObj.realtime) {
-                        delete closures[pObj.eventId];
-                        delete closureCallers[pObj.eventId];
-                    }
+                            argsAsJSON.data.exists,
+                            ANEUtils.map(argsAsJSON.data.metadata, SnapshotMetadata) as SnapshotMetadata);
+
+                    callCallback(argsAsJSON.callbackId, !argsAsJSON.realtime, snap, err, argsAsJSON.realtime);
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
                 break;
             case QUERY_SNAPSHOT:
                 try {
-                    pObj = JSON.parse(event.code);
-                    closureObject = closureCallers[pObj.eventId];
-                    if (closureObject == null) return;
-                    closure = FirestoreANEContext.closures[pObj.eventId];
-                    if (closure == null) return;
+                    argsAsJSON = JSON.parse(event.code);
+                    callbackCaller = callbackCallers[argsAsJSON.callbackId];
+                    if (callbackCaller == null) return;
                     var querySnapshot:QuerySnapshot;
                     var data_ab:Object;
 
-                    if (pObj.hasOwnProperty("error") && pObj.error) {
-                        err = new FirestoreError(pObj.error.text, pObj.error.id);
-                    } else if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("documents")) {
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new FirestoreError(argsAsJSON.error.text, argsAsJSON.error.id);
+                    } else if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty("documents")) {
                         querySnapshot = new QuerySnapshot();
                         var docs:Vector.<DocumentSnapshot> = new <DocumentSnapshot>[];
                         var docChanges:Vector.<DocumentChange> = new <DocumentChange>[];
-                        for each(var doc_ab:Object in pObj.data.documents) {
+                        for each(var doc_ab:Object in argsAsJSON.data.documents) {
                             data_ab = doc_ab.data;
-                            if (closureObject.mapTo) {
-                                data_ab = ANEUtils.map(doc_ab.data, closureObject.mapTo) as closureObject.mapTo;
+                            if (callbackCaller.mapTo) {
+                                data_ab = ANEUtils.map(doc_ab.data, callbackCaller.mapTo) as callbackCaller.mapTo;
                             }
                             docs.push(new DocumentSnapshot(
                                     doc_ab.id,
@@ -145,15 +146,14 @@ public class FirestoreANEContext {
                                     ANEUtils.map(doc_ab.metadata, SnapshotMetadata) as SnapshotMetadata
                             ));
                         }
-                        for each (var change_aa:Object in pObj.data.documentChanges) {
+                        for each (var change_aa:Object in argsAsJSON.data.documentChanges) {
                             docChanges.push(ANEUtils.map(change_aa, DocumentChange) as DocumentChange);
                         }
                         querySnapshot.documents = docs;
                         querySnapshot.documentChanges = docChanges;
-                        querySnapshot.metadata = ANEUtils.map(pObj.data.metadata, SnapshotMetadata) as SnapshotMetadata;
+                        querySnapshot.metadata = ANEUtils.map(argsAsJSON.data.metadata, SnapshotMetadata) as SnapshotMetadata;
                     }
-
-                    closure.call(null, querySnapshot, err);
+                    callCallback(argsAsJSON.callbackId, false, querySnapshot, err);
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
@@ -161,31 +161,23 @@ public class FirestoreANEContext {
             case BATCH_COMPLETE:
             case NETWORK_ENABLED:
             case NETWORK_DISABLED:
-                pObj = JSON.parse(event.code);
-                if (pObj.hasOwnProperty("error") && pObj.error) {
-                    err = new FirestoreError(pObj.error.text, pObj.error.id);
+                argsAsJSON = JSON.parse(event.code);
+                if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                    err = new FirestoreError(argsAsJSON.error.text, argsAsJSON.error.id);
                 }
-                closure = FirestoreANEContext.closures[pObj.eventId];
-                if (closure) {
-                    closure.call(null, err);
-                    delete FirestoreANEContext.closures[pObj.eventId];
-                }
+                callCallback(argsAsJSON.callbackId, true, err);
                 break;
             case DOCUMENT_DELETED:
             case DOCUMENT_UPDATED:
             case DOCUMENT_SET:
                 try {
-                    pObj = JSON.parse(event.code);
-                    if (pObj.hasOwnProperty("error") && pObj.error) {
-                        err = new FirestoreError(pObj.error.text, pObj.error.id);
-                    } else if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("path")) {
-                        path = pObj.data.path;
+                    argsAsJSON = JSON.parse(event.code);
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new FirestoreError(argsAsJSON.error.text, argsAsJSON.error.id);
+                    } else if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty("path")) {
+                        path = argsAsJSON.data.path;
                     }
-                    closure = FirestoreANEContext.closures[pObj.eventId];
-                    if (closure) {
-                        closure.call(null, path, err);
-                        delete FirestoreANEContext.closures[pObj.eventId];
-                    }
+                    callCallback(argsAsJSON.callbackId, true, err);
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }

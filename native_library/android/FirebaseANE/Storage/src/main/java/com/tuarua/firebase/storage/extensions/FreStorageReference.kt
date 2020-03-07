@@ -20,12 +20,11 @@ import com.adobe.fre.FREObject
 import com.google.firebase.storage.StorageReference
 import com.tuarua.frekotlin.FREObject
 import com.tuarua.frekotlin.set
-import com.tuarua.frekotlin.toFREObject
 
 fun StorageReference.toFREObject(): FREObject? {
     val ret = FREObject("Object")
-    ret["bucket"] = bucket.toFREObject()
-    ret["name"] = name.toFREObject()
-    ret["path"] = path.toFREObject()
+    ret["bucket"] = bucket
+    ret["name"] = name
+    ret["path"] = path
     return ret
 }

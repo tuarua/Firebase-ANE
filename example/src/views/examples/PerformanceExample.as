@@ -1,5 +1,5 @@
 package views.examples {
-import com.tuarua.firebase.PerformanceANE;
+import com.tuarua.firebase.Performance;
 import com.tuarua.firebase.performance.Trace;
 
 import starling.display.Sprite;
@@ -69,8 +69,8 @@ public class PerformanceExample extends Sprite implements IExample {
 
     public function initANE():void {
         if (isInited) return;
-        PerformanceANE.isDataCollectionEnabled = true;
-        PerformanceANE.init();
+        Performance.isDataCollectionEnabled = true;
+        Performance.init();
         isInited = true;
     }
 }

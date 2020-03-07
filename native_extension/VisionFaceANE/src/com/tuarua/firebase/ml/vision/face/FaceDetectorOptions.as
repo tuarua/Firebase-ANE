@@ -39,16 +39,16 @@ public class FaceDetectorOptions {
      * The face detector contour mode that determines the type of contour results returned by detection.
      * Defaults to FaceDetectorContourMode.none.
      *
-     * <p>The following detection results are returned when setting this mode to <code>.all</code>:
+     * <p>The following detection results are returned when setting this mode to <code>.all</code>:</p>
      *
      * <p><code>performanceMode</code> set to <code>.fast</code>, and both <code>classificationMode</code>
      * and <code>landmarkMode</code> set to
-     * <code>.none</code>, then only the prominent face will be returned with detected contours.
+     * <code>.none</code>, then only the prominent face will be returned with detected contours.</p>
      *
      * <p><code>performanceMode</code> set to <code>.accurate</code>, or if <code>classificationMode</code>
      * or <code>landmarkMode</code> is set to
      * <code>.all</code>, then all detected faces will be returned, but only the prominent face will have
-     * detecteted contours.
+     * detecteted contours.</p>
      */
     public var contourMode:uint = FaceDetectorContourMode.none;
     /**

@@ -19,13 +19,17 @@ import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.tuarua.frekotlin.FREObject
 import com.tuarua.frekotlin.set
-import com.tuarua.frekotlin.toFREObject
 
 fun FirebaseVisionBarcode.Email.toFREObject(): FREObject? {
     val ret = FREObject("com.tuarua.firebase.ml.vision.barcode.BarcodeEmail")
-    ret["address"] = this.address?.toFREObject()
-    ret["body"] = this.body?.toFREObject()
-    ret["subject"] = this.subject?.toFREObject()
-    ret["type"] = this.type.toFREObject()
+    ret["address"] = address
+    ret["body"] = body
+    ret["subject"] = subject
+    ret["type"] = type
     return ret
+}
+
+operator fun FREObject?.set(name: String, value: FirebaseVisionBarcode.Email?) {
+    val rv = this ?: return
+    rv[name] = value?.toFREObject()
 }

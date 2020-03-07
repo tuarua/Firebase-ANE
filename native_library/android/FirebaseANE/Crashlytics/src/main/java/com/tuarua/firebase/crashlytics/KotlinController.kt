@@ -32,7 +32,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val debug = Boolean(argv[0]) == true
         try {
             val fabric = Builder(ctx.activity.applicationContext).kits(Crashlytics()).debuggable(debug).build()
@@ -50,14 +50,14 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun log(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("log")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val message = String(argv[0]) ?: return null
         Crashlytics.log(message)
         return null
     }
 
     fun logException(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("logException")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val message = String(argv[0])
         val exception = Exception(message)
         Crashlytics.logException(exception)
@@ -65,28 +65,28 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun setUserIdentifier(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("setUserIdentifier")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val value = String(argv[0]) ?: return null
         Crashlytics.setUserIdentifier(value)
         return null
     }
 
     fun setUserEmail(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("setUserEmail")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val value = String(argv[0]) ?: return null
         Crashlytics.setUserEmail(value)
         return null
     }
 
     fun setUserName(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("setUserName")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val value = String(argv[0]) ?: return null
         Crashlytics.setUserName(value)
         return null
     }
 
     fun setString(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("setString")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val key = String(argv[0]) ?: return null
         val value = String(argv[1]) ?: return null
         Crashlytics.setString(key, value)
@@ -94,7 +94,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun setBool(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("setBool")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val key = String(argv[0]) ?: return null
         val value = Boolean(argv[1]) ?: return null
         Crashlytics.setBool(key, value)
@@ -102,7 +102,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun setDouble(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("setDouble")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val key = String(argv[0]) ?: return null
         val value = Double(argv[1]) ?: return null
         Crashlytics.setDouble(key, value)
@@ -110,14 +110,14 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun setInt(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("setInt")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val key = String(argv[0]) ?: return null
         val value = Int(argv[1]) ?: return null
         Crashlytics.setInt(key, value)
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?

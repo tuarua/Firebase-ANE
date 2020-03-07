@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="com.google.guava.guava-26.0-android" type="flex">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/android_dependencies/com.google.guava.guava-26.0-android.ane!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

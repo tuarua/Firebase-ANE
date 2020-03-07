@@ -18,7 +18,6 @@ package com.tuarua.firebase.auth
 
 import java.util.concurrent.TimeUnit
 import com.adobe.fre.FREContext
-import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.*
 import com.google.gson.Gson
@@ -28,42 +27,34 @@ import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.ktx.app
 import com.tuarua.firebase.auth.extensions.toMap
 
 class AuthController(override var context: FREContext?) : FreKotlinController {
-    private lateinit var auth: FirebaseAuth
+    private var auth: FirebaseAuth = FirebaseAuth.getInstance(Firebase.app)
     private val gson = Gson()
 
-
-    init {
-        val app = FirebaseApp.getInstance()
-        if (app != null) {
-            auth = FirebaseAuth.getInstance(app)
-        } else {
-            warning(">>>>>>>>>>NO FirebaseApp !!!!!!!!!!!!!!!!!!!!!")
-        }
-    }
-
-    private fun sendError(type: String, eventId: String, exception: Exception?) {
+    private fun sendError(type: String, callbackId: String, exception: Exception?) {
         when (exception) {
             is FirebaseNetworkException -> dispatchEvent(type, gson.toJson(
-                    AuthEvent(eventId, error = mapOf(
+                    AuthEvent(callbackId, error = mapOf(
                             "text" to exception.message,
                             "id" to 17020))))
             is FirebaseAuthException -> {
                 dispatchEvent(type, gson.toJson(
-                        AuthEvent(eventId, error = exception.toMap()))
+                        AuthEvent(callbackId, error = exception.toMap()))
                 )
             }
         }
     }
 
-    fun createUserWithEmailAndPassword(email: String, password: String, eventId: String?) {
+    fun createUserWithEmailAndPassword(email: String, password: String, callbackId: String?) {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-            if (eventId == null) return@addOnCompleteListener
+            if (callbackId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> dispatchEvent(AuthEvent.USER_CREATED, gson.toJson(AuthEvent(eventId)))
-                else -> sendError(AuthEvent.USER_CREATED, eventId, task.exception)
+                task.isSuccessful -> dispatchEvent(AuthEvent.USER_CREATED, gson.toJson(AuthEvent(callbackId)))
+                else -> sendError(AuthEvent.USER_CREATED, callbackId, task.exception)
             }
         }
     }
@@ -72,47 +63,47 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
         auth.signOut()
     }
 
-    fun sendPasswordResetEmail(email: String, eventId: String?) {
+    fun sendPasswordResetEmail(email: String, callbackId: String?) {
         auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
-            if (eventId == null) return@addOnCompleteListener
+            if (callbackId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> dispatchEvent(AuthEvent.PASSWORD_RESET_EMAIL_SENT, gson.toJson(AuthEvent(eventId)))
-                else -> sendError(AuthEvent.PASSWORD_RESET_EMAIL_SENT, eventId, task.exception)
+                task.isSuccessful -> dispatchEvent(AuthEvent.PASSWORD_RESET_EMAIL_SENT, gson.toJson(AuthEvent(callbackId)))
+                else -> sendError(AuthEvent.PASSWORD_RESET_EMAIL_SENT, callbackId, task.exception)
             }
         }
     }
 
-    fun signInAnonymously(eventId: String?) {
+    fun signInAnonymously(callbackId: String?) {
         auth.signInAnonymously().addOnCompleteListener { task ->
-            if (eventId == null) return@addOnCompleteListener
+            if (callbackId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(eventId)))
-                else -> sendError(AuthEvent.SIGN_IN, eventId, task.exception)
+                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(callbackId)))
+                else -> sendError(AuthEvent.SIGN_IN, callbackId, task.exception)
             }
         }
     }
 
-    fun signInWithCustomToken(eventId: String?, token: String) {
+    fun signInWithCustomToken(callbackId: String?, token: String) {
         auth.signInWithCustomToken(token).addOnCompleteListener { task ->
-            if (eventId == null) return@addOnCompleteListener
+            if (callbackId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(eventId)))
-                else -> sendError(AuthEvent.SIGN_IN, eventId, task.exception)
+                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(callbackId)))
+                else -> sendError(AuthEvent.SIGN_IN, callbackId, task.exception)
             }
         }
     }
 
-    fun signIn(value: AuthCredential, eventId: String?) {
+    fun signIn(value: AuthCredential, callbackId: String?) {
         auth.signInWithCredential(value).addOnCompleteListener { task ->
-            if (eventId == null) return@addOnCompleteListener
+            if (callbackId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(eventId)))
-                else -> sendError(AuthEvent.SIGN_IN, eventId, task.exception)
+                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(callbackId)))
+                else -> sendError(AuthEvent.SIGN_IN, callbackId, task.exception)
             }
         }
     }
 
-    fun verifyPhoneNumber(phoneNumber: String, eventId: String?) {
+    fun verifyPhoneNumber(phoneNumber: String, callbackId: String?) {
         val act = this.context?.activity ?: return
         val callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks = object : PhoneAuthProvider
 
@@ -122,16 +113,15 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
             }
 
             override fun onVerificationFailed(e: FirebaseException) {
-                if (eventId == null) return
-                sendError(AuthEvent.PHONE_CODE_SENT, eventId, e)
+                if (callbackId == null) return
+                sendError(AuthEvent.PHONE_CODE_SENT, callbackId, e)
             }
 
-            override fun onCodeSent(verificationId: String?,
-                                    token: PhoneAuthProvider.ForceResendingToken?) {
-                if (eventId == null) return
-                dispatchEvent(AuthEvent.PHONE_CODE_SENT, gson.toJson(AuthEvent(eventId,
+            override fun onCodeSent(verificationId: String, token: PhoneAuthProvider.ForceResendingToken) {
+                super.onCodeSent(verificationId, token)
+                if (callbackId == null) return
+                dispatchEvent(AuthEvent.PHONE_CODE_SENT, gson.toJson(AuthEvent(callbackId,
                         mapOf("verificationId" to verificationId))))
-
             }
         }
         PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNumber, 60, TimeUnit.SECONDS, act, callbacks)
@@ -144,7 +134,7 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
             return auth.languageCode
         }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.simpleName
 
 

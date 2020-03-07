@@ -1,6 +1,6 @@
 package com.tuarua.firebase.dynamiclinks.events
 
-data class DynamicLinkEvent(val eventId: String,
+data class DynamicLinkEvent(val callbackId: String,
                             val short: Boolean,
                             val data: Map<String, Any>? = null,
                             val error: Map<String, Any>? = null) {

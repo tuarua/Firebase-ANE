@@ -18,7 +18,13 @@ package com.tuarua.firebase.ml.vision.barcode.extensions
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.tuarua.frekotlin.FREObject
+import com.tuarua.frekotlin.set
 
 fun FirebaseVisionBarcode.WiFi.toFREObject(): FREObject? =
         FREObject("com.tuarua.firebase.ml.vision.barcode.BarcodeWifi",
                 password, ssid, encryptionType)
+
+operator fun FREObject?.set(name: String, value: FirebaseVisionBarcode.WiFi?) {
+    val rv = this ?: return
+    rv[name] = value?.toFREObject()
+}

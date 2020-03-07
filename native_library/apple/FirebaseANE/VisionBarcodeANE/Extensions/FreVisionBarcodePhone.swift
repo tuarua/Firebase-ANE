@@ -28,28 +28,21 @@ public extension VisionBarcodePhone {
 
 public extension Array where Element == VisionBarcodePhone {
     func toFREObject() -> FREObject? {
-            guard let ret = FREArray(className: "com.tuarua.firebase.ml.vision.barcode.BarcodePhone",
-                                     length: self.count, fixed: true) else { return nil }
-            var cnt: UInt = 0
-            for phone in self {
-                if let frePhone = phone.toFREObject() {
-                    ret[cnt] = frePhone
-                    cnt += 1
-                }
-            }
-            return ret.rawValue
+        return FREArray(className: "com.tuarua.firebase.ml.vision.barcode.BarcodePhone",
+                                     length: self.count, fixed: true,
+                                     items: self.compactMap { $0.toFREObject() })?.rawValue
     }
 }
 
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> VisionBarcodePhone? {
+    subscript(dynamicMember name: String) -> VisionBarcodePhone? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }
 }
 
 public extension FreObjectSwift {
-    public subscript(dynamicMember name: String) -> [VisionBarcodePhone]? {
+    subscript(dynamicMember name: String) -> [VisionBarcodePhone]? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }

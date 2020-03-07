@@ -23,3 +23,12 @@ public extension VisionPoint {
         return FREObject(className: "com.tuarua.firebase.ml.vision.common.VisionPoint", args: x, y, z ?? 0.0)
     }
 }
+
+public extension Array where Element == VisionPoint {
+    func toFREObject() -> FREObject? {
+        return FREArray(className: "com.tuarua.firebase.ml.vision.common.VisionPoint",
+                                      length: self.count, fixed: true,
+                                      items: self.compactMap { $0.toFREObject() }
+            )?.rawValue
+    }
+}

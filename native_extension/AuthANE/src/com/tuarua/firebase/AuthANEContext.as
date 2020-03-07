@@ -10,8 +10,7 @@ public class AuthANEContext {
     internal static const TRACE:String = "TRACE";
     internal static const INIT_ERROR_MESSAGE:String = NAME + " not initialised... use .auth";
     private static var _context:ExtensionContext;
-    public static var closures:Dictionary = new Dictionary();
-    public static var closureCallers:Dictionary = new Dictionary();
+    public static var callbacks:Dictionary = new Dictionary();
     private static var _isInited:Boolean = false;
     private static const EMAIL_UPDATED:String = "AuthEvent.EmailUpdated";
     private static const PASSWORD_UPDATED:String = "AuthEvent.PasswordUpdated";
@@ -26,7 +25,7 @@ public class AuthANEContext {
     private static const EMAIL_VERIFICATION_SENT:String = "AuthEvent.EmailVerificationSent";
     private static const ID_TOKEN:String = "AuthEvent.OnIdToken";
     private static const PHONE_CODE_SENT:String = "AuthEvent.PhoneCodeSent";
-    private static var pObj:Object;
+    private static var argsAsJSON:Object;
 
     public function AuthANEContext() {
 
@@ -49,18 +48,24 @@ public class AuthANEContext {
         return value == null || value == "";
     }
 
-    public static function createEventId(listener:Function):String{
-        var eventId:String;
-        if (listener) {
-            eventId = context.call("createGUID") as String;
-            closures[eventId] = listener;
+    public static function createCallback(listener:Function):String{
+        var id:String;
+        if (listener != null) {
+            id = context.call("createGUID") as String;
+            callbacks[id] = listener;
         }
-        return eventId;
+        return id;
+    }
+
+    public static function callCallback(callbackId:String, ... args):void {
+        var callback:Function = callbacks[callbackId];
+        if (callback == null) return;
+        callback.apply(null, args);
+        delete callbacks[callbackId];
     }
 
     private static function gotEvent(event:StatusEvent):void {
         var err:AuthError;
-        var closure:Function;
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);
@@ -77,50 +82,38 @@ public class AuthANEContext {
             case USER_UNLINKED:
             case USER_LINKED:
                 try {
-                    pObj = JSON.parse(event.code);
-                    closure = closures[pObj.eventId];
-                    if (closure == null) return;
-                    if (pObj.hasOwnProperty("error") && pObj.error) {
-                        err = new AuthError(pObj.error.text, pObj.error.id);
+                    argsAsJSON = JSON.parse(event.code);
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new AuthError(argsAsJSON.error.text, argsAsJSON.error.id);
                     }
-                    closure.call(null, err);
-                    delete closures[pObj.eventId];
-                    delete closureCallers[pObj.eventId];
+                    callCallback(argsAsJSON.callbackId, err);
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
                 break;
             case ID_TOKEN:
                 try {
-                    pObj = JSON.parse(event.code);
-                    closure = closures[pObj.eventId];
-                    if (closure == null) return;
+                    argsAsJSON = JSON.parse(event.code);
                     var token:String;
-                    if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("token")) {
-                        token = pObj.data.token;
+                    if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty("token")) {
+                        token = argsAsJSON.data.token;
                     }
-                    closure.call(null, token);
-                    delete closures[pObj.eventId];
-                    delete closureCallers[pObj.eventId];
+                    callCallback(argsAsJSON.callbackId, token);
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
                 break;
             case PHONE_CODE_SENT:
                 try {
-                    pObj = JSON.parse(event.code);
-                    closure = closures[pObj.eventId];
-                    if (closure == null) return;
-                    if (pObj.hasOwnProperty("error") && pObj.error) {
-                        err = new AuthError(pObj.error.text, pObj.error.id);
+                    argsAsJSON = JSON.parse(event.code);
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new AuthError(argsAsJSON.error.text, argsAsJSON.error.id);
                     }
                     var verificationId:String;
-                    if (pObj.hasOwnProperty("data") && pObj.data && pObj.data.hasOwnProperty("verificationId")) {
-                        verificationId = pObj.data.token;
+                    if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty("verificationId")) {
+                        verificationId = argsAsJSON.data.token;
                     }
-                    closure.call(null, verificationId, err);
-                    delete closures[pObj.eventId];
-                    delete closureCallers[pObj.eventId];
+                    callCallback(argsAsJSON.callbackId, verificationId, err);
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }

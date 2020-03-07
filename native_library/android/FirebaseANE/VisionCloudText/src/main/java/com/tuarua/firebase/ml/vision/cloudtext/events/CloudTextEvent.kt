@@ -16,7 +16,7 @@
 
 package com.tuarua.firebase.ml.vision.cloudtext.events
 
-data class CloudTextEvent(val eventId: String, val error: Map<String, Any>? = null) {
+data class CloudTextEvent(val callbackId: String, val error: Map<String, Any>? = null) {
     companion object {
         const val RECOGNIZED = "CloudTextEvent.Recognized"
     }

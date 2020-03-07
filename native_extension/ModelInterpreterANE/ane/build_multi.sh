@@ -53,7 +53,8 @@ echo "Copying native libraries into place."
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/device/lib$PROJECTNAME.a"
 
 cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseMLModelInterpreter.framework" "$pathtome/platforms/ios/device/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/tensorflow_lite.framework" "$pathtome/platforms/ios/device/Frameworks"
+cp -R -L "$pathtome/../../../firebase_frameworks/device/TensorFlowLiteC.framework" "$pathtome/platforms/ios/device/Frameworks"
+cp -R -L "$pathtome/../../../firebase_frameworks/device/TensorFlowLiteObjC.framework" "$pathtome/platforms/ios/device/Frameworks"
 
 echo "Copying Android aars into place"
 cp "$pathtome/../../../native_library/android/FirebaseANE/ModelInterpreter/build/outputs/aar/ModelInterpreter-release.aar" "$pathtome/platforms/android/app-release.aar"

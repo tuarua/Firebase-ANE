@@ -33,56 +33,56 @@ class AuthController: FreSwiftController {
         auth = Auth.auth(app: app)
     }
     
-    func createUser(email: String, password: String, eventId: String?) {
+    func createUser(email: String, password: String, callbackId: String?) {
         auth?.createUser(withEmail: email, password: password) { (_, error) in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.USER_CREATED,
-                               value: AuthEvent(eventId: eventId, data: nil, error: err).toJSONString())
+                               value: AuthEvent(callbackId: callbackId, data: nil, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.USER_CREATED,
-                               value: AuthEvent(eventId: eventId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
             }
         }
     }
     
-    func signIn(credential: AuthCredential, eventId: String?) {
-        auth?.signInAndRetrieveData(with: credential, completion: { (_, error) in
-            if eventId == nil { return }
+    func signIn(credential: AuthCredential, callbackId: String?) {
+        auth?.signIn(with: credential, completion: { (_, error) in
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
-                               value: AuthEvent(eventId: eventId, data: nil, error: err).toJSONString())
+                               value: AuthEvent(callbackId: callbackId, data: nil, error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
-                               value: AuthEvent(eventId: eventId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
             }
         })
     }
     
-    func signInAnonymously(eventId: String?) {
+    func signInAnonymously(callbackId: String?) {
         auth?.signInAnonymously { _, error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
-                               value: AuthEvent(eventId: eventId, data: nil,
+                               value: AuthEvent(callbackId: callbackId, data: nil,
                                                 error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
-                               value: AuthEvent(eventId: eventId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
             }
         }
     }
     
-    func signInWithCustomToken(token: String, eventId: String?) {
+    func signInWithCustomToken(token: String, callbackId: String?) {
         auth?.signIn(withCustomToken: token, completion: { (_, error) in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
-                               value: AuthEvent(eventId: eventId, data: nil,
+                               value: AuthEvent(callbackId: callbackId, data: nil,
                                                 error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
-                               value: AuthEvent(eventId: eventId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
             }
         })
     }
@@ -95,46 +95,46 @@ class AuthController: FreSwiftController {
         }
     }
     
-    func sendPasswordReset(email: String, eventId: String?) {
+    func sendPasswordReset(email: String, callbackId: String?) {
         auth?.sendPasswordReset(withEmail: email) { error in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.PASSWORD_RESET_EMAIL_SENT,
-                               value: AuthEvent(eventId: eventId, data: nil,
+                               value: AuthEvent(callbackId: callbackId, data: nil,
                                                 error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.PASSWORD_RESET_EMAIL_SENT,
-                               value: AuthEvent(eventId: eventId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
             }
         }
     }
     
-    func reauthenticate(email: String, password: String, eventId: String?) {
+    func reauthenticate(email: String, password: String, callbackId: String?) {
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         let user = Auth.auth().currentUser
-        user?.reauthenticateAndRetrieveData(with: credential, completion: { (_, error) in
-            if eventId == nil { return }
+        user?.reauthenticate(with: credential, completion: { (_, error) in
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.USER_REAUTHENTICATED,
-                               value: AuthEvent(eventId: eventId, data: nil,
+                               value: AuthEvent(callbackId: callbackId, data: nil,
                                                 error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.USER_REAUTHENTICATED,
-                               value: AuthEvent(eventId: eventId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
             }
         })
     }
     
-    func verifyPhoneNumber(phoneNumber: String, eventId: String?) {
+    func verifyPhoneNumber(phoneNumber: String, callbackId: String?) {
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationId, error) in
-            if eventId == nil { return }
+            if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.PHONE_CODE_SENT,
-                               value: AuthEvent(eventId: eventId, data: nil,
+                               value: AuthEvent(callbackId: callbackId, data: nil,
                                                 error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.PHONE_CODE_SENT,
-                               value: AuthEvent(eventId: eventId,
+                               value: AuthEvent(callbackId: callbackId,
                                                 data: ["verificationId": verificationId ?? ""]).toJSONString())
             }
         }

@@ -25,7 +25,7 @@ import com.google.gson.Gson
 import com.tuarua.firebase.ml.vision.common.extensions.FirebaseVisionImage
 import com.tuarua.firebase.ml.vision.cloudlabel.events.CloudLabelEvent
 import com.tuarua.firebase.ml.vision.cloudlabel.extensions.FirebaseVisionCloudImageLabelerOptions
-import com.tuarua.firebase.ml.vision.label.extensions.toFREArray
+import com.tuarua.firebase.ml.vision.label.extensions.toFREObject
 import com.tuarua.frekotlin.*
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.Dispatchers
@@ -33,8 +33,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 
-
-@Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
+@Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private var results: MutableMap<String, MutableList<FirebaseVisionImageLabel>> = mutableMapOf()
     private val gson = Gson()
@@ -42,7 +41,7 @@ class KotlinController : FreKotlinMainController {
     private lateinit var labeler: FirebaseVisionImageLabeler
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("init")
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val options = FirebaseVisionCloudImageLabelerOptions(argv[0])
         labeler = if (options != null) {
             FirebaseVision.getInstance().getCloudImageLabeler(options)
@@ -57,21 +56,21 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun process(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException("process")
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val image = FirebaseVisionImage(argv[0], ctx) ?: return null
-        val eventId = String(argv[1]) ?: return null
+        val callbackId = String(argv[1]) ?: return null
         GlobalScope.launch(bgContext) {
             labeler.processImage(image).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
-                    results[eventId] = result
+                    results[callbackId] = result
                     dispatchEvent(CloudLabelEvent.RECOGNIZED,
-                            gson.toJson(CloudLabelEvent(eventId, null)))
+                            gson.toJson(CloudLabelEvent(callbackId, null)))
                 } else {
                     val error = task.exception
                     dispatchEvent(CloudLabelEvent.RECOGNIZED,
                             gson.toJson(
-                                    CloudLabelEvent(eventId, mapOf(
+                                    CloudLabelEvent(callbackId, mapOf(
                                             "text" to error?.message.toString(),
                                             "id" to 0))
                             )
@@ -84,11 +83,11 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun getResults(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException("getResults")
-        val eventId = String(argv[0]) ?: return null
-        val result = results[eventId] ?: return null
-        val ret = result.toFREArray()
-        results.remove(eventId)
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val callbackId = String(argv[0]) ?: return null
+        val result = results[callbackId] ?: return null
+        val ret = result.toFREObject()
+        results.remove(callbackId)
         return ret
     }
 
@@ -97,7 +96,7 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    override val TAG: String
+    override val TAG: String?
         get() = this::class.java.canonicalName
     private var _context: FREContext? = null
     override var context: FREContext?
