@@ -6,6 +6,9 @@ import com.tuarua.frekotlin.*
 import android.os.Bundle
 import android.util.Log
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
 
 fun <V> Map<String, V>.toBundle(bundle: Bundle = Bundle()): Bundle = bundle.apply {
     forEach {
@@ -25,15 +28,9 @@ class KotlinController : FreKotlinMainController {
     private var appInstanceId: String? = null
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         try {
-            val ac = context?.activity
-            if (ac != null) {
-                analytics = FirebaseAnalytics.getInstance(ac)
-                analytics.appInstanceId.addOnCompleteListener {
-                    appInstanceId = it.result
-                }
-            } else {
-                trace("Firebase is NOT initialised")
-                return false.toFREObject()
+            analytics = Firebase.analytics
+            analytics.appInstanceId.addOnCompleteListener {
+                appInstanceId = it.result
             }
         } catch (e: Exception) {
             trace(e.message)
@@ -51,6 +48,7 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val name = String(argv[0]) ?: return null
         val params: Map<String, Any> = Map(argv[1]) ?: return null
+        FirebaseAnalytics.Param.ITEMS
         val bundle = params.toBundle()
         analytics.logEvent(name, bundle)
         return null

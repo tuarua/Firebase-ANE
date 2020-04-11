@@ -1,21 +1,21 @@
 #!/bin/sh
 
-AneVersion="0.10.0"
-FreKotlinVersion="1.9.5"
+AneVersion="0.11.0"
+FreKotlinVersion="1.10.0"
 PlayerServicesBaseVersion="17.1.0"
 SupportV4Version="1.0.0"
-AnalyticsVersion="17.2.1"
-IidVersion="20.0.1"
+AnalyticsVersion="17.3.0"
+IidVersion="20.1.5"
 VisionVersion="24.0.1"
 ImageLabelVersion="19.0.0"
 ModelInterpreterVersion="22.0.1"
 NaturalLanguageVersion="22.0.0"
 FaceModelVersion="19.0.0"
 BarcodeModelVersion="16.0.2"
-KotlinxCoroutinesVersion="1.3.3"
+KotlinxCoroutinesVersion="1.3.5"
 EventBusVersion="3.0.0"
 GsonVersion="2.8.6"
-ConfigVersion="19.0.3"
+ConfigVersion="19.1.3"
 
 wget https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/assets.zip
 unzip -u -o assets.zip

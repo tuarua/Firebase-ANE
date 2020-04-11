@@ -3,8 +3,8 @@
 rm -r ios_dependencies/device
 rm -r ios_dependencies/simulator
 
-AneVersion="0.10.0"
-FreSwiftVersion="4.3.0"
+AneVersion="0.11.0"
+FreSwiftVersion="4.4.0"
 
 wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/${FreSwiftVersion}/ios_dependencies.zip
 unzip -u -o ios_dependencies.zip

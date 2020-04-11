@@ -1,3 +1,15 @@
+### 0.11.0
+- AND: Updated to FreKotlin 1.10.0
+- AND: Analytics 17.3.0
+- AND: Storage 19.1.1
+- AND: Crashlytics 2.10.1
+- AND: Firestore 21.4.2
+- AND: Dynamic Links 19.1.0
+- AND: Remote Config 19.1.3
+- AND: Auth 19.3.0
+- AND: Performance 19.0.5
+- AND: Messaging 20.1.5
+
 ### 0.10.0
 - Restructure API. See example for full changes.
 - AND: Updated to FreKotlin 1.9.5
