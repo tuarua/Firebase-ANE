@@ -2,29 +2,29 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Analytics/Analytics.iml" filepath="$PROJECT_DIR$/Analytics/Analytics.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Auth/Auth.iml" filepath="$PROJECT_DIR$/Auth/Auth.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Crashlytics/Crashlytics.iml" filepath="$PROJECT_DIR$/Crashlytics/Crashlytics.iml" />
-      <module fileurl="file://$PROJECT_DIR$/DynamicLinks/DynamicLinks.iml" filepath="$PROJECT_DIR$/DynamicLinks/DynamicLinks.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Firebase/Firebase.iml" filepath="$PROJECT_DIR$/Firebase/Firebase.iml" />
-      <module fileurl="file://$PROJECT_DIR$/FirebaseANE.iml" filepath="$PROJECT_DIR$/FirebaseANE.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Firestore/Firestore.iml" filepath="$PROJECT_DIR$/Firestore/Firestore.iml" />
-      <module fileurl="file://$PROJECT_DIR$/GoogleSignIn/GoogleSignIn.iml" filepath="$PROJECT_DIR$/GoogleSignIn/GoogleSignIn.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Messaging/Messaging.iml" filepath="$PROJECT_DIR$/Messaging/Messaging.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Modelinterpreter/Modelinterpreter.iml" filepath="$PROJECT_DIR$/Modelinterpreter/Modelinterpreter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NaturalLanguage/NaturalLanguage.iml" filepath="$PROJECT_DIR$/NaturalLanguage/NaturalLanguage.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Performance/Performance.iml" filepath="$PROJECT_DIR$/Performance/Performance.iml" />
-      <module fileurl="file://$PROJECT_DIR$/RemoteConfig/RemoteConfig.iml" filepath="$PROJECT_DIR$/RemoteConfig/RemoteConfig.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Storage/Storage.iml" filepath="$PROJECT_DIR$/Storage/Storage.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Vision/Vision.iml" filepath="$PROJECT_DIR$/Vision/Vision.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VisionBarcode/VisionBarcode.iml" filepath="$PROJECT_DIR$/VisionBarcode/VisionBarcode.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VisionCloudDocument/VisionCloudDocument.iml" filepath="$PROJECT_DIR$/VisionCloudDocument/VisionCloudDocument.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VisionCloudLabel/VisionCloudLabel.iml" filepath="$PROJECT_DIR$/VisionCloudLabel/VisionCloudLabel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VisionCloudText/VisionCloudText.iml" filepath="$PROJECT_DIR$/VisionCloudText/VisionCloudText.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VisionFace/VisionFace.iml" filepath="$PROJECT_DIR$/VisionFace/VisionFace.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VisionLabel/VisionLabel.iml" filepath="$PROJECT_DIR$/VisionLabel/VisionLabel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VisionLandmark/VisionLandmark.iml" filepath="$PROJECT_DIR$/VisionLandmark/VisionLandmark.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VisionText/VisionText.iml" filepath="$PROJECT_DIR$/VisionText/VisionText.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Analytics/Analytics.iml" filepath="$PROJECT_DIR$/Analytics/Analytics.iml" group="FirebaseANE/Analytics" />
+      <module fileurl="file://$PROJECT_DIR$/Auth/Auth.iml" filepath="$PROJECT_DIR$/Auth/Auth.iml" group="FirebaseANE/Auth" />
+      <module fileurl="file://$PROJECT_DIR$/Crashlytics/Crashlytics.iml" filepath="$PROJECT_DIR$/Crashlytics/Crashlytics.iml" group="FirebaseANE/Crashlytics" />
+      <module fileurl="file://$PROJECT_DIR$/DynamicLinks/DynamicLinks.iml" filepath="$PROJECT_DIR$/DynamicLinks/DynamicLinks.iml" group="FirebaseANE/DynamicLinks" />
+      <module fileurl="file://$PROJECT_DIR$/Firebase/Firebase.iml" filepath="$PROJECT_DIR$/Firebase/Firebase.iml" group="FirebaseANE/Firebase" />
+      <module fileurl="file://$PROJECT_DIR$/FirebaseANE.iml" filepath="$PROJECT_DIR$/FirebaseANE.iml" group="FirebaseANE" />
+      <module fileurl="file://$PROJECT_DIR$/Firestore/Firestore.iml" filepath="$PROJECT_DIR$/Firestore/Firestore.iml" group="FirebaseANE/Firestore" />
+      <module fileurl="file://$PROJECT_DIR$/GoogleSignIn/GoogleSignIn.iml" filepath="$PROJECT_DIR$/GoogleSignIn/GoogleSignIn.iml" group="FirebaseANE/GoogleSignIn" />
+      <module fileurl="file://$PROJECT_DIR$/Messaging/Messaging.iml" filepath="$PROJECT_DIR$/Messaging/Messaging.iml" group="FirebaseANE/Messaging" />
+      <module fileurl="file://$PROJECT_DIR$/Modelinterpreter/Modelinterpreter.iml" filepath="$PROJECT_DIR$/Modelinterpreter/Modelinterpreter.iml" group="FirebaseANE/Modelinterpreter" />
+      <module fileurl="file://$PROJECT_DIR$/NaturalLanguage/NaturalLanguage.iml" filepath="$PROJECT_DIR$/NaturalLanguage/NaturalLanguage.iml" group="FirebaseANE/NaturalLanguage" />
+      <module fileurl="file://$PROJECT_DIR$/Performance/Performance.iml" filepath="$PROJECT_DIR$/Performance/Performance.iml" group="FirebaseANE/Performance" />
+      <module fileurl="file://$PROJECT_DIR$/RemoteConfig/RemoteConfig.iml" filepath="$PROJECT_DIR$/RemoteConfig/RemoteConfig.iml" group="FirebaseANE/RemoteConfig" />
+      <module fileurl="file://$PROJECT_DIR$/Storage/Storage.iml" filepath="$PROJECT_DIR$/Storage/Storage.iml" group="FirebaseANE/Storage" />
+      <module fileurl="file://$PROJECT_DIR$/Vision/Vision.iml" filepath="$PROJECT_DIR$/Vision/Vision.iml" group="FirebaseANE/Vision" />
+      <module fileurl="file://$PROJECT_DIR$/VisionBarcode/VisionBarcode.iml" filepath="$PROJECT_DIR$/VisionBarcode/VisionBarcode.iml" group="FirebaseANE/VisionBarcode" />
+      <module fileurl="file://$PROJECT_DIR$/VisionCloudDocument/VisionCloudDocument.iml" filepath="$PROJECT_DIR$/VisionCloudDocument/VisionCloudDocument.iml" group="FirebaseANE/VisionCloudDocument" />
+      <module fileurl="file://$PROJECT_DIR$/VisionCloudLabel/VisionCloudLabel.iml" filepath="$PROJECT_DIR$/VisionCloudLabel/VisionCloudLabel.iml" group="FirebaseANE/VisionCloudLabel" />
+      <module fileurl="file://$PROJECT_DIR$/VisionCloudText/VisionCloudText.iml" filepath="$PROJECT_DIR$/VisionCloudText/VisionCloudText.iml" group="FirebaseANE/VisionCloudText" />
+      <module fileurl="file://$PROJECT_DIR$/VisionFace/VisionFace.iml" filepath="$PROJECT_DIR$/VisionFace/VisionFace.iml" group="FirebaseANE/VisionFace" />
+      <module fileurl="file://$PROJECT_DIR$/VisionLabel/VisionLabel.iml" filepath="$PROJECT_DIR$/VisionLabel/VisionLabel.iml" group="FirebaseANE/VisionLabel" />
+      <module fileurl="file://$PROJECT_DIR$/VisionLandmark/VisionLandmark.iml" filepath="$PROJECT_DIR$/VisionLandmark/VisionLandmark.iml" group="FirebaseANE/VisionLandmark" />
+      <module fileurl="file://$PROJECT_DIR$/VisionText/VisionText.iml" filepath="$PROJECT_DIR$/VisionText/VisionText.iml" group="FirebaseANE/VisionText" />
     </modules>
   </component>
 </project>

@@ -12,6 +12,7 @@ public final class FirebaseAnalyticsParam {
     public static const GROUP_ID:String = "group_id";
     public static const ITEM_CATEGORY:String = "item_category";
     public static const ITEM_ID:String = "item_id";
+    /** @deprecated Instead, use LOCATION_ID */
     public static const ITEM_LOCATION_ID:String = "item_location_id";
     public static const ITEM_NAME:String = "item_name";
     public static const LOCATION:String = "location";
@@ -40,12 +41,27 @@ public final class FirebaseAnalyticsParam {
     public static const CP1:String = "cp1";
     public static const ITEM_BRAND:String = "item_brand";
     public static const ITEM_VARIANT:String = "item_variant";
+    /** @deprecated Instead, use ITEM_LIST_NAME */
     public static const ITEM_LIST:String = "item_list";
+    /** @deprecated Instead, use CHECKOUT_OPTION */
     public static const CHECKOUT_STEP:String = "checkout_step";
     public static const CHECKOUT_OPTION:String = "checkout_option";
     public static const CREATIVE_NAME:String = "creative_name";
     public static const CREATIVE_SLOT:String = "creative_slot";
     public static const AFFILIATION:String = "affiliation";
     public static const INDEX:String = "index";
+    public static const DISCOUNT:String = "discount";
+    public static const ITEM_CATEGORY2:String = "item_category2";
+    public static const ITEM_CATEGORY3:String = "item_category3";
+    public static const ITEM_CATEGORY4:String = "item_category4";
+    public static const ITEM_CATEGORY5:String = "item_category5";
+    public static const ITEM_LIST_ID:String = "item_list_id";
+    public static const ITEM_LIST_NAME:String = "item_list_name";
+    public static const ITEMS:String = "items";
+    public static const LOCATION_ID:String = "location_id";
+    public static const PAYMENT_TYPE:String = "payment_type";
+    public static const PROMOTION_ID:String = "promotion_id";
+    public static const PROMOTION_NAME:String = "promotion_name";
+    public static const SHIPPING_TIER:String = "shipping_tier";
 }
 }

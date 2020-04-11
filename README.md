@@ -31,7 +31,7 @@ Please register your interest with HARMAN in getting this issue fixed!!
 https://github.com/Gamua/Adobe-Runtime-Support/issues/212
 
 You may use the previous version (0.6.0) but be aware this means it cannot be used in conjunction with the latest 
-version of our other ANEs. You will need to use latest - 1.
+version of our other ANEs. You will need to use the one with FreSwift 3.1.0.
 
 ## Issue Tracker
 

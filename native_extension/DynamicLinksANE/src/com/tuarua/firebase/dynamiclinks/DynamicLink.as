@@ -34,6 +34,8 @@ public final class DynamicLink {
     public var navigationInfoParameters:NavigationInfoParameters;
 
     public function DynamicLink(link:String, domainUriPrefix:String) {
+        if (link == null) throw new ArgumentError("link is a required parameter")
+        if (domainUriPrefix == null) throw new ArgumentError("domainUriPrefix is a required parameter")
         this.link = link;
         this.domainUriPrefix = domainUriPrefix;
     }

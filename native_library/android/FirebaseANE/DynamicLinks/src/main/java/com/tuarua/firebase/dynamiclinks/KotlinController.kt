@@ -20,14 +20,13 @@ import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.tuarua.frekotlin.*
 import java.util.*
-import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
 import com.google.gson.Gson
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import com.google.firebase.dynamiclinks.ktx.*
+import com.google.firebase.ktx.Firebase
 import com.tuarua.firebase.dynamiclinks.events.DynamicLinkEvent
-import com.tuarua.firebase.dynamiclinks.extensions.*
-
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
@@ -47,47 +46,73 @@ class KotlinController : FreKotlinMainController {
         val callbackId = String(argv[1]) ?: return null
         val copyToClipboard = Boolean(argv[2]) == true
         val shorten = Boolean(argv[3]) == true
-        val suffix = Int(argv[4]) ?: 0
-        val link = String(linkFre["link"])
-        val domainUriPrefix = String(linkFre["domainUriPrefix"])
-        val iosParameters = IosParameters(linkFre["iosParameters"])
-        val androidParameters = AndroidParameters(linkFre["androidParameters"])
-                ?: return FreArgException()
-        val googleAnalyticsParameters = GoogleAnalyticsParameters(linkFre["googleAnalyticsParameters"])
-        val itunesConnectAnalyticsParameters = ItunesConnectAnalyticsParameters(
+        val _suffix = Int(argv[4]) ?: 0
+        val _link = String(linkFre["link"]) ?: return FreArgException()
+        val _domainUriPrefix = String(linkFre["domainUriPrefix"]) ?: return FreArgException()
+        val _iosParameters = IosParameters(linkFre["iosParameters"])
+        val _androidParameters = AndroidParameters(linkFre["androidParameters"])
+        val _googleAnalyticsParameters = GoogleAnalyticsParameters(linkFre["googleAnalyticsParameters"])
+        val _itunesConnectAnalyticsParameters = ItunesConnectAnalyticsParameters(
                 linkFre["itunesConnectAnalyticsParameters"]
         )
-        val socialMetaTagParameters = SocialMetaTagParameters(linkFre["socialMetaTagParameters"])
-        val navigationInfoParameters = NavigationInfoParameters(linkFre["navigationInfoParameters"])
+        val _socialMetaTagParameters = SocialMetaTagParameters(linkFre["socialMetaTagParameters"])
+        val _navigationInfoParameters = NavigationInfoParameters(linkFre["navigationInfoParameters"])
 
-        val builder = FirebaseDynamicLinks.getInstance().createDynamicLink()
-        if (!link.isNullOrEmpty()) {
-            builder.setLink(Uri.parse(link))
+        val dynamicLink = Firebase.dynamicLinks.dynamicLink {
+            link = Uri.parse(_link)
+            domainUriPrefix = _domainUriPrefix
+
+            iosParameters(_iosParameters.bundleId) {
+                _iosParameters.appStoreId?.let { appStoreId = it }
+                _iosParameters.customScheme?.let { customScheme = it }
+                _iosParameters.fallbackUrl?.let { setFallbackUrl(Uri.parse(it)) }
+                _iosParameters.ipadBundleId?.let { ipadBundleId = it }
+                _iosParameters.ipadFallbackUrl?.let { ipadFallbackUrl = Uri.parse(it) }
+                _iosParameters.minimumVersion?.let { minimumVersion = it }
+            }
+
+            val packageName = _androidParameters.packageName
+            if (packageName != null) {
+                androidParameters(packageName) {
+                    _androidParameters.fallbackUrl?.let { fallbackUrl = Uri.parse(it) }
+                    _androidParameters.minimumVersion?.let { minimumVersion = it }
+                }
+            } else {
+                androidParameters {
+                    _androidParameters.fallbackUrl?.let { fallbackUrl = Uri.parse(it) }
+                    _androidParameters.minimumVersion?.let { minimumVersion = it }
+                }
+            }
+
+            googleAnalyticsParameters {
+                _googleAnalyticsParameters.campaign?.let { campaign = it }
+                _googleAnalyticsParameters.content?.let { content = it }
+                _googleAnalyticsParameters.medium?.let { medium = it }
+                _googleAnalyticsParameters.source?.let { source = it }
+                _googleAnalyticsParameters.term?.let { term = it }
+            }
+
+            itunesConnectAnalyticsParameters {
+                _itunesConnectAnalyticsParameters.affiliateToken?.let { affiliateToken = it }
+                _itunesConnectAnalyticsParameters.campaignToken?.let { campaignToken = it }
+                _itunesConnectAnalyticsParameters.providerToken?.let { providerToken = it }
+            }
+
+            navigationInfoParameters {
+                forcedRedirectEnabled = _navigationInfoParameters.forcedRedirectEnabled
+            }
+
+            socialMetaTagParameters {
+                _socialMetaTagParameters.description?.let { description = it }
+                _socialMetaTagParameters.imageUrl?.let { imageUrl = Uri.parse(it) }
+                _socialMetaTagParameters.title?.let { title = it }
+            }
         }
 
-        if (domainUriPrefix != null && !domainUriPrefix.isNullOrEmpty()) {
-            builder.setDomainUriPrefix(domainUriPrefix)
-        }
-
-        builder.setAndroidParameters(androidParameters)
-        if (iosParameters != null) {
-            builder.setIosParameters(iosParameters)
-        }
-        if (googleAnalyticsParameters != null) {
-            builder.setGoogleAnalyticsParameters(googleAnalyticsParameters)
-        }
-        if (itunesConnectAnalyticsParameters != null) {
-            builder.setItunesConnectAnalyticsParameters(itunesConnectAnalyticsParameters)
-        }
-        if (socialMetaTagParameters != null) {
-            builder.setSocialMetaTagParameters(socialMetaTagParameters)
-        }
-        if (navigationInfoParameters != null) {
-            builder.setNavigationInfoParameters(navigationInfoParameters)
-        }
         if (shorten) {
-            val dynamicLink = builder.buildShortDynamicLink(suffix)
-            dynamicLink.addOnCompleteListener { task ->
+            Firebase.dynamicLinks.shortLinkAsync(_suffix) {
+                longLink = dynamicLink.uri
+            }.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val result = task.result ?: return@addOnCompleteListener
                     if (copyToClipboard) {
@@ -115,14 +140,11 @@ class KotlinController : FreKotlinMainController {
                 }
             }
         } else {
-            val dynamicLink = builder.buildDynamicLink()
-
             if (copyToClipboard) {
                 val act = ctx.activity
                 val cb = act.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 cb.primaryClip = ClipData.newPlainText("link", dynamicLink.uri.toString())
             }
-
             dispatchEvent(DynamicLinkEvent.ON_CREATED,
                     gson.toJson(
                             DynamicLinkEvent(callbackId, false, mapOf(
@@ -137,7 +159,7 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val callbackId = String(argv[0]) ?: return null
         val appActivity = ctx.activity ?: return null
-        val task = FirebaseDynamicLinks.getInstance().getDynamicLink(appActivity.intent)
+        val task = Firebase.dynamicLinks.getDynamicLink(appActivity.intent)
         task.addOnSuccessListener {
             val link = it?.link ?: ""
             dispatchEvent(DynamicLinkEvent.ON_LINK,

@@ -4,8 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-Android</name>
-    <versionNumber>0.10.0</versionNumber>
-
+    <versionNumber>0.11.0</versionNumber>
 
     <!-- Settings for the application's initial window. Required. -->
     <initialWindow>
@@ -17,7 +16,6 @@
         <depthAndStencil>true</depthAndStencil>
         <visible>true</visible>
     </initialWindow>
-
 
     <!-- The icon the system uses for the application. For at least one resolution,
     specify the path to a PNG file included in the AIR package. Optional. -->
@@ -95,7 +93,22 @@
                             android:name="com.google.firebase.components:com.google.firebase.storage.ktx.FirebaseStorageKtxRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                         <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.remoteconfig.ktx.FirebaseRemoteConfigKtxRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.ktx.FirebaseDynamicLinksRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                     </service>
 
@@ -157,6 +170,20 @@
                             <action android:name="com.google.firebase.MESSAGING_EVENT"/>
                         </intent-filter>
 				    </service>
+				    <service
+                        android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+                        <meta-data
+                            android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+                            android:value="cct" />
+                    </service>
+                    <service
+                        android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+                        android:exported="false"
+                        android:permission="android.permission.BIND_JOB_SERVICE" >
+                    </service>
+                    <receiver
+                        android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+                        android:exported="false" />
 
                     <!-- dynamic links -->
                     <intent-filter>

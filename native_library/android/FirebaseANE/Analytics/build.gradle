@@ -32,6 +32,6 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "com.google.firebase:firebase-analytics:$firebase_analytics_version"
+    implementation "com.google.firebase:firebase-analytics-ktx:$firebase_analytics_version"
     implementation "com.tuarua:FreKotlin:$frekotlin_version"
 }

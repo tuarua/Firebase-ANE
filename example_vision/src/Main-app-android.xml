@@ -92,6 +92,9 @@
                         <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.remoteconfig.ktx.FirebaseRemoteConfigKtxRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
                     </service>
 
                     <provider
