@@ -40,7 +40,7 @@ public class SwiftController: NSObject {
         }
         detector = self.vision.faceDetector(options: options)
         
-        // TODO trace out
+        // TODO
         trace("FaceContourType.face.rawValue", FaceContourType.face.rawValue)
         trace("FaceContourType.leftEyebrowBottom.rawValue", FaceContourType.leftEyebrowBottom)
 

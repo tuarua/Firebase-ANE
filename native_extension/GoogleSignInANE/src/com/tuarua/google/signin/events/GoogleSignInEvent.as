@@ -36,7 +36,7 @@ public class GoogleSignInEvent extends Event {
     }
 
     public override function toString():String {
-        return formatToString("MessagingEvent", "credential", "error", "type", "bubbles", "cancelable");
+        return formatToString("GoogleSignInEvent", "credential", "error", "type", "bubbles", "cancelable");
     }
 }
 }
