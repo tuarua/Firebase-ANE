@@ -303,10 +303,9 @@ public class OneSignal extends EventDispatcher {
     /**
      * Allows you to send notifications from user to user or schedule ones in the future to be delivered
      * to the current device.
-     * <br/><br/>
-     * <b>Note:</b> You can only use include_player_ids as a targeting parameter from your app.
+     * <p><b>Note:</b> You can only use include_player_ids as a targeting parameter from your app.
      * Other target options such as tags and included_segments require your OneSignal
-     * App REST API key which can only be used from your server.
+     * App REST API key which can only be used from your server.</p>
      *
      * @param json Contains notification options, see <a href="https://documentation.onesignal.com/reference#create-notification">OneSignal | Create Notification</a>
      *              POST call for all options.
@@ -339,12 +338,9 @@ public class OneSignal extends EventDispatcher {
     /**
      * By default OneSignal always vibrates the device when a notification is displayed unless the
      * device is in a total silent mode.
-     * <br/><br/>
-     * If true(default) - Device will always vibrate unless the device is in silent mode.
-     * <br/><br/>
-     * If false - Device will only vibrate when the device is set on it's vibrate only mode.
-     * <br/><br/>
-     * <i>You can link this action to a UI button to give your user a vibration option for your notifications.</i>
+     * <p>If true(default) - Device will always vibrate unless the device is in silent mode.</p>
+     * <p>If false - Device will only vibrate when the device is set on it's vibrate only mode.</p>
+     * <p><i>You can link this action to a UI button to give your user a vibration option for your notifications.</i></p>
      * @param value Passing false means that the device will only vibrate lightly when the device is in it's vibrate only mode.
      */
     public function enableVibrate(value:Boolean):void {
@@ -355,12 +351,9 @@ public class OneSignal extends EventDispatcher {
     /**
      * By default OneSignal plays the system's default notification sound when the
      * device's notification system volume is turned on.
-     * <br/><br/>
-     * If true(default) - Sound plays when receiving notification. Vibrates when device is on vibrate only mode.
-     * <br/><br/>
-     * If false - Only vibrates unless EnableVibrate(false) was set.
-     * <br/><br/>
-     * <i>You can link this action to a UI button to give your user a different sound option for your notifications.</i>
+     * <p>If true(default) - Sound plays when receiving notification. Vibrates when device is on vibrate only mode.</p>
+     * <p>If false - Only vibrates unless EnableVibrate(false) was set.</p>
+     * <p><i>You can link this action to a UI button to give your user a different sound option for your notifications.</i></p>
      * @param value Passing false means that the device will only vibrate unless the device is set to a total silent mode.
      */
     public function enableSound(value:Boolean):void {
