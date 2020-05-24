@@ -1,3 +1,6 @@
+### 0.12.0
+- Added OneSignal 
+
 ### 0.11.0
 - AND: Updated to FreKotlin 1.10.0
 - AND: Analytics 17.3.0

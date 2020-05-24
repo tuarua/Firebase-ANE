@@ -1,6 +1,6 @@
 #!/bin/sh
 
-AneVersion="0.11.0"
+AneVersion="0.12.0"
 FreKotlinVersion="1.10.0"
 PlayerServicesAuthVersion="17.0.0"
 PlayerServicesBaseVersion="17.1.0"
@@ -19,6 +19,7 @@ GsonVersion="2.8.6"
 OkhttpVersion="2.7.5"
 GuavaVersion="28.1-android"
 CrashlyticsVersion="2.10.1"
+OneSignalVersion="3.13.2"
 
 wget -O ../native_extension/ane/FirebaseANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/FirebaseANE.ane?raw=true
 wget -O ../native_extension/AnalyticsANE/ane/AnalyticsANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/AnalyticsANE.ane?raw=true
@@ -53,3 +54,4 @@ wget -O android_dependencies/com.google.firebase.firebase-iid-$IidVersion.ane ht
 wget -O android_dependencies/com.google.firebase.firebase-messaging-$MessagingVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-messaging-$MessagingVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-perf-$PerfVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-perf-$PerfVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-storage-$StorageVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-storage-$StorageVersion.ane?raw=true
+wget -O android_dependencies/com.onesignal.OneSignal-$OneSignalVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.onesignal.OneSignal-$OneSignalVersion.ane?raw=true
