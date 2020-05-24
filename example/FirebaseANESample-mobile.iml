@@ -95,8 +95,17 @@
             <entry library-name="com.google.guava.guava-28.1-android" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="OneSignalANE" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="androidx.browser.browser-1.0.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="androidx.cardview.cardview-1.0.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
-          <sdk name="AIRSDK_33" />
+          <sdk name="AIRSDK_33.1.1.98" />
         </dependencies>
         <compiler-options>
           <map>
@@ -269,7 +278,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="AIRSDK_32&#9;AIRSDK_33" jdkType="__CompositeFlexSdk__" />
+    <orderEntry type="jdk" jdkName="AIRSDK_33.1.1.98&#9;AIRSDK_32" jdkType="__CompositeFlexSdk__" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="starling" level="project" />
     <orderEntry type="library" exported="" name="ZipANE" level="project" />
@@ -384,5 +393,8 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-messaging-20.1.5" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-perf-19.0.5" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-storage-19.1.1" level="project" />
+    <orderEntry type="library" exported="" name="OneSignalANE" level="project" />
+    <orderEntry type="library" exported="" name="androidx.browser.browser-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="androidx.cardview.cardview-1.0.0" level="project" />
   </component>
 </module>

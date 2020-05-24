@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/Messaging/Messaging.iml" filepath="$PROJECT_DIR$/Messaging/Messaging.iml" group="FirebaseANE/Messaging" />
       <module fileurl="file://$PROJECT_DIR$/Modelinterpreter/Modelinterpreter.iml" filepath="$PROJECT_DIR$/Modelinterpreter/Modelinterpreter.iml" group="FirebaseANE/Modelinterpreter" />
       <module fileurl="file://$PROJECT_DIR$/NaturalLanguage/NaturalLanguage.iml" filepath="$PROJECT_DIR$/NaturalLanguage/NaturalLanguage.iml" group="FirebaseANE/NaturalLanguage" />
+      <module fileurl="file://$PROJECT_DIR$/OneSignal/OneSignal.iml" filepath="$PROJECT_DIR$/OneSignal/OneSignal.iml" group="FirebaseANE/OneSignal" />
       <module fileurl="file://$PROJECT_DIR$/Performance/Performance.iml" filepath="$PROJECT_DIR$/Performance/Performance.iml" group="FirebaseANE/Performance" />
       <module fileurl="file://$PROJECT_DIR$/RemoteConfig/RemoteConfig.iml" filepath="$PROJECT_DIR$/RemoteConfig/RemoteConfig.iml" group="FirebaseANE/RemoteConfig" />
       <module fileurl="file://$PROJECT_DIR$/Storage/Storage.iml" filepath="$PROJECT_DIR$/Storage/Storage.iml" group="FirebaseANE/Storage" />

@@ -10,7 +10,7 @@ import flash.utils.Dictionary;
 public class MessagingANEContext {
     internal static const NAME:String = "MessagingANE";
     internal static const TRACE:String = "TRACE";
-    internal static const INIT_ERROR_MESSAGE:String = NAME + " not initialised... use .messaging";
+    internal static const INIT_ERROR_MESSAGE:String = NAME + " not initialised... use .shared";
 
     private static var _isInited:Boolean = false;
     private static var _context:ExtensionContext;

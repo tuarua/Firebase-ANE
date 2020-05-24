@@ -1,5 +1,6 @@
 package {
 import com.tuarua.Firebase;
+import com.tuarua.OneSignal;
 import com.tuarua.firebase.Analytics;
 import com.tuarua.firebase.Auth;
 import com.tuarua.firebase.Crashlytics;
@@ -39,13 +40,14 @@ public class StarlingRoot extends Sprite {
     private var btnAuth:SimpleButton = new SimpleButton("Auth");
     private var btnPerformance:SimpleButton = new SimpleButton("Performance");
     private var btnMessaging:SimpleButton = new SimpleButton("Messaging");
+    private var btnOneSignal:SimpleButton = new SimpleButton("One Signal");
     private var btnDynamicLinks:SimpleButton = new SimpleButton("Dynamic Links");
     private var btnCrashlytics:SimpleButton = new SimpleButton("Crashlytics");
 
     private var btnBack:SimpleButton = new SimpleButton("Back");
     private var menuContainer:Sprite = new Sprite();
 
-    public static const GAP:int = 60;
+    public static const GAP:int = 50;
     private var analyticsExample:AnalyticsExample;
     private var firestoreExample:FirestoreExample;
     private var storageExample:StorageExample;
@@ -53,8 +55,11 @@ public class StarlingRoot extends Sprite {
     private var authExample:AuthExample;
     private var performanceExample:PerformanceExample;
     private var messagingExample:MessagingExample;
+    private var oneSignalExample:OneSignalExample;
     private var dynamicLinksExample:DynamicLinksExample;
     private var crashlyticsExample:CrashlyticsExample;
+
+    // b2018434-a4ae-47f2-9aea-bb931f94a747
 
     public function StarlingRoot() {
         TextField.registerCompositor(Fonts.getFont("fira-sans-semi-bold-13"), "Fira Sans Semi-Bold 13");
@@ -108,6 +113,10 @@ public class StarlingRoot extends Sprite {
         messagingExample.x = stage.stageWidth;
         addChild(messagingExample);
 
+        oneSignalExample = new OneSignalExample(stage.stageWidth);
+        oneSignalExample.x = stage.stageWidth;
+        addChild(oneSignalExample);
+
         dynamicLinksExample = new DynamicLinksExample(stage.stageWidth);
         dynamicLinksExample.x = stage.stageWidth;
         addChild(dynamicLinksExample);
@@ -116,11 +125,11 @@ public class StarlingRoot extends Sprite {
         crashlyticsExample.x = stage.stageWidth;
         addChild(crashlyticsExample);
 
-
     }
 
     private function initMenu():void {
-        btnCrashlytics.x = btnDynamicLinks.x = btnMessaging.x = btnPerformance.x = btnAuth.x = btnRemoteConfig.x = btnBack.x = btnStorage.x =
+        btnCrashlytics.x = btnDynamicLinks.x = btnMessaging.x = btnOneSignal.x = btnPerformance.x =
+                btnAuth.x = btnRemoteConfig.x = btnBack.x = btnStorage.x =
                 btnFirestore.x = btnAnalytics.x = (stage.stageWidth - 200) * 0.5;
         btnAnalytics.y = GAP;
         btnAnalytics.addEventListener(TouchEvent.TOUCH, onAnalyticsClick);
@@ -150,7 +159,11 @@ public class StarlingRoot extends Sprite {
         btnMessaging.addEventListener(TouchEvent.TOUCH, onMessagingClick);
         menuContainer.addChild(btnMessaging);
 
-        btnDynamicLinks.y = btnMessaging.y + GAP;
+        btnOneSignal.y = btnMessaging.y + GAP;
+        btnOneSignal.addEventListener(TouchEvent.TOUCH, onOneSignalClick);
+        menuContainer.addChild(btnOneSignal);
+
+        btnDynamicLinks.y = btnOneSignal.y + GAP;
         btnDynamicLinks.addEventListener(TouchEvent.TOUCH, onDynamicLinksClick);
         menuContainer.addChild(btnDynamicLinks);
 
@@ -236,6 +249,15 @@ public class StarlingRoot extends Sprite {
         }
     }
 
+    private function onOneSignalClick(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(btnOneSignal);
+        if (touch != null && touch.phase == TouchPhase.ENDED) {
+            showMenu(false);
+            showExample(oneSignalExample);
+            btnBack.visible = true;
+        }
+    }
+
     private function onDynamicLinksClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnDynamicLinks);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
@@ -276,6 +298,7 @@ public class StarlingRoot extends Sprite {
             showExample(authExample, false);
             showExample(performanceExample, false);
             showExample(messagingExample, false);
+            showExample(oneSignalExample, false);
             showExample(dynamicLinksExample, false);
             showExample(crashlyticsExample, false);
             btnBack.visible = false;
@@ -291,6 +314,7 @@ public class StarlingRoot extends Sprite {
         Auth.dispose();
         Performance.dispose();
         Messaging.dispose();
+        OneSignal.dispose();
         DynamicLinks.dispose();
         Crashlytics.dispose();
     }

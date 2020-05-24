@@ -1,4 +1,4 @@
-$AneVersion = "0.11.0"
+$AneVersion = "0.12.0"
 $FreKotlinVersion = "1.10.0"
 $PlayerServicesAuthVersion = "17.0.0"
 $PlayerServicesBaseVersion = "17.1.0"
@@ -17,6 +17,7 @@ $GsonVersion = "2.8.6"
 $OkhttpVersion = "2.7.5"
 $GuavaVersion="28.1-android"
 $CrashlyticsVersion = "2.10.1"
+$OneSignalVersion = "3.13.2"
 
 $currentDir = (Get-Item -Path ".\" -Verbose).FullName
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -38,6 +39,8 @@ Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.code.gso
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.squareup.okhttp.okhttp-$OkhttpVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.squareup.okhttp.okhttp-$OkhttpVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.guava.guava-$GuavaVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.google.guava.guava-$GuavaVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\androidx.legacy.legacy-support-v4-$SupportV4Version.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/support/androidx.legacy.legacy-support-v4-$SupportV4Version.ane?raw=true
+Invoke-WebRequest -OutFile "$currentDir\android_dependencies\androidx.cardview.cardview-$SupportV4Version.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/support/androidx.cardview.cardview-$SupportV4Version.ane?raw=true
+Invoke-WebRequest -OutFile "$currentDir\android_dependencies\androidx.browser.browser-$SupportV4Version.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/support/androidx.browser.browser-$SupportV4Version.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.android.gms.play-services-base-$PlayerServicesBaseVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.google.android.gms.play-services-base-$PlayerServicesBaseVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.android.gms.play-services-auth-$PlayerServicesAuthVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.google.android.gms.play-services-auth-$PlayerServicesAuthVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-analytics-$AnalyticsVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-analytics-$AnalyticsVersion.ane?raw=true
@@ -50,4 +53,5 @@ Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-perf-$PerfVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-perf-$PerfVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-storage-$StorageVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-storage-$StorageVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.crashlytics.sdk.android.crashlytics-$CrashlyticsVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.crashlytics.sdk.android.crashlytics-$CrashlyticsVersion.ane?raw=true
+Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.onesignal.OneSignal-$OneSignalVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.onesignal.OneSignal-$OneSignalVersion.ane?raw=true
 

@@ -111,7 +111,6 @@
 		90236A6B222A19AC00C4CB68 /* BoringSSL-GRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90236A6A222A198F00C4CB68 /* BoringSSL-GRPC.framework */; platformFilter = ios; };
 		9033688B20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033688A20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift */; platformFilter = ios; };
 		9033689420FCBFE5001A3B24 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033689320FCBFE5001A3B24 /* UIUtilities.swift */; platformFilter = ios; };
-		903EDD9023AAEFBF00960A23 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 903EDD8F23AAEFBF00960A23 /* SwiftyJSON */; };
 		903EDD9223AAF1FA00960A23 /* FirestoreANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 903EDD9123AAF1FA00960A23 /* FirestoreANE-Swift.h */; platformFilter = ios; };
 		9062053F20F800B400AFCE48 /* RemoteConfigErrorEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062053E20F800B400AFCE48 /* RemoteConfigErrorEvent.swift */; platformFilter = ios; };
 		9062054120F801A300AFCE48 /* RemoteConfigEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062054020F801A300AFCE48 /* RemoteConfigEvent.swift */; platformFilter = ios; };
@@ -132,6 +131,12 @@
 		90658AA121164476003197A5 /* ModelInterpreterEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA021164476003197A5 /* ModelInterpreterEvent.swift */; platformFilter = ios; };
 		90658AA52116481E003197A5 /* FirebaseMLModelInterpreter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90658AA42116481E003197A5 /* FirebaseMLModelInterpreter.framework */; platformFilter = ios; };
 		90658AAB2116493E003197A5 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */; platformFilter = ios; };
+		9065B44E24785F7500053234 /* FreOSSubscriptionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9065B44C24785F3A00053234 /* FreOSSubscriptionState.swift */; };
+		9065B45024785FAA00053234 /* FreOSPermissionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9065B44F24785FAA00053234 /* FreOSPermissionState.swift */; };
+		9065B45224785FCF00053234 /* FreOSEmailSubscriptionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9065B45124785FCF00053234 /* FreOSEmailSubscriptionState.swift */; };
+		9065B4542478606200053234 /* OneSignalEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9065B4532478606200053234 /* OneSignalEvent.swift */; };
+		9065B455247869AA00053234 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
+		90662C0A24656E8100B8AEFC /* FreOSPermissionSubscriptionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90662C0924656E8100B8AEFC /* FreOSPermissionSubscriptionState.swift */; };
 		906A67F82114EFB000848218 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
 		906A67FA2114EFB000848218 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; platformFilter = ios; };
 		906A67FB2114EFB000848218 /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */; platformFilter = ios; };
@@ -156,6 +161,23 @@
 		906A682E211516A900848218 /* FreVisionTextLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A682D211516A900848218 /* FreVisionTextLine.swift */; platformFilter = ios; };
 		906A683021151A8100848218 /* FreCornerPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A682F21151A8100848218 /* FreCornerPoint.swift */; platformFilter = ios; };
 		906A683121151B0C00848218 /* FreCornerPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A682F21151A8100848218 /* FreCornerPoint.swift */; platformFilter = ios; };
+		9072AE802460BCF200F242D3 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED748E120925586000327CD /* AddressBook.framework */; platformFilter = ios; };
+		9072AE812460BCF200F242D3 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB572BC208D21C300CF6B1B /* GoogleToolboxForMac.framework */; platformFilter = ios; };
+		9072AE822460BCF200F242D3 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D4B208CE40300C96EC6 /* nanopb.framework */; platformFilter = ios; };
+		9072AE832460BCF200F242D3 /* FirebaseMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE3AEAB20A0C89300D3AAF6 /* FirebaseMessaging.framework */; platformFilter = ios; };
+		9072AE842460BCF200F242D3 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90741DB121504FC2003366E3 /* GoogleUtilities.framework */; platformFilter = ios; };
+		9072AE852460BCF200F242D3 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
+		9072AE862460BCF200F242D3 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; platformFilter = ios; };
+		9072AE872460BCF200F242D3 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE26574D208E5BC000C561E8 /* Protobuf.framework */; platformFilter = ios; };
+		9072AE8A2460BCF200F242D3 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; platformFilter = ios; };
+		9072AE982460BDEB00F242D3 /* OneSignalANE.m in Sources */ = {isa = PBXBuildFile; fileRef = 9072AE972460BDEB00F242D3 /* OneSignalANE.m */; };
+		9072AE9A2460BE0B00F242D3 /* OneSignalANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = 9072AE992460BE0B00F242D3 /* OneSignalANE_oc.h */; };
+		9072AE9C2460BE3200F242D3 /* OneSignalANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 9072AE9B2460BE3200F242D3 /* OneSignalANE-Bridging-Header.h */; };
+		9072AEA02460BEC600F242D3 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9072AE9F2460BEC600F242D3 /* SwiftController.swift */; };
+		9072AEA22460BF1E00F242D3 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9072AEA12460BF1E00F242D3 /* SwiftController+FreSwift.swift */; };
+		9072AEA62460C0E000F242D3 /* OneSignalANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 9072AEA52460C0E000F242D3 /* OneSignalANE-Swift.h */; };
+		9072AEA82460C37200F242D3 /* OneSignal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9072AEA72460C37200F242D3 /* OneSignal.framework */; };
+		9072AEAB2461FA2500F242D3 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 9072AEAA2461FA2500F242D3 /* SwiftyJSON */; };
 		90741DAE21504F88003366E3 /* gRPC-C++.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90741DAD21504F88003366E3 /* gRPC-C++.framework */; platformFilter = ios; };
 		90741DB021504FBA003366E3 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90741DAF21504FBA003366E3 /* GoogleAppMeasurement.framework */; platformFilter = ios; };
 		90741DB221504FC2003366E3 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90741DB121504FC2003366E3 /* GoogleUtilities.framework */; platformFilter = ios; };
@@ -260,7 +282,6 @@
 		90EF0336215445E700C91063 /* FreVisionDocumentTextWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF0335215445E700C91063 /* FreVisionDocumentTextWord.swift */; platformFilter = ios; };
 		90EF03382154478D00C91063 /* FreVisionDocumentTextSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EF03372154478D00C91063 /* FreVisionDocumentTextSymbol.swift */; platformFilter = ios; };
 		90EFB70823AA7D6C00910A47 /* FirebaseANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB70723AA7D6C00910A47 /* FirebaseANE-Swift.h */; platformFilter = ios; };
-		90EFB70B23AA7E1D00910A47 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 90EFB70A23AA7E1D00910A47 /* SwiftyJSON */; };
 		90EFB70F23AA7F3A00910A47 /* RemoteConfigANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB70E23AA7F3A00910A47 /* RemoteConfigANE-Swift.h */; platformFilter = ios; };
 		90EFB71323AA9C5D00910A47 /* AnalyticsANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB71223AA9C5D00910A47 /* AnalyticsANE-Swift.h */; platformFilter = ios; };
 		90EFB71723AAA21E00910A47 /* StorageANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 90EFB71623AAA21E00910A47 /* StorageANE-Swift.h */; platformFilter = ios; };
@@ -567,6 +588,11 @@
 		90658AA021164476003197A5 /* ModelInterpreterEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInterpreterEvent.swift; sourceTree = "<group>"; };
 		90658AA42116481E003197A5 /* FirebaseMLModelInterpreter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMLModelInterpreter.framework; path = Carthage/Build/iOS/FirebaseMLModelInterpreter.framework; sourceTree = "<group>"; };
 		90658AA62116493E003197A5 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		9065B44C24785F3A00053234 /* FreOSSubscriptionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreOSSubscriptionState.swift; sourceTree = "<group>"; };
+		9065B44F24785FAA00053234 /* FreOSPermissionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreOSPermissionState.swift; sourceTree = "<group>"; };
+		9065B45124785FCF00053234 /* FreOSEmailSubscriptionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreOSEmailSubscriptionState.swift; sourceTree = "<group>"; };
+		9065B4532478606200053234 /* OneSignalEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSignalEvent.swift; sourceTree = "<group>"; };
+		90662C0924656E8100B8AEFC /* FreOSPermissionSubscriptionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreOSPermissionSubscriptionState.swift; sourceTree = "<group>"; };
 		906A680D2114EFB000848218 /* libVisionTextANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVisionTextANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		906A68132114F05000848218 /* VisionTextANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisionTextANE_oc.h; sourceTree = "<group>"; };
 		906A68142114F05000848218 /* VisionTextANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionTextANE.m; sourceTree = "<group>"; };
@@ -578,6 +604,14 @@
 		906A682B2114F68E00848218 /* FreVisionTextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionTextBlock.swift; sourceTree = "<group>"; };
 		906A682D211516A900848218 /* FreVisionTextLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionTextLine.swift; sourceTree = "<group>"; };
 		906A682F21151A8100848218 /* FreCornerPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreCornerPoint.swift; sourceTree = "<group>"; };
+		9072AE922460BCF200F242D3 /* libOneSignalANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOneSignalANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9072AE972460BDEB00F242D3 /* OneSignalANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneSignalANE.m; sourceTree = "<group>"; };
+		9072AE992460BE0B00F242D3 /* OneSignalANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneSignalANE_oc.h; sourceTree = "<group>"; };
+		9072AE9B2460BE3200F242D3 /* OneSignalANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneSignalANE-Bridging-Header.h"; sourceTree = "<group>"; };
+		9072AE9F2460BEC600F242D3 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
+		9072AEA12460BF1E00F242D3 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		9072AEA52460C0E000F242D3 /* OneSignalANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OneSignalANE-Swift.h"; sourceTree = "<group>"; };
+		9072AEA72460C37200F242D3 /* OneSignal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OneSignal.framework; path = Carthage/Build/iOS/OneSignal.framework; sourceTree = "<group>"; };
 		90741DAD21504F88003366E3 /* gRPC-C++.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "gRPC-C++.framework"; path = "Carthage/Build/iOS/gRPC-C++.framework"; sourceTree = "<group>"; };
 		90741DAF21504FBA003366E3 /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppMeasurement.framework; path = Carthage/Build/iOS/GoogleAppMeasurement.framework; sourceTree = "<group>"; };
 		90741DB121504FC2003366E3 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Carthage/Build/iOS/GoogleUtilities.framework; sourceTree = "<group>"; };
@@ -908,7 +942,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				903EDD9023AAEFBF00960A23 /* SwiftyJSON in Frameworks */,
 				906A68222114F33300848218 /* nanopb.framework in Frameworks */,
 				906A67F82114EFB000848218 /* FreSwift.framework in Frameworks */,
 				906A67FA2114EFB000848218 /* FirebaseCore.framework in Frameworks */,
@@ -921,6 +954,23 @@
 				906A68212114F32E00848218 /* Protobuf.framework in Frameworks */,
 				906A68242114F36000848218 /* FirebaseMLVisionTextModel.framework in Frameworks */,
 				906A68262114F36D00848218 /* TextDetector.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9072AE7F2460BCF200F242D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9072AE802460BCF200F242D3 /* AddressBook.framework in Frameworks */,
+				9072AE812460BCF200F242D3 /* GoogleToolboxForMac.framework in Frameworks */,
+				9072AEA82460C37200F242D3 /* OneSignal.framework in Frameworks */,
+				9072AE822460BCF200F242D3 /* nanopb.framework in Frameworks */,
+				9072AE832460BCF200F242D3 /* FirebaseMessaging.framework in Frameworks */,
+				9072AE842460BCF200F242D3 /* GoogleUtilities.framework in Frameworks */,
+				9072AE852460BCF200F242D3 /* FreSwift.framework in Frameworks */,
+				9072AE862460BCF200F242D3 /* FirebaseCore.framework in Frameworks */,
+				9072AEAB2461FA2500F242D3 /* SwiftyJSON in Frameworks */,
+				9072AE872460BCF200F242D3 /* Protobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1088,7 +1138,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90EFB70B23AA7E1D00910A47 /* SwiftyJSON in Frameworks */,
 				CE94518420951FCF00FE2BD7 /* FreSwift.framework in Frameworks */,
 				CE9451A52095323C00FE2BD7 /* FirebaseRemoteConfig.framework in Frameworks */,
 				CE94518520951FCF00FE2BD7 /* FirebaseCore.framework in Frameworks */,
@@ -1394,6 +1443,48 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		9072AE932460BD4600F242D3 /* OneSignalANE */ = {
+			isa = PBXGroup;
+			children = (
+				9072AE942460BD5800F242D3 /* Headers */,
+				9072AE952460BD5F00F242D3 /* Extensions */,
+				9072AE962460BD6700F242D3 /* Events */,
+				9072AE972460BDEB00F242D3 /* OneSignalANE.m */,
+				9072AE9F2460BEC600F242D3 /* SwiftController.swift */,
+				9072AEA12460BF1E00F242D3 /* SwiftController+FreSwift.swift */,
+			);
+			path = OneSignalANE;
+			sourceTree = "<group>";
+		};
+		9072AE942460BD5800F242D3 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				9072AE992460BE0B00F242D3 /* OneSignalANE_oc.h */,
+				9072AE9B2460BE3200F242D3 /* OneSignalANE-Bridging-Header.h */,
+				9072AEA52460C0E000F242D3 /* OneSignalANE-Swift.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		9072AE952460BD5F00F242D3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				90662C0924656E8100B8AEFC /* FreOSPermissionSubscriptionState.swift */,
+				9065B44C24785F3A00053234 /* FreOSSubscriptionState.swift */,
+				9065B44F24785FAA00053234 /* FreOSPermissionState.swift */,
+				9065B45124785FCF00053234 /* FreOSEmailSubscriptionState.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9072AE962460BD6700F242D3 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				9065B4532478606200053234 /* OneSignalEvent.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
 		909587AC2115A00D00AD59D5 /* VisionCloudTextANE */ = {
 			isa = PBXGroup;
 			children = (
@@ -1578,6 +1669,7 @@
 		CE05603D1FB25CD100D06976 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9072AEA72460C37200F242D3 /* OneSignal.framework */,
 				90D1CA1823B3BB9600F9AC18 /* TensorFlowLiteC.framework */,
 				90D1CA1923B3BB9600F9AC18 /* TensorFlowLiteObjC.framework */,
 				90D1CA1323B39E4900F9AC18 /* GoogleDataTransport.framework */,
@@ -1861,6 +1953,7 @@
 				CE62B36420D061A7002837B7 /* GoogleSignInANE */,
 				CE8BC49620B1C85E009164ED /* DynamicLinksANE */,
 				CEE3AE5820A0691000D3AAF6 /* MessagingANE */,
+				9072AE932460BD4600F242D3 /* OneSignalANE */,
 				CEE3AE5720A068FF00D3AAF6 /* PerformanceANE */,
 				CEBCF7962095F8730028601B /* AuthANE */,
 				CEB572B3208D0FAA00CF6B1B /* .swiftlint.yml */,
@@ -1900,6 +1993,7 @@
 				909ED0DF214EE7070059EB62 /* libCrashlyticsANE_LIB.a */,
 				90EF031F2154216000C91063 /* libVisionCloudDocumentANE_LIB.a */,
 				90E49601222A8EA200CF3B24 /* libNaturalLanguageANE_LIB.a */,
+				9072AE922460BCF200F242D3 /* libOneSignalANE_LIB.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2302,6 +2396,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9072AE882460BCF200F242D3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9072AEA62460C0E000F242D3 /* OneSignalANE-Swift.h in Headers */,
+				9072AE9A2460BE0B00F242D3 /* OneSignalANE_oc.h in Headers */,
+				9072AE9C2460BE3200F242D3 /* OneSignalANE-Bridging-Header.h in Headers */,
+				9072AE8A2460BCF200F242D3 /* FreMacros.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		909587D62115A65300AD59D5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -2584,10 +2689,31 @@
 			);
 			name = VisionTextANE_LIB;
 			packageProductDependencies = (
-				903EDD8F23AAEFBF00960A23 /* SwiftyJSON */,
 			);
 			productName = HelloWorldANE_LIB;
 			productReference = 906A680D2114EFB000848218 /* libVisionTextANE_LIB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9072AE762460BCF200F242D3 /* OneSignalANE_LIB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9072AE8F2460BCF200F242D3 /* Build configuration list for PBXNativeTarget "OneSignalANE_LIB" */;
+			buildPhases = (
+				9072AE772460BCF200F242D3 /* Sources */,
+				9072AE7F2460BCF200F242D3 /* Frameworks */,
+				9072AE882460BCF200F242D3 /* Headers */,
+				9072AE8D2460BCF200F242D3 /* ShellScript */,
+				9072AE8E2460BCF200F242D3 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalANE_LIB;
+			packageProductDependencies = (
+				9072AEAA2461FA2500F242D3 /* SwiftyJSON */,
+			);
+			productName = HelloWorldANE_LIB;
+			productReference = 9072AE922460BCF200F242D3 /* libOneSignalANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		909587B22115A65300AD59D5 /* VisionCloudTextANE_LIB */ = {
@@ -2796,7 +2922,6 @@
 			);
 			name = RemoteConfigANE_LIB;
 			packageProductDependencies = (
-				90EFB70A23AA7E1D00910A47 /* SwiftyJSON */,
 			);
 			productName = HelloWorldANE_LIB;
 			productReference = CE94519220951FCF00FE2BD7 /* libRemoteConfigANE_LIB.a */;
@@ -2942,7 +3067,7 @@
 			);
 			mainGroup = CE87F45C1FB259C9005CF7DF;
 			packageReferences = (
-				90EFB70923AA7E1D00910A47 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				9072AEA92461FA2500F242D3 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = CE87F4661FB259C9005CF7DF /* Products */;
 			projectDirPath = "";
@@ -2956,6 +3081,7 @@
 				CEBCF79A2095F9160028601B /* AuthANE_LIB */,
 				CEE3AE5920A0691700D3AAF6 /* PerformanceANE_LIB */,
 				CEE3AE7520A06D2600D3AAF6 /* MessagingANE_LIB */,
+				9072AE762460BCF200F242D3 /* OneSignalANE_LIB */,
 				909ED0C4214EE7070059EB62 /* CrashlyticsANE_LIB */,
 				CE8BC49A20B1C890009164ED /* DynamicLinksANE_LIB */,
 				CE62B34920D0618E002837B7 /* GoogleSignInANE_LIB */,
@@ -3104,6 +3230,32 @@
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "../../../native_extension/VisionTextANE/ane/build_multi.sh\n";
+		};
+		9072AE8D2460BCF200F242D3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		9072AE8E2460BCF200F242D3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "../../../native_extension/OneSignalANE/ane/build_multi.sh\n";
 		};
 		909587DA2115A65300AD59D5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3638,6 +3790,22 @@
 				906A683021151A8100848218 /* FreCornerPoint.swift in Sources */,
 				906A68162114F05000848218 /* VisionTextANE.m in Sources */,
 				906A681A2114F12500848218 /* SwiftController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9072AE772460BCF200F242D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9072AE982460BDEB00F242D3 /* OneSignalANE.m in Sources */,
+				9065B4542478606200053234 /* OneSignalEvent.swift in Sources */,
+				9065B44E24785F7500053234 /* FreOSSubscriptionState.swift in Sources */,
+				9065B45024785FAA00053234 /* FreOSPermissionState.swift in Sources */,
+				9072AEA02460BEC600F242D3 /* SwiftController.swift in Sources */,
+				9065B45224785FCF00053234 /* FreOSEmailSubscriptionState.swift in Sources */,
+				9072AEA22460BF1E00F242D3 /* SwiftController+FreSwift.swift in Sources */,
+				90662C0A24656E8100B8AEFC /* FreOSPermissionSubscriptionState.swift in Sources */,
+				9065B455247869AA00053234 /* FreNSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4195,6 +4363,61 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionTextANE/Headers/VisionTextANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionTextANE/VisionTextANE-Swift.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		9072AE902460BCF200F242D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "OneSignalANE/Headers/OneSignalANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "OneSignalANE/OneSignalANE-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9072AE912460BCF200F242D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "OneSignalANE/Headers/OneSignalANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "OneSignalANE/OneSignalANE-Swift.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -5314,6 +5537,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		9072AE8F2460BCF200F242D3 /* Build configuration list for PBXNativeTarget "OneSignalANE_LIB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9072AE902460BCF200F242D3 /* Debug */,
+				9072AE912460BCF200F242D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		909587DC2115A65300AD59D5 /* Build configuration list for PBXNativeTarget "VisionCloudTextANE_LIB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -5479,7 +5711,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		90EFB70923AA7E1D00910A47 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+		9072AEA92461FA2500F242D3 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
 			requirement = {
@@ -5490,14 +5722,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		903EDD8F23AAEFBF00960A23 /* SwiftyJSON */ = {
+		9072AEAA2461FA2500F242D3 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 90EFB70923AA7E1D00910A47 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
-		90EFB70A23AA7E1D00910A47 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 90EFB70923AA7E1D00910A47 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = 9072AEA92461FA2500F242D3 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */

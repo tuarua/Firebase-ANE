@@ -69,7 +69,7 @@ public class SwiftController: NSObject {
         
         var whereList = [Where]()
         for i: UInt in 0..<whereClauses.length {
-            if let fre = whereClauses[i],
+            if let fre: FREObject = whereClauses[i],
                 let fieldPath = String(fre["fieldPath"]),
                 let oprtr = String(fre["operator"]),
                 let val = fre["value"],
@@ -81,7 +81,7 @@ public class SwiftController: NSObject {
         
         var orderList = [Order]()
         for i: UInt in 0..<orderClauses.length {
-            if let fre = orderClauses[i],
+            if let fre: FREObject = orderClauses[i],
                 let by = String(fre["by"]),
                 let descending = Bool(fre["descending"]) {
                     let o = Order(by: by, descending: descending)

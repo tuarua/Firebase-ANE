@@ -1,6 +1,6 @@
 #!/bin/sh
 
-AneVersion="0.11.0"
+AneVersion="0.12.0"
 FreKotlinVersion="1.10.0"
 PlayerServicesAuthVersion="17.0.0"
 PlayerServicesBaseVersion="17.1.0"
@@ -19,6 +19,7 @@ GsonVersion="2.8.6"
 OkhttpVersion="2.7.5"
 GuavaVersion="28.1-android"
 CrashlyticsVersion="2.10.1"
+OneSignalVersion="3.13.2"
 
 wget -O ../native_extension/ane/FirebaseANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/FirebaseANE.ane?raw=true
 wget -O ../native_extension/AnalyticsANE/ane/AnalyticsANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/AnalyticsANE.ane?raw=true
@@ -37,6 +38,8 @@ wget -O android_dependencies/org.greenrobot.eventbus-$EventBusVersion.ane https:
 wget -O android_dependencies/com.google.code.gson.gson-$GsonVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.google.code.gson.gson-$GsonVersion.ane?raw=true
 wget -O android_dependencies/com.squareup.okhttp.okhttp-$OkhttpVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.squareup.okhttp.okhttp-$OkhttpVersion.ane?raw=true
 wget -O android_dependencies/androidx.legacy.legacy-support-v4-$SupportV4Version.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/support/androidx.legacy.legacy-support-v4-$SupportV4Version.ane?raw=true
+wget -O android_dependencies/androidx.cardview.cardview-$SupportV4Version.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/support/androidx.cardview.cardview-$SupportV4Version.ane?raw=true
+wget -O android_dependencies/androidx.browser.browser-$SupportV4Version.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/support/androidx.browser.browser-$SupportV4Version.ane?raw=true
 wget -O android_dependencies/com.google.guava.guava-$GuavaVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/misc/com.google.guava.guava-$GuavaVersion.ane?raw=true
 wget -O android_dependencies/com.google.android.gms.play-services-base-$PlayerServicesBaseVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.google.android.gms.play-services-base-$PlayerServicesBaseVersion.ane?raw=true
 wget -O android_dependencies/com.google.android.gms.play-services-auth-$PlayerServicesAuthVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.google.android.gms.play-services-auth-$PlayerServicesAuthVersion.ane?raw=true
@@ -51,3 +54,4 @@ wget -O android_dependencies/com.google.firebase.firebase-iid-$IidVersion.ane ht
 wget -O android_dependencies/com.google.firebase.firebase-messaging-$MessagingVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-messaging-$MessagingVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-perf-$PerfVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-perf-$PerfVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-storage-$StorageVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-storage-$StorageVersion.ane?raw=true
+wget -O android_dependencies/com.onesignal.OneSignal-$OneSignalVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.onesignal.OneSignal-$OneSignalVersion.ane?raw=true
