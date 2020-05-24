@@ -24,7 +24,7 @@ on set-up and each of the FirebaseANEs.
 
 ## iOS
 
-The latest version (0.11.0) is built against iOS 13.3 SDK and not currently working.
+The latest version (0.12.0) is built against iOS 13.3 SDK and not currently working.
 
 Please register your interest with HARMAN in getting this issue fixed!!
 
@@ -59,6 +59,7 @@ Pull requests and contributions are welcome! This might entail:
 - [x] Remote Config
 - [x] Storage
 - [x] Google Sign In
+- [x] One Signal
 - [x] Invites
 - [x] Crashlytics
 * MLKit
