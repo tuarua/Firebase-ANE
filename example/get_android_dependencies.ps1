@@ -2,6 +2,7 @@ $AneVersion = "0.12.0"
 $FreKotlinVersion = "1.10.0"
 $PlayerServicesAuthVersion = "17.0.0"
 $PlayerServicesBaseVersion = "17.1.0"
+$PlayerServicesMeasurementVersion = "17.3.0"
 $SupportV4Version = "1.0.0"
 $AnalyticsVersion = "17.3.0"
 $DynamicLinksVersion="19.1.0"
@@ -43,6 +44,7 @@ Invoke-WebRequest -OutFile "$currentDir\android_dependencies\androidx.cardview.c
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\androidx.browser.browser-$SupportV4Version.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/support/androidx.browser.browser-$SupportV4Version.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.android.gms.play-services-base-$PlayerServicesBaseVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.google.android.gms.play-services-base-$PlayerServicesBaseVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.android.gms.play-services-auth-$PlayerServicesAuthVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.google.android.gms.play-services-auth-$PlayerServicesAuthVersion.ane?raw=true
+Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.android.gms.play-services-measurement-$PlayerServicesMeasurementVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.google.android.gms.play-services-measurement-$PlayerServicesMeasurementVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-analytics-$AnalyticsVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-analytics-$AnalyticsVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-auth-$AuthVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-auth-$AuthVersion.ane?raw=true
 Invoke-WebRequest -OutFile "$currentDir\android_dependencies\com.google.firebase.firebase-config-$ConfigVersion.ane" -Uri https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-config-$ConfigVersion.ane?raw=true
