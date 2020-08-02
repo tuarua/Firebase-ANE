@@ -65,7 +65,7 @@ public class CloudTextRecognizer {
     /** @private */
     public static function gotEvent(event:StatusEvent):void {
         var argsAsJSON:Object;
-        var err:TextError;
+        var err:CloudTextError;
         switch (event.level) {
             case "TRACE":
                 trace("[" + NAME + "]", event.code);
@@ -74,7 +74,7 @@ public class CloudTextRecognizer {
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
-                        err = new TextError(argsAsJSON.error.text, argsAsJSON.error.id);
+                        err = new CloudTextError(argsAsJSON.error.text, argsAsJSON.error.id);
                     }
                     var ret:* = _context.call("getResults", argsAsJSON.callbackId);
                     if (ret is ANEError) {

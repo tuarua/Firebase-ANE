@@ -8,7 +8,7 @@
             <entry module-name="ANEUtils" build-configuration-name="ANEUtils">
               <dependency linkage="External" />
             </entry>
-            <entry module-name="FirebaseANE" build-configuration-name="FirebaseANE">
+            <entry module-name="MLKitANE" build-configuration-name="MLKitANE">
               <dependency linkage="External" />
             </entry>
           </entries>
@@ -32,6 +32,6 @@
     <orderEntry type="jdk" jdkName="AIRSDK_32" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="ANEUtils" exported="" />
-    <orderEntry type="module" module-name="FirebaseANE" exported="" />
+    <orderEntry type="module" module-name="MLKitANE" exported="" />
   </component>
 </module>

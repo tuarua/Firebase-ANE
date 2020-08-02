@@ -59,8 +59,6 @@ public class StarlingRoot extends Sprite {
     private var dynamicLinksExample:DynamicLinksExample;
     private var crashlyticsExample:CrashlyticsExample;
 
-    // b2018434-a4ae-47f2-9aea-bb931f94a747
-
     public function StarlingRoot() {
         TextField.registerCompositor(Fonts.getFont("fira-sans-semi-bold-13"), "Fira Sans Semi-Bold 13");
         NativeApplication.nativeApplication.addEventListener(Event.EXITING, onExiting);

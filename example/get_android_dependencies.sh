@@ -1,25 +1,25 @@
 #!/bin/sh
 
-AneVersion="0.12.0"
+AneVersion="0.13.0"
 FreKotlinVersion="1.10.0"
-PlayerServicesAuthVersion="17.0.0"
+PlayerServicesAuthVersion="18.1.0"
 PlayerServicesBaseVersion="17.1.0"
-PlayerServicesMeasurementVersion="17.3.0"
+PlayerServicesMeasurementVersion="17.4.4"
 SupportV4Version="1.0.0"
-AnalyticsVersion="17.3.0"
+AnalyticsVersion="17.4.4"
 DynamicLinksVersion="19.1.0"
-IidVersion="20.1.5"
+IidVersion="20.2.3"
 StorageVersion="19.1.1"
-PerfVersion="19.0.5"
-FirestoreVersion="21.4.2"
-MessagingVersion="20.1.5"
-ConfigVersion="19.1.3"
-AuthVersion="19.3.0"
+PerfVersion="19.0.8"
+FirestoreVersion="21.5.0"
+MessagingVersion="20.2.3"
+ConfigVersion="19.2.0"
+AuthVersion="19.3.2"
 EventBusVersion="3.0.0"
 GsonVersion="2.8.6"
 OkhttpVersion="2.7.5"
 GuavaVersion="28.1-android"
-CrashlyticsVersion="2.10.1"
+CrashlyticsVersion="17.1.1"
 OneSignalVersion="3.13.2"
 
 wget -O ../native_extension/ane/FirebaseANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/FirebaseANE.ane?raw=true
@@ -46,7 +46,7 @@ wget -O android_dependencies/com.google.android.gms.play-services-base-$PlayerSe
 wget -O android_dependencies/com.google.android.gms.play-services-auth-$PlayerServicesAuthVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.google.android.gms.play-services-auth-$PlayerServicesAuthVersion.ane?raw=true
 wget -O android_dependencies/com.google.android.gms.play-services-measurement-$PlayerServicesMeasurementVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.google.android.gms.play-services-measurement-$PlayerServicesMeasurementVersion.ane?raw=true
 
-wget -O android_dependencies/com.crashlytics.sdk.android.crashlytics-$CrashlyticsVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.crashlytics.sdk.android.crashlytics-$CrashlyticsVersion.ane?raw=true
+wget -O android_dependencies/com.google.firebase.firebase-crashlytics-$CrashlyticsVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-crashlytics-$CrashlyticsVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-analytics-$AnalyticsVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-analytics-$AnalyticsVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-auth-$AuthVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-auth-$AuthVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-config-$ConfigVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-config-$ConfigVersion.ane?raw=true

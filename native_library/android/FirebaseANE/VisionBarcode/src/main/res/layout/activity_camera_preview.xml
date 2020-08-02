@@ -7,7 +7,7 @@
     android:keepScreenOn="true"
     >
 
-    <com.tuarua.firebase.view.widget.AutoFitTextureView
+    <com.tuarua.mlkit.vision.widget.AutoFitTextureView
         android:id="@+id/activity_camera_preview_mainview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

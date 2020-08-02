@@ -34,11 +34,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'org.greenrobot:eventbus:3.0.0'
     implementation "com.google.code.gson:gson:$gson_version"
-    implementation "com.google.firebase:firebase-analytics:$firebase_analytics_version"
-    implementation "com.google.firebase:firebase-ml-vision:$firebase_vision_version"
-    implementation "com.google.firebase:firebase-ml-vision-barcode-model:$firebase_vision_barcode_model_version"
-
+    implementation "com.google.mlkit:barcode-scanning:16.0.2"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_coroutines_version"
     implementation "com.tuarua:FreKotlin:$frekotlin_version"
-    implementation project(':Vision')
+    implementation project(':MLKit')
 }

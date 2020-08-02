@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="com.squareup.okhttp3.okhttp-3.12.1" type="flex">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android_dependencies/com.squareup.okhttp3.okhttp-3.12.1.ane!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

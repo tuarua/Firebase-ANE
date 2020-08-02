@@ -4,7 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-Android</name>
-    <versionNumber>0.12.0</versionNumber>
+    <versionNumber>0.13.0</versionNumber>
 
     <!-- Settings for the application's initial window. Required. -->
     <initialWindow>
@@ -129,6 +129,12 @@
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                         <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.ktx.FirebaseDynamicLinksRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.auth.ktx.FirebaseAuthKtxRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                     </service>
 
@@ -291,15 +297,9 @@
                         android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
 
                     <!-- crashlytics -->
-                    <provider
-                        android:authorities="air.com.tuarua.firebaseane.example.crashlyticsinitprovider"
-                        android:name="com.crashlytics.android.CrashlyticsInitProvider"
-                        android:exported="false"
-                        android:initOrder="99" />
                     <meta-data
                         android:name="firebase_crashlytics_collection_enabled"
                         android:value="false" />
-                    <activity android:name="com.tuarua.firebase.crashlytics.CrashlyticsActivity" />
 
                 </application>
             </manifest>
@@ -313,7 +313,7 @@
         <extensionID>com.tuarua.frekotlin</extensionID>
         <extensionID>org.greenrobot.eventbus</extensionID>
         <extensionID>com.google.code.gson.gson</extensionID>
-        <extensionID>com.squareup.okhttp.okhttp</extensionID>
+        <extensionID>com.squareup.okhttp3.okhttp</extensionID>
         <extensionID>com.google.guava.guava</extensionID>
         <extensionID>androidx.legacy.legacy-support-v4</extensionID>
         <extensionID>com.google.android.gms.play-services-measurement</extensionID>
@@ -345,7 +345,7 @@
         <extensionID>androidx.cardview.cardview</extensionID>
         <extensionID>androidx.browser.browser</extensionID>
         <extensionID>com.google.firebase.firebase-perf</extensionID>
-        <extensionID>com.crashlytics.sdk.android.crashlytics</extensionID>
+        <extensionID>com.google.firebase.firebase-crashlytics</extensionID>
 
     </extensions>
 </application>

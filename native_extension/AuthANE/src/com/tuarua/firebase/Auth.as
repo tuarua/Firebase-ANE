@@ -1,6 +1,7 @@
 package com.tuarua.firebase {
 import com.tuarua.firebase.auth.AuthCredential;
 import com.tuarua.firebase.auth.FirebaseUser;
+import com.tuarua.firebase.auth.OAuthProvider;
 import com.tuarua.fre.ANEError;
 
 import flash.events.EventDispatcher;

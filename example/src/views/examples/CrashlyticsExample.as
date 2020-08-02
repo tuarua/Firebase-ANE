@@ -3,8 +3,6 @@ import com.tuarua.Firebase;
 import com.tuarua.firebase.Crashlytics;
 import com.tuarua.fre.ANEError;
 
-import flash.system.Capabilities;
-
 import starling.display.Sprite;
 import starling.events.Touch;
 import starling.events.TouchEvent;
@@ -52,15 +50,14 @@ public class CrashlyticsExample extends Sprite implements IExample {
         btnException.addEventListener(TouchEvent.TOUCH, onExceptionClick);
         addChild(btnException);
 
-
-        statusLabel.y = btnLog.y + (StarlingRoot.GAP * 1.25);
+        statusLabel.y = btnException.y + (StarlingRoot.GAP * 1.25);
     }
 
     private function onExceptionClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnException);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
             var testError:Error = new Error("AS message", 99);
-            crashlytics.logException(testError);
+            crashlytics.recordException(testError);
         }
     }
 
@@ -74,19 +71,19 @@ public class CrashlyticsExample extends Sprite implements IExample {
     private function onLogClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnLog);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            crashlytics.userIdentifier = "123456789";
-            crashlytics.userEmail = "test@test.com";
-            crashlytics.userName = "avatar123";
-            crashlytics.setBool("isLoggedIn", true);
-            crashlytics.log("I am a test message");
+            crashlytics.userId = "123456789";
+            crashlytics.setCustomKey("isLoggedIn", true);
+            crashlytics.log("I am a test message 2");
         }
     }
 
     public function initANE():void {
         if (isInited) return;
         try {
-            Crashlytics.debug = Capabilities.isDebugger;
+            Crashlytics.enabled = true;
             crashlytics = Firebase.crashlytics();
+            statusLabel.text += "did Crash On Previous Execution: " + crashlytics.didCrashOnPreviousExecution() + "\n";
+
         } catch (e:ANEError) {
             statusLabel.text += e.message + "\n";
             statusLabel.text += e.getStackTrace() + "\n";

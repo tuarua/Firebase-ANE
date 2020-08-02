@@ -26,14 +26,10 @@ public class CrashlyticsANE implements FREExtension {
             ,"createGUID"
             ,"crash"
             ,"log"
-            ,"logException"
-            ,"setUserIdentifier"
-            ,"setUserEmail"
-            ,"setUserName"
-            ,"setString"
-            ,"setBool"
-            ,"setDouble"
-            ,"setInt"
+            ,"recordException"
+            ,"setUserId"
+            ,"setCustomKey"
+            ,"didCrashOnPreviousExecution"
     };
 
     private static CrashlyticsANEContext extensionContext;

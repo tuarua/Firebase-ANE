@@ -22,7 +22,7 @@ import com.google.firebase.ml.vision.document.FirebaseVisionDocumentText
 import com.tuarua.frekotlin.FREArray
 import com.tuarua.frekotlin.FREObject
 import com.tuarua.frekotlin.set
-import com.tuarua.firebase.ml.vision.text.extensions.set
+import com.tuarua.firebase.ml.vision.cloudtext.extensions.set
 import com.tuarua.frekotlin.geom.set
 
 fun FirebaseVisionDocumentText.Symbol.toFREObject(): FREObject? {

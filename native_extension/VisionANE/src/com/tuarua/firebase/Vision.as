@@ -15,37 +15,24 @@
  */
 
 package com.tuarua.firebase {
-import com.tuarua.firebase.ml.vision.barcode.BarcodeDetector;
-import com.tuarua.firebase.ml.vision.barcode.BarcodeDetectorOptions;
 import com.tuarua.firebase.ml.vision.cloud.landmark.CloudLandmarkDetector;
 import com.tuarua.firebase.ml.vision.document.CloudDocumentTextRecognizer;
-import com.tuarua.firebase.ml.vision.face.FaceDetector;
 import com.tuarua.firebase.ml.vision.label.CloudImageLabeler;
-import com.tuarua.firebase.ml.vision.label.OnDeviceImageLabeler;
 import com.tuarua.firebase.ml.vision.cloud.CloudDetectorOptions;
 import com.tuarua.firebase.ml.vision.document.CloudDocumentRecognizerOptions;
 import com.tuarua.firebase.ml.vision.text.CloudTextRecognizer;
 import com.tuarua.firebase.ml.vision.text.CloudTextRecognizerOptions;
-import com.tuarua.firebase.ml.vision.face.FaceDetectorOptions;
 import com.tuarua.firebase.ml.vision.label.CloudImageLabelerOptions;
-import com.tuarua.firebase.ml.vision.label.OnDeviceImageLabelerOptions;
-import com.tuarua.firebase.ml.vision.text.TextRecognizer;
-import com.tuarua.firebase.vision.display.CameraOverlay;
 import com.tuarua.fre.ANEError;
 
 import flash.events.EventDispatcher;
 
 public class Vision extends EventDispatcher {
-    private var _barcodeDetector:BarcodeDetector;
-    private var _faceDetector:FaceDetector;
-    private var _textRecognizer:TextRecognizer;
     private var _cloudTextRecognizer:CloudTextRecognizer;
-    private var _labelDetector:OnDeviceImageLabeler;
     private var _cloudLabelDetector:CloudImageLabeler;
     private var _cloudLandmarkDetector:CloudLandmarkDetector;
     private var _cloudDocumentTextRecognizer:CloudDocumentTextRecognizer;
     private static var _vision:Vision;
-    private var _cameraOverlay:CameraOverlay = new CameraOverlay();
 
     /** @private */
     public function Vision() {
@@ -54,48 +41,6 @@ public class Vision extends EventDispatcher {
             if (ret is ANEError) throw ret as ANEError;
         }
         _vision = this;
-    }
-
-    /**
-     * Gets a barcode detector with the given options.
-     *
-     * @param options Options containing barcode detector configuration.
-     * @return A barcode detector configured with the given options.
-     */
-    public function barcodeDetector(options:BarcodeDetectorOptions = null):BarcodeDetector {
-        if (_barcodeDetector != null) {
-            _barcodeDetector.reinit(options);
-        } else {
-            _barcodeDetector = new BarcodeDetector(options);
-        }
-        return _barcodeDetector;
-    }
-
-    /**
-     * Gets a face detector with the given options.
-     *
-     * @param options Options for configuring the face detector.
-     * @return A face detector configured with the given options.
-     */
-    public function faceDetector(options:FaceDetectorOptions = null):FaceDetector {
-        if (_faceDetector != null) {
-            _faceDetector.reinit(options);
-        } else {
-            _faceDetector = new FaceDetector(options);
-        }
-        return _faceDetector;
-    }
-
-    /**
-     * Gets an on-device text recognizer.
-     *
-     * @return A text recognizer.
-     */
-    public function onDeviceTextRecognizer():TextRecognizer {
-        if (_textRecognizer == null) {
-            _textRecognizer = new TextRecognizer();
-        }
-        return _textRecognizer
     }
 
     /**
@@ -126,21 +71,6 @@ public class Vision extends EventDispatcher {
             _cloudDocumentTextRecognizer = new CloudDocumentTextRecognizer(options);
         }
         return _cloudDocumentTextRecognizer
-    }
-
-    /**
-     * Gets a label detector with the given options.
-     *
-     * @param options Options for configuring the label detector.
-     * @return A label detector configured with the given options.
-     */
-    public function labelDetector(options:OnDeviceImageLabelerOptions = null):OnDeviceImageLabeler {
-        if (_labelDetector != null) {
-            _labelDetector.reinit(options);
-        } else {
-            _labelDetector = new OnDeviceImageLabeler(options);
-        }
-        return _labelDetector;
     }
 
     /**
@@ -181,48 +111,16 @@ public class Vision extends EventDispatcher {
         return _vision;
     }
 
-    /** Requests permissions for this ANE. */
-    public function requestPermissions():void {
-        if (VisionANEContext.context) {
-            var ret:* = VisionANEContext.context.call("requestPermissions");
-            if (ret is ANEError) throw ret as ANEError;
-        }
-    }
-
-    /** Whether the camera is supported on users version of Android (21 or >). */
-    public function get isCameraSupported():Boolean {
-        if (VisionANEContext.context) {
-            return VisionANEContext.context.call("isCameraSupported") as Boolean;
-        }
-        return false;
-    }
-
-    public function get cameraOverlay():CameraOverlay {
-        return _cameraOverlay;
-    }
-
     /** Disposes the ANE and any Detector ANEs. */
     public static function dispose():void {
         if (VisionANEContext.context) {
             VisionANEContext.dispose();
-        }
-        if (BarcodeDetector.context) {
-            BarcodeDetector.dispose();
-        }
-        if (FaceDetector.context) {
-            FaceDetector.dispose();
-        }
-        if (TextRecognizer.context) {
-            TextRecognizer.dispose();
         }
         if (CloudTextRecognizer.context) {
             CloudTextRecognizer.dispose();
         }
         if (CloudDocumentTextRecognizer.context) {
             CloudDocumentTextRecognizer.dispose();
-        }
-        if (OnDeviceImageLabeler.context) {
-            OnDeviceImageLabeler.dispose();
         }
         if (CloudImageLabeler.context) {
             CloudImageLabeler.dispose();

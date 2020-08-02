@@ -25,7 +25,7 @@ import com.google.gson.Gson
 import com.tuarua.firebase.ml.vision.common.extensions.FirebaseVisionImage
 import com.tuarua.firebase.ml.vision.cloudlabel.events.CloudLabelEvent
 import com.tuarua.firebase.ml.vision.cloudlabel.extensions.FirebaseVisionCloudImageLabelerOptions
-import com.tuarua.firebase.ml.vision.label.extensions.toFREObject
+import com.tuarua.firebase.ml.vision.cloudlabel.extensions.toFREObject
 import com.tuarua.frekotlin.*
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.Dispatchers
