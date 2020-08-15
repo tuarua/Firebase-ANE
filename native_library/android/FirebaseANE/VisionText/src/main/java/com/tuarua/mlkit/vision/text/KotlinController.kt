@@ -25,7 +25,7 @@ import com.google.mlkit.vision.text.TextRecognizer
 import com.tuarua.mlkit.vision.text.events.TextEvent
 import com.tuarua.mlkit.vision.text.extensions.toFREObject
 import com.tuarua.frekotlin.*
-import com.tuarua.tuarua.mlkit.vision.extensions.InputImage
+import com.tuarua.mlkit.vision.extensions.InputImage
 import java.util.*
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.Dispatchers

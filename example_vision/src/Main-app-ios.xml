@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/32.0">
+<application xmlns="http://ns.adobe.com/air/application/33.1">
 
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
@@ -53,15 +53,10 @@
     <extensions>
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionANE</extensionID>
-        <extensionID>com.tuarua.firebase.VisionBarcodeANE</extensionID>
-        <extensionID>com.tuarua.firebase.VisionFaceANE</extensionID>
-        <extensionID>com.tuarua.firebase.VisionTextANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudTextANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudDocumentANE</extensionID>
-        <extensionID>com.tuarua.firebase.VisionLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionLandmarkANE</extensionID>
-        <extensionID>com.tuarua.firebase.NaturalLanguageANE</extensionID>
         <extensionID>com.tuarua.firebase.ModelInterpreterANE</extensionID>
 
     </extensions>

@@ -21,7 +21,7 @@ package com.tuarua.mlkit.vision.text.extensions
 import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
 import com.google.mlkit.vision.text.Text
-import com.tuarua.tuarua.mlkit.vision.extensions.FREArray
+import com.tuarua.mlkit.vision.extensions.FREArray
 import com.tuarua.frekotlin.*
 import com.tuarua.frekotlin.geom.set
 

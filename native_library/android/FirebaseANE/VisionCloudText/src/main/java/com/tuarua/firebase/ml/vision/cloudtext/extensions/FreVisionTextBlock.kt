@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Tua Rua Ltd.
+ * Copyright 2020 Tua Rua Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,11 +21,12 @@ import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.text.FirebaseVisionText
 import com.tuarua.firebase.ml.vision.common.extensions.FREArray
+import com.tuarua.firebase.ml.vision.text.extensions.set
 import com.tuarua.frekotlin.*
 import com.tuarua.frekotlin.geom.set
 
 fun FirebaseVisionText.TextBlock.toFREObject(): FREObject? {
-    val ret = FREObject("com.tuarua.firebase.ml.vision.text.TextBlock")
+    val ret = FREObject("com.tuarua.firebase.ml.vision.text.CloudTextBlock")
     ret["lines"] = lines
     ret["frame"] = boundingBox
     ret["text"] = text
@@ -36,7 +37,7 @@ fun FirebaseVisionText.TextBlock.toFREObject(): FREObject? {
 }
 
 fun List<FirebaseVisionText.TextBlock>.toFREObject(): FREArray? {
-    return FREArray("com.tuarua.firebase.ml.vision.text.TextBlock",
+    return FREArray("com.tuarua.firebase.ml.vision.text.CloudTextBlock",
             size, true, this.map { it.toFREObject() })
 }
 

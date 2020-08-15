@@ -15,7 +15,7 @@
  */
 
 package com.tuarua.firebase.ml.vision.document {
-import com.tuarua.firebase.ml.vision.text.TextError;
+import com.tuarua.firebase.ml.vision.text.CloudTextError;
 import com.tuarua.firebase.ml.vision.common.VisionImage;
 import com.tuarua.fre.ANEError;
 
@@ -78,7 +78,7 @@ public class CloudDocumentTextRecognizer {
     /** @private */
     public static function gotEvent(event:StatusEvent):void {
         var argsAsJSON:Object;
-        var err:TextError;
+        var err:CloudTextError;
         switch (event.level) {
             case "TRACE":
                 trace("[" + NAME + "]", event.code);
@@ -87,7 +87,7 @@ public class CloudDocumentTextRecognizer {
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
-                        err = new TextError(argsAsJSON.error.text, argsAsJSON.error.id);
+                        err = new CloudTextError(argsAsJSON.error.text, argsAsJSON.error.id);
                     }
                     var ret:* = _context.call("getResults", argsAsJSON.callbackId);
                     if (ret is ANEError) {

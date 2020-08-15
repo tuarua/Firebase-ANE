@@ -25,7 +25,7 @@ import flash.utils.Dictionary;
 
 [RemoteClass(alias="com.tuarua.mlkit.vision.barcode.BarcodeDetector")]
 public class BarcodeDetector extends EventDispatcher {
-    internal static const NAME:String = "VisionBarcodeANE";
+    internal static const NAME:String = "BarcodeANE";
     private static var _context:ExtensionContext;
     /** @private */
     public static var callbacks:Dictionary = new Dictionary();
@@ -34,7 +34,7 @@ public class BarcodeDetector extends EventDispatcher {
     /** @private */
     public function BarcodeDetector(options:BarcodeDetectorOptions) {
         try {
-            _context = ExtensionContext.createExtensionContext("com.tuarua.firebase." + NAME, null);
+            _context = ExtensionContext.createExtensionContext("com.tuarua.mlkit.vision." + NAME, null);
             _context.addEventListener(StatusEvent.STATUS, gotEvent);
             _context.call("init", options ? options : new BarcodeDetectorOptions());
         } catch (e:Error) {

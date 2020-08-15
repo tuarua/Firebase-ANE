@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/33.0">
+<application xmlns="http://ns.adobe.com/air/application/33.1">
 
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-Android</name>
-    <versionNumber>0.10.0</versionNumber>
+    <versionNumber>0.13.0</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -53,11 +53,6 @@
                         android:value="@integer/google_play_services_version" />
 
                     <!-- Vision -->
-                    <!--
-                    <meta-data
-                        android:name="com.google.firebase.ml.vision.DEPENDENCIES"
-                        android:value="face,barcode,text,label" />-->
-
                     <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
                         <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
@@ -78,12 +73,6 @@
                             android:name="com.google.firebase.components:com.google.firebase.ml.common.CommonComponentRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                         <meta-data
-                            android:name="com.google.firebase.components:com.google.firebase.ml.naturallanguage.NaturalLanguageRegistrar"
-                            android:value="com.google.firebase.components.ComponentRegistrar" />
-                        <meta-data
-                            android:name="com.google.firebase.components:com.google.firebase.ml.naturallanguage.translate.NaturalLanguageTranslateRegistrar"
-                            android:value="com.google.firebase.components.ComponentRegistrar" />
-                        <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.ml.custom.CustomModelRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                         <meta-data
@@ -95,6 +84,9 @@
                         <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
                     </service>
 
                     <provider
@@ -103,6 +95,7 @@
                         android:exported="false"
                         android:initOrder="100" />
 
+                    <!-- analytics -->
                     <receiver
                         android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
                         android:enabled="true"
@@ -149,10 +142,6 @@
                         </intent-filter>
                     </service>
 
-                    <!-- Camera -->
-                    <activity android:name="com.tuarua.firebase.ml.vision.PermissionActivity"
-                        android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-
                     <activity android:excludeFromRecents="false" android:hardwareAccelerated="true">
                         <intent-filter>
                             <action android:name="android.intent.action.MAIN"/>
@@ -175,29 +164,21 @@
         <extensionID>com.google.code.gson.gson</extensionID>
         <extensionID>com.google.android.gms.play-services-base</extensionID>
         <extensionID>androidx.legacy.legacy-support-v4</extensionID>
+        <extensionID>com.google.android.gms.play-services-measurement</extensionID>
 
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
         <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
         <extensionID>com.tuarua.firebase.RemoteConfigANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionANE</extensionID>
-        <extensionID>com.tuarua.firebase.VisionBarcodeANE</extensionID>
-        <extensionID>com.tuarua.firebase.VisionFaceANE</extensionID>
-        <extensionID>com.tuarua.firebase.VisionTextANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudTextANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudDocumentANE</extensionID>
-        <extensionID>com.tuarua.firebase.VisionLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionLandmarkANE</extensionID>
-        <extensionID>com.tuarua.firebase.NaturalLanguageANE</extensionID>
         <extensionID>com.tuarua.firebase.ModelInterpreterANE</extensionID>
 
         <extensionID>com.google.firebase.firebase-analytics</extensionID>
         <extensionID>com.google.firebase.firebase-iid</extensionID>
         <extensionID>com.google.firebase.firebase-ml-vision</extensionID>
-        <extensionID>com.google.firebase.firebase-ml-natural-language</extensionID>
-        <extensionID>com.google.firebase.firebase-ml-vision-face-model</extensionID>
-        <extensionID>com.google.firebase.firebase-ml-vision-barcode-model</extensionID>
-        <extensionID>com.google.firebase.firebase-ml-vision-image-label-model</extensionID>
         <extensionID>com.google.firebase.firebase-ml-model-interpreter</extensionID>
         <extensionID>com.google.firebase.firebase-config</extensionID>
     </extensions>

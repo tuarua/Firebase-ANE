@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension xmlns="http://ns.adobe.com/air/extension/19.0">
-    <id>com.tuarua.firebase.VisionLabelANE</id>
+    <id>com.tuarua.mlkit.vision.LabelANE</id>
     <name>Firebase Vision Label ANE</name>
     <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
     <versionNumber>0.13.0</versionNumber>
     <platforms>
         <platform name="iPhone-ARM">
             <applicationDeployment>
-                <nativeLibrary>libVisionLabelANE.a</nativeLibrary>
+                <nativeLibrary>libLabelANE.a</nativeLibrary>
                 <initializer>TRFBVLBExtInizer</initializer>
                 <finalizer>TRFBVLBExtFinizer</finalizer>
             </applicationDeployment>
@@ -15,22 +15,22 @@
         <platform name="Android-x86">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>
-                <initializer>com.tuarua.firebase.VisionLabelANE</initializer>
-                <finalizer>com.tuarua.firebase.VisionLabelANE</finalizer>
+                <initializer>com.tuarua.mlkit.vision.LabelANE</initializer>
+                <finalizer>com.tuarua.mlkit.vision.LabelANE</finalizer>
             </applicationDeployment>
         </platform>
         <platform name="Android-ARM">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>
-                <initializer>com.tuarua.firebase.VisionLabelANE</initializer>
-                <finalizer>com.tuarua.firebase.VisionLabelANE</finalizer>
+                <initializer>com.tuarua.mlkit.vision.LabelANE</initializer>
+                <finalizer>com.tuarua.mlkit.vision.LabelANE</finalizer>
             </applicationDeployment>
         </platform>
         <platform name="Android-ARM64">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>
-                <initializer>com.tuarua.firebase.VisionLabelANE</initializer>
-                <finalizer>com.tuarua.firebase.VisionLabelANE</finalizer>
+                <initializer>com.tuarua.mlkit.vision.LabelANE</initializer>
+                <finalizer>com.tuarua.mlkit.vision.LabelANE</finalizer>
             </applicationDeployment>
         </platform>
         <platform name="default">

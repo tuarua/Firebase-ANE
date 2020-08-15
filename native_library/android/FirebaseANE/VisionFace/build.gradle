@@ -33,7 +33,7 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "com.google.code.gson:gson:$gson_version"
-    implementation "com.google.android.gms:play-services-mlkit-face-detection:16.1.0"
+    implementation "com.google.mlkit:face-detection:16.0.1"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_coroutines_version"
     implementation "com.tuarua:FreKotlin:$frekotlin_version"
     implementation project(':MLKit')

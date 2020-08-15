@@ -10,6 +10,11 @@
 - AND: [Auth] - added `auth.signInWithCredential()`
 - AND: [Auth] - added `auth.signInWithProvider()`
 - AND: [Crashlytics] - now uses `FirebaseCrashlytics` API
+- AND: [Vision] - Move Barcode to MLKitANE
+- AND: [Vision] - Move Face Detection to MLKitANE
+- AND: [Vision] - Move Label Detection to MLKitANE
+- AND: [Vision] - Move Text Detection to MLKitANE
+- AND: [Vision] - Move Natural Language to MLKitANE
 
 ### 0.12.0
 - Added OneSignal 

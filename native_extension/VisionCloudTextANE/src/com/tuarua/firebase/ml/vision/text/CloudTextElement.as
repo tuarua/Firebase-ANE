@@ -52,7 +52,7 @@ public class CloudTextElement {
      * Latin-based languages, while cloud text recognizers can detect multiple languages. If no
      * languages are recognized, the array is empty.
      */
-    public var recognizedLanguages:Vector.<CloudTextRecognizedLanguage> = new <CloudTextRecognizedLanguage>[];
+    public var recognizedLanguages:Vector.<TextRecognizedLanguage> = new <TextRecognizedLanguage>[];
 
     /** @private */
     public function CloudTextElement() {

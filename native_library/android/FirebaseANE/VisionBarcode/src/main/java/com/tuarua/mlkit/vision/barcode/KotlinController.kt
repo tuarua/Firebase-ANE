@@ -28,7 +28,7 @@ import com.tuarua.mlkit.vision.camerapreview.CameraPreviewFragment
 import com.tuarua.mlkit.vision.barcode.events.BarcodeEvent
 import com.tuarua.mlkit.vision.barcode.extensions.BarcodeScannerOptions
 import com.tuarua.mlkit.vision.barcode.extensions.toFREObject
-import com.tuarua.tuarua.mlkit.vision.extensions.InputImage
+import com.tuarua.mlkit.vision.extensions.InputImage
 
 import com.tuarua.frekotlin.*
 import kotlinx.coroutines.Dispatchers

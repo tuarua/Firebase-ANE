@@ -19,7 +19,7 @@ package com.tuarua.firebase.ml.vision.document.extensions
 import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
 import com.google.firebase.ml.vision.document.FirebaseVisionDocumentText
-import com.tuarua.firebase.ml.vision.cloudtext.extensions.set
+import com.tuarua.firebase.ml.vision.text.extensions.set
 import com.tuarua.frekotlin.*
 import com.tuarua.frekotlin.geom.set
 

@@ -18,7 +18,7 @@ package com.tuarua.mlkit.vision.barcode.extensions
 import com.adobe.fre.FREArray
 import com.adobe.fre.FREObject
 import com.google.mlkit.vision.barcode.Barcode
-import com.tuarua.tuarua.mlkit.vision.extensions.FREArray
+import com.tuarua.mlkit.vision.extensions.FREArray
 import com.tuarua.frekotlin.*
 import com.tuarua.frekotlin.geom.set
 

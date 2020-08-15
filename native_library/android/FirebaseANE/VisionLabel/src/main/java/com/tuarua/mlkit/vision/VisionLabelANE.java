@@ -40,7 +40,7 @@ public class VisionLabelANE  implements FREExtension {
     @SuppressLint("UnknownNullness")
     @Override
     public FREContext createContext(String s) {
-        String NAME = "com.tuarua.mlkit.vision.VisionLabelANE";
+        String NAME = "com.tuarua.mlkit.vision.LabelANE";
         return extensionContext = new VisionLabelANEContext(NAME, new KotlinController(), FUNCTIONS);
     }
 

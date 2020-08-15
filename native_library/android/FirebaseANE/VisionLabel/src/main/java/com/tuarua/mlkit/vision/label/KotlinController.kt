@@ -26,7 +26,7 @@ import com.tuarua.mlkit.vision.label.events.LabelEvent
 import com.tuarua.mlkit.vision.label.extensions.ImageLabelerOptions
 import com.tuarua.mlkit.vision.label.extensions.toFREObject
 import com.tuarua.frekotlin.*
-import com.tuarua.tuarua.mlkit.vision.extensions.InputImage
+import com.tuarua.mlkit.vision.extensions.InputImage
 import java.util.*
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.Dispatchers

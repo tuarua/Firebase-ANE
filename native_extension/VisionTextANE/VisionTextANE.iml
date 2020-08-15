@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="VisionTextANE">
     <configurations>
-      <configuration name="VisionTextANE" target-platform="Mobile" pure-as="true" output-type="Library" output-file="VisionTextANE.swc" output-folder="$MODULE_DIR$/bin">
+      <configuration name="VisionTextANE" target-platform="Mobile" pure-as="true" output-type="Library" output-file="TextANE.swc" output-folder="$MODULE_DIR$/bin">
         <dependencies target-player="30.0">
           <entries>
             <entry module-name="ANEUtils" build-configuration-name="ANEUtils">

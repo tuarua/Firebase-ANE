@@ -86,6 +86,16 @@
 		901C6A12226CA85200889711 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C6A11226CA85200889711 /* SwiftController+FreSwift.swift */; platformFilter = ios; };
 		901C6A14226CA8D900889711 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C6A13226CA8D900889711 /* SwiftController+FreSwift.swift */; platformFilter = ios; };
 		901C6A16226CA8FE00889711 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901C6A15226CA8FE00889711 /* SwiftController+FreSwift.swift */; platformFilter = ios; };
+		901F955024DEF9CE0087CF57 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
+		901F955224DEF9CE0087CF57 /* FreMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = CE05604D1FB25E8E00D06976 /* FreMacros.h */; platformFilter = ios; };
+		901F955E24DEFA090087CF57 /* MLKitANE.m in Sources */ = {isa = PBXBuildFile; fileRef = 901F955D24DEFA090087CF57 /* MLKitANE.m */; platformFilter = ios; };
+		901F956124DEFA640087CF57 /* MLKitANE_oc.h in Headers */ = {isa = PBXBuildFile; fileRef = 901F956024DEFA640087CF57 /* MLKitANE_oc.h */; platformFilter = ios; };
+		901F956324DEFA8E0087CF57 /* MLKitANE-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 901F956224DEFA8E0087CF57 /* MLKitANE-Bridging-Header.h */; platformFilter = ios; };
+		901F956524DEFAE70087CF57 /* SwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901F956424DEFAE70087CF57 /* SwiftController.swift */; platformFilter = ios; };
+		901F956724DEFAF90087CF57 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901F956624DEFAF90087CF57 /* SwiftController+FreSwift.swift */; platformFilter = ios; };
+		901F956924DEFC3B0087CF57 /* MLKitANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 901F956824DEFC3B0087CF57 /* MLKitANE-Swift.h */; };
+		901F956C24DEFE050087CF57 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 901F956B24DEFE050087CF57 /* SwiftyJSON */; };
+		901F956E24DEFE1B0087CF57 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = 901F956D24DEFE1B0087CF57 /* SwiftyJSON */; };
 		90207A522151BDF90022B2C7 /* FreVisionCloudTextRecognizerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90207A512151BDF90022B2C7 /* FreVisionCloudTextRecognizerOptions.swift */; platformFilter = ios; };
 		90207A532151C07B0022B2C7 /* FreVisionTextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A682B2114F68E00848218 /* FreVisionTextBlock.swift */; platformFilter = ios; };
 		90207A542151C07F0022B2C7 /* FreVisionTextLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906A682D211516A900848218 /* FreVisionTextLine.swift */; platformFilter = ios; };
@@ -177,7 +187,6 @@
 		9072AEA22460BF1E00F242D3 /* SwiftController+FreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9072AEA12460BF1E00F242D3 /* SwiftController+FreSwift.swift */; };
 		9072AEA62460C0E000F242D3 /* OneSignalANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 9072AEA52460C0E000F242D3 /* OneSignalANE-Swift.h */; };
 		9072AEA82460C37200F242D3 /* OneSignal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9072AEA72460C37200F242D3 /* OneSignal.framework */; };
-		9072AEAB2461FA2500F242D3 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 9072AEAA2461FA2500F242D3 /* SwiftyJSON */; };
 		90741DAE21504F88003366E3 /* gRPC-C++.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90741DAD21504F88003366E3 /* gRPC-C++.framework */; platformFilter = ios; };
 		90741DB021504FBA003366E3 /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90741DAF21504FBA003366E3 /* GoogleAppMeasurement.framework */; platformFilter = ios; };
 		90741DB221504FC2003366E3 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90741DB121504FC2003366E3 /* GoogleUtilities.framework */; platformFilter = ios; };
@@ -536,7 +545,7 @@
 		90160D8C2115A8640009A815 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
 		90160D902115A8DB0009A815 /* VisionCloudTextANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionCloudTextANE-Bridging-Header.h"; sourceTree = "<group>"; };
 		90160D952115AC440009A815 /* CloudTextEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudTextEvent.swift; sourceTree = "<group>"; };
-		90160DBB2115C60B0009A815 /* libVisionLabelANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVisionLabelANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		90160DBB2115C60B0009A815 /* libLabelANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLabelANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		90160DBF2115C7050009A815 /* VisionLabelANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisionLabelANE_oc.h; sourceTree = "<group>"; };
 		90160DC02115C7050009A815 /* VisionLabelANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionLabelANE.m; sourceTree = "<group>"; };
 		90160DC32115C7290009A815 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
@@ -565,6 +574,13 @@
 		901C6A11226CA85200889711 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
 		901C6A13226CA8D900889711 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
 		901C6A15226CA8FE00889711 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		901F955B24DEF9CE0087CF57 /* libMLKitANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMLKitANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		901F955D24DEFA090087CF57 /* MLKitANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLKitANE.m; sourceTree = "<group>"; };
+		901F956024DEFA640087CF57 /* MLKitANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLKitANE_oc.h; sourceTree = "<group>"; };
+		901F956224DEFA8E0087CF57 /* MLKitANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MLKitANE-Bridging-Header.h"; sourceTree = "<group>"; };
+		901F956424DEFAE70087CF57 /* SwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftController.swift; sourceTree = "<group>"; };
+		901F956624DEFAF90087CF57 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
+		901F956824DEFC3B0087CF57 /* MLKitANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MLKitANE-Swift.h"; sourceTree = "<group>"; };
 		90207A512151BDF90022B2C7 /* FreVisionCloudTextRecognizerOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionCloudTextRecognizerOptions.swift; sourceTree = "<group>"; };
 		90207A572151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionTextRecognizedLanguage.swift; sourceTree = "<group>"; };
 		90236A57222A0C4600C4CB68 /* FreVisionCloudImageLabelerOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionCloudImageLabelerOptions.swift; sourceTree = "<group>"; };
@@ -593,7 +609,7 @@
 		9065B45124785FCF00053234 /* FreOSEmailSubscriptionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreOSEmailSubscriptionState.swift; sourceTree = "<group>"; };
 		9065B4532478606200053234 /* OneSignalEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSignalEvent.swift; sourceTree = "<group>"; };
 		90662C0924656E8100B8AEFC /* FreOSPermissionSubscriptionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreOSPermissionSubscriptionState.swift; sourceTree = "<group>"; };
-		906A680D2114EFB000848218 /* libVisionTextANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVisionTextANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		906A680D2114EFB000848218 /* libTextANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTextANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		906A68132114F05000848218 /* VisionTextANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisionTextANE_oc.h; sourceTree = "<group>"; };
 		906A68142114F05000848218 /* VisionTextANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionTextANE.m; sourceTree = "<group>"; };
 		906A68172114F10A00848218 /* VisionTextANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionTextANE-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -641,7 +657,7 @@
 		90D1CA1823B3BB9600F9AC18 /* TensorFlowLiteC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TensorFlowLiteC.framework; path = Carthage/Build/iOS/TensorFlowLiteC.framework; sourceTree = "<group>"; };
 		90D1CA1923B3BB9600F9AC18 /* TensorFlowLiteObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TensorFlowLiteObjC.framework; path = Carthage/Build/iOS/TensorFlowLiteObjC.framework; sourceTree = "<group>"; };
 		90D1CA1C23B3CAD800F9AC18 /* FreVisionFaceContour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionFaceContour.swift; sourceTree = "<group>"; };
-		90E49601222A8EA200CF3B24 /* libNaturalLanguageANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNaturalLanguageANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		90E49601222A8EA200CF3B24 /* libLanguageIdentificationANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLanguageIdentificationANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E49606222A8FE700CF3B24 /* FirebaseMLNaturalLanguage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMLNaturalLanguage.framework; path = Carthage/Build/iOS/FirebaseMLNaturalLanguage.framework; sourceTree = "<group>"; };
 		90E49607222A8FE700CF3B24 /* FirebaseMLNLLanguageID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMLNLLanguageID.framework; path = Carthage/Build/iOS/FirebaseMLNLLanguageID.framework; sourceTree = "<group>"; };
 		90E4960A222A907A00CF3B24 /* NaturalLanguageANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NaturalLanguageANE.m; sourceTree = "<group>"; };
@@ -700,7 +716,7 @@
 		CE2BDB4620A6222900C89A7C /* SwiftController+Messaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+Messaging.swift"; sourceTree = "<group>"; };
 		CE2BDB4820A6243800C89A7C /* MessageEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageEvent.swift; sourceTree = "<group>"; };
 		CE2BDB4A20A6270C00C89A7C /* SwiftController+UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+UNUserNotificationCenter.swift"; sourceTree = "<group>"; };
-		CE2C3F6820F3F27200B9E210 /* libVisionFaceANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVisionFaceANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2C3F6820F3F27200B9E210 /* libFaceANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFaceANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2C3F6920F3F30B00B9E210 /* FirebaseMLVisionFaceModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMLVisionFaceModel.framework; path = Carthage/Build/iOS/FirebaseMLVisionFaceModel.framework; sourceTree = "<group>"; };
 		CE2C3F6B20F3F32E00B9E210 /* BarcodeDetector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BarcodeDetector.framework; path = Carthage/Build/iOS/BarcodeDetector.framework; sourceTree = "<group>"; };
 		CE2C3F6D20F3F34600B9E210 /* FaceDetector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FaceDetector.framework; path = Carthage/Build/iOS/FaceDetector.framework; sourceTree = "<group>"; };
@@ -736,7 +752,7 @@
 		CE62B38420D09223002837B7 /* GoogleSignInEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInEvent.swift; sourceTree = "<group>"; };
 		CE69C8D9208FEE1A004A1A5A /* BatchEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchEvent.swift; sourceTree = "<group>"; };
 		CE69C8DC208FF963004A1A5A /* NetworkEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEvent.swift; sourceTree = "<group>"; };
-		CE6E037720EEC828008D6CE8 /* libVisionBarcodeANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVisionBarcodeANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE6E037720EEC828008D6CE8 /* libBarcodeANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBarcodeANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMLCommon.framework; path = Carthage/Build/iOS/FirebaseMLCommon.framework; sourceTree = "<group>"; };
 		CE6E037E20EECAA8008D6CE8 /* FirebaseMLVision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMLVision.framework; path = Carthage/Build/iOS/FirebaseMLVision.framework; sourceTree = "<group>"; };
 		CE6E038020EECAB5008D6CE8 /* FirebaseMLVisionBarcodeModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMLVisionBarcodeModel.framework; path = Carthage/Build/iOS/FirebaseMLVisionBarcodeModel.framework; sourceTree = "<group>"; };
@@ -926,6 +942,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		901F954824DEF9CE0087CF57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				901F955024DEF9CE0087CF57 /* FreSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90658A7421162EF9003197A5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -969,7 +993,6 @@
 				9072AE842460BCF200F242D3 /* GoogleUtilities.framework in Frameworks */,
 				9072AE852460BCF200F242D3 /* FreSwift.framework in Frameworks */,
 				9072AE862460BCF200F242D3 /* FirebaseCore.framework in Frameworks */,
-				9072AEAB2461FA2500F242D3 /* SwiftyJSON in Frameworks */,
 				9072AE872460BCF200F242D3 /* Protobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1153,6 +1176,7 @@
 				90236A6B222A19AC00C4CB68 /* BoringSSL-GRPC.framework in Frameworks */,
 				9076901E21CEF4D8004F0D35 /* SystemConfiguration.framework in Frameworks */,
 				90D1CA1123B39E3B00F9AC18 /* abseil.framework in Frameworks */,
+				901F956C24DEFE050087CF57 /* SwiftyJSON in Frameworks */,
 				9076901D21CEF4C7004F0D35 /* StoreKit.framework in Frameworks */,
 				9076901C21CEF4C1004F0D35 /* Security.framework in Frameworks */,
 				9076901B21CEF4B2004F0D35 /* SafariServices.framework in Frameworks */,
@@ -1174,6 +1198,7 @@
 				CEBCF7CC209610BD0028601B /* FirebaseAuth.framework in Frameworks */,
 				CEBCF7CD209611B00028601B /* GTMSessionFetcher.framework in Frameworks */,
 				CEBCF7A82095F9160028601B /* FreSwift.framework in Frameworks */,
+				901F956E24DEFE1B0087CF57 /* SwiftyJSON in Frameworks */,
 				CEBCF7A92095F9160028601B /* FirebaseCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1353,6 +1378,27 @@
 				90EFB72E23AAAAC400910A47 /* VisionLandmarkANE-Swift.h */,
 				90160E352115D4630009A815 /* VisionLandmarkANE_oc.h */,
 				90160E3D2115D4B30009A815 /* VisionLandmarkANE-Bridging-Header.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		901F955C24DEF9DF0087CF57 /* MLKitANE */ = {
+			isa = PBXGroup;
+			children = (
+				901F955F24DEFA430087CF57 /* Headers */,
+				901F955D24DEFA090087CF57 /* MLKitANE.m */,
+				901F956424DEFAE70087CF57 /* SwiftController.swift */,
+				901F956624DEFAF90087CF57 /* SwiftController+FreSwift.swift */,
+			);
+			path = MLKitANE;
+			sourceTree = "<group>";
+		};
+		901F955F24DEFA430087CF57 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				901F956024DEFA640087CF57 /* MLKitANE_oc.h */,
+				901F956224DEFA8E0087CF57 /* MLKitANE-Bridging-Header.h */,
+				901F956824DEFC3B0087CF57 /* MLKitANE-Swift.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -1948,6 +1994,7 @@
 				906A680F2114F00300848218 /* VisionTextANE */,
 				CE2C3F8D20F3F52200B9E210 /* VisionFaceANE */,
 				CE8D621320F16ABC00FB2569 /* VisionANE */,
+				901F955C24DEF9DF0087CF57 /* MLKitANE */,
 				CE6E039A20EED9FA008D6CE8 /* VisionCommon */,
 				CE6E035B20EEC80B008D6CE8 /* VisionBarcodeANE */,
 				CE62B36420D061A7002837B7 /* GoogleSignInANE */,
@@ -1981,19 +2028,20 @@
 				CEE3AE8320A06D2600D3AAF6 /* libMessagingANE_LIB.a */,
 				CE8BC4B920B1C890009164ED /* libDynamicLinksANE_LIB.a */,
 				CE62B36320D0618E002837B7 /* libGoogleSignInANE_LIB.a */,
-				CE6E037720EEC828008D6CE8 /* libVisionBarcodeANE_LIB.a */,
+				CE6E037720EEC828008D6CE8 /* libBarcodeANE_LIB.a */,
 				CE5E6B2620F1787D001398C5 /* libVisionANE_LIB.a */,
-				CE2C3F6820F3F27200B9E210 /* libVisionFaceANE_LIB.a */,
-				906A680D2114EFB000848218 /* libVisionTextANE_LIB.a */,
+				CE2C3F6820F3F27200B9E210 /* libFaceANE_LIB.a */,
+				906A680D2114EFB000848218 /* libTextANE_LIB.a */,
 				909587DF2115A65300AD59D5 /* libVisionCloudTextANE_LIB.a */,
-				90160DBB2115C60B0009A815 /* libVisionLabelANE_LIB.a */,
+				90160DBB2115C60B0009A815 /* libLabelANE_LIB.a */,
 				90160DF82115CCA30009A815 /* libVisionCloudLabelANE_LIB.a */,
 				90160E342115D3E60009A815 /* libVisionLandmarkANE_LIB.a */,
 				90658A8921162EF9003197A5 /* libModelInterpreterANE_LIB.a */,
 				909ED0DF214EE7070059EB62 /* libCrashlyticsANE_LIB.a */,
 				90EF031F2154216000C91063 /* libVisionCloudDocumentANE_LIB.a */,
-				90E49601222A8EA200CF3B24 /* libNaturalLanguageANE_LIB.a */,
+				90E49601222A8EA200CF3B24 /* libLanguageIdentificationANE_LIB.a */,
 				9072AE922460BCF200F242D3 /* libOneSignalANE_LIB.a */,
+				901F955B24DEF9CE0087CF57 /* libMLKitANE_LIB.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2374,6 +2422,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		901F955124DEF9CE0087CF57 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				901F955224DEF9CE0087CF57 /* FreMacros.h in Headers */,
+				901F956924DEFC3B0087CF57 /* MLKitANE-Swift.h in Headers */,
+				901F956324DEFA8E0087CF57 /* MLKitANE-Bridging-Header.h in Headers */,
+				901F956124DEFA640087CF57 /* MLKitANE_oc.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90658A8021162EF9003197A5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -2597,9 +2656,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		90160D982115C60B0009A815 /* VisionLabelANE_LIB */ = {
+		90160D982115C60B0009A815 /* LabelANE_LIB */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 90160DB82115C60B0009A815 /* Build configuration list for PBXNativeTarget "VisionLabelANE_LIB" */;
+			buildConfigurationList = 90160DB82115C60B0009A815 /* Build configuration list for PBXNativeTarget "LabelANE_LIB" */;
 			buildPhases = (
 				90160D992115C60B0009A815 /* Sources */,
 				90160DA42115C60B0009A815 /* Frameworks */,
@@ -2611,9 +2670,9 @@
 			);
 			dependencies = (
 			);
-			name = VisionLabelANE_LIB;
+			name = LabelANE_LIB;
 			productName = HelloWorldANE_LIB;
-			productReference = 90160DBB2115C60B0009A815 /* libVisionLabelANE_LIB.a */;
+			productReference = 90160DBB2115C60B0009A815 /* libLabelANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		90160DD72115CCA30009A815 /* VisionCloudLabelANE_LIB */ = {
@@ -2654,6 +2713,25 @@
 			productReference = 90160E342115D3E60009A815 /* libVisionLandmarkANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		901F953D24DEF9CE0087CF57 /* MLKitANE_LIB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 901F955824DEF9CE0087CF57 /* Build configuration list for PBXNativeTarget "MLKitANE_LIB" */;
+			buildPhases = (
+				901F953E24DEF9CE0087CF57 /* Sources */,
+				901F954824DEF9CE0087CF57 /* Frameworks */,
+				901F955124DEF9CE0087CF57 /* Headers */,
+				901F955624DEF9CE0087CF57 /* ShellScript */,
+				901F955724DEF9CE0087CF57 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MLKitANE_LIB;
+			productName = HelloWorldANE_LIB;
+			productReference = 901F955B24DEF9CE0087CF57 /* libMLKitANE_LIB.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		90658A6721162EF9003197A5 /* ModelInterpreterANE_LIB */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90658A8621162EF9003197A5 /* Build configuration list for PBXNativeTarget "ModelInterpreterANE_LIB" */;
@@ -2673,9 +2751,9 @@
 			productReference = 90658A8921162EF9003197A5 /* libModelInterpreterANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		906A67EB2114EFB000848218 /* VisionTextANE_LIB */ = {
+		906A67EB2114EFB000848218 /* TextANE_LIB */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 906A680A2114EFB000848218 /* Build configuration list for PBXNativeTarget "VisionTextANE_LIB" */;
+			buildConfigurationList = 906A680A2114EFB000848218 /* Build configuration list for PBXNativeTarget "TextANE_LIB" */;
 			buildPhases = (
 				906A67EC2114EFB000848218 /* Sources */,
 				906A67F72114EFB000848218 /* Frameworks */,
@@ -2687,11 +2765,11 @@
 			);
 			dependencies = (
 			);
-			name = VisionTextANE_LIB;
+			name = TextANE_LIB;
 			packageProductDependencies = (
 			);
 			productName = HelloWorldANE_LIB;
-			productReference = 906A680D2114EFB000848218 /* libVisionTextANE_LIB.a */;
+			productReference = 906A680D2114EFB000848218 /* libTextANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		9072AE762460BCF200F242D3 /* OneSignalANE_LIB */ = {
@@ -2710,7 +2788,6 @@
 			);
 			name = OneSignalANE_LIB;
 			packageProductDependencies = (
-				9072AEAA2461FA2500F242D3 /* SwiftyJSON */,
 			);
 			productName = HelloWorldANE_LIB;
 			productReference = 9072AE922460BCF200F242D3 /* libOneSignalANE_LIB.a */;
@@ -2754,9 +2831,9 @@
 			productReference = 909ED0DF214EE7070059EB62 /* libCrashlyticsANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		90E495DA222A8EA200CF3B24 /* NaturalLanguageANE_LIB */ = {
+		90E495DA222A8EA200CF3B24 /* LanguageIdentificationANE_LIB */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 90E495FE222A8EA200CF3B24 /* Build configuration list for PBXNativeTarget "NaturalLanguageANE_LIB" */;
+			buildConfigurationList = 90E495FE222A8EA200CF3B24 /* Build configuration list for PBXNativeTarget "LanguageIdentificationANE_LIB" */;
 			buildPhases = (
 				90E495DB222A8EA200CF3B24 /* Sources */,
 				90E495EC222A8EA200CF3B24 /* Frameworks */,
@@ -2768,9 +2845,9 @@
 			);
 			dependencies = (
 			);
-			name = NaturalLanguageANE_LIB;
+			name = LanguageIdentificationANE_LIB;
 			productName = HelloWorldANE_LIB;
-			productReference = 90E49601222A8EA200CF3B24 /* libNaturalLanguageANE_LIB.a */;
+			productReference = 90E49601222A8EA200CF3B24 /* libLanguageIdentificationANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		90EF02F82154216000C91063 /* VisionCloudDocumentANE_LIB */ = {
@@ -2792,9 +2869,9 @@
 			productReference = 90EF031F2154216000C91063 /* libVisionCloudDocumentANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		CE2C3F3E20F3F27200B9E210 /* VisionFaceANE_LIB */ = {
+		CE2C3F3E20F3F27200B9E210 /* FaceANE_LIB */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE2C3F6520F3F27200B9E210 /* Build configuration list for PBXNativeTarget "VisionFaceANE_LIB" */;
+			buildConfigurationList = CE2C3F6520F3F27200B9E210 /* Build configuration list for PBXNativeTarget "FaceANE_LIB" */;
 			buildPhases = (
 				CE2C3F3F20F3F27200B9E210 /* Sources */,
 				CE2C3F5320F3F27200B9E210 /* Frameworks */,
@@ -2806,9 +2883,9 @@
 			);
 			dependencies = (
 			);
-			name = VisionFaceANE_LIB;
+			name = FaceANE_LIB;
 			productName = HelloWorldANE_LIB;
-			productReference = CE2C3F6820F3F27200B9E210 /* libVisionFaceANE_LIB.a */;
+			productReference = CE2C3F6820F3F27200B9E210 /* libFaceANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		CE5E6AFC20F1787D001398C5 /* VisionANE_LIB */ = {
@@ -2849,9 +2926,9 @@
 			productReference = CE62B36320D0618E002837B7 /* libGoogleSignInANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		CE6E035C20EEC828008D6CE8 /* VisionBarcodeANE_LIB */ = {
+		CE6E035C20EEC828008D6CE8 /* BarcodeANE_LIB */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE6E037420EEC828008D6CE8 /* Build configuration list for PBXNativeTarget "VisionBarcodeANE_LIB" */;
+			buildConfigurationList = CE6E037420EEC828008D6CE8 /* Build configuration list for PBXNativeTarget "BarcodeANE_LIB" */;
 			buildPhases = (
 				CE6E035D20EEC828008D6CE8 /* Sources */,
 				CE6E036320EEC828008D6CE8 /* Frameworks */,
@@ -2863,9 +2940,9 @@
 			);
 			dependencies = (
 			);
-			name = VisionBarcodeANE_LIB;
+			name = BarcodeANE_LIB;
 			productName = HelloWorldANE_LIB;
-			productReference = CE6E037720EEC828008D6CE8 /* libVisionBarcodeANE_LIB.a */;
+			productReference = CE6E037720EEC828008D6CE8 /* libBarcodeANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		CE87F4741FB259DB005CF7DF /* FirebaseANE_LIB */ = {
@@ -2942,6 +3019,9 @@
 			dependencies = (
 			);
 			name = FirestoreANE_LIB;
+			packageProductDependencies = (
+				901F956B24DEFE050087CF57 /* SwiftyJSON */,
+			);
 			productName = HelloWorldANE_LIB;
 			productReference = CEB57299208CF73F00CF6B1B /* libFirestoreANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
@@ -2961,6 +3041,9 @@
 			dependencies = (
 			);
 			name = AuthANE_LIB;
+			packageProductDependencies = (
+				901F956D24DEFE1B0087CF57 /* SwiftyJSON */,
+			);
 			productName = HelloWorldANE_LIB;
 			productReference = CEBCF7B62095F9160028601B /* libAuthANE_LIB.a */;
 			productType = "com.apple.product-type.library.static";
@@ -3067,7 +3150,7 @@
 			);
 			mainGroup = CE87F45C1FB259C9005CF7DF;
 			packageReferences = (
-				9072AEA92461FA2500F242D3 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				901F956A24DEFE050087CF57 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = CE87F4661FB259C9005CF7DF /* Products */;
 			projectDirPath = "";
@@ -3085,17 +3168,18 @@
 				909ED0C4214EE7070059EB62 /* CrashlyticsANE_LIB */,
 				CE8BC49A20B1C890009164ED /* DynamicLinksANE_LIB */,
 				CE62B34920D0618E002837B7 /* GoogleSignInANE_LIB */,
-				90E495DA222A8EA200CF3B24 /* NaturalLanguageANE_LIB */,
-				CE6E035C20EEC828008D6CE8 /* VisionBarcodeANE_LIB */,
+				90E495DA222A8EA200CF3B24 /* LanguageIdentificationANE_LIB */,
+				CE6E035C20EEC828008D6CE8 /* BarcodeANE_LIB */,
 				CE5E6AFC20F1787D001398C5 /* VisionANE_LIB */,
-				CE2C3F3E20F3F27200B9E210 /* VisionFaceANE_LIB */,
-				906A67EB2114EFB000848218 /* VisionTextANE_LIB */,
+				CE2C3F3E20F3F27200B9E210 /* FaceANE_LIB */,
+				906A67EB2114EFB000848218 /* TextANE_LIB */,
 				909587B22115A65300AD59D5 /* VisionCloudTextANE_LIB */,
-				90160D982115C60B0009A815 /* VisionLabelANE_LIB */,
+				90160D982115C60B0009A815 /* LabelANE_LIB */,
 				90160DD72115CCA30009A815 /* VisionCloudLabelANE_LIB */,
 				90160E132115D3E60009A815 /* VisionLandmarkANE_LIB */,
 				90658A6721162EF9003197A5 /* ModelInterpreterANE_LIB */,
 				90EF02F82154216000C91063 /* VisionCloudDocumentANE_LIB */,
+				901F953D24DEF9CE0087CF57 /* MLKitANE_LIB */,
 			);
 		};
 /* End PBXProject section */
@@ -3178,6 +3262,32 @@
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "../../../native_extension/VisionLandmarkANE/ane/build_multi.sh\n";
+		};
+		901F955624DEF9CE0087CF57 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		901F955724DEF9CE0087CF57 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "../../../native_extension/MLKitANE/ane/build_multi.sh\n";
 		};
 		90658A8421162EF9003197A5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3756,6 +3866,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		901F953E24DEF9CE0087CF57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				901F955E24DEFA090087CF57 /* MLKitANE.m in Sources */,
+				901F956524DEFAE70087CF57 /* SwiftController.swift in Sources */,
+				901F956724DEFAF90087CF57 /* SwiftController+FreSwift.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		90658A6821162EF9003197A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4253,6 +4373,61 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "VisionLandmarkANE/Headers/VisionLandmarkANE-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "VisionLandmarkANE/VisionLandmarkANE-Swift.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		901F955924DEF9CE0087CF57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MLKitANE/Headers/MLKitANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "MLKitANE/MLKitANE-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		901F955A24DEF9CE0087CF57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MLKitANE/Headers/MLKitANE-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "MLKitANE/MLKitANE-Swift.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -5492,7 +5667,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		90160DB82115C60B0009A815 /* Build configuration list for PBXNativeTarget "VisionLabelANE_LIB" */ = {
+		90160DB82115C60B0009A815 /* Build configuration list for PBXNativeTarget "LabelANE_LIB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				90160DB92115C60B0009A815 /* Debug */,
@@ -5519,6 +5694,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		901F955824DEF9CE0087CF57 /* Build configuration list for PBXNativeTarget "MLKitANE_LIB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				901F955924DEF9CE0087CF57 /* Debug */,
+				901F955A24DEF9CE0087CF57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		90658A8621162EF9003197A5 /* Build configuration list for PBXNativeTarget "ModelInterpreterANE_LIB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -5528,7 +5712,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		906A680A2114EFB000848218 /* Build configuration list for PBXNativeTarget "VisionTextANE_LIB" */ = {
+		906A680A2114EFB000848218 /* Build configuration list for PBXNativeTarget "TextANE_LIB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				906A680B2114EFB000848218 /* Debug */,
@@ -5564,7 +5748,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		90E495FE222A8EA200CF3B24 /* Build configuration list for PBXNativeTarget "NaturalLanguageANE_LIB" */ = {
+		90E495FE222A8EA200CF3B24 /* Build configuration list for PBXNativeTarget "LanguageIdentificationANE_LIB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				90E495FF222A8EA200CF3B24 /* Debug */,
@@ -5582,7 +5766,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE2C3F6520F3F27200B9E210 /* Build configuration list for PBXNativeTarget "VisionFaceANE_LIB" */ = {
+		CE2C3F6520F3F27200B9E210 /* Build configuration list for PBXNativeTarget "FaceANE_LIB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE2C3F6620F3F27200B9E210 /* Debug */,
@@ -5609,7 +5793,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE6E037420EEC828008D6CE8 /* Build configuration list for PBXNativeTarget "VisionBarcodeANE_LIB" */ = {
+		CE6E037420EEC828008D6CE8 /* Build configuration list for PBXNativeTarget "BarcodeANE_LIB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE6E037520EEC828008D6CE8 /* Debug */,
@@ -5711,7 +5895,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9072AEA92461FA2500F242D3 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+		901F956A24DEFE050087CF57 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
 			requirement = {
@@ -5722,9 +5906,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9072AEAA2461FA2500F242D3 /* SwiftyJSON */ = {
+		901F956B24DEFE050087CF57 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9072AEA92461FA2500F242D3 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			package = 901F956A24DEFE050087CF57 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		901F956D24DEFE1B0087CF57 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 901F956A24DEFE050087CF57 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */

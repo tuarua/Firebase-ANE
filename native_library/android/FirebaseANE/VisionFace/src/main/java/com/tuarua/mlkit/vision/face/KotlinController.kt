@@ -25,7 +25,7 @@ import com.tuarua.mlkit.vision.face.events.FaceEvent
 import com.tuarua.mlkit.vision.face.extensions.FaceDetectorOptions
 import com.tuarua.mlkit.vision.face.extensions.toFREObject
 import com.tuarua.frekotlin.*
-import com.tuarua.tuarua.mlkit.vision.extensions.InputImage
+import com.tuarua.mlkit.vision.extensions.InputImage
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

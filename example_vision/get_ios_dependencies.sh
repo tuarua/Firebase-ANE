@@ -3,7 +3,7 @@
 rm -r ios_dependencies/device
 rm -r ios_dependencies/simulator
 
-AneVersion="0.11.0"
+AneVersion="0.13.0"
 FreSwiftVersion="4.4.0"
 
 wget https://github.com/tuarua/Swift-IOS-ANE/releases/download/${FreSwiftVersion}/ios_dependencies.zip
@@ -26,13 +26,8 @@ wget -O ../native_extension/ane/FirebaseANE.ane https://github.com/tuarua/Fireba
 wget -O ../native_extension/AnalyticsANE/ane/AnalyticsANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/AnalyticsANE.ane?raw=true
 
 wget -O ../native_extension/VisionANE/ane/VisionANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/VisionANE.ane?raw=true
-wget -O ../native_extension/VisionBarcodeANE/ane/VisionBarcodeANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/VisionBarcodeANE.ane?raw=true
-wget -O ../native_extension/VisionFaceANE/ane/VisionFaceANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/VisionFaceANE.ane?raw=true
-wget -O ../native_extension/VisionTextANE/ane/VisionTextANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/VisionTextANE.ane?raw=true
 wget -O ../native_extension/VisionCloudTextANE/ane/VisionCloudTextANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/VisionCloudTextANE.ane?raw=true
 wget -O ../native_extension/VisionCloudDocumentANE/ane/VisionCloudDocumentANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/VisionCloudDocumentANE.ane?raw=true
-wget -O ../native_extension/VisionLabelANE/ane/VisionLabelANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/VisionLabelANE.ane?raw=true
 wget -O ../native_extension/VisionCloudLabelANE/ane/VisionCloudLabelANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/VisionCloudLabelANE.ane?raw=true
 wget -O ../native_extension/VisionLandmarkANE/ane/VisionLandmarkANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/VisionLandmarkANE.ane?raw=true
-wget -O ../native_extension/NaturalLanguageANE/ane/NaturalLanguageANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/NaturalLanguageANE.ane?raw=true
 wget -O ../native_extension/ModelInterpreterANE/ane/ModelInterpreterANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/${AneVersion}/ModelInterpreterANE.ane?raw=true

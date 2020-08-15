@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Tua Rua Ltd.
+ * Copyright 2020 Tua Rua Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ import com.google.firebase.ml.vision.text.FirebaseVisionText
 import com.tuarua.frekotlin.*
 
 fun FirebaseVisionText.toFREObject(): FREObject? {
-    val ret = FREObject("com.tuarua.firebase.ml.vision.text.Text")
+    val ret = FREObject("com.tuarua.firebase.ml.vision.text.CloudText")
     ret["text"] = text
     ret["blocks"] = textBlocks
     return ret

@@ -14,19 +14,7 @@
             <entry library-name="VisionANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="VisionBarcodeANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="VisionFaceANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="VisionTextANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="VisionCloudTextANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="VisionLabelANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="VisionCloudLabelANE" library-level="project">
@@ -38,17 +26,11 @@
             <entry library-name="VisionCloudDocumentANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="barcodeAssets" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="NaturalLanguageANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="ModelInterpreterANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="AIRSDK_32" />
+          <sdk name="AIRSDK_33.1.1.217" />
         </dependencies>
         <compiler-options>
           <option name="additionalOptions" value="-advanced-telemetry -swf-version=42" />
@@ -80,25 +62,13 @@
             <entry library-name="VisionANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="VisionBarcodeANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="VisionFaceANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="AnalyticsANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="org.greenrobot.eventbus-3.0.0" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="VisionTextANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="VisionCloudTextANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="VisionLabelANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="VisionCloudLabelANE" library-level="project">
@@ -110,12 +80,6 @@
             <entry library-name="VisionCloudDocumentANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="barcodeAssets" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="NaturalLanguageANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="ModelInterpreterANE" library-level="project">
               <dependency linkage="Merged" />
             </entry>
@@ -125,37 +89,7 @@
             <entry library-name="com.google.code.gson.gson-2.8.6" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="com.google.android.gms.play-services-base-17.1.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-ml-vision-image-label-model-19.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-ml-vision-face-model-19.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-ml-vision-24.0.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-ml-natural-language-22.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-ml-model-interpreter-22.0.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="RemoteConfigANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-ml-vision-barcode-model-16.0.2" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-analytics-17.3.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-config-19.1.3" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-iid-20.1.5" library-level="project">
               <dependency linkage="Merged" />
             </entry>
             <entry library-name="com.tuarua.frekotlin-1.10.0" library-level="project">
@@ -164,8 +98,29 @@
             <entry library-name="org.jetbrains.kotlinx.kotlinx-coroutines-android-1.3.5" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-name="com.google.firebase.firebase-analytics-17.4.4" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-iid-20.2.3" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-config-19.2.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-ml-vision-24.0.3" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.firebase.firebase-ml-model-interpreter-22.0.3" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.android.gms.play-services-base-17.1.0" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="com.google.android.gms.play-services-measurement-17.4.4" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
-          <sdk name="AIRSDK_33" />
+          <sdk name="AIRSDK_33.1.1.217" />
         </dependencies>
         <compiler-options>
           <option name="additionalOptions" value="-advanced-telemetry" />
@@ -194,7 +149,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="AIRSDK_32&#9;AIRSDK_33" jdkType="__CompositeFlexSdk__" />
+    <orderEntry type="jdk" jdkName="AIRSDK_33.1.1.217" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="starling" level="project" />
     <orderEntry type="library" exported="" name="FirebaseANE" level="project" />
@@ -258,5 +213,23 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-iid-20.1.5" level="project" />
     <orderEntry type="library" exported="" name="com.tuarua.frekotlin-1.10.0" level="project" />
     <orderEntry type="library" exported="" name="org.jetbrains.kotlinx.kotlinx-coroutines-android-1.3.5" level="project" />
+    <orderEntry type="library" exported="" name="MLKitANE" level="project" />
+    <orderEntry type="library" exported="" name="LanguageIdentificationANE" level="project" />
+    <orderEntry type="library" exported="" name="BarcodeANE" level="project" />
+    <orderEntry type="library" exported="" name="FaceANE" level="project" />
+    <orderEntry type="library" exported="" name="TextANE" level="project" />
+    <orderEntry type="library" exported="" name="LabelANE" level="project" />
+    <orderEntry type="library" exported="" name="com.google.mlkit.common-16.1.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.mlkit.face-detection-16.0.1" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-analytics-17.4.4" level="project" />
+    <orderEntry type="library" exported="" name="com.google.android.gms.play-services-base-17.2.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-iid-20.2.3" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-config-19.2.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.mlkit.barcode-scanning-16.0.2" level="project" />
+    <orderEntry type="library" exported="" name="com.google.mlkit.language-id-16.1.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-ml-vision-24.0.3" level="project" />
+    <orderEntry type="library" exported="" name="com.google.firebase.firebase-ml-model-interpreter-22.0.3" level="project" />
+    <orderEntry type="library" exported="" name="com.google.mlkit.image-labeling-16.2.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.android.gms.play-services-measurement-17.4.4" level="project" />
   </component>
 </module>
