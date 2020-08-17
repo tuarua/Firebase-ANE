@@ -8,100 +8,10 @@
             <entry library-name="starling" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="FirebaseANE" library-level="project">
+            <entry library-name="android_dependencies" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="AnalyticsANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="FirestoreANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="StorageANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="AuthANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="org.greenrobot.eventbus-3.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="MessagingANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="DynamicLinksANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="GoogleSignInANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="CrashlyticsANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="RemoteConfigANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="PerformanceANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="androidx.legacy.legacy-support-v4-1.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.code.gson.gson-2.8.6" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.tuarua.frekotlin-1.10.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-dynamic-links-19.1.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-storage-19.1.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.guava.guava-28.1-android" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="OneSignalANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="androidx.browser.browser-1.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="androidx.cardview.cardview-1.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-crashlytics-17.1.1" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-perf-19.0.8" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-iid-20.2.3" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-messaging-20.2.3" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-config-19.2.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.android.gms.play-services-measurement-17.4.4" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.android.gms.play-services-auth-18.1.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-analytics-17.4.4" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-auth-19.3.2" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.android.gms.play-services-base-17.1.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.squareup.okhttp3.okhttp-3.12.1" library-level="project">
+            <entry library-name="extensions" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -133,41 +43,11 @@
             <entry library-name="starling" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="FirebaseANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="AnalyticsANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="FirestoreANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="StorageANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="RemoteConfigANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="PerformanceANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="AuthANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="MessagingANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="DynamicLinksANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="GoogleSignInANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="CrashlyticsANE" library-level="project">
+            <entry library-name="extensions" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="AIRSDK_33.1.1.190" />
+          <sdk name="AIRSDK_33.1.1.217" />
         </dependencies>
         <compiler-options>
           <map>
@@ -205,41 +85,11 @@
             <entry library-name="starling" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="FirebaseANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="AnalyticsANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="FirestoreANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="StorageANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="RemoteConfigANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="PerformanceANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="AuthANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="MessagingANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="DynamicLinksANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="GoogleSignInANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="CrashlyticsANE" library-level="project">
+            <entry library-name="extensions" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="AIRSDK_33.1.1.190" />
+          <sdk name="AIRSDK_33.1.1.217" />
         </dependencies>
         <compiler-options>
           <map>
@@ -278,7 +128,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="AIRSDK_33.1.1.217&#9;AIRSDK_33.1.1.190" jdkType="__CompositeFlexSdk__" />
+    <orderEntry type="jdk" jdkName="AIRSDK_33.1.1.217" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="starling" level="project" />
     <orderEntry type="library" exported="" name="ZipANE" level="project" />
@@ -408,5 +258,7 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-analytics-17.4.4" level="project" />
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-auth-19.3.2" level="project" />
     <orderEntry type="library" exported="" name="com.squareup.okhttp3.okhttp-3.12.1" level="project" />
+    <orderEntry type="library" exported="" name="android_dependencies" level="project" />
+    <orderEntry type="library" exported="" name="extensions" level="project" />
   </component>
 </module>
