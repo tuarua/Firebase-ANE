@@ -8,25 +8,7 @@
             <entry library-name="starling" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="FirebaseANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="VisionANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="VisionCloudTextANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="VisionCloudLabelANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="VisionLandmarkANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="VisionCloudDocumentANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="ModelInterpreterANE" library-level="project">
+            <entry library-name="extensions" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -56,67 +38,10 @@
             <entry library-name="starling" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="FirebaseANE" library-level="project">
+            <entry library-name="android_dependencies" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="VisionANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="AnalyticsANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="org.greenrobot.eventbus-3.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="VisionCloudTextANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="VisionCloudLabelANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="VisionLandmarkANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="VisionCloudDocumentANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="ModelInterpreterANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="androidx.legacy.legacy-support-v4-1.0.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.code.gson.gson-2.8.6" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="RemoteConfigANE" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.tuarua.frekotlin-1.10.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="org.jetbrains.kotlinx.kotlinx-coroutines-android-1.3.5" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-analytics-17.4.4" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-iid-20.2.3" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-config-19.2.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-ml-vision-24.0.3" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.firebase.firebase-ml-model-interpreter-22.0.3" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.android.gms.play-services-base-17.1.0" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-name="com.google.android.gms.play-services-measurement-17.4.4" library-level="project">
+            <entry library-name="extensions" library-level="project">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -231,5 +156,7 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-ml-model-interpreter-22.0.3" level="project" />
     <orderEntry type="library" exported="" name="com.google.mlkit.image-labeling-16.2.0" level="project" />
     <orderEntry type="library" exported="" name="com.google.android.gms.play-services-measurement-17.4.4" level="project" />
+    <orderEntry type="library" exported="" name="extensions" level="project" />
+    <orderEntry type="library" exported="" name="android_dependencies" level="project" />
   </component>
 </module>
