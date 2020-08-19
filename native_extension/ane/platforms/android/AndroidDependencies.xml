@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <dependency name="frekotlin">
+        <url>
+            https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/kotlin/com.tuarua.frekotlin-1.40.0.ane?raw=true
+        </url>
+    </dependency>
+</dependencies>
