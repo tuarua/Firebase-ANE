@@ -69,6 +69,8 @@ echo "Building ANE."
 -platform iPhone-ARM  -C "$pathtome/platforms/ios/device" "library.swf" "Frameworks" "lib$PROJECTNAME.a" \
 -platformoptions "$pathtome/platforms/ios/platform.xml" \
 -platform default -C "$pathtome/platforms/default" "library.swf" \
+-C "$pathtome/platforms/android" "AndroidManifest.xml" \
+-C "$pathtome/platforms/ios" "Entitlements.entitlements" "InfoAdditions.plist" \
 -platform Android-x86 \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.mlkit.nl.${PROJECTNAME}-res/. \
@@ -81,6 +83,8 @@ com.tuarua.mlkit.nl.${PROJECTNAME}-res/. \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.mlkit.nl.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
+
+#cp "$pathtome/$PROJECTNAME.ane" "$pathtome/../../../example_vision/extensions/$PROJECTNAME.ane"
 
 echo "Packaging docs into ANE."
 zip "$pathtome/$PROJECTNAME.ane" -u docs/*

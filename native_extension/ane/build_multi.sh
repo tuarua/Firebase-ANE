@@ -135,13 +135,15 @@ com.tuarua.firebase.${PROJECTNAME}-res/. \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.firebase.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
--platform default -C "$pathtome/platforms/default" "library.swf"
+-platform default -C "$pathtome/platforms/default" "library.swf" \
+-C "$pathtome/platforms/android" "AndroidManifest.xml" \
+-C "$pathtome/platforms/ios" "Entitlements.entitlements" "InfoAdditions.plist"
 
 echo "Packaging docs into ANE."
 zip "$pathtome/$PROJECTNAME.ane" -u docs/*
 
-#echo "Packaging Google Services values into ANE."
-#zip "$pathtome/$PROJECTNAME.ane" META-INF/ANE/Android-ARM/com.tuarua.firebase.FirebaseANE-res/values/values.xml
+cp "$pathtome/$PROJECTNAME.ane" "$pathtome/../../example/extensions/$PROJECTNAME.ane"
+cp "$pathtome/$PROJECTNAME.ane" "$pathtome/../../example_vision/extensions/$PROJECTNAME.ane"
 
 #remove the frameworks from sim and device, as not needed any more
 rm "$pathtome/platforms/android/classes.jar"

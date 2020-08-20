@@ -53,7 +53,7 @@
                 <string>2</string>
             </array>
             <key>MinimumOSVersion</key>
-            <string>9.0</string>
+            <string>12.2</string>
 		    <!-- For Performance -->
 		    <key>FirebaseAutomaticScreenReportingEnabled</key>
 		    <false/>

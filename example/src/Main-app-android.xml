@@ -333,13 +333,13 @@
         <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
         <extensionID>com.tuarua.firebase.CrashlyticsANE</extensionID>
 
-        <extensionID>com.google.firebase.firebase-analytics</extensionID>
+        <extensionID>com.google.firebase.firebase-analytics-ktx</extensionID>
         <extensionID>com.google.firebase.firebase-iid</extensionID>
-        <extensionID>com.google.firebase.firebase-firestore</extensionID>
-        <extensionID>com.google.firebase.firebase-storage</extensionID>
-        <extensionID>com.google.firebase.firebase-config</extensionID>
-        <extensionID>com.google.firebase.firebase-auth</extensionID>
-        <extensionID>com.google.firebase.firebase-dynamic-links</extensionID>
+        <extensionID>com.google.firebase.firebase-firestore-ktx</extensionID>
+        <extensionID>com.google.firebase.firebase-storage-ktx</extensionID>
+        <extensionID>com.google.firebase.firebase-config-ktx</extensionID>
+        <extensionID>com.google.firebase.firebase-auth-ktx</extensionID>
+        <extensionID>com.google.firebase.firebase-dynamic-links-ktx</extensionID>
         <extensionID>com.google.firebase.firebase-messaging</extensionID>
         <extensionID>com.onesignal.OneSignal</extensionID>
         <extensionID>androidx.cardview.cardview</extensionID>

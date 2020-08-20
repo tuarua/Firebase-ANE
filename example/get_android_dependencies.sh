@@ -1,18 +1,18 @@
 #!/bin/sh
 
 AneVersion="0.13.0"
-FreKotlinVersion="1.10.0"
+FreKotlinVersion="1.40.0"
 PlayerServicesAuthVersion="18.1.0"
 PlayerServicesBaseVersion="17.1.0"
-PlayerServicesMeasurementVersion="17.4.4"
+PlayerServicesMeasurementVersion="17.5.0"
 SupportV4Version="1.0.0"
-AnalyticsVersion="17.4.4"
+AnalyticsVersion="17.5.0"
 DynamicLinksVersion="19.1.0"
 IidVersion="20.2.3"
 StorageVersion="19.1.1"
 PerfVersion="19.0.8"
 FirestoreVersion="21.5.0"
-MessagingVersion="20.2.3"
+MessagingVersion="20.2.4"
 ConfigVersion="19.2.0"
 AuthVersion="19.3.2"
 EventBusVersion="3.0.0"
@@ -48,13 +48,13 @@ wget -O android_dependencies/com.google.android.gms.play-services-auth-$PlayerSe
 wget -O android_dependencies/com.google.android.gms.play-services-measurement-$PlayerServicesMeasurementVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.google.android.gms.play-services-measurement-$PlayerServicesMeasurementVersion.ane?raw=true
 
 wget -O android_dependencies/com.google.firebase.firebase-crashlytics-$CrashlyticsVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-crashlytics-$CrashlyticsVersion.ane?raw=true
-wget -O android_dependencies/com.google.firebase.firebase-analytics-$AnalyticsVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-analytics-$AnalyticsVersion.ane?raw=true
-wget -O android_dependencies/com.google.firebase.firebase-auth-$AuthVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-auth-$AuthVersion.ane?raw=true
-wget -O android_dependencies/com.google.firebase.firebase-config-$ConfigVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-config-$ConfigVersion.ane?raw=true
-wget -O android_dependencies/com.google.firebase.firebase-dynamic-links-$DynamicLinksVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-dynamic-links-$DynamicLinksVersion.ane?raw=true
-wget -O android_dependencies/com.google.firebase.firebase-firestore-$FirestoreVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-firestore-$FirestoreVersion.ane?raw=true
+wget -O android_dependencies/com.google.firebase.firebase-analytics-ktx-$AnalyticsVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-analytics-ktx-$AnalyticsVersion.ane?raw=true
+wget -O android_dependencies/com.google.firebase.firebase-auth-ktx-$AuthVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-auth-ktx-$AuthVersion.ane?raw=true
+wget -O android_dependencies/com.google.firebase.firebase-config-ktx-$ConfigVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-config-ktx-$ConfigVersion.ane?raw=true
+wget -O android_dependencies/com.google.firebase.firebase-dynamic-ktx-links-$DynamicLinksVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-dynamic-links-ktx-$DynamicLinksVersion.ane?raw=true
+wget -O android_dependencies/com.google.firebase.firebase-firestore-ktx-$FirestoreVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-firestore-ktx-$FirestoreVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-iid-$IidVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-iid-$IidVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-messaging-$MessagingVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-messaging-$MessagingVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-perf-$PerfVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-perf-$PerfVersion.ane?raw=true
-wget -O android_dependencies/com.google.firebase.firebase-storage-$StorageVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-storage-$StorageVersion.ane?raw=true
+wget -O android_dependencies/com.google.firebase.firebase-storage-ktx-$StorageVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-storage-ktx-$StorageVersion.ane?raw=true
 wget -O android_dependencies/com.onesignal.OneSignal-$OneSignalVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.onesignal.OneSignal-$OneSignalVersion.ane?raw=true

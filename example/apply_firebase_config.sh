@@ -16,7 +16,7 @@ function pack {
     filePathLen=${#file}
     subLen=filePathLen-pathLen-1
     subStr=${file:pathLen+1:subLen}
-    zip "$pathtome/FirebaseANE.ane" "$subStr"
+    zip "$pathtome/extensions/FirebaseANE.ane" "$subStr"
     done
 }
 
