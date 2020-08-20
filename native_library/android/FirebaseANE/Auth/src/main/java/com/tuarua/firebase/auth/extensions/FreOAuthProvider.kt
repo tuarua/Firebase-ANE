@@ -19,13 +19,15 @@ package com.tuarua.firebase.auth.extensions
 
 import com.adobe.fre.FREObject
 import com.google.firebase.auth.OAuthProvider
+import com.tuarua.frekotlin.List
 import com.tuarua.frekotlin.Map
+import com.tuarua.frekotlin.String
 import com.tuarua.frekotlin.get
 
 fun OAuthProvider(freObject: FREObject?): OAuthProvider? {
     val rv = freObject ?: return null
-    val providerId = com.tuarua.frekotlin.String(rv["providerId"]) ?: return null
-    val scopes = com.tuarua.frekotlin.List<String>(rv["scopes"])
+    val providerId = String(rv["providerId"]) ?: return null
+    val scopes = List<String>(rv["scopes"])
     val customParameters: Map<String, String>? = Map(rv["customParameters"])
 
     val builder = OAuthProvider.newBuilder(providerId)

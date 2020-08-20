@@ -5,7 +5,7 @@
         <option>-ios_version_min 9.0</option>
         <option>-w</option>
         <option>-ObjC</option>
-        <option>-framework AddressBook</option>
+        <option>-framework Contacts</option>
         <option>-framework StoreKit</option>
         <option>-rpath @executable_path/Frameworks</option>
         <option>-rpath /usr/lib/swift</option>

@@ -68,8 +68,8 @@ mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.tuarua.fir
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/simulator/lib$PROJECTNAME.a"
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/device/lib$PROJECTNAME.a"
 
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/Crashlytics.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/Crashlytics.framework" "$pathtome/platforms/ios/device/Frameworks"
+cp -R -L "$pathtome/../../../firebase_frameworks/simulator/FirebaseCrashlytics.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseCrashlytics.framework" "$pathtome/platforms/ios/device/Frameworks"
 
 #Run the build command.
 echo "Building ANE."

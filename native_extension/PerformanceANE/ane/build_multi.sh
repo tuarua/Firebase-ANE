@@ -68,14 +68,12 @@ mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.tuarua.fir
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/simulator/lib$PROJECTNAME.a"
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/device/lib$PROJECTNAME.a"
 
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/FirebasePerformance.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebasePerformance.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/GTMSessionFetcher.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/GTMSessionFetcher.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/Protobuf.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/Protobuf.framework" "$pathtome/platforms/ios/device/Frameworks"
+arr=( "FirebasePerformance" "GTMSessionFetcher" )
+for i in "${arr[@]}"
+do
+    cp -R -L "$pathtome/../../../firebase_frameworks/simulator/$i.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+    cp -R -L "$pathtome/../../../firebase_frameworks/device/$i.framework" "$pathtome/platforms/ios/device/Frameworks"
+done
 
 #Run the build command.
 echo "Building ANE."

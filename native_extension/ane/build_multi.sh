@@ -78,41 +78,12 @@ cp -R -L "$pathtome/../../native_library/apple/$PROJECTNAME/Build/Products/Relea
 cp -R -L "$pathtome/../../example/ios_dependencies/simulator/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../example/ios_dependencies/device/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/device/Frameworks"
 
-cp -R -L "$pathtome/../../firebase_frameworks/simulator/Firebase.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../firebase_frameworks/device/Firebase.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../firebase_frameworks/simulator/FirebaseCore.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../firebase_frameworks/device/FirebaseCore.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../firebase_frameworks/simulator/FirebaseCoreDiagnostics.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../firebase_frameworks/device/FirebaseCoreDiagnostics.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../firebase_frameworks/simulator/nanopb.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../firebase_frameworks/device/nanopb.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../firebase_frameworks/simulator/FirebaseCore.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../firebase_frameworks/device/FirebaseCore.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../firebase_frameworks/simulator/FirebaseInstanceID.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../firebase_frameworks/device/FirebaseInstanceID.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../firebase_frameworks/simulator/GoogleAppMeasurement.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../firebase_frameworks/device/GoogleAppMeasurement.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../firebase_frameworks/simulator/GoogleToolboxForMac.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../firebase_frameworks/device/GoogleToolboxForMac.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../firebase_frameworks/simulator/GoogleUtilities.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../firebase_frameworks/device/GoogleUtilities.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../firebase_frameworks/simulator/GoogleDataTransport.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../firebase_frameworks/device/GoogleDataTransport.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../firebase_frameworks/simulator/GoogleDataTransportCCTSupport.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../firebase_frameworks/device/GoogleDataTransportCCTSupport.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../firebase_frameworks/simulator/Fabric.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../firebase_frameworks/device/Fabric.framework" "$pathtome/platforms/ios/device/Frameworks"
+arr=( "Firebase" "FirebaseCore" "FirebaseCoreDiagnostics" "GoogleDataTransport" "GoogleToolboxForMac" "GoogleUtilities" "nanopb" "FirebaseInstallations" "PromisesObjC" "FirebaseInstanceID" "GoogleAppMeasurement" "Protobuf" )
+for i in "${arr[@]}"
+do
+    cp -R -L "$pathtome/../../firebase_frameworks/simulator/$i.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+    cp -R -L "$pathtome/../../firebase_frameworks/device/$i.framework" "$pathtome/platforms/ios/device/Frameworks"
+done
 
 #Run the build command.
 echo "Building ANE."

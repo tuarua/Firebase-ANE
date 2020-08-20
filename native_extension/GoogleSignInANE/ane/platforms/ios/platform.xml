@@ -18,8 +18,8 @@
         <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
         <packagedDependency>Frameworks/GTMSessionFetcher.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleSignIn.framework</packagedDependency>
-        <packagedDependency>Frameworks/GTMOAuth2.framework</packagedDependency>
-        <packagedDependency>Frameworks/GoogleAPIClientForREST.framework</packagedDependency> 
+        <packagedDependency>Frameworks/AppAuth.framework</packagedDependency>
+        <packagedDependency>Frameworks/GTMAppAuth.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

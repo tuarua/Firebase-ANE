@@ -12,7 +12,6 @@
     <packagedDependencies>
         <packagedDependency>Frameworks/FirebaseABTesting.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseRemoteConfig.framework</packagedDependency>
-        <packagedDependency>Frameworks/Protobuf.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

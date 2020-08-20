@@ -47,7 +47,7 @@ public final class GoogleSignIn extends EventDispatcher {
         if (ret is ANEError) throw ret as ANEError;
     }
 
-    /** Attempts to sign in a previously authenticated user without interaction. */
+    /** Attempts to sign in a previously authenticated user without interaction. Android only */
     public function signInSilently():void {
         GoogleSignInANEContext.validate();
         var ret:* = GoogleSignInANEContext.context.call("signInSilently");

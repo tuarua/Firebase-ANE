@@ -71,17 +71,12 @@ cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Rel
 cp -R -L "$pathtome/../../../example/ios_dependencies/simulator/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../../example/ios_dependencies/device/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/device/Frameworks"
 
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/GoogleSignIn.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/GoogleSignIn.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/GTMOAuth2.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/GTMOAuth2.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/GoogleAPIClientForREST.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/GoogleAPIClientForREST.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/GTMSessionFetcher.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/GTMSessionFetcher.framework" "$pathtome/platforms/ios/device/Frameworks"
+arr=( "GoogleSignIn" "GTMSessionFetcher" "AppAuth" "GTMAppAuth" )
+for i in "${arr[@]}"
+do
+    cp -R -L "$pathtome/../../../firebase_frameworks/simulator/$i.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+    cp -R -L "$pathtome/../../../firebase_frameworks/device/$i.framework" "$pathtome/platforms/ios/device/Frameworks"
+done
 
 #Run the build command.
 echo "Building ANE."

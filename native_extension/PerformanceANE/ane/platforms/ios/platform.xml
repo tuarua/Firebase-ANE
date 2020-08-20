@@ -11,7 +11,6 @@
     
     <packagedDependencies>
         <packagedDependency>Frameworks/FirebasePerformance.framework</packagedDependency>
-        <packagedDependency>Frameworks/Protobuf.framework</packagedDependency>
         <packagedDependency>Frameworks/GTMSessionFetcher.framework</packagedDependency>
     </packagedDependencies>
     

@@ -19,15 +19,15 @@
         <packagedDependency>Frameworks/Firebase.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseCore.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseCoreDiagnostics.framework</packagedDependency>
-        <packagedDependency>Frameworks/nanopb.framework</packagedDependency>
-        <packagedDependency>Frameworks/FirebaseCore.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseInstanceID.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseInstallations.framework</packagedDependency>
+        <packagedDependency>Frameworks/nanopb.framework</packagedDependency>
+        <packagedDependency>Frameworks/Protobuf.framework</packagedDependency>
+        <packagedDependency>Frameworks/PromisesObjC.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleAppMeasurement.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleToolboxForMac.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleUtilities.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleDataTransport.framework</packagedDependency>
-        <packagedDependency>Frameworks/GoogleDataTransportCCTSupport.framework</packagedDependency>
-        <packagedDependency>Frameworks/Fabric.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

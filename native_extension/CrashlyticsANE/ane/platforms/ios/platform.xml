@@ -12,7 +12,7 @@
     </linkerOptions>
     
     <packagedDependencies>
-        <packagedDependency>Frameworks/Crashlytics.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseCrashlytics.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>
