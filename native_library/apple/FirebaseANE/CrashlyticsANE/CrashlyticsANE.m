@@ -30,28 +30,17 @@ SWIFT_DECL(TRFIRCSH)
 CONTEXT_INIT(TRFIRCSH) {
     SWIFT_INITS(TRFIRCSH)
     
-    /**************************************************************************/
-    /******* MAKE SURE TO ADD FUNCTIONS HERE THE SAME AS SWIFT CONTROLLER *****/
-    /**************************************************************************/
-    
     static FRENamedFunction extensionFunctions[] =
     {
          MAP_FUNCTION(TRFIRCSH, init)
         ,MAP_FUNCTION(TRFIRCSH, createGUID)
         ,MAP_FUNCTION(TRFIRCSH, crash)
         ,MAP_FUNCTION(TRFIRCSH, log)
-        ,MAP_FUNCTION(TRFIRCSH, logException)
-        ,MAP_FUNCTION(TRFIRCSH, setUserIdentifier)
-        ,MAP_FUNCTION(TRFIRCSH, setUserEmail)
-        ,MAP_FUNCTION(TRFIRCSH, setUserName)
-        ,MAP_FUNCTION(TRFIRCSH, setString)
-        ,MAP_FUNCTION(TRFIRCSH, setBool)
-        ,MAP_FUNCTION(TRFIRCSH, setDouble)
-        ,MAP_FUNCTION(TRFIRCSH, setInt)
+        ,MAP_FUNCTION(TRFIRCSH, recordException)
+        ,MAP_FUNCTION(TRFIRCSH, setUserId)
+        ,MAP_FUNCTION(TRFIRCSH, setCustomKey)
+        ,MAP_FUNCTION(TRFIRCSH, didCrashOnPreviousExecution)
     };
-    
-    /**************************************************************************/
-    /**************************************************************************/
     
     SET_FUNCTIONS
     

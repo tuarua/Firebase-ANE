@@ -23,15 +23,11 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)createGUID"] = createGUID
         functionsToSet["\(prefix)crash"] = crash
         functionsToSet["\(prefix)log"] = log
-        functionsToSet["\(prefix)logException"] = logException
-        functionsToSet["\(prefix)setUserIdentifier"] = setUserIdentifier
-        functionsToSet["\(prefix)setUserEmail"] = setUserEmail
-        functionsToSet["\(prefix)setUserName"] = setUserName
-        functionsToSet["\(prefix)setString"] = setString
-        functionsToSet["\(prefix)setBool"] = setBool
-        functionsToSet["\(prefix)setDouble"] = setDouble
-        functionsToSet["\(prefix)setInt"] = setInt
-        
+        functionsToSet["\(prefix)recordException"] = recordException
+        functionsToSet["\(prefix)setUserId"] = setUserId
+        functionsToSet["\(prefix)setCustomKey"] = setCustomKey
+        functionsToSet["\(prefix)didCrashOnPreviousExecution"] = didCrashOnPreviousExecution
+
         var arr: [String] = []
         for key in functionsToSet.keys {
             arr.append(key)
