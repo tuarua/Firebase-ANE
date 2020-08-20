@@ -59,6 +59,21 @@ class AuthController: FreSwiftController {
         })
     }
     
+    func signIn(provider: OAuthProvider, callbackId: String?) {
+        auth?.signIn(with: provider, uiDelegate: nil, completion: { (result, error) in
+            if callbackId == nil { return }
+            if let err = error as NSError? {
+                self.dispatchEvent(name: AuthEvent.SIGN_IN,
+                                   value: AuthEvent(callbackId: callbackId,
+                                                    data: result?.toDictionary(),
+                                                    error: err).toJSONString())
+            } else {
+                self.dispatchEvent(name: AuthEvent.SIGN_IN,
+                               value: AuthEvent(callbackId: callbackId).toJSONString())
+            }
+        })
+    }
+    
     func signInAnonymously(callbackId: String?) {
         auth?.signInAnonymously { _, error in
             if callbackId == nil { return }

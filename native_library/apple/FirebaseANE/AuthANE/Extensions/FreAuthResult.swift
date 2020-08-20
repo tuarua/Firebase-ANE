@@ -17,26 +17,11 @@ import FreSwift
 import Foundation
 import FirebaseAuth
 
-public extension User {
-    func toFREObject() -> FREObject? {
-        return FREObject.init(className: "com.tuarua.firebase.auth.FirebaseUser",
-                                  args: uid,
-                                  displayName,
-                                  email,
-                                  isAnonymous,
-                                  isEmailVerified,
-                                  photoURL?.absoluteString,
-                                  phoneNumber)
-    }
+public extension AuthDataResult {
     @objc func toDictionary() -> [String: Any] {
         var ret = [String: Any]()
-        ret["uid"] = uid
-        ret["displayName"] = displayName
-        ret["email"] = email
-        ret["isAnonymous"] = isAnonymous
-        ret["isEmailVerified"] = isEmailVerified
-        ret["photoUrl"] = photoURL?.absoluteString
-        ret["phoneNumber"] = phoneNumber
+        ret["user"] = user.toDictionary()
+        ret["additionalUserInfo"] = additionalUserInfo?.toDictionary()
         return ret
     }
 }

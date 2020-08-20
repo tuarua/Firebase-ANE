@@ -60,7 +60,7 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
     
     private func setUpCaptureSessionInput() {
-        var props: [String: Any] = Dictionary()
+        var props = [String: Any]()
         sessionQueue.async {
             guard let device = self.captureDevice(forPosition: .back) else { return }
             do {
@@ -86,7 +86,7 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
     
     private func setUpCaptureSessionOutput() {
-        var props: [String: Any] = Dictionary()
+        var props = [String: Any]()
         sessionQueue.async {
             self.captureSession.beginConfiguration()
             self.captureSession.sessionPreset = AVCaptureSession.Preset.medium
@@ -110,7 +110,7 @@ extension SwiftController: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
     
     private func setUpPreviewLayer(rootViewController: UIViewController) {
-        var props: [String: Any] = Dictionary()
+        var props = [String: Any]()
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         guard let videoPreviewLayer = videoPreviewLayer,
             let cameraView = cameraView else {

@@ -44,3 +44,4 @@ extension AuthCredential {
         return nil
     }
 }
+

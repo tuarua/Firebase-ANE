@@ -55,7 +55,7 @@ class FrameVisionProcessor(private val visionImageProcessor: VisionImageProcesso
     private inner class FrameProcessingRunnable : Runnable {
         private val dataLock = Object()    // synchronization use
 
-        internal var active = false
+        var active = false
             set(value) {
                 synchronized(dataLock) {
                     field = value
@@ -63,7 +63,7 @@ class FrameVisionProcessor(private val visionImageProcessor: VisionImageProcesso
                 }
             }
 
-        internal var data: ByteArray? = null
+        var data: ByteArray? = null
             set(value) {
                 synchronized(dataLock) {
                     field = value

@@ -19,11 +19,11 @@ import FreSwift
 
 extension SwiftController: FreSwiftMainController {
     @objc public func getFunctions(prefix: String) -> [String] {
-        
         functionsToSet["\(prefix)init"] = initController
         functionsToSet["\(prefix)createGUID"] = createGUID
         functionsToSet["\(prefix)createUserWithEmailAndPassword"] = createUserWithEmailAndPassword
-        functionsToSet["\(prefix)signIn"] = signIn
+        functionsToSet["\(prefix)signInWithCredential"] = signInWithCredential
+        functionsToSet["\(prefix)signInWithProvider"] = signInWithProvider
         functionsToSet["\(prefix)signInAnonymously"] = signInAnonymously
         functionsToSet["\(prefix)signInWithCustomToken"] = signInWithCustomToken
         functionsToSet["\(prefix)updateProfile"] = updateProfile

@@ -119,6 +119,9 @@
 		90236A68222A0FBF00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; platformFilter = ios; };
 		90236A69222A0FCB00C4CB68 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; platformFilter = ios; };
 		90236A6B222A19AC00C4CB68 /* BoringSSL-GRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90236A6A222A198F00C4CB68 /* BoringSSL-GRPC.framework */; platformFilter = ios; };
+		9023D43F24EEFBBA00CAFAAC /* FreOAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9023D43E24EEFBBA00CAFAAC /* FreOAuthProvider.swift */; };
+		9023D44124EEFC6200CAFAAC /* FreAuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9023D44024EEFC6200CAFAAC /* FreAuthResult.swift */; };
+		9023D44324EEFCFB00CAFAAC /* FreAdditionalUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9023D44224EEFCFB00CAFAAC /* FreAdditionalUserInfo.swift */; };
 		9033688B20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033688A20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift */; platformFilter = ios; };
 		9033689420FCBFE5001A3B24 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9033689320FCBFE5001A3B24 /* UIUtilities.swift */; platformFilter = ios; };
 		903EDD9223AAF1FA00960A23 /* FirestoreANE-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 903EDD9123AAF1FA00960A23 /* FirestoreANE-Swift.h */; platformFilter = ios; };
@@ -585,6 +588,9 @@
 		90207A572151C1610022B2C7 /* FreVisionTextRecognizedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionTextRecognizedLanguage.swift; sourceTree = "<group>"; };
 		90236A57222A0C4600C4CB68 /* FreVisionCloudImageLabelerOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreVisionCloudImageLabelerOptions.swift; sourceTree = "<group>"; };
 		90236A6A222A198F00C4CB68 /* BoringSSL-GRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "BoringSSL-GRPC.framework"; path = "Carthage/Build/iOS/BoringSSL-GRPC.framework"; sourceTree = "<group>"; };
+		9023D43E24EEFBBA00CAFAAC /* FreOAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreOAuthProvider.swift; sourceTree = "<group>"; };
+		9023D44024EEFC6200CAFAAC /* FreAuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreAuthResult.swift; sourceTree = "<group>"; };
+		9023D44224EEFCFB00CAFAAC /* FreAdditionalUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreAdditionalUserInfo.swift; sourceTree = "<group>"; };
 		9033688A20FCB202001A3B24 /* SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftControllerAVCaptureVideoDataOutputSampleBufferDelegate.swift; sourceTree = "<group>"; };
 		9033689320FCBFE5001A3B24 /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		903EDD9123AAF1FA00960A23 /* FirestoreANE-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FirestoreANE-Swift.h"; sourceTree = "<group>"; };
@@ -2212,6 +2218,9 @@
 			children = (
 				CEBCF7D22096586A0028601B /* FreUser.swift */,
 				CE62952A20A8DD2600EEF76E /* FreAuthCredential.swift */,
+				9023D43E24EEFBBA00CAFAAC /* FreOAuthProvider.swift */,
+				9023D44024EEFC6200CAFAAC /* FreAuthResult.swift */,
+				9023D44224EEFCFB00CAFAAC /* FreAdditionalUserInfo.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -4148,6 +4157,9 @@
 			files = (
 				CEBCF7D32096586A0028601B /* FreUser.swift in Sources */,
 				CEBCF7C62095FC250028601B /* UserController.swift in Sources */,
+				9023D44124EEFC6200CAFAAC /* FreAuthResult.swift in Sources */,
+				9023D44324EEFCFB00CAFAAC /* FreAdditionalUserInfo.swift in Sources */,
+				9023D43F24EEFBBA00CAFAAC /* FreOAuthProvider.swift in Sources */,
 				CEBCF7B82095F9820028601B /* AuthANE.m in Sources */,
 				CEBCF7BE2095F9C80028601B /* SwiftController.swift in Sources */,
 				CEBCF7C42095FC190028601B /* AuthController.swift in Sources */,

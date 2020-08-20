@@ -51,14 +51,25 @@ public class SwiftController: NSObject {
         
     }
     
-    func signIn(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+    func signInWithCredential(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
-            let credential: AuthCredential = AuthCredential.fromFREObject(argv[0])
+            let credential = AuthCredential.fromFREObject(argv[0])
             else {
                 return FreArgError().getError()
         }
         let callbackId = String(argv[1])
         authController?.signIn(credential: credential, callbackId: callbackId)
+        return nil
+    }
+    
+    func signInWithProvider(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard argc > 1,
+            let provider: OAuthProvider = OAuthProvider.fromFREObject(argv[0])
+            else {
+                return FreArgError().getError()
+        }
+        let callbackId = String(argv[1])
+        authController?.signIn(provider: provider, callbackId: callbackId)
         return nil
     }
     

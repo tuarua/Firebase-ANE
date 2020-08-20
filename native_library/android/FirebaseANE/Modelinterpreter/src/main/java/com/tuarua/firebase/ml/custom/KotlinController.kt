@@ -69,10 +69,10 @@ class KotlinController : FreKotlinMainController {
                     val labelProbArray = result.getOutput<Array<ByteArray>>(0)
 
                     val sortedLabels = PriorityQueue<AbstractMap.SimpleEntry<Int, Float>>(
-                            maxResults,
-                            Comparator<AbstractMap.SimpleEntry<Int, Float>> { o1, o2 ->
-                                o1.value.compareTo(o2.value)
-                            })
+                            maxResults
+                    ) { o1, o2 ->
+                        o1.value.compareTo(o2.value)
+                    }
                     for (i in 0 until numPossibilities) {
                         sortedLabels.add(AbstractMap.SimpleEntry(i, (labelProbArray[0][i] and 0xff.toByte()) / 255.0f))
                         if (sortedLabels.size > maxResults) {
