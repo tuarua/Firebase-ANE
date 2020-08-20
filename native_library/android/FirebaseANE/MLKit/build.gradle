@@ -34,6 +34,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'org.greenrobot:eventbus:3.0.0'
     implementation "com.google.code.gson:gson:$gson_version"
+    implementation "com.google.mlkit:barcode-scanning:16.0.2"
     implementation "com.google.mlkit:common:16.0.1"
     implementation "com.tuarua:FreKotlin:$frekotlin_version"
 }
