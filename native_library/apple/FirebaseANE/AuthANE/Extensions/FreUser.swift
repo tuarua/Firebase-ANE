@@ -40,3 +40,13 @@ public extension User {
         return ret
     }
 }
+
+/*
+ "uid" to uid,
+ "displayName" to displayName,
+ "email" to email,
+ "isAnonymous" to isAnonymous,
+ "isEmailVerified" to isEmailVerified,
+ "photoUrl" to photoUrl.toString(),
+ "phoneNumber" to phoneNumber
+ */

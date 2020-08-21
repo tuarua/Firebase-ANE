@@ -14,5 +14,5 @@ type_body_length:
  - 1000 # warning
 
 excluded:
-  - SwiftyJSON/
+  - FirebaseANE/SwiftyJSON/
   - Carthage/

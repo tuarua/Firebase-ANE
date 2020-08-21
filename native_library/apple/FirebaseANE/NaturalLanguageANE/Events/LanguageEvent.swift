@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class LanguageEvent: NSObject {
     public static let RECOGNIZED = "LanguageEvent.Recognized"

@@ -16,7 +16,6 @@
 
 import Foundation
 import FreSwift
-import SwiftyJSON
 import OneSignal
 
 public class SwiftController: NSObject, OSInAppMessageDelegate {

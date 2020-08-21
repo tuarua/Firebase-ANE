@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="Android Device">
+  <component name="FlexBuildConfigurationManager" active="iOS Device">
     <configurations>
       <configuration name="Android Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies>
@@ -76,7 +76,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleSignIn.bundle" path-in-package="GoogleSignIn.bundle" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GPPACLPickerResources.bundle" path-in-package="GPPACLPickerResources.bundle" />
           </files-to-package>
-          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2019/dev/tua_rua_dev_2019.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2019/dev/TuaRuaFirebase_Dev_Prov-2.mobileprovision" />
+          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2020/dev/tua_rua_dev_2020.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2020/dev/Tua_Rua_Dev_Provisioning_Firebase.mobileprovision" />
         </packaging-ios>
       </configuration>
       <configuration name="iOS Store" target-platform="Mobile" pure-as="true" main-class="Main" output-file="iOS_Store.swf" output-folder="$MODULE_DIR$/bin-release">

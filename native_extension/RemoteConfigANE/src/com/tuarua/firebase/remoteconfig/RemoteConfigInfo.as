@@ -19,7 +19,7 @@ package com.tuarua.firebase.remoteconfig {
 public final class RemoteConfigInfo {
     public var configSettings:RemoteConfigSettings;
     /** Last successful fetch completion time.*/
-    public var fetchTimeMillis:Number;
+    public var fetchTime:Number;
     /** Last fetch status.*/
     public var lastFetchStatus:int;
 }

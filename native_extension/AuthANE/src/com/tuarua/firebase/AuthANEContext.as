@@ -92,10 +92,9 @@ public class AuthANEContext {
                         if (userJSON) {
                             authResult.user = new FirebaseUser(userJSON.uid,
                                     userJSON.hasOwnProperty("displayName") ? userJSON.displayName : null,
-                                    userJSON.hasOwnProperty("email") ? userJSON.email : null,
-                                    userJSON.isAnonymous,
-                                    userJSON.isEmailVerified,
-                                    userJSON.hasOwnProperty("photoUrl") && userJSON.photoUrl != "null" ? userJSON.photoUrl : null,
+                                    userJSON.hasOwnProperty("email") ? userJSON.email : null, userJSON.isAnonymous,
+                                    userJSON.isEmailVerified, userJSON.hasOwnProperty(
+                                            "photoUrl") && userJSON.photoUrl != "null" ? userJSON.photoUrl : null,
                                     userJSON.hasOwnProperty("phoneNumber") ? userJSON.phoneNumber : null);
                         }
                     }
@@ -128,8 +127,8 @@ public class AuthANEContext {
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     var token:String;
-                    if (argsAsJSON.hasOwnProperty("data")
-                            && argsAsJSON.data && argsAsJSON.data.hasOwnProperty("token")) {
+                    if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty(
+                            "token")) {
                         token = argsAsJSON.data.token;
                     }
                     callCallback(argsAsJSON.callbackId, token);
@@ -144,8 +143,8 @@ public class AuthANEContext {
                         err = new AuthError(argsAsJSON.error.text, argsAsJSON.error.id);
                     }
                     var verificationId:String;
-                    if (argsAsJSON.hasOwnProperty("data")
-                            && argsAsJSON.data && argsAsJSON.data.hasOwnProperty("verificationId")) {
+                    if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty(
+                            "verificationId")) {
                         verificationId = argsAsJSON.data.token;
                     }
                     callCallback(argsAsJSON.callbackId, verificationId, err);

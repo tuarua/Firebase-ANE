@@ -45,8 +45,7 @@ public class SwiftController: NSObject {
     // MARK: - Log
     
     func crash(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        // crashlytics.crash()
-        return nil
+        fatalError()
     }
     
     func log(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
