@@ -68,9 +68,6 @@ mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.tuarua.goo
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/simulator/lib$PROJECTNAME.a"
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/device/lib$PROJECTNAME.a"
 
-cp -R -L "$pathtome/../../../example/ios_dependencies/simulator/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../example/ios_dependencies/device/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/device/Frameworks"
-
 arr=( "GoogleSignIn" "GTMSessionFetcher" "AppAuth" "GTMAppAuth" )
 for i in "${arr[@]}"
 do

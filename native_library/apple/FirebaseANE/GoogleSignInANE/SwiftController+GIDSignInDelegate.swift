@@ -43,7 +43,6 @@ extension SwiftController: GIDSignInDelegate {
             hasFirebaseApp = true
             GIDSignIn.sharedInstance().clientID = app.options.clientID
             GIDSignIn.sharedInstance().delegate = self
-            GIDSignIn.sharedInstance().uiDelegate = self
         }
         
     }

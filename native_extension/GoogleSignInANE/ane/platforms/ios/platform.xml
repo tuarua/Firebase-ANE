@@ -15,7 +15,6 @@
     </linkerOptions>
     
     <packagedDependencies>
-        <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
         <packagedDependency>Frameworks/GTMSessionFetcher.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleSignIn.framework</packagedDependency>
         <packagedDependency>Frameworks/AppAuth.framework</packagedDependency>

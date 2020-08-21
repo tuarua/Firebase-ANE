@@ -11,5 +11,7 @@
         <option>-rpath /usr/lib/swift</option>
         <option>-framework AddressBook</option>
     </linkerOptions>
-    
+    <packagedDependencies>
+        <packagedDependency>Frameworks/OneSignal.framework</packagedDependency>
+    </packagedDependencies>
 </platform>

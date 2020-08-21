@@ -72,9 +72,8 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Assets.car" path-in-package="Assets.car" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/GoogleService-Info.plist" path-in-package="GoogleService-Info.plist" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="." />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/gRPCCertificates.bundle" path-in-package="gRPCCertificates.bundle" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleSignIn.bundle" path-in-package="GoogleSignIn.bundle" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GPPACLPickerResources.bundle" path-in-package="GPPACLPickerResources.bundle" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/gRPCCertificates-Cpp.bundle" path-in-package="gRPCCertificates-Cpp.bundle" />
           </files-to-package>
           <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2020/dev/tua_rua_dev_2020.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2020/dev/Tua_Rua_Dev_Provisioning_Firebase.mobileprovision" />
         </packaging-ios>
@@ -113,9 +112,8 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Assets.car" path-in-package="Assets.car" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/GoogleService-Info.plist" path-in-package="GoogleService-Info.plist" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets" path-in-package="." />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/gRPCCertificates.bundle" path-in-package="gRPCCertificates.bundle" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleSignIn.bundle" path-in-package="GoogleSignIn.bundle" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GPPACLPickerResources.bundle" path-in-package="GPPACLPickerResources.bundle" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/gRPCCertificates-Cpp.bundle" path-in-package="gRPCCertificates-Cpp.bundle" />
           </files-to-package>
           <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2019/prod/Tua_Rua_Dist_WebView.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2019/prod/Firebase_App_Live_Prov.mobileprovision" />
         </packaging-ios>

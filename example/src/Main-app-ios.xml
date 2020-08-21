@@ -103,5 +103,6 @@
         <extensionID>com.tuarua.firebase.DynamicLinksANE</extensionID>
         <extensionID>com.tuarua.google.GoogleSignInANE</extensionID>
         <extensionID>com.tuarua.firebase.CrashlyticsANE</extensionID>
+        <extensionID>com.tuarua.OneSignalANE</extensionID>
     </extensions>
 </application>

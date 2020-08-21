@@ -30,16 +30,21 @@ public class SwiftController: NSObject {
     }
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        return true.toFREObject()
+        return hasFirebaseApp.toFREObject()
     }
     
     func signIn(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+            GIDSignIn.sharedInstance()?.presentingViewController = rootViewController
+        }
         GIDSignIn.sharedInstance().signIn()
         return nil
     }
     
     func signInSilently(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        GIDSignIn.sharedInstance().signInSilently()
+        if GIDSignIn.sharedInstance()?.hasPreviousSignIn() == true {
+            GIDSignIn.sharedInstance()?.restorePreviousSignIn()
+        }
         return nil
     }
     
@@ -54,13 +59,13 @@ public class SwiftController: NSObject {
     }
     
     func handle(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 1,
-            let url = String(argv[0]),
-            let sourceApplication = String(argv[1])
+        guard argc > 0,
+            let u = String(argv[0]),
+            let url = URL(string: u)
             else {
                 return FreArgError().getError()
         }
-        GIDSignIn.sharedInstance().handle(URL(string: url), sourceApplication: sourceApplication, annotation: "")
+        GIDSignIn.sharedInstance().handle(url)
         return nil
     }
 

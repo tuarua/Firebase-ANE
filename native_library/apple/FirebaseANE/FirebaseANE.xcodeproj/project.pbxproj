@@ -391,7 +391,6 @@
 		CE62B37F20D06F1D002837B7 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8BC50920B205F9009164ED /* SafariServices.framework */; platformFilter = ios; };
 		CE62B38020D06F23002837B7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED748E32092558C000327CD /* StoreKit.framework */; platformFilter = ios; };
 		CE62B38120D06F2A002837B7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE83B04220A7536B0095C4F9 /* SystemConfiguration.framework */; platformFilter = ios; };
-		CE62B38320D086DE002837B7 /* SwiftController+GIDSignInUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62B38220D086DE002837B7 /* SwiftController+GIDSignInUIDelegate.swift */; platformFilter = ios; };
 		CE62B38520D09223002837B7 /* GoogleSignInEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62B38420D09223002837B7 /* GoogleSignInEvent.swift */; platformFilter = ios; };
 		CE69C8DB208FEE1E004A1A5A /* BatchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C8D9208FEE1A004A1A5A /* BatchEvent.swift */; platformFilter = ios; };
 		CE69C8DE208FF9E9004A1A5A /* NetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE69C8DC208FF963004A1A5A /* NetworkEvent.swift */; platformFilter = ios; };
@@ -761,7 +760,6 @@
 		CE62B36E20D063EA002837B7 /* SwiftController+FreSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+FreSwift.swift"; sourceTree = "<group>"; };
 		CE62B37020D0646A002837B7 /* GoogleSignInANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoogleSignInANE-Bridging-Header.h"; sourceTree = "<group>"; };
 		CE62B37D20D06D5D002837B7 /* SwiftController+GIDSignInDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+GIDSignInDelegate.swift"; sourceTree = "<group>"; };
-		CE62B38220D086DE002837B7 /* SwiftController+GIDSignInUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+GIDSignInUIDelegate.swift"; sourceTree = "<group>"; };
 		CE62B38420D09223002837B7 /* GoogleSignInEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInEvent.swift; sourceTree = "<group>"; };
 		CE69C8D9208FEE1A004A1A5A /* BatchEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchEvent.swift; sourceTree = "<group>"; };
 		CE69C8DC208FF963004A1A5A /* NetworkEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEvent.swift; sourceTree = "<group>"; };
@@ -1874,7 +1872,6 @@
 				CE62B36C20D063CD002837B7 /* SwiftController.swift */,
 				CE62B36E20D063EA002837B7 /* SwiftController+FreSwift.swift */,
 				CE62B37D20D06D5D002837B7 /* SwiftController+GIDSignInDelegate.swift */,
-				CE62B38220D086DE002837B7 /* SwiftController+GIDSignInUIDelegate.swift */,
 			);
 			path = GoogleSignInANE;
 			sourceTree = "<group>";
@@ -4062,7 +4059,6 @@
 				CE62B36F20D063EA002837B7 /* SwiftController+FreSwift.swift in Sources */,
 				CE62B37E20D06D5D002837B7 /* SwiftController+GIDSignInDelegate.swift in Sources */,
 				CE62B36B20D06361002837B7 /* GoogleSignInANE.m in Sources */,
-				CE62B38320D086DE002837B7 /* SwiftController+GIDSignInUIDelegate.swift in Sources */,
 				CE62B36D20D063CD002837B7 /* SwiftController.swift in Sources */,
 				904B187624EF3D6F00ED9178 /* SwiftyJSON.swift in Sources */,
 				CE62B38520D09223002837B7 /* GoogleSignInEvent.swift in Sources */,
