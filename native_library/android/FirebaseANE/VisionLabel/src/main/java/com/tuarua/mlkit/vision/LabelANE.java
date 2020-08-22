@@ -13,23 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.tuarua.mlkit.vision;
 
 import android.annotation.SuppressLint;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
-import com.tuarua.mlkit.vision.text.KotlinController;
+import com.tuarua.mlkit.vision.label.KotlinController;
 
-public class VisionTextANE implements FREExtension {
+public class LabelANE implements FREExtension {
     private static final String[] FUNCTIONS = {
-            "init"
+             "init"
             ,"createGUID"
             ,"process"
             ,"getResults"
             ,"close"
     };
-    private static VisionTextANEContext extensionContext;
+    private static LabelANEContext extensionContext;
 
     @Override
     public void initialize() {
@@ -39,8 +40,8 @@ public class VisionTextANE implements FREExtension {
     @SuppressLint("UnknownNullness")
     @Override
     public FREContext createContext(String s) {
-        String NAME = "com.tuarua.mlkit.vision.TextANE";
-        return extensionContext = new VisionTextANEContext(NAME, new KotlinController(), FUNCTIONS);
+        String NAME = "com.tuarua.mlkit.vision.LabelANE";
+        return extensionContext = new LabelANEContext(NAME, new KotlinController(), FUNCTIONS);
     }
 
     @Override

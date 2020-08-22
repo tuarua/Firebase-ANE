@@ -333,6 +333,7 @@
         <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
         <extensionID>com.tuarua.firebase.CrashlyticsANE</extensionID>
 
+        <extensionID>com.google.firebase.firebase-components</extensionID>
         <extensionID>com.google.firebase.firebase-analytics-ktx</extensionID>
         <extensionID>com.google.firebase.firebase-iid</extensionID>
         <extensionID>com.google.firebase.firebase-firestore-ktx</extensionID>

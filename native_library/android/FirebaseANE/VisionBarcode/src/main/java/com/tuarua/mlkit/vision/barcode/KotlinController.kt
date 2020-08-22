@@ -148,20 +148,6 @@ class KotlinController : FreKotlinMainController, CameraPreviewFragment.BarcodeP
         return null
     }
 
-//    fun hasFlashlight(ctx: FREContext, argv: FREArgv): FREObject? {
-//        return (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-//                && ctx.activity.applicationContext.packageManager
-//                .hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)).toFREObject()
-//    }
-//
-//    fun toggleFlashlight(ctx: FREContext, argv: FREArgv): FREObject? {
-//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return null
-//        argv.takeIf { argv.size > 0 } ?: return FreArgException("toggleFlashlight")
-//        val enabled = Boolean(argv[0]) ?: return null
-//        cameraFragment.toggleFlashlight(enabled)
-//        return null
-//    }
-
     private fun hideCameraOverlay() {
         val childCount = airView.childCount
         for (i in 0 until childCount) {

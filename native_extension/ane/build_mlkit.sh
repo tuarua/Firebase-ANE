@@ -1,10 +1,4 @@
-   #!/bin/sh
-
-#  build_all.sh
-#  FirebaseANE
-#
-#  Created by Eoin Landy on 08/09/2018.
-#  Copyright © 2018 Tua Rua Ltd. All rights reserved.
+#!/bin/sh
 
 red=$'\e[1;31m'
 grn=$'\e[1;32m'

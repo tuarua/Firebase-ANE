@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Tua Rua Ltd.
+ * Copyright 2020 Tua Rua Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.tuarua.mlkit.vision;
 
 import com.tuarua.frekotlin.FreKotlinContext;
 import com.tuarua.frekotlin.FreKotlinMainController;
 
-class VisionLabelANEContext extends FreKotlinContext {
-    VisionLabelANEContext(String name, FreKotlinMainController controller, String[] functions) {
+class BarcodeANEContext extends FreKotlinContext {
+
+    BarcodeANEContext(String name, FreKotlinMainController controller, String[] functions) {
         super(name, controller, functions);
     }
 }

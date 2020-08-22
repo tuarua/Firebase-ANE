@@ -9,9 +9,9 @@
         <option>-rpath /usr/lib/swift</option>
     </linkerOptions>
     
-    <packagedDependencies>
-        <packagedDependency>Frameworks/FirebaseMLVisionLabelModel.framework</packagedDependency>
-        <packagedDependency>Frameworks/LabelDetector.framework</packagedDependency>
-    </packagedDependencies>
+<!--    <packagedDependencies>-->
+<!--        <packagedDependency>Frameworks/FirebaseMLVisionLabelModel.framework</packagedDependency>-->
+<!--        <packagedDependency>Frameworks/LabelDetector.framework</packagedDependency>-->
+<!--    </packagedDependencies>-->
     
 </platform>

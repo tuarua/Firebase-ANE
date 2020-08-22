@@ -9,9 +9,9 @@
         <option>-rpath /usr/lib/swift</option>
     </linkerOptions>
     
-    <packagedDependencies>
-        <packagedDependency>Frameworks/FirebaseMLVisionBarcodeModel.framework</packagedDependency>
-        <packagedDependency>Frameworks/BarcodeDetector.framework</packagedDependency>
-    </packagedDependencies>
+<!--    <packagedDependencies>-->
+<!--        <packagedDependency>Frameworks/FirebaseMLVisionBarcodeModel.framework</packagedDependency>-->
+<!--        <packagedDependency>Frameworks/BarcodeDetector.framework</packagedDependency>-->
+<!--    </packagedDependencies>-->
     
 </platform>

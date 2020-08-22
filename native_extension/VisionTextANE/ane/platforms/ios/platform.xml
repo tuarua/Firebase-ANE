@@ -9,9 +9,9 @@
         <option>-rpath /usr/lib/swift</option>
     </linkerOptions>
     
-    <packagedDependencies>
-        <packagedDependency>Frameworks/FirebaseMLVisionTextModel.framework</packagedDependency>
-        <packagedDependency>Frameworks/TextDetector.framework</packagedDependency>
-    </packagedDependencies>
+<!--    <packagedDependencies>-->
+<!--        <packagedDependency>Frameworks/FirebaseMLVisionTextModel.framework</packagedDependency>-->
+<!--        <packagedDependency>Frameworks/TextDetector.framework</packagedDependency>-->
+<!--    </packagedDependencies>-->
     
 </platform>

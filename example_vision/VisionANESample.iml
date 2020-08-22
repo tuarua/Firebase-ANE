@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="iOS Device">
+  <component name="FlexBuildConfigurationManager" active="Android Device">
     <configurations>
       <configuration name="iOS Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies target-player="30.0">
@@ -56,9 +56,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon76x76@2x~ipad.png" path-in-package="AppIcon76x76@2x~ipad.png" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon76x76~ipad.png" path-in-package="AppIcon76x76~ipad.png" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon83.5x83.5@2x~ipad.png" path-in-package="AppIcon83.5x83.5@2x~ipad.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/models" path-in-package="models" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/mobilenet" path-in-package="mobilenet" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/langid_model.smfb.jpg" path-in-package="langid_model.smfb.jpg" />
           </files-to-package>
           <AirSigningOptions arch="armv8" />
         </packaging-android>

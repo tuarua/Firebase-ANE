@@ -19,17 +19,20 @@ import android.annotation.SuppressLint;
 
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
-import com.tuarua.mlkit.vision.face.KotlinController;
+import com.tuarua.mlkit.vision.barcode.KotlinController;
 
-public class VisionFaceANE implements FREExtension {
+public class BarcodeANE implements FREExtension {
     private static final String[] FUNCTIONS = {
-            "init"
+             "init"
             ,"createGUID"
             ,"detect"
             ,"getResults"
+            ,"isCameraSupported"
+            ,"inputFromCamera"
+            ,"closeCamera"
             ,"close"
     };
-    private static VisionFaceANEContext extensionContext;
+    private static BarcodeANEContext extensionContext;
 
     @Override
     public void initialize() {
@@ -39,8 +42,8 @@ public class VisionFaceANE implements FREExtension {
     @SuppressLint("UnknownNullness")
     @Override
     public FREContext createContext(String s) {
-        String NAME = "com.tuarua.mlkit.vision.FaceANE";
-        return extensionContext = new VisionFaceANEContext(NAME, new KotlinController(), FUNCTIONS);
+        String NAME = "com.tuarua.mlkit.vision.BarcodeANE";
+        return extensionContext = new BarcodeANEContext(NAME, new KotlinController(), FUNCTIONS);
     }
 
     @Override

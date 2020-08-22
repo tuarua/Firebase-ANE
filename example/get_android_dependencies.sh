@@ -8,6 +8,7 @@ PlayerServicesMeasurementVersion="17.5.0"
 SupportV4Version="1.0.0"
 AnalyticsVersion="17.5.0"
 DynamicLinksVersion="19.1.0"
+FirebaseComponentsVersion="16.0.0"
 IidVersion="20.2.3"
 StorageVersion="19.1.1"
 PerfVersion="19.0.8"
@@ -47,6 +48,7 @@ wget -O android_dependencies/com.google.android.gms.play-services-base-$PlayerSe
 wget -O android_dependencies/com.google.android.gms.play-services-auth-$PlayerServicesAuthVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.google.android.gms.play-services-auth-$PlayerServicesAuthVersion.ane?raw=true
 wget -O android_dependencies/com.google.android.gms.play-services-measurement-$PlayerServicesMeasurementVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/play-services/com.google.android.gms.play-services-measurement-$PlayerServicesMeasurementVersion.ane?raw=true
 
+wget -O android_dependencies/com.google.firebase.firebase-components-$FirebaseComponentsVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-components-$FirebaseComponentsVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-crashlytics-$CrashlyticsVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-crashlytics-$CrashlyticsVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-analytics-ktx-$AnalyticsVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-analytics-ktx-$AnalyticsVersion.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-auth-ktx-$AuthVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-auth-ktx-$AuthVersion.ane?raw=true

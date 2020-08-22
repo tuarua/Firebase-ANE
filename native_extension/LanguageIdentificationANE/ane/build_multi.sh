@@ -51,8 +51,8 @@ cp "$pathtome/library.swf" "$pathtome/platforms/android"
 #Copy native libraries into place.
 echo "Copying native libraries into place."
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/device/lib$PROJECTNAME.a"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseMLNLLanguageID.framework" "$pathtome/platforms/ios/device/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseMLNaturalLanguage.framework" "$pathtome/platforms/ios/device/Frameworks"
+#cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseMLNLLanguageID.framework" "$pathtome/platforms/ios/device/Frameworks"
+#cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseMLNaturalLanguage.framework" "$pathtome/platforms/ios/device/Frameworks"
 
 echo "Copying Android aars into place"
 cp "$pathtome/../../../native_library/android/FirebaseANE/LanguageIdentification/build/outputs/aar/LanguageIdentification-release.aar" "$pathtome/platforms/android/app-release.aar"
@@ -84,7 +84,7 @@ com.tuarua.mlkit.nl.${PROJECTNAME}-res/. \
 com.tuarua.mlkit.nl.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
 
-#cp "$pathtome/$PROJECTNAME.ane" "$pathtome/../../../example_vision/extensions/$PROJECTNAME.ane"
+cp "$pathtome/$PROJECTNAME.ane" "$pathtome/../../../example_mlkit/extensions/$PROJECTNAME.ane"
 
 echo "Packaging docs into ANE."
 zip "$pathtome/$PROJECTNAME.ane" -u docs/*

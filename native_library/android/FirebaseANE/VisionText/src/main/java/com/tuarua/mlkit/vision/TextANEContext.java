@@ -18,8 +18,8 @@ package com.tuarua.mlkit.vision;
 import com.tuarua.frekotlin.FreKotlinContext;
 import com.tuarua.frekotlin.FreKotlinMainController;
 
-class VisionTextANEContext extends FreKotlinContext {
-    VisionTextANEContext(String name, FreKotlinMainController controller, String[] functions) {
+class TextANEContext extends FreKotlinContext {
+    TextANEContext(String name, FreKotlinMainController controller, String[] functions) {
         super(name, controller, functions);
     }
 }
