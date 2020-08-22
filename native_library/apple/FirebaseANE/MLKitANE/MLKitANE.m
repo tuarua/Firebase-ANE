@@ -33,6 +33,11 @@ CONTEXT_INIT(TRFBMLK) {
     {
          MAP_FUNCTION(TRFBMLK, init)
         ,MAP_FUNCTION(TRFBMLK, createGUID)
+        ,MAP_FUNCTION(TRFBMLK, requestPermissions)
+        ,MAP_FUNCTION(TRFBMLK, isCameraSupported)
+        ,MAP_FUNCTION(TRFBMLK, addNativeChild)
+        ,MAP_FUNCTION(TRFBMLK, updateNativeChild)
+        ,MAP_FUNCTION(TRFBMLK, removeNativeChild)
     };
     SET_FUNCTIONS
 }

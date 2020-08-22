@@ -14,8 +14,15 @@
  *  limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import "MLKitANE-Swift.h"
-@interface MLKitANE_LIB : NSObject
+import Foundation
+import FreSwift
+import FirebaseMLVision
 
-@end
+public extension VisionText {
+    func toFREObject() -> FREObject? {
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.ml.vision.text.CloudText") else { return nil }
+        ret.text = text
+        ret.blocks = blocks
+        return ret.rawValue
+    }
+}

@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class FaceEvent: NSObject {
     public static let DETECTED = "FaceEvent.Detected"

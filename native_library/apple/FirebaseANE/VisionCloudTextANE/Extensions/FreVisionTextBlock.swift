@@ -20,19 +20,19 @@ import FirebaseMLVision
 
 public extension VisionTextBlock {
     func toFREObject() -> FREObject? {
-        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.ml.vision.text.TextBlock") else {return nil}
-        ret.lines = self.lines.toFREObject()
-        ret.frame = self.frame
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.ml.vision.text.CloudTextBlock") else {return nil}
+        ret.lines = lines
+        ret.frame = frame
         ret.cornerPoints = cornerPoints
-        ret.confidence = self.confidence
-        ret.recognizedLanguages = self.recognizedLanguages
+        ret.confidence = confidence
+        ret.recognizedLanguages = recognizedLanguages
         return ret.rawValue
     }
 }
 
 public extension Array where Element == VisionTextBlock {
     func toFREObject() -> FREObject? {
-        return FREArray(className: "com.tuarua.firebase.ml.vision.text.TextBlock",
+        return FREArray(className: "com.tuarua.firebase.ml.vision.text.CloudTextBlock",
                              length: self.count,
                              fixed: true,
                              items: self.compactMap { $0.toFREObject() }

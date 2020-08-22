@@ -105,7 +105,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun isModelDownloaded(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val model = FirebaseRemoteModel(argv[0]) ?: return null
         val callbackId = String(argv[1]) ?: return null
 

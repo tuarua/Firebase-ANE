@@ -25,6 +25,7 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)run"] = run
         functionsToSet["\(prefix)deleteDownloadedModel"] = deleteDownloadedModel
         functionsToSet["\(prefix)download"] = download
+        functionsToSet["\(prefix)isModelDownloaded"] = isModelDownloaded
         
         var arr: [String] = []
         for key in functionsToSet.keys {

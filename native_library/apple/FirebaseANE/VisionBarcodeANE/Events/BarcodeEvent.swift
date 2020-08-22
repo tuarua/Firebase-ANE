@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class BarcodeEvent: NSObject {
     public static let DETECTED = "BarcodeEvent.Detected"

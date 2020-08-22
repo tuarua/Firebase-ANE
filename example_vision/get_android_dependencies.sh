@@ -1,14 +1,14 @@
 #!/bin/sh
 
 AneVersion="0.13.0"
-FreKotlinVersion="1.10.0"
+FreKotlinVersion="1.40.0"
 PlayerServicesBaseVersion="17.1.0"
 SupportV4Version="1.0.0"
-AnalyticsVersion="17.4.4"
+AnalyticsVersion="17.5.0"
 IidVersion="20.2.3"
 VisionVersion="24.0.3"
 ModelInterpreterVersion="22.0.3"
-KotlinxCoroutinesVersion="1.3.5"
+KotlinxCoroutinesVersion="1.3.9"
 EventBusVersion="3.0.0"
 GsonVersion="2.8.6"
 ConfigVersion="19.2.0"
@@ -36,4 +36,4 @@ wget -O android_dependencies/com.google.firebase.firebase-analytics-${AnalyticsV
 wget -O android_dependencies/com.google.firebase.firebase-iid-${IidVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-iid-${IidVersion}.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-ml-vision-${VisionVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-ml-vision-${VisionVersion}.ane?raw=true
 wget -O android_dependencies/com.google.firebase.firebase-ml-model-interpreter-${ModelInterpreterVersion}.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-ml-model-interpreter-${ModelInterpreterVersion}.ane?raw=true
-wget -O android_dependencies/com.google.firebase.firebase-config-$ConfigVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-config-$ConfigVersion.ane?raw=true
+wget -O android_dependencies/com.google.firebase.firebase-config-ktx-$ConfigVersion.ane https://github.com/tuarua/Android-ANE-Dependencies/blob/master/anes/firebase/com.google.firebase.firebase-config-ktx-$ConfigVersion.ane?raw=true

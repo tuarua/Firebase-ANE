@@ -4,7 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-iOS-Device</name>
-    <versionNumber>0.6.0</versionNumber>
+    <versionNumber>0.13.0</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -42,9 +42,7 @@
                 <string>2</string>
             </array>
             <key>MinimumOSVersion</key>
-            <string>9.0</string>
-            <key>NSCameraUsageDescription</key>
-            <string>You need to allow camera to use VisionANE Sample</string>
+            <string>12.2</string>
             ]]>
         </InfoAdditions>
         <requestedDisplayResolution>high</requestedDisplayResolution>

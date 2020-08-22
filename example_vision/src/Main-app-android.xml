@@ -173,11 +173,11 @@
         <extensionID>com.tuarua.firebase.VisionLandmarkANE</extensionID>
         <extensionID>com.tuarua.firebase.ModelInterpreterANE</extensionID>
 
-        <extensionID>com.google.firebase.firebase-analytics</extensionID>
+        <extensionID>com.google.firebase.firebase-analytics-ktx</extensionID>
         <extensionID>com.google.firebase.firebase-iid</extensionID>
         <extensionID>com.google.firebase.firebase-ml-vision</extensionID>
         <extensionID>com.google.firebase.firebase-ml-model-interpreter</extensionID>
-        <extensionID>com.google.firebase.firebase-config</extensionID>
+        <extensionID>com.google.firebase.firebase-config-ktx</extensionID>
     </extensions>
 
 </application>

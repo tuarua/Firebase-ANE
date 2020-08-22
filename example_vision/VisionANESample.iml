@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="Android Device">
+  <component name="FlexBuildConfigurationManager" active="iOS Device">
     <configurations>
       <configuration name="iOS Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/bin-release">
         <dependencies target-player="30.0">
@@ -25,11 +25,9 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/device" path-in-package="." />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Assets.car" path-in-package="Assets.car" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/GoogleService-Info.plist" path-in-package="GoogleService-Info.plist" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleMVFaceDetectorResources.bundle" path-in-package="GoogleMVFaceDetectorResources.bundle" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleMVTextDetectorResources.bundle" path-in-package="GoogleMVTextDetectorResources.bundle" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/mobilenet" path-in-package="mobilenet" />
           </files-to-package>
-          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2019/dev/tua_rua_dev_2019.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2019/dev/TuaRuaFirebase_Dev_Prov-2.mobileprovision" />
+          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2020/dev/tua_rua_dev_2020.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2020/dev/Tua_Rua_Dev_Provisioning.mobileprovision" />
         </packaging-ios>
       </configuration>
       <configuration name="Android Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Android_Device.swf" output-folder="$MODULE_DIR$/bin-release">

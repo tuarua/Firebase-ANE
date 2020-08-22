@@ -18,21 +18,23 @@ import Foundation
 import FreSwift
 import FirebaseMLVision
 
-public extension VisionTextBlock {
+public extension VisionTextLine {
     func toFREObject() -> FREObject? {
-        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.ml.vision.text.TextBlock") else {return nil}
-        ret.lines = self.lines.toFREObject()
-        ret.frame = self.frame
-        ret.cornerPoints = cornerPoints
-        ret.confidence = self.confidence
-        ret.recognizedLanguages = self.recognizedLanguages
+        guard let ret = FreObjectSwift(className: "com.tuarua.firebase.ml.vision.text.CloudTextLine")
+            else { return nil }
+        ret.frame = frame
+        ret.text = text
+        ret.cornerPoints = cornerPoints?.toFREObject()
+        ret.elements = elements
+        ret.confidence = confidence
+        ret.recognizedLanguages = recognizedLanguages
         return ret.rawValue
     }
 }
 
-public extension Array where Element == VisionTextBlock {
+public extension Array where Element == VisionTextLine {
     func toFREObject() -> FREObject? {
-        return FREArray(className: "com.tuarua.firebase.ml.vision.text.TextBlock",
+        return FREArray(className: "com.tuarua.firebase.ml.vision.text.CloudTextLine",
                              length: self.count,
                              fixed: true,
                              items: self.compactMap { $0.toFREObject() }
@@ -41,7 +43,7 @@ public extension Array where Element == VisionTextBlock {
 }
 
 public extension FreObjectSwift {
-    subscript(dynamicMember name: String) -> [VisionTextBlock]? {
+    subscript(dynamicMember name: String) -> [VisionTextLine]? {
         get { return nil }
         set { rawValue?[name] = newValue?.toFREObject() }
     }
