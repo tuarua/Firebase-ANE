@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><apiPackage id="com.tuarua.firebase.ml.common.modeldownload"><apiName>com.tuarua.firebase.ml.common.modeldownload</apiName><apiDetail/><apiClassifier id="com.tuarua.firebase.ml.common.modeldownload:ModelDownloadConditions"><apiName>ModelDownloadConditions</apiName><shortdesc>
+ Configurations for model downloading conditions.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ Configurations for model downloading conditions.
+ </apiDesc></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.ml.common.modeldownload:ModelDownloadConditions:ModelDownloadConditions"><apiName>ModelDownloadConditions</apiName><shortdesc>
+     Creates an instance of ModelDownloadConditions with the given conditions.</shortdesc><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>isWiFiRequired</apiItemName><apiType value="Boolean"/><apiDesc>Whether a device has to be connected to Wi-Fi for downloading to start.
+     </apiDesc></apiParam><apiParam><apiItemName>canDownloadInBackground</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>Whether the model can be downloaded while the app is in the
+         background.
+     </apiDesc></apiParam><apiParam><apiItemName>isChargingRequired</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>    </apiDesc></apiParam><apiParam><apiItemName>isDeviceIdleRequired</apiItemName><apiType value="Boolean"/><apiData>false</apiData><apiDesc>    </apiDesc></apiParam></apiConstructorDef><apiDesc>
+     Creates an instance of <codeph>ModelDownloadConditions</codeph> with the given conditions.
+     
+     </apiDesc></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.ml.common.modeldownload:ModelDownloadConditions:canDownloadInBackground:get"><apiName>canDownloadInBackground</apiName><shortdesc>
+     Indicates whether the model can be downloaded while the app is in the background.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/><apiDefaultValue>false
+     </apiDefaultValue></apiValueDef><apiDesc>
+     Indicates whether the model can be downloaded while the app is in the background. iOS only.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.ml.common.modeldownload:ModelDownloadConditions:isChargingRequired:get"><apiName>isChargingRequired</apiName><shortdesc>
+     true if charging is required for download.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/><apiDefaultValue>false
+     </apiDefaultValue></apiValueDef><apiDesc>
+     true if charging is required for download. Android N+ only
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.ml.common.modeldownload:ModelDownloadConditions:isDeviceIdleRequired:get"><apiName>isDeviceIdleRequired</apiName><shortdesc>
+     true if device idle is required for download.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/><apiDefaultValue>false
+     </apiDefaultValue></apiValueDef><apiDesc>
+     true if device idle is required for download. Android N+ only
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase.ml.common.modeldownload:ModelDownloadConditions:isWiFiRequired:get"><apiName>isWiFiRequired</apiName><shortdesc>
+     Indicates whether Wi-Fi is required for downloading.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="Boolean"/><apiDefaultValue>false
+     </apiDefaultValue></apiValueDef><apiDesc>
+     Indicates whether Wi-Fi is required for downloading.
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase.ml.common.modeldownload:ModelManager"><apiName>ModelManager</apiName><shortdesc>
+ Manages models that are used by MLKit features.</shortdesc><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef><apiDesc>
+ Manages models that are used by MLKit features.
+ </apiDesc></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.ml.common.modeldownload:ModelManager:ModelManager"><apiName>ModelManager</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/></apiConstructorDef></apiConstructorDetail></apiConstructor><apiOperation id="com.tuarua.firebase.ml.common.modeldownload:ModelManager:deleteDownloadedModel"><apiName>deleteDownloadedModel</apiName><shortdesc>
+     Deletes the downloaded model from the device.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>model</apiItemName><apiOperationClassifier>com.tuarua.firebase.ml.custom:CustomRemoteModel</apiOperationClassifier><apiDesc>The downloaded model to delete.
+     </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>    </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Deletes the downloaded model from the device.
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.ml.common.modeldownload:ModelManager:download"><apiName>download</apiName><shortdesc>
+     Downloads the given model from the server to a local directory on the device.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>model</apiItemName><apiOperationClassifier>com.tuarua.firebase.ml.custom:CustomRemoteModel</apiOperationClassifier><apiDesc>The model to download.
+     </apiDesc></apiParam><apiParam><apiItemName>conditions</apiItemName><apiOperationClassifier>com.tuarua.firebase.ml.common.modeldownload:ModelDownloadConditions</apiOperationClassifier><apiDesc>The conditions for downloading the model.
+     </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>    </apiDesc></apiParam></apiOperationDef><apiDesc>
+     Downloads the given model from the server to a local directory on the device.
+     Use <pre>isModelDownloaded()</pre> to check the download status for the model. If this method is invoked and the model
+     has already been downloaded, a request is made to check if a newer version of the model is available
+     for download. If available, the new version of the model is downloaded.
+     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase.ml.common.modeldownload:ModelManager:isModelDownloaded"><apiName>isModelDownloaded</apiName><shortdesc> Checks whether the given model has been downloaded.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>remoteModel</apiItemName><apiOperationClassifier>com.tuarua.firebase.ml.common.modeldownload:RemoteModel</apiOperationClassifier><apiDesc>The model to check the download status for.
+     </apiDesc></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/><apiDesc>    </apiDesc></apiParam></apiOperationDef><apiDesc> Checks whether the given model has been downloaded.
+     </apiDesc></apiOperationDetail></apiOperation></apiClassifier><apiClassifier id="com.tuarua.firebase.ml.common.modeldownload:RemoteModel"><apiName>RemoteModel</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>Object</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiConstructor id="com.tuarua.firebase.ml.common.modeldownload:RemoteModel:RemoteModel"><apiName>RemoteModel</apiName><shortdesc/><prolog/><apiConstructorDetail><apiConstructorDef><apiAccess value="public"/><apiParam><apiItemName>name</apiItemName><apiType value="String"/></apiParam></apiConstructorDef></apiConstructorDetail></apiConstructor><apiValue id="com.tuarua.firebase.ml.common.modeldownload:RemoteModel:name:get"><apiName>name</apiName><shortdesc/><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="read"/><apiType value="String"/></apiValueDef></apiValueDetail></apiValue></apiClassifier></apiPackage>
