@@ -73,6 +73,6 @@ Pull requests and contributions are welcome! This might entail:
 * MLKit
 - [ ] Face
 - [ ] Barcode
-- [ ] Textt
+- [ ] Text
 - [ ] Label
 - [ ] Natural Language
