@@ -59,9 +59,16 @@ public class FirebaseUser {
         if (ret is ANEError) throw ret as ANEError;
     }
 
-    public function reauthenticate(credential:AuthCredential, listener:Function = null):void {
+    public function reauthenticateWithCredential(credential:AuthCredential, listener:Function = null):void {
         AuthANEContext.validate();
-        var ret:* = AuthANEContext.context.call("reauthenticate", credential,
+        var ret:* = AuthANEContext.context.call("reauthenticateWithCredential", credential,
+                AuthANEContext.createCallback(listener));
+        if (ret is ANEError) throw ret as ANEError;
+    }
+
+    public function reauthenticateWithProvider(provider:OAuthProvider, listener:Function = null):void {
+        AuthANEContext.validate();
+        var ret:* = AuthANEContext.context.call("reauthenticateWithProvider", provider,
                 AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }

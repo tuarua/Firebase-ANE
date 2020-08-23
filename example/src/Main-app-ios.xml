@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/32.0">
+<application xmlns="http://ns.adobe.com/air/application/33.1">
 
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-iOS-Device</name>
-    <versionNumber>0.6.0</versionNumber>
+    <versionNumber>0.13.0</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -53,7 +53,7 @@
                 <string>2</string>
             </array>
             <key>MinimumOSVersion</key>
-            <string>9.0</string>
+            <string>12.2</string>
 		    <!-- For Performance -->
 		    <key>FirebaseAutomaticScreenReportingEnabled</key>
 		    <false/>
@@ -103,5 +103,6 @@
         <extensionID>com.tuarua.firebase.DynamicLinksANE</extensionID>
         <extensionID>com.tuarua.google.GoogleSignInANE</extensionID>
         <extensionID>com.tuarua.firebase.CrashlyticsANE</extensionID>
+        <extensionID>com.tuarua.OneSignalANE</extensionID>
     </extensions>
 </application>

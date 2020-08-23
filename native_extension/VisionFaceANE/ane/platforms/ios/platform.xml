@@ -6,11 +6,12 @@
         <option>-w</option>
         <option>-ObjC</option>
         <option>-rpath @executable_path/Frameworks</option>
+        <option>-rpath /usr/lib/swift</option>
     </linkerOptions>
     
-    <packagedDependencies>
-        <packagedDependency>Frameworks/FirebaseMLVisionFaceModel.framework</packagedDependency>
-        <packagedDependency>Frameworks/FaceDetector.framework</packagedDependency>
-    </packagedDependencies>
+<!--    <packagedDependencies>-->
+<!--        <packagedDependency>Frameworks/FirebaseMLVisionFaceModel.framework</packagedDependency>-->
+<!--        <packagedDependency>Frameworks/FaceDetector.framework</packagedDependency>-->
+<!--    </packagedDependencies>-->
     
 </platform>

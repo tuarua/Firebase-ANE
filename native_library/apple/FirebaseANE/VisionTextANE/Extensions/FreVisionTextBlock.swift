@@ -39,3 +39,10 @@ public extension Array where Element == VisionTextBlock {
         )?.rawValue
     }
 }
+
+public extension FreObjectSwift {
+    subscript(dynamicMember name: String) -> [VisionTextBlock]? {
+        get { return nil }
+        set { rawValue?[name] = newValue?.toFREObject() }
+    }
+}

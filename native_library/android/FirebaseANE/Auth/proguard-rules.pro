@@ -22,9 +22,3 @@
 
 -keepattributes Signature
 -keepattributes *Annotation*
-
-# keep everything in this package from being removed or renamed
--keep class kotlin.** { *; }
-
-# keep everything in this package from being renamed only
--keepnames class kotlin.** { *; }

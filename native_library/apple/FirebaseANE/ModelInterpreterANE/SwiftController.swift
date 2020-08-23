@@ -75,7 +75,7 @@ public class SwiftController: NSObject {
         ModelManager.modelManager().deleteDownloadedModel(remoteModel) { (error) in
             self.dispatchEvent(name: ModelInterpreterEvent.DELETE_DOWNLOADED,
             value: ModelInterpreterEvent(callbackId: callbackId,
-                                         result: error != nil)
+                                         result: error == nil)
              .toJSONString())
         }
         return nil

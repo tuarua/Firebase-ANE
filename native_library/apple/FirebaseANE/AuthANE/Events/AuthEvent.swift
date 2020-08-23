@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class AuthEvent: NSObject {
     public static let EMAIL_UPDATED = "AuthEvent.EmailUpdated"

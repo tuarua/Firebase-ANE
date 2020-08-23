@@ -15,106 +15,72 @@
  */
 package com.tuarua.firebase.crashlytics
 
+import android.os.Looper
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.tuarua.frekotlin.*
 import java.util.*
-import com.crashlytics.android.Crashlytics
-import io.fabric.sdk.android.Fabric
-import io.fabric.sdk.android.Fabric.Builder
-import android.content.Intent
-
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
+    private val crashlytics = FirebaseCrashlytics.getInstance()
+
     fun createGUID(ctx: FREContext, argv: FREArgv): FREObject? {
         return UUID.randomUUID().toString().toFREObject()
     }
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val debug = Boolean(argv[0]) == true
-        try {
-            val fabric = Builder(ctx.activity.applicationContext).kits(Crashlytics()).debuggable(debug).build()
-            Fabric.with(fabric)
-        } catch (e: Exception) {
-            return FreException(e).getError()
-        }
+        crashlytics.setCrashlyticsCollectionEnabled(Boolean(argv[0]) == true)
         return true.toFREObject()
     }
 
     fun crash(ctx: FREContext, argv: FREArgv): FREObject? {
-        val act = context?.activity ?: return null
-        act.startActivity(Intent(act, CrashlyticsActivity::class.java))
+        val mainThread = Looper.getMainLooper().thread
+        val exception = Exception("Test Crash")
+        mainThread.uncaughtExceptionHandler.uncaughtException(mainThread, exception)
         return null
     }
 
     fun log(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val message = String(argv[0]) ?: return null
-        Crashlytics.log(message)
+        crashlytics.log(message)
         return null
     }
 
-    fun logException(ctx: FREContext, argv: FREArgv): FREObject? {
+    fun recordException(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val message = String(argv[0])
         val exception = Exception(message)
-        Crashlytics.logException(exception)
+        crashlytics.recordException(exception)
         return null
     }
 
-    fun setUserIdentifier(ctx: FREContext, argv: FREArgv): FREObject? {
+    fun setUserId(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val value = String(argv[0]) ?: return null
-        Crashlytics.setUserIdentifier(value)
+        crashlytics.setUserId(value)
         return null
     }
 
-    fun setUserEmail(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val value = String(argv[0]) ?: return null
-        Crashlytics.setUserEmail(value)
-        return null
-    }
-
-    fun setUserName(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val value = String(argv[0]) ?: return null
-        Crashlytics.setUserName(value)
-        return null
-    }
-
-    fun setString(ctx: FREContext, argv: FREArgv): FREObject? {
+    fun setCustomKey(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val key = String(argv[0]) ?: return null
-        val value = String(argv[1]) ?: return null
-        Crashlytics.setString(key, value)
+        val value = argv[1]
+        when (value.type) {
+            FreObjectTypeKotlin.INT -> Int(value)?.let { FirebaseCrashlytics.getInstance().setCustomKey(key, it) }
+            FreObjectTypeKotlin.NUMBER -> Double(value)?.let { FirebaseCrashlytics.getInstance().setCustomKey(key, it) }
+            FreObjectTypeKotlin.STRING -> String(value)?.let { FirebaseCrashlytics.getInstance().setCustomKey(key, it) }
+            FreObjectTypeKotlin.BOOLEAN -> Boolean(value)?.let { FirebaseCrashlytics.getInstance().setCustomKey(key, it) }
+            else -> return null
+        }
         return null
     }
 
-    fun setBool(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException()
-        val key = String(argv[0]) ?: return null
-        val value = Boolean(argv[1]) ?: return null
-        Crashlytics.setBool(key, value)
-        return null
-    }
-
-    fun setDouble(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException()
-        val key = String(argv[0]) ?: return null
-        val value = Double(argv[1]) ?: return null
-        Crashlytics.setDouble(key, value)
-        return null
-    }
-
-    fun setInt(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 1 } ?: return FreArgException()
-        val key = String(argv[0]) ?: return null
-        val value = Int(argv[1]) ?: return null
-        Crashlytics.setInt(key, value)
-        return null
+    fun didCrashOnPreviousExecution(ctx: FREContext, argv: FREArgv): FREObject? {
+        return crashlytics.didCrashOnPreviousExecution().toFREObject()
     }
 
     override val TAG: String?

@@ -1,2 +1,4 @@
-include ':Firebase', ':Firestore', ':Auth', ':RemoteConfig', ':Storage', ':Analytics', ':Performance', ':Messaging', ':DynamicLinks', ':GoogleSignIn', ':Vision', ':VisionFace', ':VisionBarcode', ':VisionText', ':VisionCloudText', ':VisionLabel', ':VisionCloudLabel', ':VisionLandmark', ':Crashlytics', ':VisionCloudDocument', ':NaturalLanguage', ':Modelinterpreter'
+include ':LanguageIdentification'
+include ':MLKit'
+include ':Firebase', ':Firestore', ':Auth', ':RemoteConfig', ':Storage', ':Analytics', ':Performance', ':Messaging', ':DynamicLinks', ':GoogleSignIn', ':Vision', ':VisionFace', ':VisionBarcode', ':VisionText', ':VisionCloudText', ':VisionLabel', ':VisionCloudLabel', ':VisionLandmark', ':Crashlytics', ':VisionCloudDocument', ':Modelinterpreter'
 include ':OneSignal'

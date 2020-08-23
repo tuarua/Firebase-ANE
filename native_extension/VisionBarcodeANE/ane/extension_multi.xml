@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension xmlns="http://ns.adobe.com/air/extension/19.0">
-    <id>com.tuarua.firebase.VisionBarcodeANE</id>
+    <id>com.tuarua.mlkit.vision.BarcodeANE</id>
     <name>Firebase Vision Barcode ANE</name>
     <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
-    <versionNumber>0.12.0</versionNumber>
+    <versionNumber>0.13.0</versionNumber>
     <platforms>
         <platform name="Android-x86">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>
-                <initializer>com.tuarua.firebase.VisionBarcodeANE</initializer>
-                <finalizer>com.tuarua.firebase.VisionBarcodeANE</finalizer>
+                <initializer>com.tuarua.mlkit.vision.BarcodeANE</initializer>
+                <finalizer>com.tuarua.mlkit.vision.BarcodeANE</finalizer>
             </applicationDeployment>
         </platform>
         <platform name="Android-ARM">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>
-                <initializer>com.tuarua.firebase.VisionBarcodeANE</initializer>
-                <finalizer>com.tuarua.firebase.VisionBarcodeANE</finalizer>
+                <initializer>com.tuarua.mlkit.vision.BarcodeANE</initializer>
+                <finalizer>com.tuarua.mlkit.vision.BarcodeANE</finalizer>
             </applicationDeployment>
         </platform>
         <platform name="Android-ARM64">
             <applicationDeployment>
                 <nativeLibrary>classes.jar</nativeLibrary>
-                <initializer>com.tuarua.firebase.VisionBarcodeANE</initializer>
-                <finalizer>com.tuarua.firebase.VisionBarcodeANE</finalizer>
+                <initializer>com.tuarua.mlkit.vision.BarcodeANE</initializer>
+                <finalizer>com.tuarua.mlkit.vision.BarcodeANE</finalizer>
             </applicationDeployment>
         </platform>
         <platform name="iPhone-ARM">
             <applicationDeployment>
-                <nativeLibrary>libVisionBarcodeANE.a</nativeLibrary>
+                <nativeLibrary>libBarcodeANE.a</nativeLibrary>
                 <initializer>TRFBVBCExtInizer</initializer>
                 <finalizer>TRFBVBCExtFinizer</finalizer>
             </applicationDeployment>

@@ -1,6 +1,6 @@
 ![Adobe AIR + Firebase](firebaseane.png)
 
-Firebase Adobe Air Native Extension for iOS 9.0+ and Android 19+. This project aims to provide an Open Source alternative to the commercially available FirebaseANEs
+Firebase Adobe Air Native Extension for iOS 12.2+ and Android 19+. This project aims to provide an Open Source alternative to the commercially available FirebaseANEs
 
 -------------
 
@@ -24,14 +24,13 @@ on set-up and each of the FirebaseANEs.
 
 ## iOS
 
-The latest version (0.12.0) is built against iOS 13.3 SDK and not currently working.
+The latest version (0.13.0) is built against iOS 13.3 SDK and now working.
+You must use a device with at least iOS 12.2 and set this as minimum version in you InfoAdditions
 
-Please register your interest with HARMAN in getting this issue fixed!!
-
-https://github.com/Gamua/Adobe-Runtime-Support/issues/212
-
-You may use the previous version (0.6.0) but be aware this means it cannot be used in conjunction with the latest 
-version of our other ANEs. You will need to use the one with FreSwift 3.1.0.
+```
+<key>MinimumOSVersion</key>
+<string>12.2</string>
+```
 
 ## Issue Tracker
 
@@ -59,17 +58,20 @@ Pull requests and contributions are welcome! This might entail:
 - [x] Remote Config
 - [x] Storage
 - [x] Google Sign In
-- [x] One Signal
+- [ ] One Signal (Android only, iOS tbc)
 - [x] Invites
 - [x] Crashlytics
-* MLKit
-- [x] Face
-- [x] Barcode
-- [x] Text
+
+* Vision
 - [x] Cloud Text
 - [x] Cloud Document
-- [x] Label
 - [x] Cloud Label
 - [x] Landmark
-- [x] Natural Language
 - [x] Model Interpreter
+
+* MLKit
+- [ ] Face
+- [ ] Barcode
+- [ ] Text
+- [ ] Label
+- [ ] Natural Language

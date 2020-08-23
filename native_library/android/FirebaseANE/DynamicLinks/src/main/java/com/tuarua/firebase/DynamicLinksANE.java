@@ -21,7 +21,6 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.dynamiclinks.KotlinController;
 
-@SuppressWarnings({"unused"})
 public class DynamicLinksANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"

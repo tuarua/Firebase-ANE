@@ -27,12 +27,12 @@ import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.ktx.app
 import com.tuarua.firebase.auth.extensions.toMap
 
 class AuthController(override var context: FREContext?) : FreKotlinController {
-    private var auth: FirebaseAuth = FirebaseAuth.getInstance(Firebase.app)
+    private var auth: FirebaseAuth = Firebase.auth
     private val gson = Gson()
 
     private fun sendError(type: String, callbackId: String, exception: Exception?) {
@@ -77,7 +77,7 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
         auth.signInAnonymously().addOnCompleteListener { task ->
             if (callbackId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(callbackId)))
+                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(callbackId, task.result?.toMap())))
                 else -> sendError(AuthEvent.SIGN_IN, callbackId, task.exception)
             }
         }
@@ -87,7 +87,7 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
         auth.signInWithCustomToken(token).addOnCompleteListener { task ->
             if (callbackId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(callbackId)))
+                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(callbackId, task.result?.toMap())))
                 else -> sendError(AuthEvent.SIGN_IN, callbackId, task.exception)
             }
         }
@@ -97,7 +97,20 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
         auth.signInWithCredential(value).addOnCompleteListener { task ->
             if (callbackId == null) return@addOnCompleteListener
             when {
-                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(callbackId)))
+                task.isSuccessful -> dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(callbackId, task.result?.toMap())))
+                else -> sendError(AuthEvent.SIGN_IN, callbackId, task.exception)
+            }
+        }
+    }
+
+    fun signIn(value: OAuthProvider, callbackId: String?) {
+        val act = this.context?.activity ?: return
+        auth.startActivityForSignInWithProvider(act, value).addOnCompleteListener { task ->
+            if (callbackId == null) return@addOnCompleteListener
+            when {
+                task.isSuccessful -> {
+                    dispatchEvent(AuthEvent.SIGN_IN, gson.toJson(AuthEvent(callbackId, task.result?.toMap())))
+                }
                 else -> sendError(AuthEvent.SIGN_IN, callbackId, task.exception)
             }
         }

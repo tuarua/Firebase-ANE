@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class LabelEvent: NSObject {
     public static let RECOGNIZED = "LabelEvent.Recognized"

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="androidx.legacy.legacy-support-v4-1.0.0" type="flex">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/android_dependencies/androidx.legacy.legacy-support-v4-1.0.0.ane!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

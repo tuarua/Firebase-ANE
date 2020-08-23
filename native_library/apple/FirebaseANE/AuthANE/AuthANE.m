@@ -30,16 +30,13 @@ SWIFT_DECL(TRFIRAU)
 CONTEXT_INIT(TRFIRAU) {
     SWIFT_INITS(TRFIRAU)
     
-    /**************************************************************************/
-    /******* MAKE SURE TO ADD FUNCTIONS HERE THE SAME AS SWIFT CONTROLLER *****/
-    /**************************************************************************/
-    
     static FRENamedFunction extensionFunctions[] =
     {
          MAP_FUNCTION(TRFIRAU, init)
         ,MAP_FUNCTION(TRFIRAU, createGUID)
         ,MAP_FUNCTION(TRFIRAU, createUserWithEmailAndPassword)
-        ,MAP_FUNCTION(TRFIRAU, signIn)
+        ,MAP_FUNCTION(TRFIRAU, signInWithCredential)
+        ,MAP_FUNCTION(TRFIRAU, signInWithProvider)
         ,MAP_FUNCTION(TRFIRAU, signInAnonymously)
         ,MAP_FUNCTION(TRFIRAU, signInWithCustomToken)
         ,MAP_FUNCTION(TRFIRAU, updateProfile)
@@ -59,9 +56,6 @@ CONTEXT_INIT(TRFIRAU) {
         ,MAP_FUNCTION(TRFIRAU, reload)
         ,MAP_FUNCTION(TRFIRAU, verifyPhoneNumber)  
     };
-    
-    /**************************************************************************/
-    /**************************************************************************/
     
     SET_FUNCTIONS
     

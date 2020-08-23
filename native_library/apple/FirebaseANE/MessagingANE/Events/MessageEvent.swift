@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class MessageEvent: NSObject {
     public static let ON_MESSAGE_RECEIVED = "FirebaseMessaging.OnMessageReceived"

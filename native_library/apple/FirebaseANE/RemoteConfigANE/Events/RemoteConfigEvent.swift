@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class RemoteConfigEvent: NSObject {
     public static let FETCH = "RemoteConfigEvent.Fetch"

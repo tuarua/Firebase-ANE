@@ -17,15 +17,14 @@ package com.tuarua.firebase {
 import com.tuarua.fre.ANEError;
 
 import flash.events.EventDispatcher;
-import flash.system.Capabilities;
 
 public class Crashlytics extends EventDispatcher {
     private static var _shared:Crashlytics;
-    private static var _debug:Boolean = false;
+    private static var _enabled:Boolean = true;
 
     public function Crashlytics() {
         if (CrashlyticsANEContext.context) {
-            var ret:* = CrashlyticsANEContext.context.call("init", _debug);
+            var ret:* = CrashlyticsANEContext.context.call("init", _enabled);
             if (ret is ANEError) throw ret as ANEError;
         }
         _shared = this;
@@ -63,11 +62,11 @@ public class Crashlytics extends EventDispatcher {
      *
      *  @param error The custom Error
      */
-    public function logException(error:Error):void {
+    public function recordException(error:Error):void {
         CrashlyticsANEContext.validate();
         var message:String = error.errorID.toString() + ": " + error.message + "\n";
         message += error.getStackTrace();
-        var ret:* = CrashlyticsANEContext.context.call("logException", message);
+        var ret:* = CrashlyticsANEContext.context.call("recordException", message);
         if (ret is ANEError) throw ret as ANEError;
     }
 
@@ -93,96 +92,34 @@ public class Crashlytics extends EventDispatcher {
      *
      *  @param value An arbitrary user identifier string which ties an end-user to a record in your system.
      */
-    public function set userIdentifier(value:String):void {
+    public function set userId(value:String):void {
         CrashlyticsANEContext.validate();
-        var ret:* = CrashlyticsANEContext.context.call("setUserIdentifier", value);
+        var ret:* = CrashlyticsANEContext.context.call("setUserId", value);
         if (ret is ANEError) throw ret as ANEError;
     }
 
-    /**
-     *  Specify a user email which will be visible in the Crashlytics UI.
-     *  Please be mindful of your end-user's privacy and see if setUserIdentifier: can fulfil your needs.
-     *
-     *  @see setUserIdentifier:
-     *
-     *  @param value An end user's email address.
-     */
-    public function set userEmail(value:String):void {
+    public function setCustomKey(key:String, value:*):void {
         CrashlyticsANEContext.validate();
-        var ret:* = CrashlyticsANEContext.context.call("setUserEmail", value);
+        var ret:* = CrashlyticsANEContext.context.call("setCustomKey", key, value);
         if (ret is ANEError) throw ret as ANEError;
     }
 
-    /**
-     *  Set a String value for a for a key to be associated with your crash data which will be visible in the Crashlytics UI.
-     *
-     *  @param value The String to be associated with the key
-     *  @param key   The key with which to associate the value
-     */
-    public function setString(key:String, value:String):void {
+    public function didCrashOnPreviousExecution():Boolean {
         CrashlyticsANEContext.validate();
-        var ret:* = CrashlyticsANEContext.context.call("setString", key, value);
+        var ret:* = CrashlyticsANEContext.context.call("didCrashOnPreviousExecution");
         if (ret is ANEError) throw ret as ANEError;
+        return ret as Boolean;
     }
 
     /**
-     *  Set an Boolean value for a key to be associated with your crash data which will be visible in the Crashlytics UI.
-     *
-     *  @param value The Boolean value to be set
-     *  @param key The key with which to associate the value
+     *  This Boolean enables or disables logging. The default value is true.
      */
-    public function setBool(key:String, value:Boolean):void {
-        CrashlyticsANEContext.validate();
-        var ret:* = CrashlyticsANEContext.context.call("setBool", key, value);
-        if (ret is ANEError) throw ret as ANEError;
+    public static function get enabled():Boolean {
+        return _enabled;
     }
 
-    /**
-     *  Set an double value for a key to be associated with your crash data which will be visible in the Crashlytics UI.
-     *
-     *  @param value The float value to be set
-     *  @param key The key with which to associate the value
-     */
-    public function setDouble(key:String, value:Number):void {
-        CrashlyticsANEContext.validate();
-        var ret:* = CrashlyticsANEContext.context.call("setDouble", key, value);
-        if (ret is ANEError) throw ret as ANEError;
-    }
-
-    /**
-     *  Set an int value for a key to be associated with your crash data which will be visible in the Crashlytics UI.
-     *
-     *  @param value The integer value to be set
-     *  @param key The key with which to associate the value
-     */
-    public function setInt(key:String, value:int):void {
-        CrashlyticsANEContext.validate();
-        var ret:* = CrashlyticsANEContext.context.call("setInt", key, value);
-        if (ret is ANEError) throw ret as ANEError;
-    }
-
-    /**
-     *  Specify a user name which will be visible in the Crashlytics UI.
-     *  Please be mindful of your end-user's privacy and see if setUserIdentifier: can fulfil your needs.
-     *  @see setUserIdentifier:
-     *
-     *  @param value An end user's name.
-     */
-    public function set userName(value:String):void {
-        CrashlyticsANEContext.validate();
-        var ret:* = CrashlyticsANEContext.context.call("setUserName", value);
-        if (ret is ANEError) throw ret as ANEError;
-    }
-
-    /**
-     *  This Boolean enables or disables debug logging, such as kit version information. The default value is false.
-     */
-    public static function get debug():Boolean {
-        return _debug;
-    }
-
-    public static function set debug(value:Boolean):void {
-        _debug = value;
+    public static function set enabled(value:Boolean):void {
+        _enabled = value;
     }
 
     /** Disposes the ANE */

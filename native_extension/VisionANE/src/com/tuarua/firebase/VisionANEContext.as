@@ -15,11 +15,9 @@
  */
 
 package com.tuarua.firebase {
-import com.tuarua.firebase.permissions.PermissionEvent;
 
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
-import flash.utils.setTimeout;
 /** @private */
 public class VisionANEContext {
     internal static const NAME:String = "VisionANE";
@@ -44,16 +42,6 @@ public class VisionANEContext {
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);
-                break;
-            case PermissionEvent.STATUS_CHANGED:
-                try {
-                    var argsAsJSON:Object = JSON.parse(event.code);
-                    setTimeout(function():void{
-                        Vision.vision.dispatchEvent(new PermissionEvent(event.level, argsAsJSON.status));
-                    }, (1 / 15)); //put a delay to prevent Stage3D Error #3768
-                } catch (e:Error) {
-                    trace(e.message);
-                }
                 break;
         }
     }

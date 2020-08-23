@@ -33,11 +33,6 @@ CONTEXT_INIT(TRFBVIS) {
     {
          MAP_FUNCTION(TRFBVIS, init)
         ,MAP_FUNCTION(TRFBVIS, createGUID)
-        ,MAP_FUNCTION(TRFBVIS, requestPermissions)
-        ,MAP_FUNCTION(TRFBVIS, isCameraSupported)
-        ,MAP_FUNCTION(TRFBVIS, addNativeChild)
-        ,MAP_FUNCTION(TRFBVIS, updateNativeChild)
-        ,MAP_FUNCTION(TRFBVIS, removeNativeChild)
     };
     SET_FUNCTIONS
 }

@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class GoogleSignInEvent: NSObject {
     public static let SIGN_IN = "GoogleSignInEvent.SignIn"

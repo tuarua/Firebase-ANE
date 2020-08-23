@@ -20,12 +20,33 @@ import FirebaseAuth
 public extension User {
     func toFREObject() -> FREObject? {
         return FREObject.init(className: "com.tuarua.firebase.auth.FirebaseUser",
-                                  args: self.uid,
-                                  self.displayName,
-                                  self.email,
-                                  self.isAnonymous,
-                                  self.isEmailVerified,
-                                  self.photoURL?.absoluteString,
-                                  self.phoneNumber)
+                                  args: uid,
+                                  displayName,
+                                  email,
+                                  isAnonymous,
+                                  isEmailVerified,
+                                  photoURL?.absoluteString,
+                                  phoneNumber)
+    }
+    @objc func toDictionary() -> [String: Any] {
+        var ret = [String: Any]()
+        ret["uid"] = uid
+        ret["displayName"] = displayName
+        ret["email"] = email
+        ret["isAnonymous"] = isAnonymous
+        ret["isEmailVerified"] = isEmailVerified
+        ret["photoUrl"] = photoURL?.absoluteString
+        ret["phoneNumber"] = phoneNumber
+        return ret
     }
 }
+
+/*
+ "uid" to uid,
+ "displayName" to displayName,
+ "email" to email,
+ "isAnonymous" to isAnonymous,
+ "isEmailVerified" to isEmailVerified,
+ "photoUrl" to photoUrl.toString(),
+ "phoneNumber" to phoneNumber
+ */

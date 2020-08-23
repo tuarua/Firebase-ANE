@@ -217,11 +217,11 @@ SWIFT_CLASS("_TtC19GoogleSignInANE_LIB15SwiftController")
 @class GIDSignIn;
 @class UIViewController;
 
-@interface SwiftController (SWIFT_EXTENSION(GoogleSignInANE_LIB)) <GIDSignInUIDelegate>
-- (void)signInWillDispatch:(GIDSignIn * _Null_unspecified)signIn error:(NSError * _Null_unspecified)error;
-- (void)signIn:(GIDSignIn * _Null_unspecified)signIn presentViewController:(UIViewController * _Null_unspecified)viewController;
-- (void)signIn:(GIDSignIn * _Null_unspecified)signIn dismissViewController:(UIViewController * _Null_unspecified)viewController;
-@end
+//@interface SwiftController (SWIFT_EXTENSION(GoogleSignInANE_LIB)) <GIDSignInUIDelegate>
+//- (void)signInWillDispatch:(GIDSignIn * _Null_unspecified)signIn error:(NSError * _Null_unspecified)error;
+//- (void)signIn:(GIDSignIn * _Null_unspecified)signIn presentViewController:(UIViewController * _Null_unspecified)viewController;
+//- (void)signIn:(GIDSignIn * _Null_unspecified)signIn dismissViewController:(UIViewController * _Null_unspecified)viewController;
+//@end
 
 @class GIDGoogleUser;
 

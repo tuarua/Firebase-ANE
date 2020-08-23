@@ -5,7 +5,7 @@ import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.google.android.gms.common.ConnectionResult
 import com.tuarua.frekotlin.*
-import com.google.android.gms.common.GoogleApiAvailability
+import com.google.android.gms.common.GoogleApiAvailabilityLight
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.ktx.initialize
 
@@ -83,7 +83,7 @@ class KotlinController : FreKotlinMainController {
 
     fun isGooglePlayServicesAvailable(ctx: FREContext, argv: FREArgv): FREObject? {
         val activity = context?.activity ?: return FreException("no activity").getError()
-        return (GoogleApiAvailability.getInstance()
+        return (GoogleApiAvailabilityLight.getInstance()
                 .isGooglePlayServicesAvailable(activity) == ConnectionResult.SUCCESS)
                 .toFREObject()
     }

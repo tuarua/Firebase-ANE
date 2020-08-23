@@ -12,16 +12,16 @@
         <option>-framework StoreKit</option>
         <option>-framework SystemConfiguration</option>
         <option>-rpath @executable_path/Frameworks</option>
+        <option>-rpath /usr/lib/swift</option>
     </linkerOptions>
     
     <packagedDependencies>
-        <packagedDependency>Frameworks/FirebaseFirestore.framework</packagedDependency>
+        <packagedDependency>Frameworks/abseil.framework</packagedDependency>
         <packagedDependency>Frameworks/BoringSSL-GRPC.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseFirestore.framework</packagedDependency>
         <packagedDependency>Frameworks/gRPC-Core.framework</packagedDependency>
         <packagedDependency>Frameworks/gRPC-C++.framework</packagedDependency>
         <packagedDependency>Frameworks/leveldb-library.framework</packagedDependency>
-        <packagedDependency>Frameworks/Protobuf.framework</packagedDependency>
-        <packagedDependency>Frameworks/abseil.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

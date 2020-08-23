@@ -18,6 +18,7 @@ package com.tuarua.firebase.auth
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
 import com.tuarua.firebase.auth.extensions.AuthCredential
+import com.tuarua.firebase.auth.extensions.OAuthProvider
 import com.tuarua.firebase.auth.extensions.toFREObject
 import com.tuarua.frekotlin.*
 import java.util.*
@@ -73,11 +74,19 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    fun signIn(ctx: FREContext, argv: FREArgv): FREObject? {
+    fun signInWithCredential(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val credential = AuthCredential(argv[0]) ?: return null
         val callbackId = String(argv[1])
         authController.signIn(credential, callbackId)
+        return null
+    }
+
+    fun signInWithProvider(ctx: FREContext, argv: FREArgv): FREObject? {
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
+        val provider = OAuthProvider(argv[0]) ?: return null
+        val callbackId = String(argv[1])
+        authController.signIn(provider, callbackId)
         return null
     }
 
@@ -140,11 +149,19 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    fun reauthenticate(ctx: FREContext, argv: FREArgv): FREObject? {
+    fun reauthenticateWithCredential(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val credential = AuthCredential(argv[0]) ?: return null
         val callbackId = String(argv[1])
         userController.reauthenticate(credential, callbackId)
+        return null
+    }
+
+    fun reauthenticateWithProvider(ctx: FREContext, argv: FREArgv): FREObject? {
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val provider = OAuthProvider(argv[0]) ?: return null
+        val callbackId = String(argv[1])
+        userController.reauthenticate(provider, callbackId)
         return null
     }
 

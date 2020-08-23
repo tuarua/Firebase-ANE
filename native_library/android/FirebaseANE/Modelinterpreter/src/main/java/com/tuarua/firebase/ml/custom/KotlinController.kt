@@ -69,10 +69,10 @@ class KotlinController : FreKotlinMainController {
                     val labelProbArray = result.getOutput<Array<ByteArray>>(0)
 
                     val sortedLabels = PriorityQueue<AbstractMap.SimpleEntry<Int, Float>>(
-                            maxResults,
-                            Comparator<AbstractMap.SimpleEntry<Int, Float>> { o1, o2 ->
-                                o1.value.compareTo(o2.value)
-                            })
+                            maxResults
+                    ) { o1, o2 ->
+                        o1.value.compareTo(o2.value)
+                    }
                     for (i in 0 until numPossibilities) {
                         sortedLabels.add(AbstractMap.SimpleEntry(i, (labelProbArray[0][i] and 0xff.toByte()) / 255.0f))
                         if (sortedLabels.size > maxResults) {
@@ -105,7 +105,7 @@ class KotlinController : FreKotlinMainController {
     }
 
     fun isModelDownloaded(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val model = FirebaseRemoteModel(argv[0]) ?: return null
         val callbackId = String(argv[1]) ?: return null
 

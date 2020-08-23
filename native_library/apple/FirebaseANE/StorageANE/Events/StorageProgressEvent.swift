@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class StorageProgressEvent: NSObject {
     public static let PROGRESS = "StorageProgressEvent.Progress"

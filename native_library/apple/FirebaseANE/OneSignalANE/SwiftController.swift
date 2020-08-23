@@ -16,7 +16,6 @@
 
 import Foundation
 import FreSwift
-import SwiftyJSON
 import OneSignal
 
 public class SwiftController: NSObject, OSInAppMessageDelegate {
@@ -35,6 +34,7 @@ public class SwiftController: NSObject, OSInAppMessageDelegate {
     }
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        warning("OneSignal implementation is not yet complete for iOS. DO NOT USE.")
         return true.toFREObject()
     }
     

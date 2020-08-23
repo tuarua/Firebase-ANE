@@ -2,8 +2,8 @@
 <platform xmlns="http://ns.adobe.com/air/extension/19.0">
     <packagedResources>
         <packagedResource>
-            <packageName>com.tuarua.firebase.visionfaceane</packageName>
-            <folderName>com.tuarua.firebase.VisionFaceANE-res</folderName>
+            <packageName>com.tuarua.mlkit.vision.faceane</packageName>
+            <folderName>com.tuarua.mlkit.vision.FaceANE-res</folderName>
         </packagedResource>
     </packagedResources>
 </platform>

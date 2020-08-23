@@ -36,6 +36,7 @@ CONTEXT_INIT(TRFBMI) {
         ,MAP_FUNCTION(TRFBMI, run)
         ,MAP_FUNCTION(TRFBMI, deleteDownloadedModel)
         ,MAP_FUNCTION(TRFBMI, download)
+        ,MAP_FUNCTION(TRFBMI, isModelDownloaded)
     };
     SET_FUNCTIONS
     

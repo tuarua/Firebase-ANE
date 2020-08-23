@@ -47,20 +47,38 @@ class AuthController: FreSwiftController {
     }
     
     func signIn(credential: AuthCredential, callbackId: String?) {
-        auth?.signIn(with: credential, completion: { (_, error) in
+        auth?.signIn(with: credential, completion: { (result, error) in
             if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
-                               value: AuthEvent(callbackId: callbackId, data: nil, error: err).toJSONString())
+                                   value: AuthEvent(callbackId: callbackId, data: nil,
+                                                    error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
-                               value: AuthEvent(callbackId: callbackId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId,
+                                                data: result?.toDictionary()).toJSONString())
+            }
+        })
+    }
+    
+    func signIn(provider: OAuthProvider, callbackId: String?) {
+        auth?.signIn(with: provider, uiDelegate: nil, completion: { (result, error) in
+            if callbackId == nil { return }
+            if let err = error as NSError? {
+                self.dispatchEvent(name: AuthEvent.SIGN_IN,
+                                   value: AuthEvent(callbackId: callbackId,
+                                                    data: nil,
+                                                    error: err).toJSONString())
+            } else {
+                self.dispatchEvent(name: AuthEvent.SIGN_IN,
+                               value: AuthEvent(callbackId: callbackId,
+                                                data: result?.toDictionary()).toJSONString())
             }
         })
     }
     
     func signInAnonymously(callbackId: String?) {
-        auth?.signInAnonymously { _, error in
+        auth?.signInAnonymously { (result, error) in
             if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
@@ -68,13 +86,14 @@ class AuthController: FreSwiftController {
                                                 error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
-                               value: AuthEvent(callbackId: callbackId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId,
+                                                data: result?.toDictionary()).toJSONString())
             }
         }
     }
     
     func signInWithCustomToken(token: String, callbackId: String?) {
-        auth?.signIn(withCustomToken: token, completion: { (_, error) in
+        auth?.signIn(withCustomToken: token, completion: { (result, error) in
             if callbackId == nil { return }
             if let err = error as NSError? {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
@@ -82,7 +101,8 @@ class AuthController: FreSwiftController {
                                                 error: err).toJSONString())
             } else {
                 self.dispatchEvent(name: AuthEvent.SIGN_IN,
-                               value: AuthEvent(callbackId: callbackId).toJSONString())
+                               value: AuthEvent(callbackId: callbackId,
+                                                data: result?.toDictionary()).toJSONString())
             }
         })
     }

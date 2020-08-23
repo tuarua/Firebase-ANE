@@ -8,10 +8,11 @@
         <option>-w</option>
         <option>-ObjC</option>
         <option>-rpath @executable_path/Frameworks</option>
+        <option>-rpath /usr/lib/swift</option>
     </linkerOptions>
     
     <packagedDependencies>
-        <packagedDependency>Frameworks/Crashlytics.framework</packagedDependency>
+        <packagedDependency>Frameworks/FirebaseCrashlytics.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

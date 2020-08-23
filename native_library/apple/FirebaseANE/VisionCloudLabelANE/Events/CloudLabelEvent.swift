@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class CloudLabelEvent: NSObject {
     public static let RECOGNIZED = "CloudLabelEvent.Recognized"

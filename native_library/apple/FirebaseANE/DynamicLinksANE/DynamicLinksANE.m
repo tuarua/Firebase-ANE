@@ -30,10 +30,6 @@ SWIFT_DECL(TRFIRDL)
 CONTEXT_INIT(TRFIRDL) {
     SWIFT_INITS(TRFIRDL)
     
-    /**************************************************************************/
-    /******* MAKE SURE TO ADD FUNCTIONS HERE THE SAME AS SWIFT CONTROLLER *****/
-    /**************************************************************************/
-    
     static FRENamedFunction extensionFunctions[] =
     {
          MAP_FUNCTION(TRFIRDL, init)
@@ -41,9 +37,6 @@ CONTEXT_INIT(TRFIRDL) {
         ,MAP_FUNCTION(TRFIRDL, buildDynamicLink)
         ,MAP_FUNCTION(TRFIRDL, getDynamicLink)
     };
-    
-    /**************************************************************************/
-    /**************************************************************************/
     
     SET_FUNCTIONS
     

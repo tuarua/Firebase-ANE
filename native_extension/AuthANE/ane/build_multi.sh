@@ -68,11 +68,12 @@ mv "$pathtome/platforms/android/res" "$pathtome/platforms/android/com.tuarua.fir
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphonesimulator/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/simulator/lib$PROJECTNAME.a"
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/device/lib$PROJECTNAME.a"
 
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/FirebaseAuth.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseAuth.framework" "$pathtome/platforms/ios/device/Frameworks"
-
-cp -R -L "$pathtome/../../../firebase_frameworks/simulator/GTMSessionFetcher.framework" "$pathtome/platforms/ios/simulator/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/GTMSessionFetcher.framework" "$pathtome/platforms/ios/device/Frameworks"
+arr=( "FirebaseAuth" "GTMSessionFetcher" )
+for i in "${arr[@]}"
+do
+    cp -R -L "$pathtome/../../../firebase_frameworks/simulator/$i.framework" "$pathtome/platforms/ios/simulator/Frameworks"
+    cp -R -L "$pathtome/../../../firebase_frameworks/device/$i.framework" "$pathtome/platforms/ios/device/Frameworks"
+done
 
 #Run the build command.
 echo "Building ANE."
@@ -95,7 +96,11 @@ com.tuarua.firebase.${PROJECTNAME}-res/. \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.firebase.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
--platform default -C "$pathtome/platforms/default" "library.swf"
+-platform default -C "$pathtome/platforms/default" "library.swf" \
+-C "$pathtome/platforms/android" "AndroidManifest.xml" \
+-C "$pathtome/platforms/ios" "Entitlements.entitlements" "InfoAdditions.plist"
+
+cp "$pathtome/$PROJECTNAME.ane" "$pathtome/../../../example/extensions/$PROJECTNAME.ane"
 
 #remove the frameworks from sim and device, as not needed any more
 rm -r "$pathtome/platforms/ios/simulator"

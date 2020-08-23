@@ -16,8 +16,7 @@
 
 import Foundation
 import FreSwift
-import Crashlytics
-import Fabric
+import FirebaseCrashlytics
 
 public class SwiftController: NSObject {
     public static var TAG = "SwiftController"
@@ -31,7 +30,7 @@ public class SwiftController: NSObject {
     }
     
     var crashlytics: Crashlytics {
-        return Crashlytics.sharedInstance()
+        return Crashlytics.crashlytics()
     }
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
@@ -39,17 +38,14 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError().getError()
         }
-        let debug = Bool(argv[0]) == true
-        Fabric.with([Crashlytics.self])
-        Fabric.sharedSDK().debug = debug
+        crashlytics.setCrashlyticsCollectionEnabled(Bool(argv[0]) == true)
         return true.toFREObject()
     }
     
     // MARK: - Log
     
     func crash(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        crashlytics.crash()
-        return nil
+        fatalError()
     }
     
     func log(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
@@ -57,90 +53,52 @@ public class SwiftController: NSObject {
         return nil
     }
     
-    func logException(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+    func recordException(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let message = String(argv[0])
+            let reason = String(argv[0])
             else {
                 return FreArgError().getError()
         }
-        crashlytics.recordCustomExceptionName("CrashlyticsANE", reason: message, frameArray: [])
+        crashlytics.record(exceptionModel: .init(name: "CrashlyticsANE", reason: reason))
         return nil
     }
     
     // MARK: - Sets
     
-    func setUserIdentifier(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+    func setUserId(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
             let value = String(argv[0])
             else {
                 return FreArgError().getError()
         }
-        crashlytics.setUserIdentifier(value)
+        crashlytics.setUserID(value)
         return nil
     }
     
-    func setUserEmail(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
-            let value = String(argv[0])
-            else {
-                return FreArgError().getError()
-        }
-        crashlytics.setUserEmail(value)
-        return nil
-    }
-    
-    func setUserName(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
-            let value = String(argv[0])
-            else {
-                return FreArgError().getError()
-        }
-        crashlytics.setUserName(value)
-        return nil
-    }
-    
-    func setString(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+    func setCustomKey(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 1,
             let key = String(argv[0]),
-            let value = String(argv[1])
+            let value = argv[1]
             else {
                 return FreArgError().getError()
         }
-        crashlytics.setObjectValue(value, forKey: key)
-        return nil
-    }
-    
-    func setBool(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 1,
-            let key = String(argv[0]),
-            let value = Bool(argv[1])
-            else {
-                return FreArgError().getError()
+        
+        switch value.type {
+        case .string:
+            crashlytics.setCustomValue(String(value) as Any, forKey: key)
+        case .int:
+            crashlytics.setCustomValue(Int(value) as Any, forKey: key)
+        case .number:
+            crashlytics.setCustomValue(Double(value) as Any, forKey: key)
+        case .boolean:
+            crashlytics.setCustomValue(Bool(value) as Any, forKey: key)
+        default: break
         }
-        crashlytics.setBoolValue(value, forKey: key)
-        return nil
-    }
-    
-    func setDouble(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 1,
-            let key = String(argv[0]),
-            let value = Float(argv[1])
-            else {
-                return FreArgError().getError()
-        }
-        crashlytics.setFloatValue(value, forKey: key)
-        return nil
-    }
-    
-    func setInt(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 1,
-            let key = String(argv[0]),
-            let value = Int(argv[1])
-            else {
-                return FreArgError().getError()
-        }
-        crashlytics.setIntValue(Int32(value), forKey: key)
         return nil
     }
 
+    func didCrashOnPreviousExecution(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        return crashlytics.didCrashDuringPreviousExecution().toFREObject()
+    }
+    
 }

@@ -25,7 +25,7 @@ import com.google.gson.Gson
 import com.tuarua.firebase.ml.vision.common.extensions.FirebaseVisionImage
 import com.tuarua.firebase.ml.vision.cloudtext.events.CloudTextEvent
 import com.tuarua.firebase.ml.vision.cloudtext.extensions.FirebaseVisionCloudTextRecognizerOptions
-import com.tuarua.firebase.ml.vision.text.extensions.toFREObject
+import com.tuarua.firebase.ml.vision.cloudtext.extensions.toFREObject
 import com.tuarua.frekotlin.*
 
 import java.util.*

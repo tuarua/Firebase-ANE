@@ -1,3 +1,23 @@
+### 0.13.0
+- AND: Updated to FreKotlin 1.40.0
+- iOS: Updated to FreSwift 4.5.0
+- AND: Analytics 17.5.0
+- AND: Crashlytics 17.1.1
+- AND: Firestore 21.5.0
+- AND: Remote Config 19.2.0
+- AND: Auth 19.3.2
+- AND: Play Services Auth 18.1.0
+- AND: Performance 19.0.8
+- AND: Messaging 20.2.4
+- AND: [Auth] - added `auth.signInWithCredential()`
+- AND: [Auth] - added `auth.signInWithProvider()`
+- AND: [Crashlytics] - now uses `FirebaseCrashlytics` API
+- AND: [Vision] - Move Barcode to MLKitANE
+- AND: [Vision] - Move Face Detection to MLKitANE
+- AND: [Vision] - Move Label Detection to MLKitANE
+- AND: [Vision] - Move Text Detection to MLKitANE
+- AND: [Vision] - Move Natural Language to MLKitANE
+
 ### 0.12.0
 - Added OneSignal 
 

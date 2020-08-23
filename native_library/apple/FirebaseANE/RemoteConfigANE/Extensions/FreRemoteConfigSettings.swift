@@ -21,8 +21,8 @@ import FirebaseRemoteConfig
 public extension RemoteConfigSettings {
     convenience init?(_ freObject: FREObject?) {
         guard let rv = freObject,
-            let minimumFetchInterval = TimeInterval(rv["minimumFetchIntervalInSeconds"]),
-            let fetchTimeout = TimeInterval(rv["fetchTimeoutInSeconds"])
+            let minimumFetchInterval = TimeInterval(rv["minimumFetchInterval"]),
+            let fetchTimeout = TimeInterval(rv["fetchTimeout"])
             else { return nil }
         self.init()
         self.fetchTimeout = fetchTimeout

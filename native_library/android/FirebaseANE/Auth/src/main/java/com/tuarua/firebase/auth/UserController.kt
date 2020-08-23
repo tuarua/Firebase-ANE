@@ -110,13 +110,24 @@ class UserController(override var context: FREContext?) : FreKotlinController {
         }
     }
 
+    fun reauthenticate(provider: OAuthProvider, callbackId: String?) {
+        val act = this.context?.activity ?: return
+        currentUser?.startActivityForReauthenticateWithProvider(act, provider)?.addOnCompleteListener {task ->
+            if (callbackId == null) return@addOnCompleteListener
+            when {
+                task.isSuccessful -> dispatchEvent(AuthEvent.USER_REAUTHENTICATED, gson.toJson(AuthEvent(callbackId)))
+                else -> sendError(AuthEvent.USER_REAUTHENTICATED, callbackId, task.exception)
+            }
+        }
+    }
+
     fun updateProfile(displayName: String?, photoUrl: String?, callbackId: String?) {
         val request = UserProfileChangeRequest.Builder()
         when {
-            displayName != null -> request.setDisplayName(displayName)
+            displayName != null -> request.displayName = displayName
         }
         when {
-            photoUrl != null -> request.setPhotoUri(Uri.parse(photoUrl))
+            photoUrl != null -> request.photoUri = Uri.parse(photoUrl)
         }
         currentUser?.updateProfile(request.build())?.addOnCompleteListener { task ->
             if (callbackId == null) return@addOnCompleteListener
@@ -175,6 +186,4 @@ class UserController(override var context: FREContext?) : FreKotlinController {
 
     override val TAG: String?
         get() = this::class.java.simpleName
-
-
 }

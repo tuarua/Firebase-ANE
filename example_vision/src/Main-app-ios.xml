@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/32.0">
+<application xmlns="http://ns.adobe.com/air/application/33.1">
 
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-iOS-Device</name>
-    <versionNumber>0.6.0</versionNumber>
+    <versionNumber>0.13.0</versionNumber>
 
 
     <!-- Settings for the application's initial window. Required. -->
@@ -42,9 +42,7 @@
                 <string>2</string>
             </array>
             <key>MinimumOSVersion</key>
-            <string>9.0</string>
-            <key>NSCameraUsageDescription</key>
-            <string>You need to allow camera to use VisionANE Sample</string>
+            <string>12.2</string>
             ]]>
         </InfoAdditions>
         <requestedDisplayResolution>high</requestedDisplayResolution>
@@ -53,15 +51,10 @@
     <extensions>
         <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionANE</extensionID>
-        <extensionID>com.tuarua.firebase.VisionBarcodeANE</extensionID>
-        <extensionID>com.tuarua.firebase.VisionFaceANE</extensionID>
-        <extensionID>com.tuarua.firebase.VisionTextANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudTextANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudDocumentANE</extensionID>
-        <extensionID>com.tuarua.firebase.VisionLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionCloudLabelANE</extensionID>
         <extensionID>com.tuarua.firebase.VisionLandmarkANE</extensionID>
-        <extensionID>com.tuarua.firebase.NaturalLanguageANE</extensionID>
         <extensionID>com.tuarua.firebase.ModelInterpreterANE</extensionID>
 
     </extensions>

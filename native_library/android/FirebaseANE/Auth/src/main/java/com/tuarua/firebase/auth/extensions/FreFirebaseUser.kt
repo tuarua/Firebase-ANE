@@ -6,12 +6,24 @@ import com.tuarua.frekotlin.FREObject
 
 fun FirebaseUser.toFREObject(): FREObject? {
     return FREObject("com.tuarua.firebase.auth.FirebaseUser",
-            this.uid,
-            this.displayName,
-            this.email,
-            this.isAnonymous,
-            this.isEmailVerified,
-            this.photoUrl.toString(),
-            this.phoneNumber
+            uid,
+            displayName,
+            email,
+            isAnonymous,
+            isEmailVerified,
+            photoUrl.toString(),
+            phoneNumber
+    )
+}
+
+fun FirebaseUser.toMap(): Map<String, Any?>? {
+    return mapOf(
+            "uid" to uid,
+            "displayName" to displayName,
+            "email" to email,
+            "isAnonymous" to isAnonymous,
+            "isEmailVerified" to isEmailVerified,
+            "photoUrl" to photoUrl.toString(),
+            "phoneNumber" to phoneNumber
     )
 }

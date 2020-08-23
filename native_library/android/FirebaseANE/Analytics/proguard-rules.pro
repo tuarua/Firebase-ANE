@@ -20,11 +20,5 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
-# keep everything in this package from being removed or renamed
--keep class kotlin.** { *; }
-
-# keep everything in this package from being renamed only
--keepnames class kotlin.** { *; }
-
 -keepattributes EnclosingMethod
 -keepattributes InnerClasses

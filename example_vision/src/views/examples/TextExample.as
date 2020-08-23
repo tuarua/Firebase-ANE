@@ -5,13 +5,12 @@ import com.tuarua.firebase.ml.vision.document.CloudDocumentRecognizerOptions;
 import com.tuarua.firebase.ml.vision.document.CloudDocumentTextRecognizer;
 import com.tuarua.firebase.ml.vision.document.DocumentText;
 import com.tuarua.firebase.ml.vision.document.DocumentTextBlock;
+import com.tuarua.firebase.ml.vision.text.CloudText;
+import com.tuarua.firebase.ml.vision.text.CloudTextBlock;
+import com.tuarua.firebase.ml.vision.text.CloudTextElement;
+import com.tuarua.firebase.ml.vision.text.CloudTextError;
+import com.tuarua.firebase.ml.vision.text.CloudTextLine;
 import com.tuarua.firebase.ml.vision.text.CloudTextRecognizer;
-import com.tuarua.firebase.ml.vision.text.Text;
-import com.tuarua.firebase.ml.vision.text.TextBlock;
-import com.tuarua.firebase.ml.vision.text.TextElement;
-import com.tuarua.firebase.ml.vision.text.TextError;
-import com.tuarua.firebase.ml.vision.text.TextLine;
-import com.tuarua.firebase.ml.vision.text.TextRecognizer;
 
 import flash.display.Bitmap;
 import flash.geom.Rectangle;
@@ -48,14 +47,12 @@ public class TextExample extends Sprite implements IExample {
     private var textContainer:Sprite = new Sprite();
     private var overlayContainer:Sprite = new Sprite();
 
-    private var btnOnDevice:SimpleButton = new SimpleButton("Detect On Device");
     private var btnInCloud:SimpleButton = new SimpleButton("Detect In Cloud");
     private var btnDocumentInCloud:SimpleButton = new SimpleButton("Detect Document In Cloud");
     private var statusLabel:TextField;
     private var stageWidth:Number;
     private var stageHeight:Number;
     private var isInited:Boolean;
-    private var textRecognizer:TextRecognizer;
     private var cloudTextRecognizer:CloudTextRecognizer;
     private var cloudDocumentRecognizer:CloudDocumentTextRecognizer;
     private var vision:Vision;
@@ -71,7 +68,6 @@ public class TextExample extends Sprite implements IExample {
     public function initANE():void {
         if (isInited) return;
 
-        textRecognizer = vision.onDeviceTextRecognizer();
         cloudTextRecognizer = vision.cloudTextRecognizer();
         var documentOptions:CloudDocumentRecognizerOptions = new CloudDocumentRecognizerOptions();
         documentOptions.languageHints = new <String>["en"];
@@ -80,12 +76,9 @@ public class TextExample extends Sprite implements IExample {
     }
 
     private function initMenu():void {
-        btnDocumentInCloud.x = btnOnDevice.x = btnInCloud.x = (stageWidth - 200) * 0.5;
-        btnOnDevice.y = StarlingRoot.GAP;
-        btnOnDevice.addEventListener(TouchEvent.TOUCH, onDeviceClick);
-        addChild(btnOnDevice);
+        btnDocumentInCloud.x = btnInCloud.x = (stageWidth - 200) * 0.5;
 
-        btnInCloud.y = btnOnDevice.y + StarlingRoot.GAP;
+        btnInCloud.y = StarlingRoot.GAP;
         btnInCloud.addEventListener(TouchEvent.TOUCH, OnCloudClick);
         addChild(btnInCloud);
 
@@ -118,19 +111,6 @@ public class TextExample extends Sprite implements IExample {
         addChild(textContainer);
     }
 
-    private function onDeviceClick(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(btnOnDevice);
-        if (touch != null && touch.phase == TouchPhase.ENDED) {
-            clearOverlay();
-            textContainer.visible = true;
-            textImageDisplay.visible = true;
-            cloudTextImageDisplay.visible = false;
-            cloudDocumentImageDisplay.visible = false;
-            var visionImage:VisionImage = new VisionImage(bmpTextImage.bitmapData);
-            textRecognizer.process(visionImage, onProcessed);
-        }
-    }
-
     private function OnCloudClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnInCloud);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
@@ -158,17 +138,17 @@ public class TextExample extends Sprite implements IExample {
         }
     }
 
-    private function onProcessed(text:Text, error:TextError):void {
-        textRecognizer.close();
+    private function onProcessed(text:CloudText, error:CloudTextError):void {
+        cloudTextRecognizer.close();
         if (error) {
             statusLabel.text = "Text error: " + error.errorID + " : " + error.message;
             return;
         }
         trace(text.text);
-        for each (var block:TextBlock in text.blocks) {
-            for each (var line:TextLine in block.lines) {
+        for each (var block:CloudTextBlock in text.blocks) {
+            for each (var line:CloudTextLine in block.lines) {
                 var frame:Rectangle;
-                for each (var element:TextElement in line.elements) {
+                for each (var element:CloudTextElement in line.elements) {
                     frame = element.frame;
                     var hl:TextElementHighlight = new TextElementHighlight(frame, element.text);
                     overlayContainer.addChild(hl);
@@ -177,7 +157,7 @@ public class TextExample extends Sprite implements IExample {
         }
     }
 
-    private function onDocumentProcessed(document:DocumentText, error:TextError):void {
+    private function onDocumentProcessed(document:DocumentText, error:CloudTextError):void {
         cloudDocumentRecognizer.close();
         if (error) {
             statusLabel.text = "Text error: " + error.errorID + " : " + error.message;

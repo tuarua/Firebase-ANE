@@ -30,10 +30,6 @@ SWIFT_DECL(TRFIRAN)
 CONTEXT_INIT(TRFIRAN) {
     SWIFT_INITS(TRFIRAN)
     
-    /**************************************************************************/
-    /******* MAKE SURE TO ADD FUNCTIONS HERE THE SAME AS SWIFT CONTROLLER *****/
-    /**************************************************************************/
-    
     static FRENamedFunction extensionFunctions[] =
     {
          MAP_FUNCTION(TRFIRAN, init)
@@ -46,9 +42,6 @@ CONTEXT_INIT(TRFIRAN) {
         ,MAP_FUNCTION(TRFIRAN, logEvent)
         ,MAP_FUNCTION(TRFIRAN, resetAnalyticsData)
     };
-    
-    /**************************************************************************/
-    /**************************************************************************/
     
     SET_FUNCTIONS
     

@@ -4,7 +4,7 @@
     <id>com.tuarua.firebaseane.example</id>
     <filename>FireBaseExample</filename>
     <name>FIR-Example-Android</name>
-    <versionNumber>0.12.0</versionNumber>
+    <versionNumber>0.13.0</versionNumber>
 
     <!-- Settings for the application's initial window. Required. -->
     <initialWindow>
@@ -129,6 +129,12 @@
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                         <meta-data
                             android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.ktx.FirebaseDynamicLinksRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.auth.ktx.FirebaseAuthKtxRegistrar"
+                            android:value="com.google.firebase.components.ComponentRegistrar" />
+                        <meta-data
+                            android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar"
                             android:value="com.google.firebase.components.ComponentRegistrar" />
                     </service>
 
@@ -291,15 +297,9 @@
                         android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
 
                     <!-- crashlytics -->
-                    <provider
-                        android:authorities="air.com.tuarua.firebaseane.example.crashlyticsinitprovider"
-                        android:name="com.crashlytics.android.CrashlyticsInitProvider"
-                        android:exported="false"
-                        android:initOrder="99" />
                     <meta-data
                         android:name="firebase_crashlytics_collection_enabled"
                         android:value="false" />
-                    <activity android:name="com.tuarua.firebase.crashlytics.CrashlyticsActivity" />
 
                 </application>
             </manifest>
@@ -313,7 +313,7 @@
         <extensionID>com.tuarua.frekotlin</extensionID>
         <extensionID>org.greenrobot.eventbus</extensionID>
         <extensionID>com.google.code.gson.gson</extensionID>
-        <extensionID>com.squareup.okhttp.okhttp</extensionID>
+        <extensionID>com.squareup.okhttp3.okhttp</extensionID>
         <extensionID>com.google.guava.guava</extensionID>
         <extensionID>androidx.legacy.legacy-support-v4</extensionID>
         <extensionID>com.google.android.gms.play-services-measurement</extensionID>
@@ -333,19 +333,20 @@
         <extensionID>com.tuarua.firebase.PerformanceANE</extensionID>
         <extensionID>com.tuarua.firebase.CrashlyticsANE</extensionID>
 
-        <extensionID>com.google.firebase.firebase-analytics</extensionID>
+        <extensionID>com.google.firebase.firebase-components</extensionID>
+        <extensionID>com.google.firebase.firebase-analytics-ktx</extensionID>
         <extensionID>com.google.firebase.firebase-iid</extensionID>
-        <extensionID>com.google.firebase.firebase-firestore</extensionID>
-        <extensionID>com.google.firebase.firebase-storage</extensionID>
-        <extensionID>com.google.firebase.firebase-config</extensionID>
-        <extensionID>com.google.firebase.firebase-auth</extensionID>
-        <extensionID>com.google.firebase.firebase-dynamic-links</extensionID>
+        <extensionID>com.google.firebase.firebase-firestore-ktx</extensionID>
+        <extensionID>com.google.firebase.firebase-storage-ktx</extensionID>
+        <extensionID>com.google.firebase.firebase-config-ktx</extensionID>
+        <extensionID>com.google.firebase.firebase-auth-ktx</extensionID>
+        <extensionID>com.google.firebase.firebase-dynamic-links-ktx</extensionID>
         <extensionID>com.google.firebase.firebase-messaging</extensionID>
         <extensionID>com.onesignal.OneSignal</extensionID>
         <extensionID>androidx.cardview.cardview</extensionID>
         <extensionID>androidx.browser.browser</extensionID>
         <extensionID>com.google.firebase.firebase-perf</extensionID>
-        <extensionID>com.crashlytics.sdk.android.crashlytics</extensionID>
+        <extensionID>com.google.firebase.firebase-crashlytics</extensionID>
 
     </extensions>
 </application>

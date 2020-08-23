@@ -51,13 +51,12 @@ cp "$pathtome/library.swf" "$pathtome/platforms/android"
 echo "Copying native libraries into place."
 
 cp -R -L "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/lib$PROJECTNAME$libSuffix.a" "$pathtome/platforms/ios/device/lib$PROJECTNAME.a"
-cp -R -L "$pathtome/../../../example/ios_dependencies/device/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/device/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/GTMSessionFetcher.framework" "$pathtome/platforms/ios/device/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/Protobuf.framework" "$pathtome/platforms/ios/device/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/GoogleAPIClientForREST.framework" "$pathtome/platforms/ios/device/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseMLCommon.framework" "$pathtome/platforms/ios/device/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/FirebaseMLVision.framework" "$pathtome/platforms/ios/device/Frameworks"
-cp -R -L "$pathtome/../../../firebase_frameworks/device/GoogleMobileVision.framework" "$pathtome/platforms/ios/device/Frameworks"
+
+arr=( "GoogleAPIClientForREST" "GTMSessionFetcher" "FirebaseMLCommon" "FirebaseMLVision" )
+for i in "${arr[@]}"
+do
+    cp -R -L "$pathtome/../../../firebase_frameworks/device/$i.framework" "$pathtome/platforms/ios/device/Frameworks"
+done
 
 echo "Copying Android aars into place"
 cp "$pathtome/../../../native_library/android/FirebaseANE/Vision/build/outputs/aar/Vision-release.aar" "$pathtome/platforms/android/app-release.aar"
@@ -74,6 +73,8 @@ echo "Building ANE."
 -platform iPhone-ARM  -C "$pathtome/platforms/ios/device" "library.swf" "Frameworks" "lib$PROJECTNAME.a" \
 -platformoptions "$pathtome/platforms/ios/platform.xml" \
 -platform default -C "$pathtome/platforms/default" "library.swf" \
+-C "$pathtome/platforms/android" "AndroidManifest.xml" \
+-C "$pathtome/platforms/ios" "Entitlements.entitlements" "InfoAdditions.plist" \
 -platform Android-x86 \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.firebase.${PROJECTNAME}-res/. \
@@ -87,8 +88,7 @@ com.tuarua.firebase.${PROJECTNAME}-res/. \
 com.tuarua.firebase.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
 
-echo "Packaging docs into ANE."
-zip "$pathtome/$PROJECTNAME.ane" -u docs/*
+cp "$pathtome/$PROJECTNAME.ane" "$pathtome/../../../example_vision/extensions/$PROJECTNAME.ane"
 
 #remove the frameworks from sim and device, as not needed any more
 rm "$pathtome/platforms/android/classes.jar"

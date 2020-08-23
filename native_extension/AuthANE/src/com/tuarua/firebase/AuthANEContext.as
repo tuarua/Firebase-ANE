@@ -1,9 +1,14 @@
 package com.tuarua.firebase {
+import com.tuarua.firebase.auth.AdditionalUserInfo;
 import com.tuarua.firebase.auth.AuthError;
+import com.tuarua.firebase.auth.AuthResult;
+import com.tuarua.firebase.auth.FirebaseUser;
+import com.tuarua.fre.ANEUtils;
 
 import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
 import flash.utils.Dictionary;
+
 /** @private */
 public class AuthANEContext {
     internal static const NAME:String = "AuthANE";
@@ -20,8 +25,8 @@ public class AuthANEContext {
     private static const USER_DELETED:String = "AuthEvent.UserDeleted";
     private static const USER_REAUTHENTICATED:String = "AuthEvent.UserReauthenticated";
     private static const USER_CREATED:String = "AuthEvent.UserCreated";
-    private static const USER_UNLINKED: String = "AuthEvent.UserUnlinked";
-    private static const USER_LINKED: String = "AuthEvent.UserLinked";
+    private static const USER_UNLINKED:String = "AuthEvent.UserUnlinked";
+    private static const USER_LINKED:String = "AuthEvent.UserLinked";
     private static const EMAIL_VERIFICATION_SENT:String = "AuthEvent.EmailVerificationSent";
     private static const ID_TOKEN:String = "AuthEvent.OnIdToken";
     private static const PHONE_CODE_SENT:String = "AuthEvent.PhoneCodeSent";
@@ -48,7 +53,7 @@ public class AuthANEContext {
         return value == null || value == "";
     }
 
-    public static function createCallback(listener:Function):String{
+    public static function createCallback(listener:Function):String {
         var id:String;
         if (listener != null) {
             id = context.call("createGUID") as String;
@@ -57,7 +62,7 @@ public class AuthANEContext {
         return id;
     }
 
-    public static function callCallback(callbackId:String, ... args):void {
+    public static function callCallback(callbackId:String, ...args):void {
         var callback:Function = callbacks[callbackId];
         if (callback == null) return;
         callback.apply(null, args);
@@ -71,6 +76,33 @@ public class AuthANEContext {
                 trace("[" + NAME + "]", event.code);
                 break;
             case SIGN_IN:
+                try {
+                    argsAsJSON = JSON.parse(event.code);
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new AuthError(argsAsJSON.error.text, argsAsJSON.error.id);
+                    }
+                    var authResult:AuthResult;
+                    if (argsAsJSON.data) {
+                        authResult = new AuthResult();
+                        if (argsAsJSON.data.additionalUserInfo) {
+                            authResult.additionalUserInfo = ANEUtils.map(argsAsJSON.data.additionalUserInfo,
+                                    AdditionalUserInfo) as AdditionalUserInfo;
+                        }
+                        var userJSON:Object = argsAsJSON.data.user;
+                        if (userJSON) {
+                            authResult.user = new FirebaseUser(userJSON.uid,
+                                    userJSON.hasOwnProperty("displayName") ? userJSON.displayName : null,
+                                    userJSON.hasOwnProperty("email") ? userJSON.email : null, userJSON.isAnonymous,
+                                    userJSON.isEmailVerified, userJSON.hasOwnProperty(
+                                            "photoUrl") && userJSON.photoUrl != "null" ? userJSON.photoUrl : null,
+                                    userJSON.hasOwnProperty("phoneNumber") ? userJSON.phoneNumber : null);
+                        }
+                    }
+                    callCallback(argsAsJSON.callbackId, authResult, err);
+                } catch (e:Error) {
+                    trace("parsing error", event.code, e.message);
+                }
+                break;
             case PASSWORD_RESET_EMAIL_SENT:
             case EMAIL_VERIFICATION_SENT:
             case USER_CREATED:
@@ -95,7 +127,8 @@ public class AuthANEContext {
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     var token:String;
-                    if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty("token")) {
+                    if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty(
+                            "token")) {
                         token = argsAsJSON.data.token;
                     }
                     callCallback(argsAsJSON.callbackId, token);
@@ -110,7 +143,8 @@ public class AuthANEContext {
                         err = new AuthError(argsAsJSON.error.text, argsAsJSON.error.id);
                     }
                     var verificationId:String;
-                    if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty("verificationId")) {
+                    if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty(
+                            "verificationId")) {
                         verificationId = argsAsJSON.data.token;
                     }
                     callCallback(argsAsJSON.callbackId, verificationId, err);

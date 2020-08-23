@@ -2,8 +2,8 @@
 <platform xmlns="http://ns.adobe.com/air/extension/19.0">
     <packagedResources>
         <packagedResource>
-            <packageName>com.tuarua.firebase.visionbarcodeane</packageName>
-            <folderName>com.tuarua.firebase.VisionBarcodeANE-res</folderName>
+            <packageName>com.tuarua.mlkit.vision.barcodeane</packageName>
+            <folderName>com.tuarua.mlkit.vision.BarcodeANE-res</folderName>
         </packagedResource>
     </packagedResources>
 </platform>

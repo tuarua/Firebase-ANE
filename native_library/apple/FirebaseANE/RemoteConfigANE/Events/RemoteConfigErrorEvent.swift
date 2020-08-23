@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class RemoteConfigErrorEvent: NSObject {
     public static let FETCH_ERROR = "RemoteConfigErrorEvent.FetchError"

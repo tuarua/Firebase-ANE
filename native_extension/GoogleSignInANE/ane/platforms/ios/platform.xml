@@ -11,14 +11,14 @@
         <option>-framework StoreKit</option>
         <option>-framework SystemConfiguration</option>
         <option>-rpath @executable_path/Frameworks</option>
+        <option>-rpath /usr/lib/swift</option>
     </linkerOptions>
     
     <packagedDependencies>
-        <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
         <packagedDependency>Frameworks/GTMSessionFetcher.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleSignIn.framework</packagedDependency>
-        <packagedDependency>Frameworks/GTMOAuth2.framework</packagedDependency>
-        <packagedDependency>Frameworks/GoogleAPIClientForREST.framework</packagedDependency> 
+        <packagedDependency>Frameworks/AppAuth.framework</packagedDependency>
+        <packagedDependency>Frameworks/GTMAppAuth.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

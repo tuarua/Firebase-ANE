@@ -21,13 +21,13 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREExtension;
 import com.tuarua.firebase.auth.KotlinController;
 
-@SuppressWarnings({"unused"})
 public class AuthANE implements FREExtension {
     private static final String[] FUNCTIONS = {
             "init"
             ,"createGUID"
             ,"createUserWithEmailAndPassword"
-            ,"signIn"
+            ,"signInWithCredential"
+            ,"signInWithProvider"
             ,"signInAnonymously"
             ,"signInWithCustomToken"
             ,"updateProfile"
@@ -37,7 +37,8 @@ public class AuthANE implements FREExtension {
             ,"updatePassword"
             ,"sendPasswordResetEmail"
             ,"deleteUser"
-            ,"reauthenticate"
+            ,"reauthenticateWithCredential"
+            ,"reauthenticateWithProvider"
             ,"unlink"
             ,"link"
             ,"setLanguageCode"

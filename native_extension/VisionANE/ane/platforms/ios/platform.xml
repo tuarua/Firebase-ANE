@@ -6,6 +6,7 @@
         <option>-w</option>
         <option>-ObjC</option>
         <option>-rpath @executable_path/Frameworks</option>
+        <option>-rpath /usr/lib/swift</option>
         <option>-framework Accelerate</option>
         <option>-framework AVFoundation</option>
         <option>-framework CoreGraphics</option>
@@ -16,13 +17,10 @@
     </linkerOptions>
     
     <packagedDependencies>
-        <packagedDependency>Frameworks/FreSwift.framework</packagedDependency>
         <packagedDependency>Frameworks/GTMSessionFetcher.framework</packagedDependency>
         <packagedDependency>Frameworks/GoogleAPIClientForREST.framework</packagedDependency>
-        <packagedDependency>Frameworks/Protobuf.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseMLCommon.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseMLVision.framework</packagedDependency>
-        <packagedDependency>Frameworks/GoogleMobileVision.framework</packagedDependency>
     </packagedDependencies>
     
 </platform>

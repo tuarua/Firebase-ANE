@@ -2,6 +2,7 @@ package views.examples {
 import com.tuarua.Firebase;
 import com.tuarua.firebase.Auth;
 import com.tuarua.firebase.auth.AuthError;
+import com.tuarua.firebase.auth.AuthResult;
 import com.tuarua.firebase.auth.EmailAuthCredential;
 import com.tuarua.firebase.auth.FirebaseUser;
 import com.tuarua.firebase.auth.GoogleAuthCredential;
@@ -127,7 +128,7 @@ public class AuthExample extends Sprite implements IExample {
             statusLabel.text = "Google Sign In error: " + event.error.errorID + " : " + event.error.message;
             return;
         }
-        auth.signIn(event.credential, onSignedIn);
+        auth.signInWithCredential(event.credential, onSignedIn);
     }
 
     private function onLinkWithGoogleClick(event:TouchEvent):void {
@@ -166,7 +167,7 @@ public class AuthExample extends Sprite implements IExample {
     private function onSignInEmailPasswordClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnSignInEmailPassword);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            auth.signIn(new EmailAuthCredential("test@test.com", "password"), onSignedIn);
+            auth.signInWithCredential(new EmailAuthCredential("test@test.com", "password"), onSignedIn);
         }
     }
 
@@ -177,19 +178,20 @@ public class AuthExample extends Sprite implements IExample {
         }
     }
 
-    private function onSignedIn(error:AuthError):void {
+    private function onSignedIn(result:AuthResult, error:AuthError):void {
         if (error) {
             statusLabel.text = "onSignedIn error: " + error.errorID + " : " + error.message;
             return;
         }
-        var user:FirebaseUser = auth.currentUser;
+        trace(result.additionalUserInfo);
+        var user:FirebaseUser = result.user;
         statusLabel.text = "Signed In" + "\n" +
                 "isAnonymous: " + user.isAnonymous + "\n" +
                 "displayName: " + user.displayName + "\n" +
                 "email: " + user.email + "\n" +
                 "isEmailVerified: " + user.isEmailVerified + "\n" +
                 "photoUrl: " + user.photoUrl + "\n";
-        user.getIdToken(true, function (token:String):void {
+        user.getIdToken(false, function (token:String):void {
             statusLabel.text += "token: " + token.substr(0, 10) + "...";
         });
     }

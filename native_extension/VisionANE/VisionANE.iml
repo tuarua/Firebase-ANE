@@ -5,17 +5,8 @@
       <configuration name="VisionANE" target-platform="Mobile" pure-as="true" output-type="Library" output-file="VisionANE.swc" output-folder="$MODULE_DIR$/bin">
         <dependencies target-player="30.0">
           <entries>
-            <entry module-name="VisionBarcodeANE" build-configuration-name="VisionBarcodeANE">
-              <dependency linkage="Include" />
-            </entry>
             <entry module-name="FirebaseANE" build-configuration-name="FirebaseANE">
               <dependency linkage="External" />
-            </entry>
-            <entry module-name="VisionFaceANE" build-configuration-name="VisionFaceANE">
-              <dependency linkage="Include" />
-            </entry>
-            <entry module-name="VisionTextANE" build-configuration-name="VisionTextANE">
-              <dependency linkage="Include" />
             </entry>
             <entry module-name="VisionCloudTextANE" build-configuration-name="VisionCloudTextANE">
               <dependency linkage="Include" />
@@ -24,9 +15,6 @@
               <dependency linkage="Include" />
             </entry>
             <entry module-name="VisionCloudLabelANE" build-configuration-name="VisionCloudLabelANE">
-              <dependency linkage="Include" />
-            </entry>
-            <entry module-name="VisionLabelANE" build-configuration-name="VisionLabelANE">
               <dependency linkage="Include" />
             </entry>
             <entry module-name="VisionCloudDocumentANE" build-configuration-name="VisionCloudDocumentANE">
@@ -56,11 +44,7 @@
     <orderEntry type="jdk" jdkName="AIRSDK_31" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="VisionBarcodeANE" level="project" />
-    <orderEntry type="module" module-name="VisionBarcodeANE" exported="" />
     <orderEntry type="module" module-name="FirebaseANE" exported="" />
-    <orderEntry type="module" module-name="VisionFaceANE" exported="" />
-    <orderEntry type="module" module-name="VisionTextANE" exported="" />
-    <orderEntry type="module" module-name="VisionLabelANE" exported="" />
     <orderEntry type="module" module-name="VisionCloudLabelANE" exported="" />
     <orderEntry type="module" module-name="VisionLandmarkANE" exported="" />
     <orderEntry type="module" module-name="VisionCloudTextANE" exported="" />

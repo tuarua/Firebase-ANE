@@ -8,7 +8,10 @@
         <option>-w</option>
         <option>-ObjC</option>
         <option>-rpath @executable_path/Frameworks</option>
+        <option>-rpath /usr/lib/swift</option>
         <option>-framework AddressBook</option>
     </linkerOptions>
-    
+    <packagedDependencies>
+        <packagedDependency>Frameworks/OneSignal.framework</packagedDependency>
+    </packagedDependencies>
 </platform>

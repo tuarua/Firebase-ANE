@@ -2,8 +2,8 @@
 <platform xmlns="http://ns.adobe.com/air/extension/19.0">
     <packagedResources>
         <packagedResource>
-            <packageName>com.tuarua.firebase.visionlabelane</packageName>
-            <folderName>com.tuarua.firebase.VisionLabelANE-res</folderName>
+            <packageName>com.tuarua.mlkit.vision.labelane</packageName>
+            <folderName>com.tuarua.mlkit.vision.LabelANE-res</folderName>
         </packagedResource>
     </packagedResources>
 </platform>

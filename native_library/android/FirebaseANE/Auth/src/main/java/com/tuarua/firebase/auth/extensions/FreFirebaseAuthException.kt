@@ -65,12 +65,12 @@ val FirebaseAuthExceptionMap: Map<String, Int>
 
 fun FirebaseAuthException.toMap(): Map<String, Any?>? {
     return mapOf(
-            "text" to this.message.toString(),
-            "id" to FirebaseAuthExceptionMap[this.errorCode])
+            "text" to message.toString(),
+            "id" to FirebaseAuthExceptionMap[errorCode])
 }
 
 fun FirebaseException.toMap(): Map<String, Any?>? {
     return mapOf(
-            "text" to this.message.toString(),
+            "text" to message.toString(),
             "id" to 0)
 }

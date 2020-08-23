@@ -1,6 +1,7 @@
 package com.tuarua.firebase {
 import com.tuarua.firebase.auth.AuthCredential;
 import com.tuarua.firebase.auth.FirebaseUser;
+import com.tuarua.firebase.auth.OAuthProvider;
 import com.tuarua.fre.ANEError;
 
 import flash.events.EventDispatcher;
@@ -133,9 +134,17 @@ public final class Auth extends EventDispatcher {
      * }
      * </listing>
      */
-    public function signIn(credential:AuthCredential, listener:Function = null):void {
+    public function signInWithCredential(credential:AuthCredential, listener:Function = null):void {
         AuthANEContext.validate();
-        var ret:* = AuthANEContext.context.call("signIn", credential,
+        var ret:* = AuthANEContext.context.call("signInWithCredential", credential,
+                AuthANEContext.createCallback(listener));
+        if (ret is ANEError) throw ret as ANEError;
+    }
+
+    // TODO docs
+    public function signInWithProvider(provider:OAuthProvider, listener:Function = null):void {
+        AuthANEContext.validate();
+        var ret:* = AuthANEContext.context.call("signInWithProvider", provider,
                 AuthANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
     }

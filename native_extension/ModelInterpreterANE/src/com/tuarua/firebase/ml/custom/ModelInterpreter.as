@@ -50,7 +50,7 @@ public class ModelInterpreter extends EventDispatcher {
                         numPossibilities:uint, maxResults:int = 5):void {
         ModelInterpreterANEContext.validate();
         var ret:* = ModelInterpreterANEContext.context.call("run", inputs, options,
-                maxResults, numPossibilities, ModelInterpreterANEContext.createCallback(listener));
+                maxResults, numPossibilities, ModelInterpreterANEContext.createCallback(listener), this.options);
         if (ret is ANEError) throw ret as ANEError;
     }
 

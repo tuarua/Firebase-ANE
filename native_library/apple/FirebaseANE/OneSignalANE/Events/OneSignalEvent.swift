@@ -15,7 +15,6 @@
  */
 
 import Foundation
-import SwiftyJSON
 
 class OneSignalEvent: NSObject {
     public static let ON_SET_EXTERNAL_USERID = "OneSignalEvent.OnSetExternalUserId"
