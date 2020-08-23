@@ -88,9 +88,6 @@ com.tuarua.firebase.${PROJECTNAME}-res/. \
 com.tuarua.firebase.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
 
-echo "Packaging docs into ANE."
-zip "$pathtome/$PROJECTNAME.ane" -u docs/*
-
 cp "$pathtome/$PROJECTNAME.ane" "$pathtome/../../../example_vision/extensions/$PROJECTNAME.ane"
 
 #remove the frameworks from sim and device, as not needed any more

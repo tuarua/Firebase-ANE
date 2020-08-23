@@ -19,7 +19,7 @@ unzip -u -o ios_dependencies.zip
 rm ios_dependencies.zip
 
 wget -O extensions/FirebaseANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/FirebaseANE.ane?raw=true
-wget -O extensions/ane/AnalyticsANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/AnalyticsANE.ane?raw=true
+wget -O extensions/AnalyticsANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/AnalyticsANE.ane?raw=true
 wget -O extensions/AuthANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/AuthANE.ane?raw=true
 wget -O extensions/DynamicLinksANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/DynamicLinksANE.ane?raw=true
 wget -O extensions/FirestoreANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/FirestoreANE.ane?raw=true
@@ -29,3 +29,4 @@ wget -O extensions/RemoteConfigANE.ane https://github.com/tuarua/Firebase-ANE/re
 wget -O extensions/StorageANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/StorageANE.ane?raw=true
 wget -O extensions/GoogleSignInANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/GoogleSignInANE.ane?raw=true
 wget -O extensions/CrashlyticsANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/CrashlyticsANE.ane?raw=true
+wget -O extensions/OneSignalANE.ane https://github.com/tuarua/Firebase-ANE/releases/download/$AneVersion/OneSignalANE.ane?raw=true
