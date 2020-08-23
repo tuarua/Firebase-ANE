@@ -2,3 +2,4 @@
 build_all.sh
 build_vision.sh
 build_firebase.sh
+build_mlkit.sh
