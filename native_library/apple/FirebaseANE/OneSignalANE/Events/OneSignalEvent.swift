@@ -44,3 +44,68 @@ class OneSignalEvent: NSObject {
         return JSON(props).description
     }
 }
+
+class IdsEvent: NSObject {
+    public static let ON_AVAILABLE = "IdsEvent.OnAvailable"
+}
+
+class PermissionEvent: NSObject {
+    public static let ON_AVAILABLE = "PermissionEvent.OnChange"
+    var json: [AnyHashable: Any]?
+    convenience init(json: [AnyHashable: Any]? = nil) {
+        self.init()
+        self.json = json
+    }
+    
+    public func toJSONString() -> String {
+        var props = [String: Any]()
+        props["json"] = json
+        return JSON(props).description
+    }
+}
+
+class SubscriptionEvent: NSObject {
+    public static let ON_AVAILABLE = "SubscriptionEvent.OnChange"
+    var json: [AnyHashable: Any]?
+    convenience init(json: [AnyHashable: Any]? = nil) {
+        self.init()
+        self.json = json
+    }
+    
+    public func toJSONString() -> String {
+        var props = [String: Any]()
+        props["json"] = json
+        return JSON(props).description
+    }
+}
+
+class EmailSubscriptionEvent: NSObject {
+    public static let ON_AVAILABLE = "EmailSubscriptionEvent.OnChange"
+    var json: [AnyHashable: Any]?
+    convenience init(json: [AnyHashable: Any]? = nil) {
+        self.init()
+        self.json = json
+    }
+    
+    public func toJSONString() -> String {
+        var props = [String: Any]()
+        props["json"] = json
+        return JSON(props).description
+    }
+}
+
+class NotificationEvent: NSObject {
+    public static let OPENED = "NotificationEvent.Opened"
+    public static let RECEIVED = "NotificationEvent.Received"
+    var json: [AnyHashable: Any]?
+    convenience init(json: [AnyHashable: Any]? = nil) {
+        self.init()
+        self.json = json
+    }
+    
+    public func toJSONString() -> String {
+        var props = [String: Any]()
+        props["json"] = json
+        return JSON(props).description
+    }
+}

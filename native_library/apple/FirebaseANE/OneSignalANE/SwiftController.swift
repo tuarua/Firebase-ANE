@@ -18,23 +18,31 @@ import Foundation
 import FreSwift
 import OneSignal
 
-public class SwiftController: NSObject, OSInAppMessageDelegate {
+public class SwiftController: NSObject {
     public static var TAG = "SwiftController"
     public var context: FreContextSwift!
     public var functionsToSet: FREFunctionMap = [:]
     
     // MARK: - Init
-    
-    public func handleMessageAction(action: OSInAppMessageAction) {
-        // TODO
-    }
-    
+
     func createGUID(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         return UUID().uuidString.toFREObject()
     }
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         warning("OneSignal implementation is not yet complete for iOS. DO NOT USE.")
+        let appId = ""
+        OneSignal.initWithLaunchOptions(nil, appId: appId, handleNotificationReceived: { notification in
+            guard let notification = notification, notification.isSilentNotification else { return }
+            self.dispatchEvent(name: NotificationEvent.RECEIVED,
+                               value: NotificationEvent(json: notification.toDictionary()).toJSONString())
+        }, handleNotificationAction: { result in
+            guard let result = result else { return }
+            self.dispatchEvent(name: NotificationEvent.OPENED,
+                               value: NotificationEvent(json: result.toDictionary()).toJSONString())
+            
+        }, settings: nil)
+        
         return true.toFREObject()
     }
     
