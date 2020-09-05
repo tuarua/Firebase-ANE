@@ -4,7 +4,7 @@
 <dict>
     <key>com.apple.developer.associated-domains</key>
     <array>
-        <string>applinks:${firebaseAssociatedDomain}</string>
+        <string>applinks:${firebase_associated_domain}</string>
     </array>
 </dict>
 </plist>

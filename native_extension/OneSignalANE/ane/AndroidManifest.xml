@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-sdk android:minSdkVersion="19" />
-    <meta-data
-            android:name="onesignal_app_id"
-            android:value="#{onesignalAppId}" />
+    <uses-sdk android:minSdkVersion="19"/>
+
 </manifest>
