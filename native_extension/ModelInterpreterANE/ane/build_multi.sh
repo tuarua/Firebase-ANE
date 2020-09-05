@@ -75,6 +75,7 @@ echo "Building ANE."
 -platform default -C "$pathtome/platforms/default" "library.swf" \
 -C "$pathtome/platforms/android" "AndroidManifest.xml" \
 -C "$pathtome/platforms/ios" "Entitlements.entitlements" "InfoAdditions.plist" \
+-C "$pathtome/platforms" "air_package.json" \
 -platform Android-x86 \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.firebase.${PROJECTNAME}-res/. \

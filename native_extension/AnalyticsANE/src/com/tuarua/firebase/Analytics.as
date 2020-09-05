@@ -58,8 +58,27 @@ public class Analytics extends EventDispatcher {
     }
 
     /**
+     * Adds parameters that will be set on every event logged from the SDK, including automatic ones.
+     * The values passed in the parameters dictionary will be added to the dictionary of default event parameters.
+     * These parameters persist across app runs. They are of lower precedence than event parameters,
+     * so if an event parameter and a parameter set using this API have the same name, the value of the event
+     * parameter will be used. The same limitations on event parameters apply to default event parameters.
+     *
+     * @param params Parameters to be added to the dictionary of parameters added to every event.
+     * They will be added to the dictionary of default event parameters, replacing any existing parameter with
+     * the same name. Valid parameters are String and Number. Setting a key's value to null will clear that parameter.
+     * Passing in a null dictionary will clear all parameters.
+     */
+    public function set defaultEventParameters(params:Object):void {
+        AnalyticsANEContext.validate();
+        var ret:* = AnalyticsANEContext.context.call("setDefaultEventParameters", params);
+        if (ret is ANEError) throw ret as ANEError;
+    }
+
+    /**
      * The name of the current screen. Should contain 1 to 100 characters.
      * Set to null to clear the current screen name.
+     * @deprecated
      * */
     public function set currentScreen(screenName:String):void {
         AnalyticsANEContext.validate();

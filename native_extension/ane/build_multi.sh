@@ -106,9 +106,12 @@ com.tuarua.firebase.${PROJECTNAME}-res/. \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.firebase.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
--platform default -C "$pathtome/platforms/default" "library.swf" \
--C "$pathtome/platforms/android" "AndroidManifest.xml" \
--C "$pathtome/platforms/ios" "Entitlements.entitlements" "InfoAdditions.plist"
+-platform default -C "$pathtome/platforms/default" "library.swf"
+
+zip "$pathtome/$PROJECTNAME.ane" -u "AndroidManifest.xml"
+zip "$pathtome/$PROJECTNAME.ane" -u "Entitlements.entitlements"
+zip "$pathtome/$PROJECTNAME.ane" -u "InfoAdditions.plist"
+zip "$pathtome/$PROJECTNAME.ane" -u "air_package.json"
 
 echo "Packaging docs into ANE."
 zip "$pathtome/$PROJECTNAME.ane" -u docs/*

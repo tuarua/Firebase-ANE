@@ -93,7 +93,7 @@ public class OneSignalExample extends Sprite implements IExample {
         oneSignal.addEventListener(NotificationEvent.RECEIVED, onNotificationReceived);
         oneSignal.addEventListener(NotificationEvent.OPENED, onNotificationOpened);
         oneSignal.setLogLevel(LogLevel.debug, LogLevel.none);
-        oneSignal.init();
+        oneSignal.init("");
         oneSignal.setInFocusDisplaying(OSNotificationDisplayType.inAppAlert);
         isInited = true;
     }

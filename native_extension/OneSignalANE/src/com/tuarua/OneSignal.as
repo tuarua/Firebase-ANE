@@ -29,13 +29,13 @@ public class OneSignal extends EventDispatcher {
         _shared = this;
     }
 
-    public function init(autoPromptLocation:Boolean = false,
+    public function init(appId:String, autoPromptLocation:Boolean = false,
                          disableGmsMissingPrompt:Boolean = false,
                          filterOtherGCMReceivers:Boolean = false,
                          unsubscribeWhenNotificationsAreDisabled:Boolean = false,
                          inFocusDisplaying:int = OSNotificationDisplayType.inAppAlert):void {
         if (OneSignalANEContext.context) {
-            var ret:* = OneSignalANEContext.context.call("init", autoPromptLocation, disableGmsMissingPrompt,
+            var ret:* = OneSignalANEContext.context.call("init", appId, autoPromptLocation, disableGmsMissingPrompt,
                     filterOtherGCMReceivers, unsubscribeWhenNotificationsAreDisabled, inFocusDisplaying);
             if (ret is ANEError) throw ret as ANEError;
         }

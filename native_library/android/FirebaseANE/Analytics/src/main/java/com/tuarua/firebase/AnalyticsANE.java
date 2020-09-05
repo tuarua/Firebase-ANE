@@ -32,6 +32,7 @@ public class AnalyticsANE implements FREExtension {
             ,"setAnalyticsCollectionEnabled"
             ,"logEvent"
             ,"resetAnalyticsData"
+            ,"setDefaultEventParameters"
     };
 
     private static AnalyticsANEContext extensionContext;

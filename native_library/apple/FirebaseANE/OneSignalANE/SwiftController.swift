@@ -30,8 +30,12 @@ public class SwiftController: NSObject {
     }
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        warning("OneSignal implementation is not yet complete for iOS. DO NOT USE.")
-        let appId = ""
+        guard argc > 0,
+            let appId = String(argv[0])
+            else {
+                return FreArgError().getError()
+        }
+        
         OneSignal.initWithLaunchOptions(nil, appId: appId, handleNotificationReceived: { notification in
             guard let notification = notification, notification.isSilentNotification else { return }
             self.dispatchEvent(name: NotificationEvent.RECEIVED,

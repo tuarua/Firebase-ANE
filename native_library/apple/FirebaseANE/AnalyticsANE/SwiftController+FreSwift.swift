@@ -28,6 +28,7 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)setAnalyticsCollectionEnabled"] = setAnalyticsCollectionEnabled
         functionsToSet["\(prefix)logEvent"] = logEvent
         functionsToSet["\(prefix)resetAnalyticsData"] = resetAnalyticsData
+        functionsToSet["\(prefix)setDefaultEventParameters"] = setDefaultEventParameters
 
         var arr: [String] = []
         for key in functionsToSet.keys {

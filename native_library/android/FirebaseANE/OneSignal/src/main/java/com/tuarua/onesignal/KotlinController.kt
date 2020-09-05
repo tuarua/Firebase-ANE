@@ -38,12 +38,12 @@ class KotlinController : FreKotlinMainController,
     }
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 4 } ?: return FreArgException()
-        val autoPromptLocation = Boolean(argv[0]) == true
-        val disableGmsMissingPrompt = Boolean(argv[1]) == true
-        val filterOtherGCMReceivers = Boolean(argv[2]) == true
-        val unsubscribeWhenNotificationsAreDisabled = Boolean(argv[3]) == true
-        val inFocusDisplaying = when (Int(argv[4])) {
+        argv.takeIf { argv.size > 5 } ?: return FreArgException()
+        val autoPromptLocation = Boolean(argv[1]) == true
+        val disableGmsMissingPrompt = Boolean(argv[2]) == true
+        val filterOtherGCMReceivers = Boolean(argv[3]) == true
+        val unsubscribeWhenNotificationsAreDisabled = Boolean(argv[4]) == true
+        val inFocusDisplaying = when (Int(argv[5])) {
             1 -> OSInFocusDisplayOption.InAppAlert
             2 -> OSInFocusDisplayOption.Notification
             else -> OSInFocusDisplayOption.None

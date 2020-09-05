@@ -97,6 +97,16 @@ public class SwiftController: NSObject {
         return nil
     }
     
+    func setDefaultEventParameters(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        guard argc > 0
+            else {
+                return FreArgError().getError()
+        }
+        let params = [String: Any](argv[0])
+        Analytics.setDefaultEventParameters(params)
+        return nil
+    }
+    
     @objc func applicationDidFinishLaunching(_ notification: Notification) {
     }
     

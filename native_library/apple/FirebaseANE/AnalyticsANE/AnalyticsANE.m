@@ -41,6 +41,7 @@ CONTEXT_INIT(TRFIRAN) {
         ,MAP_FUNCTION(TRFIRAN, setAnalyticsCollectionEnabled)
         ,MAP_FUNCTION(TRFIRAN, logEvent)
         ,MAP_FUNCTION(TRFIRAN, resetAnalyticsData)
+        ,MAP_FUNCTION(TRFIRAN, setDefaultEventParameters)
     };
     
     SET_FUNCTIONS

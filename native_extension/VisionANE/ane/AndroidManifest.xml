@@ -2,5 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-sdk android:minSdkVersion="19" />
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
 
 </manifest>
