@@ -166,6 +166,10 @@
 		9065B4542478606200053234 /* OneSignalEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9065B4532478606200053234 /* OneSignalEvent.swift */; };
 		9065B455247869AA00053234 /* FreNSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B92EA2150705D004C98C1 /* FreNSError.swift */; };
 		90662C0A24656E8100B8AEFC /* FreOSPermissionSubscriptionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90662C0924656E8100B8AEFC /* FreOSPermissionSubscriptionState.swift */; };
+		9068B5C124F2AF130050E1AA /* SwiftController+OSDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9068B5C024F2AF130050E1AA /* SwiftController+OSDelegate.swift */; };
+		9068B5C524F2B6610050E1AA /* FreOSNotificationOpenedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9068B5C424F2B6610050E1AA /* FreOSNotificationOpenedResult.swift */; };
+		9068B5C724F2BE5D0050E1AA /* FreOSNotificationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9068B5C624F2BE5D0050E1AA /* FreOSNotificationPayload.swift */; };
+		9068B5C924F2BE860050E1AA /* FreOSNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9068B5C824F2BE860050E1AA /* FreOSNotification.swift */; };
 		906A67F82114EFB000848218 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
 		906A67FA2114EFB000848218 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; platformFilter = ios; };
 		906A67FB2114EFB000848218 /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */; platformFilter = ios; };
@@ -634,6 +638,10 @@
 		9065B45124785FCF00053234 /* FreOSEmailSubscriptionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreOSEmailSubscriptionState.swift; sourceTree = "<group>"; };
 		9065B4532478606200053234 /* OneSignalEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneSignalEvent.swift; sourceTree = "<group>"; };
 		90662C0924656E8100B8AEFC /* FreOSPermissionSubscriptionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreOSPermissionSubscriptionState.swift; sourceTree = "<group>"; };
+		9068B5C024F2AF130050E1AA /* SwiftController+OSDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftController+OSDelegate.swift"; sourceTree = "<group>"; };
+		9068B5C424F2B6610050E1AA /* FreOSNotificationOpenedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreOSNotificationOpenedResult.swift; sourceTree = "<group>"; };
+		9068B5C624F2BE5D0050E1AA /* FreOSNotificationPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreOSNotificationPayload.swift; sourceTree = "<group>"; };
+		9068B5C824F2BE860050E1AA /* FreOSNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreOSNotification.swift; sourceTree = "<group>"; };
 		906A680D2114EFB000848218 /* libTextANE_LIB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTextANE_LIB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		906A68132114F05000848218 /* VisionTextANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisionTextANE_oc.h; sourceTree = "<group>"; };
 		906A68142114F05000848218 /* VisionTextANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionTextANE.m; sourceTree = "<group>"; };
@@ -1516,6 +1524,7 @@
 				9072AE972460BDEB00F242D3 /* OneSignalANE.m */,
 				9072AE9F2460BEC600F242D3 /* SwiftController.swift */,
 				9072AEA12460BF1E00F242D3 /* SwiftController+FreSwift.swift */,
+				9068B5C024F2AF130050E1AA /* SwiftController+OSDelegate.swift */,
 			);
 			path = OneSignalANE;
 			sourceTree = "<group>";
@@ -1537,6 +1546,9 @@
 				9065B44C24785F3A00053234 /* FreOSSubscriptionState.swift */,
 				9065B44F24785FAA00053234 /* FreOSPermissionState.swift */,
 				9065B45124785FCF00053234 /* FreOSEmailSubscriptionState.swift */,
+				9068B5C424F2B6610050E1AA /* FreOSNotificationOpenedResult.swift */,
+				9068B5C624F2BE5D0050E1AA /* FreOSNotificationPayload.swift */,
+				9068B5C824F2BE860050E1AA /* FreOSNotification.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -3972,11 +3984,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9068B5C924F2BE860050E1AA /* FreOSNotification.swift in Sources */,
+				9068B5C724F2BE5D0050E1AA /* FreOSNotificationPayload.swift in Sources */,
 				9072AE982460BDEB00F242D3 /* OneSignalANE.m in Sources */,
 				9065B4542478606200053234 /* OneSignalEvent.swift in Sources */,
 				9065B44E24785F7500053234 /* FreOSSubscriptionState.swift in Sources */,
+				9068B5C124F2AF130050E1AA /* SwiftController+OSDelegate.swift in Sources */,
 				904B187F24EF3DDA00ED9178 /* SwiftyJSON.swift in Sources */,
 				9065B45024785FAA00053234 /* FreOSPermissionState.swift in Sources */,
+				9068B5C524F2B6610050E1AA /* FreOSNotificationOpenedResult.swift in Sources */,
 				9072AEA02460BEC600F242D3 /* SwiftController.swift in Sources */,
 				9065B45224785FCF00053234 /* FreOSEmailSubscriptionState.swift in Sources */,
 				9072AEA22460BF1E00F242D3 /* SwiftController+FreSwift.swift in Sources */,

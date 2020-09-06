@@ -58,7 +58,7 @@ Pull requests and contributions are welcome! This might entail:
 - [x] Remote Config
 - [x] Storage
 - [x] Google Sign In
-- [ ] One Signal (Android only, iOS tbc)
+- [x] One Signal
 - [x] Invites
 - [x] Crashlytics
 

@@ -26,6 +26,8 @@ public final class FirebaseAnalyticsParam {
     public static const PRICE:String = "price";
     public static const QUANTITY:String = "quantity";
     public static const SCORE:String = "score";
+    public static const SCREEN_CLASS:String = "screen_class";
+    public static const SCREEN_NAME:String = "screen_name";
     public static const SHIPPING:String = "shipping";
     public static const TRANSACTION_ID:String = "transaction_id";
     public static const SEARCH_TERM:String = "search_term";

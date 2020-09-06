@@ -3,7 +3,7 @@
     <id>com.tuarua.mlkit.MLKitANE</id>
     <name>MLKit ANE</name>
     <copyright>This work is licensed under Apache License, Copyright (c) 2020 Tua Rua Ltd.</copyright>
-    <versionNumber>0.13.0</versionNumber>
+    <versionNumber>0.14.0</versionNumber>
     <platforms>
         <platform name="Android-x86">
             <applicationDeployment>

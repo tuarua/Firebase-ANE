@@ -3,7 +3,7 @@
     <id>com.tuarua.google.GoogleSignInANE</id>
     <name>Google Sign In ANE</name>
     <copyright>This work is licensed under Apache License, Copyright (c) 2018 Tua Rua Ltd.</copyright>
-    <versionNumber>0.13.0</versionNumber>
+    <versionNumber>0.14.0</versionNumber>
     <platforms>
         <platform name="iPhone-ARM">
             <applicationDeployment>

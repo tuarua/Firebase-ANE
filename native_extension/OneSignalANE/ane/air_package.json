@@ -1,0 +1,12 @@
+{
+  "name": "com.tuarua.OneSignalANE",
+  "version": "0.14.0",
+  "repository": {
+    "url": "https://tuarua.github.io/air/air_packages.json"
+  },
+  "dependencies": {
+    "com.onesignal.OneSignal": "3.13.2",
+    "androidx.cardview.cardview": "1.0.0",
+    "androidx.browser.browser": "1.0.0"
+  }
+}

@@ -79,3 +79,9 @@ fabric.properties
 # modules.xml
 # .idea/misc.xml
 # *.ipr
+
+src/Main-app-android-manual.xml
+src/Main-app-ios-manual.xml
+extensions_bak/
+ios_dependencies_bak/
+air_package.resolved.json

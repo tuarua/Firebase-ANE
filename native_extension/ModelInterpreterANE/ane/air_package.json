@@ -1,0 +1,10 @@
+{
+  "name": "com.tuarua.firebase.ModelInterpreterANE",
+  "version": "0.14.0",
+  "repository": {
+    "url": "https://tuarua.github.io/air/air_packages.json"
+  },
+  "dependencies": {
+    "com.google.firebase.firebase-ml-model-interpreter": "22.0.3"
+  }
+}

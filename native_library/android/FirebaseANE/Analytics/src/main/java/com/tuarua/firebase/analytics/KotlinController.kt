@@ -47,16 +47,20 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val name = String(argv[0]) ?: return null
         val params: Map<String, Any> = Map(argv[1]) ?: return null
-        FirebaseAnalytics.Param.ITEMS
-        val bundle = params.toBundle()
-        analytics.logEvent(name, bundle)
+        analytics.logEvent(name, params.toBundle())
         return null
     }
 
     fun setAnalyticsCollectionEnabled(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val enabled = Boolean(argv[0]) ?: return null
-        analytics.setAnalyticsCollectionEnabled(enabled)
+        analytics.setAnalyticsCollectionEnabled(Boolean(argv[0]) == true)
+        return null
+    }
+
+    fun setDefaultEventParameters(ctx: FREContext, argv: FREArgv): FREObject? {
+        argv.takeIf { argv.size > 0 } ?: return FreArgException()
+        val params: Map<String, Any>? = Map(argv[1])
+        analytics.setDefaultEventParameters(params?.toBundle())
         return null
     }
 

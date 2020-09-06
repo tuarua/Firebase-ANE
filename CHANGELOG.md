@@ -1,3 +1,11 @@
+### 0.14.0
+- New system for installing ANEs `./air-tools install` via air_package.json file
+- New system for installing ANEs `./air-tools apply-firebase-config google-services.json`
+- [OneSignal] iOS support
+- [Analytics] deprecate `Analytics.currentScreen`
+- [Analytics] add `Analytics.defaultEventParameters`
+- [Analytics] add `FirebaseAnalyticsParam.SCREEN_CLASS` & `FirebaseAnalyticsParam.SCREEN_NAME`
+
 ### 0.13.0
 - AND: Updated to FreKotlin 1.40.0
 - iOS: Updated to FreSwift 4.5.0

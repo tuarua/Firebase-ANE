@@ -1,0 +1,10 @@
+{
+  "name": "com.tuarua.firebase.MessagingANE",
+  "version": "0.14.0",
+  "repository": {
+    "url": "https://tuarua.github.io/air/air_packages.json"
+  },
+  "dependencies": {
+    "com.google.firebase.firebase-messaging": "20.2.4"
+  }
+}

@@ -41,8 +41,8 @@ public class SwiftController: NSObject {
         detector = self.vision.faceDetector(options: options)
         
         // TODO
-        trace("FaceContourType.face.rawValue", FaceContourType.face.rawValue)
-        trace("FaceContourType.leftEyebrowBottom.rawValue", FaceContourType.leftEyebrowBottom)
+        // trace("FaceContourType.face.rawValue", FaceContourType.face.rawValue)
+        // trace("FaceContourType.leftEyebrowBottom.rawValue", FaceContourType.leftEyebrowBottom)
 
         return true.toFREObject()
     }

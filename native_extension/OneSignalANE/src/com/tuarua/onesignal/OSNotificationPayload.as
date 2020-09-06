@@ -31,7 +31,7 @@ public class OSNotificationPayload {
     /** iOS - Provided key with a value of 1 to indicate that new content is available.
      * Including this key and value means that when your app is launched in the background or resumed
      * application:didReceiveRemoteNotification:fetchCompletionHandler: is called.*/
-    public var contents_available:uint;
+    public var contentAvailable:uint;
     /** iOS attachments sent as part of the rich notification.*/
     public var attachments:Object;
     /** Android big picture image set on the notification.*/
@@ -70,6 +70,13 @@ public class OSNotificationPayload {
     public var additionalData:Object;
     /** List of action buttons on the notification. */
     public var actionButtons:Vector.<ActionButton> = new Vector.<ActionButton>();
+
+    public var badge:uint;
+    public var badgeIncrement:int;
+    public var category:String;
+    public var mutableContent:Boolean;
+    public var templateID:String;
+    public var templateName:String;
 
     public function OSNotificationPayload() {
     }
