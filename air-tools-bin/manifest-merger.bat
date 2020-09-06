@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\air-tools-bin\lib\sdk-common-26.0.0-dev.jar;%APP_HOME%\air-tools-bin\lib\manifest-merger-26.0.0-dev.jar;%APP_HOME%\air-tools-bin\lib\commons-logging-1.1.1.jar;$APP_HOME%\air-tools-bin\lib\common-26.0.0-dev.jar
+set CLASSPATH=%APP_HOME%\air-tools-bin\lib\sdk-common-26.0.0-dev.jar;%APP_HOME%\air-tools-bin\lib\manifest-merger-26.0.0-dev.jar;%APP_HOME%\air-tools-bin\lib\commons-logging-1.1.1.jar;%APP_HOME%\air-tools-bin\lib\common-26.0.0-dev.jar
 
 @rem Execute manifest-merger
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS%  -classpath "%CLASSPATH%" com.android.manifmerger.Merger %CMD_LINE_ARGS%
