@@ -66,8 +66,6 @@ echo "Building ANE."
 -platform iPhone-ARM  -C "$pathtome/platforms/ios/device" "library.swf" "Frameworks" "lib$PROJECTNAME.a" \
 -platformoptions "$pathtome/platforms/ios/platform.xml" \
 -platform default -C "$pathtome/platforms/default" "library.swf" \
--C "$pathtome/platforms/android" "AndroidManifest.xml" \
--C "$pathtome/platforms/ios" "Entitlements.entitlements" "InfoAdditions.plist" \
 -platform Android-x86 \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.firebase.${PROJECTNAME}-res/. \

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<application xmlns="http://ns.adobe.com/air/application/33.1">
+  <id>com.tuarua.firebaseane.example</id>
+  <filename>FireBaseExample</filename>
+  <name>FIR-Example</name>
+  <versionNumber>0.14.0</versionNumber>
+  <!-- Settings for the application's initial window. Required. -->
+  <initialWindow>
+    <content>[This value will be overwritten by Flash Builder in the output app.xml]</content>
+    <aspectRatio>portrait</aspectRatio>
+    <autoOrients>false</autoOrients>
+    <fullScreen>true</fullScreen>
+    <renderMode>direct</renderMode>
+    <depthAndStencil>true</depthAndStencil>
+    <visible>true</visible>
+  </initialWindow>
+  <!-- The icon the system uses for the application. For at least one resolution,
+    specify the path to a PNG file included in the AIR package. Optional. -->
+  <icon>
+    <image76x76>AppIcon76x76~ipad.png</image76x76>
+    <image120x120>AppIcon60x60@2x.png</image120x120>
+    <image152x152>AppIcon76x76@2x~ipad.png</image152x152>
+    <image167x167>AppIcon83.5x83.5@2x~ipad.png</image167x167>
+    <image180x180>AppIcon60x60@3x.png</image180x180>
+  </icon>
+  <extensions>
+    <extensionID>com.tuarua.firebase.FirebaseANE</extensionID>
+    <extensionID>com.tuarua.frekotlin</extensionID>
+    <extensionID>org.greenrobot.eventbus</extensionID>
+    <extensionID>com.google.code.gson.gson</extensionID>
+    <extensionID>com.squareup.okhttp3.okhttp</extensionID>
+    <extensionID>com.google.guava.guava</extensionID>
+    <extensionID>androidx.legacy.legacy-support-v4</extensionID>
+    <extensionID>com.google.firebase.firebase-components</extensionID>
+    <extensionID>com.google.firebase.firebase-iid</extensionID>
+    <extensionID>com.google.android.gms.play-services-measurement</extensionID>
+    <extensionID>com.google.android.gms.play-services-base</extensionID>
+    <extensionID>com.tuarua.firebase.AnalyticsANE</extensionID>
+    <extensionID>com.google.firebase.firebase-analytics-ktx</extensionID>
+    <extensionID>com.tuarua.firebase.VisionANE</extensionID>
+    <extensionID>com.google.firebase.firebase-ml-vision</extensionID>
+    <extensionID>org.jetbrains.kotlinx.kotlinx-coroutines-android</extensionID>
+    <extensionID>com.tuarua.firebase.VisionCloudTextANE</extensionID>
+    <extensionID>com.tuarua.firebase.VisionCloudDocumentANE</extensionID>
+    <extensionID>com.tuarua.firebase.VisionCloudLabelANE</extensionID>
+    <extensionID>com.tuarua.firebase.VisionLandmarkANE</extensionID>
+    <extensionID>com.tuarua.firebase.ModelInterpreterANE</extensionID>
+    <extensionID>com.google.firebase.firebase-ml-model-interpreter</extensionID>
+  </extensions>
+  <android>
+    <manifestAdditions><![CDATA[<manifest android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="28" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<!-- Required by older versions of Google Play services to create IID tokens -->
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+	<uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+	<uses-feature android:glEsVersion="0x00020000" android:required="true" />
+	<application android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:enabled="true">
+		<meta-data android:name="android.max_aspect" android:value="2.1" />
+		<activity android:excludeFromRecents="false" android:hardwareAccelerated="true">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<service android:name="com.google.firebase.components.ComponentDiscoveryService" android:directBootAware="true" android:exported="false">
+			<meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar" />
+			<meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar" />
+			<meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar" />
+			<meta-data android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar" android:value="com.google.firebase.components.ComponentRegistrar" />
+			<meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar" />
+			<meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar" />
+			<meta-data android:name="com.google.firebase.components:com.google.firebase.ml.vision.VisionRegistrar" android:value="com.google.firebase.components.ComponentRegistrar" />
+			<meta-data android:name="com.google.firebase.components:com.google.firebase.ml.common.CommonComponentRegistrar" android:value="com.google.firebase.components.ComponentRegistrar" />
+			<meta-data android:name="com.google.firebase.components:com.google.firebase.ml.custom.CustomModelRegistrar" android:value="com.google.firebase.components.ComponentRegistrar" />
+		</service>
+		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				<category android:name="air.com.tuarua.firebaseane.example" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true" android:exported="false"></receiver>
+		<service android:name="com.google.android.gms.measurement.AppMeasurementService" android:enabled="true" android:exported="false" />
+		<service android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:enabled="true" android:exported="false" android:permission="android.permission.BIND_JOB_SERVICE" />
+		<activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+		<provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:authorities="air.com.tuarua.firebaseane.example.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" />
+		<service android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery" android:exported="false">
+			<meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct" />
+		</service>
+		<service android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:exported="false" android:permission="android.permission.BIND_JOB_SERVICE"></service>
+		<receiver android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver" android:exported="false" />
+	</application>
+</manifest>]]></manifestAdditions>
+  </android>
+  <iPhone>
+    <requestedDisplayResolution>high</requestedDisplayResolution>
+    <InfoAdditions><![CDATA[
+	<key>MinimumOSVersion</key>
+	<string>12.2</string>
+	<key>UIDeviceFamily</key>
+	<array>
+		<string>1</string>
+		<string>2</string>
+	</array>
+]]></InfoAdditions>
+  </iPhone>
+</application>

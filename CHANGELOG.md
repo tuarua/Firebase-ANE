@@ -1,5 +1,5 @@
 ### 0.14.0
-- New system for installing ANEs `./air-tools install` via a air_package.json file
+- New system for installing ANEs `./air-tools install` via air_package.json file
 - New system for installing ANEs `./air-tools apply-firebase-config google-services.json`
 - [OneSignal] iOS support
 - [Analytics] deprecate `Analytics.currentScreen`

@@ -8,9 +8,6 @@
             <entry library-name="starling" library-level="project">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-name="android_dependencies" library-level="project">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-name="extensions" library-level="project">
               <dependency linkage="Merged" />
             </entry>
@@ -105,7 +102,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/system/AppIcon83.5x83.5@2x~ipad.png" path-in-package="AppIcon83.5x83.5@2x~ipad.png" />
           </files-to-package>
         </packaging-android>
-        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app-ios.xml" package-file-name="iOS_Store">
+        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/src/Main-app.xml" package-file-name="iOS_Store">
           <files-to-package>
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/system" path-in-package="." />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/device" path-in-package="." />

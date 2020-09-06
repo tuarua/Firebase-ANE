@@ -73,9 +73,6 @@ echo "Building ANE."
 -platform iPhone-ARM  -C "$pathtome/platforms/ios/device" "library.swf" "Frameworks" "lib$PROJECTNAME.a" \
 -platformoptions "$pathtome/platforms/ios/platform.xml" \
 -platform default -C "$pathtome/platforms/default" "library.swf" \
--C "$pathtome/platforms/android" "AndroidManifest.xml" \
--C "$pathtome/platforms/ios" "Entitlements.entitlements" "InfoAdditions.plist" \
--C "$pathtome/platforms" "air_package.json" \
 -platform Android-x86 \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.firebase.${PROJECTNAME}-res/. \
@@ -88,6 +85,11 @@ com.tuarua.firebase.${PROJECTNAME}-res/. \
 -C "$pathtome/platforms/android" "library.swf" "classes.jar" \
 com.tuarua.firebase.${PROJECTNAME}-res/. \
 -platformoptions "$pathtome/platforms/android/platform.xml" \
+
+zip "$pathtome/$PROJECTNAME.ane" -u "AndroidManifest.xml"
+zip "$pathtome/$PROJECTNAME.ane" -u "Entitlements.entitlements"
+zip "$pathtome/$PROJECTNAME.ane" -u "InfoAdditions.plist"
+zip "$pathtome/$PROJECTNAME.ane" -u "air_package.json"
 
 cp "$pathtome/$PROJECTNAME.ane" "$pathtome/../../../example_vision/extensions/$PROJECTNAME.ane"
 
