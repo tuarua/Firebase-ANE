@@ -4,7 +4,7 @@
   "appDescriptor": "src/Main-app.xml",
   "variables": {},
   "airDotPrefix": true,
-  "appleTeamId": "FWEQJ32FGC",
+  "appleTeamId": "XXXXXX",
   "repository": {
     "url": "https://tuarua.github.io/air/air_packages.json"
   },
