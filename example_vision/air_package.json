@@ -16,10 +16,6 @@
     "com.tuarua.firebase.VisionCloudDocumentANE": "0.14.0",
     "com.tuarua.firebase.VisionCloudLabelANE": "0.14.0",
     "com.tuarua.firebase.VisionLandmarkANE": "0.14.0",
-    "com.tuarua.firebase.ModelInterpreterANE": "0.14.0",
-    "com.tuarua.firebase.FirebaseIosDependencies": "0.14.0",
-    "com.tuarua.firebase.FirebaseVisionAssets": "0.14.0",
-    "com.tuarua.FreSwift": "4.5.0",
-    "com.tuarua.AIRSDK_additions": "4.5.0"
+    "com.tuarua.firebase.ModelInterpreterANE": "0.14.0"
   }
 }
