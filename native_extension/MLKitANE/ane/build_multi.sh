@@ -7,7 +7,7 @@ pathtome="${pathtome%/*}"
 PROJECTNAME=MLKitANE
 libSuffix="_LIB"
 
-AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_33"
+AIR_SDK="/Users/eoinlandy/SDKs/AIRSDK_33.1.1.300"
 
 if [ ! -d "$pathtome/../../../native_library/apple/FirebaseANE/Build/Products/Release-iphoneos/" ]; then
 echo "No Device build. Build using Xcode"

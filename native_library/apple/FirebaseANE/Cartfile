@@ -1,3 +1,4 @@
+binary "https://github.com/tuarua/Swift-IOS-ANE/releases/download/5.0.0/FreSwift.json" ~> 5.0.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json" == 6.30.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseFirestoreBinary.json" == 6.30.0
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseStorageBinary.json" == 6.30.0
