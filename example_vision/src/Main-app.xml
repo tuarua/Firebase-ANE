@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <application xmlns="http://ns.adobe.com/air/application/33.1">
   <id>com.tuarua.firebaseane.example</id>
   <filename>FireBaseExample</filename>
   <name>FIR-Example</name>
-  <versionNumber>0.14.0</versionNumber>
+  <versionNumber>0.15.0</versionNumber>
   <!-- Settings for the application's initial window. Required. -->
   <initialWindow>
     <content>[This value will be overwritten by Flash Builder in the output app.xml]</content>
