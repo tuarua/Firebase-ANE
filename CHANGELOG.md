@@ -1,3 +1,8 @@
+### 0.15.0
+- AND: Updated to FreKotlin 1.41.0
+- iOS: Updated to FreSwift 5.0.0
+- Upgraded to AIR 33.1.1.300
+
 ### 0.14.0
 - New system for installing ANEs `./air-tools install` via air_package.json file
 - New system for installing ANEs `./air-tools apply-firebase-config google-services.json`

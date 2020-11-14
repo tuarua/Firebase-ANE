@@ -1,11 +1,11 @@
 {
   "name": "com.tuarua.firebase.FirebaseANE",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "repository": {
     "url": "https://tuarua.github.io/air/air_packages.json"
   },
   "dependencies": {
-    "com.tuarua.frekotlin": "1.40.0",
+    "com.tuarua.frekotlin": "1.41.0",
     "org.greenrobot.eventbus": "3.0.0",
     "com.google.code.gson.gson": "2.8.6",
     "com.squareup.okhttp3.okhttp": "3.12.1",
@@ -16,7 +16,7 @@
     "com.google.android.gms.play-services-measurement": "17.5.0",
     "com.google.android.gms.play-services-base": "17.1.0",
     "com.tuarua.firebase.FirebaseIosDependencies": "0.14.0",
-    "com.tuarua.iOS.FreSwift": "4.5.0",
-    "com.tuarua.AIRSDK_additions": "4.5.0"
+    "com.tuarua.iOS.FreSwift": "5.0.0",
+    "com.tuarua.AIRSDK_additions": "5.0.0"
   }
 }

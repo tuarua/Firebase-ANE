@@ -1,8 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.4.0'
-    ext.frekotlin_version = '1.40.0'
+    ext.kotlin_version = '1.4.10'
+    ext.frekotlin_version = '1.41.0'
     ext.gson_version = '2.8.6'
     ext.firebase_common_version = '19.3.1'
     ext.firebase_analytics_version = '17.5.0'
@@ -27,10 +27,10 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.2'
+        classpath 'com.android.tools.build:gradle:4.0.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:4.3.3'
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.2.0'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.3.0'
         classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:0.12.7'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -55,10 +55,10 @@ task clean(type: Delete) {
 }
 
 ext {
-    targetSdkVersion = 28
+    targetSdkVersion = 29
     minSdkVersion = 19
     compileSdkVersion = targetSdkVersion
-    buildToolsVersion = '28.0.3'
+    buildToolsVersion = '29.0.3'
     libVersionCode = 1
     libVersionName = '1.0.0'
 }

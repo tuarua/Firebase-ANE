@@ -118,8 +118,8 @@ class KotlinController : FreKotlinMainController {
                     if (copyToClipboard) {
                         val act = ctx.activity
                         val cb = act.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                        cb.primaryClip = ClipData.newPlainText("short link",
-                                result.shortLink.toString())
+                        cb.setPrimaryClip(ClipData.newPlainText("short link",
+                                result.shortLink.toString()))
                     }
 
                     dispatchEvent(DynamicLinkEvent.ON_CREATED,
@@ -143,7 +143,7 @@ class KotlinController : FreKotlinMainController {
             if (copyToClipboard) {
                 val act = ctx.activity
                 val cb = act.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                cb.primaryClip = ClipData.newPlainText("link", dynamicLink.uri.toString())
+                cb.setPrimaryClip(ClipData.newPlainText("link", dynamicLink.uri.toString()))
             }
             dispatchEvent(DynamicLinkEvent.ON_CREATED,
                     gson.toJson(
@@ -169,9 +169,10 @@ class KotlinController : FreKotlinMainController {
                     ))
         }
         task.addOnFailureListener {
+            val message = it.localizedMessage?.toString() ?: ""
             dispatchEvent(DynamicLinkEvent.ON_LINK, gson.toJson(
                     DynamicLinkEvent(callbackId, true, null, mapOf(
-                            "text" to it.localizedMessage.toString(),
+                            "text" to message,
                             "id" to 0))
             ))
         }
