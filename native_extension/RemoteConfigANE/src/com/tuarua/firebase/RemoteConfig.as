@@ -109,20 +109,6 @@ public class RemoteConfig extends EventDispatcher {
     }
 
     /**
-     * Applies Fetched Config data to the Active Config, causing updates to the behavior and appearance of the
-     * app to take effect (depending on how config data is used in the app).
-     * @return true if there was a Fetched Config, and it was activated, false if no
-     * Fetched Config was found, or the Fetched Config was already activated.
-     * @deprecated
-     */
-    public function activateFetched():Boolean {
-        RemoteConfigANEContext.validate();
-        var ret:* = RemoteConfigANEContext.context.call("activateFetched");
-        if (ret is ANEError) throw ret as ANEError;
-        return ret as Boolean;
-    }
-
-    /**
      * Asynchronously activates the most recently fetched configs, so that the fetched key value pairs take effect.
      */
     public function activate():void {

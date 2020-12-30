@@ -30,7 +30,7 @@ public class RemoteConfigExample extends Sprite implements IExample {
         if (isInited) return;
 
         remoteConfig = Firebase.remoteConfig();
-        remoteConfig.configSettings = new RemoteConfigSettings(true);
+        remoteConfig.configSettings = new RemoteConfigSettings();
         remoteConfig.addEventListener(RemoteConfigEvent.FETCH, onRemoteConfig);
         remoteConfig.setDefaults(
                 {
@@ -69,12 +69,11 @@ public class RemoteConfigExample extends Sprite implements IExample {
     private function onGetWelcomeMessageClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnGetWelcomeMessage);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            remoteConfig.fetch(0);
+            remoteConfig.fetchAndActivate();
         }
     }
 
     private function onRemoteConfig(event:RemoteConfigEvent):void {
-        remoteConfig.activateFetched();
         var message:String = remoteConfig.getString("welcome_message");
         if (remoteConfig.getBoolean("welcome_message_caps")) {
             message = message.toUpperCase();

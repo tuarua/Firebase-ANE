@@ -30,10 +30,6 @@ SWIFT_DECL(TRFIRRC)
 CONTEXT_INIT(TRFIRRC) {
     SWIFT_INITS(TRFIRRC)
     
-    /**************************************************************************/
-    /******* MAKE SURE TO ADD FUNCTIONS HERE THE SAME AS SWIFT CONTROLLER *****/
-    /**************************************************************************/
-    
     static FRENamedFunction extensionFunctions[] =
     {
          MAP_FUNCTION(TRFIRRC, init)
@@ -45,14 +41,10 @@ CONTEXT_INIT(TRFIRRC) {
         ,MAP_FUNCTION(TRFIRRC, getString)
         ,MAP_FUNCTION(TRFIRRC, getKeysByPrefix)
         ,MAP_FUNCTION(TRFIRRC, fetch)
-        ,MAP_FUNCTION(TRFIRRC, activateFetched)
         ,MAP_FUNCTION(TRFIRRC, activate)
         ,MAP_FUNCTION(TRFIRRC, fetchAndActivate)
         ,MAP_FUNCTION(TRFIRRC, getInfo)
     };
-    
-    /**************************************************************************/
-    /**************************************************************************/
     
     SET_FUNCTIONS
     

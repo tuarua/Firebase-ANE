@@ -36,7 +36,6 @@ public class RemoteConfigANE implements FREExtension {
             ,"fetch"
             ,"activate"
             ,"fetchAndActivate"
-            ,"activateFetched"
             ,"getInfo"
     };
 

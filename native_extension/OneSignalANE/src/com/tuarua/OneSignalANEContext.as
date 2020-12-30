@@ -119,7 +119,6 @@ public class OneSignalANEContext {
                         new IdsEvent(event.level, argsAsJSON.userId, argsAsJSON.registrationId));
                 break;
             case SubscriptionEvent.ON_CHANGE:
-                trace(event.code);
                 argsAsJSON = JSON.parse(event.code);
                 var parsedA:Object = JSON.parse(argsAsJSON.json);
                 OneSignal.shared().dispatchEvent(new SubscriptionEvent(event.level,

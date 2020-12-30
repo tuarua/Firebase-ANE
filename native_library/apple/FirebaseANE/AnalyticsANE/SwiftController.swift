@@ -28,7 +28,7 @@ public class SwiftController: NSObject {
     }
     
     func getAppInstanceId(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        return Analytics.appInstanceID().toFREObject()
+        return Analytics.appInstanceID()?.toFREObject()
     }
     
     func setUserProperty(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {

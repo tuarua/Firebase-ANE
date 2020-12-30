@@ -183,7 +183,7 @@ public class AuthExample extends Sprite implements IExample {
             statusLabel.text = "onSignedIn error: " + error.errorID + " : " + error.message;
             return;
         }
-        trace(result.additionalUserInfo);
+        trace(JSON.stringify(result.additionalUserInfo));
         var user:FirebaseUser = result.user;
         statusLabel.text = "Signed In" + "\n" +
                 "isAnonymous: " + user.isAnonymous + "\n" +

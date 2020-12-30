@@ -8,6 +8,7 @@ bin-release/
 bin-release-temp/
 cache/
 android_dependencies_bak/
+extensions_http/
 
 *.app
 

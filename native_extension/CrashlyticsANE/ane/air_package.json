@@ -1,10 +1,10 @@
 {
   "name": "com.tuarua.firebase.CrashlyticsANE",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "repository": {
     "url": "https://tuarua.github.io/air/air_packages.json"
   },
   "dependencies": {
-    "com.google.firebase.firebase-crashlytics": "17.1.1"
+    "com.google.firebase.firebase-crashlytics": "17.3.0"
   }
 }

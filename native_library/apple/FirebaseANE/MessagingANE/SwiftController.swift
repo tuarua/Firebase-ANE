@@ -35,7 +35,6 @@ public class SwiftController: NSObject {
     }
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        Messaging.messaging().shouldEstablishDirectChannel = true
         isInited = true
         // read userInfo here to determine message received on start up
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
@@ -87,7 +86,6 @@ public class SwiftController: NSObject {
         
         // [START set_messaging_delegate]
         Messaging.messaging().delegate = self
-        Messaging.messaging().shouldEstablishDirectChannel = true
         
         // [END set_messaging_delegate]
         

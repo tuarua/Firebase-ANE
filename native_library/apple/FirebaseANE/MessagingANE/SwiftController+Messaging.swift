@@ -19,22 +19,13 @@ import FirebaseMessaging
 
 extension SwiftController: MessagingDelegate {
     // [START refresh_token]
-    public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+    public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         if !isInited {
             startToken = fcmToken
         }
         if context == nil { return }
         self.dispatchEvent(name: MessageEvent.ON_TOKEN_REFRESHED,
-                       value: MessageEvent(data: ["token": fcmToken]).toJSONString())
+                       value: MessageEvent(data: ["token": fcmToken ?? ""]).toJSONString())
     }
     // [END refresh_token]
-    
-    // [START ios_10_data_message]
-    // Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
-    // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
-    public func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        // This is never called
-    }
-    // [END ios_10_data_message]
-    
 }

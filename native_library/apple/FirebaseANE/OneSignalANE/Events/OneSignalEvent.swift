@@ -59,7 +59,7 @@ class PermissionEvent: NSObject {
     
     public func toJSONString() -> String {
         var props = [String: Any]()
-        props["json"] = json
+        props["json"] = JSON(json ?? [:]).description
         return JSON(props).description
     }
 }
@@ -74,7 +74,7 @@ class SubscriptionEvent: NSObject {
     
     public func toJSONString() -> String {
         var props = [String: Any]()
-        props["json"] = json
+        props["json"] = JSON(json ?? [:]).description
         return JSON(props).description
     }
 }
@@ -89,7 +89,7 @@ class EmailSubscriptionEvent: NSObject {
     
     public func toJSONString() -> String {
         var props = [String: Any]()
-        props["json"] = json
+        props["json"] = JSON(json ?? [:]).description
         return JSON(props).description
     }
 }
@@ -105,7 +105,7 @@ class NotificationEvent: NSObject {
     
     public func toJSONString() -> String {
         var props = [String: Any]()
-        props["json"] = json
+        props["json"] = JSON(json ?? [:]).description
         return JSON(props).description
     }
 }

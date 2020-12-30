@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<platform xmlns="http://ns.adobe.com/air/extension/19.0">
-    <packagedResources>
-        <packagedResource>
-            <packageName>com.tuarua.firebase.visiontextane</packageName>
-            <folderName>com.tuarua.mlkit.vision.TextANE-res</folderName>
-        </packagedResource>
-    </packagedResources>
-</platform>

@@ -51,7 +51,7 @@ public class OneSignalExample extends Sprite implements IExample {
 
 
         statusLabel = new TextField(stageWidth, 1400, "");
-        statusLabel.format.setTo(Fonts.NAME, 13, 0x222222, Align.LEFT, Align.TOP);
+        statusLabel.format.setTo(Fonts.NAME, 13, 0x222222, Align.CENTER, Align.TOP);
         statusLabel.touchable = false;
         statusLabel.y = btnSetEmail.y + (StarlingRoot.GAP * 1.25);
         addChild(statusLabel);

@@ -1,8 +1,6 @@
 apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
