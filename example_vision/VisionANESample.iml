@@ -12,7 +12,7 @@
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="AIRSDK_33.1.1.300" />
+          <sdk name="AIRSDK_33.1.1.345" />
         </dependencies>
         <compiler-options>
           <option name="additionalOptions" value="-advanced-telemetry -swf-version=42" />
@@ -27,7 +27,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/GoogleService-Info.plist" path-in-package="GoogleService-Info.plist" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/assets/mobilenet" path-in-package="mobilenet" />
           </files-to-package>
-          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2020/dev/tua_rua_dev_2020.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2020/dev/Tua_Rua_Dev_Provisioning.mobileprovision" />
+          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2021/iOS/dev/tua_rua_dev_2021.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2021/iOS/dev/Tua_Rua_Dev_Provisioning_Firebase.mobileprovision" />
         </packaging-ios>
       </configuration>
       <configuration name="Android Device" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Android_Device.swf" output-folder="$MODULE_DIR$/bin-release">
@@ -40,7 +40,7 @@
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="AIRSDK_33.1.1.300" />
+          <sdk name="AIRSDK_33.1.1.345" />
         </dependencies>
         <compiler-options>
           <option name="additionalOptions" value="-advanced-telemetry" />
@@ -67,9 +67,8 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="AIRSDK_33.1.1.300" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="AIRSDK_33.1.1.345" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="starling" level="project" />
     <orderEntry type="library" exported="" name="FirebaseANE" level="project" />
     <orderEntry type="library" exported="" name="VisionANE" level="project" />
     <orderEntry type="library" exported="" name="VisionBarcodeANE" level="project" />
@@ -149,7 +148,8 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-ml-model-interpreter-22.0.3" level="project" />
     <orderEntry type="library" exported="" name="com.google.mlkit.image-labeling-16.2.0" level="project" />
     <orderEntry type="library" exported="" name="com.google.android.gms.play-services-measurement-17.4.4" level="project" />
-    <orderEntry type="library" exported="" name="extensions" level="project" />
     <orderEntry type="library" exported="" name="android_dependencies" level="project" />
+    <orderEntry type="library" exported="" name="starling" level="project" />
+    <orderEntry type="library" exported="" name="extensions" level="project" />
   </component>
 </module>

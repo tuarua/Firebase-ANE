@@ -10,17 +10,17 @@
     </facet>
     <facet type="android" name="Android">
       <configuration>
-        <option name="SELECTED_BUILD_VARIANT" value="debug" />
-        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
-        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
+        <option name="SELECTED_BUILD_VARIANT" value="release" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleRelease" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileReleaseSources" />
         <afterSyncTasks>
-          <task>generateDebugSources</task>
+          <task>generateReleaseSources</task>
         </afterSyncTasks>
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../GoogleSignIn/src/main/res;file://$MODULE_DIR$/../../../GoogleSignIn/src/debug/res;file://$MODULE_DIR$/../../../GoogleSignIn/build/generated/res/rs/debug" />
-        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../GoogleSignIn/src/androidTest/res;file://$MODULE_DIR$/../../../GoogleSignIn/src/androidTestDebug/res;file://$MODULE_DIR$/../../../GoogleSignIn/build/generated/res/rs/androidTest/debug" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../GoogleSignIn/src/main/res;file://$MODULE_DIR$/../../../GoogleSignIn/src/release/res;file://$MODULE_DIR$/../../../GoogleSignIn/build/generated/res/rs/release" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../GoogleSignIn/src/androidTest/res" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
         <option name="PROJECT_TYPE" value="1" />
       </configuration>
@@ -31,33 +31,19 @@
           <option name="additionalArguments" value="-Xallow-no-source-files" />
         </compilerSettings>
         <compilerArguments>
-          <option name="destination" value="$MODULE_DIR$/../../../GoogleSignIn/build/tmp/kotlin-classes/debug" />
-          <option name="classpath" value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions-runtime/1.4.10/13d16dda9af8ec814d8a046e71924c0bc4a77ea6/kotlin-android-extensions-runtime-1.4.10.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.4.10/ea29e063d2bbe695be13e9d044dcfb0c7add398e/kotlin-stdlib-1.4.10.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.4.10/6229be3465805c99db1142ad75e6c6ddeac0b04c/kotlin-stdlib-common-1.4.10.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.6/9180733b7df8542621dc12e21e87557e8c99b8cb/gson-2.8.6.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/580b712a9caa34ea26b0e24dd61c29a8/legacy-support-v4-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/9f42d57493e29b32979829eb47f3795e/media-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/5af1e6679705446c23724611b2907806/play-services-auth-18.1.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/794e68de0f23c07da7ba830b986f839d/play-services-auth-api-phone-17.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/3282f6c5c1997230c050f7ab7e7838bd/play-services-auth-base-17.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/5075970b23cabb08202a759e28b34061/play-services-base-17.1.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/b15c4a7834ece3c20299bc4374619746/play-services-tasks-17.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/feb9230b9db9382104ecaa9d0269670e/play-services-basement-17.1.1-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/80aba1ed570aacf151520ac2294f9bc2/fragment-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/4f7c29d45cd1e349b491abe06cbf26e8/legacy-support-core-ui-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/0391918cfc89cc43018cfe9cf691ceaa/legacy-support-core-utils-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/e482110efcff61dfab9b69f84b72ca63/loader-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/6fcf6337d990bba3a9f2bce84ea879b6/viewpager-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/553d602ca3cc0fe4d7ce4feb7889ca04/coordinatorlayout-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/420b9a1290905e1f0d1cc776ed452601/drawerlayout-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/de131988f7eb0e481a3bd84f0f979bc1/slidingpanelayout-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/cec417329bbb0768e40c4f9b1e65cb90/customview-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/3e43cbe1dd8512de181bf2034d03bd85/swiperefreshlayout-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/b6c71433f3e917ab87ccf6376333c00a/asynclayoutinflater-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/d649245bc3893d8af9f8ece99ee04876/core-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/478990343b8ad70d76eb6ba80f211b89/versionedparcelable-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.0.0/42858b26cafdaa69b6149f45dfc2894007bc2c7a/collection-1.0.0.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/8e3c651f95bc2522bdd8cd98282df6c7/lifecycle-runtime-2.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/4a11721ad181bcfd79c264f8acdf47e2/documentfile-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/3c0d2c8ace3fd55c5949473a5531cd16/localbroadcastmanager-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/e82132007ebd285290feca907bfb706a/print-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/3f1fff45cd02c8178697190784f4651a/interpolator-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/6ad595a4f4f53a9e280a6cdd9b458446/cursoradapter-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/25a0acb44686bfeeb78fa6393a00da67/lifecycle-viewmodel-2.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/abb7f56ac460f95b6a8f3b40cc182453/lifecycle-livedata-2.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/7d331aa903e2cbe896e0c25bc0ace24a/lifecycle-livedata-core-2.0.0-api.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.0.0/e070ffae07452331bc5684734fce6831d531785c/lifecycle-common-2.0.0.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/51b67b9c3720f8af656e1871cc7a87eb/core-runtime-2.0.0-api.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.0.0/bb21b9a11761451b51624ac428d1f1bb5deeac38/core-common-2.0.0.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.0.0/45599f2cd5965ac05a1488fa2a5c0cdd7c499ead/annotation-1.0.0.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/b02fc9d84d028c8a8b1d83823374d719/FreKotlin-1.41.0-api.jar:/Users/eoinlandy/Library/Android/sdk/platforms/android-29/android.jar:/Users/eoinlandy/Library/Android/sdk/build-tools/29.0.3/core-lambda-stubs.jar" />
+          <option name="destination" value="$MODULE_DIR$/../../../GoogleSignIn/build/tmp/kotlin-classes/release" />
+          <option name="classpath" value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.4.21/4a668382d7c38688d3490afde93b6a113ed46698/kotlin-stdlib-1.4.21.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.6/9180733b7df8542621dc12e21e87557e8c99b8cb/gson-2.8.6.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/adf4f41375d45fab81384ad0fdd2a586/legacy-support-v4-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/376cfee0b9b0cdde4ae7db5adc992562/play-services-auth-19.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/44c94b782901b4e9e4161b6cf0998a5e/FreKotlin-1.42.0-api.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.4.21/7f48a062aa4b53215998780f7c245a4276828e1d/kotlin-stdlib-common-1.4.21.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/97d561fb35354cee4cbe1d705eead3c9/media-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/c1e87a94f5e2998cdedfdf992283410c/play-services-auth-api-phone-17.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/6239a2ca02a8f894f72b9b73070a4bbd/play-services-auth-base-17.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/d0bba5b15c56ba1162445309a61906c1/play-services-base-17.1.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/11b0bc2bf80d3eeeba2e749b6792fa31/play-services-tasks-17.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/6b4883be8d69174f033ff0d1b5c161a3/play-services-basement-17.1.1-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/6f15e3be88d42df3a9c2f3aca2407568/fragment-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/b73e04452256f53c97a2ab3218279302/legacy-support-core-ui-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/6ef9dd639ff1f4fcf4ffc4831cdf7bf6/legacy-support-core-utils-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/5faa40defc4900a7fbf136ce9c3f6c28/loader-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/3a773810b798414fa2e98bcd06fad421/viewpager-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/686bfb269482026383fee3260997e9ee/coordinatorlayout-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/ab5f9cb36cd954406ca5fa476daaee62/drawerlayout-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/98c8085c43538c675e532649e9df5929/slidingpanelayout-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/3d23b777a96b9ec06052f31116809daa/customview-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/2d305438991ccd3f13d512488d0cfbcb/swiperefreshlayout-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/acbc8726124cfd0ff63b024efe2c56ae/asynclayoutinflater-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/ea363120a80e54642a4bc4be46ed0f4b/core-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/6dc3024249ab4b651a004b2f86986c31/versionedparcelable-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.0.0/42858b26cafdaa69b6149f45dfc2894007bc2c7a/collection-1.0.0.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/860e502fa02e94be8e7cea344590036c/lifecycle-runtime-2.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/a91f4e6bf434a7f80c3bbe75d4036d55/documentfile-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/a266fd1857b55eb1057cde64e52c3fab/localbroadcastmanager-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/a6117d54c85a74ab3e7a91016b114585/print-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/4facfdd54a04943299cf9d4f38402a7b/interpolator-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/9dd7402471db250252c4e056a7d13540/cursoradapter-1.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/6706d9095f0e4dee8559e561cab26417/lifecycle-viewmodel-2.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/7e45dcfb43e4b3118be0da55c83f9633/lifecycle-livedata-2.0.0-api.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/5d17f9e1a90bc73539f3fe6e2d7858b4/lifecycle-livedata-core-2.0.0-api.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.0.0/e070ffae07452331bc5684734fce6831d531785c/lifecycle-common-2.0.0.jar:/Users/eoinlandy/.gradle/caches/transforms-2/files-2.1/77e7bcfe9f1f414a7738c2d5a15da14d/core-runtime-2.0.0-api.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.0.0/bb21b9a11761451b51624ac428d1f1bb5deeac38/core-common-2.0.0.jar:/Users/eoinlandy/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.0.0/45599f2cd5965ac05a1488fa2a5c0cdd7c499ead/annotation-1.0.0.jar:/Users/eoinlandy/Library/Android/sdk/platforms/android-29/android.jar:/Users/eoinlandy/Library/Android/sdk/build-tools/29.0.3/core-lambda-stubs.jar" />
           <option name="noStdlib" value="true" />
           <option name="noReflect" value="true" />
-          <option name="moduleName" value="GoogleSignIn_debug" />
+          <option name="moduleName" value="GoogleSignIn_release" />
           <option name="jvmTarget" value="1.8" />
           <option name="languageVersion" value="1.4" />
-          <option name="apiVersion" value="1.3" />
+          <option name="apiVersion" value="1.4" />
           <option name="pluginOptions">
-            <array>
-              <option value="plugin:org.jetbrains.kotlin.android:experimental=false" />
-              <option value="plugin:org.jetbrains.kotlin.android:enabled=true" />
-              <option value="plugin:org.jetbrains.kotlin.android:defaultCacheImplementation=hashMap" />
-            </array>
+            <array />
           </option>
           <option name="pluginClasspaths">
-            <array>
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.intellij.deps/trove4j/1.0.20181211/216c2e14b070f334479d800987affe4054cd563f/trove4j-1.0.20181211.jar" />
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.4.10/acb62fa5f5ddd0ee4aa1f55e35fa803e114156c9/kotlin-android-extensions-1.4.10.jar" />
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/1.4.10/38c4b99d5d5362debdd9302a866730379aa2328a/kotlin-compiler-embeddable-1.4.10.jar" />
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-daemon-embeddable/1.4.10/dbd67f42bed28043d17d7c860b06110a00a45970/kotlin-daemon-embeddable-1.4.10.jar" />
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.4.10/e2b3c6695eee6085e606d96d685396dce23a3a06/kotlin-reflect-1.4.10.jar" />
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.4.10/7c19d9c2001e016cd7664cebe9eea66fc04a7f4f/kotlin-script-runtime-1.4.10.jar" />
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.4.10/6229be3465805c99db1142ad75e6c6ddeac0b04c/kotlin-stdlib-common-1.4.10.jar" />
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.4.10/ea29e063d2bbe695be13e9d044dcfb0c7add398e/kotlin-stdlib-1.4.10.jar" />
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" />
-            </array>
+            <array />
           </option>
           <option name="errors">
             <ArgumentParseErrors />
@@ -67,29 +53,31 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/../../../GoogleSignIn/build/intermediates/javac/debug/classes" />
-    <output-test url="file://$MODULE_DIR$/../../../GoogleSignIn/build/intermediates/javac/debugUnitTest/classes" />
+    <output url="file://$MODULE_DIR$/../../../GoogleSignIn/build/intermediates/javac/release/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../GoogleSignIn/build/intermediates/javac/releaseUnitTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../GoogleSignIn">
       <sourceFolder url="file://$MODULE_DIR$/../../../GoogleSignIn/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../GoogleSignIn/src/main/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../GoogleSignIn/build/generated/ap_generated_sources/release/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../GoogleSignIn/build/generated/source/buildConfig/release" isTestSource="false" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/../../../GoogleSignIn/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../../GoogleSignIn/build" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 29 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.4.10" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.4.10" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.4.10" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.4.21" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.4.21" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
     <orderEntry type="library" name="Gradle: androidx.collection:collection:1.0.0" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-common:2.0.0" level="project" />
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.0.0" level="project" />
     <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.0.0" level="project" />
     <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-v4:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth:19.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.tuarua:FreKotlin:1.42.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.media:media:1.0.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth:18.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-api-phone:17.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-base:17.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base:17.1.0@aar" level="project" />
@@ -118,6 +106,5 @@
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata-core:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-runtime:2.0.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.tuarua:FreKotlin:1.41.0@aar" level="project" />
   </component>
 </module>

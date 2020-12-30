@@ -1,6 +1,6 @@
 {
   "name": "firebase-sample",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "appDescriptor": "src/Main-app.xml",
   "variables": {},
   "airDotPrefix": true,
@@ -9,13 +9,13 @@
     "url": "https://tuarua.github.io/air/air_packages.json"
   },
   "dependencies": {
-    "com.tuarua.firebase.FirebaseANE": "0.15.0",
-    "com.tuarua.firebase.AnalyticsANE": "0.15.0",
-    "com.tuarua.firebase.VisionANE": "0.15.0",
-    "com.tuarua.firebase.VisionCloudTextANE": "0.15.0",
-    "com.tuarua.firebase.VisionCloudDocumentANE": "0.15.0",
-    "com.tuarua.firebase.VisionCloudLabelANE": "0.15.0",
-    "com.tuarua.firebase.VisionLandmarkANE": "0.15.0",
-    "com.tuarua.firebase.ModelInterpreterANE": "0.15.0"
+    "com.tuarua.firebase.FirebaseANE": "0.16.0",
+    "com.tuarua.firebase.AnalyticsANE": "0.16.0",
+    "com.tuarua.firebase.VisionANE": "0.16.0",
+    "com.tuarua.firebase.VisionCloudTextANE": "0.16.0",
+    "com.tuarua.firebase.VisionCloudDocumentANE": "0.16.0",
+    "com.tuarua.firebase.VisionCloudLabelANE": "0.16.0",
+    "com.tuarua.firebase.VisionLandmarkANE": "0.16.0",
+    "com.tuarua.firebase.ModelInterpreterANE": "0.16.0"
   }
 }

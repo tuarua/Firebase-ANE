@@ -5,6 +5,6 @@
     "url": "https://tuarua.github.io/air/air_packages.json"
   },
   "dependencies": {
-    "com.google.firebase.firebase-ml-model-interpreter": "22.0.3"
+    "com.google.firebase.firebase-ml-model-interpreter": "22.0.4"
   }
 }

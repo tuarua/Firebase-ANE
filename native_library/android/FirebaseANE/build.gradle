@@ -17,8 +17,8 @@ buildscript {
     ext.play_services_version = '19.0.0'
     ext.legacy_support_4_version = '1.0.0'
     ext.kotlinx_coroutines_version = '1.4.2'
-    ext.firebase_vision_version = '24.0.3'
-    ext.firebase_model_interpreter_version = '22.0.3'
+    ext.firebase_vision_version = '24.1.0'
+    ext.firebase_model_interpreter_version = '22.0.4'
     repositories {
         google()
         jcenter()
