@@ -27,7 +27,6 @@ fun FirebaseRemoteConfigSettings(freObject: FREObject?): FirebaseRemoteConfigSet
     return FirebaseRemoteConfigSettings.Builder()
             .setFetchTimeoutInSeconds(Long(rv["fetchTimeout"]) ?: 60L)
             .setMinimumFetchIntervalInSeconds(Long(rv["minimumFetchInterval"]) ?: 0L)
-            .setDeveloperModeEnabled(Boolean(rv["developerModeEnabled"]) == true)
             .build()
 }
 

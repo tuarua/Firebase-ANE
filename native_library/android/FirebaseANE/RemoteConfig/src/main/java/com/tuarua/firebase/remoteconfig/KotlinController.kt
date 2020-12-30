@@ -37,7 +37,6 @@ import com.tuarua.frekotlin.*
 @Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
     private lateinit var remoteConfig: FirebaseRemoteConfig
-    private var cacheExpiration: Long = 86400
     private val gson = Gson()
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
@@ -121,11 +120,7 @@ class KotlinController : FreKotlinMainController {
     fun fetch(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val cacheExpiration = Long(argv[0]) ?: return null
-        when {
-            remoteConfig.info.configSettings.isDeveloperModeEnabled -> this.cacheExpiration = 0
-            else -> this.cacheExpiration = cacheExpiration
-        }
-        remoteConfig.fetch(this.cacheExpiration).addOnCompleteListener { task ->
+        remoteConfig.fetch(cacheExpiration).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 dispatchEvent(RemoteConfigEvent.FETCH, "")
             } else {
@@ -134,10 +129,6 @@ class KotlinController : FreKotlinMainController {
             }
         }
         return null
-    }
-
-    fun activateFetched(ctx: FREContext, argv: FREArgv): FREObject? {
-        return remoteConfig.activateFetched().toFREObject()
     }
 
     fun activate(ctx: FREContext, argv: FREArgv): FREObject? {

@@ -1,3 +1,23 @@
+### 0.16.0
+- Upgraded to AIR 33.1.1.345
+- AND: Updated to FreKotlin 1.42.0
+- iOS: Updated to FreSwift 5.1.0
+- iOS: Firebase 7.3.0
+- iOS: OneSignal 2.16.1
+- iOS: strip out unneeded archs
+- iOS: minVersion is now 10.0
+- AND: Analytics 18.0.0
+- AND: Crashlytics 17.3.0
+- AND: Firestore 22.0.1
+- AND: Remote Config 20.0.2
+- AND: Auth 20.0.1
+- AND: Play Services Auth 19.0.0
+- AND: Performance 19.0.11
+- AND: Messaging 21.0.1
+- AND: Dynamic Links 19.1.1
+- [RemoteConfig] remove `RemoteConfig.activateFetched`
+- [RemoteConfig] remove `RemoteConfigSettings.developerModeEnabled`
+
 ### 0.15.0
 - AND: Updated to FreKotlin 1.41.0
 - iOS: Updated to FreSwift 5.0.0

@@ -29,10 +29,9 @@ public class CrashlyticsExample extends Sprite implements IExample {
 
     private function initMenu():void {
         statusLabel = new TextField(stageWidth - 100, 1400, "");
-        statusLabel.format.setTo(Fonts.NAME, 13, 0x222222, Align.LEFT, Align.TOP);
+        statusLabel.format.setTo(Fonts.NAME, 13, 0x222222, Align.CENTER, Align.TOP);
         statusLabel.wordWrap = true;
         statusLabel.touchable = false;
-        statusLabel.x = 50;
 
         addChild(statusLabel);
 

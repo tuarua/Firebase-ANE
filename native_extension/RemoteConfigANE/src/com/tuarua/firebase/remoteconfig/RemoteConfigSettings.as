@@ -17,17 +17,12 @@
 package com.tuarua.firebase.remoteconfig {
 [RemoteClass(alias="com.tuarua.firebase.remoteconfig.RemoteConfigSettings")]
 public class RemoteConfigSettings {
-    /**
-     * @deprecated
-     * */
-    public var developerModeEnabled:Boolean;
     /** Sets the minimum interval between successive fetch calls.*/
     public var minimumFetchInterval:Number = 0;
     /** Sets the connection timeout for fetch requests to the Firebase Remote Config servers in seconds.*/
     public var fetchTimeout:Number = 60;
 
-    public function RemoteConfigSettings(developerModeEnabled:Boolean = false) {
-        this.developerModeEnabled = developerModeEnabled;
+    public function RemoteConfigSettings() {
     }
 }
 }

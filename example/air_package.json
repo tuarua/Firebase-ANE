@@ -1,6 +1,6 @@
 {
   "name": "firebase-sample",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "appDescriptor": "src/Main-app.xml",
   "variables": {
     "firebase_associated_domain": "xxxx.app.goo.gl",
@@ -15,17 +15,17 @@
     "url": "https://tuarua.github.io/air/air_packages.json"
   },
   "dependencies": {
-    "com.tuarua.firebase.FirebaseANE": "0.15.0",
-    "com.tuarua.firebase.AnalyticsANE": "0.15.0",
-    "com.tuarua.firebase.AuthANE": "0.15.0",
-    "com.tuarua.firebase.DynamicLinksANE": "0.15.0",
-    "com.tuarua.firebase.FirestoreANE": "0.15.0",
-    "com.tuarua.firebase.MessagingANE": "0.15.0",
-    "com.tuarua.firebase.PerformanceANE": "0.15.0",
-    "com.tuarua.firebase.RemoteConfigANE": "0.15.0",
-    "com.tuarua.firebase.StorageANE": "0.15.0",
-    "com.tuarua.firebase.CrashlyticsANE": "0.15.0",
-    "com.tuarua.google.GoogleSignInANE": "0.15.0",
-    "com.tuarua.OneSignalANE": "0.15.0"
+    "com.tuarua.firebase.FirebaseANE": "0.16.0",
+    "com.tuarua.firebase.AnalyticsANE": "0.16.0",
+    "com.tuarua.firebase.AuthANE": "0.16.0",
+    "com.tuarua.firebase.DynamicLinksANE": "0.16.0",
+    "com.tuarua.firebase.FirestoreANE": "0.16.0",
+    "com.tuarua.firebase.MessagingANE": "0.16.0",
+    "com.tuarua.firebase.PerformanceANE": "0.16.0",
+    "com.tuarua.firebase.RemoteConfigANE": "0.16.0",
+    "com.tuarua.firebase.StorageANE": "0.16.0",
+    "com.tuarua.firebase.CrashlyticsANE": "0.16.0",
+    "com.tuarua.google.GoogleSignInANE": "0.16.0",
+    "com.tuarua.OneSignalANE": "0.16.0"
   }
 }

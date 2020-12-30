@@ -12,7 +12,7 @@
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="AIRSDK_33.1.1.300" />
+          <sdk name="AIRSDK_33.1.1.345" />
         </dependencies>
         <compiler-options>
           <map>
@@ -44,7 +44,7 @@
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="AIRSDK_33.1.1.300" />
+          <sdk name="AIRSDK_33.1.1.345" />
         </dependencies>
         <compiler-options>
           <map>
@@ -72,7 +72,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/GoogleSignIn.bundle" path-in-package="GoogleSignIn.bundle" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/ios_dependencies/gRPCCertificates-Cpp.bundle" path-in-package="gRPCCertificates-Cpp.bundle" />
           </files-to-package>
-          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2020/dev/tua_rua_dev_2020.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2020/dev/Tua_Rua_Dev_Provisioning_Firebase.mobileprovision" />
+          <AirSigningOptions keystore-path="$USER_HOME$/Documents/appleCertsProv/2021/iOS/dev/tua_rua_dev_2021.p12" provisioning-profile-path="$USER_HOME$/Documents/appleCertsProv/2021/iOS/dev/Tua_Rua_Dev_Provisioning_Firebase.mobileprovision" />
         </packaging-ios>
       </configuration>
       <configuration name="iOS Store" target-platform="Mobile" pure-as="true" main-class="Main" output-file="iOS_Store.swf" output-folder="$MODULE_DIR$/bin-release">
@@ -85,7 +85,7 @@
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="AIRSDK_33.1.1.300" />
+          <sdk name="AIRSDK_33.1.1.345" />
         </dependencies>
         <compiler-options>
           <map>
@@ -123,9 +123,8 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="AIRSDK_33.1.1.300" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="AIRSDK_33.1.1.345" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="starling" level="project" />
     <orderEntry type="library" exported="" name="ZipANE" level="project" />
     <orderEntry type="library" exported="" name="com.tuarua.frekotlin" level="project" />
     <orderEntry type="library" exported="" name="com.google.code.gson.gson-2.8.1" level="project" />
@@ -254,6 +253,7 @@
     <orderEntry type="library" exported="" name="com.google.firebase.firebase-auth-19.3.2" level="project" />
     <orderEntry type="library" exported="" name="com.squareup.okhttp3.okhttp-3.12.1" level="project" />
     <orderEntry type="library" exported="" name="android_dependencies" level="project" />
+    <orderEntry type="library" exported="" name="starling" level="project" />
     <orderEntry type="library" exported="" name="extensions" level="project" />
   </component>
 </module>

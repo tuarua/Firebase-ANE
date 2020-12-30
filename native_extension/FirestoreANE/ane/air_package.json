@@ -1,10 +1,10 @@
 {
   "name": "com.tuarua.firebase.FirestoreANE",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "repository": {
     "url": "https://tuarua.github.io/air/air_packages.json"
   },
   "dependencies": {
-    "com.google.firebase.firebase-firestore-ktx": "21.5.0"
+    "com.google.firebase.firebase-firestore-ktx": "22.0.1"
   }
 }

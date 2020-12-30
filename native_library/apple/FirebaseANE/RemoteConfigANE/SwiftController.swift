@@ -82,7 +82,7 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError().getError()
         }
-        return Double(truncating: rc[key].numberValue ?? 0).toFREObject()
+        return Double(truncating: rc[key].numberValue).toFREObject()
     }
     
     func getLong(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
@@ -92,7 +92,7 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError().getError()
         }
-        return Int(truncating: rc[key].numberValue ?? 0).toFREObject()
+        return Int(truncating: rc[key].numberValue).toFREObject()
     }
     
     func getString(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
@@ -115,12 +115,8 @@ public class SwiftController: NSObject {
         return [String](rc.keys(withPrefix: key)).toFREObject()
     }
     
-    func activateFetched(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        return remoteConfig?.activateFetched().toFREObject()
-    }
-    
     func activate(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        remoteConfig?.activate(completionHandler: { (error) in
+        remoteConfig?.activate(completion: { (changed, error) in
             if let err = error {
                 self.dispatchEvent(name: RemoteConfigErrorEvent.ACTIVATE_ERROR,
                 value: RemoteConfigErrorEvent(
@@ -129,7 +125,7 @@ public class SwiftController: NSObject {
                  id: 0
                  ).toJSONString())
             } else {
-                self.dispatchEvent(name: RemoteConfigEvent.FETCH, value: "")
+                self.dispatchEvent(name: RemoteConfigEvent.FETCH, value: JSON(["changed": changed]).description)
             }
         })
         return nil
@@ -159,16 +155,14 @@ public class SwiftController: NSObject {
     
     func fetch(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
-            let rc = remoteConfig,
             let cacheExpiration = Int(argv[0])
             else {
                 return FreArgError().getError()
         }
-        self.cacheExpiration = rc.configSettings.isDeveloperModeEnabled ? 0 : cacheExpiration
+        self.cacheExpiration = cacheExpiration
         
         remoteConfig?.fetch(withExpirationDuration: TimeInterval(self.cacheExpiration)) { (status, error) in
             if status == .success {
-                self.remoteConfig?.activateFetched()
                 self.dispatchEvent(name: RemoteConfigEvent.FETCH, value: "")
             } else {
                 self.dispatchEvent(name: RemoteConfigErrorEvent.FETCH_ERROR,
