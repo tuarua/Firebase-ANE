@@ -7,6 +7,7 @@ import com.tuarua.firebase.firestore.DocumentChange;
 import com.tuarua.firebase.firestore.DocumentChangeType;
 import com.tuarua.firebase.firestore.DocumentReference;
 import com.tuarua.firebase.firestore.DocumentSnapshot;
+import com.tuarua.firebase.firestore.FieldValue;
 import com.tuarua.firebase.firestore.FirestoreError;
 import com.tuarua.firebase.firestore.FirestoreSettings;
 import com.tuarua.firebase.firestore.Query;
@@ -219,7 +220,7 @@ public class FirestoreExample extends Sprite implements IExample {
     private function onUpdateDocumentClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnUpdateDocument);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            sanFran.updateData({"population": 860999}, onDocUpdated);
+            sanFran.updateData({"population": FieldValue.increment(1212)}, onDocUpdated);
         }
     }
 

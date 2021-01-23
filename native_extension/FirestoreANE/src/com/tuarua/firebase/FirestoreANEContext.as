@@ -177,7 +177,7 @@ public class FirestoreANEContext {
                     } else if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty("path")) {
                         path = argsAsJSON.data.path;
                     }
-                    callCallback(argsAsJSON.callbackId, true, err);
+                    callCallback(argsAsJSON.callbackId, true, path, err);
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }
