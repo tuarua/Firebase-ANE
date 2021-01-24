@@ -17,11 +17,13 @@ package com.tuarua.firebase.firestore
 
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
+import com.google.firebase.firestore.FieldValue
 import com.tuarua.firebase.firestore.data.Order
 import com.tuarua.firebase.firestore.data.Where
 import com.tuarua.firebase.firestore.extensions.*
 import com.tuarua.frekotlin.*
 import java.util.*
+import kotlin.collections.HashMap
 
 @Suppress("unused", "UNUSED_PARAMETER")
 class KotlinController : FreKotlinMainController {
@@ -156,13 +158,35 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
+    private fun convertFieldValues(documentData: Map<String, Any>): Map<String, Any> {
+        return documentData.mapValues {
+            var ret = it.value
+            if (ret::class.simpleName == "HashMap") {
+                @Suppress("UNCHECKED_CAST")
+                val hm = ret as HashMap<String, Any>
+                if (hm.containsKey("methodName")) when {
+                    hm["methodName"] == "FieldValue.increment" -> {
+                        when (val operand = hm["operand"]) {
+                            is Double -> ret = FieldValue.increment(operand)
+                            is Int -> ret = FieldValue.increment(operand.toDouble())
+                            is Long -> ret = FieldValue.increment(operand)
+                        }
+                    }
+                    hm["methodName"] == "FieldValue.serverTimestamp" -> ret = FieldValue.serverTimestamp()
+                    hm["methodName"] == "FieldValue.delete" -> ret = FieldValue.delete()
+                }
+            }
+            ret
+        }
+    }
+
     fun setDocumentReference(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 3 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val callbackId = String(argv[1])
         val documentData: Map<String, Any> = Map(argv[2]) ?: return null
         val merge = Boolean(argv[3]) ?: return null
-        firestoreController.setDocumentReference(path, callbackId, documentData, merge)
+        firestoreController.setDocumentReference(path, callbackId, convertFieldValues(documentData), merge)
         return null
     }
 
@@ -171,7 +195,7 @@ class KotlinController : FreKotlinMainController {
         val path = String(argv[0]) ?: return null
         val callbackId = String(argv[1])
         val documentData: Map<String, Any> = Map(argv[2]) ?: return null
-        firestoreController.updateDocumentReference(path, callbackId, documentData)
+        firestoreController.updateDocumentReference(path, callbackId, convertFieldValues(documentData))
         return null
     }
 
@@ -200,7 +224,7 @@ class KotlinController : FreKotlinMainController {
         val path = String(argv[0]) ?: return null
         val documentData: Map<String, Any> = Map(argv[1]) ?: return null
         val merge = Boolean(argv[2]) ?: return null
-        firestoreController.setBatch(path, documentData, merge)
+        firestoreController.setBatch(path, convertFieldValues(documentData), merge)
         return null
     }
 
@@ -215,7 +239,7 @@ class KotlinController : FreKotlinMainController {
         argv.takeIf { argv.size > 1 } ?: return FreArgException()
         val path = String(argv[0]) ?: return null
         val documentData: Map<String, Any> = Map(argv[1]) ?: return null
-        firestoreController.updateBatch(path, documentData)
+        firestoreController.updateBatch(path, convertFieldValues(documentData))
         return null
     }
 

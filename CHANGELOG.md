@@ -1,3 +1,9 @@
+### 0.17.0
+- [Firestore] fix callback bug
+- [Firestore] added `FieldValue.serverTimestamp()`
+- [Firestore] added `FieldValue.remove()`
+- [Firestore] added `FieldValue.increment(value:)`
+
 ### 0.16.0
 - Upgraded to AIR 33.1.1.345
 - AND: Updated to FreKotlin 1.42.0
