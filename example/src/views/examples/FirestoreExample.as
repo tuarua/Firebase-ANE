@@ -229,7 +229,6 @@ public class FirestoreExample extends Sprite implements IExample {
             statusLabel.text = "onDocUpdated error: " + error.errorID + " : " + error.message;
             return;
         }
-        trace(path);
         statusLabel.text = "Updated " + path;
     }
 

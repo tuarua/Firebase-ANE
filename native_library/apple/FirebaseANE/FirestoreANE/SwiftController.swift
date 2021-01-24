@@ -126,6 +126,31 @@ public class SwiftController: NSObject {
         return nil
     }
     
+    private func convertFieldValues(_ documentData: [String: Any]) -> [String: Any] {
+       return documentData.mapValues { it in
+        var ret = it
+        if ret.self is Dictionary<String, AnyObject> {
+            if let hm = ret as? Dictionary<String, Any> {
+                switch hm["methodName"] as? String {
+                case "FieldValue.increment":
+                    if let operand = hm["operand"] as? Double {
+                        ret = FieldValue.increment(operand)
+                    }
+                    if let operand = hm["operand"] as? Int {
+                        ret = FieldValue.increment(Double(operand))
+                    }
+                case "FieldValue.serverTimestamp":
+                    ret = FieldValue.serverTimestamp()
+                case "FieldValue.delete":
+                    ret = FieldValue.delete()
+                default: break
+                }
+            }
+        }
+        return ret
+       }
+    }
+    
     func setDocumentReference(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 3,
             let path = String(argv[0]),
@@ -136,7 +161,7 @@ public class SwiftController: NSObject {
         }
         let callbackId = String(argv[1])
         firestoreController?.setDocumentReference(path: path, callbackId: callbackId,
-                                                  documentData: documentData, merge: merge)
+                                                  documentData: convertFieldValues(documentData), merge: merge)
         return nil
     }
     
@@ -148,7 +173,8 @@ public class SwiftController: NSObject {
                 return FreArgError().getError()
         }
         let callbackId = String(argv[1])
-        firestoreController?.updateDocumentReference(path: path, callbackId: callbackId, documentData: documentData)
+        firestoreController?.updateDocumentReference(path: path, callbackId: callbackId,
+                                                     documentData: convertFieldValues(documentData))
         return nil
     }
     
@@ -241,7 +267,7 @@ public class SwiftController: NSObject {
                 return FreArgError().getError()
         }
         
-        firestoreController?.setBatch(path: path, documentData: documentData, merge: merge)
+        firestoreController?.setBatch(path: path, documentData: convertFieldValues(documentData), merge: merge)
         return nil
     }
     
@@ -262,7 +288,7 @@ public class SwiftController: NSObject {
             else {
                 return FreArgError().getError()
         }
-        firestoreController?.updateBatch(path: path, documentData: documentData)
+        firestoreController?.updateBatch(path: path, documentData: convertFieldValues(documentData))
         return nil
     }
     

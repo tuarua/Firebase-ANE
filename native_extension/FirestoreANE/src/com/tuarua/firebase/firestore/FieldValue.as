@@ -39,8 +39,8 @@ public class FieldValue {
      *
      * @return The FieldValue sentinel for use in a call to set() or update().
      */
-    public static function increment(value: Number):FieldValue {
-        return new NumericIncrementFieldValue(value);
+    public static function increment(by: Number):FieldValue {
+        return new NumericIncrementFieldValue(by);
     }
 }
 }
