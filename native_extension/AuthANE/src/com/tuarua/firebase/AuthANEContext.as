@@ -145,7 +145,7 @@ public class AuthANEContext {
                     var verificationId:String;
                     if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty(
                             "verificationId")) {
-                        verificationId = argsAsJSON.data.token;
+                        verificationId = argsAsJSON.data.verificationId;
                     }
                     callCallback(argsAsJSON.callbackId, verificationId, err);
                 } catch (e:Error) {
