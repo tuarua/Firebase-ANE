@@ -1,3 +1,6 @@
+### 0.18.0
+- [Auth] Fix verificationId was not returned on verifyPhoneNumber
+
 ### 0.17.0
 - [Firestore] fix callback bug
 - [Firestore] added `FieldValue.serverTimestamp()`

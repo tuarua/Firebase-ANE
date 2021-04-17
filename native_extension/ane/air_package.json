@@ -1,6 +1,6 @@
 {
   "name": "com.tuarua.firebase.FirebaseANE",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "repository": {
     "url": "https://tuarua.github.io/air/air_packages.json"
   },
@@ -15,7 +15,7 @@
     "com.google.firebase.firebase-iid": "21.0.1",
     "com.google.android.gms.play-services-measurement": "18.0.0",
     "com.google.android.gms.play-services-base": "17.1.0",
-    "com.tuarua.firebase.FirebaseIosDependencies": "0.16.0",
+    "com.tuarua.firebase.FirebaseIosDependencies": "0.18.0",
     "com.tuarua.iOS.FreSwift": "5.1.0",
     "com.tuarua.AIRSDK_additions": "5.1.0"
   }
