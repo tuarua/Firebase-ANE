@@ -18,37 +18,35 @@ package com.tuarua.google.googlesignin
 import android.content.res.Resources
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
+import com.adobe.fre.FREArray
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.tuarua.frekotlin.*
-import java.util.*
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.Scope
+import com.tuarua.frekotlin.*
+import com.tuarua.google.googlesignin.extensions.GoogleSignInOptions
+import java.util.*
 
 @Suppress("unused", "UNUSED_PARAMETER", "UNCHECKED_CAST", "PrivatePropertyName")
 class KotlinController : FreKotlinMainController {
+
     private var googleSignInClient: GoogleSignInClient? = null
+
     fun createGUID(ctx: FREContext, argv: FREArgv): FREObject? {
         return UUID.randomUUID().toString().toFREObject()
     }
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         val context = context ?: return FreException("no context").getError()
-        val resources = context.activity?.resources
-                ?: return FreException("no resources").getError()
-        val act = context.activity ?: return FreException("no application context").getError()
+        val resources = context.activity?.resources ?: return FreException("no resources").getError()
+        val activity = context.activity ?: return FreException("no application context").getError()
         try {
-            val apiKey = String(argv[0]) ?: resources.getString(context.getResourceId("string.default_web_client_id"))
-            val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestIdToken(apiKey)
-                    .requestEmail()
-                    .build()
-
-            googleSignInClient = GoogleSignIn.getClient(act, gso)
-
-        } catch (e: Resources.NotFoundException) {
-            return FreException(
-                    "Cannot find required default_web_client_id. Ensure Firebase resources file added to FirebaseANE"
-            ).getError()
+            val id = resources.getIdentifier("default_web_client_id", "string", null)
+            val defaultClientId = if (id != 0) resources.getString(id) else null
+            val gso = GoogleSignInOptions(argv[0], defaultClientId)
+            googleSignInClient = GoogleSignIn.getClient(activity, gso)
+        } catch (e: Exception) {
+            return FreException(e, "Failed create GoogleSignInClient").getError()
         }
         return true.toFREObject()
     }
@@ -80,7 +78,9 @@ class KotlinController : FreKotlinMainController {
 
     override val TAG: String?
         get() = this::class.java.canonicalName
+
     private var _context: FREContext? = null
+
     override var context: FREContext?
         get() = _context
         set(value) {

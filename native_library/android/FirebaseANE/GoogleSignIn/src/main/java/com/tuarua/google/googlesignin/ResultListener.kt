@@ -25,24 +25,29 @@ import com.tuarua.frekotlin.FreKotlinController
 import com.tuarua.google.googlesignin.events.GoogleSignInEvent
 
 class ResultListener(override var context: FREContext?) : FreKotlinController, FreKotlinActivityResultCallback {
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             val completedTask = task ?: return
             try {
                 val account = completedTask.getResult(ApiException::class.java) ?: return
-                dispatchEvent(GoogleSignInEvent.SIGN_IN,
-                        Gson().toJson(GoogleSignInEvent(
-                                mapOf("idToken" to account.idToken))
-                        )
-                )
+                dispatchEvent(GoogleSignInEvent.SIGN_IN, Gson().toJson(GoogleSignInEvent(mapOf(
+                        "id" to account.id,
+                        "idToken" to account.idToken,
+                        "serverAuthCode" to account.serverAuthCode,
+                        "email" to account.email,
+                        "photoUrl" to account.photoUrl,
+                        "displayName" to account.displayName,
+                        "familyName" to account.familyName,
+                        "givenName" to account.givenName,
+                        "grantedScopes" to account.grantedScopes.toList().map { scope -> scope.scopeUri }
+                ))))
             } catch (e: ApiException) {
-                dispatchEvent(GoogleSignInEvent.ERROR,
-                        Gson().toJson(GoogleSignInEvent(
-                                mapOf("text" to e.localizedMessage,
-                                        "id" to e.statusCode))
-                        )
-                )
+                dispatchEvent(GoogleSignInEvent.ERROR, Gson().toJson(GoogleSignInEvent(mapOf(
+                        "id" to e.statusCode,
+                        "text" to e.localizedMessage
+                ))))
             }
         }
     }
