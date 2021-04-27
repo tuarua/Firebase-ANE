@@ -47,6 +47,7 @@ fun AuthCredential(freObject: FREObject?): AuthCredential? {
                 return PhoneAuthProvider.getCredential(param0, param1)
             }
         }
+        PlayGamesAuthProvider.PROVIDER_ID -> return PlayGamesAuthProvider.getCredential(param0)
         else -> {
             val builder = OAuthProvider.newCredentialBuilder(param0)
             return builder.build()
