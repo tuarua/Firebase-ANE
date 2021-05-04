@@ -28,7 +28,7 @@ fun GoogleSignInOptions(freObject: FREObject?, defaultClientId: String?): Google
     if (freObject == null) {
         return GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestServerAuthCode(defaultClientId!!)
+                .requestIdToken(defaultClientId!!)
                 .requestEmail()
                 .build()
     }

@@ -26,7 +26,7 @@ public class GoogleSignInOptions {
      */
     public static function get DEFAULT_SIGN_IN():GoogleSignInOptions {
         var options:GoogleSignInOptions = new GoogleSignInOptions(new <String>['openid', 'profile']);
-        options.requestServerAuthCode = true;
+        options.requestIdToken = true;
         return options;
     }
 
@@ -35,7 +35,7 @@ public class GoogleSignInOptions {
      */
     public static function get DEFAULT_GAMES_SIGN_IN():GoogleSignInOptions {
         var options:GoogleSignInOptions = new GoogleSignInOptions(new <String>['https://www.googleapis.com/auth/games_lite']);
-        options.requestIdToken = true;
+        options.requestServerAuthCode = true;
         return options;
     }
 
