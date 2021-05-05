@@ -41,7 +41,7 @@ class KotlinController : FreKotlinMainController {
         val resources = context.activity?.resources ?: return FreException("no resources").getError()
         val activity = context.activity ?: return FreException("no application context").getError()
         try {
-            val id = resources.getIdentifier("default_web_client_id", "string", null)
+            val id = resources.getIdentifier("default_web_client_id", "string", activity.packageName)
             val defaultClientId = if (id != 0) resources.getString(id) else null
             val gso = GoogleSignInOptions(argv[0], defaultClientId)
             googleSignInClient = GoogleSignIn.getClient(activity, gso)
