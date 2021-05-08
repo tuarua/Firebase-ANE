@@ -30,6 +30,14 @@ public class SwiftController: NSObject {
     }
     
     func initController(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
+        if hasFirebaseApp, let options = argv[0] {
+            if let serverClientId = String(options["serverClientId"]) {
+                GIDSignIn.sharedInstance().serverClientID = serverClientId
+            }
+            if let scopes = [String](options["scopes"]) {
+                GIDSignIn.sharedInstance().scopes = scopes
+            }
+        }
         return hasFirebaseApp.toFREObject()
     }
     

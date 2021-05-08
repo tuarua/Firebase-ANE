@@ -16,20 +16,44 @@
 
 package com.tuarua.google {
 import com.tuarua.fre.ANEError;
+import com.tuarua.google.signin.GoogleSignInOptions;
 
 import flash.events.EventDispatcher;
 
+/**
+ * It is possible to configure GoogleSignIn before use with options property.
+ *
+ * <listing version="3.0">
+ *     // To sign into Play Games insted of regular Google account
+ *     // Note: officially supported on Android only
+ *     GoogleSignIn.options = GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN;
+ *     GoogleSignIn.shared().signIn();
+ * </listing>
+ *
+ * @see #GoogleSignInOptions
+ */
 public final class GoogleSignIn extends EventDispatcher {
     private static var _shared:GoogleSignIn;
-    private static var _apiKey:String;
+    private static var _options:GoogleSignInOptions;
 
     /** @private */
     public function GoogleSignIn() {
         if (GoogleSignInANEContext.context) {
-            var ret:* = GoogleSignInANEContext.context.call("init", _apiKey);
+            var ret:* = GoogleSignInANEContext.context.call("init", _options);
             if (ret is ANEError) throw ret as ANEError;
         }
         _shared = this;
+    }
+
+    /**
+     * Configuration for GoogleSignIn client. Set it before access GoogleSignIn api if needed.
+     */
+    public static function get options():GoogleSignInOptions {
+        return _options;
+    }
+
+    public static function set options(value:GoogleSignInOptions):void {
+        _options = value;
     }
 
     /** The ANE instance. */
@@ -84,11 +108,6 @@ public final class GoogleSignIn extends EventDispatcher {
         if (GoogleSignInANEContext.context) {
             GoogleSignInANEContext.dispose();
         }
-    }
-
-    /** set the API key if not using Firebase resources */
-    public static function set apiKey(value:String):void {
-        _apiKey = value;
     }
 }
 }

@@ -22,17 +22,29 @@ extension SwiftController: GIDSignInDelegate {
     
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let err = error as NSError? {
-            self.dispatchEvent(name: GoogleSignInEvent.ERROR,
-                           value: GoogleSignInEvent(data: ["text": err.localizedDescription,
-                                                           "id": err.code]).toJSONString())
+            dispatchEvent(name: GoogleSignInEvent.ERROR, value: GoogleSignInEvent(data: [
+                "text": err.localizedDescription,
+                "id": err.code
+            ]).toJSONString())
         } else {
-            guard let authentication = user.authentication else { return }
-            self.dispatchEvent(name: GoogleSignInEvent.SIGN_IN,
-                               value: GoogleSignInEvent(data: ["idToken": authentication.idToken ?? "",
-                                                               "accessToken": authentication.accessToken
-                                                                ?? ""]).toJSONString())
+            let authentication = user.authentication
+            let profile = user.profile
+            let photoUrl = profile?.hasImage ?? false
+                    ? profile!.imageURL(withDimension: 512).absoluteString
+                    : nil
+            dispatchEvent(name: GoogleSignInEvent.SIGN_IN, value: GoogleSignInEvent(data: [
+                "id": user.userID as Any,
+                "grantedScopes": user.grantedScopes as Any,
+                "serverAuthCode": user.serverAuthCode as Any,
+                "idToken": authentication?.idToken as Any,
+                "accessToken": authentication?.accessToken as Any,
+                "email": profile?.email as Any,
+                "displayName": profile?.name as Any,
+                "familyName": profile?.familyName as Any,
+                "givenName": profile?.givenName as Any,
+                "photoUrl": photoUrl as Any
+            ]).toJSONString())
         }
-        
     }
     
     public func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
