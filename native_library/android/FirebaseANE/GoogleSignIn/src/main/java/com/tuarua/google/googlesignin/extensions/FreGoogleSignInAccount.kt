@@ -14,10 +14,20 @@
  * limitations under the License.
  */
 
-package com.tuarua.firebase.auth {
-public class PhoneAuthCredential extends AuthCredential {
-    public function PhoneAuthCredential(verificationId:String, code:String) {
-        super(Provider.PHONE, verificationId, code);
-    }
-}
+package com.tuarua.google.googlesignin.extensions
+
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+
+fun GoogleSignInAccount.toMap(): Map<String, Any?> {
+    return mapOf(
+            "id" to id,
+            "idToken" to idToken,
+            "serverAuthCode" to serverAuthCode,
+            "email" to email,
+            "photoUrl" to photoUrl?.toString(),
+            "displayName" to displayName,
+            "familyName" to familyName,
+            "givenName" to givenName,
+            "grantedScopes" to grantedScopes.toList().map { scope -> scope.scopeUri }
+    )
 }

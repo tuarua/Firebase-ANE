@@ -18,7 +18,7 @@ package com.tuarua.firebase.auth.extensions
 
 import com.google.firebase.auth.AdditionalUserInfo
 
-fun AdditionalUserInfo.toMap(): Map<String, Any?>? {
+fun AdditionalUserInfo.toMap(): Map<String, Any?> {
     return mapOf(
             "providerId" to providerId,
             "username" to username,

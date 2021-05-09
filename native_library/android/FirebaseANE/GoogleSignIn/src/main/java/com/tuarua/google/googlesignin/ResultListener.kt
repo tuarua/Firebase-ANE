@@ -23,6 +23,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.gson.Gson
 import com.tuarua.frekotlin.FreKotlinController
 import com.tuarua.google.googlesignin.events.GoogleSignInEvent
+import com.tuarua.google.googlesignin.extensions.toMap
 
 class ResultListener(override var context: FREContext?) : FreKotlinController, FreKotlinActivityResultCallback {
 
@@ -32,17 +33,7 @@ class ResultListener(override var context: FREContext?) : FreKotlinController, F
             val completedTask = task ?: return
             try {
                 val account = completedTask.getResult(ApiException::class.java) ?: return
-                dispatchEvent(GoogleSignInEvent.SIGN_IN, Gson().toJson(GoogleSignInEvent(mapOf(
-                        "id" to account.id,
-                        "idToken" to account.idToken,
-                        "serverAuthCode" to account.serverAuthCode,
-                        "email" to account.email,
-                        "photoUrl" to account.photoUrl,
-                        "displayName" to account.displayName,
-                        "familyName" to account.familyName,
-                        "givenName" to account.givenName,
-                        "grantedScopes" to account.grantedScopes.toList().map { scope -> scope.scopeUri }
-                ))))
+                dispatchEvent(GoogleSignInEvent.SIGN_IN, Gson().toJson(GoogleSignInEvent(account.toMap())))
             } catch (e: ApiException) {
                 dispatchEvent(GoogleSignInEvent.ERROR, Gson().toJson(GoogleSignInEvent(mapOf(
                         "id" to e.statusCode,
@@ -56,7 +47,7 @@ class ResultListener(override var context: FREContext?) : FreKotlinController, F
         const val RC_SIGN_IN = 9001
     }
 
-    override val TAG: String?
+    override val TAG: String
         get() = this::class.java.simpleName
 
 }

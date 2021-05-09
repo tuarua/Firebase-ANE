@@ -16,7 +16,7 @@ fun FirebaseUser.toFREObject(): FREObject? {
     )
 }
 
-fun FirebaseUser.toMap(): Map<String, Any?>? {
+fun FirebaseUser.toMap(): Map<String, Any?> {
     return mapOf(
             "uid" to uid,
             "displayName" to displayName,

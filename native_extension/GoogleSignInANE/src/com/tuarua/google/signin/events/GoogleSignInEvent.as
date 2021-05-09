@@ -25,25 +25,21 @@ public class GoogleSignInEvent extends Event {
     public static const SIGN_IN:String = "GoogleSignInEvent.SignIn";
     public static const ERROR:String = "GoogleSignInEvent.Error";
     public var account:GoogleSignInAccount;
+    public var credential:AuthCredential;
     public var error:Error;
 
     public function GoogleSignInEvent(type:String, account:GoogleSignInAccount = null, error:Error = null,
                                       bubbles:Boolean = false, cancelable:Boolean = false) {
         super(type, bubbles, cancelable);
         this.account = account;
-        this.error = error;
-    }
-
-    public function get credential():AuthCredential {
-        if (!account) {
-            return null;
-        } else if (account.idToken) {
-            return new GoogleAuthCredential(account.idToken, account.accessToken);
-        } else if (account.serverAuthCode && account.hasScope('https://www.googleapis.com/auth/games_lite')) {
-            return new PlayGamesAuthCredential(account.serverAuthCode);
-        } else {
-            return null;
+        if (account) {
+            if (account.idToken) {
+                credential = new GoogleAuthCredential(account.idToken, account.accessToken);
+            } else if (account.serverAuthCode && account.hasScope("https://www.googleapis.com/auth/games_lite")) {
+                credential = new PlayGamesAuthCredential(account.serverAuthCode);
+            }
         }
+        this.error = error;
     }
 
     public override function clone():Event {

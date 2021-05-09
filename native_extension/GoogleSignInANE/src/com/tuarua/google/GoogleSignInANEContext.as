@@ -14,6 +14,7 @@
  *  limitations under the License.
  */
 package com.tuarua.google {
+import com.tuarua.fre.ANEUtils;
 import com.tuarua.google.signin.GoogleSignInAccount;
 import com.tuarua.google.signin.events.GoogleSignInEvent;
 
@@ -62,39 +63,23 @@ public class GoogleSignInANEContext {
                 trace("[" + NAME + "]", event.code);
                 break;
             case GoogleSignInEvent.ERROR:
-                var error:Error;
                 try {
                     argsAsJSON = JSON.parse(event.code);
-                    error = new Error(argsAsJSON.data.text, argsAsJSON.data.id);
+                    var error:Error = new Error(argsAsJSON.data.text, argsAsJSON.data.id);
+                    GoogleSignIn.shared().dispatchEvent(new GoogleSignInEvent(event.level, null, error));
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
-                    return;
                 }
-                GoogleSignIn.shared().dispatchEvent(new GoogleSignInEvent(event.level, null, error));
                 break;
             case GoogleSignInEvent.SIGN_IN:
-                var account:GoogleSignInAccount;
                 try {
                     argsAsJSON = JSON.parse(event.code);
-                    var data:Object = argsAsJSON["data"] || {};
-                    account = new GoogleSignInAccount();
-                    account.id = data["id"] || null;
-                    account.idToken = data["idToken"] || null;
-                    account.serverAuthCode = data["serverAuthCode"] || null;
-                    account.email = data["email"] || null;
-                    account.photoUrl = data["photoUrl"] || null;
-                    account.displayName = data["displayName"] || null;
-                    account.familyName = data["familyName"] || null;
-                    account.givenName = data["givenName"] || null;
-                    account.grantedScopes = data["grantedScopes"] is Array
-                            ? Vector.<String>(data["grantedScopes"])
-                            : new <String>[];
-                    account.accessToken = data["accessToken"] || null;
+                    GoogleSignIn.shared().dispatchEvent(new GoogleSignInEvent(event.level,
+                            ANEUtils.map(argsAsJSON.data,
+                                    GoogleSignInAccount) as GoogleSignInAccount));
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
-                    return;
                 }
-                GoogleSignIn.shared().dispatchEvent(new GoogleSignInEvent(event.level, account));
                 break;
         }
     }

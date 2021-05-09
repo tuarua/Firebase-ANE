@@ -7,6 +7,7 @@ import com.tuarua.firebase.auth.EmailAuthCredential;
 import com.tuarua.firebase.auth.FirebaseUser;
 import com.tuarua.firebase.auth.GoogleAuthCredential;
 import com.tuarua.google.GoogleSignIn;
+import com.tuarua.google.signin.GoogleSignInAccount;
 import com.tuarua.google.signin.events.GoogleSignInEvent;
 
 import starling.display.Sprite;
@@ -128,6 +129,9 @@ public class AuthExample extends Sprite implements IExample {
             statusLabel.text = "Google Sign In error: " + event.error.errorID + " : " + event.error.message;
             return;
         }
+        var account:GoogleSignInAccount = event.account;
+        trace("Google Account accessToken:", account.accessToken);
+        trace("Google Account displayName:", account.displayName);
         auth.signInWithCredential(event.credential, onSignedIn);
     }
 

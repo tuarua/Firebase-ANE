@@ -24,11 +24,11 @@ import com.tuarua.frekotlin.String
 import com.tuarua.frekotlin.get
 import com.tuarua.frekotlin.iterator
 
-fun GoogleSignInOptions(freObject: FREObject?, defaultClientId: String?): GoogleSignInOptions {
+fun GoogleSignInOptions(freObject: FREObject?, defaultClientId: String): GoogleSignInOptions {
     if (freObject == null) {
         return GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(defaultClientId!!)
+                .requestIdToken(defaultClientId)
                 .requestEmail()
                 .build()
     }
@@ -39,10 +39,10 @@ fun GoogleSignInOptions(freObject: FREObject?, defaultClientId: String?): Google
     }
     val serverClientId = String(freObject["serverClientId"])
     if (Boolean(freObject["requestIdToken"]) == true) {
-        builder.requestIdToken(serverClientId ?: defaultClientId!!)
+        builder.requestIdToken(serverClientId ?: defaultClientId)
     }
     if (Boolean(freObject["requestServerAuthCode"]) == true) {
-        builder.requestServerAuthCode(serverClientId ?: defaultClientId!!)
+        builder.requestServerAuthCode(serverClientId ?: defaultClientId)
     }
     return builder.build()
 }

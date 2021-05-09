@@ -20,12 +20,32 @@ package com.tuarua.google.signin {
  * Options for GoogleSignIn client.
  */
 public class GoogleSignInOptions {
+    private var _scopes:Vector.<String>;
+    /**
+     * Specifies that an ID token for authenticated users is requested.
+     * Requesting an ID token requires that the server client ID be specified.
+     */
+    public var requestIdToken:Boolean = false;
+    /**
+     * Specifies that offline access is requested.
+     * Requesting offline access requires that the server client ID be specified.
+     */
+    public var requestServerAuthCode:Boolean = false;
+    /**
+     * The client ID of the server that will need to get `serverAuthCode` or verify `idToken`
+     * On Android you can leave that unspecified, then string value of resource `default_web_client_id` will be used.
+     */
+    public var serverClientId:String;
+
+    public function GoogleSignInOptions(scopes:Vector.<String> = null) {
+        _scopes = scopes ? scopes : new <String>[];
+    }
 
     /**
      * Default configuration for Google Sign In.
      */
     public static function get DEFAULT_SIGN_IN():GoogleSignInOptions {
-        var options:GoogleSignInOptions = new GoogleSignInOptions(new <String>['openid', 'profile']);
+        var options:GoogleSignInOptions = new GoogleSignInOptions(new <String>["openid", "profile"]);
         options.requestIdToken = true;
         return options;
     }
@@ -34,27 +54,15 @@ public class GoogleSignInOptions {
      * Default and recommended configuration for Play Games Sign In.
      */
     public static function get DEFAULT_GAMES_SIGN_IN():GoogleSignInOptions {
-        var options:GoogleSignInOptions = new GoogleSignInOptions(new <String>['https://www.googleapis.com/auth/games_lite']);
+        var options:GoogleSignInOptions = new GoogleSignInOptions(
+                new <String>["https://www.googleapis.com/auth/games_lite"]);
         options.requestServerAuthCode = true;
         return options;
-    }
-
-    private var _scopes:Vector.<String>;
-    private var _requestIdToken:Boolean = false;
-    private var _requestServerAuthCode:Boolean = false;
-    private var _serverClientId:String = null;
-
-    public function GoogleSignInOptions(scopes:Vector.<String> = null) {
-        _scopes = scopes ? scopes : new <String>[];
     }
 
     /**
      * Specifies OAuth 2.0 scopes your application requests.
      * You can modify requested scopes using addScope()
-     *
-     * @see #addScope
-     * @see https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInOptions.Builder#public-googlesigninoptions.builder-requestscopes-scope-scope,-scope...-scopes
-     * @see https://developers.google.com/android/reference/com/google/android/gms/common/Scopes
      */
     public function get scopes():Vector.<String> {
         return _scopes;
@@ -67,11 +75,11 @@ public class GoogleSignInOptions {
      * @see GoogleSignInAccount#id
      */
     public function get requestId():Boolean {
-        return hasScope('openid');
+        return hasScope("openid");
     }
 
     public function set requestId(value:Boolean):void {
-        setScope('openid', value);
+        setScope("openid", value);
     }
 
     /**
@@ -81,11 +89,11 @@ public class GoogleSignInOptions {
      * @see GoogleSignInAccount#email
      */
     public function get requestEmail():Boolean {
-        return hasScope('email');
+        return hasScope("email");
     }
 
     public function set requestEmail(value:Boolean):void {
-        setScope('email', value);
+        setScope("email", value);
     }
 
     /**
@@ -93,57 +101,11 @@ public class GoogleSignInOptions {
      * Will add `profile` scope if set to true.
      */
     public function get requestProfile():Boolean {
-        return hasScope('profile');
+        return hasScope("profile");
     }
 
     public function set requestProfile(value:Boolean):void {
-        setScope('profile', value);
-    }
-
-    /**
-     * Specifies that an ID token for authenticated users is requested.
-     * Requesting an ID token requires that the server client ID be specified.
-     *
-     * @see https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInOptions.Builder#public-googlesigninoptions.builder-requestidtoken-string-serverclientid
-     * @see https://developers.google.com/identity/sign-in/ios/reference/Classes/GIDSignIn#serverclientid
-     * @see #serverClientId
-     */
-    public function get requestIdToken():Boolean {
-        return _requestIdToken;
-    }
-
-    public function set requestIdToken(value:Boolean):void {
-        _requestIdToken = value;
-    }
-
-    /**
-     * Specifies that offline access is requested.
-     * Requesting offline access requires that the server client ID be specified.
-     *
-     * @see https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInOptions.Builder#public-googlesigninoptions.builder-requestserverauthcode-string-serverclientid
-     * @see https://developers.google.com/identity/sign-in/ios/reference/Classes/GIDSignIn#serverclientid
-     * @see #serverClientId
-     */
-    public function get requestServerAuthCode():Boolean {
-        return _requestServerAuthCode;
-    }
-
-    public function set requestServerAuthCode(value:Boolean):void {
-        _requestServerAuthCode = value;
-    }
-
-    /**
-     * The client ID of the server that will need to get `serverAuthCode` or verify `idToken`
-     * On Android you can left that unspecified, then string value of resource `default_web_client_id` will be used.
-     *
-     * https://developers.google.com/identity/sign-in/ios/reference/Classes/GIDSignIn#serverclientid
-     */
-    public function get serverClientId():String {
-        return _serverClientId;
-    }
-
-    public function set serverClientId(value:String):void {
-        _serverClientId = value;
+        setScope("profile", value);
     }
 
     /**
@@ -153,23 +115,22 @@ public class GoogleSignInOptions {
      */
     public function addScope(scope:String):void {
         if (!scope) {
-            throw new ArgumentError('empty scope');
+            throw new ArgumentError("empty scope");
         }
         setScope(scope, true);
     }
 
     public function hasScope(scope:String):Boolean {
-        return _scopes.indexOf(scope) !== -1;
+        return _scopes.indexOf(scope) > -1;
     }
 
     private function setScope(scope:String, value:Boolean):void {
         var index:int = _scopes.indexOf(scope);
         if (value && index === -1) {
             _scopes.push(scope);
-        } else if (!value && index !== -1) {
+        } else if (!value && index > -1) {
             _scopes.splice(index, 1);
         }
     }
-
 }
 }

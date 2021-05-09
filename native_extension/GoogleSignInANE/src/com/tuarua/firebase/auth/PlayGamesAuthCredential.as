@@ -17,7 +17,7 @@
 package com.tuarua.firebase.auth {
 public class PlayGamesAuthCredential extends AuthCredential {
     public function PlayGamesAuthCredential(serverAuthCode:String) {
-        super('playgames.google.com', serverAuthCode);
+        super("playgames.google.com", serverAuthCode);
     }
 }
 }

@@ -18,6 +18,6 @@ package com.tuarua.firebase.storage.extensions
 
 import com.google.firebase.storage.StorageException
 
-fun StorageException.toMap(): Map<String, Any>? {
-    return mapOf("text" to this.message.toString(), "id" to this.errorCode)
+fun StorageException.toMap(): Map<String, Any> {
+    return mapOf("text" to message.toString(), "id" to errorCode)
 }

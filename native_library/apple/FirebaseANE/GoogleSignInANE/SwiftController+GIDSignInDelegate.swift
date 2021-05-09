@@ -27,23 +27,8 @@ extension SwiftController: GIDSignInDelegate {
                 "id": err.code
             ]).toJSONString())
         } else {
-            let authentication = user.authentication
-            let profile = user.profile
-            let photoUrl = profile?.hasImage ?? false
-                    ? profile!.imageURL(withDimension: 512).absoluteString
-                    : nil
-            dispatchEvent(name: GoogleSignInEvent.SIGN_IN, value: GoogleSignInEvent(data: [
-                "id": user.userID as Any,
-                "grantedScopes": user.grantedScopes as Any,
-                "serverAuthCode": user.serverAuthCode as Any,
-                "idToken": authentication?.idToken as Any,
-                "accessToken": authentication?.accessToken as Any,
-                "email": profile?.email as Any,
-                "displayName": profile?.name as Any,
-                "familyName": profile?.familyName as Any,
-                "givenName": profile?.givenName as Any,
-                "photoUrl": photoUrl as Any
-            ]).toJSONString())
+            dispatchEvent(name: GoogleSignInEvent.SIGN_IN,
+                          value: GoogleSignInEvent(data: user.toDictionary()).toJSONString())
         }
     }
     

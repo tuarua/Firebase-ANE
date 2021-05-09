@@ -15,14 +15,10 @@
  */
 package com.tuarua.google.googlesignin
 
-import android.content.res.Resources
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
-import com.adobe.fre.FREArray
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.Scope
 import com.tuarua.frekotlin.*
 import com.tuarua.google.googlesignin.extensions.GoogleSignInOptions
 import java.util.*
@@ -42,7 +38,7 @@ class KotlinController : FreKotlinMainController {
         val activity = context.activity ?: return FreException("no application context").getError()
         try {
             val id = resources.getIdentifier("default_web_client_id", "string", activity.packageName)
-            val defaultClientId = if (id != 0) resources.getString(id) else null
+            val defaultClientId = if (id != 0) resources.getString(id) else ""
             val gso = GoogleSignInOptions(argv[0], defaultClientId)
             googleSignInClient = GoogleSignIn.getClient(activity, gso)
         } catch (e: Exception) {
@@ -78,9 +74,7 @@ class KotlinController : FreKotlinMainController {
 
     override val TAG: String?
         get() = this::class.java.canonicalName
-
     private var _context: FREContext? = null
-
     override var context: FREContext?
         get() = _context
         set(value) {
