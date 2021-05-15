@@ -169,15 +169,7 @@
      
      This setting is persisted, and is applied on future invocations of your application. Once
      explicitly set, it overrides any settings in your Info.plist.
-     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase:RemoteConfig"><apiName>RemoteConfig</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:EventDispatcher</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiOperation id="com.tuarua.firebase:RemoteConfig:activateFetched"><apiName>activateFetched</apiName><shortdesc>
-     Applies Fetched Config data to the Active Config, causing updates to the behavior and appearance of the
-     app to take effect (depending on how config data is used in the app).</shortdesc><prolog><asCustoms><deprecated>
-     </deprecated></asCustoms></prolog><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiDesc>true if there was a Fetched Config, and it was activated, false if no
-     Fetched Config was found, or the Fetched Config was already activated.
-     </apiDesc><apiType value="Boolean"/></apiReturn></apiOperationDef><apiDesc>
-     Applies Fetched Config data to the Active Config, causing updates to the behavior and appearance of the
-     app to take effect (depending on how config data is used in the app).
-     </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase:RemoteConfig:activate"><apiName>activate</apiName><shortdesc>
+     </apiDesc></apiValueDetail></apiValue></apiClassifier><apiClassifier id="com.tuarua.firebase:RemoteConfig"><apiName>RemoteConfig</apiName><shortdesc/><prolog><asMetadata/></prolog><apiClassifierDetail><apiClassifierDef><apiAccess value="public"/><apiStatic/><apiBaseClassifier>flash.events:EventDispatcher</apiBaseClassifier></apiClassifierDef></apiClassifierDetail><apiOperation id="com.tuarua.firebase:RemoteConfig:activate"><apiName>activate</apiName><shortdesc>
      Asynchronously activates the most recently fetched configs, so that the fetched key value pairs take effect.</shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc>
      Asynchronously activates the most recently fetched configs, so that the fetched key value pairs take effect.
      </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase:RemoteConfig:addEventListener"><apiName>addEventListener</apiName><shortdesc/><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiIsOverride/><apiReturn><apiType value="void"/></apiReturn><apiParam><apiItemName>type</apiItemName><apiType value="String"/></apiParam><apiParam><apiItemName>listener</apiItemName><apiType value="Function"/></apiParam><apiParam><apiItemName>useCapture</apiItemName><apiType value="Boolean"/><apiData>false</apiData></apiParam><apiParam><apiItemName>priority</apiItemName><apiType value="int"/><apiData>0</apiData></apiParam><apiParam><apiItemName>useWeakReference</apiItemName><apiType value="Boolean"/><apiData>false</apiData></apiParam></apiOperationDef></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase:RemoteConfig:dispose"><apiName>dispose</apiName><shortdesc> Disposes the ANE </shortdesc><prolog/><apiOperationDetail><apiOperationDef><apiAccess value="public"/><apiStatic/><apiReturn><apiType value="void"/></apiReturn></apiOperationDef><apiDesc> Disposes the ANE </apiDesc></apiOperationDetail></apiOperation><apiOperation id="com.tuarua.firebase:RemoteConfig:fetchAndActivate"><apiName>fetchAndActivate</apiName><shortdesc>
@@ -264,9 +256,18 @@
      Sets whether analytics collection is enabled for this app on this device. This setting is
      persisted across app sessions. By default it is enabled.
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase:Analytics:currentScreen:set"><apiName>currentScreen</apiName><shortdesc>
-     The name of the current screen.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="write"/><apiType value="String"/></apiValueDef><apiDesc>
+     The name of the current screen.</shortdesc><prolog><asCustoms><deprecated>
+     </deprecated></asCustoms></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="write"/><apiType value="String"/></apiValueDef><apiDesc>
      The name of the current screen. Should contain 1 to 100 characters.
      Set to null to clear the current screen name.
+     </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase:Analytics:defaultEventParameters:set"><apiName>defaultEventParameters</apiName><shortdesc>
+     Adds parameters that will be set on every event logged from the SDK, including automatic ones.</shortdesc><prolog/><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="write"/><apiType value="Object"/></apiValueDef><apiDesc>
+     Adds parameters that will be set on every event logged from the SDK, including automatic ones.
+     The values passed in the parameters dictionary will be added to the dictionary of default event parameters.
+     These parameters persist across app runs. They are of lower precedence than event parameters,
+     so if an event parameter and a parameter set using this API have the same name, the value of the event
+     parameter will be used. The same limitations on event parameters apply to default event parameters.
+     
      </apiDesc></apiValueDetail></apiValue><apiValue id="com.tuarua.firebase:Analytics:minimumSessionDuration:set"><apiName>minimumSessionDuration</apiName><shortdesc>
      Sets the minimum engagement time in seconds required to start a new session.</shortdesc><prolog><asCustoms><deprecated>
      </deprecated></asCustoms></prolog><apiValueDetail><apiValueDef><apiProperty/><apiAccess value="public"/><apiDynamic/><apiValueAccess value="write"/><apiType value="Number"/></apiValueDef><apiDesc>
