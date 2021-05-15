@@ -1,3 +1,6 @@
+### 0.19.0
+- [Auth] Add support of Google Play Games on Android
+
 ### 0.18.0
 - [Auth] Fix verificationId was not returned on verifyPhoneNumber
 

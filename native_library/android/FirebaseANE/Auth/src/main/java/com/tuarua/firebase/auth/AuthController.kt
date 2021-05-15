@@ -147,7 +147,7 @@ class AuthController(override var context: FREContext?) : FreKotlinController {
             return auth.languageCode
         }
 
-    override val TAG: String?
+    override val TAG: String
         get() = this::class.java.simpleName
 
 

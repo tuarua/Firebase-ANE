@@ -14,29 +14,40 @@
  *  limitations under the License.
  */
 package com.tuarua.google.signin.events {
+import com.tuarua.firebase.auth.AuthCredential;
 import com.tuarua.firebase.auth.GoogleAuthCredential;
+import com.tuarua.firebase.auth.PlayGamesAuthCredential;
+import com.tuarua.google.signin.GoogleSignInAccount;
 
 import flash.events.Event;
 
 public class GoogleSignInEvent extends Event {
     public static const SIGN_IN:String = "GoogleSignInEvent.SignIn";
     public static const ERROR:String = "GoogleSignInEvent.Error";
-    public var credential:GoogleAuthCredential;
+    public var account:GoogleSignInAccount;
+    public var credential:AuthCredential;
     public var error:Error;
 
-    public function GoogleSignInEvent(type:String, credential:GoogleAuthCredential = null, error:Error = null,
+    public function GoogleSignInEvent(type:String, account:GoogleSignInAccount = null, error:Error = null,
                                       bubbles:Boolean = false, cancelable:Boolean = false) {
         super(type, bubbles, cancelable);
-        this.credential = credential;
+        this.account = account;
+        if (account) {
+            if (account.idToken) {
+                credential = new GoogleAuthCredential(account.idToken, account.accessToken);
+            } else if (account.serverAuthCode && account.hasScope("https://www.googleapis.com/auth/games_lite")) {
+                credential = new PlayGamesAuthCredential(account.serverAuthCode);
+            }
+        }
         this.error = error;
     }
 
     public override function clone():Event {
-        return new GoogleSignInEvent(type, this.credential, this.error, bubbles, cancelable);
+        return new GoogleSignInEvent(type, this.account, this.error, bubbles, cancelable);
     }
 
     public override function toString():String {
-        return formatToString("GoogleSignInEvent", "credential", "error", "type", "bubbles", "cancelable");
+        return formatToString("GoogleSignInEvent", "account", "error", "type", "bubbles", "cancelable");
     }
 }
 }

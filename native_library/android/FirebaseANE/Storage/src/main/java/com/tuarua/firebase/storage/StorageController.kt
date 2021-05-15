@@ -300,7 +300,7 @@ class StorageController(override var context: FREContext?, url: String?) : FreKo
         return false
     }
 
-    override val TAG: String?
+    override val TAG: String
         get() = this::class.java.simpleName
 
 }

@@ -209,6 +209,7 @@
 		90D1CA1723B39E4900F9AC18 /* GoogleDataTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D1CA1323B39E4900F9AC18 /* GoogleDataTransport.framework */; platformFilter = ios; };
 		90D1CA1A23B3BB9600F9AC18 /* TensorFlowLiteC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D1CA1823B3BB9600F9AC18 /* TensorFlowLiteC.framework */; platformFilter = ios; };
 		90D1CA1B23B3BB9600F9AC18 /* TensorFlowLiteObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D1CA1923B3BB9600F9AC18 /* TensorFlowLiteObjC.framework */; platformFilter = ios; };
+		90DBE8BC264756AE0031DD77 /* FreGIDGoogleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DBE8BB264756AE0031DD77 /* FreGIDGoogleUser.swift */; };
 		90EF030C2154216000C91063 /* FreSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE05603E1FB25CE200D06976 /* FreSwift.framework */; platformFilter = ios; };
 		90EF030E2154216000C91063 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE80D47208CE3E300C96EC6 /* FirebaseCore.framework */; platformFilter = ios; };
 		90EF030F2154216000C91063 /* FirebaseMLCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E037C20EECA9E008D6CE8 /* FirebaseMLCommon.framework */; platformFilter = ios; };
@@ -504,6 +505,7 @@
 		90D1CA1323B39E4900F9AC18 /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransport.framework; path = Carthage/Build/iOS/GoogleDataTransport.framework; sourceTree = "<group>"; };
 		90D1CA1823B3BB9600F9AC18 /* TensorFlowLiteC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TensorFlowLiteC.framework; path = Carthage/Build/iOS/TensorFlowLiteC.framework; sourceTree = "<group>"; };
 		90D1CA1923B3BB9600F9AC18 /* TensorFlowLiteObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TensorFlowLiteObjC.framework; path = Carthage/Build/iOS/TensorFlowLiteObjC.framework; sourceTree = "<group>"; };
+		90DBE8BB264756AE0031DD77 /* FreGIDGoogleUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreGIDGoogleUser.swift; sourceTree = "<group>"; };
 		90EF02F42154205800C91063 /* VisionCloudDocumentANE_oc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisionCloudDocumentANE_oc.h; sourceTree = "<group>"; };
 		90EF02F52154205800C91063 /* VisionCloudDocumentANE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisionCloudDocumentANE.m; sourceTree = "<group>"; };
 		90EF02F6215420E500C91063 /* VisionCloudDocumentANE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VisionCloudDocumentANE-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1379,6 +1381,7 @@
 		CE62B36720D062B5002837B7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				90DBE8BB264756AE0031DD77 /* FreGIDGoogleUser.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2389,7 +2392,7 @@
 		CE87F45D1FB259C9005CF7DF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Tua Rua Ltd";
 				TargetAttributes = {
 					CE87F4741FB259DB005CF7DF = {
@@ -3064,6 +3067,7 @@
 				CE62B36F20D063EA002837B7 /* SwiftController+FreSwift.swift in Sources */,
 				CE62B37E20D06D5D002837B7 /* SwiftController+GIDSignInDelegate.swift in Sources */,
 				CE62B36B20D06361002837B7 /* GoogleSignInANE.m in Sources */,
+				90DBE8BC264756AE0031DD77 /* FreGIDGoogleUser.swift in Sources */,
 				CE62B36D20D063CD002837B7 /* SwiftController.swift in Sources */,
 				904B187624EF3D6F00ED9178 /* SwiftyJSON.swift in Sources */,
 				CE62B38520D09223002837B7 /* GoogleSignInEvent.swift in Sources */,

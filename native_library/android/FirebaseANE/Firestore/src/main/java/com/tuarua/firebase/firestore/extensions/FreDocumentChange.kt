@@ -17,10 +17,10 @@ package com.tuarua.firebase.firestore.extensions
 
 import com.google.firebase.firestore.DocumentChange
 
-fun DocumentChange.toMap(): Map<String, Any?>? {
+fun DocumentChange.toMap(): Map<String, Any?> {
     return mapOf(
-            "type" to this.type.ordinal,
-            "newIndex" to this.newIndex,
-            "oldIndex" to this.oldIndex,
-            "documentId" to this.document.id)
+            "type" to type.ordinal,
+            "newIndex" to newIndex,
+            "oldIndex" to oldIndex,
+            "documentId" to document.id)
 }

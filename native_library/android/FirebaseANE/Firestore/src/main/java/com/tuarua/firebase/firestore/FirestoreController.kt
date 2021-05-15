@@ -287,7 +287,7 @@ class FirestoreController(override var context: FREContext?, loggingEnabled: Boo
         }
     }
 
-    override val TAG: String?
+    override val TAG: String
         get() = this::class.java.simpleName
 
 

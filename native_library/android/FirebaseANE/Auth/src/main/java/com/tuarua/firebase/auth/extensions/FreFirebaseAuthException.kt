@@ -63,13 +63,13 @@ val FirebaseAuthExceptionMap: Map<String, Int>
             "ERROR_INTERNAL" to 17999
     )
 
-fun FirebaseAuthException.toMap(): Map<String, Any?>? {
+fun FirebaseAuthException.toMap(): Map<String, Any?> {
     return mapOf(
             "text" to message.toString(),
             "id" to FirebaseAuthExceptionMap[errorCode])
 }
 
-fun FirebaseException.toMap(): Map<String, Any?>? {
+fun FirebaseException.toMap(): Map<String, Any?> {
     return mapOf(
             "text" to message.toString(),
             "id" to 0)

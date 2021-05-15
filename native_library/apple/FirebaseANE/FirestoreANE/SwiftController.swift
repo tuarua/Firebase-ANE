@@ -129,8 +129,8 @@ public class SwiftController: NSObject {
     private func convertFieldValues(_ documentData: [String: Any]) -> [String: Any] {
        return documentData.mapValues { it in
         var ret = it
-        if ret.self is Dictionary<String, AnyObject> {
-            if let hm = ret as? Dictionary<String, Any> {
+        if ret.self is [String: AnyObject] {
+            if let hm = ret as? [String: Any] {
                 switch hm["methodName"] as? String {
                 case "FieldValue.increment":
                     if let operand = hm["operand"] as? Double {

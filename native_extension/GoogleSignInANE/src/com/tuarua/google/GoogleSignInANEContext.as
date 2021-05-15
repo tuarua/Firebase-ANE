@@ -14,7 +14,8 @@
  *  limitations under the License.
  */
 package com.tuarua.google {
-import com.tuarua.firebase.auth.GoogleAuthCredential;
+import com.tuarua.fre.ANEUtils;
+import com.tuarua.google.signin.GoogleSignInAccount;
 import com.tuarua.google.signin.events.GoogleSignInEvent;
 
 import flash.events.StatusEvent;
@@ -73,13 +74,9 @@ public class GoogleSignInANEContext {
             case GoogleSignInEvent.SIGN_IN:
                 try {
                     argsAsJSON = JSON.parse(event.code);
-                    var idToken:String = argsAsJSON.data.idToken;
-                    var accessToken:String;
-                    if (argsAsJSON.data.hasOwnProperty("accessToken")) {
-                        accessToken = argsAsJSON.data.accessToken;
-                    }
-                    var credential:GoogleAuthCredential = new GoogleAuthCredential(idToken, accessToken);
-                    GoogleSignIn.shared().dispatchEvent(new GoogleSignInEvent(event.level, credential));
+                    GoogleSignIn.shared().dispatchEvent(new GoogleSignInEvent(event.level,
+                            ANEUtils.map(argsAsJSON.data,
+                                    GoogleSignInAccount) as GoogleSignInAccount));
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }

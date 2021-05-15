@@ -18,8 +18,7 @@ package com.tuarua.firebase.auth.extensions
 
 import com.google.firebase.auth.AuthResult
 
-fun AuthResult.toMap(): Map<String, Any?>? {
-    this.credential
+fun AuthResult.toMap(): Map<String, Any?> {
     return mapOf(
             "user" to user?.toMap(),
             "additionalUserInfo" to additionalUserInfo?.toMap()
