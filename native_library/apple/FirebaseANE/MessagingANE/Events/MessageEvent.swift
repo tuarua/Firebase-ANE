@@ -19,6 +19,7 @@ import Foundation
 class MessageEvent: NSObject {
     public static let ON_MESSAGE_RECEIVED = "FirebaseMessaging.OnMessageReceived"
     public static let ON_TOKEN_REFRESHED = "FirebaseMessaging.OnTokenRefreshed"
+    public static let ON_GET_TOKEN = "FirebaseMessaging.OnGetToken"
     
     var data: [String: Any]?
     var error: NSError?

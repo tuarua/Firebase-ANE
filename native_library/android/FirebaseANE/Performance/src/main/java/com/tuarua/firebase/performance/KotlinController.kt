@@ -30,20 +30,7 @@ class KotlinController : FreKotlinMainController {
     private var traces: MutableMap<String, Trace> = HashMap()
     private var packageManager: PackageManager? = null
     private var packageInfo: PackageInfo? = null
-    private val permissionsNeeded: Array<String> = arrayOf(
-            "com.google.android.providers.gsf.permission.READ_GSERVICES",
-            "com.google.android.providers.gsf.permission.WRITE_GSERVICES")
     private lateinit var airView: ViewGroup
-    private fun hasRequiredPermissions(): Boolean {
-        val pi = packageInfo ?: return false
-        permissionsNeeded.forEach { p ->
-            if (p !in pi.requestedPermissions) {
-                trace("Please add $p to uses-permission list in your AIR manifest")
-                return false
-            }
-        }
-        return true
-    }
 
     fun init(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
@@ -55,7 +42,7 @@ class KotlinController : FreKotlinMainController {
         val pm = packageManager ?: return false.toFREObject()
         packageInfo = pm.getPackageInfo(appActivity.packageName, GET_PERMISSIONS)
         FirebasePerformance.getInstance().isPerformanceCollectionEnabled = isDataCollectionEnabled
-        return hasRequiredPermissions().toFREObject()
+        return true.toFREObject()
     }
 
     fun startTrace(ctx: FREContext, argv: FREArgv): FREObject? {

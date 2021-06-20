@@ -1,10 +1,10 @@
 {
   "name": "com.tuarua.firebase.RemoteConfigANE",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "repository": {
     "url": "https://tuarua.github.io/air/air_packages.json"
   },
   "dependencies": {
-    "com.google.firebase.firebase-config-ktx": "20.0.2"
+    "com.google.firebase.firebase-config-ktx": "21.0.0"
   }
 }

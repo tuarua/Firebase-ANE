@@ -27,7 +27,6 @@ import com.adobe.air.FreKotlinActivityResultCallback
 import com.adobe.air.FreKotlinStateChangeCallback
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
-import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.gson.Gson
 import com.tuarua.firebase.messaging.events.MessageEvent
@@ -70,7 +69,24 @@ class KotlinController : FreKotlinMainController, FreKotlinStateChangeCallback, 
     }
 
     fun getToken(ctx: FREContext, argv: FREArgv): FREObject? {
-        return FirebaseInstanceId.getInstance().token?.toFREObject()
+        val callbackId = String(argv[0]) ?: return null
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val result = task.result ?: return@addOnCompleteListener
+                dispatchEvent(
+                        MessageEvent.ON_GET_TOKEN, gson.toJson(MessageEvent(callbackId, mapOf("token" to result)))
+                )
+            } else {
+                val error = task.exception
+                dispatchEvent(MessageEvent.ON_GET_TOKEN, gson.toJson(
+                        MessageEvent(callbackId, mapOf(
+                                "text" to error?.localizedMessage.toString(),
+                                "id" to 0))
+                ))
+            }
+        }
+        return null
     }
 
     fun subscribe(ctx: FREContext, argv: FREArgv): FREObject? {

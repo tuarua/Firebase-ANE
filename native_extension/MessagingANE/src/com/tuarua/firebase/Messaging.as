@@ -7,6 +7,7 @@ public class Messaging extends EventDispatcher {
     private static var _shared:Messaging;
     private static var _channelId:String;
     private static var _channelName:String;
+
     /** @private */
     public function Messaging() {
         if (MessagingANEContext.context) {
@@ -32,9 +33,9 @@ public class Messaging extends EventDispatcher {
      *  <p>Once you have an FCM token, you should send it to your application server, so it can use
      *  the FCM token to send notifications to your device.</p>
      */
-    public function get token():String {
+    public function getToken(listener:Function):String {
         MessagingANEContext.validate();
-        var ret:* = MessagingANEContext.context.call("getToken");
+        var ret:* = MessagingANEContext.context.call("getToken", MessagingANEContext.createCallback(listener));
         if (ret is ANEError) throw ret as ANEError;
         return ret as String;
     }

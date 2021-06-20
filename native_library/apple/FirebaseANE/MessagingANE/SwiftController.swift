@@ -54,7 +54,9 @@ public class SwiftController: NSObject {
     }
     
     func getToken(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        return Messaging.messaging().fcmToken?.toFREObject()
+        self.dispatchEvent(name: MessageEvent.ON_GET_TOKEN,
+                       value: MessageEvent(data: ["token": Messaging.messaging().fcmToken ?? ""]).toJSONString())
+        return nil
     }
     
     func subscribe(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {

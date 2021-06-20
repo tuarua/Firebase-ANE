@@ -24,7 +24,6 @@ extension SwiftController: FreSwiftMainController {
         functionsToSet["\(prefix)setUserProperty"] = setUserProperty
         functionsToSet["\(prefix)setUserId"] = setUserId
         functionsToSet["\(prefix)setSessionTimeoutDuration"] = setSessionTimeoutDuration
-        functionsToSet["\(prefix)setCurrentScreen"] = setCurrentScreen
         functionsToSet["\(prefix)setAnalyticsCollectionEnabled"] = setAnalyticsCollectionEnabled
         functionsToSet["\(prefix)logEvent"] = logEvent
         functionsToSet["\(prefix)resetAnalyticsData"] = resetAnalyticsData

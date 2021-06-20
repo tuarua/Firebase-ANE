@@ -11,7 +11,7 @@ public class MessagingANEContext {
     internal static const NAME:String = "MessagingANE";
     internal static const TRACE:String = "TRACE";
     internal static const INIT_ERROR_MESSAGE:String = NAME + " not initialised... use .shared";
-
+    private static const ON_GET_TOKEN:String = "FirebaseMessaging.OnGetToken";
     private static var _isInited:Boolean = false;
     private static var _context:ExtensionContext;
     public static var callbacks:Dictionary = new Dictionary();
@@ -46,7 +46,15 @@ public class MessagingANEContext {
         return id;
     }
 
+    public static function callCallback(callbackId:String, ... args):void {
+        var callback:Function = callbacks[callbackId];
+        if (callback == null) return;
+        callback.apply(null, args);
+        delete callbacks[callbackId];
+    }
+
     private static function gotEvent(event:StatusEvent):void {
+        var err:Error;
         switch (event.level) {
             case TRACE:
                 trace("[" + NAME + "]", event.code);
@@ -64,6 +72,20 @@ public class MessagingANEContext {
                 try {
                     argsAsJSON = JSON.parse(event.code);
                     Messaging.shared.dispatchEvent(new MessagingEvent(event.level, null, argsAsJSON.data.token));
+                } catch (e:Error) {
+                    trace("parsing error", event.code, e.message);
+                }
+                break;
+            case ON_GET_TOKEN:
+                try {
+                    argsAsJSON = JSON.parse(event.code);
+                    var token:String;
+                    if (argsAsJSON.hasOwnProperty("error") && argsAsJSON.error) {
+                        err = new Error(argsAsJSON.error.text, argsAsJSON.error.id);
+                    } else if (argsAsJSON.hasOwnProperty("data") && argsAsJSON.data && argsAsJSON.data.hasOwnProperty("token")) {
+                        token = argsAsJSON.data.token;
+                    }
+                    callCallback(argsAsJSON.callbackId, token, err);
                 } catch (e:Error) {
                     trace("parsing error", event.code, e.message);
                 }

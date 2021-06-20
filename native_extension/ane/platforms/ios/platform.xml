@@ -19,7 +19,6 @@
         <packagedDependency>Frameworks/Firebase.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseCore.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseCoreDiagnostics.framework</packagedDependency>
-        <packagedDependency>Frameworks/FirebaseInstanceID.framework</packagedDependency>
         <packagedDependency>Frameworks/FirebaseInstallations.framework</packagedDependency>
         <packagedDependency>Frameworks/nanopb.framework</packagedDependency>
         <packagedDependency>Frameworks/Protobuf.framework</packagedDependency>

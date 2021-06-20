@@ -76,17 +76,6 @@ public class Analytics extends EventDispatcher {
     }
 
     /**
-     * The name of the current screen. Should contain 1 to 100 characters.
-     * Set to null to clear the current screen name.
-     * @deprecated
-     * */
-    public function set currentScreen(screenName:String):void {
-        AnalyticsANEContext.validate();
-        var ret:* = AnalyticsANEContext.context.call("setCurrentScreen", screenName);
-        if (ret is ANEError) throw ret as ANEError;
-    }
-
-    /**
      * Sets the minimum engagement time in seconds required to start a new session. The default value
      * is 10000 milliseconds.
      * @deprecated

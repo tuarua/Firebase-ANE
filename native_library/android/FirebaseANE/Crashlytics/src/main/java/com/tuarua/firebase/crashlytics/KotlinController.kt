@@ -18,6 +18,7 @@ package com.tuarua.firebase.crashlytics
 import android.os.Looper
 import com.adobe.fre.FREContext
 import com.adobe.fre.FREObject
+import com.google.firebase.crashlytics.CustomKeysAndValues
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.tuarua.frekotlin.*
 import java.util.*
@@ -39,7 +40,7 @@ class KotlinController : FreKotlinMainController {
     fun crash(ctx: FREContext, argv: FREArgv): FREObject? {
         val mainThread = Looper.getMainLooper().thread
         val exception = Exception("Test Crash")
-        mainThread.uncaughtExceptionHandler.uncaughtException(mainThread, exception)
+        mainThread.uncaughtExceptionHandler?.uncaughtException(mainThread, exception)
         return null
     }
 

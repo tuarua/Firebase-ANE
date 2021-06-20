@@ -62,16 +62,6 @@ public class SwiftController: NSObject {
         return nil
     }
     
-    func setCurrentScreen(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
-        guard argc > 0,
-            let screenName = String(argv[0])
-            else {
-                return FreArgError().getError()
-        }
-        Analytics.setScreenName(screenName, screenClass: nil)
-        return nil
-    }
-    
     func logEvent(ctx: FREContext, argc: FREArgc, argv: FREArgv) -> FREObject? {
         guard argc > 0,
             let name = String(argv[0]),

@@ -78,7 +78,7 @@ cp -R -L "$pathtome/../../native_library/apple/$PROJECTNAME/Build/Products/Relea
 cp -R -L "$pathtome/../../example/ios_dependencies/simulator/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/simulator/Frameworks"
 cp -R -L "$pathtome/../../example/ios_dependencies/device/Frameworks/FreSwift.framework" "$pathtome/platforms/ios/device/Frameworks"
 
-arr=( "Firebase" "FirebaseCore" "FirebaseCoreDiagnostics" "GoogleDataTransport" "GoogleToolboxForMac" "GoogleUtilities" "nanopb" "FirebaseInstallations" "PromisesObjC" "FirebaseInstanceID" "GoogleAppMeasurement" "Protobuf" )
+arr=( "Firebase" "FirebaseCore" "FirebaseCoreDiagnostics" "GoogleDataTransport" "GoogleToolboxForMac" "GoogleUtilities" "nanopb" "FirebaseInstallations" "PromisesObjC" "GoogleAppMeasurement" "Protobuf" )
 for i in "${arr[@]}"
 do
     cp -R -L "$pathtome/../../firebase_frameworks/simulator/$i.framework" "$pathtome/platforms/ios/simulator/Frameworks"

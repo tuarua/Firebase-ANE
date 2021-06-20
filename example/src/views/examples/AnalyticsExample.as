@@ -33,7 +33,6 @@ public class AnalyticsExample extends Sprite implements IExample {
         if (isInited) return;
         analytics = Firebase.analytics();
         analytics.analyticsCollectionEnabled = true;
-        analytics.currentScreen = "Home Screen";
         analytics.userId = GUID.create(); // for testing create a different user each session
         isInited = true;
     }

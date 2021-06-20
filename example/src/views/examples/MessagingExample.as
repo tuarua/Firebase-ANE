@@ -48,8 +48,9 @@ public class MessagingExample extends Sprite implements IExample {
     private function onLogTokenClick(event:TouchEvent):void {
         var touch:Touch = event.getTouch(btnLogToken);
         if (touch != null && touch.phase == TouchPhase.ENDED) {
-            trace("FCM Token: ", messaging.token);
-            statusLabel.text = "FCM Token: " + messaging.token;
+            trace("FCM Token: ", messaging.getToken(function(token:String, error:Error):void {
+                statusLabel.text = "FCM Token: " + token;
+            }));
         }
     }
 
