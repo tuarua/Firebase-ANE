@@ -48,6 +48,8 @@ public class Vision extends EventDispatcher {
      *
      * @param options Options for configuring the cloud text recognizer.
      * @return A text recognizer configured with the given options.
+     * @deprecated Google is dropping The Firebase ML Vision SDK.
+     * ALL Vision will be removed from FirebaseANE in the near future as Google keep changing the plans.
      */
     public function cloudTextRecognizer(options:CloudTextRecognizerOptions = null):CloudTextRecognizer {
         if (_cloudTextRecognizer != null) {
@@ -63,6 +65,8 @@ public class Vision extends EventDispatcher {
      *
      * @param options Options for configuring the cloud document text recognizer.
      * @return A document text recognizer configured with the given options.
+     * @deprecated Google is dropping The Firebase ML Vision SDK.
+     * ALL Vision will be removed from FirebaseANE in the near future as Google keep changing the plans.
      */
     public function cloudDocumentTextRecognizer(options:CloudDocumentRecognizerOptions = null):CloudDocumentTextRecognizer {
         if (_cloudDocumentTextRecognizer != null) {
@@ -78,6 +82,8 @@ public class Vision extends EventDispatcher {
      *
      * @param options Options for configuring the cloud label detector.
      * @return A cloud label detector configured with the given options.
+     * @deprecated Google is dropping The Firebase ML Vision SDK.
+     * ALL Vision will be removed from FirebaseANE in the near future as Google keep changing the plans.
      */
     public function cloudLabelDetector(options:CloudImageLabelerOptions = null):CloudImageLabeler {
         if (_cloudLabelDetector != null) {
@@ -93,6 +99,8 @@ public class Vision extends EventDispatcher {
      *
      * @param options Options for configuring the cloud landmark detector.
      * @return A cloud landmark detector configured with the given options.
+     * @deprecated Google is dropping The Firebase ML Vision SDK.
+     * ALL Vision will be removed from FirebaseANE in the near future as Google keep changing the plans.
      */
     public function cloudLandmarkDetector(options:CloudDetectorOptions = null):CloudLandmarkDetector {
         if (_cloudLandmarkDetector != null) {
@@ -103,7 +111,11 @@ public class Vision extends EventDispatcher {
         return _cloudLandmarkDetector
     }
 
-    /** The Vision ANE instance. */
+    /**
+     * The Vision ANE instance.
+     * @deprecated Google is dropping The Firebase ML Vision SDK.
+     * ALL Vision will be removed from FirebaseANE in the near future as Google keep changing the plans.
+     * */
     public static function get vision():Vision {
         if (!_vision) {
             new Vision();

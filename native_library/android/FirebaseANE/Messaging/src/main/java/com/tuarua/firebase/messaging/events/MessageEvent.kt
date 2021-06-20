@@ -19,5 +19,6 @@ class MessageEvent(val callbackId: String, val data: Map<String, Any?>? = null) 
     companion object {
         const val ON_MESSAGE_RECEIVED = "FirebaseMessaging.OnMessageReceived"
         const val ON_TOKEN_REFRESHED = "FirebaseMessaging.OnTokenRefreshed"
+        const val ON_GET_TOKEN = "FirebaseMessaging.OnGetToken"
     }
 }

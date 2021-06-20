@@ -1,3 +1,22 @@
+### 0.20.0
+- iOS: Updated to FreSwift 5.2.0
+- iOS: Firebase 8.1.1
+- iOS: deprecation notice on Firebase Vision ANEs. Google is dropping The Firebase ML Vision SDK.
+- iOS: min version 10.0
+- iOS: requires AIR 33.1.1.476+
+- AND: Analytics 19.0.0
+- AND: Crashlytics 18.0.1
+- AND: Firestore 23.0.1
+- AND: Storage 20.0.0
+- AND: Remote Config 21.0.0
+- AND: Auth 21.0.1
+- AND: Play Services Auth 19.0.0
+- AND: Performance 20.0.1
+- AND: Messaging 22.0.0
+- AND: Dynamic Links 20.1.0
+- [Messaging] `token` is now `getToken(listener:Function)`
+- [Analytics] remove `Analytics.currentScreen`
+
 ### 0.19.0
 - [Auth] Add support of Google Play Games on Android
 

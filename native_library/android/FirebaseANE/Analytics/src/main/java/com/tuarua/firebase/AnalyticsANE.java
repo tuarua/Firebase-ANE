@@ -28,7 +28,6 @@ public class AnalyticsANE implements FREExtension {
             ,"setUserProperty"
             ,"setUserId"
             ,"setSessionTimeoutDuration"
-            ,"setCurrentScreen"
             ,"setAnalyticsCollectionEnabled"
             ,"logEvent"
             ,"resetAnalyticsData"

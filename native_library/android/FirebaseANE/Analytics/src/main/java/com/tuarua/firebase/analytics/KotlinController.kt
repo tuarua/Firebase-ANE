@@ -64,13 +64,6 @@ class KotlinController : FreKotlinMainController {
         return null
     }
 
-    fun setCurrentScreen(ctx: FREContext, argv: FREArgv): FREObject? {
-        argv.takeIf { argv.size > 0 } ?: return FreArgException()
-        val screenName = String(argv[0]) ?: return null
-        analytics.setCurrentScreen(ctx.activity, screenName, null)
-        return null
-    }
-
     fun setSessionTimeoutDuration(ctx: FREContext, argv: FREArgv): FREObject? {
         argv.takeIf { argv.size > 0 } ?: return FreArgException()
         val milliseconds = Long(argv[0]) ?: return null
